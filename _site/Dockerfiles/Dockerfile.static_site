@@ -1,6 +1,0 @@
-FROM jekyll/builder
-
-WORKDIR /bcda-site-static
-COPY . .
-RUN ["bundle", "install"]
-CMD ["bundle", "exec", "jekyll", "build"]
