@@ -12,9 +12,10 @@ It is assumed that the environment already has these installed:
 2. `$ bundle install` <—install Gem bundles
 
 ## Build
+
 Jekyll builds the CSS and HTML pages. Run `bundle exec jekyll serve` from the project root for a local build. By default, the site will run in `http://localhost:4000/`. You can also run `bundle exec jekyll build` to compile the site files into the `_site` directory.
 
-####Using Docker for builds
+### Using Docker for builds
 
 Consistent and simple build process:
 
