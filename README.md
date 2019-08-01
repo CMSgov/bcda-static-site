@@ -31,7 +31,7 @@ This process uses a Docker container to execute `bundle exec jekyll build` , com
 To host the site in Docker, accessible at `http://localhost:4000/`:
 
 ```
-docker-compose run --publish 4000:4000  --rm --entrypoint "bundle exec jekyll serve -H 0.0.0.0" static_site
+docker-compose run --publish 4000:4000 --rm --entrypoint "bundle exec jekyll serve -H 0.0.0.0" static_site
 ```
 
 
