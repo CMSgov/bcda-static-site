@@ -39,3 +39,4 @@ exclude:
   - vendor/ruby/
   - README.md
   - Dockerfiles/
+  - docker-compose.yml
