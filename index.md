@@ -1,6 +1,6 @@
 ---
 layout: home
-title:  "Beneficiary Claims Data API"
+title:  "Beneficiary Claims Data API - Demo Static Site"
 date:   2017-10-30 09:21:12 -0500
 description: Shared Savings Program ACOs can use this FHIR-based API to retrieve bulk Medicare claims data related to their assignable or prospectively assigned beneficiaries. Under construction; feedback invited.
 landing-page: live
