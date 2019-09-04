@@ -1,7 +1,7 @@
 ---
 layout: home
 title:  "Beneficiary Claims Data API"
-date:   2017-10-30 09:21:12 -0500
+date:   2019-09-03 09:21:12 -0500
 description: Shared Savings Program ACOs can use this FHIR-based API to retrieve bulk Medicare claims data related to their assignable or prospectively assigned beneficiaries.
 landing-page: live
 gradient: "blueberry-lime-background"
@@ -38,13 +38,13 @@ ctas:
 
   * **If BCDA is going to be your first API:** start with the guide to [Getting Started in Sandbox](https://sandbox.bcda.cms.gov){:target="_blank"}.
   * **If you’ve worked with APIs before:** start with the Sandbox Technical Setup Guide [link to sandbox tech guide].
-  * **To learn more about the new data structure BCDA will deliver:** review the Guide to Working with BCDA Data [link to about the data].
+  * **To learn more about the new data structure BCDA will deliver:** review the [Guide to Working with BCDA Data](./data_guide.html){:target="_blank"}.
   * **To join the queue for an invitation to the production environment:** send an e-mail with your name and your SSP ACO’s name, ID number, and track to bcapi@cms.hhs.gov. We will onboard a few ACOs at a time in the order in which requests are received.
 
 ## Frequently Asked Questions
 
   * **Why is CMS making this change?**
-    * By using a standards-based API, BCDA furthers CMS’ ongoing commitment to MyHealthEData, a government-wide initiative that emphasizes adopting an API-first approach to modernize how CMS exchanges data with stakeholders across the healthcare system.
+    * By using a standards-based API, BCDA furthers CMS’ ongoing commitment to [MyHealthEData](https://www.cms.gov/newsroom/press-releases/cms-finalizes-changes-empower-patients-and-reduce-administrative-burden){:target="_blank"}, a government-wide initiative that emphasizes adopting an API-first approach to modernize how CMS exchanges data with stakeholders across the healthcare system.
     * CMS intends for BCDA to meet four main goals for SSP ACOs:
       * Improve ease of access to bulk beneficiary claims data data
       * Decrease the time for CMS to implement any required or requested updates to support the ACO program
@@ -62,27 +62,27 @@ ctas:
   
   * **Sounds great! Where do I start?** 
     * If your Shared Savings Program ACO is ready to start working with BCDA, the first step is to let us know you’re interested. BCDA will onboard ACOs to the production environment in the order in which they sign up.
-    * While you wait, join the [BCDA Google Group](https://groups.google.com/forum/#!forum/bc-api){:target="_blank"} to learn how other ACOs are working with the API, try out the [sandbox environment](https://sandbox.bcda.cms.gov){:target="_blank"}, and get familiar with how to translate between CCLF and BCDA data fields.
+    * While you wait, join the [BCDA Google Group](https://groups.google.com/forum/#!forum/bc-api){:target="_blank"} to learn how other ACOs are working with the API, try out the [sandbox environment](https://sandbox.bcda.cms.gov){:target="_blank"}, and get familiar with [how to translate between CCLF and BCDA data fields.](./data_guide.html){:target="_blank"}
    
   * **I’m a vendor who works with Shared Savings Program ACOs. How can I work with BCDA?**
   [need the CMS answer to this]
   
   * **There are so many new acronyms on this page. What do they mean?**
     * **API:** An API (Application Programming Interface) is a set of features and rules that exist inside a software program that allows other software programs to interact with it. For example, you can build an app that uses the Twitter API to get information or data from a user's Twitter account. APIs are used in a wide variety of ways, but for our purposes, you can think of an API as a pipeline that can allow your ACO’s computer systems to receive data directly from CMS’ databases.
-    * **FHIR:** FHIR (Fast Healthcare Interoperability Resources) is a specification for exchanging healthcare data electronically, allowing any system to access and consume this data to solve clinical and administrative problems around healthcare-related data. BCDA is built on the Blue Button 2.0 API, which has structured its data using the FHIR standard. BCDA will use three endpoints from the FHIR specification: explanation of benefits, patient, and coverage. Learn more about FHIR in the guide to working with BCDA data. [link to about the data]
-    * **NDJSON:** New Line Delimited JSON is the file format used by the bulk FHIR specification. An NDJSON file provides a single record on each line, which makes it easy for various tools to look at and process one record at a time before moving on to the next one. Our About the Data [link to about the data page] page provides more information on working with the NDJSON files you’ll receive through BCDA
+    * **FHIR:** FHIR (Fast Healthcare Interoperability Resources) is a specification for exchanging healthcare data electronically, allowing any system to access and consume this data to solve clinical and administrative problems around healthcare-related data. BCDA is built on the Blue Button 2.0 API, which has structured its data using the FHIR standard. BCDA will use three endpoints from the FHIR specification: explanation of benefits, patient, and coverage. Learn more about FHIR in the [guide to working with BCDA data.](./data_guide.html){:target="_blank"}
+    * **NDJSON:** [New Line Delimited JSON](http://ndjson.org){:target="_blank"} is the file format used by the bulk FHIR specification. An NDJSON file provides a single record on each line, which makes it easy for various tools to look at and process one record at a time before moving on to the next one. Our [About the Data](./data_guide.html){:target="_blank"} page provides more information on working with the NDJSON files you’ll receive through BCDA
 
 ## Bulk FHIR APIs at CMS
 
    BCDA is one member of a suite of FHIR APIs provided by CMS, which work together to provide claims data that enables higher-quality patient care.
 
-#### Blue Button 2.0:
+#### [Blue Button 2.0:](https://bluebutton.cms.gov){:target="_blank"}
    * Provides FHIR-formatted data for one individual Medicare beneficiary at a time, to registered applications with beneficiary authorization.
    
 #### Beneficiary Claims Data API (BCDA):
    * Uses the bulk FHIR specification to provide data files to an ACO for **all** of the beneficiaries a given Shared Savings Program ACO is eligible to receive.
    * BCDA does not require individual beneficiary authorization to send this information, though beneficiaries can opt out of having their data shared by calling 1800 Medicare.
    
-#### Data at the Point of Care (DPC) pilot:
+#### [Data at the Point of Care (DPC) pilot:](https://dpc.cms.gov){:target="_blank"}
    * Provides FHIR-formatted bulk data files to **fee-for-service providers** for their active patients as needed for treatment purposes under HIPAA. 
    * Data at the Point of Care does not require individual beneficiary authorization but does allow a process for patients to opt out of data sharing.
