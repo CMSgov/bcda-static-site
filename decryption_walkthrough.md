@@ -135,3 +135,46 @@ The steps in our encryption process are:
 5. Encrypt the symmetric key using the RSA public key you provided us. We use the filename as the label.
 6. Write the encrypted file to the appropriate data directory.
 7. Return the encrypted keys as hex-encoded strings in the body of the final job status method, along with file download urls and other information. There can be two files, a data file and an error file. Each file will be encrypted with a different symmetric key. An example body follows:
+
+```
+{
+    "transactionTime": "2018-12-11T06:29:56.723792Z",
+    "request": "https://api.bcda.cms.gov/api/v1/ExplanationOfBenefit/$export",
+    "requiresAccessToken": true,
+    "output": [
+        {
+            "type": "ExplanationOfBenefit",
+            "url": "https://api.bcda.cms.gov/data/1/0c527d2e-2e8a-4808-b11d-0fa06baf8254.ndjson"
+            "encryptedKey": "6c498a997001592ac05ace691fcf4a81724936c78937e24f90242c4f3081759f5365bef70a79eb0a6e145d22190b1178acf9f819399d27a4261efedf027642ca37d3f50cc0b941b105e35fc5b21cc785b171acb0ed299be16ff86fb457ff00d6855fefc9d403efdecbaca81ebffc85f8dbf1574d791640d392c5523482578ed232f7554880fa52d3471a4d919ab1ae8687e0442697cad7326aeb6ad0ddecaaeccaf61f952ef0cde2a3f15167b8854f8620440d8f1d9e09a0a39f1d04a3acf8178e5b6b28d9a062f09ff5fece3d16d9aacf7d43f4b94932d4f3268d1029f2874f3542ba71c858586393a80f45cb92b0cff9d2857b960045d733183d15c3599377"
+        }
+    ],
+    "error": [
+        {
+            "type": "OperationOutcome",
+            "url": "https://api.bcda.cms.gov/data/1/0c527d2e-2e8a-4808-b11d-0fa06baf8254-error.ndjson"
+        }
+    ],
+    "KeyMap": {
+        "0c527d2e-2e8a-4808-b11d-0fa06baf8254-error.ndjson": "4fd09523856ff24b9505c921973847fd4b1daf02753b3979373e8be8ea7da5418faa091535003a097ba8013582707535d0f5ea60380036c8be318094092c1936d0a80981ee2465009871c2fe56312e65239fea3785753684de19599d3219c545c24ad12018be4b86a39e742035e2559dcbe6169b6a3354f34bd2fbd569f88b70d3d1d13f62521693e779d3d2479d36515e086518bfd1140655d3b6100b05377b3ccacdfc10772c6a58178fae70b3a6a6ef897f64ae4a60045247b02331930ee6f15db45271afb2a432a8084170469458eef87c3a96ff6c4664c53b4867842b8650b3105860d29e87f43aad2c528d635f0eb02dc2bc905bf43bb1d1dd7f2cad3d",
+        "0c527d2e-2e8a-4808-b11d-0fa06baf8254.ndjson": "6c498a997001592ac05ace691fcf4a81724936c78937e24f90242c4f3081759f5365bef70a79eb0a6e145d22190b1178acf9f819399d27a4261efedf027642ca37d3f50cc0b941b105e35fc5b21cc785b171acb0ed299be16ff86fb457ff00d6855fefc9d403efdecbaca81ebffc85f8dbf1574d791640d392c5523482578ed232f7554880fa52d3471a4d919ab1ae8687e0442697cad7326aeb6ad0ddecaaeccaf61f952ef0cde2a3f15167b8854f8620440d8f1d9e09a0a39f1d04a3acf8178e5b6b28d9a062f09ff5fece3d16d9aacf7d43f4b94932d4f3268d1029f2874f3542ba71c858586393a80f45cb92b0cff9d2857b960045d733183d15c3599377"
+    },
+    "JobID": 1
+}
+```
+
+The KeyMap object within our job status response has keys, values:
+
+`"<filename/label>": "<hex-encoded-symmetric-key>"`
+
+for each of the files listed in the output attribute of the response.
+
+When you receive the final job status response, you should save the keys associated with the files so that they are available to you when you are ready to decrypt the file(s). You should also save the output.url and the error.url.
+Again remember the filenames must be preserved when saving the files. See section 3 under [How to decrypt BCDA data files](#how-to-decrypt-bcda-data-files) for more guidance.
+
+When you are ready to decrypt the files, you make a request to output.url for the data file, and to error.url for the error file. These are protected endpoints, so you must obtain and use a token.
+To decrypt the files, you must use the same algorithm (AES-GCM), and follow these steps:
+
+1. Decrypt the symmetric key you saved from the final job status body, using your RSA private key that is the mate to the public key we have.
+2. Initialize the AES-GCM cipher with the symmetric key decoded in the previous step.
+3. Decode the cipher text.
+4. Do something useful with the data.
