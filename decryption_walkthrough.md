@@ -1,6 +1,6 @@
 ---
 layout: home
-title:  "File Decryption/Encryption in BCDA"
+title:  "File Decryption in BCDA"
 date:   2019-09-04 09:21:12 -0500
 description: Step-by-step instructions to assist with decrypting the NDJSON payload.
 landing-page: live
