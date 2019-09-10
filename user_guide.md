@@ -12,14 +12,36 @@ sections:
   - Setting up your credentials in Swagger
   - Making your first requests for data
   - Frequently asked questions about making requests
-ctas:
 
-  - title: Learn about encryption
-    link: ./encryption.html
-  - title: Join the BCDA Google Group
-    link: https://groups.google.com/forum/#!forum/bc-api
-    target: _blank
-    
+button:
+  - title: Home
+    link: "#"
+
+  - title: Sandbox
+    subcategories:
+      - subtitle: "Getting Started"
+        subhref: "#"
+      - subtitle: "Tech Guide"
+        subhref: "#"
+      - subtitle: "Decryption"
+        subhref: "#"
+
+  - title: Production
+    subcategories:
+      - subtitle: "Getting Started"
+        subhref: "#"
+      - subtitle: "Tech Guide"
+        subhref: "#"
+      - subtitle: "Decryption"
+        subhref: "#"
+
+  - title: About the Data
+    subcategories:
+      - subtitle: "Data Dictionary/CCLF crosswalk"
+        subhref: "#"
+      - subtitle: "Working w/BCDA Data"
+        subhref: "#"
+
 ---
 
 # Requesting prod access

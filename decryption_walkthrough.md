@@ -11,6 +11,36 @@ sections:
   - Troubleshooting
   - Examples in other languages
   - Background How we encrypt
+
+button:
+  - title: Home
+    link: "#"
+
+  - title: Sandbox
+    subcategories:
+      - subtitle: "Getting Started"
+        subhref: "#"
+      - subtitle: "Tech Guide"
+        subhref: "#"
+      - subtitle: "Decryption"
+        subhref: "#"
+
+  - title: Production
+    subcategories:
+      - subtitle: "Getting Started"
+        subhref: "#"
+      - subtitle: "Tech Guide"
+        subhref: "#"
+      - subtitle: "Decryption"
+        subhref: "#"
+
+  - title: About the Data
+    subcategories:
+      - subtitle: "Data Dictionary/CCLF crosswalk"
+        subhref: "#"
+      - subtitle: "Working w/BCDA Data"
+        subhref: "#"
+
 ---
 
 # How to decrypt BCDA data files

@@ -12,6 +12,36 @@ sections:
   - Encryption
   - Environment
   - Examples
+
+button:
+  - title: Home
+    link: "#"
+
+  - title: Sandbox
+    subcategories:
+      - subtitle: "Getting Started"
+        subhref: "#"
+      - subtitle: "Tech Guide"
+        subhref: "#"
+      - subtitle: "Decryption"
+        subhref: "#"
+
+  - title: Production
+    subcategories:
+      - subtitle: "Getting Started"
+        subhref: "#"
+      - subtitle: "Tech Guide"
+        subhref: "#"
+      - subtitle: "Decryption"
+        subhref: "#"
+
+  - title: About the Data
+    subcategories:
+      - subtitle: "Data Dictionary/CCLF crosswalk"
+        subhref: "#"
+      - subtitle: "Working w/BCDA Data"
+        subhref: "#"
+
 ---
 
 # User Guide

@@ -10,13 +10,35 @@ sections:
   - Getting Started
   - Frequently Asked Questions
   - Bulk FHIR APIs at CMS
-ctas:
 
-  - title: Visit the BCDA User Guide
-    link: ./user_guide.html
-  - title: Join the BCDA Google Group
-    link: https://groups.google.com/forum/#!forum/bc-api
-    target: _blank
+button:
+  - title: Home
+    link: "#"
+
+  - title: Sandbox
+    subcategories:
+      - subtitle: "Getting Started"
+        subhref: "#"
+      - subtitle: "Tech Guide"
+        subhref: "#"
+      - subtitle: "Decryption"
+        subhref: "#"
+
+  - title: Production
+    subcategories:
+      - subtitle: "Getting Started"
+        subhref: "#"
+      - subtitle: "Tech Guide"
+        subhref: "#"
+      - subtitle: "Decryption"
+        subhref: "#"
+
+  - title: About the Data
+    subcategories:
+      - subtitle: "Data Dictionary/CCLF crosswalk"
+        subhref: "#"
+      - subtitle: "Working w/BCDA Data"
+        subhref: "#"
 
 ---
 
