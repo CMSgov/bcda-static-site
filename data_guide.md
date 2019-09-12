@@ -2,6 +2,7 @@
 layout: home
 title:  "Guide to Working with BCDA Data"
 date:   2019-09-03 09:21:12 -0500
+description: Introduction to FHIR data standards and working with BCDA data.
 landing-page: live
 gradient: "blueberry-lime-background"
 subnav-link-gradient: "blueberry-lime-link"
