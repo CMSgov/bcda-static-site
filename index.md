@@ -50,6 +50,7 @@ button:
    * **What’s the difference between the sandbox and production environments?** BCDA’s production environment provides actual patient claims data on an ACO’s prospectively assigned or assignable beneficiaries, while the sandbox uses the same API structure but contains no beneficiary PII or PHI.
    * **Why should my ACO try the sandbox first?** ACOs who have gotten used to working in the sandbox have found it easier to make the switch to the production environment. Since beneficiary claims data must be treated in accordance with HIPAA regulations, the sandbox environment provides a lower-stress environment for retrieving data from the API before touching actual patient data.
    * **What if my ACO participates in a CMS Innovation Center model?** BCDA’s initial goal is to provide bulk beneficiary claims data that meets the needs of Shared Savings Program ACOs. In the months ahead, BCDA’s research team will begin learning about the data needs of Innovation Center Model ACOs, in order to begin accommodating those ACOs in the API in the future. While the sandbox environment focuses on the needs of Shared Savings Program ACOs, all ACOs and their vendor partners are invited to explore the sandbox and give their feedback.
+   
    * **Note:** Some data fields have not yet been mapped from CCLFs to BCDA; The Blue Button API team is working hard to map all of the CCLF fields in the near future.
 
 ## Getting Started
