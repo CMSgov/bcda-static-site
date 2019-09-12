@@ -44,7 +44,7 @@ button:
 ---
 
 # How to decrypt BCDA data files
-We provide an example of using Python to decrypt a file from BCDA. See below for examples using other programming languages.
+We provide an example of using Python to decrypt a file from BCDA. [See below for examples using other programming languages.](#examples-in-other-languages){:target="_blank"}
 
 ### 1. Gathering the tools
 To complete this decryption example, you will need:
@@ -52,26 +52,26 @@ To complete this decryption example, you will need:
   * A client ID and client secret that you should have received during registration
   * A file containing the RSA private key corresponding with the public key you provided during registration
   
-  You can write your own decryption code later based on the documentation. This example uses the python example decryption code, which requires:
+  You can write your own decryption code later based on the documentation. This example uses the [python example decryption code](https://github.com/CMSgov/bcda-app/blob/master/decryption_utils/Python/decrypt.py){:target="_blank"}, which requires:
   
-  * Python and pip installed on your computer
-  * decrypt.py and requirements.txt downloaded from the BCDA github repository into the same directory
-  * You have run pip install -r requirements.txt from that same directory to download any required libraries
+  * [Python](https://www.python.org/downloads/){:target="_blank"} and [pip](https://pypi.org/project/pip/){:target="_blank"} installed on your computer
+  * [decrypt.py](https://github.com/CMSgov/bcda-app/blob/master/decryption_utils/Python/decrypt.py){:target="_blank"} and [requirements.txt](https://github.com/CMSgov/bcda-app/blob/master/decryption_utils/Python/requirements.txt){:target="_blank"} downloaded from the [BCDA github repository](https://github.com/CMSgov/bcda-app/tree/master/decryption_utils/Python){:target="_blank"} into the same directory
+  * You have run `pip install -r requirements.txt` from that same directory to download any required libraries
   
 ### 2. Getting ready to decrypt
-This decryption example picks up at step [X] of the Getting Started in Production guide. By this point, you have provided a bearer token to the API, made a request for data, and are waiting for the export job to complete. When the job is done, you should see a response in Swagger that looks like this:
+This decryption example picks up at step 5 of the [Getting Started in Production](./user_guide.html){:target="_blank"} guide. By this point, you have provided a bearer token to the API, made a request for data, and are waiting for the export job to complete. When the job is done, you should see a response in Swagger that looks like this:
 
 <img src="assets/img/decrypt_walkthrough_01.png" alt="job status response" width="500" />
 
-Take special note of the new KeyMap section of the response. To decrypt the file, you will need the filename (the first part of the keymap, marked 1 in the image) and the symmetric key (the second part of the keymap, marked 2), as shown above. There are no spaces in either one. Copy these values from the KeyMap (filename and symmetric key) for later.
+Take special note of the new KeyMap section of the response. **To decrypt the file, you will need the filename (the first part of the keymap, marked 1 in the image) and the symmetric key (the second part of the keymap, marked 2), as shown above.** There are no spaces in either one. Copy these values from the KeyMap (filename and symmetric key) for later.
   
 * **Note:** Sometimes one or more data points are unavailable. When this happens, the error section will contain a separate filename and symmetric key with a list of the patients involved.
 
 The next step is to download the encrypted file.
 
-* Open the data file section in Swagger (click /api/v1/jobs/{jobID}/{filename})
+* Open the data file section in Swagger (click `/api/v1/jobs/{jobID}/{filename})`
 * Paste the job ID and filename into the appropriate boxes
-* Click Execute
+* Click `Execute`
  
 <img src="assets/img/decrypt_walkthrough_02.png" alt="encrypted file download" width="500" />
  
@@ -81,13 +81,13 @@ The next step is to download the encrypted file.
   
 ### 3. Decrypting the file
 
-After downloading the file, move to the command line. Navigate to the directory where you saved decrypt.py and requirements.txt from the Gathering the tools section.
+After downloading the file, move to the command line. Navigate to the directory where you saved `decrypt.py` and `requirements.txt` from the Gathering the tools section under the [How to decrypt BCDA data files](#how-to-decrypt-bcda-data-files) section.
 
 <img src="assets/img/decrypt_walkthrough_04.png" alt="decryption with python" width="500" />
 
 Let’s first verify that Python is running properly.
 
-* Run decrypt.py with the help argument (python decrypt.py -h). You should get the response shown below.
+* Run `decrypt.py` with the help argument (`python decrypt.py -h`). You should get the response shown below.
 
 <img src="assets/img/decrypt_walkthrough_05.png" alt="decryption with python" width="500" />
 
@@ -107,7 +107,7 @@ You are now ready to decrypt the file! The Python example decryption tool will p
 
 <img src="assets/img/decrypt_walkthrough_07.png" alt="decryption with python" width="500" />
 
-Take a look at the result. If you do not see unencrypted NDJSON (two example lines shown below), then skip ahead to the troubleshooting section.
+Take a look at the result. If you do not see unencrypted [NDJSON](http://ndjson.org){:target="_blank"} (two example lines shown below), then skip ahead to the [troubleshooting section](#troubleshooting).
 
 <img src="assets/img/decrypt_walkthrough_08.png" alt="decryption with python" width="500" />
 
@@ -131,7 +131,7 @@ Take a look at the result. If you do not see unencrypted NDJSON (two example lin
 * Is the symmetric key value provided with no spaces or newlines? Double-check that no characters are missing from the beginning or end of the key.
 
 ## Examples in other languages
-These code samples are based on the filenames and symmetric keys included in the sample job status response above. If you are interested in sample code in other languages, please let us know via the Google Group.
+These code samples are based on the filenames and symmetric keys included in the sample job status response above. If you are interested in sample code in other languages, [please let us know via the Google Group.](https://groups.google.com/forum/#!forum/bc-api){:target="_blank"}
 
 [C#](https://github.com/CMSgov/bcda-app/tree/master/encryption_utils/C%23){:target="_blank"}
 ```bash
@@ -154,7 +154,7 @@ go build decrypt.go
 ```
 
 ## Background How we encrypt
-We encrypt the file as the last step in producing it, immediately before we return a final job status (the one that has a body and no X-Progress header). Please see our getting started guide for more on job status.
+We encrypt the file as the last step in producing it, immediately before we return a final job status (the one that has a body and no X-Progress header). Please see our [getting started guide](./user_guide.html){:target="_blank"} for more on job status.
 
 The steps in our encryption process are:
 
