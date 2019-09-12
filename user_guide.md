@@ -2,7 +2,7 @@
 layout: home
 title:  "Getting Started with BCDA in Production"
 date:   2019-09-03 09:21:12 -0500
-description:
+description: "A Beginners Guide to learning about APIs and walkthrough for the BCDA Swagger Environment"
 landing-page: live
 gradient: "blueberry-lime-background"
 subnav-link-gradient: "blueberry-lime-link"
@@ -45,11 +45,10 @@ button:
 ---
 
 # Requesting prod access
-* As BCDA launches into our production beta, we are slowly onboarding small groups of Shared Savings Program ACOs into the production environment. To put your ACO in the queue for access, please send an email to bcapi@cms.hhs.gov with your name and your ACO’s name, ID number, and track. ACOs will be onboarded to production in the order in which requests are received. While you wait, you can get familiar with the API in the sandbox environment, [https://sandbox.bcda.cms.gov/]; review the data structure, [link to guide to working w/bcda data]; and join the BCDA Google Group, [https://groups.google.com/forum/#!forum/bc-api], to have your questions answered.
-
+* As BCDA launches into our production beta, we are slowly onboarding small groups of Shared Savings Program ACOs into the production environment. To put your ACO in the queue for access, please send an email to bcapi@cms.hhs.gov with your name and your ACO’s name, ID number, and track. ACOs will be onboarded to production in the order in which requests are received. While you wait, you can get familiar with the API in the [sandbox environment](https://sandbox.bcda.cms.gov/){:target="_blank"}, review the [data structure](./data_guide.html){:target="_blank"}, and join the [BCDA Google Group](https://groups.google.com/forum/#!forum/bc-api){:target="_blank"}, to have your questions answered.
 * Note: some of our early production beta partners have encountered issues accessing the API due to internal firewalls. If your corporate IT uses an internal DNS server, you may not be able to access the API. As you request production access, you may want to check in with your internal IT team to discuss your company’s network structure.
 
-This page is intended for a user who has little to no experience with APIs, and provides a guided walkthrough for working with BCDA using our interactive documentation. More advanced API users may be better served by the Technical Setup guide. If you’re not sure where to go, start here!
+This page is intended for a user who has little to no experience with APIs, and provides a guided walkthrough for working with BCDA using our interactive documentation. More advanced API users may be better served by the [Technical Setup guide](./technical_userguide.html){:target="_blank"}. If you’re not sure where to go, start here!
 
 ## Getting Started with APIs
   * What’s an API?
@@ -57,7 +56,7 @@ This page is intended for a user who has little to no experience with APIs, and 
     * Need more information about APIs? Here are some great introductions:
       * [Introduction to Web APIs](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction){:target="_blank"}
       * [An Intro to APIs](https://www.codenewbie.org/blogs/an-intro-to-apis){:target="_blank"}
-  * Do I need to know how to code?
+  * Do I need to know how to code to use BCDA?
     * You do not need to know how to code!  Our documentation is written so that everyone -- regardless of technical exposure -- can access beneficiary data. For this walkthrough, we’ll be using a platform called Swagger, where you’ll be able to interact with the API through a web interface.
     
 ## Setting up your credentials in Swagger
@@ -104,7 +103,7 @@ The `bulkData` category provides information about beneficiaries.  As shown belo
 <img src="assets/img/swagger_walkthrough_06.png" alt="bulk data intro" />
 
 ### 4. Making your first request for beneficiary data
-To get any bulk beneficiary data, you must first be authorized with BCDA. Make sure you’ve followed the steps above for Setting up your credentials in Swagger before moving forward.
+To get any bulk beneficiary data, you must first be authorized with BCDA. Make sure you’ve followed the steps above for [Setting up your credentials in Swagger](#setting-up-your-credentials-in-swagger) before moving forward.
 
 Retrieving beneficiary data comprises two steps:
 #### 1. Starting a job to acquire data from a specific endpoint
@@ -116,7 +115,7 @@ First, click on `GET /api/v1/Coverage/$export`, then click `Try it out`.
 
 <img src="assets/img/swagger_walkthrough_07.png" alt="bulk data usage" />
 
-Then, as shown below, click Execute to start the process of requesting Coverage data.  Make sure you note the **job number** (also known as `jobId`)  in the **response header**, since you’ll need this job number to track the status of your data request.
+Then, as shown below, click `Execute` to start the process of requesting Coverage data.  Make sure you note the **job number** (also known as `jobId`)  in the **response header**, since you’ll need this job number to track the status of your data request.
 
 <img src="assets/img/swagger_walkthrough_08.png" alt="Screenshot of bulk data usage" />
 
@@ -134,24 +133,28 @@ You can check the status of the job by entering the job number into the `jobId` 
 
 <img src="assets/img/swagger_walkthrough_09.png" alt="Screenshot of bulk data usage" />
 
-Once the job is completed, you can download the file by clicking on the Download button, as shown in the image below.  You will have one hour before your token expires, and you will need to get another from token if it expires before you are finished interacting with the API.  You will also want to copy the filename.
+The completed percentage should be shown for the job you just requested. Once the job is completed, you can download the file by clicking on the `Download` button, as shown in the image below.  You will have one hour before your token expires, and you will need to get another from token if it expires before you are finished interacting with the API.  You will also want to copy the filename.
 
 <img src="assets/img/swagger_walkthrough_10.png" alt="Screenshot of bulk data usage" />
 
-The file you’ve downloaded will be encrypted. Follow the decryption walkthrough to learn how to decrypt and view the NDJSON data contained inside it.
+The file you’ve downloaded will be encrypted. Follow the [decryption walkthrough](./decryption_walkthrough.html){:target="_blank"} to learn how to decrypt and view the NDJSON data contained inside it.
 
-Once you’ve decrypted the file, you’ll want to know what to do with the data. We’ve provided a guide to working with BCDA data to help you, including a crosswalk between CCLF fields and the corresponding sections of the NDJSON files.
+Once you’ve decrypted the file, you’ll want to know what to do with the data. We’ve provided a [guide to working with BCDA data](./data_guide.html){:target="_blank"} to help you, including a crosswalk between CCLF fields and the corresponding sections of the NDJSON files.
 
 ## Frequently asked questions about making requests
 
 * How often can I request data from BCDA?
-BCDA data will be updated weekly, so you will be able to make requests and expect to retrieve new data on a weekly basis. If you’re already requesting data from one endpoint and try to request data from that endpoint again while the first request is processing, you’ll receive a 429 Too Many Requests error.
+
+  CDA data will be updated weekly, so you will be able to make requests and expect to retrieve new data on a weekly basis. If you’re already requesting data from one endpoint and try to request data from that endpoint again while the first request is processing, you’ll receive a `429 Too Many Requests` error.
 
 * How will I know when my data is ready?
-You can check the status of your data request by following the instructions outlined in 3.2.2.2: Retrieving the data via the job request.  A status of 200 Ok means that the job, also known as a data request, is complete.  A status of 202 Accepted means that BCDA is processing the job.
+
+  You can check the status of your data request by following the instructions outlined in section 5 under the [Making your first requests for data.](#making-your-first-requests-for-data) A status of 200 Ok means that the job, also known as a data request, is complete.  A status of 202 Accepted means that BCDA is processing the job.
 
 * How long do I have before my file is deleted?
-You will need to download the data file within 24 hours of starting the request to a specific endpoint.
 
-* Whoa, why is this data file so big?
-In the first iteration of BCDA in production, each request to a bulk data endpoint sends back seven years of historical data for your beneficiaries. In future iterations, we’ll add a way for you to limit the data to a specific date range.
+  You will need to download the data file within 24 hours of starting the request to a specific endpoint.
+
+* Why is this data file so large?
+
+  In the first iteration of BCDA in production, each request to a bulk data endpoint sends back seven years of historical data for your beneficiaries. In future iterations, we’ll add a way for you to limit the data to a specific date range.
