@@ -6144,7 +6144,6 @@ article h2::after {
 .dropdown {
     position: relative;
     display: inline-block;
-    margin-right:-5px;
 }
 
 .dropdown-content {
@@ -6172,16 +6171,12 @@ article h2::after {
     display: block;
 }
 
-.dropdown:hover .dropdown-content {
-    display: block; border:none
-}
-
 .topmenu {
     position:relative;
     display: inline-block;
     appearance: none;
     background-color: #339392;
-    border-radius: 3px;
+    border-radius: 3px 3px 0px 0px;
     cursor: pointer;
     font-family: "Open Sans", Helvetica, sans-serif;
     font-size: 20px;
@@ -6191,14 +6186,14 @@ article h2::after {
     text-decoration: none;
     transition: all .3s ease;
     color: #fff;
-    padding: 5px 24px 10px 20px;
+    padding: 5px 10px 8px 10px;
 }
 
 .topmenu:active,
 .topmenu:focus,
 .topmenu:hover{
     background-color: #fff;
-    color: #339392
+    color: #339392;
 }
 
 
