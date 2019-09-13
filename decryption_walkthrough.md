@@ -43,7 +43,7 @@ button:
 
 ---
 
-# How to decrypt BCDA data files
+## How to decrypt BCDA data files
 We provide an example of using Python to decrypt a file from BCDA. [See below for examples using other programming languages.](#examples-in-other-languages){:target="_blank"}
 
 ### 1. Gathering the tools
