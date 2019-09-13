@@ -2,7 +2,7 @@
 layout: home
 title:  "Getting Started with BCDA in Production"
 date:   2019-09-03 09:21:12 -0500
-description: "A Beginners Guide to learning about APIs and walkthrough for the BCDA Swagger Environment"
+description: "A Beginners Guide to learning about APIs and a walkthrough for the BCDA Swagger Environment"
 landing-page: live
 gradient: "blueberry-lime-background"
 subnav-link-gradient: "blueberry-lime-link"
@@ -11,36 +11,19 @@ sections:
   - Getting Started with APIs
   - Setting up your credentials in Swagger
   - Making your first requests for data
+  - Technical Guide
+  - Decryption walkthrough
   - Frequently asked questions about making requests
 
 button:
   - title: Home
+    link: "./index.html"
+  - title: Try the API
     link: "#"
-
-  - title: Sandbox
-    subcategories:
-      - subtitle: "Getting Started"
-        subhref: "#"
-      - subtitle: "Tech Guide"
-        subhref: "#"
-      - subtitle: "Decryption"
-        subhref: "#"
-
-  - title: Production
-    subcategories:
-      - subtitle: "Getting Started"
-        subhref: "#"
-      - subtitle: "Tech Guide"
-        subhref: "#"
-      - subtitle: "Decryption"
-        subhref: "#"
-
-  - title: About the Data
-    subcategories:
-      - subtitle: "Data Dictionary/CCLF crosswalk"
-        subhref: "#"
-      - subtitle: "Working w/BCDA Data"
-        subhref: "#"
+  - title: Learn about Production
+    link: "./user_guide.html"
+  - title: Understand BCDA Data
+    link: "./data_guide.html"
 
 ---
 
@@ -64,7 +47,7 @@ This page is intended for a user who has little to no experience with APIs, and 
   
 ## Making your first requests for data
 ### 1. Getting comfortable in Swagger
-There are two categories of information that you can retrieve through BCDA: metadata, and bulk beneficiary data.
+There are two categories of information that you can retrieve through BCDA metadata and bulk beneficiary data.
 
 <img src="assets/img/swagger_walkthrough_01.png" alt="swagger intro" width="500" />
 
@@ -140,6 +123,13 @@ The completed percentage should be shown for the job you just requested. Once th
 The file you’ve downloaded will be encrypted. Follow the [decryption walkthrough](./decryption_walkthrough.html){:target="_blank"} to learn how to decrypt and view the NDJSON data contained inside it.
 
 Once you’ve decrypted the file, you’ll want to know what to do with the data. We’ve provided a [guide to working with BCDA data](./data_guide.html){:target="_blank"} to help you, including a crosswalk between CCLF fields and the corresponding sections of the NDJSON files.
+
+## Technical Guide
+* For a more in depth approach see our a technical guide here [Technical User Guide.](./technical_userguide.html){:target="_blank"}
+
+## Decryption walkthrough
+* For a step by step guide of our decryption/encryption strategies visit our decryption page here [Decryption Walkthrough.](./decryption_walkthrough.html){:target="_blank"}
+
 
 ## Frequently asked questions about making requests
 

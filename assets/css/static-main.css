@@ -5744,7 +5744,8 @@ header {
 .subnav {
     position: sticky;
     position: -webkit-sticky;
-    top: 24px
+    top: 24px;
+    margin-top: 10%;
 }
 
 .subnav ul li {
@@ -6141,11 +6142,18 @@ article h2::after {
 
 }
 
+.topdrop {
+    display: inline-block;
+    margin-left: -10px;
+}
+
 .dropdown {
     position: relative;
     display: inline-block;
+    margin-right:5px;
 }
 
+/*
 .dropdown-content {
     display: none;
     position: absolute;
@@ -6170,6 +6178,7 @@ article h2::after {
     text-decoration: none;
     display: block;
 }
+*/
 
 .topmenu {
     position:relative;
@@ -6196,7 +6205,7 @@ article h2::after {
     color: #339392;
 }
 
-
+/*
 .submenu {
     color: #fff;
     transition: all .3s ease;
@@ -6210,7 +6219,10 @@ article h2::after {
     background-color: #fff;
     color: #339392
 }
+*/
 
 .content_buffer {
     margin-top: 56px;
+    margin-right: auto;
+    margin-left: auto;
 }

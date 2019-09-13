@@ -14,18 +14,17 @@ layout: default
                 </p>
 
                 {% for item in page.button %}
-                    <div class="dropdown">
-
-                        <span class="topmenu" aria-label="{{ item.title }}"> {{item.title}} </span>
-
-                        <!--
-                        <div class="dropdown-content">
-                        {% for subcat in item.subcategories %}
-                        <a class="submenu" href="{{ subcat.subhref }}" aria-label="{{ subcat.subtitle }}"> {{subcat.subtitle}} </a>
-                        {% endfor %}
+                    <div class="topdrop">
+                        <div class="dropdown">
+                            <a class="topmenu" href="{{item.link}}" aria-label="{{ item.title }}"> {{item.title}} </a>
+                            <!--
+                            <div class="dropdown-content">
+                            {% for subcat in item.subcategories %}
+                            <a class="submenu" href="{{ subcat.subhref }}" aria-label="{{ subcat.subtitle }}"> {{subcat.subtitle}} </a>
+                            {% endfor %}
+                            </div>
+                            -->
                         </div>
-                        -->
-
                     </div>
                 {% endfor %}
 

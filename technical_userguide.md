@@ -1,7 +1,7 @@
 ---
 layout: home
 title:  "Technical Getting Started Guide: Beneficiary Claims Data API"
-description: "A Step-by-Step Guide to getting set up in BCDA and making retrieving data from the API."
+description: "A Step-by-Step Guide to getting set up in BCDA and retrieving data from the API."
 date:   2019-09-06 09:21:12 -0500
 description:
 landing-page: live
@@ -16,32 +16,13 @@ sections:
 
 button:
   - title: Home
+    link: "./index.html"
+  - title: Try the API
     link: "#"
-
-  - title: Sandbox
-    subcategories:
-      - subtitle: "Getting Started"
-        subhref: "#"
-      - subtitle: "Tech Guide"
-        subhref: "#"
-      - subtitle: "Decryption"
-        subhref: "#"
-
-  - title: Production
-    subcategories:
-      - subtitle: "Getting Started"
-        subhref: "#"
-      - subtitle: "Tech Guide"
-        subhref: "#"
-      - subtitle: "Decryption"
-        subhref: "#"
-
-  - title: About the Data
-    subcategories:
-      - subtitle: "Data Dictionary/CCLF crosswalk"
-        subhref: "#"
-      - subtitle: "Working w/BCDA Data"
-        subhref: "#"
+  - title: Learn about Production
+    link: "./user_guide.html"
+  - title: Understand BCDA Data
+    link: "./data_guide.html"
 
 ---
 
