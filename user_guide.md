@@ -19,7 +19,7 @@ button:
   - title: Home
     link: "./index.html"
   - title: Try the API
-    link: "#"
+    link: "/sandbox/user-guide/index.html"
   - title: Learn about Production
     link: "./user_guide.html"
   - title: Understand BCDA Data
