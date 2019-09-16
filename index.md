@@ -31,7 +31,7 @@ button:
 
 # Overview
   The Beneficiary Claims Data API (BCDA) enables Accountable Care Organizations (ACOs) participating in the Shared Savings Program to retrieve Medicare Part A, Part B, and Part D claims data for their prospectively assigned or assignable beneficiaries. This includes Medicare claims data for instances in which beneficiaries receive care outside of the ACO, allowing a full picture of patient care. In the production environment, the API provides data parallel to Claim and Claim Line Feed (CCLF) files*, currently provided monthly to Shared Savings Program ACOs by CMS.
-  Representatives of Shared Savings Program ACOs are now invited to express their interest in joining the production environment by sending an email to bcapi@cms.hhs.gov. While you wait to onboard in the production environment, we invite developers, analysts, and administrators at Shared Savings Program ACOs to try out the BCDA sandbox experience [Sandbox getting started guided](https://sandbox.bcda.cms.gov){:target="_blank"}.
+  Representatives of Shared Savings Program ACOs are now invited to express their interest in joining the production environment by sending an email to [bcapi@cms.hhs.gov](mailto:bcapi@cms.hhs.gov). While you wait to onboard in the production environment, we invite developers, analysts, and administrators at Shared Savings Program ACOs to try out the BCDA sandbox experience [Sandbox getting started guided](/sandbox/user-guide/){:target="_blank"}.
   
    * **What’s the difference between the sandbox and production environments?** BCDA’s production environment provides actual patient claims data on an ACO’s prospectively assigned or assignable beneficiaries, while the sandbox uses the same API structure but contains no beneficiary PII or PHI.
    * **Why should my ACO try the sandbox first?** ACOs who have gotten used to working in the sandbox have found it easier to make the switch to the production environment. Since beneficiary claims data must be treated in accordance with HIPAA regulations, the sandbox environment provides a lower-stress environment for retrieving data from the API before touching actual patient data.
@@ -42,10 +42,10 @@ button:
 ## Getting Started
   Moving from the CCLF file structure to BCDA’s FHIR-based API is a fairly big change. BCDA provides documentation and user guides to help Shared Savings Program ACOs at any stage of technical understanding learn how to interact with the API and the data.
 
-  * **If BCDA is going to be your first API:** start with the guide to Getting Started in Sandbox [Getting Started in Sandbox](https://sandbox.bcda.cms.gov){:target="_blank"}.
+  * **If BCDA is going to be your first API:** start with the guide to Getting Started in Sandbox [Getting Started in Sandbox](/sandbox/user-guide/){:target="_blank"}.
   * **If you’ve worked with APIs before:** start with the Sandbox Technical Setup Guide.
   * **To learn more about the new data structure BCDA will deliver:** review the [Guide to Working with BCDA Data](./data_guide.html){:target="_blank"}.
-  * **To join the queue for an invitation to the production environment:** send an e-mail with your name and your SSP ACO’s name, ID number, and track to bcapi@cms.hhs.gov. We will onboard a few ACOs at a time in the order in which requests are received.
+  * **To join the queue for an invitation to the production environment:** send an e-mail with your name and your SSP ACO’s name, ID number, and track to [bcapi@cms.hhs.gov](mailto:bcapi@cms.hhs.gov). We will onboard a few ACOs at a time in the order in which requests are received.
 
 ## Frequently Asked Questions
 
@@ -68,7 +68,7 @@ button:
 
   * **Sounds great! Where do I start?** 
     * If your Shared Savings Program ACO is ready to start working with BCDA, the first step is to let us know you’re interested. BCDA will onboard ACOs to the production environment in the order in which they sign up.
-    * While you wait, join the [BCDA Google Group](https://groups.google.com/forum/#!forum/bc-api){:target="_blank"} to learn how other ACOs are working with the API, try out the [sandbox environment](https://sandbox.bcda.cms.gov){:target="_blank"}, and get familiar with [how to translate between CCLF and BCDA data fields.](./data_guide.html){:target="_blank"}
+    * While you wait, join the [BCDA Google Group](https://groups.google.com/forum/#!forum/bc-api){:target="_blank"} to learn how other ACOs are working with the API, try out the [sandbox environment](/sandbox/user-guide/){:target="_blank"}, and get familiar with [how to translate between CCLF and BCDA data fields.](./data_guide.html){:target="_blank"}
 
   * **I’m a vendor who works with Shared Savings Program ACOs. How can I work with BCDA?**
     * Vendors who work with Shared Savings Program ACOs to assist in managing their data should work with their ACO partners to interface with BCDA.
