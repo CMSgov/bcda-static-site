@@ -7,6 +7,8 @@ landing-page: live
 gradient: "blueberry-lime-background"
 subnav-link-gradient: "blueberry-lime-link"
 nav_link: dataguide
+permalink: /data-guide/
+id: data-guide
 sections:
   - What is FHIR?
   - How is BCDA data similar and different from CCLF?
@@ -14,21 +16,6 @@ sections:
   - Data Accuracy
   - Sample BCDA Files
   - Sample BCDA FHIR Data Points
-
-button:
-  - title: Home
-    url: "./index.html"
-    link: "home"
-  - title: Try the API
-    url: "/sandbox/user-guide/index.html"
-    link: "sandbox"
-  - title: Learn about Production
-    url: "./user_guide.html"
-    link: "production"
-  - title: Understand BCDA Data
-    url: "./data_guide.html"
-    link: "dataguide"
-
 ---
 
 ## What is FHIR?

@@ -6,26 +6,13 @@ description: Step-by-step instructions to assist with decrypting the NDJSON payl
 landing-page: live
 gradient: "blueberry-lime-background"
 subnav-link-gradient: "blueberry-lime-link"
+permalink: /decryption/
+id: decryption
 sections:
   - How to decrypt BCDA data files
   - Troubleshooting
   - Examples in other languages
   - Background How we encrypt
-
-button:
-  - title: Home
-    url: "./index.html"
-    link: "home"
-  - title: Try the API
-    url: "/sandbox/user-guide/index.html"
-    link: "sandbox"
-  - title: Learn about Production
-    url: "./user_guide.html"
-    link: "production"
-  - title: Understand BCDA Data
-    url: "./data_guide.html"
-    link: "dataguide"
-
 ---
 
 ## How to decrypt BCDA data files

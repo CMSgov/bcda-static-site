@@ -13,20 +13,6 @@ sections:
   - Getting Started with APIs
   - Setting up your credentials in Swagger
   - Making your first requests for data
-
-button:
-  - title: Home
-    url: "../../index.html"
-    link: "home"
-  - title: Try the API
-    url: "#"
-    link: "sandbox"
-  - title: Learn about Production
-    url: "../../user_guide.html"
-    link: "production"
-  - title: Understand BCDA Data
-    url: "../../data_guide.html"
-    link: "dataguide"
 ---
 
 # Getting Started with BCDA in Sandbox

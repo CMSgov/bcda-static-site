@@ -1,6 +1,6 @@
 ---
 layout: home
-title:  "Technical Getting Started Guide in Production:"
+title:  "Technical Getting Started Guide in Production"
 description: "A Step-by-Step Guide to getting set up in BCDA and retrieving data from the API."
 date:   2019-09-06 09:21:12 -0500
 description:
@@ -8,27 +8,14 @@ landing-page: live
 gradient: "blueberry-lime-background"
 subnav-link-gradient: "blueberry-lime-link"
 nav_link: production
+permalink: /production/technical-user-guide/
+id: prod-technical-user-guide
 sections:
   - Technical User Guide
   - Authentication and Authorization
   - Encryption
   - Environment
   - Examples
-
-button:
-  - title: Home
-    url: "./index.html"
-    link: "home"
-  - title: Try the API
-    url: "/sandbox/user-guide/index.html"
-    link: "sandbox"
-  - title: Learn about Production
-    url: "./user_guide.html"
-    link: "production"
-  - title: Understand BCDA Data
-    url: "./data_guide.html"
-    link: "dataguide"
-
 ---
 
 ## Technical User Guide

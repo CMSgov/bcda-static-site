@@ -7,26 +7,13 @@ landing-page: live
 gradient: "blueberry-lime-background"
 subnav-link-gradient: "blueberry-lime-link"
 nav_link: production
+permalink: /production/user-guide/
+id: prod-user-guide
 sections:
   - Requesting production access
   - Getting Started with APIs
   - Setting up your credentials in Swagger
   - Making your first requests for data
-
-button:
-  - title: Home
-    url: "./index.html"
-    link: "home"
-  - title: Try the API
-    url: "/sandbox/user-guide/index.html"
-    link: "sandbox"
-  - title: Learn about Production
-    url: "./user_guide.html"
-    link: "production"
-  - title: Understand BCDA Data
-    url: "./data_guide.html"
-    link: "dataguide"
-
 ---
 
 ## Requesting production access

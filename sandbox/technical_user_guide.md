@@ -18,21 +18,6 @@ sections:
   - Beneficiary Explanation of Benefit Data
   - Beneficiary Patient Data
   - Beneficiary Coverage Data
-  
-button:
-  - title: Home
-    url: "../../index.html"
-    link: "home"
-  - title: Try the API
-    url: "../user-guide/index.html"
-    link: "sandbox"
-  - title: Learn about Production
-    url: "../../user_guide.html"
-    link: "production"
-  - title: Understand BCDA Data
-    url: "../../data_guide.html"
-    link: "dataguide"
-
 ---
 
 ## Technical User Guide
