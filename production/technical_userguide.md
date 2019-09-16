@@ -10,7 +10,7 @@ nav_link: production
 permalink: /production/technical-user-guide/
 id: prod-technical-user-guide
 sections:
-  - Technical User Guide
+  - User Guide
   - Authentication and Authorization
   - Encryption
   - Environment

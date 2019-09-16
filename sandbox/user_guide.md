@@ -15,7 +15,7 @@ sections:
   - Making your first requests for data
 ---
 
-This page is intended for a user who has little to no experience with APIs, and provides a guided walkthrough for working with BCDA using our interactive documentation. More advanced API users may be better served by the [Technical Setup guide](/sandbox/technical-user-guide/). If you’re not sure where to go, start here!
+This page is intended for a user who has little to no experience with APIs, and provides a guided walkthrough for working with BCDA using our interactive documentation. More advanced API users may be better served by the [Advanced User Guide](/sandbox/technical-user-guide/). If you’re not sure where to go, start here!
 
 ## Getting Started with APIs
 

@@ -10,7 +10,7 @@ nav_link: sandbox
 permalink: /sandbox/technical-user-guide/
 id: sandbox-technical-user-guide
 sections:
-  - Technical User Guide
+  - User Guide
   - Authentication and Authorization
   - Encryption
   - Environment
