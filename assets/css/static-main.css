@@ -6150,7 +6150,7 @@ article h2::after {
 .dropdown {
     position: relative;
     display: inline-block;
-    margin-right:5px;
+    margin-right:20px;
 }
 
 /*
@@ -6223,6 +6223,11 @@ article h2::after {
 
 .content_buffer {
     margin-top: 56px;
-    margin-right: auto;
     margin-left: auto;
+    margin-right: auto;
+}
+
+.highlight {
+    background-color: #fff;
+    color: #339392;
 }

@@ -6,6 +6,7 @@ description: A Beginners Guide to learning about APIs and a walkthrough for the 
 landing-page: live
 gradient: "blueberry-lime-background"
 subnav-link-gradient: "blueberry-lime-link"
+nav_link: sandbox
 permalink: /sandbox/user-guide/
 id: sandbox-user-guide
 sections:
@@ -15,13 +16,17 @@ sections:
 
 button:
   - title: Home
-    link: "../../index.html"
+    url: "../../index.html"
+    link: "home"
   - title: Try the API
-    link: "#"
+    url: "#"
+    link: "sandbox"
   - title: Learn about Production
-    link: "../../user_guide.html"
+    url: "../../user_guide.html"
+    link: "production"
   - title: Understand BCDA Data
-    link: "../../data_guide.html"
+    url: "../../data_guide.html"
+    link: "dataguide"
 ---
 
 # Getting Started with BCDA in Sandbox

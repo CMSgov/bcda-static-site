@@ -6,6 +6,7 @@ description: A Step-by-Step Guide to getting set up in BCDA and making retrievin
 landing-page: live
 gradient: "blueberry-lime-background"
 subnav-link-gradient: "blueberry-lime-link"
+nav_link: sandbox
 permalink: /sandbox/technical-user-guide/
 id: sandbox-technical-user-guide
 sections:
@@ -20,13 +21,17 @@ sections:
   
 button:
   - title: Home
-    link: "../../index.html"
+    url: "../../index.html"
+    link: "home"
   - title: Try the API
-    link: "../user-guide/index.html"
+    url: "../user-guide/index.html"
+    link: "sandbox"
   - title: Learn about Production
-    link: "../../user_guide.html"
+    url: "../../user_guide.html"
+    link: "production"
   - title: Understand BCDA Data
-    link: "../../data_guide.html"
+    url: "../../data_guide.html"
+    link: "dataguide"
 
 ---
 

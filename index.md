@@ -6,6 +6,7 @@ description: Shared Savings Program ACOs can use this FHIR-based API to retrieve
 landing-page: live
 gradient: "blueberry-lime-background"
 subnav-link-gradient: "blueberry-lime-link"
+nav_link: home
 sections:
   - Getting Started
   - Frequently Asked Questions
@@ -13,13 +14,17 @@ sections:
 
 button:
   - title: Home
-    link: "./index.html"
+    url: "./index.html"
+    link: "home"
   - title: Try the API
-    link: "/sandbox/user-guide/index.html"
+    url: "/sandbox/user-guide/index.html"
+    link: "sandbox"
   - title: Learn about Production
-    link: "./user_guide.html"
+    url: "./user_guide.html"
+    link: "production"
   - title: Understand BCDA Data
-    link: "./data_guide.html"
+    url: "./data_guide.html"
+    link: "dataguide"
 
 ---
 

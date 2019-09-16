@@ -7,7 +7,7 @@ layout: default
       <div class="">
         <div class="ds-l-container">
           <div class="ds-l-row">
-            <div class="content_buffer ds-l-sm-cold--12 ds-l-xl-col--10 ds-u-margin-left--auto ds-u-padding-x--4">
+            <div class="content_buffer ds-l-sm-cold--12 ds-l-xl-col--10 ds-u-margin-left--auto ds-u-padding-x--4"> <!-- ds-u-margin-left--auto ds-u-padding-x--4 -->
                 <h1 class="ds-display">{{ page.title | escape }}</h1>
                 <p class="ds-text--lead">
                   {{ page.description | escape }}
@@ -16,7 +16,11 @@ layout: default
                 {% for item in page.button %}
                     <div class="topdrop">
                         <div class="dropdown">
-                            <a class="topmenu" href="{{item.link}}" aria-label="{{ item.title }}"> {{item.title}} </a>
+                            {% if page.nav_link == item.link %}
+                            <a class="topmenu highlight" href="{{item.url}}" aria-label="{{ item.title }}"> {{item.title}} </a>
+                            {% else %}
+                            <a class="topmenu" href="{{item.url}}" aria-label="{{ item.title }}"> {{item.title}} </a>
+                            {% endif %}
                             <!--
                             <div class="dropdown-content">
                             {% for subcat in item.subcategories %}
