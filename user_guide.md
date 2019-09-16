@@ -12,9 +12,6 @@ sections:
   - Getting Started with APIs
   - Setting up your credentials in Swagger
   - Making your first requests for data
-  - Technical Guide
-  - Decryption walkthrough
-  - Frequently asked questions about making requests
 
 button:
   - title: Home
@@ -129,18 +126,19 @@ The file you’ve downloaded will be encrypted. Follow the [decryption walkthrou
 
 Once you’ve decrypted the file, you’ll want to know what to do with the data. We’ve provided a [guide to working with BCDA data](./data_guide.html){:target="_blank"} to help you, including a crosswalk between CCLF fields and the corresponding sections of the NDJSON files.
 
+<!--
 ## Technical Guide
 * For a more in depth approach see our a technical guide here [Technical User Guide.](./technical_userguide.html){:target="_blank"}
 
 ## Decryption walkthrough
 * For a step by step guide of our decryption/encryption strategies visit our decryption page here [Decryption Walkthrough.](./decryption_walkthrough.html){:target="_blank"}
+-->
 
-
-## Frequently asked questions about making requests
+### Frequently asked questions about making requests
 
 * How often can I request data from BCDA?
 
-  CDA data will be updated weekly, so you will be able to make requests and expect to retrieve new data on a weekly basis. If you’re already requesting data from one endpoint and try to request data from that endpoint again while the first request is processing, you’ll receive a `429 Too Many Requests` error.
+  BCDA data will be updated weekly, so you will be able to make requests and expect to retrieve new data on a weekly basis. If you’re already requesting data from one endpoint and try to request data from that endpoint again while the first request is processing, you’ll receive a `429 Too Many Requests` error.
 
 * How will I know when my data is ready?
 
