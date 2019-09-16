@@ -35,7 +35,7 @@ To complete this decryption example, you will need:
 ### 2. Getting ready to decrypt
 This decryption example picks up at step 5 of the [Getting Started in Production](/production/user-guide/#5-getting-your-data){:target="_self"} guide. By this point, you have provided a bearer token to the API, made a request for data, and are waiting for the export job to complete. When the job is done, you should see a response in Swagger that looks like this:
 
-<img src="/assets/img/decrypt_walkthrough_01.png" alt="job status response" width="500" />
+<img src="/assets/img/decrypt_walkthrough_01.png" alt="job status response" />
 
 Take special note of the new KeyMap section of the response. **To decrypt the file, you will need the filename (the first part of the keymap, marked 1 in the image) and the symmetric key (the second part of the keymap, marked 2), as shown above.** There are no spaces in either one. Copy these values from the KeyMap (filename and symmetric key) for later.
 
@@ -47,29 +47,29 @@ The next step is to download the encrypted file.
 * Paste the job ID and filename into the appropriate boxes
 * Click `Execute`
 
-<img src="/assets/img/decrypt_walkthrough_02.png" alt="encrypted file download" width="500" />
+<img src="/assets/img/decrypt_walkthrough_02.png" alt="encrypted file download" />
 
 * Click the **Download file** link that appeared in the response section. Note that a large file may take a while to download.
 
-<img src="/assets/img/decrypt_walkthrough_03.png" alt="encrypted file download" width="500" />
+<img src="/assets/img/decrypt_walkthrough_03.png" alt="encrypted file download" />
 
 ### 3. Decrypting the file
 
 After downloading the file, move to the command line. Navigate to the directory where you saved `decrypt.py` and `requirements.txt` from the [Gathering the tools](#1-gathering-the-tools) section.
 
-<img src="/assets/img/decrypt_walkthrough_04.png" alt="decryption with python" width="500" />
+<img src="/assets/img/decrypt_walkthrough_04.png" alt="decryption with python" />
 
 Let’s first verify that Python is running properly.
 
 * Run `decrypt.py` with the help argument (`python decrypt.py -h`). You should get the response shown below.
 
-<img src="/assets/img/decrypt_walkthrough_05.png" alt="decryption with python" width="500" />
+<img src="/assets/img/decrypt_walkthrough_05.png" alt="decryption with python" />
 
 * Rename the downloaded file with the filename you saved earlier. **This is extremely important as the file name is used as part of the file decryption process and using a different file name will cause decryption to fail.**
 
 **Note: At present, you must have the NDJSON file saved to the same folder as the decryption utilities in order to successfully decrypt.**
 
-<img src="/assets/img/decrypt_walkthrough_06.png" alt="decryption with python" width="500" />
+<img src="/assets/img/decrypt_walkthrough_06.png" alt="decryption with python" />
 
 You are now ready to decrypt the file! The Python example decryption tool will print the decrypted contents to the console, so you can send the output to a file. Make sure to use the following syntax, with the entire command on the same line:
 
@@ -79,11 +79,11 @@ You are now ready to decrypt the file! The Python example decryption tool will p
         --key  [symmetric_key_value]
         > filename.txt
 
-<img src="/assets/img/decrypt_walkthrough_07.png" alt="decryption with python" width="500" />
+<img src="/assets/img/decrypt_walkthrough_07.png" alt="decryption with python" />
 
 Take a look at the result. If you do not see unencrypted [NDJSON](http://ndjson.org){:target="_blank"} (two example lines shown below), then skip ahead to the [troubleshooting section](#troubleshooting).
 
-<img src="/assets/img/decrypt_walkthrough_08.png" alt="decryption with python" width="500" />
+<img src="/assets/img/decrypt_walkthrough_08.png" alt="decryption with python" />
 
 ## Troubleshooting
 

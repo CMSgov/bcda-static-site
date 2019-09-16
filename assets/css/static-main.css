@@ -6231,3 +6231,8 @@ article h2::after {
     background-color: #fff;
     color: #339392;
 }
+
+#main p img {
+  width: 100%;
+  max-width: 500px;
+}

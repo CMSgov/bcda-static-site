@@ -39,11 +39,11 @@ This page is intended for a user who has little to no experience with APIs, and 
 ### 1. Getting comfortable in Swagger
 There are two categories of information that you can retrieve through BCDA: metadata and bulk beneficiary data.
 
-<img src="/assets/img/swagger_walkthrough_01.png" alt="swagger intro" width="500" />
+<img src="/assets/img/swagger_walkthrough_01.png" alt="swagger intro" />
 
 **Metadata** in BCDA includes information about the platform that is making, storing, and verifying credentials and tokens (the auth provider); information about the API’s version; and information about the actions you can perform using the API itself (also duplicatively termed metadata). There is no PII or PHI in the **metadata** endpoint, so you can access this endpoint without having to be authorized.
 
-<img src="/assets/img/swagger_walkthrough_02.png" alt="swagger metadata intro" width="500" />
+<img src="/assets/img/swagger_walkthrough_02.png" alt="swagger metadata intro" />
 
 ### 2. Looking at BCDA Metadata
 
