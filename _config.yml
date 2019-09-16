@@ -22,7 +22,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://bcda.cms.gov" # This is a kludge for HIMMS, we can fix it later as needed. the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 #github_username:  jekyll
-cssurl: assets/css/static-main.css
+cssurl: /assets/css/static-main.css
 
 global_nav:
   - title: Home

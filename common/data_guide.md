@@ -33,7 +33,7 @@ BCDA follows the bulk FHIR specification, and provides the same data as the CCLF
 * The **Coverage** file provides information about the beneficiaries’ insurance coverage, including information about dual coverage.
 
 ## BCDA Data Dictionary
-The CCLF to [BCDA Data Dictionary](assets/data/CCLF_BCDA_BB_Crosswalk.xlsx) is provided to BCDA users to facilitate their data mapping process. Because BCDA delivers data in the FHIR format, data field names will be different from previous data fields delivered through CCLFs. In this spreadsheet, BCDA has provided a crosswalk between all CCLF data fields and their new locations within BCDA Claims files*. The Data Dictionary also provides supplementary context for each of the CCLF/BCDA data fields, including:
+The CCLF to [BCDA Data Dictionary](/assets/data/CCLF_BCDA_BB_Crosswalk.xlsx) is provided to BCDA users to facilitate their data mapping process. Because BCDA delivers data in the FHIR format, data field names will be different from previous data fields delivered through CCLFs. In this spreadsheet, BCDA has provided a crosswalk between all CCLF data fields and their new locations within BCDA Claims files*. The Data Dictionary also provides supplementary context for each of the CCLF/BCDA data fields, including:
 * Claim Field Names and Descriptions
 * Start/End Position
 * Data Type
@@ -56,9 +56,9 @@ For the appropriate beneficiaries, the data provided to the ACO through BCDA inc
 ## Sample BCDA Files
 In order to aid in users’ understanding of BCDA file data and structure, attached are sample files for BCDA Explanation of Benefit, Patient, and Coverage files. These files contain synthetic data, but the structure of the files is similar to the actual files you will be pulling and downloading from BCDA.
 
-* [Explanation of Benefit](assets/data/ExplanationOfBenefit.ndjson)
-* [Coverage](assets/data/Coverage.ndjson)
-* [Patient](assets/data/Patient.ndjson)
+* [Explanation of Benefit](/assets/data/ExplanationOfBenefit.ndjson)
+* [Coverage](/assets/data/Coverage.ndjson)
+* [Patient](/assets/data/Patient.ndjson)
 
 ### Additional Resources
 To learn more about FHIR, bulk FHIR specifications, or the Blue Button API, please visit these resources:
@@ -73,7 +73,7 @@ To learn more about FHIR, bulk FHIR specifications, or the Blue Button API, plea
 ## Sample BCDA FHIR Data Points
 
 #### Sample Diagnosis Code
-<img src="assets/img/data_guide_01.png" alt="sample diagnosis code" />
+<img src="/assets/img/data_guide_01.png" alt="sample diagnosis code" />
 
 #### Sample BETOS Code
-<img src="assets/img/data_guide_02.png" alt="sample betos code" />
+<img src="/assets/img/data_guide_02.png" alt="sample betos code" />
