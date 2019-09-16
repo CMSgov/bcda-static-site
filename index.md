@@ -30,7 +30,7 @@ button:
 
 
 # Overview
-  The Beneficiary Claims Data API (BCDA) enables Accountable Care Organizations (ACOs) participating in the Shared Savings Program to retrieve Medicare Part A, Part B, and Part D claims data for their prospectively assigned or assignable beneficiaries. This includes Medicare claims data for instances in which beneficiaries receive care outside of the ACO, allowing a full picture of patient care. In the production environment, the API provides data parallel to Claim and Claim Line Feed (CCLF) files*, currently provided monthly to Shared Savings Program ACOs by CMS.
+  The Beneficiary Claims Data API (BCDA) enables Accountable Care Organizations (ACOs) participating in the Shared Savings Program to retrieve Medicare Part A, Part B, and Part D claims data for their prospectively assigned or assignable beneficiaries. In the production environment, the API provides data parallel to Claim and Claim Line Feed (CCLF) files*, currently provided monthly to Shared Savings Program ACOs by CMS. This includes Medicare claims data for instances in which beneficiaries receive care outside of the ACO, allowing a full picture of patient care.
   Representatives of Shared Savings Program ACOs are now invited to express their interest in joining the production environment by sending an email to [bcapi@cms.hhs.gov](mailto:bcapi@cms.hhs.gov). While you wait to onboard in the production environment, we invite developers, analysts, and administrators at Shared Savings Program ACOs to try out the BCDA sandbox experience [Sandbox getting started guided](/sandbox/user-guide/){:target="_blank"}.
   
    * **What’s the difference between the sandbox and production environments?** BCDA’s production environment provides actual patient claims data on an ACO’s prospectively assigned or assignable beneficiaries, while the sandbox uses the same API structure but contains no beneficiary PII or PHI.
@@ -43,7 +43,7 @@ button:
   Moving from the CCLF file structure to BCDA’s FHIR-based API is a fairly big change. BCDA provides documentation and user guides to help Shared Savings Program ACOs at any stage of technical understanding learn how to interact with the API and the data.
 
   * **If BCDA is going to be your first API:** start with the guide to Getting Started in Sandbox [Getting Started in Sandbox](/sandbox/user-guide/){:target="_blank"}.
-  * **If you’ve worked with APIs before:** start with the Sandbox Technical Setup Guide.
+  * **If you’ve worked with APIs before:** start with the [Sandbox Technical Setup Guide.](/sandbox/technical-user-guide)
   * **To learn more about the new data structure BCDA will deliver:** review the [Guide to Working with BCDA Data](./data_guide.html){:target="_blank"}.
   * **To join the queue for an invitation to the production environment:** send an e-mail with your name and your SSP ACO’s name, ID number, and track to [bcapi@cms.hhs.gov](mailto:bcapi@cms.hhs.gov). We will onboard a few ACOs at a time in the order in which requests are received.
 
@@ -58,13 +58,16 @@ button:
       * Enhance efficiency by enabling system-to-system communication and reducing the need for manual intervention to retrieve and manipulate the data
       
   * **Are the CCLFs going away?**
-    * No, CCLF files are not going away. CMS wants to make sure Shared Savings Program ACOs have  time to work with both formats together to understand similarities and differences and become familiar with the API and receive data in the most user friendly format.
+    * No, CCLF files are not going away. CMS wants to make sure Shared Savings Program ACOs have time to work with both formats together to understand similarities and differences, become familiar with the API, and receive data in the most user friendly format.
 
   * **Why should my ACO use BCDA?**
-    * CMS believes that SSP ACOs and their vendor partners will be better able and more easily leverage and use the data provided since it will be in a more user friendly format and can be more easily targeted to narrow in on specific data elements.
+    * CMS believes that SSP ACOs and their vendor partners will be better able and more easily leverage and use the data provided, since it will be in a more user-friendly format and can be more easily targeted to narrow in on specific data elements.
       * SSP ACOs can retrieve bulk claims data on a weekly, rather than monthly, basis, at a time of their choosing.
       * BCDA allows system-to-system communication and data transfer, reducing the manual intervention currently required to retrieve CCLF files.
     * BCDA is built in accordance with feedback from SSP ACOs and their vendor partners. When you use BCDA in sandbox or production, you are invited to share feedback with CMS and ensure we are creating an API that meets your organization’s needs.
+
+  * **Why are Shared Savings Program ACOs getting access to this data?**
+    * As indicated in the regulation §425.704, “subject to providing the beneficiary with the opportunity to decline data sharing as described in this §425.708, and subject to having a valid DUA in place, CMS, upon the ACO's request for the data for purposes of evaluating the performance of its ACO participants or its ACO providers/suppliers, conducting quality assessment and improvement activities, and conducting population-based activities relating to improved health, will provide the ACO with beneficiary identifiable claims data for preliminarily prospectively and prospectively assigned beneficiaries and other beneficiaries who receive primary care services from an ACO participant that submits claims for primary care services used to determine the ACO's assigned population under subpart E of this part during the performance year.”
 
   * **Sounds great! Where do I start?** 
     * If your Shared Savings Program ACO is ready to start working with BCDA, the first step is to let us know you’re interested. BCDA will onboard ACOs to the production environment in the order in which they sign up.
@@ -78,7 +81,7 @@ button:
     * **FHIR:** FHIR (Fast Healthcare Interoperability Resources) is a specification for exchanging healthcare data electronically, allowing any system to access and consume this data to solve clinical and administrative problems around healthcare-related data. BCDA is built on the Blue Button 2.0 API, which has structured its data using the FHIR standard. BCDA will use three endpoints from the FHIR specification: explanation of benefits, patient, and coverage. Learn more about FHIR in the [guide to working with BCDA data.](./data_guide.html){:target="_blank"}
     * **NDJSON:** [New Line Delimited JSON](http://ndjson.org){:target="_blank"} is the file format used by the bulk FHIR specification. An NDJSON file provides a single record on each line, which makes it easy for various tools to look at and process one record at a time before moving on to the next one. Our [About the Data](./data_guide.html){:target="_blank"} page provides more information on working with the NDJSON files you’ll receive through BCDA.
 
-## Bulk FHIR APIs at CMS
+## FHIR APIs at CMS
 
    BCDA is one member of a suite of FHIR APIs provided by CMS, which work together to provide claims data that enables higher-quality patient care.
 
@@ -87,8 +90,8 @@ button:
 
 #### Beneficiary Claims Data API (BCDA):
    * Uses the bulk FHIR specification to provide data files to an ACO for **all** of the beneficiaries a given Shared Savings Program ACO is eligible to receive.
-   * BCDA does not require individual beneficiary authorization to send this information, though beneficiaries can opt out of having their data shared by calling 1800 Medicare.
+   * BCDA does not require individual beneficiary authorization to send this information, though beneficiaries can opt out of having their data shared with the ACO by calling 1-800-Medicare.
 
 #### [Data at the Point of Care (DPC) pilot:](https://dpc.cms.gov){:target="_blank"}
    * Provides FHIR-formatted bulk data files to **fee-for-service providers** for their active patients as needed for treatment purposes under HIPAA. 
-   * Data at the Point of Care does not require individual beneficiary authorization but does allow a process for patients to opt out of data sharing.
+   * Data at the Point of Care does not require individual beneficiary authorization but does allow patients to opt out of data sharing.
