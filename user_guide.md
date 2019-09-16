@@ -1,824 +1,153 @@
 ---
 layout: home
-title:  "Beneficiary Claims Data API User Guide"
-date:   2017-10-30 09:21:12 -0500
-description: Information on accessing and working with the API
+title:  "Getting Started with BCDA in Production"
+date:   2019-09-03 09:21:12 -0500
+description: "A Beginners Guide to learning about APIs and a walkthrough for the BCDA Swagger Environment"
 landing-page: live
 gradient: "blueberry-lime-background"
 subnav-link-gradient: "blueberry-lime-link"
+nav_link: production
 sections:
-  - User Guide
-  - About APIs
-  - Authentication and Authorization
-  - Encryption
-  - Environment
-  - Examples
-  - BCDA Metadata
-  - Beneficiary Explanation of Benefit Data
-  - Beneficiary Patient Data
-  - Beneficiary Coverage Data
+  - Requesting production access
+  - Getting Started with APIs
+  - Setting up your credentials in Swagger
+  - Making your first requests for data
 
-ctas:
+button:
+  - title: Home
+    url: "./index.html"
+    link: "home"
+  - title: Try the API
+    url: "/sandbox/user-guide/index.html"
+    link: "sandbox"
+  - title: Learn about Production
+    url: "./user_guide.html"
+    link: "production"
+  - title: Understand BCDA Data
+    url: "./data_guide.html"
+    link: "dataguide"
 
-  - title: Learn about encryption
-    link: ./encryption.html
-  - title: Join the BCDA Google Group
-    link: https://groups.google.com/forum/#!forum/bc-api
-    target: _blank
-    
 ---
 
-# User Guide
-The [Beneficiary Claims Data API (BCDA)](https://sandbox.bcda.cms.gov) enables Accountable Care Organizations (ACOs) to retrieve claims data for their Medicare beneficiaries. This includes claims data for instances in which beneficiaries receive care outside of the ACO, allowing a full picture of patient care.
+## Requesting production access
+* As BCDA launches into our production beta, we are slowly onboarding small groups of Shared Savings Program ACOs into the production environment. To put your ACO in the queue for access, please send an email to [bcapi@cms.hhs.gov](mailto:bcapi@cms.hhs.gov) with your name and your ACO’s name, ID number, and track. ACOs will be onboarded to production in the order in which requests are received. While you wait, you can get familiar with the API in the [sandbox environment](/sandbox/user-guide/){:target="_blank"}, review the [data structure](./data_guide.html){:target="_blank"}, and join the [BCDA Google Group](https://groups.google.com/forum/#!forum/bc-api){:target="_blank"}, to have your questions answered.
+* Note: some of our early production beta partners have encountered issues accessing the API due to internal firewalls. If your corporate IT uses an internal DNS server, you may not be able to access the API. As you request production access, you may want to check in with your internal IT team to discuss your company’s network structure.
 
-While the BCDA sandbox is currently focused on the needs of Medicare Shared Savings Program ACOs, all are invited to use the sandbox and share their feedback.
+This page is intended for a user who has little to no experience with APIs, and provides a guided walkthrough for working with BCDA using our interactive documentation. More advanced API users may be better served by the [Technical Setup guide](./technical_userguide.html){:target="_blank"}. If you’re not sure where to go, start here!
 
-This API follows the workflow outlined by the [FHIR Bulk Data Export Proposal](https://github.com/smart-on-fhir/fhir-bulk-data-docs/blob/master/export.md){:target="_blank"}, using the [HL7 FHIR Standard](https://www.hl7.org/fhir/){:target="_blank"}. Claims data is provided as FHIR resources in [NDJSON](http://ndjson.org/){:target="_blank"} format.
+## Getting Started with APIs
+  * What’s an API?
+    * An API (Application Programming Interface) is a set of features and rules that exist inside a software program that allows other software programs to interact with it. For example, you can build an app that uses the Twitter API to get information or data from a user's Twitter account. APIs are used in a wide variety of ways, but for our purposes, you can think of an API as a pipeline that can allow your ACO’s computer systems to receive data directly from CMS’ databases.
+    * Need more information about APIs? Here are some great introductions:
+      * [Introduction to Web APIs](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction){:target="_blank"}
+      * [An Intro to APIs](https://www.codenewbie.org/blogs/an-intro-to-apis){:target="_blank"}
+  * Do I need to know how to code to use BCDA?
+    * You do not need to know how to code!  Our documentation is written so that everyone -- regardless of technical exposure -- can access beneficiary data. For this walkthrough, we’ll be using a platform called Swagger, where you’ll be able to interact with the API through a web interface.
+    
+## Setting up your credentials in Swagger
+  * Navigating to Swagger
+  
+## Making your first requests for data
+### 1. Getting comfortable in Swagger
+There are two categories of information that you can retrieve through BCDA metadata and bulk beneficiary data.
 
-This guide serves as a starting point for users to begin working with the API. [Comprehensive Swagger documentation about all BCDA endpoints is available in the sandbox environment.](./api/v1/swagger/)
+<img src="assets/img/swagger_walkthrough_01.png" alt="swagger intro" width="500" />
 
+**Metadata** in BCDA includes information about the platform that is making, storing, and verifying credentials and tokens (the auth provider); information about the API’s version; and information about the actions you can perform using the API itself (also duplicatively termed metadata). There is no PII or PHI in the **metadata** endpoint, so you can access this endpoint without having to be authorized.
 
-## About APIs
-Not familiar with APIs? Here are some great introductions:
-* [Introduction to Web APIs](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction){:target="_blank"}
-* [An Intro to APIs](https://www.codenewbie.org/blogs/an-intro-to-apis){:target="_blank"}
+<img src="assets/img/swagger_walkthrough_02.png" alt="swagger metadata intro" width="500" />
 
-## Authentication and Authorization
-The Beneficiary Claims Data API is currently accessible as an open sandbox environment, which returns sample NDJSON files with synthetic beneficiary data. You can use the generic credentials below to view our implementation of the API, write a process for decrypting the payload, and learn the shape of the data before working with production files that include PII and PHI. There is no beneficiary PII or PHI in the files you can access via the sandbox.
+### 2. Looking at BCDA Metadata
 
-To get a token that can be used with protected endpoints, `POST` the following credentials using [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication){:target="_blank"} to `https://sandbox.bcda.cms.gov/auth/token`:
+We’ll use `auth` as an example here.
 
-Client ID: 
-{%- capture client_id -%}
-09869a7f-46ce-4908-a914-6129d080a2ae
-{%- endcapture -%}
-
-{% include copy_snippet.md code=client_id %}
-
-Client Secret: 
-{%- capture client_secret -%}
-64916fe96f71adc79c5735e49f4e72f18ff941d0dd62cf43ee1ae0857e204f173ba10e4250c12c48
-{%- endcapture -%}
-
-{% include copy_snippet.md code=client_secret %}
-
-Encoded Basic authentication:
-{%- capture auth_header -%}
-Basic MDk4NjlhN2YtNDZjZS00OTA4LWE5MTQtNjEyOWQwODBhMmFlOjY0OTE2ZmU5NmY3MWFkYzc5YzU3MzVlNDlmNGU3MmYxOGZmOTQxZDBkZDYyY2Y0M2VlMWFlMDg1N2UyMDRmMTczYmExMGU0MjUwYzEyYzQ4
-{%- endcapture -%}
-
-{% include copy_snippet.md code=auth_header %}
-
-##### Request
-`POST /auth/token`
-
-###### Headers
-* `Accept: application/json`
-* `Authorization: <Encoded Basic authentication>`
-
-
-
-###### cURL command
-``` sh
-curl -X POST "http://sandbox.bcda.cms.gov/auth/token" -H "accept: application/json" -H "authorization: Basic MDk4NjlhN2YtNDZjZS00OTA4LWE5MTQtNjEyOWQwODBhMmFlOj\
-Y0OTE2ZmU5NmY3MWFkYzc5YzU3MzVlNDlmNGU3MmYxOGZmOTQx\
-ZDBkZDYyY2Y0M2VlMWFlMDg1N2UyMDRmMTczYmExMGU0MjUwYzEyYzQ4"
-```
-
-##### Response
-You will receive a `200 OK` response and an access token if your credentials were accepted.
-
-
-## Encryption
-All data files are encrypted. Learn more about the [encryption strategy](./encryption.html).
-
-## Environment
-The examples below include [cURL](https://curl.haxx.se/){:target="_blank"} commands, but may be followed using any tool that can make HTTP GET requests with headers, such as [Postman](https://www.getpostman.com/){:target="_blank"}.
-
-# Examples
-Examples are shown as requests to the BCDA sandbox environment.
-
-## BCDA Metadata
-Metadata about the Beneficiary Claims Data API is available as a FHIR [CapabilityStatement](https://www.hl7.org/fhir/capabilitystatement.html){:target="_blank"} resource. A token is not required to access this information.
-
-#### 1. Request the metadata
-
-##### Request
-`GET /api/v1/metadata`
-
-###### cURL command
-{%- capture code -%}
-curl https://sandbox.bcda.cms.gov/api/v1/metadata
-{%- endcapture -%}
-
-{% include copy_snippet.md code=code %}
-
-
-##### Response
-```json
-{
-	"resourceType": "CapabilityStatement",
-	"status": "active",
-	"date": "2018-11-26",
-	"publisher": "Centers for Medicare \u0026 Medicaid Services",
-	"kind": "capability",
-	"instantiates": ["https://fhir.backend.bluebutton.hhsdevcloud.us/baseDstu3/metadata/"],
-	"software": {
-		"name": "Beneficiary Claims Data API",
-		"version": "latest",
-		"releaseDate": "2018-11-26"
-	},
-	"implementation": {
-		"url": "https://sandbox.bcda.cms.gov"
-	},
-	"fhirVersion": "3.0.1",
-	"acceptUnknown": "extensions",
-	"format": ["application/json", "application/fhir+json"],
-	"rest": [{
-		"mode": "server",
-		"security": {
-			"cors": true,
-			"service": [{
-				"coding": [{
-					"system": "http://hl7.org/fhir/ValueSet/restful-security-service",
-					"code": "OAuth",
-					"display": "OAuth"
-				}],
-				"text": "OAuth"
-			}, {
-				"coding": [{
-					"system": "http://hl7.org/fhir/ValueSet/restful-security-service",
-					"code": "SMART-on-FHIR",
-					"display": "SMART-on-FHIR"
-				}],
-				"text": "SMART-on-FHIR"
-			}]
-		},
-		"interaction": [{
-			"code": "batch"
-		}, {
-			"code": "search-system"
-		}],
-		"operation": [{
-			"name": "export",
-			"definition": {
-				"reference": "https://sandbox.bcda.cms.gov/api/v1/ExplanationOfBenefit/$export"
-			}
-		}, {
-			"name": "jobs",
-			"definition": {
-				"reference": "https://sandbox.bcda.cms.gov/api/v1/jobs/[jobID]"
-			}
-		}, {
-			"name": "metadata",
-			"definition": {
-				"reference": "https://sandbox.bcda.cms.gov/api/v1/metadata"
-			}
-		}, {
-			"name": "version",
-			"definition": {
-				"reference": "https://sandbox.bcda.cms.gov/_version"
-			}
-		}, {
-			"name": "data",
-			"definition": {
-				"reference": "https://sandbox.bcda.cms.gov/data/[jobID]/[random_UUID].ndjson"
-			}
-		}]
-	}]
-}
-```
-
-## Beneficiary Explanation of Benefit Data
-
-#### 1. Obtain an access token
-See [Authentication and Authorization](#authentication-and-authorization){:target="_blank"} above.
-
-#### 2. Initiate an export job
-
-##### Request
-`GET /api/v1/ExplanationOfBenefit/$export`
-
-To start an explanation of benefit data export job, a GET request is made to the ExplanationOfBenefit export endpoint. An access token as well as `Accept` and `Prefer` headers are required.
-
-The dollar sign ('$') before the word "export" in the URL indicates that the endpoint is an action rather than a resource. The format is defined by the [FHIR Bulk Data Export spec](https://github.com/smart-on-fhir/fhir-bulk-data-docs/blob/master/export.md){:target="_blank"}.
-
-###### Headers
-* `Authorization: Bearer {token}`
-* `Accept: application/fhir+json`
-* `Prefer: respond-async`
-
-###### cURL command
-```sh
-curl -v https://sandbox.bcda.cms.gov/api/v1/ExplanationOfBenefit/\$export \
--H 'Authorization: Bearer {token}' \
--H 'Accept: application/fhir+json' \
--H 'Prefer: respond-async'
-```
-
-##### Response
-If the request was successful, a `202 Accepted` response code will be returned and the response will include a `Content-Location` header. The value of this header indicates the location to check for job status and outcome. In the example header below, the number 42 in the URL represents the ID of the export job.
-
-###### Headers
-* `Content-Location: https://sandbox.bcda.cms.gov/api/v1/jobs/42`
-
-#### 3. Check the status of the export job
-
-##### Request
-`GET https://sandbox.bcda.cms.gov/api/v1/jobs/42`
-
-Using the `Content-Location` header value from the ExplanationOfBenefit data export response, you can check the status of the export job. The status will change from `202 Accepted` to `200 OK` when the export job is complete and the data is ready to be downloaded.
-
-###### Headers
-* `Authorization: Bearer {token}`
-
-###### cURL Command
-```sh
-curl -v https://sandbox.bcda.cms.gov/api/v1/jobs/42 \
--H 'Authorization: Bearer {token}'
-```
-
-##### Responses
-* `202 Accepted` indicates that the job is processing. Headers will include `X-Progress: In Progress`
-* `200 OK` indicates that the job is complete. Below is an example of the format of the response body.
-```json
-{
-  "transactionTime": "2018-10-19T14:47:33.975024Z",
-  "request": "https://sandbox.bcda.cms.gov/api/v1/ExplanationOfBenefit/$export",
-  "requiresAccessToken": true,
-  "output": [
-    {
-      "type": "ExplanationOfBenefit",
-      "url": "https://sandbox.bcda.cms.gov/data/42/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson"
-    }
-  ],
-  "error": [
-    {
-      "type": "OperationOutcome",
-      "url": "https://sandbox.bcda.cms.gov/data/42/DBBD1CE1-AE24-435C-807D-ED45953077D3-error.ndjson"
-    }
-  ]
-}
-```
-Claims data can be found at the URLs within the `output` field. The number 42 in the data file URLs is the same job ID from the `Content-Location` header URL in previous step. If some of the data cannot be exported due to errors, details of the errors can be found at the URLs in the `error` field. The errors are provided in an NDJSON file as FHIR [OperationOutcome](https://www.hl7.org/fhir/operationoutcome.html){:target="_blank"} resources.
-
-#### 4. Retrieve the NDJSON output file(s)
-To obtain the exported explanation of benefit data, a GET request is made to the output URLs in the job status response when the job reaches the Completed state. The data will be presented as an NDJSON file of [ExplanationOfBenefit](https://www.hl7.org/fhir/explanationofbenefit.html){:target="_blank"} resources.
-
-##### Request
-`GET https://sandbox.bcda.cms.gov/data/42/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson`
-
-###### Headers
-* `Authorization: Bearer {token}`
-
-###### cURL command
-```sh
-curl https://sandbox.bcda.cms.gov/data/42/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson \
--H 'Authorization: Bearer {token}'
-```
-
-##### Response
-The response will be the requested data as FHIR ExplanationOfBenefit resources in NDJSON format, encrypted. An unencrypted example of one such resource is shown below.
-```json
-{
-  "status":"active",
-  "diagnosis":[
-    {
-      "diagnosisCodeableConcept":{
-        "coding":[
-          {
-            "system":"http://hl7.org/fhir/sid/icd-9-cm",
-            "code":"2113"
-          }
-        ]
-      },
-      "sequence":1,
-      "type":[
-        {
-          "coding":[
-            {
-              "system":"https://bluebutton.cms.gov/resources/codesystem/diagnosis-type",
-              "code":"principal",
-              "display":"The single medical diagnosis that is most relevant to the patient's chief complaint or need for treatment."
-            }
-          ]
-        }
-      ]
-    }
-  ],
-  "id":"carrier-10300336722",
-  "payment":{
-    "amount":{
-      "system":"urn:iso:std:iso:4217",
-      "code":"USD",
-      "value":250.0
-    }
-  },
-  "resourceType":"ExplanationOfBenefit",
-  "billablePeriod":{
-    "start":"2000-10-01",
-    "end":"2000-10-01"
-  },
-  "extension":[
-    {
-      "valueMoney":{
-        "system":"urn:iso:std:iso:4217",
-        "code":"USD",
-        "value":0.0
-      },
-      "url":"https://bluebutton.cms.gov/resources/variables/prpayamt"
-    },
-    {
-      "valueIdentifier":{
-        "system":"https://bluebutton.cms.gov/resources/variables/carr_num",
-        "value":"99999"
-      },
-      "url":"https://bluebutton.cms.gov/resources/variables/carr_num"
-    },
-    {
-      "valueCoding":{
-        "system":"https://bluebutton.cms.gov/resources/variables/carr_clm_pmt_dnl_cd",
-        "code":"1",
-        "display":"Physician/supplier"
-      },
-      "url":"https://bluebutton.cms.gov/resources/variables/carr_clm_pmt_dnl_cd"
-    }
-  ],
-  "type":{
-    "coding":[
-      {
-        "system":"https://bluebutton.cms.gov/resources/variables/nch_clm_type_cd",
-        "code":"71",
-        "display":"Local carrier non-durable medical equipment, prosthetics, orthotics, and supplies (DMEPOS) claim"
-      },
-      {
-        "system":"https://bluebutton.cms.gov/resources/codesystem/eob-type",
-        "code":"CARRIER"
-      },
-      {
-        "system":"http://hl7.org/fhir/ex-claimtype",
-        "code":"professional",
-        "display":"Professional"
-      },
-      {
-        "system":"https://bluebutton.cms.gov/resources/variables/nch_near_line_rec_ident_cd",
-        "code":"O",
-        "display":"Part B physician/supplier claim record (processed by local carriers; can include DMEPOS services)"
-      }
-    ]
-  },
-  "patient":{
-    "reference":"Patient/20000000000001"
-  },
-  "identifier":[
-    {
-      "system":"https://bluebutton.cms.gov/resources/variables/clm_id",
-      "value":"10300336722"
-    },
-    {
-      "system":"https://bluebutton.cms.gov/resources/identifier/claim-group",
-      "value":"44077735787"
-    }
-  ],
-  "insurance":{
-    "coverage":{
-      "reference":"Coverage/part-b-20000000000001"
-    }
-  },
-  "item":[
-    {
-      "locationCodeableConcept":{
-        "extension":[
-          {
-            "valueCoding":{
-              "system":"https://bluebutton.cms.gov/resources/variables/prvdr_state_cd",
-              "code":"99",
-              "display":"With 000 county code is American Samoa; otherwise unknown"
-            },
-            "url":"https://bluebutton.cms.gov/resources/variables/prvdr_state_cd"
-          },
-          {
-            "valueCoding":{
-              "system":"https://bluebutton.cms.gov/resources/variables/prvdr_zip",
-              "code":"999999999"
-            },
-            "url":"https://bluebutton.cms.gov/resources/variables/prvdr_zip"
-          },
-          {
-            "valueCoding":{
-              "system":"https://bluebutton.cms.gov/resources/variables/carr_line_prcng_lclty_cd",
-              "code":"99"
-            },
-            "url":"https://bluebutton.cms.gov/resources/variables/carr_line_prcng_lclty_cd"
-          }
-        ],
-        "coding":[
-          {
-            "system":"https://bluebutton.cms.gov/resources/variables/line_place_of_srvc_cd",
-            "code":"99",
-            "display":"Other Place of Service. Other place of service not identified above."
-          }
-        ]
-      },
-      "service":{
-        "coding":[
-          {
-            "system":"https://bluebutton.cms.gov/resources/codesystem/hcpcs",
-            "code":"45384",
-            "version":"0"
-          }
-        ]
-      },
-      "extension":[
-        {
-          "valueCoding":{
-            "system":"https://bluebutton.cms.gov/resources/variables/carr_line_mtus_cd",
-            "code":"3",
-            "display":"Services"
-          },
-          "url":"https://bluebutton.cms.gov/resources/variables/carr_line_mtus_cd"
-        },
-        {
-          "valueQuantity":{
-            "value":1
-          },
-          "url":"https://bluebutton.cms.gov/resources/variables/carr_line_mtus_cnt"
-        }
-      ],
-      "servicedPeriod":{
-        "start":"2000-10-01",
-        "end":"2000-10-01"
-      },
-      "quantity":{
-        "value":1
-      },
-      "category":{
-        "coding":[
-          {
-            "system":"https://bluebutton.cms.gov/resources/variables/line_cms_type_srvc_cd",
-            "code":"2",
-            "display":"Surgery"
-          }
-        ]
-      },
-      "sequence":1,
-      "diagnosisLinkId":[
-        2
-      ],
-      "adjudication":[
-        {
-          "category":{
-            "coding":[
-              {
-                "system":"https://bluebutton.cms.gov/resources/codesystem/adjudication",
-                "code":"https://bluebutton.cms.gov/resources/variables/carr_line_rdcd_pmt_phys_astn_c",
-                "display":"Carrier Line Reduced Payment Physician Assistant Code"
-              }
-            ]
-          },
-          "reason":{
-            "coding":[
-              {
-                "system":"https://bluebutton.cms.gov/resources/variables/carr_line_rdcd_pmt_phys_astn_c",
-                "code":"0",
-                "display":"N/A"
-              }
-            ]
-          }
-        },
-        {
-          "extension":[
-            {
-              "valueCoding":{
-                "system":"https://bluebutton.cms.gov/resources/variables/line_pmt_80_100_cd",
-                "code":"0",
-                "display":"80%"
-              },
-              "url":"https://bluebutton.cms.gov/resources/variables/line_pmt_80_100_cd"
-            }
-          ],
-          "amount":{
-            "system":"urn:iso:std:iso:4217",
-            "code":"USD",
-            "value":250.0
-          },
-          "category":{
-            "coding":[
-              {
-                "system":"https://bluebutton.cms.gov/resources/codesystem/adjudication",
-                "code":"https://bluebutton.cms.gov/resources/variables/line_nch_pmt_amt",
-                "display":"Line NCH Medicare Payment Amount"
-              }
-            ]
-          }
-        },
-        {
-          "category":{
-            "coding":[
-              {
-                "system":"https://bluebutton.cms.gov/resources/codesystem/adjudication",
-                "code":"https://bluebutton.cms.gov/resources/variables/line_bene_pmt_amt",
-                "display":"Line Payment Amount to Beneficiary"
-              }
-            ]
-          },
-          "amount":{
-            "system":"urn:iso:std:iso:4217",
-            "code":"USD",
-            "value":0.0
-          }
-        }
-      ]
-    }
-  ]
-}
-```
-
-## Beneficiary Patient Data
-The process of retrieving patient data is very similar to exporting explanation of benefit data.
-
-#### 1. Obtain an access token
-See [Authentication and Authorization](#authentication-and-authorization) above.
-
-#### 2. Initiate an export job
-
-##### Request
-`GET /api/v1/Patient/$export`
-
-To start a patient data export job, a GET request is made to the Patient export endpoint. An access token as well as `Accept` and `Prefer` headers are required.
-
-The dollar sign ('$') before the word "export" in the URL indicates that the endpoint is an action rather than a resource. The format is defined by the [FHIR Bulk Data Export spec](https://github.com/smart-on-fhir/fhir-bulk-data-docs/blob/master/export.md){:target="_blank"}.
-
-###### Headers
-* `Authorization: Bearer {token}`
-* `Accept: application/fhir+json`
-* `Prefer: respond-async`
-
-###### cURL command
-```sh
-curl -v https://sandbox.bcda.cms.gov/api/v1/Patient/\$export \
--H 'Authorization: Bearer {token}' \
--H 'Accept: application/fhir+json' \
--H 'Prefer: respond-async'
-```
-
-##### Response
-If the request was successful, a `202 Accepted` response code will be returned and the response will include a `Content-Location` header. The value of this header indicates the location to check for job status and outcome. In the example header below, the number 43 in the URL represents the ID of the export job.
-
-###### Headers
-* `Content-Location: https://sandbox.bcda.cms.gov/api/v1/jobs/43`
-
-#### 3. Check the status of the export job
-
-##### Request
-`GET https://sandbox.bcda.cms.gov/api/v1/jobs/43`
-
-Using the `Content-Location` header value from the Patient data export response, you can check the status of the export job. The status will change from `202 Accepted` to `200 OK` when the export job is complete and the data is ready to be downloaded.
-
-###### Headers
-* `Authorization: Bearer {token}`
-
-###### cURL Command
-```sh
-curl -v https://sandbox.bcda.cms.gov/api/v1/jobs/43 \
--H 'Authorization: Bearer {token}'
-```
-
-##### Responses
-* `202 Accepted` indicates that the job is processing. Headers will include `X-Progress: In Progress`
-* `200 OK` indicates that the job is complete. Below is an example of the format of the response body.
-```json
-{
-  "transactionTime": "2018-10-19T14:47:33.975024Z",
-  "request": "https://sandbox.bcda.cms.gov/api/v1/Patient/$export",
-  "requiresAccessToken": true,
-  "output": [
-    {
-      "type": "Patient",
-      "url": "https://sandbox.bcda.cms.gov/data/43/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson"
-    }
-  ],
-  "error": [
-    {
-      "type": "OperationOutcome",
-      "url": "https://sandbox.bcda.cms.gov/data/43/DBBD1CE1-AE24-435C-807D-ED45953077D3-error.ndjson"
-    }
-  ]
-}
-```
-Patient demographic data can be found at the URLs within the `output` field. The number 43 in the data file URLs is the same job ID from the `Content-Location` header URL in previous step. If some of the data cannot be exported due to errors, details of the errors can be found at the URLs in the `error` field. The errors are provided in an NDJSON file as FHIR [OperationOutcome](https://www.hl7.org/fhir/operationoutcome.html){:target="_blank"} resources.
-
-#### 4. Retrieve the NDJSON output file(s)
-To obtain the exported explanation of benefit data, a GET request is made to the output URLs in the job status response when the job reaches the Completed state. The data will be presented as an NDJSON file of [Patient](https://www.hl7.org/fhir/patient.html){:target="_blank"} resources.
-
-##### Request
-`GET https://sandbox.bcda.cms.gov/data/43/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson`
-
-###### Headers
-* `Authorization: Bearer {token}`
-
-###### cURL command
-```sh
-curl https://sandbox.bcda.cms.gov/data/43/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson \
--H 'Authorization: Bearer {token}'
-```
-
-##### Response
-The response will be the requested data as FHIR Patient resources in NDJSON format, encrypted. An unencrypted example of one such resource is shown below.
-
-```json
-{
-	"fullUrl": "https:///v1/fhir/Patient/19990000002901",
-	"resource": {
-		"address": [{
-			"district": "999",
-			"postalCode": "99999",
-			"state": "34"
-		}],
-		"birthDate": "1999-06-01",
-		"extension": [{
-			"url": "https://bluebutton.cms.gov/resources/variables/race",
-			"valueCoding": {
-				"code": "1",
-				"display": "White",
-				"system": "https://bluebutton.cms.gov/resources/variables/race"
-			}
-		}],
-		"gender": "unknown",
-		"id": "19990000002901",
-		"identifier": [{
-			"system": "https://bluebutton.cms.gov/resources/variables/bene_id",
-			"value": "19990000002901"
-		}, {
-			"system": "https://bluebutton.cms.gov/resources/identifier/hicn-hash",
-			"value": "77174c6546668151f741cca47739271baf364d19825a387101d39fc303d91f2c"
-		}],
-		"name": [{
-			"family": "Doe",
-			"given": ["Jane", "X"],
-			"use": "usual"
-		}],
-		"resourceType": "Patient"
-	}
-}
-```
-## Beneficiary Coverage Data
-The process of retrieving coverage data is very similar to all of the other exporting operations supported by this API.
-
-#### 1. Obtain an access token
-See [Authentication and Authorization](#authentication-and-authorization) above.
-
-#### 2. Initiate an export job
-
-##### Request
-`GET /api/v1/Coverage/$export`
-
-To start a coverage data export job, a GET request is made to the Coverage export endpoint. An access token as well as `Accept` and `Prefer` headers are required.
-
-The dollar sign ('$') before the word "export" in the URL indicates that the endpoint is an action rather than a resource. The format is defined by the [FHIR Bulk Data Export spec](https://github.com/smart-on-fhir/fhir-bulk-data-docs/blob/master/export.md){:target="_blank"}.
-
-###### Headers
-* `Authorization: Bearer {token}`
-* `Accept: application/fhir+json`
-* `Prefer: respond-async`
-
-###### cURL command
-```sh
-curl -v https://sandbox.bcda.cms.gov/api/v1/Coverage/\$export \
--H 'Authorization: Bearer {token}' \
--H 'Accept: application/fhir+json' \
--H 'Prefer: respond-async'
-```
-
-##### Response
-If the request was successful, a `202 Accepted` response code will be returned and the response will include a `Content-Location` header. The value of this header indicates the location to check for job status and outcome. In the example header below, the number 44 in the URL represents the ID of the export job.
-
-###### Headers
-* `Content-Location: https://sandbox.bcda.cms.gov/api/v1/jobs/44`
-
-#### 3. Check the status of the export job
-
-##### Request
-`GET https://sandbox.bcda.cms.gov/api/v1/jobs/44`
-
-Using the `Content-Location` header value from the Coverage data export response, you can check the status of the export job. The status will change from `202 Accepted` to `200 OK` when the export job is complete and the data is ready to be downloaded.
-
-###### Headers
-* `Authorization: Bearer {token}`
-
-###### cURL Command
-```sh
-curl -v https://sandbox.bcda.cms.gov/api/v1/jobs/44 \
--H 'Authorization: Bearer {token}'
-```
-
-##### Responses
-* `202 Accepted` indicates that the job is processing. Headers will include `X-Progress: In Progress`
-* `200 OK` indicates that the job is complete. Below is an example of the format of the response body.
-```json
-{
-  "transactionTime": "2018-10-19T14:47:33.975024Z",
-  "request": "https://sandbox.bcda.cms.gov/api/v1/Coverage/$export",
-  "requiresAccessToken": true,
-  "output": [
-    {
-      "type": "Coverage",
-      "url": "https://sandbox.bcda.cms.gov/data/44/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson"
-    }
-  ],
-  "error": [
-    {
-      "type": "OperationOutcome",
-      "url": "https://sandbox.bcda.cms.gov/data/44/DBBD1CE1-AE24-435C-807D-ED45953077D3-error.ndjson"
-    }
-  ]
-}
-```
-Coverage demographic data can be found at the URLs within the `output` field. The number 44 in the data file URLs is the same job ID from the `Content-Location` header URL in previous step. If some of the data cannot be exported due to errors, details of the errors can be found at the URLs in the `error` field. The errors are provided in an NDJSON file as FHIR [OperationOutcome](https://www.hl7.org/fhir/operationoutcome.html) resources.
-
-#### 4. Retrieve the NDJSON output file(s)
-To obtain the exported coverage data, a GET request is made to the output URLs in the job status response when the job reaches the Completed state. The data will be presented as an NDJSON file of [Coverage](https://www.hl7.org/fhir/coverage.html) resources.
-
-##### Request
-`GET https://sandbox.bcda.cms.gov/data/44/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson`
-
-###### Headers
-* `Authorization: Bearer {token}`
-
-###### cURL command
-```sh
-curl https://sandbox.bcda.cms.gov/data/44/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson \
--H 'Authorization: Bearer {token}'
-```
-
-##### Response
-The response will be the requested data as FHIR Coverage resources in NDJSON format. An example of one such resource is shown below.
-
-  ```json
-  {
-  "fullUrl": "https:///v1/fhir/Coverage/part-a-19990000002901",
-  "resource": {
-    "beneficiary": {
-      "reference": "Patient/19990000002901"
-    },
-    "extension": [
-      {
-        "url": "https://bluebutton.cms.gov/resources/variables/ms_cd",
-        "valueCoding": {
-          "code": "10",
-          "display": "Aged without end-stage renal disease (ESRD)",
-          "system": "https://bluebutton.cms.gov/resources/variables/ms_cd"
-        }
-      },
-      {
-        "url": "https://bluebutton.cms.gov/resources/variables/orec",
-        "valueCoding": {
-          "code": "0",
-          "display": "Old age and survivor’s insurance (OASI)",
-          "system": "https://bluebutton.cms.gov/resources/variables/orec"
-        }
-      },
-      {
-        "url": "https://bluebutton.cms.gov/resources/variables/crec",
-        "valueCoding": {
-          "code": "0",
-          "display": "Old age and survivor’s insurance (OASI)",
-          "system": "https://bluebutton.cms.gov/resources/variables/crec"
-        }
-      },
-      {
-        "url": "https://bluebutton.cms.gov/resources/variables/esrd_ind",
-        "valueCoding": {
-          "code": "0",
-          "display": "the beneficiary does not have ESRD",
-          "system": "https://bluebutton.cms.gov/resources/variables/esrd_ind"
-        }
-      },
-      {
-        "url": "https://bluebutton.cms.gov/resources/variables/a_trm_cd",
-        "valueCoding": {
-          "code": "0",
-          "display": "Not Terminated",
-          "system": "https://bluebutton.cms.gov/resources/variables/a_trm_cd"
-        }
-      }
-    ],
-    "grouping": {
-      "subGroup": "Medicare",
-      "subPlan": "Part A"
-    },
-    "id": "part-a-19990000002901",
-    "resourceType": "Coverage",
-    "status": "active",
-    "type": {
-      "coding": [
-        {
-          "code": "Part A",
-          "system": "Medicare"
-        }
-      ]
-    }
-  }
-}
-```
+Under the Metadata endpoint, click on `/_auth` to expand that section. After the information field expands, as shown below, click `Try it out`.
 
+<img src="assets/img/swagger_walkthrough_03.png" alt="swagger metadata usage" />
+
+Then, as shown below, click `Execute` to run the process of getting details about `auth`.
+
+<img src="assets/img/swagger_walkthrough_04.png" alt="Screenshot of swagger metadata usage" />
+
+As shown below, clicking `Execute` returns details about the authorization and authentication provider BCDA is using.
+
+<img src="assets/img/swagger_walkthrough_05.png" alt="swagger metadata usage" />
+
+You can repeat this process with the `/_version` and `/api/v1/metadata` endpoints as well.
+
+If you’d like to do this from the command line or implement this API call in code, look in the `Curl` section for the request you just made.
+
+### 3. Learning about the Bulk Data Endpoints
+
+The `bulkData` category provides information about beneficiaries.  As shown below, there are five pieces of information within the `bulkData` category.  The first three -- Explanation of Benefit (EOB) data, Patient data, and Coverage data -- are endpoints that return information about your ACO’s assigned or assignable beneficiaries. The last two pieces of information -- jobId and filename -- return information about the request you’re making.
+
+* **Explanation of Benefit** data includes claims data for your beneficiaries.
+* **Patient** data includes identification information about your assigned or assignable beneficiaries.  
+* **Coverage** data includes each beneficiary’s Medicare coverage plan.
+
+<img src="assets/img/swagger_walkthrough_06.png" alt="bulk data intro" />
+
+### 4. Making your first request for beneficiary data
+To get any bulk beneficiary data, you must first be authorized with BCDA. Make sure you’ve followed the steps above for [Setting up your credentials in Swagger](#setting-up-your-credentials-in-swagger) before moving forward.
+
+Retrieving beneficiary data comprises two steps:
+#### 1. Starting a job to acquire data from a specific endpoint
+#### 2. Retrieving data via a job request
+
+We’ll use the `Coverage` endpoint as an example of how to perform both steps. You’ll be able to follow the same instructions for Explanation of Benefit and Patient data as well.
+
+First, click on `GET /api/v1/Coverage/$export`, then click `Try it out`.
+
+<img src="assets/img/swagger_walkthrough_07.png" alt="bulk data usage" />
+
+Then, as shown below, click `Execute` to start the process of requesting Coverage data.  Make sure you note the **job number** (also known as `jobId`)  in the **response header**, since you’ll need this job number to track the status of your data request.
+
+<img src="assets/img/swagger_walkthrough_08.png" alt="Screenshot of bulk data usage" />
+
+If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image above) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your Coverage job.
+
+### 5. Getting your data
+There are three steps to retrieving the requested Coverage data:
+  1. Checking the status of your job
+  2. Downloading your bulk data file
+  3. Decrypting your data file
+
+Depending on the number of beneficiaries prospectively assigned or assignable to your ACO, it may take a while for your data file to be ready to download. While you wait, you can check the status of your job to find out when the file is ready. 
+
+You can check the status of the job by entering the job number into the `jobId` text field, as shown in the image below.
+
+<img src="assets/img/swagger_walkthrough_09.png" alt="Screenshot of bulk data usage" />
+
+The completed percentage should be shown for the job you just requested. Once the job is completed, you can download the file by clicking on the `Download` button, as shown in the image below.  You will have one hour before your token expires, and you will need to get another from token if it expires before you are finished interacting with the API.  You will also want to copy the filename.
+
+<img src="assets/img/swagger_walkthrough_10.png" alt="Screenshot of bulk data usage" />
+
+The file you’ve downloaded will be encrypted. Follow the [decryption walkthrough](./decryption_walkthrough.html){:target="_blank"} to learn how to decrypt and view the NDJSON data contained inside it.
+
+Once you’ve decrypted the file, you’ll want to know what to do with the data. We’ve provided a [guide to working with BCDA data](./data_guide.html){:target="_blank"} to help you, including a crosswalk between CCLF fields and the corresponding sections of the NDJSON files.
+
+<!--
+## Technical Guide
+* For a more in depth approach see our a technical guide here [Technical User Guide.](./technical_userguide.html){:target="_blank"}
+
+## Decryption walkthrough
+* For a step by step guide of our decryption/encryption strategies visit our decryption page here [Decryption Walkthrough.](./decryption_walkthrough.html){:target="_blank"}
+-->
+
+### Frequently asked questions about making requests
+
+* How often can I request data from BCDA?
+
+  BCDA data will be updated weekly, so you will be able to make requests and expect to retrieve new data on a weekly basis. If you’re already requesting data from one endpoint and try to request data from that endpoint again while the first request is processing, you’ll receive a `429 Too Many Requests` error.
+
+* How will I know when my data is ready?
+
+  The X-Progress header indicates the job's workflow status (Pending, In Progress, Completed, Archived, Expired, Failed). When in the In Progress state, an estimated completion percentage is appended to the X-Progress value (e.g., "In Progress (10%)").
+
+* How long do I have before my file is deleted?
+
+  You will need to download the data file within 24 hours of starting the request to a specific endpoint.
+
+* Why is this data file so large?
+
+  In the first iteration of BCDA in production, each request to a bulk data endpoint sends back seven years of historical data for your beneficiaries. In future iterations, we’ll add a way for you to limit the data to a specific date range.
