@@ -2,7 +2,7 @@
 layout: home
 title:  "Getting Started with BCDA in Production"
 date:   2019-09-03 09:21:12 -0500
-description: "A Beginners Guide to learning about APIs and a walkthrough for the BCDA Swagger Environment"
+description: "A beginner's guide to working with the BCDA Production environment."
 landing-page: live
 gradient: "blueberry-lime-background"
 subnav-link-gradient: "blueberry-lime-link"
@@ -14,13 +14,14 @@ sections:
   - Getting Started with APIs
   - Setting up your credentials in Swagger
   - Making your first requests for data
+  - Frequently asked questions
 ---
 
 ## Requesting production access
-* As BCDA launches into our production beta, we are slowly onboarding small groups of Shared Savings Program ACOs into the production environment. To put your ACO in the queue for access, please send an email to [bcapi@cms.hhs.gov](mailto:bcapi@cms.hhs.gov) with your name and your ACO’s name, ID number, and track. ACOs will be onboarded to production in the order in which requests are received. While you wait, you can get familiar with the API in the [sandbox environment](/sandbox/user-guide/){:target="_blank"}, review the [data structure](./data_guide.html){:target="_blank"}, and join the [BCDA Google Group](https://groups.google.com/forum/#!forum/bc-api){:target="_blank"}, to have your questions answered.
-* Note: some of our early production beta partners have encountered issues accessing the API due to internal firewalls. If your corporate IT uses an internal DNS server, you may not be able to access the API. As you request production access, you may want to check in with your internal IT team to discuss your company’s network structure.
+* As BCDA launches into our production beta, we are slowly onboarding small groups of Shared Savings Program ACOs into the production environment. To put your ACO in the queue for access, please send an email to [bcapi@cms.hhs.gov](mailto:bcapi@cms.hhs.gov) with your name and your ACO’s name, ACO ID number, and track. ACOs will be onboarded to production in the order in which requests are received. While you wait, you can get familiar with the API in the [sandbox environment](/sandbox/user-guide/){:target="_self"}, review the [data structure](/data-guide/){:target="_self"}, and join the [BCDA Google Group](https://groups.google.com/forum/#!forum/bc-api){:target="_blank"}, to have your questions answered.
+* **Note:** some of our early production beta partners have encountered issues accessing the API due to internal firewalls. If your corporate IT uses an internal DNS server, you may not be able to access the API. As you request production access, you may want to check in with your internal IT team to discuss your company’s network structure.
 
-This page is intended for a user who has little to no experience with APIs, and provides a guided walkthrough for working with BCDA using our interactive documentation. More advanced API users may be better served by the [Technical Setup guide](./technical_userguide.html){:target="_blank"}. If you’re not sure where to go, start here!
+This page is intended for a user who has little to no experience with APIs, and provides a guided walkthrough for working with BCDA using our interactive documentation. More advanced API users may be better served by the [Technical Setup guide](/production/technical-user-guide/){:target="_self"}. If you’re not sure where to go, start here!
 
 ## Getting Started with APIs
   * What’s an API?
@@ -36,7 +37,7 @@ This page is intended for a user who has little to no experience with APIs, and 
   
 ## Making your first requests for data
 ### 1. Getting comfortable in Swagger
-There are two categories of information that you can retrieve through BCDA metadata and bulk beneficiary data.
+There are two categories of information that you can retrieve through BCDA: metadata and bulk beneficiary data.
 
 <img src="/assets/img/swagger_walkthrough_01.png" alt="swagger intro" width="500" />
 
@@ -95,11 +96,12 @@ If you’d like to use the command line or implement this API call in code, look
 
 ### 5. Getting your data
 There are three steps to retrieving the requested Coverage data:
-  1. Checking the status of your job
-  2. Downloading your bulk data file
-  3. Decrypting your data file
 
-Depending on the number of beneficiaries prospectively assigned or assignable to your ACO, it may take a while for your data file to be ready to download. While you wait, you can check the status of your job to find out when the file is ready. 
+#### 1. Checking the status of your job
+#### 2. Downloading your bulk data file
+#### 3. Decrypting your data file
+
+Depending on the number of beneficiaries prospectively assigned or assignable to your ACO, it may take a while for your data file to be ready to download. While you wait, you can check the status of your job to find out when the file is ready.
 
 You can check the status of the job by entering the job number into the `jobId` text field, as shown in the image below.
 
@@ -109,32 +111,26 @@ The completed percentage should be shown for the job you just requested. Once th
 
 <img src="/assets/img/swagger_walkthrough_10.png" alt="Screenshot of bulk data usage" />
 
-The file you’ve downloaded will be encrypted. Follow the [decryption walkthrough](./decryption_walkthrough.html){:target="_blank"} to learn how to decrypt and view the NDJSON data contained inside it.
+The file you’ve downloaded will be encrypted. Follow the [decryption walkthrough](/decryption/){:target="_self"} to learn how to decrypt and view the NDJSON data contained inside it.
 
-Once you’ve decrypted the file, you’ll want to know what to do with the data. We’ve provided a [guide to working with BCDA data](./data_guide.html){:target="_blank"} to help you, including a crosswalk between CCLF fields and the corresponding sections of the NDJSON files.
+Once you’ve decrypted the file, you’ll want to know what to do with the data. We’ve provided a [guide to working with BCDA data](/data-guide/){:target="_self"} to help you, including a crosswalk between CCLF fields and the corresponding sections of the NDJSON files.
 
-<!--
-## Technical Guide
-* For a more in depth approach see our a technical guide here [Technical User Guide.](./technical_userguide.html){:target="_blank"}
+## <a name="frequently-asked-questions"></a>Frequently asked questions about making requests
 
-## Decryption walkthrough
-* For a step by step guide of our decryption/encryption strategies visit our decryption page here [Decryption Walkthrough.](./decryption_walkthrough.html){:target="_blank"}
--->
-
-### Frequently asked questions about making requests
-
-* How often can I request data from BCDA?
+* **How often can I request data from BCDA?**
 
   BCDA data will be updated weekly, so you will be able to make requests and expect to retrieve new data on a weekly basis. If you’re already requesting data from one endpoint and try to request data from that endpoint again while the first request is processing, you’ll receive a `429 Too Many Requests` error.
 
-* How will I know when my data is ready?
+* **How will I know when my data is ready?**
 
   The X-Progress header indicates the job's workflow status (Pending, In Progress, Completed, Archived, Expired, Failed). When in the In Progress state, an estimated completion percentage is appended to the X-Progress value (e.g., "In Progress (10%)").
 
-* How long do I have before my file is deleted?
+* **How long do I have before my file is deleted?**
 
   You will need to download the data file within 24 hours of starting the request to a specific endpoint.
 
-* Why is this data file so large?
+* **Why is this data file so large?**
 
-  In the first iteration of BCDA in production, each request to a bulk data endpoint sends back seven years of historical data for your beneficiaries. In future iterations, we’ll add a way for you to limit the data to a specific date range.
+  In the sandbox environment, we can only provide synthetic data up to an equivalent of 30,000 beneficiaries. Your ACO may be larger, in which case the production file will be larger and take longer to process.
+
+  Additionally, in the first iteration of BCDA in production, each request to a bulk data endpoint sends back seven years of historical data for your beneficiaries. In future iterations, we’ll add a way for you to limit the data to a specific date range.
