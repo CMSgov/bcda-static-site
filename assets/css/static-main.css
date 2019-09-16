@@ -6232,7 +6232,7 @@ article h2::after {
     color: #339392;
 }
 
-#main p img {
+#main p img.ug-img {
   width: 100%;
   max-width: 500px;
 }

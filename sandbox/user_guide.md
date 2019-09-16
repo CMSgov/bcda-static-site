@@ -41,11 +41,11 @@ This page is intended for a user who has little to no experience with APIs, and 
 
 There are two categories of information that you can retrieve through BCDA: metadata, and bulk beneficiary data.  
 
-<img src="/assets/img/swagger_walkthrough_01.png" alt="Swagger: metadata and bulkData" />
+<img class="ug-img" class="ug-img" src="/assets/img/swagger_walkthrough_01.png" alt="Swagger: metadata and bulkData" />
 
 **Metadata** in BCDA includes information about the platform that is making, storing, and verifying credentials and tokens (the `auth provider`); information about the API’s version; and information about the actions you can perform using the API itself (also duplicatively termed `metadata`). There is no PII or PHI in the **metadata** endpoint, so you can access this endpoint without having to be authorized.
 
-<img src="/assets/img/swagger_walkthrough_02.png" alt="Swagger: metadata endpoints" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_02.png" alt="Swagger: metadata endpoints" />
 
 ### 2. Looking at BCDA Metadata
 
@@ -53,15 +53,15 @@ We’ll use `auth` as an example here.
 
 Under the Metadata endpoint, click on `/_auth` to expand that section. After the information field expands, as shown below, click `Try it out`.
 
-<img src="/assets/img/swagger_walkthrough_03.png" alt="Swagger: Looking at BCDA Metadata (1)" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_03.png" alt="Swagger: Looking at BCDA Metadata (1)" />
 
 Then, as shown below, click `Execute` to run the process of getting details about `auth`.
 
-<img src="/assets/img/swagger_walkthrough_04.png" alt="Swagger: Looking at BCDA Metadata (2)" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_04.png" alt="Swagger: Looking at BCDA Metadata (2)" />
 
 As shown below, clicking `Execute` returns details about the authorization and authentication provider BCDA is using.
 
-<img src="/assets/img/swagger_walkthrough_05.png" alt="Swagger: Details about authorization and authentication" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_05.png" alt="Swagger: Details about authorization and authentication" />
 
 You can repeat this process with the `/_version` and `/api/v1/metadata` endpoints as well.
 
@@ -75,7 +75,7 @@ The `bulkData` category provides information about beneficiaries.  As shown belo
 * **Patient** data includes identification information about your assigned or assignable beneficiaries.
 * **Coverage** data includes each beneficiary’s Medicare coverage plan.
 
-<img src="/assets/img/swagger_walkthrough_06.png" alt="Swagger: Learning about the Bulk Data Endpoints" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_06.png" alt="Swagger: Learning about the Bulk Data Endpoints" />
 
 ### 4. Making your first request for beneficiary data
 
@@ -90,11 +90,11 @@ We’ll use the `Coverage` endpoint as an example of how to perform both steps. 
 
 First, click on `GET /api/v1/Coverage/$export`, then click `Try it out`.
 
-<img src="/assets/img/swagger_walkthrough_07.png" alt="Swagger: Coverage endpoint (1)" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_07.png" alt="Swagger: Coverage endpoint (1)" />
 
 Then, as shown below, click `Execute` to start the process of requesting Coverage data.  Make sure you note the **job number** (also known as `jobId`)  in the **response header**, since you’ll need this job number to track the status of your data request.
 
-<img src="/assets/img/swagger_walkthrough_08.png" alt="Swagger: Coverage endpoint (2)" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_08.png" alt="Swagger: Coverage endpoint (2)" />
 
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image above) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your Coverage job.
 
@@ -110,13 +110,13 @@ Depending on the number of beneficiaries prospectively assigned or assignable to
 
 You can check the status of the job by entering the job number into the `jobId` text field, as shown in the image below.
 
-<img src="/assets/img/swagger_walkthrough_09.png" alt="Swagger: retrieving your jobId" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_09.png" alt="Swagger: retrieving your jobId" />
 
 The X-Progress header indicates the job's workflow status (Pending, In Progress, Completed, Archived, Expired, Failed). When in the In Progress state, an estimated completion percentage is appended to the X-Progress value (e.g., "In Progress (10%)").
 
 Once the job is completed, you can download the file by clicking on the `Download` button, as shown in the image below.  You will have one hour before your token expires, and you will need to get another from token if it expires before you are finished interacting with the API.  You will also want to copy the filename.
 
-<img src="/assets/img/swagger_walkthrough_10.png" alt="Swagger: downloading your data" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_10.png" alt="Swagger: downloading your data" />
 
 The file you’ve downloaded will be encrypted. Follow the [decryption walkthrough](/decryption/) to learn how to decrypt and view the NDJSON data contained inside it.
 
