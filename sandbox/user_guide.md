@@ -144,7 +144,7 @@ Once you’ve decrypted the file, you’ll want to know what to do with the data
 
 * How will I know when my data is ready?
 
-  You can check the status of your data request by following the instructions outlined in section 5 under the [Making your first requests for data.](#making-your-first-requests-for-data) A status of 200 Ok means that the job, also known as a data request, is complete.  A status of 202 Accepted means that BCDA is processing the job.
+  The X-Progress header indicates the job's workflow status (Pending, In Progress, Completed, Archived, Expired, Failed). When in the In Progress state, an estimated completion percentage is appended to the X-Progress value (e.g., "In Progress (10%)").
 
 * How long do I have before my file is deleted?
 

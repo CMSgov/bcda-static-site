@@ -8,7 +8,7 @@ gradient: "blueberry-lime-background"
 subnav-link-gradient: "blueberry-lime-link"
 nav_link: production
 sections:
-  - Requesting prod access
+  - Requesting production access
   - Getting Started with APIs
   - Setting up your credentials in Swagger
   - Making your first requests for data
@@ -29,7 +29,7 @@ button:
 
 ---
 
-## Requesting prod access
+## Requesting production access
 * As BCDA launches into our production beta, we are slowly onboarding small groups of Shared Savings Program ACOs into the production environment. To put your ACO in the queue for access, please send an email to [bcapi@cms.hhs.gov](mailto:bcapi@cms.hhs.gov) with your name and your ACO’s name, ID number, and track. ACOs will be onboarded to production in the order in which requests are received. While you wait, you can get familiar with the API in the [sandbox environment](/sandbox/user-guide/){:target="_blank"}, review the [data structure](./data_guide.html){:target="_blank"}, and join the [BCDA Google Group](https://groups.google.com/forum/#!forum/bc-api){:target="_blank"}, to have your questions answered.
 * Note: some of our early production beta partners have encountered issues accessing the API due to internal firewalls. If your corporate IT uses an internal DNS server, you may not be able to access the API. As you request production access, you may want to check in with your internal IT team to discuss your company’s network structure.
 
@@ -142,7 +142,7 @@ Once you’ve decrypted the file, you’ll want to know what to do with the data
 
 * How will I know when my data is ready?
 
-  You can check the status of your data request by following the instructions outlined in section 5 under the [Making your first requests for data.](#making-your-first-requests-for-data) A status of 200 Ok means that the job, also known as a data request, is complete.  A status of 202 Accepted means that BCDA is processing the job.
+  The X-Progress header indicates the job's workflow status (Pending, In Progress, Completed, Archived, Expired, Failed). When in the In Progress state, an estimated completion percentage is appended to the X-Progress value (e.g., "In Progress (10%)").
 
 * How long do I have before my file is deleted?
 

@@ -1,6 +1,6 @@
 ---
 layout: home
-title:  "Technical Getting Started Guide: Beneficiary Claims Data API"
+title:  "Technical Getting Started Guide:"
 date:   2017-10-30 09:21:12 -0500
 description: A Step-by-Step Guide to getting set up in BCDA and making retrieving data from the API
 landing-page: live
@@ -293,7 +293,7 @@ curl -v https://sandbox.bcda.cms.gov/api/v1/jobs/42 \
 
 **Responses**
 
-* `202 Accepted` indicates that the job is processing. Headers will include X-Progress: In Progress
+* `202 Accepted` indicates that the job is processing. Headers will include X-Progress: In Progress (The X-Progress header contains text indicating the job's status in BCDA's workflow. When the status is In Progress, an estimated progress percentage is also included.)
 * `200 OK` indicates that the job is complete.
 
 Below is an example of the format of the response body.
@@ -397,7 +397,7 @@ curl -v https://sandbox.bcda.cms.gov/api/v1/jobs/43 \
 
 **Responses**
 
-* `202 Accepted` indicates that the job is processing. Headers will include X-Progress: In Progress
+* `202 Accepted` indicates that the job is processing. Headers will include X-Progress: In Progress (The X-Progress header contains text indicating the job's status in BCDA's workflow. When the status is In Progress, an estimated progress percentage is also included.)
 * `200 OK` indicates that the job is complete.
 
 Below is an example of the format of the response body.
@@ -501,7 +501,7 @@ curl -v https://sandbox.bcda.cms.gov/api/v1/jobs/44 \
 
 **Responses**
 
-* `202 Accepted` indicates that the job is processing. Headers will include X-Progress: In Progress
+* `202 Accepted` indicates that the job is processing. Headers will include X-Progress: In Progress (The X-Progress header contains text indicating the job's status in BCDA's workflow. When the status is In Progress, an estimated progress percentage is also included.)
 * `200 OK` indicates that the job is complete.
 
 Below is an example of the format of the response body.
