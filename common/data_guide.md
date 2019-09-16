@@ -20,6 +20,7 @@ sections:
 
 ## What is FHIR?
 FHIR (Fast Healthcare Interoperability Resources) is a specification for exchanging healthcare data electronically. BCDA sends data acquired through the Blue Button API, which is structured using the FHIR standard, making it more available, discoverable, and understandable. The FHIR standard is developed by HL7, a group dedicated to creating standardized ways of sharing and structuring health care data.
+
 In FHIR, standardized data is structured on a basic building block called a "Resource." All "exchangeable" data is defined as a resource, and a resource is made up of data that systems or computers can easily understand (as well as a part that is more readable by humans).
 BCDA is one of CMS’ first APIs to use the bulk FHIR specification, which means BCDA sends back records on all of an ACO’s assigned or assignable beneficiaries, rather than on a patient-by-patient basis.
 
@@ -63,12 +64,12 @@ In order to aid in users’ understanding of BCDA file data and structure, attac
 ### Additional Resources
 To learn more about FHIR, bulk FHIR specifications, or the Blue Button API, please visit these resources:
 
-* FHIR/HL7: [https://www.hl7.org/fhir/](https://www.hl7.org/fhir/){:target="_blank"}
-* Bulk FHIR specifications: [http://build.fhir.org/ig/HL7/VhDir/bulk-data.html](http://build.fhir.org/ig/HL7/VhDir/bulk-data.html){:target="_blank"}
-* Blue Button API: [https://bluebutton.cms.gov/developers/](https://bluebutton.cms.gov/developers/){:target="_blank"}
-* Intro to JSON Format: [http://json.org](http://json.org){:target="_blank"} and [http://ndjson.org/](http://ndjson.org/){:target="_blank"}
-* JSON format viewer/validator (raw text/JSON format converter): [https://jsonlint.com/](https://jsonlint.com/){:target="_blank"}
-* Intro to valid FHIR formats: [http://hl7.org/fhir/STU3/validation.html](http://hl7.org/fhir/STU3/validation.html){:target="_blank"}
+* [FHIR/HL7](https://www.hl7.org/fhir/){:target="_blank"}
+* [Bulk FHIR specification](http://build.fhir.org/ig/HL7/VhDir/bulk-data.html){:target="_blank"}
+* [Blue Button API](https://bluebutton.cms.gov/developers/){:target="_blank"}
+* [Intro to JSON Format](http://json.org){:target="_blank"} and [http://ndjson.org/](http://ndjson.org/){:target="_blank"}
+* [JSON format viewer/validator (raw text/JSON format converter)](https://jsonlint.com/){:target="_blank"}
+* [Intro to valid FHIR formats](http://hl7.org/fhir/STU3/validation.html){:target="_blank"}
 
 ## Sample BCDA FHIR Data Points
 
