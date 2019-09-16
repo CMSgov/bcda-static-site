@@ -2,7 +2,7 @@
 layout: home
 title:  "Getting Started with BCDA in Sandbox"
 date:   2019-09-15 09:21:12 -0500
-description: A Beginners Guide to learning about APIs and a walkthrough for the BCDA Swagger Environment
+description: A beginner's guide to learning about APIs by walking through the BCDA Swagger documentation.
 landing-page: live
 gradient: "blueberry-lime-background"
 subnav-link-gradient: "blueberry-lime-link"
@@ -15,8 +15,6 @@ sections:
   - Making your first requests for data
 ---
 
-# Getting Started with BCDA in Sandbox
-
 This page is intended for a user who has little to no experience with APIs, and provides a guided walkthrough for working with BCDA using our interactive documentation. More advanced API users may be better served by the [Technical Setup guide](/sandbox/technical-user-guide/). If you’re not sure where to go, start here!
 
 ## Getting Started with APIs
@@ -24,8 +22,8 @@ This page is intended for a user who has little to no experience with APIs, and 
 * What’s an API?
   * An API (Application Programming Interface) is a set of features and rules that exist inside a software program that allows other software programs to interact with it. For example, you can build an app that uses the Twitter API to get information or data from a user's Twitter account. APIs are used in a wide variety of ways, but for our purposes, you can think of an API as a pipeline that can allow your ACO’s computer systems to receive data directly from CMS’ databases.
   * Need more information about APIs? Here are some great introductions:
-    * [Introduction to Web APIs](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction)
-    * [An Intro to APIs](https://www.codenewbie.org/blogs/an-intro-to-apis)
+    * [Introduction to Web APIs](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction){:target="_blank"}
+    * [An Intro to APIs](https://www.codenewbie.org/blogs/an-intro-to-apis){:target="_blank"}
 * Do I need to know how to code to use BCDA?
   * You do not need to know how to code!  Our documentation is written so that everyone -- regardless of technical exposure -- can access beneficiary data. For this walkthrough, we’ll be using a platform called Swagger, where you’ll be able to interact with the API through a web interface.
 
@@ -43,11 +41,11 @@ This page is intended for a user who has little to no experience with APIs, and 
 
 There are two categories of information that you can retrieve through BCDA: metadata, and bulk beneficiary data.  
 
-<img src="../../assets/img/swagger_walkthrough_01.png" alt="Swagger: metadata and bulkData" width="500"/>
+<img src="/assets/img/swagger_walkthrough_01.png" alt="Swagger: metadata and bulkData" width="500"/>
 
 **Metadata** in BCDA includes information about the platform that is making, storing, and verifying credentials and tokens (the `auth provider`); information about the API’s version; and information about the actions you can perform using the API itself (also duplicatively termed `metadata`). There is no PII or PHI in the **metadata** endpoint, so you can access this endpoint without having to be authorized.
 
-<img src="../../assets/img/swagger_walkthrough_02.png" alt="Swagger: metadata endpoints" width="500"/>
+<img src="/assets/img/swagger_walkthrough_02.png" alt="Swagger: metadata endpoints" width="500"/>
 
 ### 2. Looking at BCDA Metadata
 
@@ -55,15 +53,15 @@ We’ll use `auth` as an example here.
 
 Under the Metadata endpoint, click on `/_auth` to expand that section. After the information field expands, as shown below, click `Try it out`.
 
-<img src="../../assets/img/swagger_walkthrough_03.png" alt="Swagger: Looking at BCDA Metadata (1)" width="500"/>
+<img src="/assets/img/swagger_walkthrough_03.png" alt="Swagger: Looking at BCDA Metadata (1)" width="500"/>
 
 Then, as shown below, click `Execute` to run the process of getting details about `auth`.
 
-<img src="../../assets/img/swagger_walkthrough_04.png" alt="Swagger: Looking at BCDA Metadata (22" width="500"/>
+<img src="/assets/img/swagger_walkthrough_04.png" alt="Swagger: Looking at BCDA Metadata (22" width="500"/>
 
 As shown below, clicking `Execute` returns details about the authorization and authentication provider BCDA is using.
 
-<img src="../../assets/img/swagger_walkthrough_05.png" alt="Swagger: Details about authorization and authentication" width="500"/>
+<img src="/assets/img/swagger_walkthrough_05.png" alt="Swagger: Details about authorization and authentication" width="500"/>
 
 You can repeat this process with the `/_version` and `/api/v1/metadata` endpoints as well.
 
@@ -77,7 +75,7 @@ The `bulkData` category provides information about beneficiaries.  As shown belo
 * **Patient** data includes identification information about your assigned or assignable beneficiaries.
 * **Coverage** data includes each beneficiary’s Medicare coverage plan.
 
-<img src="../../assets/img/swagger_walkthrough_06.png" alt="Swagger: Learning about the Bulk Data Endpoints" width="500"/>
+<img src="/assets/img/swagger_walkthrough_06.png" alt="Swagger: Learning about the Bulk Data Endpoints" width="500"/>
 
 ### 4. Making your first request for beneficiary data
 
@@ -90,13 +88,13 @@ Retrieving beneficiary data comprises two steps:
 
 We’ll use the `Coverage` endpoint as an example of how to perform both steps. You’ll be able to follow the same instructions for Explanation of Benefit and Patient data as well.
 
-First, click on `GET /api/v1/Coverage/$export`,then click `Try it out`.
+First, click on `GET /api/v1/Coverage/$export`, then click `Try it out`.
 
-<img src="../../assets/img/swagger_walkthrough_07.png" alt="Swagger: Coverage endpoint (1)" width="500"/>
+<img src="/assets/img/swagger_walkthrough_07.png" alt="Swagger: Coverage endpoint (1)" width="500"/>
 
 Then, as shown below, click `Execute` to start the process of requesting Coverage data.  Make sure you note the **job number** (also known as `jobId`)  in the **response header**, since you’ll need this job number to track the status of your data request.
 
-<img src="../../assets/img/swagger_walkthrough_08.png" alt="Swagger: Coverage endpoint (2)" width="500"/>
+<img src="/assets/img/swagger_walkthrough_08.png" alt="Swagger: Coverage endpoint (2)" width="500"/>
 
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image above) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your Coverage job.
 
@@ -112,30 +110,14 @@ Depending on the number of beneficiaries prospectively assigned or assignable to
 
 You can check the status of the job by entering the job number into the `jobId` text field, as shown in the image below.
 
-<img src="../../assets/img/swagger_walkthrough_09.png" alt="Swagger: retrieving your jobId" width="500" />
+<img src="/assets/img/swagger_walkthrough_09.png" alt="Swagger: retrieving your jobId" width="500" />
+
+The X-Progress header indicates the job's workflow status (Pending, In Progress, Completed, Archived, Expired, Failed). When in the In Progress state, an estimated completion percentage is appended to the X-Progress value (e.g., "In Progress (10%)").
 
 Once the job is completed, you can download the file by clicking on the `Download` button, as shown in the image below.  You will have one hour before your token expires, and you will need to get another from token if it expires before you are finished interacting with the API.  You will also want to copy the filename.
 
-<img src="../../assets/img/swagger_walkthrough_10.png" alt="Swagger: downloading your data" width="500" />
+<img src="/assets/img/swagger_walkthrough_10.png" alt="Swagger: downloading your data" width="500" />
 
-The file you’ve downloaded will be encrypted. Follow the [decryption walkthrough](../../decryption_walkthrough.html) to learn how to decrypt and view the NDJSON data contained inside it.
+The file you’ve downloaded will be encrypted. Follow the [decryption walkthrough](/decryption/) to learn how to decrypt and view the NDJSON data contained inside it.
 
-Once you’ve decrypted the file, you’ll want to know what to do with the data. We’ve provided a [guide to working with BCDA data](../..//data_guide.html) to help you, including a crosswalk between CCLF fields and the corresponding sections of the NDJSON files.
-
-### Frequently asked questions about making requests
-
-* How often can I request data from BCDA?
-
-  BCDA data will be updated weekly, so you will be able to make requests and expect to retrieve new data on a weekly basis. If you’re already requesting data from one endpoint and try to request data from that endpoint again while the first request is processing, you’ll receive a `429 Too Many Requests` error.
-
-* How will I know when my data is ready?
-
-  The X-Progress header indicates the job's workflow status (Pending, In Progress, Completed, Archived, Expired, Failed). When in the In Progress state, an estimated completion percentage is appended to the X-Progress value (e.g., "In Progress (10%)").
-
-* How long do I have before my file is deleted?
-
-  You will need to download the data file within 24 hours of starting the request to a specific endpoint.
-
-* Why is this data file so large?
-
-  In the sandbox environment, we can only provide synthetic data up to an equivalent of 30,000 beneficiaries. Your ACO may be larger, in which case the file will be larger and take longer to process.
+Once you’ve decrypted the file, you’ll want to know what to do with the data. We’ve provided a [guide to working with BCDA data](/data-guide/) to help you, including a crosswalk between CCLF fields and the corresponding sections of the NDJSON files.
