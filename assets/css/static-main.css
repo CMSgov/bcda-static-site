@@ -6200,7 +6200,8 @@ article h2::after {
 
 .topmenu:active,
 .topmenu:focus,
-.topmenu:hover{
+.topmenu:hover,
+.topmenu.active {
     background-color: #fff;
     color: #339392;
 }
