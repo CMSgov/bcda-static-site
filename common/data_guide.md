@@ -34,7 +34,7 @@ BCDA follows the bulk FHIR specification, and provides the same data as the CCLF
 * The **Coverage** file provides information about the beneficiaries’ insurance coverage, including information about dual coverage.
 
 ## BCDA Data Dictionary
-The CCLF to [BCDA Data Dictionary](/assets/data/CCLF_BCDA_BB_Crosswalk.xlsx) is provided to BCDA users to facilitate their data mapping process. Because BCDA delivers data in the FHIR format, data field names will be different from previous data fields delivered through CCLFs. In this spreadsheet, BCDA has provided a crosswalk between all CCLF data fields and their new locations within BCDA Claims files*. The Data Dictionary also provides supplementary context for each of the CCLF/BCDA data fields, including:
+The [CCLF to BCDA Data Dictionary](/assets/data/CCLF_BCDA_BB_Crosswalk.xlsx) is provided to BCDA users to facilitate their data mapping process. Because BCDA delivers data in the FHIR format, data field names will be different from previous data fields delivered through CCLFs. In this spreadsheet, BCDA has provided a crosswalk between all CCLF data fields and their new locations within BCDA Claims files*. The Data Dictionary also provides supplementary context for each of the CCLF/BCDA data fields, including:
 * Claim Field Names and Descriptions
 * Start/End Position
 * Data Type
@@ -55,7 +55,7 @@ CMS provides Accountable Care Organizations (ACOs) with beneficiary identifiable
 For the appropriate beneficiaries, the data provided to the ACO through BCDA includes claims for all services covered by Part A (Hospital Insurance) and Part B (Supplemental Medical Insurance) that were provided and processed during the prior month. Claims data also include prescriptions covered by a Part D Prescription Drug Program in which the beneficiary is enrolled. ACOs will be able to retrieve both the CCLF and BCDA claims data concurrently for the foreseeable future; we encourage our users to use both the CCLF and BCDA data sources to compare and contrast the data that is being delivered to your ACO. BCDA Engineers have designed the API to deliver the same claims data as is contained in the CCLFs.
 
 ## Sample BCDA Files
-In order to aid in users’ understanding of BCDA file data and structure, attached are sample files for BCDA Explanation of Benefit, Patient, and Coverage files. These files contain synthetic data, but the structure of the files is similar to the actual files you will be pulling and downloading from BCDA.
+In order to aid in users’ understanding of BCDA file data and structure, we provide sample Explanation of Benefit, Patient, and Coverage files for download. These files contain synthetic data, but the structure of the files is similar to the actual files you will be pulling and downloading from BCDA.
 
 * [Explanation of Benefit](/assets/data/ExplanationOfBenefit.ndjson)
 * [Coverage](/assets/data/Coverage.ndjson)

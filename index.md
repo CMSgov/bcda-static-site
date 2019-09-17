@@ -32,7 +32,7 @@ Representatives of Shared Savings Program ACOs are now invited to express their 
   Moving from the CCLF file structure to BCDA’s FHIR-based API is a fairly big change. BCDA provides documentation and user guides to help Shared Savings Program ACOs at any stage of technical understanding learn how to interact with the API and the data.
 
   * **If BCDA is going to be your first API:** start with the guide to [Getting Started in Sandbox](/sandbox/user-guide/){:target="_self"}.
-  * **If you’ve worked with APIs before:** start with the [Sandbox Technical Setup Guide](/sandbox/technical-user-guide/){:target="_self"}.
+  * **If you’ve worked with APIs before:** start with the [Advanced Sandbox User Guide](/sandbox/technical-user-guide/){:target="_self"}.
   * **To learn more about the new data structure BCDA will deliver:** review the [Guide to Working with BCDA Data](/data-guide/){:target="_self"}.
   * **To join the queue for an invitation to the production environment:** send an e-mail with your name and your SSP ACO’s name, ACO ID number, and track to [bcapi@cms.hhs.gov](mailto:bcapi@cms.hhs.gov). We will onboard a few ACOs at a time in the order in which requests are received.
 
