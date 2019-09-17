@@ -6206,6 +6206,19 @@ article h2::after {
     color: #339392;
 }
 
+@media only screen and (max-width: 1023px){
+  .topmenu {
+    padding: 8px 10px;
+    margin: 5px;
+  }
+  .topmenu:active,
+  .topmenu:focus,
+  .topmenu:hover,
+  .topmenu.active {
+    border-radius: 3px;
+  }
+}
+
 /*
 .submenu {
     color: #fff;
