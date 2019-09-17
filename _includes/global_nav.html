@@ -3,7 +3,8 @@
   {% for p in pages %}
       <div class="topdrop">
           <div class="dropdown">
-              <a class="topmenu" href="{{ p.url }}" aria-label="{{ item.title }}"> {{item.title}} </a>
+              {% assign prefix = page.id | split: "-" %}
+              <a class="topmenu{% if p.id contains prefix[0] || p.id == page.id %} active{% endif %}" href="{{ p.url }}" aria-label="{{ item.title }}"> {{item.title}} </a>
           </div>
       </div>
   {% endfor %}
