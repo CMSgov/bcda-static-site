@@ -22,7 +22,18 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://bcda.cms.gov" # This is a kludge for HIMMS, we can fix it later as needed. the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 #github_username:  jekyll
-cssurl: assets/css/static-main.css
+cssurl: /assets/css/static-main.css
+
+global_nav:
+  - title: Home
+    id: home
+  - title: Try the API
+    id: sandbox-user-guide
+  - title: Learn about Production
+    id: prod-user-guide
+  - title: Understand BCDA Data
+    id: data-guide
+
 # Build settings
 markdown: kramdown
 theme: minima

@@ -6,50 +6,39 @@ description: Step-by-step instructions to assist with decrypting the NDJSON payl
 landing-page: live
 gradient: "blueberry-lime-background"
 subnav-link-gradient: "blueberry-lime-link"
+permalink: /decryption/
+id: decryption
 sections:
   - How to decrypt BCDA data files
   - Troubleshooting
   - Examples in other languages
-  - Background How we encrypt
-
-button:
-  - title: Home
-    url: "./index.html"
-    link: "home"
-  - title: Try the API
-    url: "/sandbox/user-guide/index.html"
-    link: "sandbox"
-  - title: Learn about Production
-    url: "./user_guide.html"
-    link: "production"
-  - title: Understand BCDA Data
-    url: "./data_guide.html"
-    link: "dataguide"
-
+  - How we encrypt
 ---
 
 ## How to decrypt BCDA data files
-We provide an example of using Python to decrypt a file from BCDA. [See below for examples using other programming languages.](#examples-in-other-languages){:target="_blank"}
+
+We provide an example of using Python to decrypt a file from BCDA. [See below for examples using other programming languages.](#examples-in-other-languages){:target="_self"}
 
 ### 1. Gathering the tools
+
 To complete this decryption example, you will need:
 
   * A client ID and client secret that you should have received during registration
   * A file containing the RSA private key corresponding with the public key you provided during registration
-  
+
   You can write your own decryption code later based on the documentation. This example uses the [python example decryption code](https://github.com/CMSgov/bcda-app/blob/master/decryption_utils/Python/decrypt.py){:target="_blank"}, which requires:
-  
+
   * [Python](https://www.python.org/downloads/){:target="_blank"} and [pip](https://pypi.org/project/pip/){:target="_blank"} installed on your computer
   * [decrypt.py](https://github.com/CMSgov/bcda-app/blob/master/decryption_utils/Python/decrypt.py){:target="_blank"} and [requirements.txt](https://github.com/CMSgov/bcda-app/blob/master/decryption_utils/Python/requirements.txt){:target="_blank"} downloaded from the [BCDA github repository](https://github.com/CMSgov/bcda-app/tree/master/decryption_utils/Python){:target="_blank"} into the same directory
   * You have run `pip install -r requirements.txt` from that same directory to download any required libraries
-  
-### 2. Getting ready to decrypt
-This decryption example picks up at step 5 of the [Getting Started in Production](./user_guide.html){:target="_blank"} guide. By this point, you have provided a bearer token to the API, made a request for data, and are waiting for the export job to complete. When the job is done, you should see a response in Swagger that looks like this:
 
-<img src="assets/img/decrypt_walkthrough_01.png" alt="job status response" width="500" />
+### 2. Getting ready to decrypt
+This decryption example picks up at step 5 of the [Getting Started in Production](/production/user-guide/#5-getting-your-data){:target="_self"} guide. By this point, you have provided a bearer token to the API, made a request for data, and are waiting for the export job to complete. When the job is done, you should see a response in Swagger that looks like this:
+
+<img class="ug-img" src="/assets/img/decrypt_walkthrough_01.png" alt="job status response" />
 
 Take special note of the new KeyMap section of the response. **To decrypt the file, you will need the filename (the first part of the keymap, marked 1 in the image) and the symmetric key (the second part of the keymap, marked 2), as shown above.** There are no spaces in either one. Copy these values from the KeyMap (filename and symmetric key) for later.
-  
+
 * **Note:** Sometimes one or more data points are unavailable. When this happens, the error section will contain a separate filename and symmetric key with a list of the patients involved.
 
 The next step is to download the encrypted file.
@@ -57,44 +46,44 @@ The next step is to download the encrypted file.
 * Open the data file section in Swagger (click `/api/v1/jobs/{jobID}/{filename})`
 * Paste the job ID and filename into the appropriate boxes
 * Click `Execute`
- 
-<img src="assets/img/decrypt_walkthrough_02.png" alt="encrypted file download" width="500" />
- 
+
+<img class="ug-img" src="/assets/img/decrypt_walkthrough_02.png" alt="encrypted file download" />
+
 * Click the **Download file** link that appeared in the response section. Note that a large file may take a while to download.
 
-<img src="assets/img/decrypt_walkthrough_03.png" alt="encrypted file download" width="500" />
-  
+<img class="ug-img" src="/assets/img/decrypt_walkthrough_03.png" alt="encrypted file download" />
+
 ### 3. Decrypting the file
 
-After downloading the file, move to the command line. Navigate to the directory where you saved `decrypt.py` and `requirements.txt` from the Gathering the tools section under the [How to decrypt BCDA data files](#how-to-decrypt-bcda-data-files) section.
+After downloading the file, move to the command line. Navigate to the directory where you saved `decrypt.py` and `requirements.txt` from the [Gathering the tools](#1-gathering-the-tools) section.
 
-<img src="assets/img/decrypt_walkthrough_04.png" alt="decryption with python" width="500" />
+<img class="ug-img" src="/assets/img/decrypt_walkthrough_04.png" alt="decryption with python" />
 
 Let’s first verify that Python is running properly.
 
 * Run `decrypt.py` with the help argument (`python decrypt.py -h`). You should get the response shown below.
 
-<img src="assets/img/decrypt_walkthrough_05.png" alt="decryption with python" width="500" />
+<img class="ug-img" src="/assets/img/decrypt_walkthrough_05.png" alt="decryption with python" />
 
 * Rename the downloaded file with the filename you saved earlier. **This is extremely important as the file name is used as part of the file decryption process and using a different file name will cause decryption to fail.**
 
 **Note: At present, you must have the NDJSON file saved to the same folder as the decryption utilities in order to successfully decrypt.**
 
-<img src="assets/img/decrypt_walkthrough_06.png" alt="decryption with python" width="500" />
+<img class="ug-img" src="/assets/img/decrypt_walkthrough_06.png" alt="decryption with python" />
 
 You are now ready to decrypt the file! The Python example decryption tool will print the decrypted contents to the console, so you can send the output to a file. Make sure to use the following syntax, with the entire command on the same line:
 
-    python decrypt.py 
-        --pk   [location_of_private_key] 
-        --file [location_of_encrypted_file] 
+    python decrypt.py
+        --pk   [location_of_private_key]
+        --file [location_of_encrypted_file]
         --key  [symmetric_key_value]
         > filename.txt
 
-<img src="assets/img/decrypt_walkthrough_07.png" alt="decryption with python" width="500" />
+<img class="ug-img" src="/assets/img/decrypt_walkthrough_07.png" alt="decryption with python" />
 
 Take a look at the result. If you do not see unencrypted [NDJSON](http://ndjson.org){:target="_blank"} (two example lines shown below), then skip ahead to the [troubleshooting section](#troubleshooting).
 
-<img src="assets/img/decrypt_walkthrough_08.png" alt="decryption with python" width="500" />
+<img class="ug-img" src="/assets/img/decrypt_walkthrough_08.png" alt="decryption with python" />
 
 ## Troubleshooting
 
@@ -108,7 +97,7 @@ Take a look at the result. If you do not see unencrypted [NDJSON](http://ndjson.
 * Do you get an HTTP 504 `GATEWAY_TIMEOUT` error? Make sure to add the word “Bearer” (and a space) before the token.
 
 #### Python not installed
-* Is this your first time running Python on your system? You might be interested in this [Windows installation guide](https://www.howtogeek.com/197947/how-to-install-python-on-windows/){:target="_blank"}
+* Is this your first time running Python on your system? You might be interested in this [Windows installation guide](https://www.howtogeek.com/197947/how-to-install-python-on-windows/){:target="_blank"}.
 
 ### Encryption issues
 * Are you having  trouble with the private key? The best practice would be to keep your private key in a separate, secured directory. While you’re testing the encryption feature for the first time, however, you may find it useful to have all the files in the same directory.
@@ -138,8 +127,8 @@ go build decrypt.go
 	> decrypted_output.ndjson
 ```
 
-## Background How we encrypt
-We encrypt the file as the last step in producing it, immediately before we return a final job status (the one that has a body and no X-Progress header). Please see our [getting started guide](./user_guide.html){:target="_blank"} for more on job status.
+## How we encrypt
+We encrypt the file as the last step in producing it, immediately before we return a final job status (the one that has a body and no X-Progress header). Please see our [getting started guide](/sandbox/user-guide/){:target="_self"} for more on job status.
 
 The steps in our encryption process are:
 
@@ -184,7 +173,7 @@ The KeyMap object within our job status response has keys, values:
 for each of the files listed in the output attribute of the response.
 
 When you receive the final job status response, you should save the keys associated with the files so that they are available to you when you are ready to decrypt the file(s). You should also save the output.url and the error.url.
-Again remember the filenames must be preserved when saving the files. See section 3 under [How to decrypt BCDA data files](#how-to-decrypt-bcda-data-files) for more guidance.
+Again remember the filenames must be preserved when saving the files. See [Decrypting the file](#3-decrypting-the-file) for more guidance.
 
 When you are ready to decrypt the files, you make a request to output.url for the data file, and to error.url for the error file. These are protected endpoints, so you must obtain and use a token.
 To decrypt the files, you must use the same algorithm (AES-GCM), and follow these steps:

@@ -1,0 +1,10 @@
+{% for item in site.global_nav %}
+{% assign pages = site.pages | where:"id",item.id %}
+  {% for p in pages %}
+      <div class="topdrop">
+          <div class="dropdown">
+              <a class="topmenu" href="{{ p.url }}" aria-label="{{ item.title }}"> {{item.title}} </a>
+          </div>
+      </div>
+  {% endfor %}
+{% endfor %}
