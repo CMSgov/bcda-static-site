@@ -31,10 +31,69 @@ This page is intended for a user who has little to no experience with APIs, and 
       * [An Intro to APIs](https://www.codenewbie.org/blogs/an-intro-to-apis){:target="_blank"}
   * Do I need to know how to code to use BCDA?
     * You do not need to know how to code!  Our documentation is written so that everyone -- regardless of technical exposure -- can access beneficiary data. For this walkthrough, we’ll be using a platform called Swagger, where you’ll be able to interact with the API through a web interface.
-    
+
 ## Setting up your credentials in Swagger
-  * Navigating to Swagger
-  
+
+### Navigating to Swagger
+
+To get to BCDA's Swagger page for production data, click on the following link, or copy and paste it into your web browser:
+
+[https://api.bcda.cms.gov/api/v1/swagger](https://api.bcda.cms.gov/api/v1/swagger){:target="_blank"}
+
+### Walk-through: from credentials to token
+
+Once the page is open, your first step will be getting an **access token**.  You'll use this access token later to prove you are allowed to use the API.
+
+* Find the section of the page shown below, in the **auth** category.
+* Click the lock icon.
+
+<img class="ug-img" src="/assets/img/nav_swag_01.png" alt="Swagger: Auth category"/>
+
+When you enrolled in BCDA, you received **credentials**, which included a **client ID** and **secret**.  Here you'll enter the client ID as the username, and the secret as the password.
+
+* Click the "Authorize" button when you've entered your credentials, then "Close"
+
+<img class="ug-img" src="/assets/img/nav_swag_02.png" alt="Swagger: Authorize (1)"/>
+
+Now you're ready to get a token!
+
+* To show more information about the `/auth/token` API endpoint, click on it (this time, away from the lock icon).
+* Click "Try it out"
+
+<img class="ug-img" src="/assets/img/nav_swag_03.png" alt="Swagger: Token endpoint (1)"/>
+
+* Click "Execute" to finally get your token
+
+<img class="ug-img" src="/assets/img/nav_swag_04.png" alt="Swagger: Token endpoint (2)"/>
+
+If all is well, the Server response section will look similar to the following snapshot: it will have a response code of `200`, and give an "access_token" in the response body.
+
+* Copy the access token.  It will not have any spaces or newlines; the hyphens at the end of the lines are indicating that the line continues unbroken.
+
+<img class="ug-img" src="/assets/img/nav_swag_05.png" alt="Swagger: Access token response"/>
+
+Now that you have a token, you can tell Swagger to use it for your future requests.
+
+* Find one of the the blue-colored bulk data API endpoints.
+* Click on the lock icon
+
+<img class="ug-img" src="/assets/img/nav_swag_06.png" alt="Swagger: Coverage endpoint"/>
+
+In the "Value" box:
+
+* Type the word "Bearer" followed by a space
+* Paste your token
+* Click "Authorize" and then "Close"
+
+<img class="ug-img" src="/assets/img/nav_swag_07.png" alt="Swagger: Authorize (2)"/>
+
+### Follow-up questions about authorization
+
+**Q: Will I always use this token with the BCDA API?**
+
+A: The token will expire after one hour.  The next time you use the BCDA API after that time, you can follow the same steps to get a fresh token.
+
+
 ## Making your first requests for data
 ### 1. Getting comfortable in Swagger
 There are two categories of information that you can retrieve through BCDA: metadata and bulk beneficiary data.

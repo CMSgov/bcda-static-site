@@ -29,11 +29,76 @@ This page is intended for a user who has little to no experience with APIs, and 
 
 ## Setting up your credentials in Swagger
 
-* Navigating to Swagger
-* Introduction to authorization
-  * (OAuth2?)
-  * (How can I authorize my vendor to do this?)
-* Walk-through: credentials → token
+### Navigating to Swagger
+
+To get to BCDA's Swagger page for synthetic data, click on the following link, or copy and paste it into your web browser:
+
+[https://sandbox.bcda.cms.gov/api/v1/swagger](https://sandbox.bcda.cms.gov/api/v1/swagger){:target="_blank"}
+
+### Walk-through: from credentials to token
+
+Once the page is open, your first step will be getting an **access token**.  You'll use this access token later to prove you are allowed to use the API.
+
+* Find the section of the page shown below, in the **auth** category.
+* Click the lock icon.
+
+<img class="ug-img" src="/assets/img/nav_swag_01.png" alt="Swagger: Auth category"/>
+
+In the sandbox environment, we provide generic credentials for you to use. These will not work in the production environment, but will allow you to explore the synthetic data in sandbox.
+
+Client ID:
+{%- capture client_id -%}
+3841c594-a8c0-41e5-98cc-38bb45360d3c
+{%- endcapture -%}
+
+{% include copy_snippet.md code=client_id %}
+
+Client Secret:
+{%- capture client_secret -%}
+f9780d323588f1cdfc3e63e95a8cbdcdd47602ff48a537b51dc5d7834bf466416a716bd4508e904a
+{%- endcapture -%}
+
+{% include copy_snippet.md code=client_secret %}
+
+Back in Swagger, you’ll enter the client ID as the username, and the secret as the password.
+
+* Click the "Authorize" button when you've entered your credentials, then "Close"
+
+<img class="ug-img" src="/assets/img/nav_swag_02.png" alt="Swagger: Authorize (1)"/>
+
+Now you're ready to get a token!
+
+* To show more information about the `/auth/token` API endpoint, click on it (this time, away from the lock icon).
+* Click "Try it out"
+
+<img class="ug-img" src="/assets/img/nav_swag_03.png" alt="Swagger: Token endpoint (1)"/>
+
+* Click "Execute" to finally get your token
+
+<img class="ug-img" src="/assets/img/nav_swag_04.png" alt="Swagger: Token endpoint (2)"/>
+
+If all is well, the Server response section will look similar to the following snapshot: it will have a response code of `200`, and give an "access_token" in the response body.
+
+* Copy the access token.  It will not have any spaces or newlines; the hyphens at the end of the lines are indicating that the line continues unbroken.
+
+<img class="ug-img" src="/assets/img/nav_swag_05.png" alt="Swagger: Access token response"/>
+
+Now that you have a token, you can tell Swagger to use it for your future requests.
+
+* Find one of the the blue-colored bulk data API endpoints.
+* Click on the lock icon
+
+<img class="ug-img" src="/assets/img/nav_swag_06.png" alt="Swagger: Coverage endpoint"/>
+
+In the "Value" box:
+
+* Type the word "Bearer" followed by a space
+* Paste your token
+* Click "Authorize" and then "Close"
+
+<img class="ug-img" src="/assets/img/nav_swag_07.png" alt="Swagger: Authorize (2)"/>
+
+You are now ready to interact with the BCDA sandbox environment.
 
 ## Making your first requests for data
 
