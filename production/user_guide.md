@@ -154,11 +154,10 @@ Then, as shown below, click `Execute` to start the process of requesting Coverag
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image above) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your Coverage job.
 
 ### 5. Getting your data
-There are three steps to retrieving the requested Coverage data:
+There are two steps to retrieving the requested Coverage data:
 
-#### 1. Checking the status of your job
-#### 2. Downloading your bulk data file
-#### 3. Decrypting your data file
+1. Checking the status of your job
+2. Downloading your bulk data file
 
 Depending on the number of beneficiaries prospectively assigned or assignable to your ACO, it may take a while for your data file to be ready to download. While you wait, you can check the status of your job to find out when the file is ready.
 
@@ -166,13 +165,11 @@ You can check the status of the job by entering the job number into the `jobId` 
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_09.png" alt="Screenshot of bulk data usage" />
 
-The completed percentage should be shown for the job you just requested. Once the job is completed, you can download the file by clicking on the `Download` button, as shown in the image below.  You will have one hour before your token expires, and you will need to get another from token if it expires before you are finished interacting with the API.  You will also want to copy the filename.
+The completed percentage should be shown for the job you just requested. Once the job is completed, you can download the file by clicking on the `Download` button, as shown in the image below.  You will have one hour before your token expires, and you will need to get another from token if it expires before you are finished interacting with the API.
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_10.png" alt="Screenshot of bulk data usage" />
 
-The file you’ve downloaded will be encrypted. Follow the [decryption walkthrough](/decryption/){:target="_self"} to learn how to decrypt and view the NDJSON data contained inside it.
-
-Once you’ve decrypted the file, you’ll want to know what to do with the data. We’ve provided a [guide to working with BCDA data](/data-guide/){:target="_self"} to help you, including a crosswalk between CCLF fields and the corresponding sections of the NDJSON files.
+Once you’ve downloaded the file, you’ll want to know what to do with the data. We’ve provided a [guide to working with BCDA data](/data-guide/){:target="_self"} to help you, including a crosswalk between CCLF fields and the corresponding sections of the NDJSON files.
 
 ## <a name="frequently-asked-questions"></a>Frequently asked questions about making requests
 
