@@ -18,7 +18,7 @@ sections:
 # Overview
 The Beneficiary Claims Data API (BCDA) enables Accountable Care Organizations (ACOs) participating in the Shared Savings Program to retrieve Medicare Part A, Part B, and Part D claims data for their prospectively assigned or assignable beneficiaries. In the production environment, the API provides data parallel to Claim and Claim Line Feed (CCLF) files*, currently provided monthly to Shared Savings Program ACOs by CMS. This includes Medicare claims data for instances in which beneficiaries receive care outside of the ACO, allowing a full picture of patient care.
 
-Representatives of Shared Savings Program ACOs are now invited to express their interest in joining the production environment by completing the [BCDA Production Onboarding Request Form](https://airtable.com/shrMbfFSRZkTcSAof){:target="_self"}. While you wait to onboard in the production environment, we invite developers, analysts, and administrators at Shared Savings Program ACOs to try out the [BCDA Sandbox experience](/sandbox/user-guide/){:target="_self"}.
+Representatives of Shared Savings Program ACOs are now invited to express their interest in joining the production environment by completing the [BCDA Production Onboarding Request Form](https://airtable.com/shrMbfFSRZkTcSAof){:target="_blank"}. While you wait to onboard in the production environment, we invite developers, analysts, and administrators at Shared Savings Program ACOs to try out the [BCDA Sandbox experience](/sandbox/user-guide/){:target="_self"}.
 
 * **What’s the difference between the sandbox and production environments?** BCDA’s production environment provides actual patient claims data on an ACO’s prospectively assigned or assignable beneficiaries, while the sandbox uses the same API structure but contains no beneficiary PII or PHI.
 
@@ -34,7 +34,7 @@ Representatives of Shared Savings Program ACOs are now invited to express their 
   * **If BCDA is going to be your first API:** start with the guide to [Getting Started in Sandbox](/sandbox/user-guide/){:target="_self"}.
   * **If you’ve worked with APIs before:** start with the [Advanced Sandbox User Guide](/sandbox/technical-user-guide/){:target="_self"}.
   * **To learn more about the new data structure BCDA will deliver:** review the [Guide to Working with BCDA Data](/data-guide/){:target="_self"}.
-  * **To join the queue for an invitation to the production environment:** [fill out the BCDA Production Onboarding Request Form](https://airtable.com/shrMbfFSRZkTcSAof){:target="_self"}. We will onboard a few ACOs at a time in the order in which requests are received.
+  * **To join the queue for an invitation to the production environment:** [fill out the BCDA Production Onboarding Request Form](https://airtable.com/shrMbfFSRZkTcSAof){:target="_blank"}. We will onboard a few ACOs at a time in the order in which requests are received.
 
 ## Frequently Asked Questions
 
