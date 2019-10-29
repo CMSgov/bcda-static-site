@@ -166,11 +166,23 @@ You can check the status of the job by entering the job number into the `jobId` 
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_09.png" alt="Screenshot of bulk data usage" />
 
-The completed percentage should be shown for the job you just requested. Once the job is completed, you can download the file by clicking on the `Download` button, as shown in the image below.  You will have one hour before your token expires, and you will need to get another from token if it expires before you are finished interacting with the API.  You will also want to copy the filename.
+The X-Progress header indicates the job's workflow status (Pending, In Progress, Completed, Archived, Expired, Failed). When in the In Progress state, an estimated completion percentage is appended to the X-Progress value (e.g., "In Progress (10%)").
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_10.png" alt="Screenshot of bulk data usage" />
+Once the job is completed, you will receive a `HTTP 200 Complete` response, which includes a URL ending in .ndjson, and an encryptedKey string. You’ll need the end of the URL in order to retrieve your data, and the encryptedKey in order to decrypt the file.
 
-The file you’ve downloaded will be encrypted. Follow the [decryption walkthrough](/decryption/){:target="_self"} to learn how to decrypt and view the NDJSON data contained inside it.
+<img class="ug-img" src="/assets/img/swagger_walkthrough_10.png" alt="Swagger: retrieving your job info data" />
+
+To retrieve your data, open the `GET /data/{jobId}/{filename}` endpoint. Copy the `jobId` into the `jobId` field, and the last string of the URL received in the previous step (highlighted in green and dashed lines above) into the `filename` field, then hit `Execute`.
+
+<img class="ug-img" src="/assets/img/swagger_walkthrough_11.png" alt="Swagger: requesting your files" />
+
+Click the `Download file` link that appears in the response section. Note that a large file may take a while to download.
+
+<img class="ug-img" src="/assets/img/swagger_walkthrough_12.png" alt="Swagger: downloading your file" />
+
+You will have one hour before your token expires, and you will need to get another from token if it expires before you are finished interacting with the API.
+
+The file you’ve downloaded will be encrypted. Follow the [decryption walkthrough](/decryption/) to learn how to decrypt and view the NDJSON data contained inside it.
 
 Once you’ve decrypted the file, you’ll want to know what to do with the data. We’ve provided a [guide to working with BCDA data](/data-guide/){:target="_self"} to help you, including a crosswalk between CCLF fields and the corresponding sections of the NDJSON files.
 
