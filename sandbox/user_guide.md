@@ -179,7 +179,7 @@ You can check the status of the job by entering the job number into the `jobId` 
 
 The X-Progress header indicates the job's workflow status (Pending, In Progress, Completed, Archived, Expired, Failed). When in the In Progress state, an estimated completion percentage is appended to the X-Progress value (e.g., "In Progress (10%)").
 
-Once the job is completed, you will receive a `HTTP 200 Complete` response, which includes a URL ending in .ndjson, and an encryptedKey string. You’ll need the end of the URL in order to retrieve your data, and the encryptedKey in order to decrypt the file.
+Once the job is completed, you will receive a `HTTP 200 Complete` response, which includes a URL ending in .ndjson, and an `encryptedKey` string. You’ll need the end of the URL in order to retrieve your data, and the `encryptedKey` in order to decrypt the file.
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_10.png" alt="Swagger: retrieving your job info data" />
 
