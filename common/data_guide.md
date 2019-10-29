@@ -67,6 +67,7 @@ To learn more about FHIR, bulk FHIR specifications, or the Blue Button API, plea
 * [FHIR/HL7](https://www.hl7.org/fhir/){:target="_blank"}
 * [Bulk FHIR specification](http://build.fhir.org/ig/HL7/VhDir/bulk-data.html){:target="_blank"}
 * [Blue Button API](https://bluebutton.cms.gov/developers/){:target="_blank"}
+* [Blue Button Implementation Guide](https://bluebutton.cms.gov/assets/ig/index.html){:target="_blank"}
 * [Intro to JSON Format](http://json.org){:target="_blank"} and [http://ndjson.org/](http://ndjson.org/){:target="_blank"}
 * [JSON format viewer/validator (raw text/JSON format converter)](https://jsonlint.com/){:target="_blank"}
 * [Intro to valid FHIR formats](http://hl7.org/fhir/STU3/validation.html){:target="_blank"}
