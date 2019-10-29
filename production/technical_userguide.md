@@ -27,7 +27,7 @@ This guide serves as a starting point for users to begin working with the API. [
 
 **Note:** if this documentation is a little too in-depth, you may want to start with our [guide to getting started in production](/production/user-guide/) for an overview of APIs and a gentler walk-through.
 
-**Note:** If you have not yet received production credentials, you will not be able to access production endpoints and data. To put your ACO in the queue for access, please send an email to [bcapi@cms.hhs.gov](mailto:bcapi@cms.hhs.gov) with your name and your ACO’s name, ID number, and track. ACOs will be onboarded to production in the order in which requests are received. While you wait, you can [get familiar with the API in the sandbox environment](/sandbox/user-guide/), review the [data structure](/data-guide/) and join the [BCDA Google Group](https://groups.google.com/forum/#!forum/bc-api){:target="_blank"}, to have your questions answered.
+**Note:** If you have not yet received production credentials, you will not be able to access production endpoints and data. To put your ACO in the queue for access, please fill out the [BCDA Production Onboarding Request Form](https://airtable.com/shrMbfFSRZkTcSAof). ACOs will be onboarded to production in the order in which requests are received. While you wait, you can [get familiar with the API in the sandbox environment](/sandbox/user-guide/), review the [data structure](/data-guide/) and join the [BCDA Google Group](https://groups.google.com/forum/#!forum/bc-api){:target="_blank"}, to have your questions answered.
 
 ## Authentication and Authorization
 
