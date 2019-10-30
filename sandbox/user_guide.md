@@ -191,7 +191,7 @@ Click the `Download file` link that appears in the response section. Note that a
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_12.png" alt="Swagger: downloading your file" />
 
-You will have one hour before your token expires, and you will need to get another from token if it expires before you are finished interacting with the API. 
+You will have twenty minutes before your token expires, and you will need to get another from token if it expires before you are finished interacting with the API. 
 
 The file you’ve downloaded will be encrypted. Follow the [decryption walkthrough](/decryption/) to learn how to decrypt and view the NDJSON data contained inside it.
 
