@@ -25,6 +25,7 @@ To complete this decryption example, you will need:
 
   * A client ID and client secret that you should have received during registration
   * A file containing the RSA private key corresponding with the public key you provided during registration
+      * Note: if you are decrypting a file in the sandbox environment, you will need to use the [sandbox private key](https://github.com/CMSgov/bcda-app/blob/master/shared_files/ATO_private.pem){:target="_blank"} provided in our GitHub repository.
 
   You can write your own decryption code later based on the documentation. This example uses the [python example decryption code](https://github.com/CMSgov/bcda-app/blob/master/decryption_utils/Python/decrypt.py){:target="_blank"}, which requires:
 
