@@ -1,5 +1,5 @@
 # Beneficiary Claims Data API
-A static Jekyll site for the BCDA splash page: [https://sandbox.bcda.cms.gov](https://sandbox.bcda.cms.gov/)
+A static Jekyll site for the BCDA splash page: [https://bcda.cms.gov](https://bcda.cms.gov/)
 
 ## Requirements
 It is assumed that the environment already has these installed:

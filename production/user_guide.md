@@ -18,7 +18,7 @@ sections:
 ---
 
 ## Requesting production access
-* As BCDA launches into our production beta, we are slowly onboarding small groups of Shared Savings Program ACOs into the production environment. To put your ACO in the queue for access, please send an email to [bcapi@cms.hhs.gov](mailto:bcapi@cms.hhs.gov) with your name and your ACO’s name, ACO ID number, and track. ACOs will be onboarded to production in the order in which requests are received. While you wait, you can get familiar with the API in the [sandbox environment](/sandbox/user-guide/){:target="_self"}, review the [data structure](/data-guide/){:target="_self"}, and join the [BCDA Google Group](https://groups.google.com/forum/#!forum/bc-api){:target="_blank"}, to have your questions answered.
+* As BCDA launches into our production beta, we are slowly onboarding small groups of Shared Savings Program ACOs into the production environment. To put your ACO in the queue for access, please fill out the [BCDA Production Onboarding Request Form](https://airtable.com/shrMbfFSRZkTcSAof){:target="_blank"}. ACOs will be onboarded to production in the order in which requests are received. While you wait, you can get familiar with the API in the [sandbox environment](/sandbox/user-guide/){:target="_self"}, review the [data structure](/data-guide/){:target="_self"}, and join the [BCDA Google Group](https://groups.google.com/forum/#!forum/bc-api){:target="_blank"}, to have your questions answered.
 * **Note:** some of our early production beta partners have encountered issues accessing the API due to internal firewalls. If your corporate IT uses an internal DNS server, you may not be able to access the API. As you request production access, you may want to check in with your internal IT team to discuss your company’s network structure.
 
 This page is intended for a user who has little to no experience with APIs, and provides a guided walkthrough for working with BCDA using our interactive documentation. More advanced API users may be better served by the [Advanced User Guide](/production/technical-user-guide/){:target="_self"}. If you’re not sure where to go, start here!
@@ -91,7 +91,7 @@ In the "Value" box:
 
 **Q: Will I always use this token with the BCDA API?**
 
-A: The token will expire after one hour.  The next time you use the BCDA API after that time, you can follow the same steps to get a fresh token.
+A: The token will expire after twenty minutes.  The next time you use the BCDA API after that time, you can follow the same steps to get a fresh token.
 
 
 ## Making your first requests for data
@@ -165,9 +165,21 @@ You can check the status of the job by entering the job number into the `jobId` 
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_09.png" alt="Screenshot of bulk data usage" />
 
-The completed percentage should be shown for the job you just requested. Once the job is completed, you can download the file by clicking on the `Download` button, as shown in the image below.  You will have one hour before your token expires, and you will need to get another from token if it expires before you are finished interacting with the API.
+The X-Progress header indicates the job's workflow status (Pending, In Progress, Completed, Archived, Expired, Failed). When in the In Progress state, an estimated completion percentage is appended to the X-Progress value (e.g., "In Progress (10%)").
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_10.png" alt="Screenshot of bulk data usage" />
+Once the job is completed, you can download the file by clicking on the `Download` button, as shown in the image below.  You will have one hour before your token expires, and you will need to get another from token if it expires before you are finished interacting with the API.
+
+<img class="ug-img" src="/assets/img/swagger_walkthrough_10.png" alt="Swagger: retrieving your job info data" />
+
+To retrieve your data, open the `GET /data/{jobId}/{filename}` endpoint. Copy the `jobId` into the `jobId` field, and the last string of the URL received in the previous step (highlighted in green and dashed lines above) into the `filename` field, then hit `Execute`.
+
+<img class="ug-img" src="/assets/img/swagger_walkthrough_11.png" alt="Swagger: requesting your files" />
+
+Click the `Download file` link that appears in the response section. Note that a large file may take a while to download.
+
+<img class="ug-img" src="/assets/img/swagger_walkthrough_12.png" alt="Swagger: downloading your file" />
+
+You will have twenty minutes before your token expires, and you will need to get another from token if it expires before you are finished interacting with the API.
 
 Once you’ve downloaded the file, you’ll want to know what to do with the data. We’ve provided a [guide to working with BCDA data](/data-guide/){:target="_self"} to help you, including a crosswalk between CCLF fields and the corresponding sections of the NDJSON files.
 
