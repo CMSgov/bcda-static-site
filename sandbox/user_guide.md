@@ -186,7 +186,7 @@ To retrieve your data, open the `GET /data/{jobId}/{filename}` endpoint. Copy th
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_11.png" alt="Swagger: requesting your files" />
 
-Click the `Download file` link that appears in the response section. Note that a large file may take a while to download.
+The Response Body contains the requested claims data in NDJSON format. Click the Download button that appears in the lower right corner of the response section. Note that a large file may take a while to download.
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_12.png" alt="Swagger: downloading your file" />
 
