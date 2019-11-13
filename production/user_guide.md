@@ -154,11 +154,10 @@ Then, as shown below, click `Execute` to start the process of requesting Coverag
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image above) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your Coverage job.
 
 ### 5. Getting your data
-There are three steps to retrieving the requested Coverage data:
+There are two steps to retrieving the requested Coverage data:
 
-#### 1. Checking the status of your job
-#### 2. Downloading your bulk data file
-#### 3. Decrypting your data file
+1. Checking the status of your job
+2. Downloading your bulk data file
 
 Depending on the number of beneficiaries prospectively assigned or assignable to your ACO, it may take a while for your data file to be ready to download. While you wait, you can check the status of your job to find out when the file is ready.
 
@@ -168,7 +167,7 @@ You can check the status of the job by entering the job number into the `jobId` 
 
 The X-Progress header indicates the job's workflow status (Pending, In Progress, Completed, Archived, Expired, Failed). When in the In Progress state, an estimated completion percentage is appended to the X-Progress value (e.g., "In Progress (10%)").
 
-Once the job is completed, you will receive a `HTTP 200 Complete` response, which includes a URL ending in .ndjson, and an `encryptedKey` string. You’ll need the end of the URL in order to retrieve your data, and the `encryptedKey` in order to decrypt the file.
+Once the job is completed, you will receive a `HTTP 200 Complete` response, which includes a URL ending in .ndjson.  You’ll need the end of the URL in order to retrieve your data.
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_10.png" alt="Swagger: retrieving your job info data" />
 
@@ -176,15 +175,13 @@ To retrieve your data, open the `GET /data/{jobId}/{filename}` endpoint. Copy th
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_11.png" alt="Swagger: requesting your files" />
 
-Click the `Download file` link that appears in the response section. Note that a large file may take a while to download.
+The `Response Body` contains the requested claims data in NDJSON format. Click the `Download` button that appears in the lower right corner of the response section. Note that a large file may take a while to download.
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_12.png" alt="Swagger: downloading your file" />
 
 You will have twenty minutes before your token expires, and you will need to get another from token if it expires before you are finished interacting with the API.
 
-The file you’ve downloaded will be encrypted. Follow the [decryption walkthrough](/decryption/) to learn how to decrypt and view the NDJSON data contained inside it.
-
-Once you’ve decrypted the file, you’ll want to know what to do with the data. We’ve provided a [guide to working with BCDA data](/data-guide/){:target="_self"} to help you, including a crosswalk between CCLF fields and the corresponding sections of the NDJSON files.
+Once you’ve downloaded the file, you’ll want to know what to do with the data. We’ve provided a [guide to working with BCDA data](/data-guide/){:target="_self"} to help you, including a crosswalk between CCLF fields and the corresponding sections of the NDJSON files.
 
 ## <a name="frequently-asked-questions"></a>Frequently asked questions about making requests
 

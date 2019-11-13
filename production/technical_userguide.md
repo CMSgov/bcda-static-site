@@ -12,7 +12,6 @@ id: prod-technical-user-guide
 sections:
   - User Guide
   - Authentication and Authorization
-  - Encryption
   - Environment
   - Examples
 ---
@@ -88,10 +87,6 @@ You will receive a `200 OK` response and an access token if your credentials wer
 *Token string abbreviated for readability*
 
 You will receive a `401 Unauthorized` response if your credentials are invalid or if your token has expired. No additional information is returned with a `401` response. When you receive a `401` response for a token you were just using successfully, you should request a new access token as outlined above.
-
-## Encryption
-
-All data files are encrypted. We have provided an [example of how to decrypt using Python.](/decryption/){:target="_self"}
 
 ## Environment
 
@@ -296,8 +291,6 @@ Below is an example of the format of the response body.
 { "transactionTime": "2018-10-19T14:47:33.975024Z", "request": "https://api.bcda.cms.gov/api/v1/ExplanationOfBenefit/$export", "requiresAccessToken": true, "output": [ { "type": "ExplanationOfBenefit", "url": "https://api.bcda.cms.gov/data/42/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson" } ], "error": [ { "type": "OperationOutcome", "url": "https://api.bcda.cms.gov/data/42/DBBD1CE1-AE24-435C-807D-ED45953077D3-error.ndjson" } ],"JobID":42}
 ```
 
-**Take note:** There will also be an encryptedKey field as well as a KeyMap field containing the key values for decrypting both the .ndjson and error.ndjson files.
-
 Claims data can be found at the URLs within the output field. The number 42 in the data file URLs is the same job ID from the Content-Location header URL in the previous step. If some of the data cannot be exported due to errors, details of the errors can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR [OperationOutcome](https://www.hl7.org/fhir/operationoutcome.html){:target="_blank"} resources.
 
 #### 4. Retrieve NDJSON output file(s)
@@ -322,7 +315,7 @@ Take note of the {token}, be sure to not include the brackets {} for your reques
 
 **Response**
 
-The response will be the requested data as [FHIR ExplanationOfBenefit resources](https://www.hl7.org/fhir/explanationofbenefit.html){:target="_blank"} in NDJSON format, encrypted. An unencrypted example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files). You can [follow these instructions to decrypt.](/decryption/){:target="_self"}
+The response will be the requested data as [FHIR ExplanationOfBenefit resources](https://www.hl7.org/fhir/explanationofbenefit.html){:target="_blank"} in NDJSON format. An example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files).
 
 ### Beneficiary Patient Data
 The [Patient](https://www.hl7.org/fhir/patient.html){:target="_blank"} file can be thought of as your CCLF files 8 and 9: this is where you get your information about who your beneficiaries are, their demographic information, and updates to their patient identifiers.
@@ -394,8 +387,6 @@ curl -v https://api.bcda.cms.gov/v1/jobs/43 \
 { "transactionTime": "2018-10-19T14:47:33.975024Z", "request": "https://api.bcda.cms.gov/api/v1/Patient/$export", "requiresAccessToken": true, "output": [ { "type": "Patient", "url": "https://api.bcda.cms.gov/data/43/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson" } ], "error": [ { "type": "OperationOutcome", "url": "https://api.bcda.cms.gov/data/43/DBBD1CE1-AE24-435C-807D-ED45953077D3-error.ndjson" } ],"JobID":43 }
 ```
 
-**Take note:** There will also be an encryptedKey field as well as a KeyMap field containing the key values for decrypting both the .ndjson and error.ndjson files.
-
 Patient demographic data can be found at the URLs within the output field. The number 43 in the data file URLs is the same job ID from the Content-Location header URL in the previous step. If some of the data cannot be exported due to errors, details of the errors can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR [OperationOutcome](https://www.hl7.org/fhir/operationoutcome.html){:target="_blank"} resources.
 
 #### 4. Retrieve the NDJSON output file(s)
@@ -418,7 +409,7 @@ curl https://api.bcda.cms.gov/v/data/43/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndj
 
 **Response**
 
-The response will be the requested data as FHIR Patient resources in NDJSON format, encrypted. An unencrypted example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files). You can [follow these instructions to decrypt.](/decryption/){:target="_self"}
+The response will be the requested data as FHIR Patient resources in NDJSON format. An example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files).
 
 ### Beneficiary Coverage Data
 [Coverage](https://www.hl7.org/fhir/coverage.html){:target="_blank"} data indicates the beneficiary’s enrollment record. It includes information on a beneficiary’s Part A, Part B, Part C, and Part D coverage, as well as markers for End-stage Renal Disease (ESRD) and Old Age and Survivors Insurance (OASI).
@@ -489,9 +480,6 @@ curl -v https://api.bcda.cms.gov/v1/jobs/44 \
 { "transactionTime": "2018-10-19T14:47:33.975024Z", "request": "https://api.bcda.cms.gov/api/v1/Coverage/$export", "requiresAccessToken": true, "output": [ { "type": "Coverage", "url": "https://api.bcda.cms.gov/data/44/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson" } ], "error": [ { "type": "OperationOutcome", "url": "https://api.bcda.cms.gov/data/44/DBBD1CE1-AE24-435C-807D-ED45953077D3-error.ndjson" } ],"JobID":44 }
 ```
 
-**Take note:** There will also be an encryptedKey field as well as a KeyMap field containing the key values for decrypting both the .ndjson and error.ndjson files.
-
-
 Coverage demographic data can be found at the URLs within the output field. The number 44 in the data file URLs is the same job ID from the Content-Location header URL in the previous step. If some of the data cannot be exported due to errors, details of the errors can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR [OperationOutcome](https://www.hl7.org/fhir/operationoutcome.html){:target="_blank"} resources.
 
 #### 4. Retrieve the NDJSON output file(s)
@@ -515,4 +503,4 @@ curl https://api.bcda.cms.gov/data/44/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjso
 
 **Response**
 
-The response will be the requested data as FHIR Coverage resources in NDJSON format. An unencrypted example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files). You can [follow these instructions to decrypt.](/decryption/){:target="_self"}
+The response will be the requested data as FHIR Coverage resources in NDJSON format. An example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files).

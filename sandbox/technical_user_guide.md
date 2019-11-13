@@ -12,7 +12,6 @@ id: sandbox-technical-user-guide
 sections:
   - User Guide
   - Authentication and Authorization
-  - Encryption
   - Environment
   - Examples
   - Beneficiary Explanation of Benefit Data
@@ -32,7 +31,7 @@ This guide serves as a starting point for users to begin working with the API. [
 
 ## Authentication and Authorization
 
-The Beneficiary Claims Data API is currently accessible as an open sandbox environment, which returns sample NDJSON files with synthetic beneficiary data. You can use the generic credentials below to view our implementation of the API, write a process for decrypting the payload, and learn the shape of the data before working with production files that include PII and PHI. There is no beneficiary PII or PHI in the files you can access via the sandbox.
+The Beneficiary Claims Data API is currently accessible as an open sandbox environment, which returns sample NDJSON files with synthetic beneficiary data. You can use the generic credentials below to view our implementation of the API and learn the shape of the data before working with production files that include PII and PHI. There is no beneficiary PII or PHI in the files you can access via the sandbox.
 
 To get a token that can be used with protected endpoints, POST the following credentials using [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication){:target="_blank"} to `https://sandbox.bcda.cms.gov/auth/token`:
 
@@ -76,10 +75,6 @@ ZmY0OGE1MzdiNTFkYzVkNzgzNGJmNDY2NDE2YTcxNmJkNDUwOGU5MDRh"
 **Response**
 
 You will receive a `200 OK` response and an access token if your credentials were accepted.
-
-## Encryption
-
-All data files are encrypted. We have provided [an example of how to decrypt using Python](/decryption/).
 
 ## Environment
 
@@ -310,9 +305,9 @@ curl https://sandbox.bcda.cms.gov/data/42/DBBD1CE1-AE24-435C-807D-ED45953077D3.n
 
 **Response**
 
-The response will be the requested data as [FHIR ExplanationOfBenefit resources](https://www.hl7.org/fhir/explanationofbenefit.html){:target="_blank"} in NDJSON format, encrypted. You can [follow these instructions to decrypt](/decryption/).
+The response will be the requested data as [FHIR ExplanationOfBenefit resources](https://www.hl7.org/fhir/explanationofbenefit.html){:target="_blank"} in NDJSON format.
 
-An unencrypted example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files).
+An example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files).
 
 ## Beneficiary Patient Data
 
@@ -410,9 +405,9 @@ curl https://sandbox.bcda.cms.gov/data/43/DBBD1CE1-AE24-435C-807D-ED45953077D3.n
 
 **Response**
 
-The response will be the requested data as [FHIR Patient resources](https://www.hl7.org/fhir/patient.html){:target="_blank"} in NDJSON format, encrypted. You can [follow these instructions to decrypt](/decryption/).
+The response will be the requested data as [FHIR Patient resources](https://www.hl7.org/fhir/patient.html){:target="_blank"} in NDJSON format.
 
-An unencrypted example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files).
+An example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files).
 
 ## Beneficiary Coverage Data
 
@@ -510,6 +505,6 @@ curl https://sandbox.bcda.cms.gov/data/44/DBBD1CE1-AE24-435C-807D-ED45953077D3.n
 
 **Response**
 
-The response will be the requested data as [FHIR Coverage resources](https://www.hl7.org/fhir/coverage.html){:target="_blank"} in NDJSON format, encrypted. You can [follow these instructions to decrypt](/decryption/).
+The response will be the requested data as [FHIR Coverage resources](https://www.hl7.org/fhir/coverage.html){:target="_blank"} in NDJSON format.
 
-An unencrypted example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files).
+An example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files).
