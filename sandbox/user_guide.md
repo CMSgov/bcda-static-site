@@ -46,6 +46,10 @@ Once the page is open, your first step will be getting an **access token**.  You
 
 In the sandbox environment, we provide generic credentials for you to use. These will not work in the production environment, but will allow you to explore the synthetic data in sandbox.
 
+We have provided four sets of synthetic credentials for use in the sandbox, corresponding to various amounts of synthetic beneficiaries. We suggest testing with the credentials that most closely align with the size of your ACO, so that you can get a feel for working with a similar amount of synthetic data to that which you’ll receive in production.
+
+<button class="accordion"> Extra-Small ACO (50 synthetic beneficiaries) </button>
+<div class="acc_content">
 Client ID:
 {%- capture client_id -%}
 3841c594-a8c0-41e5-98cc-38bb45360d3c
@@ -59,6 +63,58 @@ f9780d323588f1cdfc3e63e95a8cbdcdd47602ff48a537b51dc5d7834bf466416a716bd4508e904a
 {%- endcapture -%}
 
 {% include copy_snippet.md code=client_secret %}
+</div>
+
+<button class="accordion"> Small ACO (2,500 synthetic beneficiaries) </button>
+<div class="acc_content">
+Client ID:
+{%- capture client_id -%}
+467bb940-7a40-4201-8aee-53d6015362fe
+{%- endcapture -%}
+
+{% include copy_snippet.md code=client_id %}
+
+Client Secret:
+{%- capture client_secret -%}
+2de43000b7480cf64609fdb5bfc6cd3ab58a3c14ac44364f671cf65f566badc767a6d0dcc3baae4c
+{%- endcapture -%}
+
+{% include copy_snippet.md code=client_secret %}
+</div>
+
+<button class="accordion"> Medium ACO (7,500 synthetic beneficiaries) </button>
+<div class="acc_content">
+Client ID:
+{%- capture client_id -%}
+09505976-871f-4a65-b0b0-42314181551e
+{%- endcapture -%}
+
+{% include copy_snippet.md code=client_id %}
+
+Client Secret:
+{%- capture client_secret -%}
+4a615110a011c93419899a7fec1bfaa7ffa5d34a177d7f3bf183c1da4337261af465085fa65db85c
+{%- endcapture -%}
+
+{% include copy_snippet.md code=client_secret %}
+</div>
+
+<button class="accordion"> Large ACO (20,000 synthetic beneficiaries) </button>
+<div class="acc_content">
+Client ID:
+{%- capture client_id -%}
+16993e50-c24f-4992-9212-4c53f0590d67
+{%- endcapture -%}
+
+{% include copy_snippet.md code=client_id %}
+
+Client Secret:
+{%- capture client_secret -%}
+b7abf6468d2893974723e5f90192e0b30de25c989722bf154f61ea249c6a5970552303ed25dfe7cb
+{%- endcapture -%}
+
+{% include copy_snippet.md code=client_secret %}
+</div>
 
 Back in Swagger, you’ll enter the client ID as the username, and the secret as the password.
 
