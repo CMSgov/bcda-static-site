@@ -69,14 +69,14 @@ f9780d323588f1cdfc3e63e95a8cbdcdd47602ff48a537b51dc5d7834bf466416a716bd4508e904a
 <div class="acc_content">
 Client ID:
 {%- capture client_id -%}
-467bb940-7a40-4201-8aee-53d6015362fe
+d5f83f74-6c55-4f1e-9d16-0022688171ba
 {%- endcapture -%}
 
 {% include copy_snippet.md code=client_id %}
 
 Client Secret:
 {%- capture client_secret -%}
-2de43000b7480cf64609fdb5bfc6cd3ab58a3c14ac44364f671cf65f566badc767a6d0dcc3baae4c
+01c23cf3f31f82a5c2dcef5136a8eaa32959158351f4e28aaec5fc6550cb2a5b5d112c5b8aacc434
 {%- endcapture -%}
 
 {% include copy_snippet.md code=client_secret %}
@@ -86,14 +86,14 @@ Client Secret:
 <div class="acc_content">
 Client ID:
 {%- capture client_id -%}
-09505976-871f-4a65-b0b0-42314181551e
+8c75a6f6-02b9-4a47-96c1-0bd6efd4b5e3
 {%- endcapture -%}
 
 {% include copy_snippet.md code=client_id %}
 
 Client Secret:
 {%- capture client_secret -%}
-4a615110a011c93419899a7fec1bfaa7ffa5d34a177d7f3bf183c1da4337261af465085fa65db85c
+e1c920141c4aca6b8f726fa8aa0f7b55e095fd1ea3368a5f24b3636fdc907f113d6677977c7259dd
 {%- endcapture -%}
 
 {% include copy_snippet.md code=client_secret %}
@@ -103,14 +103,14 @@ Client Secret:
 <div class="acc_content">
 Client ID:
 {%- capture client_id -%}
-16993e50-c24f-4992-9212-4c53f0590d67
+f268a8c6-8a29-4d2b-8b92-263dc775750d
 {%- endcapture -%}
 
 {% include copy_snippet.md code=client_id %}
 
 Client Secret:
 {%- capture client_secret -%}
-b7abf6468d2893974723e5f90192e0b30de25c989722bf154f61ea249c6a5970552303ed25dfe7cb
+78ed083ad8e49475f36d04153649012b92c363a538ac97beaf0f7900403989581fc35324baa31e36
 {%- endcapture -%}
 
 {% include copy_snippet.md code=client_secret %}
