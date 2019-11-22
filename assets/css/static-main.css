@@ -6250,3 +6250,38 @@ article h2::after {
   width: 100%;
   max-width: 500px;
 }
+
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+.accordion_active, .accordion:hover {
+    background-color: #ccc;
+}
+
+.acc_content {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+}
+
+.accordion:after {
+    content: '\02795';
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+.accordion_active:after {
+    content: "\2796";
+}
