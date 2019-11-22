@@ -116,6 +116,23 @@ Client Secret:
 {% include copy_snippet.md code=client_secret %}
 </div>
 
+<button class="accordion"> Extra-Large ACO (30,000 synthetic beneficiaries) </button>
+<div class="acc_content">
+Client ID:
+{%- capture client_id -%}
+6152afb4-c555-46e4-93de-fa16a441d643
+{%- endcapture -%}
+
+{% include copy_snippet.md code=client_id %}
+
+Client Secret:
+{%- capture client_secret -%}
+1ace5a0e9fdf0c3d713e8c029269eacd024732ccd59e2cf283374e0f8dc93b34429d71b77e55b9a2
+{%- endcapture -%}
+
+{% include copy_snippet.md code=client_secret %}
+</div>
+
 Back in Swagger, you’ll enter the client ID as the username, and the secret as the password.
 
 * Click the "Authorize" button when you've entered your credentials, then "Close"
