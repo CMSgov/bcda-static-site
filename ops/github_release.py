@@ -52,7 +52,7 @@ if __name__ == "__main__":
  
     parser.add_argument(
         '--repo', dest='repo', type=str,
-        help='The repository of the release (i.e., /repos/CMSgov/bcda-app/releases)'
+        help='The repository of the release (i.e., /repos/CMSgov/bcda-static-site/releases)'
     )
 
     args = parser.parse_args()
