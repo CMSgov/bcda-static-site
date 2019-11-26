@@ -46,7 +46,7 @@ Once the page is open, your first step will be getting an **access token**.  You
 
 In the sandbox environment, we provide generic credentials for you to use. These will not work in the production environment, but will allow you to explore the synthetic data in sandbox.
 
-We have provided four sets of synthetic credentials for use in the sandbox, corresponding to various amounts of synthetic beneficiaries. We suggest testing with the credentials that most closely align with the size of your ACO, so that you can get a feel for working with a similar amount of synthetic data to that which you’ll receive in production.
+We have provided five sets of synthetic credentials for use in the sandbox, corresponding to various amounts of synthetic beneficiaries. We suggest testing with the credentials that most closely align with the size of your ACO, so that you can get a feel for working with a similar amount of synthetic data to that which you’ll receive in production.
 
 <button class="accordion"> Extra-Small ACO (50 synthetic beneficiaries) </button>
 <div class="acc_content">
