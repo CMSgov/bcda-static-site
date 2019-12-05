@@ -515,7 +515,7 @@ The response will be the requested data as [FHIR Patient resources](https://www.
 
 An example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files).
 
-## Beneficiary Coverage Data
+## Requesting Beneficiary Coverage Data Only
 
 [**Coverage data**](https://www.hl7.org/fhir/coverage.html){:target="_blank"} indicates the beneficiary’s enrollment record. It includes information on a beneficiary’s Part A, Part B, Part C, and Part D coverage, as well as markers for End-stage Renal Disease (ESRD) and Old Age and Survivors Insurance (OASI).
 
