@@ -102,6 +102,8 @@ curl https://sandbox.bcda.cms.gov/api/v1/metadata
 
 **Response**
 
+!  <new CapabilityStatement goes here>
+
 ```
 {
     "resourceType": "CapabilityStatement",
@@ -211,7 +213,7 @@ curl https://sandbox.bcda.cms.gov/api/v1/metadata
 }
 ```
 
-## Beneficiary Data from the Patient endpoint
+### Beneficiary Data from the Patient endpoint
 
 BCDA provides data via the `Patient` endpoint related to three Resource Types:
 * [**Explanation of Benefit**](https://www.hl7.org/fhir/explanationofbenefit.html){:target="_blank"}: this Resource Type provides the same information you’ve previously received in CCLF files 1-7. This file contains the lines within an episode of care, including where and when the service was performed, the diagnosis codes, the provider who performed the service, and the cost of care.
@@ -320,7 +322,7 @@ See [Authentication and Authorization](#authentication-and-authorization) above.
 
 **Request**
 
-`GET /api/v1/Patient/$export?_type=Coverage`
+`GET /api/v1/Patient/$export?_type=ExplanationOfBenefit`
 
 To start an explanation of benefit data export job, a GET request is made to the ExplanationOfBenefit  endpoint. An access token as well as *Accept* and *Prefer* headers are required.
 
