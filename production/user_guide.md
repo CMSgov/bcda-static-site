@@ -62,7 +62,7 @@ Now you're ready to get a token!
 
 <img class="ug-img" src="/assets/img/nav_swag_03.png" alt="Swagger: Token endpoint (1)"/>
 
-* Click "Execute" to finally get your token
+* Click "Execute" to get your token
 
 <img class="ug-img" src="/assets/img/nav_swag_04.png" alt="Swagger: Token endpoint (2)"/>
 
@@ -74,18 +74,18 @@ If all is well, the Server response section will look similar to the following s
 
 Now that you have a token, you can tell Swagger to use it for your future requests.
 
-* Find one of the the blue-colored bulk data API endpoints.
+* Return to the top of the Swagger page
 * Click on the lock icon
 
-<img class="ug-img" src="/assets/img/nav_swag_06.png" alt="Swagger: Coverage endpoint"/>
+<img class="ug-img" src="/assets/img/nav_swag_06.png" alt="Swagger: Go back to Authorize"/>
 
 In the "Value" box:
 
-* **Type the word "Bearer" followed by a space** (This step is critical)
+* **Type the word "Bearer" followed by a space** (This step is critical!)
 * Paste your token
 * Click "Authorize" and then "Close"
 
-<img class="ug-img" src="/assets/img/nav_swag_07.png" alt="Swagger: Authorize (2)"/>
+<img class="ug-img" src="/assets/img/nav_swag_07.png" alt="Swagger: Authorizing with token"/>
 
 ### Follow-up questions about authorization
 
@@ -146,7 +146,7 @@ Retrieving beneficiary data comprises two steps:
 
 #### a. Making a request for all three resource types
 
-In this example, we'll show a request for all three resource types in the `Patient` endpoint. If you want to learn how to make a request for data from one resource type, jump to step 4b.
+In this example, we'll show a request for all three resource types in the `Patient` endpoint. If you want to learn how to make a request for data from one resource type, jump to [step 4b: Making a Request for One Resource Type](##b-making-a-request-for-one-resource-type).
 
 First, click on `GET /api/v1/Patient/$export`, then click `Try it out`.
 
@@ -154,7 +154,7 @@ First, click on `GET /api/v1/Patient/$export`, then click `Try it out`.
 
 Then, as shown below, click `Execute` to start the process of requesting data from the `Patient` endpoint.  Make sure you note the **job number** (also known as `jobId`)  in the **response header**, since you’ll need this job number to track the status of your data request.
 
-! <image goes here: patient/$export with execute>
+<img class="ug-img" src="/assets/img/swagger_walkthrough_06b.png" alt="Swagger: Requesting all resource types from Patient endpoint" />
 
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image above) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your job.
 
