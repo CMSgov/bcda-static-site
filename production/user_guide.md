@@ -150,7 +150,7 @@ In this example, we'll show a request for all three resource types in the `Patie
 
 First, click on `GET /api/v1/Patient/$export`, then click `Try it out`.
 
-! <image goes here: patient/$export on its own>
+<img class="ug-img" src="/assets/img/swagger_walkthrough_06a.png" alt="Swagger: Starting a request from Patient endpoint" />
 
 Then, as shown below, click `Execute` to start the process of requesting data from the `Patient` endpoint.  Make sure you note the **job number** (also known as `jobId`)  in the **response header**, since you’ll need this job number to track the status of your data request.
 
