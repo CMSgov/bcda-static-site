@@ -36,11 +36,11 @@ Once you have your credentials, you will:
 
 1) `POST` to `https://api.bcda.cms.gov/auth/token` using [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication){:target="_blank"}
 
-2) Use the returned access token as the Bearer token for api endpoint requests
+2) Use the returned access token as the Bearer token for API endpoint requests
 
 3) Repeat step 1 to get a new access token when the access token expires
 
-**Currently, access tokens expire after one hour.**
+**Currently, access tokens expire after twenty minutes.**
 
 #### Authentication Walkthrough
 
@@ -111,6 +111,8 @@ Metadata about the Beneficiary Claims Data API is available as a FHIR [Capabilit
 `curl https://api.bcda.cms.gov/api/v1/metadata`
 
 **Response**
+
+!  <insert new capability statement here>
 
 ```
 {
@@ -221,8 +223,14 @@ Metadata about the Beneficiary Claims Data API is available as a FHIR [Capabilit
 }
 ```
 
-### Beneficiary Explanation of Benefit Data
-The [Explanation of Benefit](https://www.hl7.org/fhir/explanationofbenefit.html){:target="_blank"} file provides the same information you’ve previously received in CCLF files 1-7. This file contains the lines within an episode of care, including where and when the service was performed, the diagnosis codes, the provider who performed the service, and the cost of care.
+### Beneficiary Data from the Patient endpoint
+
+BCDA provides data via the `Patient` endpoint related to three Resource Types:
+* [**Explanation of Benefit**](https://www.hl7.org/fhir/explanationofbenefit.html){:target="_blank"}: this Resource Type provides the same information you’ve previously received in CCLF files 1-7. This file contains the lines within an episode of care, including where and when the service was performed, the diagnosis codes, the provider who performed the service, and the cost of care.
+* [**Patient**](https://www.hl7.org/fhir/patient.html){:target="_blank"}: the information in this Resource Type can be thought of as your CCLF files 8 and 9: this is where you get your information about who your beneficiaries are, their demographic information, and updates to their patient identifiers.
+* [**Coverage**](https://www.hl7.org/fhir/coverage.html){:target="_blank"}: the information in this Resource Type indicates the beneficiary’s enrollment record. It includes information on a beneficiary’s Part A, Part B, Part C, and Part D coverage, as well as markers for End-stage Renal Disease (ESRD) and Old Age and Survivors Insurance (OASI).
+
+You can make a request to the `Patient` endpoint for all three Resource Types at once, one at a time, or a combination of any two together. This section describes a request for all three Resource Types; information about requesting one at a time follows below.
 
 #### 1. Obtain an access token
 
@@ -232,11 +240,11 @@ See [Authentication and Authorization](#authentication-and-authorization) above.
 
 **Request**
 
-`GET /api/v1/ExplanationOfBenefit/$export`
+`GET /api/v1/Patient/$export`
 
-To start an explanation of benefit data export job, a GET request is made to the ExplanationOfBenefit  endpoint. An access token as well as Accept and Prefer headers are required.
+To start a data export job for all three Resource Types, a GET request is made to the Patient endpoint. An access token as well as *Accept* and *Prefer* headers are required.
 
-The dollar sign (‘$’) before the word “export” in the URL indicates that the endpoint is an action rather than a resource. The format is defined by the [FHIR Bulk Data Export spec.](https://github.com/HL7/bulk-data/blob/master/spec/export/index.md){:target="_blank"}
+The dollar sign (‘$’) before the word “export” in the URL indicates that the endpoint is an action rather than a resource. The format is defined by the [FHIR Bulk Data Export spec](https://github.com/HL7/bulk-data/blob/master/spec/export/index.md){:target="_blank"}.
 
 **Headers**
 
@@ -246,20 +254,15 @@ The dollar sign (‘$’) before the word “export” in the URL indicates that
 
 **cURL command**
 
-```
-curl -v "https://api.bcda.cms.gov/api/v1/ExplanationOfBenefit/\$export" \
--H "accept: application/fhir+json" \
--H "Prefer: respond-async" \
--H "Authorization: Bearer {token}"
-```
-
+! <new cURL goes here>
+  
 **Response**
 
-If the request was successful, a `202 Accepted` response code will be returned and the response will include a Content-Location header. The value of this header indicates the location to check for job status and outcome. In the example header below, the number 42 in the URL represents the ID of the export job.
+If the request was successful, a `202 Accepted` response code will be returned and the response will include a *Content-Location* header. The value of this header indicates the location to check for job status and outcome. In the example header below, the number 42 in the URL represents the ID of the export job.
 
 **Headers**
 
-`Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42`
+* `Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42
 
 #### 3. Check the status of the export job
 
@@ -267,34 +270,30 @@ If the request was successful, a `202 Accepted` response code will be returned a
 
 `GET https://api.bcda.cms.gov/api/v1/jobs/42`
 
-Using the Content-Location header value from the ExplanationOfBenefit data export response, you can check the status of the export job. The status will change from ``202 Accepted`` to ``200 OK`` when the export job is complete and the data is ready to be downloaded.
+Using the *Content-Location* header value from the Patient data export response, you can check the status of the export job. The status will change from `202 Accepted` to `200 OK` when the export job is complete and the data is ready to be downloaded.
 
 **Headers**
 
 * `Authorization: Bearer {token}`
 
-**cURL command**
+**cURL Command**
 
-```
-curl -v https://api.bcda.cms.gov/api/v1/jobs/42 \
--H 'Authorization: Bearer {token}'
-```
+! <new cURL goes here>
 
 **Responses**
 
-* `202 Accepted` indicates that the job is processing. Headers will include X-Progress: In Progress
+* `202 Accepted` indicates that the job is processing. Headers will include X-Progress: In Progress (The X-Progress header contains text indicating the job's status in BCDA's workflow. When the status is In Progress, an estimated progress percentage is also included.)
 * `200 OK` indicates that the job is complete.
 
 Below is an example of the format of the response body.
 
-```
-{ "transactionTime": "2018-10-19T14:47:33.975024Z", "request": "https://api.bcda.cms.gov/api/v1/ExplanationOfBenefit/$export", "requiresAccessToken": true, "output": [ { "type": "ExplanationOfBenefit", "url": "https://api.bcda.cms.gov/data/42/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson" } ], "error": [ { "type": "OperationOutcome", "url": "https://api.bcda.cms.gov/data/42/DBBD1CE1-AE24-435C-807D-ED45953077D3-error.ndjson" } ],"JobID":42}
-```
-
-Claims data can be found at the URLs within the output field. The number 42 in the data file URLs is the same job ID from the Content-Location header URL in the previous step. If some of the data cannot be exported due to errors, details of the errors can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR [OperationOutcome](https://www.hl7.org/fhir/operationoutcome.html){:target="_blank"} resources.
+! <response body goes here>
+  
+Claims data can be found at the URLs within the output field. The number 42 in the data file URLs is the same job ID from the *Content-Location* header URL in the previous step. If some of the data cannot be exported due to errors, details of the errors can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR [OperationOutcome](https://www.hl7.org/fhir/operationoutcome.html){:target="_blank"} resources.
 
 #### 4. Retrieve NDJSON output file(s)
-To obtain the exported explanation of benefit data, make a `GET` request to the output URLs in the job status response when the job reaches the Completed `(200 OK)` state. The data will be presented as an NDJSON file of [ExplanationOfBenefit](https://www.hl7.org/fhir/explanationofbenefit.html){:target="_blank"} resources.
+
+To obtain the exported data, make a GET request to the output URLs in the job status response when the job reaches the Completed (200 OK) state. The data will be presented as separate NDJSON files of [ExplanationOfBenefit](https://www.hl7.org/fhir/explanationofbenefit.html){:target="_blank"}, [Patient](https://www.hl7.org/fhir/patient.html){:target="_blank"}, and [Coverage](https://www.hl7.org/fhir/coverage.html){:target="_blank"} resources.
 
 **Request**
 
@@ -308,33 +307,33 @@ To obtain the exported explanation of benefit data, make a `GET` request to the 
 
 ```
 curl https://api.bcda.cms.gov/data/42/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson \
-   -H 'Authorization: Bearer {token}'
+-H 'Authorization: Bearer {token}'
 ```
-
-Take note of the {token}, be sure to not include the brackets {} for your request.
 
 **Response**
 
-The response will be the requested data as [FHIR ExplanationOfBenefit resources](https://www.hl7.org/fhir/explanationofbenefit.html){:target="_blank"} in NDJSON format. An example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files).
+The response will be the requested data as FHIR resources in NDJSON format. Each file related to a different resource type will appear separately and labeled as to which resource type it contains.
 
-### Beneficiary Patient Data
-The [Patient](https://www.hl7.org/fhir/patient.html){:target="_blank"} file can be thought of as your CCLF files 8 and 9: this is where you get your information about who your beneficiaries are, their demographic information, and updates to their patient identifiers.
+Examples of data from each Resource Type are available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files).
 
-The process of retrieving patient data is very similar to exporting Explanation of Benefit data.
+
+### Requesting Beneficiary Explanation of Benefit Data only
+
+The [**Explanation of Benefit** file](https://www.hl7.org/fhir/explanationofbenefit.html){:target="_blank"} provides the same information you’ve previously received in CCLF files 1-7. This file contains the lines within an episode of care, including where and when the service was performed, the diagnosis codes, the provider who performed the service, and the cost of care.
 
 #### 1. Obtain an access token
 
 See [Authentication and Authorization](#authentication-and-authorization) above.
 
-#### 2.  Initiate an export job
+#### 2. Initiate an export job
 
 **Request**
 
-`GET /api/v1/Patient/$export`
+`GET /api/v1/Patient/$export?_type=ExplanationOfBenefit`
 
-To start a patient data export job, a GET request is made to the Patient endpoint. An access token as well as Accept and Prefer headers are required.
+To start an explanation of benefit data export job, a GET request is made to the ExplanationOfBenefit endpoint. An access token as well as *Accept* and *Prefer* headers are required.
 
-The dollar sign (‘$’) before the word “export” in the URL indicates that the endpoint is an action rather than a resource. The format is defined by the [FHIR Bulk Data Export spec.](https://github.com/HL7/bulk-data/blob/master/spec/export/index.md){:target="_blank"}
+The dollar sign (‘$’) before the word “export” in the URL indicates that the endpoint is an action rather than a resource. The format is defined by the [FHIR Bulk Data Export spec](https://github.com/HL7/bulk-data/blob/master/spec/export/index.md){:target="_blank"}.
 
 **Headers**
 
@@ -344,20 +343,22 @@ The dollar sign (‘$’) before the word “export” in the URL indicates that
 
 **cURL command**
 
+! <new cURL goes here>
+
 ```
-curl -v "https://api.bcda.cms.gov/api/v1/Patient/\$export" \
--H "accept: application/fhir+json" \
--H "Prefer: respond-async" \
--H "Authorization: Bearer {token}"
+curl -v https://api.bcda.cms.gov/api/v1/ExplanationOfBenefit/\$export \
+-H 'Authorization: Bearer {token}' \
+-H 'Accept: application/fhir+json' \
+-H 'Prefer: respond-async'
 ```
 
 **Response**
 
-If the request was successful, a `202 Accepted` response code will be returned and the response will include a Content-Location header. The value of this header indicates the location to check for job status and outcome. In the example header below, the number 43 in the URL represents the ID of the export job.
+If the request was successful, a `202 Accepted` response code will be returned and the response will include a *Content-Location* header. The value of this header indicates the location to check for job status and outcome. In the example header below, the number 43 in the URL represents the ID of the export job.
 
 **Headers**
 
-`Content-Location: https://api.bcda.cms.gov/api/v1/jobs/43`
+* `Content-Location: https://api.bcda.cms.gov/api/v1/jobs/43`
 
 #### 3. Check the status of the export job
 
@@ -365,32 +366,37 @@ If the request was successful, a `202 Accepted` response code will be returned a
 
 `GET https://api.bcda.cms.gov/api/v1/jobs/43`
 
-Using the Content-Location header value from the Patient data export response, you can check the status of the export job. The status will change from `202 Accepted` to `200 OK` when the export job is complete and the data is ready to be downloaded.
+Using the *Content-Location* header value from the ExplanationOfBenefit data export response, you can check the status of the export job. The status will change from `202 Accepted` to `200 OK` when the export job is complete and the data is ready to be downloaded.
 
 **Headers**
 
 * `Authorization: Bearer {token}`
 
-**cURL command**
+**cURL Command**
 
 ```
-curl -v https://api.bcda.cms.gov/v1/jobs/43 \
+curl -v https://api.bcda.cms.gov/api/v1/jobs/43 \
 -H 'Authorization: Bearer {token}'
 ```
 
 **Responses**
 
-* `202 Accepted` indicates that the job is processing. Headers will include X-Progress: In Progress
-* `200 OK` indicates that the job is complete. Below is an example of the format of the response body.
+* `202 Accepted` indicates that the job is processing. Headers will include X-Progress: In Progress (The X-Progress header contains text indicating the job's status in BCDA's workflow. When the status is In Progress, an estimated progress percentage is also included.)
+* `200 OK` indicates that the job is complete.
+
+Below is an example of the format of the response body.
+
+!  <new response body goes here>
 
 ```
-{ "transactionTime": "2018-10-19T14:47:33.975024Z", "request": "https://api.bcda.cms.gov/api/v1/Patient/$export", "requiresAccessToken": true, "output": [ { "type": "Patient", "url": "https://api.bcda.cms.gov/data/43/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson" } ], "error": [ { "type": "OperationOutcome", "url": "https://api.bcda.cms.gov/data/43/DBBD1CE1-AE24-435C-807D-ED45953077D3-error.ndjson" } ],"JobID":43 }
+{ "transactionTime": "2018-10-19T14:47:33.975024Z", "request": "https://api.bcda.cms.gov/api/v1/ExplanationOfBenefit/$export", "requiresAccessToken": true, "output": [ { "type": "ExplanationOfBenefit", "url": "https://api.bcda.cms.gov/data/42/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson" } ], "error": [ { "type": "OperationOutcome", "url": "https://sandbox.bcda.cms.gov/data/42/DBBD1CE1-AE24-435C-807D-ED45953077D3-error.ndjson" } ] }
 ```
 
-Patient demographic data can be found at the URLs within the output field. The number 43 in the data file URLs is the same job ID from the Content-Location header URL in the previous step. If some of the data cannot be exported due to errors, details of the errors can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR [OperationOutcome](https://www.hl7.org/fhir/operationoutcome.html){:target="_blank"} resources.
+Claims data can be found at the URLs within the output field. The number 43 in the data file URLs is the same job ID from the *Content-Location* header URL in the previous step. If some of the data cannot be exported due to errors, details of the errors can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR [OperationOutcome](https://www.hl7.org/fhir/operationoutcome.html){:target="_blank"} resources.
 
-#### 4. Retrieve the NDJSON output file(s)
-To obtain the patient data, a `GET` request is made to the output URLs in the job status response when the job reaches the Completed state. The data will be presented as an NDJSON file of [Patient](https://www.hl7.org/fhir/patient.html){:target="_blank"} resources.
+#### 4. Retrieve NDJSON output file(s)
+
+To obtain the exported explanation of benefit data, make a GET request to the output URLs in the job status response when the job reaches the Completed (200 OK) state. The data will be presented as NDJSON files of [ExplanationOfBenefit](https://www.hl7.org/fhir/explanationofbenefit.html){:target="_blank"} resources.
 
 **Request**
 
@@ -403,31 +409,37 @@ To obtain the patient data, a `GET` request is made to the output URLs in the jo
 **cURL command**
 
 ```
-curl https://api.bcda.cms.gov/v/data/43/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson \
+curl https://api.bcda.cms.gov/data/43/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson \
 -H 'Authorization: Bearer {token}'
 ```
 
 **Response**
 
-The response will be the requested data as FHIR Patient resources in NDJSON format. An example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files).
+The response will be the requested data as [FHIR ExplanationOfBenefit resources](https://www.hl7.org/fhir/explanationofbenefit.html){:target="_blank"} in NDJSON format.
 
-### Beneficiary Coverage Data
-[Coverage](https://www.hl7.org/fhir/coverage.html){:target="_blank"} data indicates the beneficiary’s enrollment record. It includes information on a beneficiary’s Part A, Part B, Part C, and Part D coverage, as well as markers for End-stage Renal Disease (ESRD) and Old Age and Survivors Insurance (OASI).
+An example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files).
 
-The process of retrieving coverage data is very similar to all of the other exporting operations supported by this API.
+## Requesting Beneficiary Patient Data only
+
+The [**Patient** file](https://www.hl7.org/fhir/patient.html){:target="_blank"} can be thought of as your CCLF files 8 and 9: this is where you get your information about who your beneficiaries are, their demographic information, and updates to their patient identifiers.
+
+**Note the difference between the Patient endpoint and Patient resource type:** the Patient endpoint can return data from any or all of the three resource types. The Patient resource type within the Patient endpoint only returns the information described above.
+
+The process of retrieving Patient data from the Patient endpoint is very similar to exporting Explanation of Benefit data.
 
 #### 1. Obtain an access token
-See [Authentication and Authorization](#authentication-and-authorization) above.
+
+See [Authentication and Authorization](#authentication-and-authorization){:target="_self"} above.
 
 #### 2. Initiate an export job
 
-**Request**
+##### Request
 
-`GET /api/v1/Coverage/$export`
+`GET /api/v1/Patient/$export?_type=Patient`
 
-To start a coverage data export job, a GET request is made to the Coverage export endpoint. An access token as well as Accept and Prefer headers are required.
+To start a Patient data export job, a GET request is made to the Patient export endpoint for the Patient resource type. An access token as well as `Accept` and `Prefer` headers are required.
 
-The dollar sign (‘$’) before the word “export” in the URL indicates that the endpoint is an action rather than a resource. The format is defined by the [FHIR Bulk Data Export spec.](https://github.com/HL7/bulk-data/blob/master/spec/export/index.md){:target="_blank"}
+The dollar sign ('$') before the word "export" in the URL indicates that the endpoint is an action rather than a resource. The format is defined by the [FHIR Bulk Data Export spec](https://github.com/HL7/bulk-data/blob/master/spec/export/index.md){:target="_blank"}.
 
 **Headers**
 
@@ -437,16 +449,18 @@ The dollar sign (‘$’) before the word “export” in the URL indicates that
 
 **cURL command**
 
+! <new cURL goes here>
+
 ```
-curl -v "https://api.bcda.cms.gov/api/v1/Coverage/\$export" \
--H "accept: application/fhir+json" \
--H "Prefer: respond-async" \
--H "Authorization: Bearer {token}"
+curl -v https://api.bcda.cms.gov/api/v1/Patient/\$export \
+-H 'Authorization: Bearer {token}' \
+-H 'Accept: application/fhir+json' \
+-H 'Prefer: respond-async'
 ```
 
 **Response**
 
-If the request was successful, a `202 Accepted` response code will be returned and the response will include a Content-Location header. The value of this header indicates the location to check for job status and outcome. In the example header below, the number 44 in the URL represents the ID of the export job.
+If the request was successful, a `202 Accepted` response code will be returned and the response will include a *Content-Location* header. The value of this header indicates the location to check for job status and outcome. In the example header below, the number 44 in the URL represents the ID of the export job.
 
 **Headers**
 
@@ -458,33 +472,36 @@ If the request was successful, a `202 Accepted` response code will be returned a
 
 `GET https://api.bcda.cms.gov/api/v1/jobs/44`
 
-Using the Content-Location header value from the Coverage data export response, you can check the status of the export job. The status will change from `202 Accepted` to `200 OK` when the export job is complete and the data is ready to be downloaded.
+Using the *Content-Location* header value from the Patient resource type data export response, you can check the status of the export job. The status will change from `202 Accepted` to `200 OK` when the export job is complete and the data is ready to be downloaded.
 
 **Headers**
 
 * `Authorization: Bearer {token}`
 
-**cURL command**
+**cURL Command**
 
 ```
-curl -v https://api.bcda.cms.gov/v1/jobs/44 \
+curl -v https://api.bcda.cms.gov/api/v1/jobs/44 \
 -H 'Authorization: Bearer {token}'
 ```
 
 **Responses**
 
-* `202 Accepted` indicates that the job is processing. Headers will include X-Progress: In Progress
+* `202 Accepted` indicates that the job is processing. Headers will include X-Progress: In Progress (The X-Progress header contains text indicating the job's status in BCDA's workflow. When the status is In Progress, an estimated progress percentage is also included.)
 * `200 OK` indicates that the job is complete.
 
+Below is an example of the format of the response body.
+
+! <new response body here>
 ```
-{ "transactionTime": "2018-10-19T14:47:33.975024Z", "request": "https://api.bcda.cms.gov/api/v1/Coverage/$export", "requiresAccessToken": true, "output": [ { "type": "Coverage", "url": "https://api.bcda.cms.gov/data/44/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson" } ], "error": [ { "type": "OperationOutcome", "url": "https://api.bcda.cms.gov/data/44/DBBD1CE1-AE24-435C-807D-ED45953077D3-error.ndjson" } ],"JobID":44 }
+{ "transactionTime": "2018-10-19T14:47:33.975024Z", "request": "https://sandbox.bcda.cms.gov/api/v1/Patient/$export", "requiresAccessToken": true, "output": [ { "type": "Patient", "url": "https://sandbox.bcda.cms.gov/data/43/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson" } ], "error": [ { "type": "OperationOutcome", "url": "https://sandbox.bcda.cms.gov/data/43/DBBD1CE1-AE24-435C-807D-ED45953077D3-error.ndjson" } ] }
 ```
 
-Coverage demographic data can be found at the URLs within the output field. The number 44 in the data file URLs is the same job ID from the Content-Location header URL in the previous step. If some of the data cannot be exported due to errors, details of the errors can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR [OperationOutcome](https://www.hl7.org/fhir/operationoutcome.html){:target="_blank"} resources.
+Patient demographic data can be found at the URLs within the output field. The number 44 in the data file URLs is the same job ID from the *Content-Location* header URL in the previous step. If some of the data cannot be exported due to errors, details of the errors can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR [OperationOutcome](https://www.hl7.org/fhir/operationoutcome.html){:target="_blank"} resources.
 
-#### 4. Retrieve the NDJSON output file(s)
+#### 4. Retrieve NDJSON output file(s)
 
-To obtain the exported coverage data, a GET request is made to the output URLs in the job status response when the job reaches the Completed state. The data will be presented as an NDJSON file of [Coverage](https://www.hl7.org/fhir/coverage.html){:target="_blank"} resources.
+To obtain the exported patient data, make a GET request to the output URLs in the job status response when the job reaches the Completed (200 OK) state. The data will be presented as an NDJSON file of [Patient](https://www.hl7.org/fhir/patient.html){:target="_blank"} resources.
 
 **Request**
 
@@ -503,4 +520,110 @@ curl https://api.bcda.cms.gov/data/44/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjso
 
 **Response**
 
-The response will be the requested data as FHIR Coverage resources in NDJSON format. An example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files).
+The response will be the requested data as [FHIR Patient resources](https://www.hl7.org/fhir/patient.html){:target="_blank"} in NDJSON format.
+
+An example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files).
+
+## Requesting Beneficiary Coverage Data Only
+
+[**Coverage data**](https://www.hl7.org/fhir/coverage.html){:target="_blank"} indicates the beneficiary’s enrollment record. It includes information on a beneficiary’s Part A, Part B, Part C, and Part D coverage, as well as markers for End-stage Renal Disease (ESRD) and Old Age and Survivors Insurance (OASI).
+
+The process of retrieving coverage data is very similar to all of the other exporting operations supported by this API.
+
+#### 1. Obtain an access token
+
+See [Authentication and Authorization](#authentication-and-authorization){:target="_self"} above.
+
+#### 2. Initiate an export job
+
+##### Request
+
+`GET /api/v1/Patient/$export?_type=Coverage`
+
+To start a coverage data export job, a GET request is made to the Patient endpoint for the Coverage resource type. An access token as well as `Accept` and `Prefer` headers are required.
+
+The dollar sign ('$') before the word "export" in the URL indicates that the endpoint is an action rather than a resource. The format is defined by the [FHIR Bulk Data Export spec](https://github.com/HL7/bulk-data/blob/master/spec/export/index.md){:target="_blank"}.
+
+**Headers**
+
+* `Authorization: Bearer {token}`
+* `Accept: application/fhir+json`
+* `Prefer: respond-async`
+
+**cURL command**
+
+! <new cURL goes here>
+  
+```
+curl -v https://api.bcda.cms.gov/api/v1/Coverage/\$export \
+-H 'Authorization: Bearer {token}' \
+-H 'Accept: application/fhir+json' \
+-H 'Prefer: respond-async'
+```
+
+**Response**
+
+If the request was successful, a `202 Accepted` response code will be returned and the response will include a *Content-Location* header. The value of this header indicates the location to check for job status and outcome. In the example header below, the number 45 in the URL represents the ID of the export job.
+
+**Headers**
+
+* `Content-Location: https://api.bcda.cms.gov/api/v1/jobs/45`
+
+#### 3. Check the status of the export job
+
+**Request**
+
+`GET https://api.bcda.cms.gov/api/v1/jobs/45`
+
+Using the *Content-Location* header value from the Coverage data export response, you can check the status of the export job. The status will change from `202 Accepted` to `200 OK` when the export job is complete and the data is ready to be downloaded.
+
+**Headers**
+
+* `Authorization: Bearer {token}`
+
+**cURL Command**
+
+```
+curl -v https://api.bcda.cms.gov/api/v1/jobs/45 \
+-H 'Authorization: Bearer {token}'
+```
+
+**Responses**
+
+* `202 Accepted` indicates that the job is processing. Headers will include X-Progress: In Progress (The X-Progress header contains text indicating the job's status in BCDA's workflow. When the status is In Progress, an estimated progress percentage is also included.)
+* `200 OK` indicates that the job is complete.
+
+Below is an example of the format of the response body.
+
+! <new response body here> 
+  
+```
+{ "transactionTime": "2018-10-19T14:47:33.975024Z", "request": "https://sandbox.bcda.cms.gov/api/v1/Coverage/$export", "requiresAccessToken": true, "output": [ { "type": "Coverage", "url": "https://sandbox.bcda.cms.gov/data/44/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson" } ], "error": [ { "type": "OperationOutcome", "url": "https://sandbox.bcda.cms.gov/data/44/DBBD1CE1-AE24-435C-807D-ED45953077D3-error.ndjson" } ] }
+```
+
+Coverage data can be found at the URLs within the output field. The number 45 in the data file URLs is the same job ID from the *Content-Location* header URL in the previous step. If some of the data cannot be exported due to errors, details of the errors can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR [OperationOutcome](https://www.hl7.org/fhir/operationoutcome.html){:target="_blank"} resources.
+
+#### 4. Retrieve NDJSON output file(s)
+
+To obtain the exported coverage data, make a GET request to the output URLs in the job status response when the job reaches the Completed (200 OK) state. The data will be presented as an NDJSON file of [Coverage](https://www.hl7.org/fhir/coverage.html){:target="_blank"} resources.
+
+**Request**
+
+`GET https://api.bcda.cms.gov/data/45/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson`
+
+**Headers**
+
+* `Authorization: Bearer {token}`
+
+**cURL command**
+
+```
+curl https://api.bcda.cms.gov/data/44/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson \
+-H 'Authorization: Bearer {token}'
+```
+
+**Response**
+
+The response will be the requested data as [FHIR Coverage resources](https://www.hl7.org/fhir/coverage.html){:target="_blank"} in NDJSON format.
+
+An example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files).
