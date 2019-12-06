@@ -281,6 +281,8 @@ The `Response Body` contains the requested claims data in NDJSON format. Click t
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_12.png" alt="Swagger: downloading your file" />
 
+If you have requested data related to more than one Resource Type, the files related to each Resource Type will appear separately.
+
 You will have twenty minutes before your token expires, and you will need to get another from token if it expires before you are finished interacting with the API. 
 
 Once you’ve downloaded the file, you’ll want to know what to do with the data. We’ve provided a [guide to working with BCDA data](/data-guide/) to help you, including a crosswalk between CCLF fields and the corresponding sections of the NDJSON files.
