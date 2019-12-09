@@ -228,7 +228,7 @@ Retrieving beneficiary data comprises two steps:
 
 #### a. Making a request for all three resource types
 
-In this example, we'll show a request for all three resource types in the `Patient` endpoint. If you want to learn how to make a request for data from one resource type, jump to [step 4b: Making a Request for One Resource Type](##b-making-a-request-for-one-resource-type).
+In this example, we'll show a request for all three resource types in the `Patient` endpoint. If you want to learn how to make a request for data from one resource type, jump to [step 4b: Making a Request for One Resource Type](#b-making-a-request-for-one-resource-type).
 
 First, click on `GET /api/v1/Patient/$export`, then click `Try it out`.
 
@@ -237,6 +237,8 @@ First, click on `GET /api/v1/Patient/$export`, then click `Try it out`.
 Then, as shown below, click `Execute` to start the process of requesting data from the `Patient` endpoint.  Make sure you note the **job number** (also known as `jobId`)  in the **response header**, since you’ll need this job number to track the status of your data request.
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_06b.png" alt="Swagger: Requesting all resource types from Patient endpoint" />
+
+<img class="ug-img" src="/assets/img/swagger_walkthrough_06c.png" alt="Swagger: Requesting all resource types from Patient endpoint" />
 
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image above) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your job.
 
@@ -248,7 +250,7 @@ First, click on `GET /api/v1/Patient/$export`, then click `Try it out`.
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_07.png" alt="Swagger: Requesting Coverage resource from Patient endpoint (1)" />
 
-As shown below, in the field labeled "Resource types requested," type "Coverage." Then click `Execute` to start the process of requesting Coverage data.  Make sure you note the **job number** (also known as `jobId`)  in the **response header**, since you’ll need this job number to track the status of your data request.
+As shown above, in the field labeled "Resource types requested," type "Coverage." Then click `Execute` to start the process of requesting Coverage data.  Make sure you note the **job number** (also known as `jobId`)  in the **response header**, since you’ll need this job number to track the status of your data request.
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_08.png" alt="Swagger: Requesting Coverage resource from Patient endpoint (2)" />
 
@@ -283,6 +285,6 @@ The `Response Body` contains the requested claims data in NDJSON format. Click t
 
 If you have requested data related to more than one Resource Type, the files related to each Resource Type will appear separately.
 
-You will have twenty minutes before your token expires, and you will need to get another from token if it expires before you are finished interacting with the API. 
+You will have twenty minutes before your token expires, and you will need to get another from `/auth/token` if it expires before you are finished interacting with the API.
 
 Once you’ve downloaded the file, you’ll want to know what to do with the data. We’ve provided a [guide to working with BCDA data](/data-guide/) to help you, including a crosswalk between CCLF fields and the corresponding sections of the NDJSON files.
