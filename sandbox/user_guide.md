@@ -146,7 +146,7 @@ Now you're ready to get a token!
 
 <img class="ug-img" src="/assets/img/nav_swag_03.png" alt="Swagger: Token endpoint (1)"/>
 
-* Click "Execute" to finally get your token
+* Click "Execute" to get your token
 
 <img class="ug-img" src="/assets/img/nav_swag_04.png" alt="Swagger: Token endpoint (2)"/>
 
@@ -158,18 +158,18 @@ If all is well, the Server response section will look similar to the following s
 
 Now that you have a token, you can tell Swagger to use it for your future requests.
 
-* Find one of the the blue-colored bulk data API endpoints.
+* Return to the top of the Swagger page
 * Click on the lock icon
 
-<img class="ug-img" src="/assets/img/nav_swag_06.png" alt="Swagger: Coverage endpoint"/>
+<img class="ug-img" src="/assets/img/nav_swag_06.png" alt="Swagger: Go back to Authorize"/>
 
 In the "Value" box:
 
-* Type the word "Bearer" followed by a space
+* **Type the word "Bearer" followed by a space** (This is critical!)
 * Paste your token
 * Click "Authorize" and then "Close"
 
-<img class="ug-img" src="/assets/img/nav_swag_07.png" alt="Swagger: Authorize (2)"/>
+<img class="ug-img" src="/assets/img/nav_swag_07.png" alt="Swagger: Authorizing with token"/>
 
 You are now ready to interact with the BCDA sandbox environment.
 
@@ -205,15 +205,17 @@ You can repeat this process with the `/_version` and `/api/v1/metadata` endpoint
 
 If you’d like to do this from the command line or implement this API call in code, look in the `Curl` section for the request you just made.
 
-### 3. Learning about the Bulk Data Endpoints
+### 3. Learning about the Bulk Data Resource Types
 
-The `bulkData` category provides information about beneficiaries.  As shown below, there are five pieces of information within the `bulkData` category.  The first three -- Explanation of Benefit (EOB) data, Patient data, and Coverage data -- are endpoints that return information about your ACO’s assigned or assignable beneficiaries. The last two pieces of information -- jobId and filename -- return information about the request you’re making.
+The `bulkData` category provides information about beneficiaries.  As shown below, there are three pieces of information within the `bulkData` category.  The first one -- the `Patient` endpoint -- is an endpoint that returns information about your ACO’s assigned or assignable beneficiaries. The last two pieces of information -- jobId and filename -- return information about the request you’re making.
+
+Within the `Patient` endpoint, you can make requests for up to three resource types:
 
 * **Explanation of Benefit** data includes claims data for your beneficiaries.
 * **Patient** data includes identification information about your assigned or assignable beneficiaries.
 * **Coverage** data includes each beneficiary’s Medicare coverage plan.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_06.png" alt="Swagger: Learning about the Bulk Data Endpoints" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_06.png" alt="Swagger: Learning about the Bulk Data Resource Types" />
 
 ### 4. Making your first request for beneficiary data
 
@@ -221,24 +223,42 @@ To get any bulk beneficiary data, you must first be authorized with BCDA. Make s
 
 Retrieving beneficiary data comprises two steps:
 
-1. Starting a job to acquire data from a specific endpoint
-2. Retrieving data via a job request.
+1. Starting a job to acquire data from the `Patient` endpoint
+2. Retrieving data via a job request
 
-We’ll use the `Coverage` endpoint as an example of how to perform both steps. You’ll be able to follow the same instructions for Explanation of Benefit and Patient data as well.
+#### a. Making a request for all three resource types
 
-First, click on `GET /api/v1/Coverage/$export`, then click `Try it out`.
+In this example, we'll show a request for all three resource types in the `Patient` endpoint. If you want to learn how to make a request for data from one resource type, jump to [step 4b: Making a Request for One Resource Type](#b-making-a-request-for-one-resource-type).
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_07.png" alt="Swagger: Coverage endpoint (1)" />
+First, click on `GET /api/v1/Patient/$export`, then click `Try it out`.
 
-Then, as shown below, click `Execute` to start the process of requesting Coverage data.  Make sure you note the **job number** (also known as `jobId`)  in the **response header**, since you’ll need this job number to track the status of your data request.
+<img class="ug-img" src="/assets/img/swagger_walkthrough_06a.png" alt="Swagger: Starting a request from Patient endpoint" />
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_08.png" alt="Swagger: Coverage endpoint (2)" />
+Then, as shown below, click `Execute` to start the process of requesting data from the `Patient` endpoint.  Make sure you note the **job number** (also known as `jobId`)  in the **response header**, since you’ll need this job number to track the status of your data request.
+
+<img class="ug-img" src="/assets/img/swagger_walkthrough_06b.png" alt="Swagger: Requesting all resource types from Patient endpoint" />
+
+<img class="ug-img" src="/assets/img/swagger_walkthrough_06c.png" alt="Swagger: Requesting all resource types from Patient endpoint" />
+
+If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image above) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your job.
+
+#### b. Making a request for one resource type
+
+Next, we'll show a specific example of requesting only the `Coverage` resource type from the `Patient` endpoint. You can follow the same steps for `ExplanationOfBenefit` or `Patient` data from the `Patient` endpoint, or any combination of the three.
+
+First, click on `GET /api/v1/Patient/$export`, then click `Try it out`.
+
+<img class="ug-img" src="/assets/img/swagger_walkthrough_07.png" alt="Swagger: Requesting Coverage resource from Patient endpoint (1)" />
+
+As shown above, in the field labeled "Resource types requested," type "Coverage." Then click `Execute` to start the process of requesting Coverage data.  Make sure you note the **job number** (also known as `jobId`)  in the **response header**, since you’ll need this job number to track the status of your data request.
+
+<img class="ug-img" src="/assets/img/swagger_walkthrough_08.png" alt="Swagger: Requesting Coverage resource from Patient endpoint (2)" />
 
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image above) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your Coverage job.
 
 ### 5. Getting your data
 
-There are two steps to retrieving the requested Coverage data:
+There are two steps to retrieving the requested data:
 
 1. Checking the status of your job
 2. Downloading your bulk data file
@@ -263,6 +283,8 @@ The `Response Body` contains the requested claims data in NDJSON format. Click t
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_12.png" alt="Swagger: downloading your file" />
 
-You will have twenty minutes before your token expires, and you will need to get another from token if it expires before you are finished interacting with the API. 
+If you have requested data related to more than one Resource Type, the files related to each Resource Type will appear separately.
+
+You will have twenty minutes before your token expires, and you will need to get another from `/auth/token` if it expires before you are finished interacting with the API.
 
 Once you’ve downloaded the file, you’ll want to know what to do with the data. We’ve provided a [guide to working with BCDA data](/data-guide/) to help you, including a crosswalk between CCLF fields and the corresponding sections of the NDJSON files.
