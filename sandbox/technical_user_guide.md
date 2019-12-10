@@ -500,7 +500,7 @@ The response will be the requested data as [FHIR ExplanationOfBenefit resources]
 
 An example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files).
 
-## Requesting Beneficiary Patient Data only
+### Requesting Beneficiary Patient Data only
 
 The [**Patient** file](https://www.hl7.org/fhir/patient.html){:target="_blank"} can be thought of as your CCLF files 8 and 9: this is where you get your information about who your beneficiaries are, their demographic information, and updates to their patient identifiers.
 
@@ -612,7 +612,7 @@ The response will be the requested data as [FHIR Patient resources](https://www.
 
 An example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files).
 
-## Requesting Beneficiary Coverage Data Only
+### Requesting Beneficiary Coverage Data Only
 
 [**Coverage data**](https://www.hl7.org/fhir/coverage.html){:target="_blank"} indicates the beneficiary’s enrollment record. It includes information on a beneficiary’s Part A, Part B, Part C, and Part D coverage, as well as markers for End-stage Renal Disease (ESRD) and Old Age and Survivors Insurance (OASI).
 
