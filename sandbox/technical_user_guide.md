@@ -14,9 +14,6 @@ sections:
   - Authentication and Authorization
   - Environment
   - Examples
-  - Beneficiary Explanation of Benefit Data
-  - Beneficiary Patient Data
-  - Beneficiary Coverage Data
 ---
 
 ## User Guide
