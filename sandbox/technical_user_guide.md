@@ -96,120 +96,104 @@ Metadata about the Beneficiary Claims Data API is available as a FHIR [Capabilit
 
 **cURL command**
 
-```
-curl https://sandbox.bcda.cms.gov/api/v1/metadata
-```
+`curl https://sandbox.bcda.cms.gov/api/v1/metadata`
+
 
 **Response**
-
-!  <new CapabilityStatement goes here>
-
 ```
 {
-    "resourceType": "CapabilityStatement",
-    "status": "active",
-    "date": "2019-05-30",
-    "publisher": "Centers for Medicare & Medicaid Services",
-    "kind": "capability",
-    "instantiates": [
-        "https://blob-pdcw16Tv76-1352124321.us-east-1.elb.amazonaws.com/baseDstu3/metadata/"
-    ],
-    "software": {
-        "name": "Beneficiary Claims Data API",
-        "version": "latest",
-        "releaseDate": "2019-05-30"
-    },
-    "implementation": {
-        "url": "https://sandbox.bcda.cms.gov"
-    },
-    "fhirVersion": "3.0.1",
-    "acceptUnknown": "extensions",
-    "format": [
-        "application/json",
-        "application/fhir+json"
-    ],
-    "rest": [
-        {
-            "mode": "server",
-            "security": {
-                "cors": true,
-                "service": [
-                    {
-                        "coding": [
-                            {
-                                "system": "http://hl7.org/fhir/ValueSet/restful-security-service",
-                                "code": "OAuth",
-                                "display": "OAuth"
-                            }
-                        ],
-                        "text": "OAuth"
-                    },
-                    {
-                        "coding": [
-                            {
-                                "system": "http://hl7.org/fhir/ValueSet/restful-security-service",
-                                "code": "SMART-on-FHIR",
-                                "display": "SMART-on-FHIR"
-                            }
-                        ],
-                        "text": "SMART-on-FHIR"
-                    }
-                ]
-            },
-            "interaction": [
-                {
-                    "code": "batch"
-                },
-                {
-                    "code": "search-system"
-                }
+  "resourceType": "CapabilityStatement",
+  "status": "active",
+  "date": "2019-12-09",
+  "publisher": "Centers for Medicare & Medicaid Services",
+  "kind": "capability",
+  "instantiates": [
+    "https://fhir.backend.bluebutton.hhsdevcloud.us/baseDstu3/metadata/"
+  ],
+  "software": {
+    "name": "Beneficiary Claims Data API",
+    "version": "latest",
+    "releaseDate": "2019-12-09"
+  },
+  "implementation": {
+    "url": "https://sandbox.bcda.cms.gov"
+  },
+  "fhirVersion": "3.0.1",
+  "acceptUnknown": "extensions",
+  "format": [
+    "application/json",
+    "application/fhir+json"
+  ],
+  "rest": [
+    {
+      "mode": "server",
+      "security": {
+        "cors": true,
+        "service": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/ValueSet/restful-security-service",
+                "code": "OAuth",
+                "display": "OAuth"
+              }
             ],
-            "operation": [
-                {
-                    "name": "export",
-                    "definition": {
-                        "reference": "https://sandbox.bcda.cms.gov/api/v1/ExplanationOfBenefit/$export"
-                    }
-                },
-                {
-                    "name": "jobs",
-                    "definition": {
-                        "reference": "https://sandbox.bcda.cms.gov/api/v1/jobs/[jobId]"
-                    }
-                },
-                {
-                    "name": "metadata",
-                    "definition": {
-                        "reference": "https://sandbox.bcda.cms.gov/api/v1/metadata"
-                    }
-                },
-                {
-                    "name": "version",
-                    "definition": {
-                        "reference": "https://sandbox.bcda.cms.gov/_version"
-                    }
-                },
-                {
-                    "name": "data",
-                    "definition": {
-                        "reference": "https://sandbox.bcda.cms.gov/data/[jobID]/[random_UUID].ndjson"
-                    }
-                },
-                {
-                    "name": "export",
-                    "definition": {
-                        "reference": "https://sandbox.bcda.cms.gov/api/v1/Patient/$export"
-                    }
-                },
-                {
-                    "name": "export",
-                    "definition": {
-                        "reference": "https://sandbox.bcda.cms.gov/api/v1/Coverage/$export"
-                    }
-                }
-            ]
+            "text": "OAuth"
+          },
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/ValueSet/restful-security-service",
+                "code": "SMART-on-FHIR",
+                "display": "SMART-on-FHIR"
+              }
+            ],
+            "text": "SMART-on-FHIR"
+          }
+        ]
+      },
+      "interaction": [
+        {
+          "code": "batch"
+        },
+        {
+          "code": "search-system"
         }
-    ]
+      ],
+      "operation": [
+        {
+          "name": "export",
+          "definition": {
+            "reference": "https://sandbox.bcda.cms.gov/api/v1/Patient/$export"
+          }
+        },
+        {
+          "name": "jobs",
+          "definition": {
+            "reference": "https://sandbox.bcda.cms.gov/api/v1/jobs/[jobId]"
+          }
+        },
+        {
+          "name": "metadata",
+          "definition": {
+            "reference": "https://sandbox.bcda.cms.gov/api/v1/metadata"
+          }
+        },
+        {
+          "name": "version",
+          "definition": {
+            "reference": "https://sandbox.bcda.cms.gov/_version"
+          }
+        },
+        {
+          "name": "data",
+          "definition": {
+            "reference": "https://sandbox.bcda.cms.gov/data/[jobID]/[random_UUID].ndjson"
+          }
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -243,16 +227,17 @@ The dollar sign (‘$’) before the word “export” in the URL indicates that
 * `Prefer: respond-async`
 
 **cURL command**
+```
+curl -X GET "https://sandbox.bcda.cms.gov/api/v1/Patient/$export" -H "accept: application/fhir+json" -H "Prefer: respond-async" -H "Authorization: Bearer {token}"
+```
 
-! <new cURL goes here>
-  
 **Response**
 
 If the request was successful, a `202 Accepted` response code will be returned and the response will include a *Content-Location* header. The value of this header indicates the location to check for job status and outcome. In the example header below, the number 42 in the URL represents the ID of the export job.
 
 **Headers**
 
-* `Content-Location: https://sandbox.bcda.cms.gov/api/v1/jobs/42
+* Content-Location: https://sandbox.bcda.cms.gov/api/v1/jobs/42
 
 #### 3. Check the status of the export job
 
@@ -269,8 +254,9 @@ Using the *Content-Location* header value from the Patient data export response,
 **cURL Command**
 
 ```
-curl -v https://sandbox.bcda.cms.gov/api/v1/jobs/42 \
--H 'Authorization: Bearer {token}'
+curl -X GET "https://sandbox.bcda.cms.gov/api/v1/jobs/42" \
+-H "accept: application/fhir+json" \
+-H "Authorization: Bearer {token}"
 ```
 
 **Responses**
@@ -279,8 +265,29 @@ curl -v https://sandbox.bcda.cms.gov/api/v1/jobs/42 \
 * `200 OK` indicates that the job is complete.
 
 Below is an example of the format of the response body.
-
-! <response body goes here>
+```
+{
+  "transactionTime": "2019-12-09T20:44:01.705398Z",
+  "request": "https://sandbox.bcda.cms.gov/api/v1/Patient/$export",
+  "requiresAccessToken": true,
+  "output": [
+    {
+      "type": "ExplanationOfBenefit",
+      "url": "https://sandbox.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson"
+    },
+    {
+      "type": "Coverage",
+      "url": "https://sandbox.bcda.cms.gov/data/42/f76a0b76-48ed-4033-aad9-d3eec37e7e83.ndjson"
+    },
+    {
+      "type": "Patient",
+      "url": "https://sandbox.bcda.cms.gov/data/42/f92dcf16-63a2-448e-a12a-3bf677f966ed.ndjson"
+    }
+  ],
+  "error": [],
+  "JobID": 42
+}
+```
   
 Claims data can be found at the URLs within the output field. The number 42 in the data file URLs is the same job ID from the *Content-Location* header URL in the previous step. If some of the data cannot be exported due to errors, details of the errors can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR [OperationOutcome](https://www.hl7.org/fhir/operationoutcome.html){:target="_blank"} resources.
 
@@ -335,11 +342,8 @@ The dollar sign (‘$’) before the word “export” in the URL indicates that
 * `Prefer: respond-async`
 
 **cURL command**
-
-! <new cURL goes here>
-
 ```
-curl -v https://sandbox.bcda.cms.gov/api/v1/ExplanationOfBenefit/\$export \
+curl -X GET "https://sandbox.bcda.cms.gov/api/v1/Patient/$export?_type=ExplanationOfBenefit \
 -H 'Authorization: Bearer {token}' \
 -H 'Accept: application/fhir+json' \
 -H 'Prefer: respond-async'
@@ -379,10 +383,20 @@ curl -v https://sandbox.bcda.cms.gov/api/v1/jobs/43 \
 
 Below is an example of the format of the response body.
 
-!  <new response body goes here>
-
 ```
-{ "transactionTime": "2018-10-19T14:47:33.975024Z", "request": "https://sandbox.bcda.cms.gov/api/v1/ExplanationOfBenefit/$export", "requiresAccessToken": true, "output": [ { "type": "ExplanationOfBenefit", "url": "https://sandbox.bcda.cms.gov/data/42/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson" } ], "error": [ { "type": "OperationOutcome", "url": "https://sandbox.bcda.cms.gov/data/42/DBBD1CE1-AE24-435C-807D-ED45953077D3-error.ndjson" } ] }
+{
+  "transactionTime": "2019-12-09T21:20:57.254518Z",
+  "request": "https://sandbox.bcda.cms.gov/api/v1/Patient/$export?_type=ExplanationOfBenefit",
+  "requiresAccessToken": true,
+  "output": [
+    {
+      "type": "ExplanationOfBenefit",
+      "url": "https://sandbox.bcda.cms.gov/data/43/472483a6-3aad-422c-beed-694344570548.ndjson"
+    }
+  ],
+  "error": [],
+  "JobID": 43
+}
 ```
 
 Claims data can be found at the URLs within the output field. The number 43 in the data file URLs is the same job ID from the *Content-Location* header URL in the previous step. If some of the data cannot be exported due to errors, details of the errors can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR [OperationOutcome](https://www.hl7.org/fhir/operationoutcome.html){:target="_blank"} resources.
@@ -441,11 +455,8 @@ The dollar sign ('$') before the word "export" in the URL indicates that the end
 * `Prefer: respond-async`
 
 **cURL command**
-
-! <new cURL goes here>
-
 ```
-curl -v https://sandbox.bcda.cms.gov/api/v1/Patient/\$export \
+curl -v https://sandbox.bcda.cms.gov/api/v1/Patient/$export?_type=Patient" \
 -H 'Authorization: Bearer {token}' \
 -H 'Accept: application/fhir+json' \
 -H 'Prefer: respond-async'
@@ -484,10 +495,20 @@ curl -v https://sandbox.bcda.cms.gov/api/v1/jobs/44 \
 * `200 OK` indicates that the job is complete.
 
 Below is an example of the format of the response body.
-
-! <new response body here>
 ```
-{ "transactionTime": "2018-10-19T14:47:33.975024Z", "request": "https://sandbox.bcda.cms.gov/api/v1/Patient/$export", "requiresAccessToken": true, "output": [ { "type": "Patient", "url": "https://sandbox.bcda.cms.gov/data/43/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson" } ], "error": [ { "type": "OperationOutcome", "url": "https://sandbox.bcda.cms.gov/data/43/DBBD1CE1-AE24-435C-807D-ED45953077D3-error.ndjson" } ] }
+{
+  "transactionTime": "2019-12-09T21:42:54.055223Z",
+  "request": "https://sandbox.bcda.cms.gov/api/v1/Patient/$export?_type=Patient",
+  "requiresAccessToken": true,
+  "output": [
+    {
+      "type": "Patient",
+      "url": "https://sandbox.bcda.cms.gov/data/44/4e2cd98c-4746-4138-872b-24778c000b02.ndjson"
+    }
+  ],
+  "error": [],
+  "JobID": 44
+}
 ```
 
 Patient demographic data can be found at the URLs within the output field. The number 44 in the data file URLs is the same job ID from the *Content-Location* header URL in the previous step. If some of the data cannot be exported due to errors, details of the errors can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR [OperationOutcome](https://www.hl7.org/fhir/operationoutcome.html){:target="_blank"} resources.
@@ -544,11 +565,8 @@ The dollar sign ('$') before the word "export" in the URL indicates that the end
 * `Prefer: respond-async`
 
 **cURL command**
-
-! <new cURL goes here>
-  
 ```
-curl -v https://sandbox.bcda.cms.gov/api/v1/Coverage/\$export \
+curl -v https://sandbox.bcda.cms.gov/api/v1/Patient/$export?_type=Coverage \
 -H 'Authorization: Bearer {token}' \
 -H 'Accept: application/fhir+json' \
 -H 'Prefer: respond-async'
@@ -587,11 +605,20 @@ curl -v https://sandbox.bcda.cms.gov/api/v1/jobs/45 \
 * `200 OK` indicates that the job is complete.
 
 Below is an example of the format of the response body.
-
-! <new response body here> 
-  
 ```
-{ "transactionTime": "2018-10-19T14:47:33.975024Z", "request": "https://sandbox.bcda.cms.gov/api/v1/Coverage/$export", "requiresAccessToken": true, "output": [ { "type": "Coverage", "url": "https://sandbox.bcda.cms.gov/data/44/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson" } ], "error": [ { "type": "OperationOutcome", "url": "https://sandbox.bcda.cms.gov/data/44/DBBD1CE1-AE24-435C-807D-ED45953077D3-error.ndjson" } ] }
+{
+  "transactionTime": "2019-12-09T21:51:58.182108Z",
+  "request": "https://sandbox.bcda.cms.gov/api/v1/Patient/$export?_type=Coverage",
+  "requiresAccessToken": true,
+  "output": [
+    {
+      "type": "Coverage",
+      "url": "https://sandbox.bcda.cms.gov/data/45/99dbc86f-74e5-4553-88a9-af3e718cb72b.ndjson"
+    }
+  ],
+  "error": [],
+  "JobID": 45
+}
 ```
 
 Coverage data can be found at the URLs within the output field. The number 45 in the data file URLs is the same job ID from the *Content-Location* header URL in the previous step. If some of the data cannot be exported due to errors, details of the errors can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR [OperationOutcome](https://www.hl7.org/fhir/operationoutcome.html){:target="_blank"} resources.
@@ -611,7 +638,7 @@ To obtain the exported coverage data, make a GET request to the output URLs in t
 **cURL command**
 
 ```
-curl https://sandbox.bcda.cms.gov/data/44/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson \
+curl https://sandbox.bcda.cms.gov/data/45/DBBD1CE1-AE24-435C-807D-ED45953077D3.ndjson \
 -H 'Authorization: Bearer {token}'
 ```
 
