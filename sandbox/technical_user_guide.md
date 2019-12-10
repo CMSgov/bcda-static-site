@@ -33,8 +33,10 @@ This guide serves as a starting point for users to begin working with the API. [
 
 The Beneficiary Claims Data API is currently accessible as an open sandbox environment, which returns sample NDJSON files with synthetic beneficiary data. You can use the generic credentials below to view our implementation of the API and learn the shape of the data before working with production files that include PII and PHI. There is no beneficiary PII or PHI in the files you can access via the sandbox.
 
-To get a token that can be used with protected endpoints, POST the following credentials using [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication){:target="_blank"} to `https://sandbox.bcda.cms.gov/auth/token`:
+We have provided five sets of synthetic credentials for use in the sandbox, corresponding to various amounts of synthetic beneficiaries. We suggest testing with the credentials that most closely align with the size of your ACO, so that you can get a feel for working with a similar amount of synthetic data to that which you’ll receive in production.
 
+<button class="accordion"> Extra-Small ACO (50 synthetic beneficiaries) </button>
+<div class="acc_content">
 Client ID:
 {%- capture client_id -%}
 3841c594-a8c0-41e5-98cc-38bb45360d3c
@@ -48,6 +50,78 @@ f9780d323588f1cdfc3e63e95a8cbdcdd47602ff48a537b51dc5d7834bf466416a716bd4508e904a
 {%- endcapture -%}
 
 {% include copy_snippet.md code=client_secret %}
+</div>
+
+<button class="accordion"> Small ACO (2,500 synthetic beneficiaries) </button>
+<div class="acc_content">
+Client ID:
+{%- capture client_id -%}
+d5f83f74-6c55-4f1e-9d16-0022688171ba
+{%- endcapture -%}
+
+{% include copy_snippet.md code=client_id %}
+
+Client Secret:
+{%- capture client_secret -%}
+01c23cf3f31f82a5c2dcef5136a8eaa32959158351f4e28aaec5fc6550cb2a5b5d112c5b8aacc434
+{%- endcapture -%}
+
+{% include copy_snippet.md code=client_secret %}
+</div>
+
+<button class="accordion"> Medium ACO (7,500 synthetic beneficiaries) </button>
+<div class="acc_content">
+Client ID:
+{%- capture client_id -%}
+8c75a6f6-02b9-4a47-96c1-0bd6efd4b5e3
+{%- endcapture -%}
+
+{% include copy_snippet.md code=client_id %}
+
+Client Secret:
+{%- capture client_secret -%}
+e1c920141c4aca6b8f726fa8aa0f7b55e095fd1ea3368a5f24b3636fdc907f113d6677977c7259dd
+{%- endcapture -%}
+
+{% include copy_snippet.md code=client_secret %}
+</div>
+
+<button class="accordion"> Large ACO (20,000 synthetic beneficiaries) </button>
+<div class="acc_content">
+Client ID:
+{%- capture client_id -%}
+f268a8c6-8a29-4d2b-8b92-263dc775750d
+{%- endcapture -%}
+
+{% include copy_snippet.md code=client_id %}
+
+Client Secret:
+{%- capture client_secret -%}
+78ed083ad8e49475f36d04153649012b92c363a538ac97beaf0f7900403989581fc35324baa31e36
+{%- endcapture -%}
+
+{% include copy_snippet.md code=client_secret %}
+</div>
+
+<button class="accordion"> Extra-Large ACO (30,000 synthetic beneficiaries) </button>
+<div class="acc_content">
+Client ID:
+{%- capture client_id -%}
+6152afb4-c555-46e4-93de-fa16a441d643
+{%- endcapture -%}
+
+{% include copy_snippet.md code=client_id %}
+
+Client Secret:
+{%- capture client_secret -%}
+1ace5a0e9fdf0c3d713e8c029269eacd024732ccd59e2cf283374e0f8dc93b34429d71b77e55b9a2
+{%- endcapture -%}
+
+{% include copy_snippet.md code=client_secret %}
+</div>
+
+To get a token that can be used with protected endpoints, POST the credentials you've selected using [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication){:target="_blank"} to `https://sandbox.bcda.cms.gov/auth/token`:
+
 
 Encoded Basic authentication:
 {%- capture auth_header -%}
