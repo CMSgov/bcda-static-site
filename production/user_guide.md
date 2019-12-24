@@ -49,7 +49,7 @@ Once the page is open, your first step will be getting an **access token**.  You
 
 <img class="ug-img" src="/assets/img/nav_swag_01.png" alt="Swagger: Auth category"/>
 
-When you enrolled in BCDA, you received **credentials**, which included a **client ID** and **secret**.  Here you'll enter the client ID as the username, and the secret as the password.
+When you enrolled in BCDA, you received **credentials**, which included a **client ID** and **secret**.  Here you'll enter them into Swagger.
 
 * Click the "Authorize" button when you've entered your credentials, then "Close"
 

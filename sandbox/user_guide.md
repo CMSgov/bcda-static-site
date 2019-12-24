@@ -133,7 +133,7 @@ Client Secret:
 {% include copy_snippet.md code=client_secret %}
 </div>
 
-Back in Swagger, you’ll enter the client ID as the username, and the secret as the password.
+Back in Swagger, you’ll enter the client ID and secret.
 
 * Click the "Authorize" button when you've entered your credentials, then "Close"
 
