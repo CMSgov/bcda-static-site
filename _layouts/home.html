@@ -2,7 +2,7 @@
 layout: default
 ---
 <div class="ds-base">
-  <header class="blueberry-lime-gradient-background main-header ds-u-margin-bottom--2 ds-u-lg-margin-bottom--5">
+  <div class="blueberry-lime-gradient-background main-header ds-u-margin-bottom--2 ds-u-lg-margin-bottom--5">
     <div class="api-pattern">
       <div class="">
         <div class="ds-l-container">
@@ -18,13 +18,13 @@ layout: default
           </div>
         </div>
       </div>
-  </header>
+  </div>
 </div>
 
 <section class="ds-l-container ds-base">
   <div class="ds-l-row">
     <aside class="ds-l-col--4 ds-u-margin-left--right ds-u-display--none ds-u-sm-display--block" role="complementary">
-      <nav class="subnav">
+      <nav aria-label="Page" class="subnav">
         <ul class="ds-c-list ds-c-list--bare" id="mainNav" aria-labelledby="page-sub-nav">
           {% for item in page.sections %}
             <li><a href="#{{ item | slugify }}" aria-label="{{ item }} section, current page" class="ds-u-display--block {{ page.subnav-link-gradient }}" aria-label="{{ item }} section, current page">{{ item }}</a></li>
