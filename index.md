@@ -74,13 +74,13 @@ Representatives of Shared Savings Program ACOs are now invited to express their 
 
    BCDA is one member of a suite of FHIR APIs provided by CMS, which work together to provide claims data that enables higher-quality patient care.
 
-#### [Blue Button 2.0:](https://bluebutton.cms.gov){:target="_blank"}
+### [Blue Button 2.0:](https://bluebutton.cms.gov){:target="_blank"}
    * Provides FHIR-formatted data for **one** individual Medicare beneficiary at a time, to registered applications with beneficiary authorization.
 
-#### Beneficiary Claims Data API (BCDA):
+### Beneficiary Claims Data API (BCDA):
    * Uses the bulk FHIR specification to provide data files to an ACO for **all** of the beneficiaries a given Shared Savings Program ACO is eligible to receive.
    * BCDA does not require individual beneficiary authorization to send this information, though beneficiaries can opt out of having their data shared with the ACO by calling 1-800-Medicare.
 
-#### [Data at the Point of Care (DPC) pilot:](https://dpc.cms.gov){:target="_blank"}
+### [Data at the Point of Care (DPC) pilot:](https://dpc.cms.gov){:target="_blank"}
    * Provides FHIR-formatted bulk data files to **fee-for-service providers** for their active patients as needed for treatment purposes under HIPAA. 
    * Data at the Point of Care does not require individual beneficiary authorization but does allow patients to opt out of data sharing.
