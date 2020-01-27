@@ -1,13 +1,13 @@
-{% for item in site.global_nav %}
-{% assign pages = site.pages | where:"id",item.id %}
-<ul class="dropdown">
-  {% for p in pages %}
-    <li class="no_list">
-      <nav aria-label="Primary" class="topdrop">
-              {% assign prefix = page.id | split: "-" %}
-              <a class="topmenu{% if p.id contains prefix[0] || p.id == page.id %} active{% endif %}" href="{{ p.url }}" aria-label="{{ item.title }}"> {{item.title}} </a>
-      </nav>
-    </li>
-  {% endfor %}
-</ul>
-{% endfor %}
+<nav aria-label="Primary" class="topdrop">
+    <ul class="slim_ul">
+        {% for item in site.global_nav %}
+            {% assign pages = site.pages | where:"id",item.id %}
+            {% for p in pages %}
+                <li class="dropdown">
+                    {% assign prefix = page.id | split: "-" %}
+                    <a class="topmenu{% if p.id contains prefix[0] || p.id == page.id %} active{% endif %}" href="{{ p.url }}" aria-label="{{ item.title }}"> {{item.title}} </a>
+                </li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+</nav>

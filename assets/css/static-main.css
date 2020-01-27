@@ -6285,3 +6285,9 @@ article h2::after {
 .accordion_active:after {
     content: "\2796";
 }
+
+.slim_ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
