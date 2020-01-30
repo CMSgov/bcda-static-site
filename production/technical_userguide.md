@@ -94,6 +94,14 @@ The examples below include [cURL](https://curl.haxx.se){:target="_blank"} comman
 
 ## Examples
 
+### Sample Code
+BCDA provides [test code written in Golang](https://github.com/CMSgov/bcda-app/blob/master/test/smoke_test/bcda_client.go){:target="_blank"} in our GitHub instance that you can use to set up your system to work with the API.
+Sample invocation is below:
+```
+go run bcda_client.go -host=$HOSTNAME -clientID=$CLIENT_ID -clientSecret=$CLIENT_SECRET -endpoint=Patient -resourceType=ExplanationOfBenefit
+```
+Below we break down step by step each of the actions provided in the test client.
+
 Examples are shown as requests to the BCDA production environment.
 
 ### BCDA Metadata
