@@ -5,7 +5,7 @@
             {% for p in pages %}
                 <li class="dropdown">
                     {% assign prefix = page.id | split: "-" %}
-                    <a class="topmenu{% if p.id contains prefix[0] || p.id == page.id %} active{% endif %}" href="{{ p.url }}" aria-label="{{ item.title }}"> {{item.title}} </a>
+                    <a class="topmenu{% if p.id contains prefix[0] || p.id == page.id %} active{% endif %}" href="{{ p.url }}"> {{item.title}} </a>
                 </li>
             {% endfor %}
         {% endfor %}

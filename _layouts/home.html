@@ -23,7 +23,7 @@ layout: default
 
 <section class="ds-l-container ds-base">
   <div class="ds-l-row">
-    <aside class="ds-l-col--4 ds-u-margin-left--right ds-u-display--none ds-u-sm-display--block" role="complementary">
+    <div class="ds-l-col--4 ds-u-margin-left--right ds-u-display--none ds-u-sm-display--block" role="complementary">
       <nav aria-label="Page" class="subnav">
         <ul class="ds-c-list ds-c-list--bare" id="mainNav" aria-labelledby="page-sub-nav">
           {% for item in page.sections %}
@@ -31,7 +31,7 @@ layout: default
           {% endfor %}
         </ul>
       </nav>
-    </aside>
+    </div>
 
 
     <article class="ds-l-col--12 ds-l-sm-col--7 {{ page.badge | slugify }}" id="main" role="main">
