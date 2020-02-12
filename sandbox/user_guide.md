@@ -166,7 +166,7 @@ Now that you have a token, you can tell Swagger to use it for your future reques
 In the "Value" box:
 
 * **First, you must type the word _Bearer_ followed by a space into the box. _Bearer_ is case-sensitive.**
-  * Failure to do this will result in a _401 Unauthorized_ error. 
+  * Failure to do this will result in an `HTTP 401 Unauthorized` error. 
 * Paste your token after the space following **_Bearer_**
 * Click "Authorize" and then "Close"
 
