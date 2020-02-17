@@ -74,8 +74,8 @@ To learn more about FHIR, bulk FHIR specifications, or the Blue Button API, plea
 
 ## Sample BCDA FHIR Data Points
 
-#### Sample Diagnosis Code
+### Sample Diagnosis Code
 <img class="ug-img" src="/assets/img/data_guide_01.png" alt="sample diagnosis code" />
 
-#### Sample BETOS Code
+### Sample BETOS Code
 <img class="ug-img" src="/assets/img/data_guide_02.png" alt="sample betos code" />
