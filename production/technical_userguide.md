@@ -42,7 +42,7 @@ Once you have your credentials, you will:
 
 **Currently, access tokens expire after twenty minutes.**
 
-#### Authentication Walkthrough
+### Authentication Walkthrough
 
 You can follow the steps for [authenticating and receiving a token using Swagger](/production/user-guide/#setting-up-your-credentials-in-swagger){:target="_self"}, or follow the walk-through below if you are using the command line or terminal.
 
@@ -56,7 +56,7 @@ Client Secret:
 64916fe96f71adc79c5735e49f4e72f18ff941d0dd62cf43ee1ae0857e204f173ba10e4250c12c48
 ```
 
-#### Encoded Basic authentication:
+### Encoded Basic authentication:
 
 **Request**
 
@@ -459,7 +459,7 @@ See [Authentication and Authorization](#authentication-and-authorization){:targe
 
 #### 2. Initiate an export job
 
-##### Request
+**Request**
 
 `GET /api/v1/Patient/$export?_type=Patient`
 
@@ -569,7 +569,7 @@ See [Authentication and Authorization](#authentication-and-authorization){:targe
 
 #### 2. Initiate an export job
 
-##### Request
+**Request**
 
 `GET /api/v1/Patient/$export?_type=Coverage`
 
