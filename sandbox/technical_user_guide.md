@@ -519,7 +519,7 @@ See [Authentication and Authorization](#authentication-and-authorization){:targe
 
 #### 2. Initiate an export job
 
-##### Request
+**Request**
 
 `GET /api/v1/Patient/$export?_type=Patient`
 
@@ -629,7 +629,7 @@ See [Authentication and Authorization](#authentication-and-authorization){:targe
 
 #### 2. Initiate an export job
 
-##### Request
+**Request**
 
 `GET /api/v1/Patient/$export?_type=Coverage`
 
