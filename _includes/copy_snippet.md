@@ -1,10 +1,8 @@
 {% assign code = include.code %}
 
-<div class="highlight"><pre class="highlight"><code>{{code}}
-</code></pre></div>
-
 {% assign nanosecond = "now" | date: "%N" %}
-<input type="text" id="code{{ nanosecond }}" style="position: absolute;left: -1000px;" value="{{ code }}"/>
+<div class="highlight"><pre class="highlight"><code id="code{{ nanosecond }}">{{code}}</code></pre></div>
+
 <div class="button" on>
     <p>
         <a href="javascript:void(0)" onclick="copyText{{ nanosecond }}()" id="copybutton{{ nanosecond }}">
@@ -15,13 +13,11 @@
 
 <script>
 function copyText{{ nanosecond }}(){
-  /* Get the text field */
-  var copyText = document.getElementById("code{{ nanosecond }}");
-
-  /* Select the text field */
-  copyText.select();
-
-  /* Copy the text inside the text field */
-  document.execCommand("copy");
+  var range = document.createRange();
+  range.selectNode(document.getElementById("code{{ nanosecond }}"));    // find element
+  window.getSelection().removeAllRanges();                              // clear current selection
+  window.getSelection().addRange(range);                                // select text
+  document.execCommand("copy");                                         // copy text
+  window.getSelection().removeAllRanges();                              // deselect
 }
 </script>
