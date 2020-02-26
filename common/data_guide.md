@@ -75,7 +75,24 @@ To learn more about FHIR, bulk FHIR specifications, or the Blue Button API, plea
 ## Sample BCDA FHIR Data Points
 
 ### Sample Diagnosis Code
-<img class="ug-img" src="/assets/img/data_guide_01.png" alt="sample diagnosis code" />
+```
+"diagnosis": [{
+    "diagnosisCodeableConcept": {
+        "coding": [{
+            "code": "4011",
+            "display": "BENIGN HYPERTENSION",
+            "system": "http://hl7.org/fhir/sid/icd-9-cm"
+        }]
+     },
+```
 
 ### Sample BETOS Code
-<img class="ug-img" src="/assets/img/data_guide_02.png" alt="sample betos code" />
+```
+{
+ "url": "https://bluebutton.cms.gov/resources/variables/betos_cd",
+ "valueCoding": {
+    "code": "T1H",
+    "display": "Lab tests - other (non-Medicare fee schedule)",
+    "system": "https://bluebutton.cms.gov/resources/variables/betos_cd"
+ }
+```
