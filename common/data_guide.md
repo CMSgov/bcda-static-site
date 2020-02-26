@@ -95,4 +95,5 @@ To learn more about FHIR, bulk FHIR specifications, or the Blue Button API, plea
     "display": "Lab tests - other (non-Medicare fee schedule)",
     "system": "https://bluebutton.cms.gov/resources/variables/betos_cd"
  }
+}
 ```
