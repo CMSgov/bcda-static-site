@@ -6,25 +6,28 @@ It is assumed that the environment already has these installed:
 * [rbenv](https://github.com/rbenv/rbenv) or [rvm](https://rvm.io/) to install versioned ruby
 * [ruby](https://www.ruby-lang.org/en/) currently using 2.4
 * [jekyll](https://jekyllrb.com/) currently using 3.5.2
+* [Docker](https://docs.docker.com/install/) to standardize builds across all contributors' local machines
+* [Docker Compose](https://docs.docker.com/compose/install/) to define and run multi-container Docker applications
 
 ## Installation
-1. `$ gem install bundler` <—install Gem bundler
-2. `$ bundle install` <—install Gem bundles
+Navigate to the repository, and install the appropriate Gem file (a Gem file includes the dependencies for Ruby apps):
+1. `$ gem install bundler` <— install Gem bundler
+2. `$ bundle install` <— install Gem bundles
 
-## Build
+## Local builds
 
 Jekyll builds the CSS and HTML pages. Run `bundle exec jekyll serve` from the project root for a local build. By default, the site will run in `http://localhost:4000/`. You can also run `bundle exec jekyll build` to compile the site files into the `_site` directory.
 
-### Using Docker for builds
+### Using Docker for distributed builds
 
-Consistent and simple build process:
+Every contributor that uses Docker will have the exact same build as every other contributor. The command for a consistent and simple build process is:
 
 ```
 docker-compose -f docker-compose.yml build static_site
 docker-compose -f docker-compose.yml run --rm static_site
 ```
 
-This process uses a Docker container to execute `bundle exec jekyll build` , compiling site files ino the same `_site` directory used when executing this command on the Docker host. Advantage here is that there's no need to install ruby or any dependencies on the machine building the static site — Docker takes care of all that.
+This process uses a Docker container to execute `bundle exec jekyll build` , compiling site files into the same `_site` directory used when executing this command on the Docker host. The advantage here is that there's no need to install ruby or any dependencies on the machine building the static site — Docker takes care of all that.
 
 ### Using Docker for serving
 
