@@ -9,7 +9,7 @@ It is assumed that the environment already has these installed:
 * [Docker](https://docs.docker.com/docker-for-mac/install/) to standardize builds across all contributors' local machines
 
 ## Installation
-Navigate to the repository, and install the appropriate Gem file (includes dependencies for Ruby apps):
+Navigate to the repository, and install the appropriate Gem file (a Gem file includes the dependencies for Ruby apps):
 1. `$ gem install bundler` <— install Gem bundler
 2. `$ bundle install` <— install Gem bundles
 
@@ -19,7 +19,7 @@ Jekyll builds the CSS and HTML pages. Run `bundle exec jekyll serve` from the pr
 
 ### Using Docker for distributed builds
 
-Every contributor that uses Docker will have the exact same build as every other contributor. Consistent and simple build process:
+Every contributor that uses Docker will have the exact same build as every other contributor. The command for a consistent and simple build process is:
 
 ```
 docker-compose -f docker-compose.yml build static_site
