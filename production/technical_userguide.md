@@ -256,7 +256,7 @@ If the request was successful, a `202 Accepted` response code will be returned a
 
 **Headers**
 
-* Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42
+* `Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42`
 
 #### 3. Check the status of the export job
 

@@ -50,7 +50,9 @@ pre {
 
 a {
     background-color: transparent;
-    -webkit-text-decoration-skip: objects
+    -webkit-text-decoration-skip: objects;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 abbr[title] {
@@ -73,7 +75,9 @@ code,
 kbd,
 samp {
     font-family: monospace, monospace;
-    font-size: 1em
+    font-size: 1em;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 dfn {
