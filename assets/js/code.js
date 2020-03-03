@@ -1,4 +1,4 @@
-var codeElements = document.getElementsByTagName("code");
-for (var i = 0; i < codeElements.length; i++) {
-    codeElements[i].setAttribute("tabindex", "0");
+let codeElements = document.getElementsByTagName("code");
+for (const i of codeElements) {
+    i.setAttribute("tabindex", "0");
 }
