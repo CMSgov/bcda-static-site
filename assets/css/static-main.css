@@ -7346,21 +7346,6 @@ pre {
     white-space: pre-wrap
 }
 
-/* Visual focus on the all code elements. */
-code[tabindex="0"]:focus {
-    outline: 1px dotted #567482;
-}
-
-/* Visual focus on the pre element, which contain code elements. */
-pre:focus-within {
-    outline: 1px dotted #567482;
-}
-
-/* Cancels visual focus on code elements inside pre element so there isn't a double outline. */
-pre:focus-within code[tabindex="0"]:focus {
-    outline: 0 none;
-}
-
 .button--white {
     color: #fff;
     border: 2px #fff solid;
@@ -7654,3 +7639,19 @@ pre {
     margin: 0;
     padding: 0;
 }
+
+/* Visual focus on the all code elements. */
+code[tabindex="0"]:focus {
+    outline: 1px dotted #567482;
+}
+
+/* Visual focus on the pre element, which contain code elements. */
+pre:focus-within {
+    outline: 1px dotted #567482;
+}
+
+/* Cancels visual focus on code elements inside pre element so there isn't a double outline. */
+pre:focus-within code[tabindex="0"]:focus {
+    outline: 0 none;
+}
+
