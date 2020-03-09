@@ -7341,7 +7341,7 @@ pre {
     font: 1rem Consolas, "Liberation Mono", Menlo, Courier, monospace;
     font-size: .9rem;
     line-height: 1.45;
- /* color: #567482; */
+    color: #567482;
     overflow: auto;
     white-space: pre-wrap
 }
@@ -7373,6 +7373,11 @@ footer:before {
 Everything above is a direct copy from the BB css project
 BCDA changes below this line
 */
+
+.ds-c-link:focus, .ds-c-link:focus:visited, a:focus, a:focus:visited {
+    background-color: rgba(8, 123, 174, 0.53);
+}
+
 .api-pattern {
     background-image: url(../img/iconsbcda.png);
     background-size: contain;
