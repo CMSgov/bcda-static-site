@@ -7514,7 +7514,8 @@ article h2::after {
 }
 */
 
-.topmenu {
+.topmenu ,
+.topmenu:visited {
     position:relative;
     display: inline-block;
     appearance: none;
