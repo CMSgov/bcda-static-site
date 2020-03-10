@@ -1,7 +1,7 @@
 {% assign code = include.code %}
 
 {% assign nanosecond = "now" | date: "%N" %}
-<div class="highlight"><pre class="highlight"><code id="code{{ nanosecond }}">{{code}}</code></pre></div>
+<div class="highlight"><pre><code id="code{{ nanosecond }}">{{code}}</code></pre></div>
 
 <div class="button" on>
     <p>
