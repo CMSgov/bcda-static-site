@@ -7374,10 +7374,6 @@ Everything above is a direct copy from the BB css project
 BCDA changes below this line
 */
 
-.ds-c-link:focus, .ds-c-link:focus:visited, a:focus, a:focus:visited {
-    background-color: rgba(8, 123, 174, 0.53);
-}
-
 .api-pattern {
     background-image: url(../img/iconsbcda.png);
     background-size: contain;
@@ -7603,8 +7599,10 @@ article h2::after {
     transition: 0.4s;
 }
 
-.accordion_active, .accordion:hover {
-    background-color: #ccc;
+.accordion_active {
+    border: 2px #fff solid;
+    background-color: #fff;
+    color: #339392
 }
 
 .acc_content {
@@ -7661,3 +7659,9 @@ pre:focus-within code[tabindex="0"]:focus {
     outline: 0 none;
 }
 
+.ds-c-link:focus, .ds-c-link:focus:visited, a:focus, a:focus:visited,
+a.ds-c-button.ds-u-margin-top--4:focus, button.accordion:focus, button.accordion:hover,
+.button p a:focus {
+    background-color: #68C1BF;
+    color: white;
+}
