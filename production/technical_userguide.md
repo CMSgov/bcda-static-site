@@ -256,7 +256,7 @@ If the request was successful, a `202 Accepted` response code will be returned a
 
 **Headers**
 
-* Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42
+* `Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42`
 
 #### 3. Check the status of the export job
 
@@ -669,31 +669,40 @@ An example of one such resource is available in the [guide to working with BCDA 
 
 ## Filtering Your Data with `_since`
 ### About `_since` 
-`_since`, also known as "the since parameter," grants you the ability to apply a date parameter to your bulk data. Instead of receiving the full record of historical data every time you request data from an endpoint, you will be able to use `_since` to submit a date. BCDA will then produce data from the Patient, Coverage, or Explanation of Benefit endpoints that have been loaded since the entered date.
+The `_since` parameter grants you the ability to apply a date parameter to your bulk data requests. Instead of receiving the full record of historical data every time you request data from an endpoint, you will be able to use `_since` to submit a date. BCDA will then produce data from the Patient, Coverage, or ExplanationOfBenefit endpoints that have been loaded since the entered date.
 
 For more information on ‘ _since’, please consult the [FHIR standard on query parameters](https://hl7.org/Fhir/uv/bulkdata/export/index.html#query-parameters).
 ### Usage
 There are a couple of helpful points to keep in mind when using `_since`.
 #### Before Using `_since` 
-Before using `_since` for the first time, we recommend that you retrieve all historical data from the `/patient` and ‘/group’ endpoints. Once you have retrieved your historical data and begun using _since, you should use [_transactionTime_](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status) from your last `_since` call as the date for following `_since` calls.  This guarantees that there will be no gaps in the claims data you retrieve from BCDA. 
+Before using `_since` for the first time, we recommend that you retrieve all historical data. Once you have retrieved your historical data and begun using `_since`, you should use [`transactionTime`](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status) from your last bulk data request as the date for following `_since` calls.  This guarantees that there will be no gaps in the claims data you retrieve from BCDA. 
 
-**Note: Limitations of the Beneficiary FHIR Data (BFD) Server prevent data before 02-12-2020 from being tagged correctly, and  `_since` calls before that date may return gaps in data.**
+**Note:  Due to limitations in the Beneficiary FHIR Data (BFD) Server, data from before 02-12-2020 is marked with the arbitrary load date of 01-01-2020.  Data loads from 02-12-2020 onwards have been marked with accurate dates.**
+
 #### Date and Timezone Formatting
 Dates and times submitted in `_since` must be listed in the FHIR _dateTime_ format (YYYY-MM-DDThh:mm:ss+zz:zz).
 
-| | **Sample Date** | **FHIR dateTime Format** | **FHIR Formatted Sample** |
-|---|---|---|---|
-| Date | February 20, 2020 | YYYY-MM-DD | 2020-02-20 |
-| Date and Time | February 20th, 2020 12:00 PM EST | YYYY-MM-DDThh:mm:ss+zz:zz | 2020-02-20T12:00:00.000-05:00 |
+**Date Only**
+* _Sample Date:_ February 20, 2020
+* _dateTime Format:_ YYYY-MM-DD
+* _Formatted Sample:_ 2020-02-20
+
+**Date and Time**
+
+If you need to include a time, a timezone must also be specified in `YYYY-MM-DDThh:mm:ss+zz:zz` format.
+
+* _Sample Date:_ February 20, 2020 12:00 PM EST
+* _dateTime Format:_ YYYY-MM-DDThh:mm:ss+zz:zz
+* _Formatted Sample:_ 2020-02-20T12:00:00.00-05:00
 
 More information about the FHIR dateTime format can be found in the [Primitive Type section of the FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#dateTime).
 
 ### Usage Examples
 See the [Authentication and Authorization section](https://bcda.cms.gov/production/technical-user-guide/#authentication-and-authorization) above, to obtain the API token needed before requesting data from any of the BCDA bulk data endpoints. 
 
-Here are examples of how to initiate an export job using `_since` to augment `/patient`. 
+Here are examples of how to initiate an export job using `_since` to augment `/Patient`. 
 
-In the following, we are seeking data from the `/Patient` endpoint for the ‘Patient’ resource type on 8PM EST on February 13th, 2020. The steps and format would work similarly for other endpoints and resource types.
+In the following, we are seeking data from the `/Patient` endpoint for the ‘Patient’ resource type since 8PM EST on February 13th, 2020. The steps and format would work similarly for other endpoints and resource types.
 
 **Request**
 ```
@@ -709,8 +718,7 @@ Prefer: respond-async
 
 **cURL Command**
 ```
-curl -X GET "https://sandbox.bcda.cms.gov/api/v1/Patient/$export?_type=Patient?_sinc
-ee=2020-02-13T08:00:00.000-05:00
+curl -X GET "https://sandbox.bcda.cms.gov/api/v1/Patient/$export?_type=Patient?_since=2020-02-13T08:00:00.000-05:00
 -H 'Authorization: Bearer {token}' \
 -H 'Accept: application/fhir+json' \
 -H 'Prefer: respond-async'

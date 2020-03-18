@@ -177,42 +177,37 @@ As shown above, in the field labeled "Resource types requested," type "Coverage.
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image above) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your Coverage job.
 
 ### 5. Using the `_since` parameter
-`_since`, also called "the since parameter" lets you filter your requested bulk data by the date when it was updated. This means that instead of receiving all your historical data each time you request data from the API, you will instead be able to enter the date since you last requested data, and the API will return data updated between your `_since` input date and the present.
+The `_since` parameter lets you filter your requested bulk data requests by the date when it was updated. This means that instead of receiving all your historical data each time you request data from the API, you will instead be able to enter the date since you last requested data, and the API will return data updated between your `_since` input date and the present.
 
-Using the `_since` parameter comprises two steps:
+Before using `_since` for the first time, pull your historical data.  Using the `_since` parameter subsequently comprises two steps:
 
-1. Pull your historical data.
-2. Input a date in the correct format.
-3. Start the job to acquire data from an endpoint
+1. Input a date in the correct format.
+2. Start the job to acquire data from an endpoint
 
 #### a. Pull your historical data.
 Before using `_since` for the first time, we recommend that you retrieve all historical data from the `/patient` and `/group` endpoints (do not use `_since`). See [Making Your First Requests for Data](https://bcda.cms.gov/production/user-guide/#making-your-first-requests-for-data) for step-by-step instructions on how to pull your historical data. Once you have retrieved your historical data, we recommend using the date of your most recent pull for `_since`. You may retrieve this date by viewing the [_transactionTime_](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status) from your last `_since` call.
 
 Pulling historical data and using the _transactionTime_ guarantees that there will be no gaps in the claims data you retrieve from BCDA. 
 
-Note: Do not input dates before 02-12-2020 into `_since`. Limitations of the Beneficiary FHIR Data (BFD) Server prevent data before 02-12-2020 from being tagged correctly, and  `_since` calls before that date may return gaps in data.
+**Note: Do not input dates before 02-12-2020 into `_since`. Limitations of the Beneficiary FHIR Data (BFD) Server prevent data before 02-12-2020 from being tagged correctly.  For more details, see the [Advanced User Guide](https://bcda.cms.gov/production/technical-user-guide/#filtering-your-data-with-_since).**
 
 #### b. Input a date in the correct format.
 First, click “Try it Out” in the Swagger section for _since. Then, enter your desired date into the dialog box labeled “_since (Optional)”. Dates and times submitted in `_since` must adhere to a specific format for the server to understand. This format is the FHIR _dateTime_ format (YYYY-MM-DDThh:mm:ss+zz:zz).
 
-**Note:**
-Do not input daes before 02-12-2020 into `_since`. Limitations of the Beneficiary FHIR Data (BFD) Server prevent data before 02-12-2020 from being tagged correctly, and  `_since` calls before that date may return gaps in data.
-
 The examples below demonstrate how to convert any date or date/time combination into the FHIR format.
 
 **Date Only**
-
-| | **Sample Date** | **FHIR dateTime Format** | **FHIR Formatted Sample** |
-|---|---|---|---|
-| Date | February 20, 2020 | YYYY-MM-DD | 2020-02-20 |
+* _Sample Date:_ February 20, 2020
+* _dateTime Format:_ YYYY-MM-DD
+* _Formatted Sample:_ 2020-02-20
 
 **Date and Time**
 
 If you need to include a time, a timezone must also be specified in `YYYY-MM-DDThh:mm:ss+zz:zz` format. For example, the date and time `February 13th, 2020 12:00 PM Eastern Standard Time` is properly formatted as `2020-02-13T12:00:00.000-05:00`.
 
-| | **Sample Date** | **FHIR dateTime Format** | **FHIR Formatted Sample** |
-|---|---|---|---|
-| Date | February 20, 2020 12:00 PM EST | YYYY-MM-DDThh:mm:ss+zz:zz | 2020-02-20T12:00:00.00-05:00 |
+* _Sample Date:_ February 20, 2020 12:00 PM EST
+* _dateTime Format:_ YYYY-MM-DDThh:mm:ss+zz:zz
+* _Formatted Sample:_ 2020-02-20T12:00:00.00-05:00
 
 More information about the FHIR dateTime format can be found in the [Primitive Type section of the FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#open)._
 c. Start the job to acquire data from that endpoint
