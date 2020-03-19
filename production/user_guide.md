@@ -194,7 +194,7 @@ By retrieving your historical data before calling `_since`, this ensures that th
 **Note: Do not input dates before 02-12-2020 into `_since`. Limitations of the Beneficiary FHIR Data (BFD) Server prevent data before 02-12-2020 from being tagged correctly.  For more details, see the [Advanced User Guide](https://bcda.cms.gov/production/technical-user-guide/#filtering-your-data-with-_since).**
 
 #### b. Input a date in the correct format.
-First, click “Try it Out” in the Swagger section for `_since`. Then, enter your desired date into the dialog box labeled "`_since` (Optional)". Dates and times submitted in `_since` must adhere to a specific format for the server to understand. That format is the FHIR _dateTime_ format (`YYY-MM-DDThh:mm:ss+zz:zz`). Notice that, if you need to include a time, a timezone must also be specified (`+zz:zz`).
+First, click “Try it Out” in the Swagger section for `_since`. Then, enter your desired date into the dialog box labeled "`_since` (Optional)". Dates and times submitted in `_since` must adhere to a specific format for the server to understand. That format is the FHIR _dateTime_ format (`YYYY-MM-DDThh:mm:ss+zz:zz`). Notice that, if you need to include a time, a timezone must also be specified (`+zz:zz`).
 
 The example below demonstrates how to convert a date/time combination into the FHIR format.
 
@@ -204,7 +204,7 @@ The example below demonstrates how to convert a date/time combination into the F
 * _dateTime Format:_ YYYY-MM-DDThh:mm:ss+zz:zz
 * _Formatted Sample:_ 2020-02-20T12:00:00.00-05:00
 
-More information about the FHIR dateTime format can be found on the [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#open).
+More information about the FHIR dateTime format can be found on the [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#dateTime).
 
 #### c. Start the job to acquire data from that endpoint
 To start the job, click Execute.
