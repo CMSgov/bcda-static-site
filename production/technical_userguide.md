@@ -677,11 +677,9 @@ For more information on `_since`, please consult the [FHIR standard on query par
 There are a couple of helpful points to keep in mind when using `_since`.
 
 #### Before Using `_since` 
-Before using `_since` for the first time, we recommend that you retrieve all historical data. Once you have retrieved your historical data and begun using `_since`, you should use [`transactionTime`](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status) from your last bulk data request as the date for following `_since` calls.  By retrieving your historical data before calling `_since`, you ensure that there will be no gaps in the claims data delivered from BCDA.
+Before using `_since` for the first time, we recommend that you retrieve all historical data. Once you have retrieved your historical data and begun using `_since`, you should use [`transactionTime`](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status) from your last bulk data request as the date for following `_since` calls.
 
-**Note: Due to limitations in the Beneficiary FHIR Data (BFD) Server, data from before 02-12-2020 is marked with the arbitrary lastUpdated date of 01-01-2020.**
-
-**If you input dates between 1/1/2020 and 2/11/2020 in the `_since` parameter, you will receive all historical data for your beneficiaries. Data loads from 02-12-2020 onwards have been marked with accurate dates.**
+**Note: Due to limitations in the Beneficiary FHIR Data (BFD) Server, data from before 02-12-2020 is marked with the arbitrary `lastUpdated` date of 01-01-2020. If you input dates between 01-01-2020 and 02-11-2020 in the `_since` parameter, you will receive all historical data for your beneficiaries. Data loads from 02-12-2020 onwards have been marked with accurate dates.**
 
 #### Date and Timezone Formatting
 Dates and times submitted in `_since` must be listed in the FHIR _dateTime_ format (`YYYY-MM-DDThh:mm:ss+zz:zz`). Notice that, if you need to include a time, a timezone must also be specified (`+zz:zz`).
@@ -693,11 +691,9 @@ Dates and times submitted in `_since` must be listed in the FHIR _dateTime_ form
 More information about the FHIR _dateTime_ format can be found in the [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#dateTime).
 
 ### Usage Examples
-See the [Authentication and Authorization section](https://bcda.cms.gov/production/technical-user-guide/#authentication-and-authorization) above, to obtain the API token needed before requesting data from any of the BCDA bulk data endpoints. 
+See the [Authentication and Authorization section](https://bcda.cms.gov/production/technical-user-guide/#authentication-and-authorization) above to obtain the API token needed before requesting data from any of the BCDA bulk data endpoints. 
 
-Here are examples of how to initiate an export job using `_since` to augment `/Patient`. 
-
-In the following, we are seeking data from the `/Patient` endpoint for the Patient resource type since 8PM EST on February 13th, 2020. The steps and format would work similarly for other endpoints and resource types.
+Here are examples of how to initiate an export job using `_since` to augment `/Patient`. We are seeking data from the `/Patient` endpoint for the Patient resource type since 8PM EST on February 13th, 2020. The steps and format would work similarly for other endpoints and resource types.
 
 **Request**
 ```
