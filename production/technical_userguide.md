@@ -669,40 +669,35 @@ An example of one such resource is available in the [guide to working with BCDA 
 
 ## Filtering Your Data with `_since`
 ### About `_since` 
-The `_since` parameter grants you the ability to apply a date parameter to your bulk data requests. Instead of receiving the full record of historical data every time you request data from an endpoint, you will be able to use `_since` to submit a date. BCDA will then produce data from the Patient, Coverage, or ExplanationOfBenefit endpoints that have been loaded since the entered date.
+The `_since` parameter grants you the ability to apply a date parameter to your bulk data requests. Instead of receiving the full record of historical data every time you request data from an endpoint, you will be able to use `_since` to submit a date. BCDA will then produce claims data from the bulk data endpoints that have been loaded since the entered date.
 
-For more information on ‘ _since’, please consult the [FHIR standard on query parameters](https://hl7.org/Fhir/uv/bulkdata/export/index.html#query-parameters).
+For more information on `_since`, please consult the [FHIR standard on query parameters](https://hl7.org/Fhir/uv/bulkdata/export/index.html#query-parameters).
+
 ### Usage
 There are a couple of helpful points to keep in mind when using `_since`.
-#### Before Using `_since` 
-Before using `_since` for the first time, we recommend that you retrieve all historical data. Once you have retrieved your historical data and begun using `_since`, you should use [`transactionTime`](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status) from your last bulk data request as the date for following `_since` calls.  This guarantees that there will be no gaps in the claims data you retrieve from BCDA. 
 
-**Note:  Due to limitations in the Beneficiary FHIR Data (BFD) Server, data from before 02-12-2020 is marked with the arbitrary load date of 01-01-2020.  Data loads from 02-12-2020 onwards have been marked with accurate dates.**
+#### Before Using `_since` 
+Before using `_since` for the first time, we recommend that you retrieve all historical data. Once you have retrieved your historical data and begun using `_since`, you should use [`transactionTime`](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status) from your last bulk data request as the date for following `_since` calls.  By retrieving your historical data before calling `_since`, you ensure that there will be no gaps in the claims data delivered from BCDA.
+
+**Note: Due to limitations in the Beneficiary FHIR Data (BFD) Server, data from before 02-12-2020 is marked with the arbitrary lastUpdated date of 01-01-2020.**
+
+**If you input dates between 1/1/2020 and 2/11/2020 in the `_since` parameter, you will receive all historical data for your beneficiaries. Data loads from 02-12-2020 onwards have been marked with accurate dates.**
 
 #### Date and Timezone Formatting
-Dates and times submitted in `_since` must be listed in the FHIR _dateTime_ format (YYYY-MM-DDThh:mm:ss+zz:zz).
-
-**Date Only**
-* _Sample Date:_ February 20, 2020
-* _dateTime Format:_ YYYY-MM-DD
-* _Formatted Sample:_ 2020-02-20
-
-**Date and Time**
-
-If you need to include a time, a timezone must also be specified in `YYYY-MM-DDThh:mm:ss+zz:zz` format.
+Dates and times submitted in `_since` must be listed in the FHIR _dateTime_ format (`YYYY-MM-DDThh:mm:ss+zz:zz`). Notice that, if you need to include a time, a timezone must also be specified (`+zz:zz`).
 
 * _Sample Date:_ February 20, 2020 12:00 PM EST
 * _dateTime Format:_ YYYY-MM-DDThh:mm:ss+zz:zz
 * _Formatted Sample:_ 2020-02-20T12:00:00.00-05:00
 
-More information about the FHIR dateTime format can be found in the [Primitive Type section of the FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#dateTime).
+More information about the FHIR _dateTime_ format can be found in the [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#dateTime).
 
 ### Usage Examples
 See the [Authentication and Authorization section](https://bcda.cms.gov/production/technical-user-guide/#authentication-and-authorization) above, to obtain the API token needed before requesting data from any of the BCDA bulk data endpoints. 
 
 Here are examples of how to initiate an export job using `_since` to augment `/Patient`. 
 
-In the following, we are seeking data from the `/Patient` endpoint for the ‘Patient’ resource type since 8PM EST on February 13th, 2020. The steps and format would work similarly for other endpoints and resource types.
+In the following, we are seeking data from the `/Patient` endpoint for the Patient resource type since 8PM EST on February 13th, 2020. The steps and format would work similarly for other endpoints and resource types.
 
 **Request**
 ```
@@ -718,24 +713,24 @@ Prefer: respond-async
 
 **cURL Command**
 ```
-curl -X GET "https://sandbox.bcda.cms.gov/api/v1/Patient/$export?_type=Patient?_since=2020-02-13T08:00:00.000-05:00
+curl -X GET "https://api.bcda.cms.gov/api/v1/Patient/$export?_type=Patient?_since=2020-02-13T08:00:00.000-05:00
 -H 'Authorization: Bearer {token}' \
 -H 'Accept: application/fhir+json' \
 -H 'Prefer: respond-async'
 ```
 
 **cURL Commands for Subsequent Steps**
-The subsequent steps to check the status of your export job and retrieve your NDJSON files are described in the previous sections. For ease of use, we have listed them below. The job ID (48) and file name for the NDJSON file (4e2cd98c-4746-4138-872b-24778c000b02.ndjson) will be different for your job.
+
+Subsequent steps to check the status of your export job and retrieve your NDJSON files are described in the previous sections. For ease of use, we have listed them below. The job ID (48) and file name for the NDJSON file (4e2cd98c-4746-4138-872b-24778c000b02.ndjson) will be different for your job.
 
 **Check status of a job:**
 ```
-curl -v https://sandbox.bcda.cms.gov/api/v1/jobs/48 \
+curl -v https://api.bcda.cms.gov/api/v1/jobs/48 \
 -H 'Authorization: Bearer {token}'
 ```
 
-
 **Retrieve NDJSON files:**
 ```
-curl https://sandbox.bcda.cms.gov/data/48/4e2cd98c-4746-4138-872b-24778c000b02.ndjson \
+curl https://api.bcda.cms.gov/data/48/4e2cd98c-4746-4138-872b-24778c000b02.ndjson \
 -H 'Authorization: Bearer {token}'
 ```
