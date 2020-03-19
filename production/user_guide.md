@@ -185,9 +185,9 @@ Before using `_since` for the first time, pull your historical data.  Using the 
 2. Start the job to acquire data from an endpoint
 
 #### a. Pull your historical data.
-Before using `_since` for the first time, we recommend that you retrieve all historical data from the `/patient` and `/group` endpoints (do not use `_since`). See [Making Your First Requests for Data](https://bcda.cms.gov/production/user-guide/#making-your-first-requests-for-data) for step-by-step instructions on how to pull your historical data. Once you have retrieved your historical data, we recommend using the date of your most recent pull for `_since`. You may retrieve this date by viewing the [_transactionTime_](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status) from your last `_since` call.
+Before using `_since` for the first time, we recommend that you retrieve all historical data from the BCDA bulk data endpoints (do not use `_since`). See [Making Your First Requests for Data](https://bcda.cms.gov/production/user-guide/#making-your-first-requests-for-data) for step-by-step instructions on how to pull your historical data. Once you have retrieved your historical data, we recommend using the date of your most recent pull for `_since`. You may retrieve this date by viewing the [_transactionTime_](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status) from your last `_since` call.
 
-Pulling historical data and using the _transactionTime_ guarantees that there will be no gaps in the claims data you retrieve from BCDA. 
+By retrieving your historical data before calling _since, this ensures that there will be no gaps in the claims data delivered from BCDA. 
 
 **Note: Do not input dates before 02-12-2020 into `_since`. Limitations of the Beneficiary FHIR Data (BFD) Server prevent data before 02-12-2020 from being tagged correctly.  For more details, see the [Advanced User Guide](https://bcda.cms.gov/production/technical-user-guide/#filtering-your-data-with-_since).**
 
@@ -195,11 +195,6 @@ Pulling historical data and using the _transactionTime_ guarantees that there wi
 First, click “Try it Out” in the Swagger section for _since. Then, enter your desired date into the dialog box labeled “_since (Optional)”. Dates and times submitted in `_since` must adhere to a specific format for the server to understand. This format is the FHIR _dateTime_ format (YYYY-MM-DDThh:mm:ss+zz:zz).
 
 The examples below demonstrate how to convert any date or date/time combination into the FHIR format.
-
-**Date Only**
-* _Sample Date:_ February 20, 2020
-* _dateTime Format:_ YYYY-MM-DD
-* _Formatted Sample:_ 2020-02-20
 
 **Date and Time**
 
@@ -210,7 +205,8 @@ If you need to include a time, a timezone must also be specified in `YYYY-MM-DDT
 * _Formatted Sample:_ 2020-02-20T12:00:00.00-05:00
 
 More information about the FHIR dateTime format can be found in the [Primitive Type section of the FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#open)._
-c. Start the job to acquire data from that endpoint
+
+### c. Start the job to acquire data from that endpoint
 To start the job, click Execute.
 
 If you’d like to use the command line or implement this API call in code, look in the ‘cURL’ section for the request you just made. 
