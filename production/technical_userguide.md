@@ -679,7 +679,7 @@ There are a couple of helpful points to keep in mind when using `_since`.
 #### Before Using `_since` 
 Before using `_since` for the first time, we recommend that you retrieve all historical data. Once you have retrieved your historical data and begun using `_since`, you should use [`transactionTime`](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status) from your last bulk data request as the date for following `_since` calls.
 
-**Note: Due to limitations in the Beneficiary FHIR Data (BFD) Server, data from before 02-12-2020 is marked with the arbitrary `lastUpdated` date of 01-01-2020. If you input dates between 01-01-2020 and 02-11-2020 in the `_since` parameter, you will receive all historical data for your beneficiaries. Data loads from 02-12-2020 onwards have been marked with accurate dates.**
+**Note: Due to limitations in the Beneficiary FHIR Data (BFD) Server, data from before 02-12-2020 is marked with the arbitrary [lastUpdated](https://www.hl7.org/fhir/search.html#lastUpdated) date of 01-01-2020. If you input dates between 01-01-2020 and 02-11-2020 in the `_since` parameter, you will receive all historical data for your beneficiaries. Data loads from 02-12-2020 onwards have been marked with accurate dates.**
 
 #### Date and Timezone Formatting
 Dates and times submitted in `_since` must be listed in the FHIR _dateTime_ format (`YYYY-MM-DDThh:mm:ss+zz:zz`). Notice that, if you need to include a time, a timezone must also be specified (`+zz:zz`).
@@ -717,7 +717,9 @@ curl -X GET "https://api.bcda.cms.gov/api/v1/Patient/$export?_type=Patient?_sinc
 
 **cURL Commands for Subsequent Steps**
 
-Subsequent steps to check the status of your export job and retrieve your NDJSON files are described in the previous sections. For ease of use, we have listed them below. The job ID (48) and file name for the NDJSON file (4e2cd98c-4746-4138-872b-24778c000b02.ndjson) will be different for your job.
+Subsequent steps to _3. Check the status of the export job_ and _4. Retrieve NDJSON output file(s)_ are described in the previous sections.
+
+For ease of use, we have listed them below. The job ID (48) and file name for the NDJSON file (4e2cd98c-4746-4138-872b-24778c000b02.ndjson) will be different for your job.
 
 **Check status of a job:**
 ```
