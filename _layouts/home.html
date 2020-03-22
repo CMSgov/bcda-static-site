@@ -25,7 +25,7 @@ layout: default
   <div class="ds-l-row">
     <div class="ds-l-col--4 ds-u-margin-left--right ds-u-display--none ds-u-sm-display--block" role="complementary">
       <nav aria-label="Page" class="subnav">
-        <ul class="ds-c-list ds-c-list--bare" id="mainNav" aria-labelledby="page-sub-nav">
+        <ul class="ds-c-list ds-c-list--bare" id="mainNav">
           {% for item in page.sections %}
             <li><a href="#{{ item | slugify }}" aria-label="{{ item }} section, current page" class="ds-u-display--block {{ page.subnav-link-gradient }}" aria-label="{{ item }} section, current page">{{ item }}</a></li>
           {% endfor %}
