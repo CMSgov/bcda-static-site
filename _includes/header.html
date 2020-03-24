@@ -42,4 +42,23 @@
   <nav aria-label="Secondary" class="mobile-nav-items">
     <!-- Items Appended Here by JS -->
   </nav>
+  <div class="ds-base">
+    <div class="blueberry-lime-gradient-background main-header ds-u-margin-bottom--2 ds-u-lg-margin-bottom--5">
+      <div class="api-pattern">
+        <div class="">
+          <div class="ds-l-container">
+            <div class="ds-l-row">
+              <div class="content_buffer ds-l-sm-cold--12 ds-l-xl-col--10 ds-u-margin-left--auto ds-u-padding-x--4"> <!-- ds-u-margin-left--auto ds-u-padding-x--4 -->
+                  <h1 class="ds-display">{{ page.title | escape }}</h1>
+                  <p class="ds-text--lead">
+                    {{ page.description | escape }}
+                  </p>
+                  {% include global_nav.html %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
 </header>
