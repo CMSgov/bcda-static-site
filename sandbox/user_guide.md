@@ -257,7 +257,52 @@ As shown above, in the field labeled "Resource types requested," type "Coverage.
 
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image above) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your Coverage job.
 
-### 5. Getting your data
+### 5. Using the `_since` parameter
+The `_since` parameter lets you filter your bulk data requests by the date when it was updated. This means that instead of receiving all your historical data each time you request data from the API, you will instead be able to enter the date since you last requested data. The API will return data updated between your `_since` input date and the present.
+
+Using the `_since` parameter comprises two steps:
+
+1. Input a date in the correct format.
+2. Start the job to acquire data from an endpoint.
+
+#### b. Input a date in the correct format.
+
+First, click “Try it Out” in the Swagger section for `_since`. Then, enter your desired date into the dialog box labeled "`_since` (Optional)". Dates and times submitted in `_since` must adhere to a specific format for the server to understand. That format is the FHIR _dateTime_ format (`YYYY-MM-DDThh:mm:ss+zz:zz`). Notice that, if you need to include a time, a timezone must also be specified (`+zz:zz`).
+
+It may be helpful to use the date of your most recent pull for `_since`. You may retrieve this date by viewing the [_transactionTime_](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status) from your last bulk data request. This ensures that there will be no gaps in claims data that you receive by using the `_since` parameter.
+
+The example below demonstrates how to convert a date/time combination into the FHIR format.
+
+**Date and Time Example**
+
+<img class="ug-img" src="/assets/img/since_Screenshot_1.png" alt="" />
+<img class="ug-img" src="/assets/img/since_Screenshot_2.png" alt="" />
+
+* _Sample Date:_ February 20, 2020 12:00 PM EST
+* _dateTime Format:_ YYYY-MM-DDThh:mm:ss+zz:zz
+* _Formatted Sample:_ 2020-02-20T12:00:00.00-05:00
+
+More information about the FHIR dateTime format can be found on the [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#dateTime).
+
+#### c. Start the job to acquire data from that endpoint
+
+<img class="ug-img" src="/assets/img/since_Screenshot_3.png" alt="" />
+
+To start the job, click Execute.
+
+If you’d like to use the command line or implement this API call in code, look in the `Curl` section for the request you just made. 
+
+Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your job.
+
+**Example cURL Statement to make the request via command line**
+```
+curl -X GET "https://sandbox.bcda.cms.gov/api/v1/Patient/$export?_type=Patient?_since=2020-02-13T08:00:00.000-05:00
+-H 'Authorization: Bearer {token}' \
+-H 'Accept: application/fhir+json' \
+-H 'Prefer: respond-async'
+```
+
+### 6. Getting your data
 
 There are two steps to retrieving the requested data:
 
