@@ -737,7 +737,8 @@ For more information on `_since`, please consult the [FHIR standard on query par
 There are a couple of helpful points to keep in mind when using `_since`.
 
 #### Using `transactionTime` 
-To find the date of your last call, you may use [`transactionTime`](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status) from your last bulk data request. It may be helpful to use this as the date for your following `_since` calls. This ensures that there will be no gaps in claims data that you receive by using the `_since` parameter. 
+To ensure that there will be no gaps in claims data that you receive using the `_since` parameter, it may be helpful to use the date of your most recent bulk data request for subsequent data pulls using the `_since` parameter. You may retrieve this date by viewing the [_transactionTime_](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status) from your last bulk data request.
+
 #### Date and Timezone Formatting
 
 Dates and times submitted in `_since` must be listed in the FHIR _dateTime_ format (`YYYY-MM-DDThh:mm:ss+zz:zz`). Notice that, if you need to include a time, a timezone must also be specified (`+zz:zz`).

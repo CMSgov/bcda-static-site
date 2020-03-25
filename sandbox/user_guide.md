@@ -269,7 +269,7 @@ Using the `_since` parameter comprises two steps:
 
 First, click “Try it Out” in the Swagger section for `_since`. Then, enter your desired date into the dialog box labeled "`_since` (Optional)". Dates and times submitted in `_since` must adhere to a specific format for the server to understand. That format is the FHIR _dateTime_ format (`YYYY-MM-DDThh:mm:ss+zz:zz`). Notice that, if you need to include a time, a timezone must also be specified (`+zz:zz`).
 
-It may be helpful to use the date of your most recent pull for `_since`. You may retrieve this date by viewing the [_transactionTime_](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status) from your last bulk data request. This ensures that there will be no gaps in claims data that you receive by using the `_since` parameter.
+To ensure that there will be no gaps in claims data that you receive using the `_since` parameter, it may be helpful to use the date of your most recent bulk data request for subsequent data pulls using the `_since` parameter. You may retrieve this date by viewing the [_transactionTime_](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status) from your last bulk data request.
 
 The example below demonstrates how to convert a date/time combination into the FHIR format.
 
