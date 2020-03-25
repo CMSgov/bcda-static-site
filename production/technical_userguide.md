@@ -696,6 +696,7 @@ See the [Authentication and Authorization section](https://bcda.cms.gov/producti
 Here are examples of how to initiate an export job using `_since` to augment `/Patient`. We are seeking data from the `/Patient` endpoint for the Patient resource type since 8PM EST on February 13th, 2020. The steps and format would work similarly for other endpoints and resource types.
 
 **Request**
+
 `GET /api/v1/Patient/$export?_type=Patient?_since=2020-02-13T08:00:00.000-05:00`
 
 **Headers**
@@ -713,9 +714,9 @@ curl -X GET "https://api.bcda.cms.gov/api/v1/Patient/$export?_type=Patient?_sinc
 
 **cURL Commands for Subsequent Steps**
 
-Subsequent steps to _3. Check the status of the export job_ and _4. Retrieve NDJSON output file(s)_ are described in the previous sections.
+Instructions for checking the status of the export job and retrieving NDJSON output file(s) can be found in previous sections. See _3. Checking the status of the export job_ and _4. Retrieving NDJSON output file(s)_.
 
-For ease of use, we have listed them below. The job ID (48) and file name for the NDJSON file (4e2cd98c-4746-4138-872b-24778c000b02.ndjson) will be different for your job.
+For ease of use, we have listed the `Curl` commands below. The job ID (48) and file name for the NDJSON file (4e2cd98c-4746-4138-872b-24778c000b02.ndjson) will be different for your job.
 
 **Check the status of the export job:**
 ```
