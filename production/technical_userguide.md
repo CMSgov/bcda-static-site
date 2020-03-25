@@ -696,16 +696,12 @@ See the [Authentication and Authorization section](https://bcda.cms.gov/producti
 Here are examples of how to initiate an export job using `_since` to augment `/Patient`. We are seeking data from the `/Patient` endpoint for the Patient resource type since 8PM EST on February 13th, 2020. The steps and format would work similarly for other endpoints and resource types.
 
 **Request**
-```
-GET /api/v1/Patient/$export?_type=Patient?_since=2020-02-13T08:00:00.000-05:00
-```
+`GET /api/v1/Patient/$export?_type=Patient?_since=2020-02-13T08:00:00.000-05:00`
 
 **Headers**
-```
-Authorization: Bearer {token}
-Accept: application/fhir+json
-Prefer: respond-async
-```
+* `Authorization: Bearer {token}`
+* `Accept: application/fhir+json`
+* `Prefer: respond-async`
 
 **cURL Command**
 ```
@@ -721,13 +717,13 @@ Subsequent steps to _3. Check the status of the export job_ and _4. Retrieve NDJ
 
 For ease of use, we have listed them below. The job ID (48) and file name for the NDJSON file (4e2cd98c-4746-4138-872b-24778c000b02.ndjson) will be different for your job.
 
-**Check status of a job:**
+**Check the status of the export job:**
 ```
 curl -v https://api.bcda.cms.gov/api/v1/jobs/48 \
 -H 'Authorization: Bearer {token}'
 ```
 
-**Retrieve NDJSON files:**
+**Retrieve NDJSON output file(s):**
 ```
 curl https://api.bcda.cms.gov/data/48/4e2cd98c-4746-4138-872b-24778c000b02.ndjson \
 -H 'Authorization: Bearer {token}'
