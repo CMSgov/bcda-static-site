@@ -140,11 +140,10 @@ Within the `Patient` endpoint, you can make requests for up to three resource ty
 ### 4. Making your first request for beneficiary data
 To get any bulk beneficiary data, you must first be authorized with BCDA. Make sure you’ve followed the steps above for [Setting up your credentials in Swagger](#setting-up-your-credentials-in-swagger) before moving forward.
 
-Retrieving beneficiary data comprises three steps:
+Retrieving beneficiary data comprises two steps:
 
 1. Starting a job to acquire data from the `Patient` endpoint
-2. (Optional) Including a date to filter data using `_since`
-3. Retrieving data via a job request
+2. Retrieving data via a job request
 
 #### a. Making a request for all three resource types
 
@@ -176,59 +175,7 @@ As shown above, in the field labeled "Resource types requested," type "Coverage.
 
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image above) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your Coverage job.
 
-### 5. Using the `_since` parameter
-The `_since` parameter lets you filter your bulk data requests by the date when it was updated. This means that instead of receiving all your historical data each time you request data from the API, you will instead be able to enter the date since you last requested data. The API will return data updated between your `_since` input date and the present.
-
-Before using `_since` for the first time, pull your historical data. Using the `_since` parameter subsequently comprises two steps:
-
-1. Input a date in the correct format.
-2. Start the job to acquire data from an endpoint.
-
-#### a. Pull your historical data.
-Before using `_since` for the first time, we recommend that you retrieve all historical data from the BCDA bulk data endpoints (do not use `_since`). See [Making Your First Requests for Data](https://bcda.cms.gov/production/user-guide/#making-your-first-requests-for-data) for step-by-step instructions on how to pull your historical data.
-
-Once you have retrieved your historical data, we recommend using the date of your most recent pull for `_since`. You may retrieve this date by viewing the [_transactionTime_](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status) from previous bulk data requests.
-
-Retrieving your historical data before before filtering bulk data with `_since` ensures that there will be no gaps in the claims data delivered from BCDA.
-
-**Note: Do not input dates before 02-12-2020 into `_since`. Limitations of the Beneficiary FHIR Data (BFD) Server prevent data before 02-12-2020 from being tagged correctly.  For more details, see the [Advanced User Guide](https://bcda.cms.gov/production/technical-user-guide/#filtering-your-data-with-_since).**
-
-#### b. Input a date in the correct format.
-
-<img class="ug-img" src="/assets/img/since_Screenshot_1.png" alt="" />
-<img class="ug-img" src="/assets/img/since_Screenshot_2.png" alt="" />
-
-First, click “Try it Out” in the Swagger section for `_since`. Then, enter your desired date into the dialog box labeled "`_since` (Optional)". Dates and times submitted in `_since` must adhere to a specific format for the server to understand. That format is the FHIR _dateTime_ format (`YYYY-MM-DDThh:mm:ss+zz:zz`). Notice that, if you need to include a time, a timezone must also be specified (`+zz:zz`).
-
-The example below demonstrates how to convert a date/time combination into the FHIR format.
-
-**Date and Time Example**
-
-* _Sample Date:_ February 20, 2020 12:00 PM EST
-* _dateTime Format:_ YYYY-MM-DDThh:mm:ss+zz:zz
-* _Formatted Sample:_ 2020-02-20T12:00:00.00-05:00
-
-More information about the FHIR dateTime format can be found on the [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#dateTime).
-
-#### c. Start the job to acquire data from that endpoint
-
-<img class="ug-img" src="/assets/img/since_Screenshot_3.png" alt="" />
-
-To start the job, click Execute.
-
-If you’d like to use the command line or implement this API call in code, look in the `Curl` section for the request you just made. 
-
-Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your job.
-
-**Example cURL Statement to make the request via command line**
-```
-curl -X GET "https://api.bcda.cms.gov/api/v1/Patient/$export?_type=Patient?_since=2020-02-13T08:00:00.000-05:00
--H 'Authorization: Bearer {token}' \
--H 'Accept: application/fhir+json' \
--H 'Prefer: respond-async'
-```
-
-### 6. Getting your data
+### 5. Getting your data
 There are two steps to retrieving the requested data:
 
 1. Checking the status of your job
@@ -260,6 +207,58 @@ You will have twenty minutes before your token expires, and you will need to get
 
 Once you’ve downloaded the file, you’ll want to know what to do with the data. We’ve provided a [guide to working with BCDA data](/data-guide/){:target="_self"} to help you, including a crosswalk between CCLF fields and the corresponding sections of the NDJSON files.
 
+
+### Filtering your requests using `_since`
+
+The `_since` parameter lets you filter your bulk data requests by the date when it was updated. This means that instead of receiving all your historical data each time you request data from the API, you will instead be able to enter the date since you last requested data. The API will return data updated between your `_since` input date and the present. The `since` parameter can be used with requests for all resource types.
+
+Before using `_since` for the first time, pull your historical data. Using the `_since` parameter subsequently comprises three steps:
+
+1. Input a date in the correct format.
+2. Start the job to acquire data from an endpoint.
+3. Retrieve data via a job request.
+
+#### a. Pull your historical data.
+
+Before using `_since` for the first time, we recommend that you retrieve all historical data from the BCDA bulk data endpoints (do not use `_since`). Retrieving your historical data before before filtering bulk data with `_since` ensures that there will be no gaps in the claims data delivered from BCDA. 
+
+See [Making Your First Requests for Data](https://bcda.cms.gov/production/user-guide/#making-your-first-requests-for-data) for step-by-step instructions on how to pull your historical data.
+
+After retrieving your historical data, it may be helpful to use the date of your most recent bulk data request for subsequent data pulls using the `_since` parameter. You may retrieve this date by viewing the [_transactionTime_](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status) from your last bulk data request.
+
+**Note: Do not input dates before 02-12-2020 into `_since`. Limitations of the Beneficiary FHIR Data (BFD) Server prevent data before 02-12-2020 from being tagged correctly.  For more details, see the [Advanced User Guide](https://bcda.cms.gov/production/technical-user-guide/#filtering-your-data-with-_since).**
+
+#### b. Input a date in the correct format.
+
+<img class="ug-img" src="/assets/img/since_Screenshot_1.png" alt="" />
+<img class="ug-img" src="/assets/img/since_Screenshot_2.png" alt="" />
+
+First, click “Try it Out” in the Swagger section for `_since`. Then, enter your desired date into the dialog box labeled "`_since` (Optional)". Dates and times submitted in `_since` must adhere to a specific format for the server to understand. That format is the FHIR _dateTime_ format (`YYYY-MM-DDThh:mm:ss+zz:zz`). Notice that, if you need to include a time, a timezone must also be specified (`+zz:zz`).
+
+The example below demonstrates how to convert a date/time combination into the FHIR format.
+
+**Date and Time Example**
+
+* _Sample Date:_ February 20, 2020 12:00 PM EST
+* _dateTime Format:_ YYYY-MM-DDThh:mm:ss+zz:zz
+* _Formatted Sample:_ 2020-02-20T12:00:00.00-05:00
+
+More information about the FHIR dateTime format can be found on the [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#dateTime).
+
+#### c. Start the job to acquire data from that endpoint
+
+<img class="ug-img" src="/assets/img/since_Screenshot_3.png" alt="" />
+
+To start the job, click Execute.
+
+If you’d like to use the command line or implement this API call in code, look in the `Curl` section for the request you just made. 
+
+Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your job.
+
+#### d. Getting your data
+
+Retrieving your files after a filtered bulk data request works similarily to making an unfiltered request. See the instructions for _5. Getting your data_ above
+
 ## <a name="frequently-asked-questions"></a>Frequently asked questions about making requests
 
 * **How often can I request data from BCDA?**
@@ -273,9 +272,3 @@ Once you’ve downloaded the file, you’ll want to know what to do with the dat
 * **How long do I have before my file is deleted?**
 
   You will need to download the data file within 24 hours of starting the request to a specific endpoint.
-
-* **Why is this data file so large?**
-
-  In the sandbox environment, we can only provide synthetic data up to an equivalent of 30,000 beneficiaries. Your ACO may be larger, in which case the production file will be larger and take longer to process.
-
-  Additionally, in the first iteration of BCDA in production, each request to a bulk data endpoint sends back seven years of historical data for your beneficiaries. In future iterations, we’ll add a way for you to limit the data to a specific date range.
