@@ -12,6 +12,13 @@ for (i = 0; i < acc.length; i++) {
         } else {
             contentDiv.style.display = "block";
         }
+
+        var expanded = this.getAttribute('aria-expanded')
+        if (expanded === 'false') {
+          this.setAttribute('aria-expanded', 'true')
+        } else {
+          this.setAttribute('aria-expanded', 'false')
+        }
     });
 }
 
