@@ -32,7 +32,7 @@ The Beneficiary Claims Data API is currently accessible as an open sandbox envir
 
 We have provided five sets of synthetic credentials for use in the sandbox, corresponding to various amounts of synthetic beneficiaries. We suggest testing with the credentials that most closely align with the size of your ACO, so that you can get a feel for working with a similar amount of synthetic data to that which you’ll receive in production.
 
-<button class="accordion"> Extra-Small ACO (50 synthetic beneficiaries) </button>
+<button class="accordion" type="button" aria-expanded="false"> Extra-Small ACO (50 synthetic beneficiaries) </button>
 <div class="acc_content">
 Client ID:
 {%- capture client_id -%}
@@ -49,7 +49,7 @@ f9780d323588f1cdfc3e63e95a8cbdcdd47602ff48a537b51dc5d7834bf466416a716bd4508e904a
 {% include copy_snippet.md code=client_secret %}
 </div>
 
-<button class="accordion"> Small ACO (2,500 synthetic beneficiaries) </button>
+<button class="accordion" type="button" aria-expanded="false"> Small ACO (2,500 synthetic beneficiaries) </button>
 <div class="acc_content">
 Client ID:
 {%- capture client_id -%}
@@ -66,7 +66,7 @@ Client Secret:
 {% include copy_snippet.md code=client_secret %}
 </div>
 
-<button class="accordion"> Medium ACO (7,500 synthetic beneficiaries) </button>
+<button class="accordion" type="button" aria-expanded="false"> Medium ACO (7,500 synthetic beneficiaries) </button>
 <div class="acc_content">
 Client ID:
 {%- capture client_id -%}
@@ -83,7 +83,7 @@ e1c920141c4aca6b8f726fa8aa0f7b55e095fd1ea3368a5f24b3636fdc907f113d6677977c7259dd
 {% include copy_snippet.md code=client_secret %}
 </div>
 
-<button class="accordion"> Large ACO (20,000 synthetic beneficiaries) </button>
+<button class="accordion" type="button" aria-expanded="false"> Large ACO (20,000 synthetic beneficiaries) </button>
 <div class="acc_content">
 Client ID:
 {%- capture client_id -%}
@@ -100,7 +100,7 @@ Client Secret:
 {% include copy_snippet.md code=client_secret %}
 </div>
 
-<button class="accordion"> Extra-Large ACO (30,000 synthetic beneficiaries) </button>
+<button class="accordion" type="button" aria-expanded="false"> Extra-Large ACO (30,000 synthetic beneficiaries) </button>
 <div class="acc_content">
 Client ID:
 {%- capture client_id -%}
