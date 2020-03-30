@@ -222,11 +222,11 @@ Before using `_since` for the first time, pull your historical data. Using the `
 
 Before using `_since` for the first time, we recommend that you retrieve all historical data from the BCDA bulk data endpoints (do not use `_since`). Retrieving your historical data before before filtering bulk data with `_since` ensures that there will be no gaps in the claims data delivered from BCDA. 
 
-See [Making Your First Requests for Data](https://bcda.cms.gov/production/user-guide/#making-your-first-requests-for-data) for step-by-step instructions on how to pull your historical data.
+See [Making Your First Requests for Data](/production/user-guide/#making-your-first-requests-for-data) for step-by-step instructions on how to pull your historical data.
 
-After retrieving your historical data, it may be helpful to use the date of your most recent bulk data request for subsequent data pulls using the `_since` parameter. You may retrieve this date by viewing the [_transactionTime_](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status) from your last bulk data request.
+After retrieving your historical data, it may be helpful to use the date of your most recent bulk data request for subsequent data pulls using the `_since` parameter. You may retrieve this date by viewing the [_transactionTime_](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status){:target="_blank"} from your last bulk data request.
 
-**Note: Do not input dates before 02-12-2020 into `_since`. Limitations of the Beneficiary FHIR Data (BFD) Server prevent data before 02-12-2020 from being tagged correctly.  For more details, see the [Advanced User Guide](https://bcda.cms.gov/production/technical-user-guide/#filtering-your-data-with-_since).**
+**Note: Do not input dates before 02-12-2020 into `_since`. Limitations of the Beneficiary FHIR Data (BFD) Server prevent data before 02-12-2020 from being tagged correctly.  For more details, see the [Advanced User Guide](/production/technical-user-guide/#filtering-your-data-with-_since).**
 
 #### b. Input a date in the correct format.
 
@@ -243,7 +243,7 @@ The example below demonstrates how to convert a date/time combination into the F
 * _dateTime Format:_ YYYY-MM-DDThh:mm:ss+zz:zz
 * _Formatted Sample:_ 2020-02-20T12:00:00.00-05:00
 
-More information about the FHIR dateTime format can be found on the [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#dateTime).
+More information about the FHIR dateTime format can be found on the [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#dateTime){:target="_blank"}.
 
 #### c. Start the job to acquire data from that endpoint
 
