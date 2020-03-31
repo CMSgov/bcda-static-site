@@ -27,7 +27,7 @@ Representatives of Shared Savings Program ACOs are now invited to express their 
 
 * **What if my ACO participates in a CMS Innovation Center model?** BCDA’s initial goal is to provide bulk beneficiary claims data that meets the needs of Shared Savings Program ACOs. In the months ahead, BCDA’s research team will begin learning about the data needs of Innovation Center Model ACOs, in order to begin accommodating those ACOs in the API in the future. While the sandbox environment focuses on the needs of Shared Savings Program ACOs, all ACOs and their vendor partners are invited to explore the sandbox and give their feedback.
 
-* **Note:** Some data fields have not yet been mapped from CCLFs to BCDA; The Blue Button API team is working hard to map all of the CCLF fields in the near future.
+* **Note:** Some data fields have not yet been mapped from CCLFs to BCDA; The Beneficiary FHIR Data Server (BFD) API team is working hard to map all of the CCLF fields in the near future.
 
 ## Getting Started
   Moving from the CCLF file structure to BCDA’s FHIR-based API is a fairly big change. BCDA provides documentation and user guides to help Shared Savings Program ACOs at any stage of technical understanding learn how to interact with the API and the data.
@@ -68,7 +68,7 @@ Representatives of Shared Savings Program ACOs are now invited to express their 
 
   * **There are so many new acronyms on this page. What do they mean?**
     * **API:** An API (Application Programming Interface) is a set of features and rules that exist inside a software program that allows other software programs to interact with it. For example, you can build an app that uses the Twitter API to get information or data from a user's Twitter account. APIs are used in a wide variety of ways, but for our purposes, you can think of an API as a pipeline that can allow your ACO’s computer systems to receive data directly from CMS’ databases.
-    * **FHIR:** FHIR (Fast Healthcare Interoperability Resources) is a specification for exchanging healthcare data electronically, allowing any system to access and consume this data to solve clinical and administrative problems around healthcare-related data. BCDA is built on the Blue Button 2.0 API, which has structured its data using the FHIR standard. BCDA will use three resource types from the FHIR specification: explanation of benefits, patient, and coverage. Learn more about FHIR in the [guide to working with BCDA data.](/data-guide/){:target="_self"}
+    * **FHIR:** FHIR (Fast Healthcare Interoperability Resources) is a specification for exchanging healthcare data electronically, allowing any system to access and consume this data to solve clinical and administrative problems around healthcare-related data. BCDA is built on the Beneficiary FHIR Data Server (BFD) API, which has structured its data using the FHIR standard. BCDA will use three resource types from the FHIR specification: explanation of benefits, patient, and coverage. Learn more about FHIR in the [guide to working with BCDA data.](/data-guide/){:target="_self"}
     * **NDJSON:** [New Line Delimited JSON](http://ndjson.org){:target="_blank"} is the file format used by the bulk FHIR specification. An NDJSON file provides a single record on each line, which makes it easy for various tools to look at and process one record at a time before moving on to the next one. Our [About the Data](/data-guide/){:target="_self"} page provides more information on working with the NDJSON files you’ll receive through BCDA.
 
 ## FHIR APIs at CMS
