@@ -691,7 +691,7 @@ Dates and times submitted in `_since` must be listed in the FHIR _dateTime_ form
 More information about the FHIR _dateTime_ format can be found in the [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#dateTime){:target="_blank"}.
 
 #### Usage Examples
-See the [Authentication and Authorization section](https://bcda.cms.gov/production/technical-user-guide/#authentication-and-authorization){:target="_blank"} above to obtain the API token needed before requesting data from any of the BCDA bulk data endpoints. 
+See the [Authentication and Authorization section](/production/technical-user-guide/#authentication-and-authorization){:target="_blank"} above to obtain the API token needed before requesting data from any of the BCDA bulk data endpoints. 
 
 Here are examples of how to initiate an export job using `_since` to augment `/Patient`. We are seeking data from the `/Patient` endpoint for the Patient resource type since 8PM EST on February 13th, 2020. The steps and format would work similarly for other endpoints and resource types.
 
