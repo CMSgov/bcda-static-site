@@ -1,0 +1,6 @@
+dist: bionic
+
+services:
+  - docker
+
+script: ./scripts/run-build.sh
