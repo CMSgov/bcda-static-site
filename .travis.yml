@@ -3,4 +3,4 @@ dist: bionic
 services:
   - docker
 
-script: ./scripts/run-build.sh
+script: ./scripts/build_and_test.sh
