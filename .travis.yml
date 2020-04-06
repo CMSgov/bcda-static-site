@@ -1,0 +1,10 @@
+dist: bionic
+
+# Don't email me the results of the test runs.
+notifications:
+  email: false
+  
+services:
+  - docker
+
+script: ./scripts/build_and_test.sh
