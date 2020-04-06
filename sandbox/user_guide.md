@@ -180,11 +180,11 @@ You are now ready to interact with the BCDA sandbox environment.
 
 There are two categories of information that you can retrieve through BCDA: metadata, and bulk beneficiary data.  
 
-<img class="ug-img" class="ug-img" src="/assets/img/swagger_walkthrough_01.png" alt="Swagger: 'metadata' and 'bulkData' are categories that can be expanded further to get more detailed information" />
+<img class="ug-img" class="ug-img" src="/assets/img/swagger_walkthrough_01.svg" alt="Swagger: 'metadata' and 'bulkData' are categories that can be expanded further to get more detailed information" />
 
 **Metadata** in BCDA includes information about the platform that is making, storing, and verifying credentials and tokens (the `auth provider`); information about the API’s version; and information about the actions you can perform using the API itself (also duplicatively termed `metadata`). There is no PII or PHI in the **metadata** endpoint, so you can access this endpoint without having to be authorized.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_02.png" alt="" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_02.svg" alt="" />
 
 ### 2. Looking at BCDA Metadata
 
@@ -192,15 +192,15 @@ We’ll use `auth` as an example here.
 
 Under the Metadata endpoint, click on `/_auth` to expand that section. After the information field expands, as shown below, click `Try it out`.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_03.png" alt="" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_03.svg" alt="" />
 
 Then, as shown below, click `Execute` to run the process of getting details about `auth`.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_04.png" alt="" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_04.svg" alt="" />
 
 As shown below, clicking `Execute` returns details about the authorization and authentication provider BCDA is using.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_05.png" alt="Swagger: the response body reveals that the auth_provider is 'alpha'" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_05.svg" alt="Swagger: the response body reveals that the auth_provider is 'alpha'" />
 
 You can repeat this process with the `/_version` and `/api/v1/metadata` endpoints as well.
 
