@@ -194,8 +194,6 @@ Under the Metadata endpoint, click on `/_auth` to expand that section. After the
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_03.svg" alt="" />
 
-<!-- <img class="ug-img" src="/assets/img/swagger_walkthrough_03.png" alt="" /> -->
-
 Then, as shown below, click `Execute` to run the process of getting details about `auth`.
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_04.svg" alt="" />
