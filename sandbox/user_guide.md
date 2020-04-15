@@ -42,7 +42,7 @@ Once the page is open, your first step will be getting an **access token**.  You
 * Find the section of the page shown below, in the **auth** category.
 * Click the lock icon.
 
-<img class="ug-img" src="/assets/img/nav_swag_01.png" alt="Swagger: Auth category with lock icon circled in red on the right"/>
+<img class="ug-img" src="/assets/img/nav_swag_01.svg" alt="Swagger: Auth category with lock icon circled in red on the right"/>
 
 In the sandbox environment, we provide generic credentials for you to use. These will not work in the production environment, but will allow you to explore the synthetic data in sandbox.
 
@@ -137,31 +137,31 @@ Back in Swagger, you’ll enter the client ID and secret.
 
 * Click the "Authorize" button when you've entered your credentials, then "Close"
 
-<img class="ug-img" src="/assets/img/nav_swag_02.png" alt=""/>
+<img class="ug-img" src="/assets/img/nav_swag_02.svg" alt=""/>
 
 Now you're ready to get a token!
 
 * To show more information about the `/auth/token` API endpoint, click on it (this time, away from the lock icon).
 * Click "Try it out"
 
-<img class="ug-img" src="/assets/img/nav_swag_03.png" alt="Swagger: Token endpoint field with 'Try it out' button, circled in red on the right"/>
+<img class="ug-img" src="/assets/img/nav_swag_03.svg" alt="Swagger: Token endpoint field with 'Try it out' button, circled in red on the right"/>
 
 * Click "Execute" to get your token
 
-<img class="ug-img" src="/assets/img/nav_swag_04.png" alt=""/>
+<img class="ug-img" src="/assets/img/nav_swag_04.svg" alt=""/>
 
 If all is well, the Server response section will look similar to the following snapshot: it will have a response code of `200`, and give an "access_token" in the response body.
 
 * Copy the access token.  It will not have any spaces or newlines; the hyphens at the end of the lines are indicating that the line continues unbroken.
 
-<img class="ug-img" src="/assets/img/nav_swag_05.png" alt="Swagger: Access token response showing long access token in text field"/>
+<img class="ug-img" src="/assets/img/nav_swag_05.svg" alt="Swagger: Access token response showing long access token in text field"/>
 
 Now that you have a token, you can tell Swagger to use it for your future requests.
 
 * Return to the top of the Swagger page
 * Click on the lock icon
 
-<img class="ug-img" src="/assets/img/nav_swag_06.png" alt=""/>
+<img class="ug-img" src="/assets/img/nav_swag_06.svg" alt=""/>
 
 In the "Value" box:
 
@@ -170,7 +170,7 @@ In the "Value" box:
 * Paste your token after the space following **_Bearer_**
 * Click "Authorize" and then "Close"
 
-<img class="ug-img" src="/assets/img/nav_swag_07.png" alt=""/>
+<img class="ug-img" src="/assets/img/nav_swag_07.svg" alt=""/>
 
 You are now ready to interact with the BCDA sandbox environment.
 
@@ -216,7 +216,7 @@ Within the `Patient` endpoint, you can make requests for up to three resource ty
 * **Patient** data includes identification information about your assigned or assignable beneficiaries.
 * **Coverage** data includes each beneficiary’s Medicare coverage plan.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_06.png" alt="Swagger: use the 'type' parameter to specify resource type(s) for your request" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_06.svg" alt="Swagger: use the 'type' parameter to specify resource type(s) for your request" />
 
 ### 4. Making your first request for beneficiary data
 
@@ -233,15 +233,15 @@ In this example, we'll show a request for all three resource types in the `Patie
 
 First, click on `GET /api/v1/Patient/$export`, then click `Try it out`.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_06a.png" alt="" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_06a.svg" alt="" />
 
 Then, as shown below, click `Execute` to start the process of requesting data from the `Patient` endpoint.  Make sure you note the **job number** (also known as `jobId`)  in the **response header**, since you’ll need this job number to track the status of your data request.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_06b.png" alt="Swagger: making a call to the Patient endpoint with no Resource Types specified defaults to returning data from all three Resource Types at once" />
-
-<img class="ug-img" src="/assets/img/swagger_walkthrough_06c.png" alt="Swagger: 'curl' examples are given in full in the Advanced User Guide" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_06b.svg" alt="Swagger: making a call to the Patient endpoint with no Resource Types specified defaults to returning data from all three Resource Types at once" />
 
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image above) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your job.
+
+<img class="ug-img" src="/assets/img/swagger_walkthrough_06c.svg" alt="Swagger: 'curl' examples are given in full in the Advanced User Guide" />
 
 #### b. Making a request for one resource type
 
@@ -249,11 +249,11 @@ Next, we'll show a specific example of requesting only the `Coverage` resource t
 
 First, click on `GET /api/v1/Patient/$export`, then click `Try it out`.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_07.png" alt="" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_07.svg" alt="" />
 
 As shown above, in the field labeled "Resource types requested," type "Coverage." Then click `Execute` to start the process of requesting Coverage data.  Make sure you note the **job number** (also known as `jobId`)  in the **response header**, since you’ll need this job number to track the status of your data request.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_08.png" alt="" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_08.svg" alt="" />
 
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image above) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your Coverage job.
 
@@ -268,21 +268,21 @@ Depending on the number of beneficiaries prospectively assigned or assignable to
 
 You can check the status of the job by entering the job number into the `jobId` text field, as shown in the image below.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_09.png" alt="Swagger: after entering the job ID into the job ID field, click execute" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_09.svg" alt="Swagger: after entering the job ID into the job ID field, click execute" />
 
 The X-Progress header indicates the job's workflow status (Pending, In Progress, Completed, Archived, Expired, Failed). When in the In Progress state, an estimated completion percentage is appended to the X-Progress value (e.g., "In Progress (10%)").
 
 Once the job is completed, you will receive a `HTTP 200 Complete` response, which includes a URL ending in .ndjson.  You’ll need the end of the URL in order to retrieve your data.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_10.png" alt="Swagger: copy the file name: the part of the URL after the last '/'" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_10.svg" alt="Swagger: copy the file name: the part of the URL after the last '/'" />
 
 To retrieve your data, open the `GET /data/{jobId}/{filename}` endpoint. Copy the `jobId` into the `jobId` field, and the last string of the URL received in the previous step (highlighted in green and dashed lines above) into the `filename` field, then hit `Execute`.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_11.png" alt="" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_11.svg" alt="" />
 
-The `Response Body` contains the requested claims data in NDJSON format. Click the `Download` button that appears in the lower right corner of the response section. Note that a large file may take a while to download.
+The `Response Body` contains the requested claims data in NDJSON format. Click the `Download` button that appears in the lower right corner of the response section. Noticee that a large file may take a while to download.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_12.png" alt="" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_12.svg" alt="" />
 
 If you have requested data related to more than one Resource Type, the files related to each Resource Type will appear separately.
 
@@ -301,10 +301,12 @@ Using the `_since` parameter comprises two steps:
 
 #### b. Input a date in the correct format.
 
-<img class="ug-img" src="/assets/img/since_Screenshot_1.png" alt="" />
-<img class="ug-img" src="/assets/img/since_Screenshot_2.png" alt="" />
+<img class="ug-img" src="/assets/img/since_1.svg" alt="" />
 
 First, click “Try it Out” in the Swagger section for `_since`. Then, enter your desired date into the dialog box labeled "`_since` (Optional)". Dates and times submitted in `_since` must adhere to a specific format for the server to understand. That format is the FHIR _dateTime_ format (`YYYY-MM-DDThh:mm:ss+zz:zz`). Notice that, if you need to include a time, a timezone must also be specified (`+zz:zz`).
+
+<img class="ug-img" src="/assets/img/since_2.svg" alt="" />
+
 
 The example below demonstrates how to convert a date/time combination into the FHIR format.
 
@@ -318,13 +320,13 @@ More information about the FHIR dateTime format can be found on the [FHIR Dataty
 
 #### c. Start the job to acquire data from that endpoint
 
-<img class="ug-img" src="/assets/img/since_Screenshot_3.png" alt="" />
-
 To start the job, click Execute.
 
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section for the request you just made. 
 
 Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your job.
+
+<img class="ug-img" src="/assets/img/since_3.svg" alt="" />
 
 #### d. Getting your data
 
