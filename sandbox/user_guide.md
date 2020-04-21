@@ -180,11 +180,11 @@ You are now ready to interact with the BCDA sandbox environment.
 
 There are two categories of information that you can retrieve through BCDA: metadata, and bulk beneficiary data.  
 
-<img class="ug-img" class="ug-img" src="/assets/img/swagger_walkthrough_01.png" alt="Swagger: 'metadata' and 'bulkData' are categories that can be expanded further to get more detailed information" />
+<img class="ug-img" class="ug-img" src="/assets/img/swagger_walkthrough_01.svg" alt="Swagger: 'metadata' and 'bulkData' are categories that can be expanded further to get more detailed information" />
 
 **Metadata** in BCDA includes information about the platform that is making, storing, and verifying credentials and tokens (the `auth provider`); information about the API’s version; and information about the actions you can perform using the API itself (also duplicatively termed `metadata`). There is no PII or PHI in the **metadata** endpoint, so you can access this endpoint without having to be authorized.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_02.png" alt="" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_02.svg" alt="" />
 
 ### 2. Looking at BCDA Metadata
 
@@ -192,15 +192,15 @@ We’ll use `auth` as an example here.
 
 Under the Metadata endpoint, click on `/_auth` to expand that section. After the information field expands, as shown below, click `Try it out`.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_03.png" alt="" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_03.svg" alt="" />
 
 Then, as shown below, click `Execute` to run the process of getting details about `auth`.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_04.png" alt="" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_04.svg" alt="" />
 
 As shown below, clicking `Execute` returns details about the authorization and authentication provider BCDA is using.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_05.png" alt="Swagger: the response body reveals that the auth_provider is 'alpha'" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_05.svg" alt="Swagger: the response body reveals that the auth_provider is 'alpha'" />
 
 You can repeat this process with the `/_version` and `/api/v1/metadata` endpoints as well.
 
@@ -289,3 +289,43 @@ If you have requested data related to more than one Resource Type, the files rel
 You will have twenty minutes before your token expires, and you will need to get another from `/auth/token` if it expires before you are finished interacting with the API.
 
 Once you’ve downloaded the file, you’ll want to know what to do with the data. We’ve provided a [guide to working with BCDA data](/data-guide/) to help you, including a crosswalk between CCLF fields and the corresponding sections of the NDJSON files.
+
+### Filtering your requests using `_since`
+
+The `_since` parameter lets you filter your bulk data requests by the date when it was updated. This means that instead of receiving all your historical data each time you request data from the API, you will instead be able to enter the date since you last requested data. The API will return data updated between your `_since` input date and the present. The `since` parameter can be used with requests for all resource types.
+
+Using the `_since` parameter comprises two steps:
+
+1. Input a date in the correct format.
+2. Start the job to acquire data from an endpoint.
+
+#### b. Input a date in the correct format.
+
+<img class="ug-img" src="/assets/img/since_Screenshot_1.png" alt="" />
+<img class="ug-img" src="/assets/img/since_Screenshot_2.png" alt="" />
+
+First, click “Try it Out” in the Swagger section for `_since`. Then, enter your desired date into the dialog box labeled "`_since` (Optional)". Dates and times submitted in `_since` must adhere to a specific format for the server to understand. That format is the FHIR _dateTime_ format (`YYYY-MM-DDThh:mm:ss+zz:zz`). Notice that, if you need to include a time, a timezone must also be specified (`+zz:zz`).
+
+The example below demonstrates how to convert a date/time combination into the FHIR format.
+
+**Date and Time Example**
+
+* _Sample Date:_ February 20, 2020 12:00 PM EST
+* _dateTime Format:_ YYYY-MM-DDThh:mm:ss+zz:zz
+* _Formatted Sample:_ 2020-02-20T12:00:00.00-05:00
+
+More information about the FHIR dateTime format can be found on the [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#dateTime){:target="_blank"}.
+
+#### c. Start the job to acquire data from that endpoint
+
+<img class="ug-img" src="/assets/img/since_Screenshot_3.png" alt="" />
+
+To start the job, click Execute.
+
+If you’d like to use the command line or implement this API call in code, look in the `Curl` section for the request you just made. 
+
+Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your job.
+
+#### d. Getting your data
+
+Retrieving your files after a filtered bulk data request works similarily to making an unfiltered request. See the instructions for _5. Getting your data_ above

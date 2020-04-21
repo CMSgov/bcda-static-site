@@ -6831,7 +6831,6 @@ header {
 
 .ds-c-desktop-nav .desktop-nav-items a:hover,
 .mobile-nav-items a:hover {
-    text-decoration: underline;
     color: #000
 }
 
@@ -7535,7 +7534,6 @@ article h2::after {
 }
 
 .topmenu:active,
-.topmenu:focus,
 .topmenu:hover,
 .topmenu.active {
     background-color: #fff;
@@ -7602,7 +7600,6 @@ article h2::after {
 .accordion_active {
     border: 2px #fff solid;
     background-color: #fff;
-    color: #339392
 }
 
 .acc_content {
@@ -7660,8 +7657,9 @@ pre:focus-within code[tabindex="0"]:focus {
 }
 
 .ds-c-link:focus, .ds-c-link:focus:visited, a:focus, a:focus:visited,
+.ds-c-desktop-nav .desktop-nav-items a:focus, .mobile-nav-items a:focus,
 a.ds-c-button.ds-u-margin-top--4:focus, button.accordion:focus, button.accordion:hover,
 .button p a:focus {
     background-color: #68C1BF;
-    color: white;
+    color: #212121;
 }
