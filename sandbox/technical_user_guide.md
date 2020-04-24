@@ -117,15 +117,10 @@ Client Secret:
 {% include copy_snippet.md code=client_secret %}
 </div>
 
-To get a token that can be used with protected endpoints, POST the credentials you've selected using [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication){:target="_blank"} to `https://sandbox.bcda.cms.gov/auth/token`:
+To get a token that can be used with protected endpoints, POST the credentials you’ve selected using [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication){:target="_blank"} to `https://sandbox.bcda.cms.gov/auth/token`.
 
+### Basic Authentication Walkthrough
 
-Encoded Basic authentication:
-{%- capture auth_header -%}
-Basic Mzg0MWM1OTQtYThjMC00MWU1LTk4Y2MtMzhiYjQ1MzYwZDNjOmY5NzgwZDMyMzU4OGYxY2RmYzNlNjNlOTVhOGNiZGNkZDQ3NjAyZmY0OGE1MzdiNTFkYzVkNzgzNGJmNDY2NDE2YTcxNmJkNDUwOGU5MDRh
-{%- endcapture -%}
-
-{% include copy_snippet.md code=auth_header %}
 
 **Request**
 
@@ -136,16 +131,56 @@ Basic Mzg0MWM1OTQtYThjMC00MWU1LTk4Y2MtMzhiYjQ1MzYwZDNjOmY5NzgwZDMyMzU4OGYxY2RmYz
 * `Accept: application/json`
 * `Authorization: <Encoded Basic authentication>`
 
-**cURL command**
+**cURL commands**
+
+You can choose one of two cURL commands to use.
+
+**Option 1, which performs Basic authentication by passing in an additional header**
+
+Format:
+
+```
+curl -H "authorization: Basic [base64-encoded clientId:secret]"
+```
+
+Example:
 
 ```
 curl -d '' -X POST "https://sandbox.bcda.cms.gov/auth/token" -H "accept: application/json" -H "authorization: Basic Mzg0MWM1OTQtYThjMC00MWU1LTk4Y2MtMzhiYjQ1MzYwZDNjOm\
 Y5NzgwZDMyMzU4OGYxY2RmYzNlNjNlOTVhOGNiZGNkZDQ3NjAy\
 ZmY0OGE1MzdiNTFkYzVkNzgzNGJmNDY2NDE2YTcxNmJkNDUwOGU5MDRh"
 ```
+
+**Option 2, which does only requires you to submit your clientId and secret**
+
+
+Format:
+
+```
+curl --user clientId:secret
+```
+
+Example:
+
+```
+curl --user 3841c594-a8c0-41e5-98cc-38bb45360d3c:f9780d323588f1cdfc3e63e95a8cbdcdd47602ff48a537b51dc5d7834bf466416a716bd4508e904a
+```
+
+
 **Response**
 
 You will receive a `200 OK` response and an access token if your credentials were accepted.
+
+```
+{
+  “access_token”: “eyJhbGciOiJSUzUxMiIsInR5c ....”,
+  ”token_type”:“bearer”
+}
+```
+
+_Token string abbreviated for readability._
+
+You will receive a 401 Unauthorized response if your credentials are invalid or if your token has expired. No additional information is returned with a 401 response. When you receive a 401 response for a token you were just using successfully, you should request a new access token as outlined above.
 
 ## Environment
 
