@@ -119,7 +119,7 @@ Client Secret:
 
 To get a token that can be used with protected endpoints, POST the credentials you’ve selected using [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication){:target="_blank"} to `https://sandbox.bcda.cms.gov/auth/token`.
 
-### Basic Authentication Walkthrough
+### Authentication Walkthrough
 
 
 **Request**
@@ -135,13 +135,15 @@ To get a token that can be used with protected endpoints, POST the credentials y
 
 You can choose one of two cURL commands to use.
 
-**Option 1, which performs Basic authentication by passing in an additional header**
+**Option 1, which requires base-64 encoding be performed on your clientId and secret**
 
 Format:
 
 ```
 curl -H "authorization: Basic [base64-encoded clientId:secret]"
 ```
+
+In the following cURL command, we have concatenated the base64 encoding of the 'Client ID":" Client Secret' as the argument to the -H flag.
 
 Example:
 
@@ -151,8 +153,7 @@ Y5NzgwZDMyMzU4OGYxY2RmYzNlNjNlOTVhOGNiZGNkZDQ3NjAy\
 ZmY0OGE1MzdiNTFkYzVkNzgzNGJmNDY2NDE2YTcxNmJkNDUwOGU5MDRh"
 ```
 
-**Option 2, which does only requires you to submit your clientId and secret**
-
+**Option 2, which takes advantage of cURL's ability to base-64 encode your clientId and secret**
 
 Format:
 
@@ -180,7 +181,7 @@ You will receive a `200 OK` response and an access token if your credentials wer
 
 _Token string abbreviated for readability._
 
-You will receive a 401 Unauthorized response if your credentials are invalid or if your token has expired. No additional information is returned with a 401 response. When you receive a 401 response for a token you were just using successfully, you should request a new access token as outlined above.
+You will receive a `401 Unauthorized` response if your credentials are invalid or if your token has expired. No additional information is returned with a `401` response. When you receive a 401 response for a token you were just using successfully, you should request a new access token as outlined above.
 
 ## Environment
 

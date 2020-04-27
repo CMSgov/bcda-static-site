@@ -42,7 +42,7 @@ Once you have your credentials, you will:
 
 **Currently, access tokens expire after twenty minutes.**
 
-### Basic Authentication Walkthrough
+### Authentication Walkthrough
 
 You can follow the steps for [authenticating and receiving a token using Swagger](/production/user-guide/#setting-up-your-credentials-in-swagger){:target="_self"}, or follow the walk-through below if you are using the command line or terminal.
 
@@ -69,13 +69,15 @@ Client Secret:
 
 You can choose one of two cURL commands to use.
 
-**Option 1, which performs Basic authentication by passing in an additional header**
+**Option 1, which requires base-64 encoding be performed on your clientId and secret**
 
 Format:
 
 ```
 curl -H "authorization: Basic [base64-encoded clientId:secret]"
 ```
+
+In the following cURL command, we have concatenated the base64 encoding of the 'Client ID":" Client Secret' as the argument to the -H flag.
 
 Example:
 
@@ -85,7 +87,7 @@ Y5NzgwZDMyMzU4OGYxY2RmYzNlNjNlOTVhOGNiZGNkZDQ3NjAy\
 ZmY0OGE1MzdiNTFkYzVkNzgzNGJmNDY2NDE2YTcxNmJkNDUwOGU5MDRh"
 ```
 
-**Option 2, which does only requires you to submit your clientId and secret**
+**Option 2, which takes advantage of cURL's ability to base-64 encode your clientId and secret**
 
 
 Format:
