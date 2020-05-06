@@ -15,37 +15,6 @@ sections:
   - Making your first requests for data
 ---
 
-## Using the Group Endpoint
-
-Using the Group Endpoint
-
-### Group consists of 3 steps.
-* Open things
-* Do things
-* Add things
-
-When you get your results. *You’ll have to do a few more things.*
-
-__NOTE: Consult this link to the [FHIR Page](https://www.hl7.org/fhir/overview.html)__
-
-There are a few different types of links.
-* Links to external pages: [External Page.](https://www.hl7.org/fhir/overview.html)
-* These can be absolute links.
-* Links to internal pages: [Internal Page](/production/user-guide/)
-* These should be relative links.
-* Links to the same page, but a different anchor: [Anchor Links](/production/user-guide/#3.-Learning-about-the-Bulk-Data-Resource-Types)
-* Anchors actually work on all different types of links and can be used to scroll a user to the relevant section.
-
-
-__Curl Command__
-
-```
-curl -X GET "https://api.bcda.cms.gov/api/v1/Patient/$export?_type=Patient?_since=2020-02-13T08:00:00.000-05:00
--H 'Authorization: Bearer {token}' \
--H 'Accept: application/fhir+json' \
--H 'Prefer: respond-async'
-```
-
 This page is intended for a user who has little to no experience with APIs, and provides a guided walkthrough for working with BCDA using our interactive documentation. More advanced API users may be better served by the [Advanced User Guide](/sandbox/technical-user-guide/). If you’re not sure where to go, start here!
 
 ## Getting Started with APIs
