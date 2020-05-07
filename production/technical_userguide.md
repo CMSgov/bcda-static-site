@@ -78,7 +78,7 @@ In the following cURL command, we have concatenated the base64 encoding of the '
 Example:
 
 ```
-curl -d '' -X POST "https://sandbox.bcda.cms.gov/auth/token" -H "accept: application/json" -H "authorization: Basic Mzg0MWM1OTQtYThjMC00MWU1LTk4Y2MtMzhiYjQ1MzYwZDNjOm\
+curl -d '' -X POST "https://api.bcda.cms.gov/auth/token" -H "accept: application/json" -H "authorization: Basic Mzg0MWM1OTQtYThjMC00MWU1LTk4Y2MtMzhiYjQ1MzYwZDNjOm\
 Y5NzgwZDMyMzU4OGYxY2RmYzNlNjNlOTVhOGNiZGNkZDQ3NjAy\
 ZmY0OGE1MzdiNTFkYzVkNzgzNGJmNDY2NDE2YTcxNmJkNDUwOGU5MDRh"
 ```
@@ -90,9 +90,7 @@ With this option, the user can take advantage of cURL's built-in ability to base
 Example:
 
 ```
-curl -d '' -X POST "https://sandbox.bcda.cms.gov/auth/token" --user 3841c594-a8c0-41e5-98cc-38bb45360d3c:f9780d323588f1cdfc3e63e95a8cbdcdd47602ff48a537b51dc5d7834bf466416a716bd4508e904a -H "authorization: Basic Mzg0MWM1OTQtYThjMC00MWU1LTk4Y2MtMzhiYjQ1MzYwZDNjOm\
-Y5NzgwZDMyMzU4OGYxY2RmYzNlNjNlOTVhOGNiZGNkZDQ3NjAy\
-ZmY0OGE1MzdiNTFkYzVkNzgzNGJmNDY2NDE2YTcxNmJkNDUwOGU5MDRh" 
+curl -d '' -X POST "https://api.bcda.cms.gov/auth/token" --user 3841c594-a8c0-41e5-98cc-38bb45360d3c:f9780d323588f1cdfc3e63e95a8cbdcdd47602ff48a537b51dc5d7834bf466416a716bd4508e904a -H "accept: application/json"
 ```
 
 **Response**
