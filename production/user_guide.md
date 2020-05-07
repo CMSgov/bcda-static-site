@@ -157,9 +157,9 @@ Then, as shown below, click `Execute` to start the process of requesting data fr
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_06b.svg" alt="Swagger: making a call to the Patient endpoint with no Resource Types specified defaults to returning data from all three Resource Types at once" />
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_06c.svg" alt="Swagger: 'curl' examples are given in full in the Advanced User Guide" />
+If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image below) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your job.
 
-If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image above) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your job.
+<img class="ug-img" src="/assets/img/swagger_walkthrough_06c.svg" alt="Swagger: 'curl' examples are given in full in the Advanced User Guide" />
 
 #### b. Making a request for one resource type
 
@@ -248,13 +248,13 @@ More information about the FHIR dateTime format can be found on the [FHIR Dataty
 
 #### c. Start the job to acquire data from that endpoint
 
-<img class="ug-img" src="/assets/img/since_3.svg" alt="" />
-
 To start the job, click Execute.
 
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section for the request you just made. 
 
 Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your job.
+
+<img class="ug-img" src="/assets/img/since_3.svg" alt="" />
 
 #### d. Getting your data
 

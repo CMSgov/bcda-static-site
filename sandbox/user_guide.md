@@ -239,7 +239,7 @@ Then, as shown below, click `Execute` to start the process of requesting data fr
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_06b.svg" alt="Swagger: making a call to the Patient endpoint with no Resource Types specified defaults to returning data from all three Resource Types at once" />
 
-If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image above) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your job.
+If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image below) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your job.
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_06c.svg" alt="Swagger: 'curl' examples are given in full in the Advanced User Guide" />
 
@@ -294,12 +294,13 @@ Once you’ve downloaded the file, you’ll want to know what to do with the dat
 
 The `_since` parameter lets you filter your bulk data requests by the date when it was updated. This means that instead of receiving all your historical data each time you request data from the API, you will instead be able to enter the date since you last requested data. The API will return data updated between your `_since` input date and the present. The `since` parameter can be used with requests for all resource types.
 
-Using the `_since` parameter comprises two steps:
+Using the `_since` parameter comprises three steps:
 
 1. Input a date in the correct format.
 2. Start the job to acquire data from an endpoint.
+3. Retrieve data via a job request.
 
-#### b. Input a date in the correct format.
+#### a. Input a date in the correct format.
 
 <img class="ug-img" src="/assets/img/since_1.svg" alt="" />
 
@@ -318,7 +319,7 @@ The example below demonstrates how to convert a date/time combination into the F
 
 More information about the FHIR dateTime format can be found on the [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#dateTime){:target="_blank"}.
 
-#### c. Start the job to acquire data from that endpoint
+#### b. Start the job to acquire data from that endpoint
 
 To start the job, click Execute.
 
@@ -328,6 +329,6 @@ Not far below that, you can see the response: an `HTTP 202 Accepted` giving a li
 
 <img class="ug-img" src="/assets/img/since_3.svg" alt="" />
 
-#### d. Getting your data
+#### c. Getting your data
 
 Retrieving your files after a filtered bulk data request works similarily to making an unfiltered request. See the instructions for _5. Getting your data_ above
