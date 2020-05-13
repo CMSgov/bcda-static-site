@@ -1,5 +1,6 @@
 FROM jekyll/builder
 
+ENV BUNDLE_PATH=$GEM_HOME
 WORKDIR /bcda-site-static
 COPY . .
 RUN ["bundle", "install"]
