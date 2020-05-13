@@ -1,4 +1,4 @@
-FROM jekyll/builder:3.8
+FROM jekyll/builder
 
 WORKDIR /bcda-site-static
 COPY . .
