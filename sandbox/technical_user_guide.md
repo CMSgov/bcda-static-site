@@ -768,7 +768,7 @@ Dates and times submitted in `_since` must be listed in the FHIR _instant_ forma
 
 * _Sample Date:_ February 20, 2020 12:00 PM EST
 * _instant Format:_ YYYY-MM-DDThh:mm:sss+zz:zz
-* _Formatted Sample:_ 2020-02-20T12:00:00.00-05:00
+* _Formatted Sample:_ 2020-02-20T12:00:00.000-05:00
 
 More information about the FHIR _instant_ format can be found in the [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#instant){:target="_blank"}.
 
