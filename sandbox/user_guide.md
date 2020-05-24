@@ -304,7 +304,7 @@ Using the `_since` parameter comprises three steps:
 
 <img class="ug-img" src="/assets/img/since_1.svg" alt="" />
 
-First, click “Try it Out” in the Swagger section for `_since`. Then, enter your desired date into the dialog box labeled "`_since` (Optional)". Dates and times submitted in `_since` must adhere to a specific format for the server to understand. That format is the FHIR _dateTime_ format (`YYYY-MM-DDThh:mm:ss+zz:zz`). Notice that, if you need to include a time, a timezone must also be specified (`+zz:zz`).
+First, click “Try it Out” in the Swagger section for `_since`. Then, enter your desired date into the dialog box labeled "`_since` (Optional)". Dates and times submitted in `_since` must adhere to a specific format for the server to understand. That format is the FHIR _instant_ format (`YYYY-MM-DDThh:mm:ss.sss+zz:zz`).
 
 <img class="ug-img" src="/assets/img/since_2.svg" alt="" />
 
@@ -314,10 +314,10 @@ The example below demonstrates how to convert a date/time combination into the F
 **Date and Time Example**
 
 * _Sample Date:_ February 20, 2020 12:00 PM EST
-* _dateTime Format:_ YYYY-MM-DDThh:mm:ss+zz:zz
-* _Formatted Sample:_ 2020-02-20T12:00:00.00-05:00
+* _instant Format:_ YYYY-MM-DDThh:mm:sss+zz:zz
+* _Formatted Sample:_ 2020-02-20T12:00:00.000-05:00
 
-More information about the FHIR dateTime format can be found on the [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#dateTime){:target="_blank"}.
+More information about the FHIR instant format can be found on the [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#instant){:target="_blank"}.
 
 #### b. Start the job to acquire data from that endpoint
 
