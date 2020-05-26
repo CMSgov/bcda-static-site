@@ -700,13 +700,13 @@ Before using `_since` for the first time, we recommend that you retrieve all his
 **Note: Due to limitations in the Beneficiary FHIR Data (BFD) Server, data from before 02-12-2020 is marked with the arbitrary [lastUpdated](https://www.hl7.org/fhir/search.html#lastUpdated){:target="_blank"} date of 01-01-2020. If you input dates between 01-01-2020 and 02-11-2020 in the `_since` parameter, you will receive all historical data for your beneficiaries. Data loads from 02-12-2020 onwards have been marked with accurate dates.**
 
 #### Date and Timezone Formatting
-Dates and times submitted in `_since` must be listed in the FHIR _dateTime_ format (`YYYY-MM-DDThh:mm:ss+zz:zz`). Notice that, if you need to include a time, a timezone must also be specified (`+zz:zz`).
+Dates and times submitted in `_since` must be listed in the FHIR _instant_ format (`YYYY-MM-DDThh:mm:sss+zz:zz`).
 
 * _Sample Date:_ February 20, 2020 12:00 PM EST
-* _dateTime Format:_ YYYY-MM-DDThh:mm:ss+zz:zz
-* _Formatted Sample:_ 2020-02-20T12:00:00.00-05:00
+* _instant Format:_ YYYY-MM-DDThh:mm:sss+zz:zz
+* _Formatted Sample:_ 2020-02-20T12:00:00.000-05:00
 
-More information about the FHIR _dateTime_ format can be found in the [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#dateTime){:target="_blank"}.
+More information about the FHIR _instant_ format can be found in the [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#instant){:target="_blank"}.
 
 #### Usage Examples
 See the [Authentication and Authorization section](/production/technical-user-guide/#authentication-and-authorization){:target="_blank"} above to obtain the API token needed before requesting data from any of the BCDA bulk data endpoints. 
