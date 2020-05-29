@@ -220,7 +220,7 @@ Within the `Patient` endpoint, you can make requests for up to three resource ty
 
 ### 4. Making your first request for beneficiary data
 
-To get any bulk beneficiary data, you must first be authorized with BCDA. Make sure you’ve followed the steps above for [Setting up your credentials in Swagger](#setting-up-your-credentials-in-swagger) before moving forward.
+To get any bulk beneficiary data, you must first be authenticated with BCDA. Make sure you’ve followed the steps above for [Setting up your credentials in Swagger](#setting-up-your-credentials-in-swagger) before moving forward.
 
 Retrieving beneficiary data comprises two steps:
 
@@ -292,15 +292,15 @@ Once you’ve downloaded the file, you’ll want to know what to do with the dat
 
 ### Filtering your requests using `_since`
 
-The `_since` parameter lets you filter your bulk data requests by the date when it was updated. This means that instead of receiving all your historical data each time you request data from the API, you will instead be able to enter the date since you last requested data. The API will return data updated between your `_since` input date and the present. The `since` parameter can be used with requests for all resource types.
+The `_since` parameter lets you filter your bulk data requests by the date when the data was updated. This means that instead of receiving all your historical data each time you request data from the API, you will instead be able to enter the date since you last requested data. The API will return data updated between your `_since` input date and the present. The `since` parameter can be used with requests for all resource types.
 
 Using the `_since` parameter comprises three steps:
 
-1. Input a date in the correct format.
-2. Start the job to acquire data from an endpoint.
-3. Retrieve data via a job request.
+1. Input a date in the correct format
+2. Start the job to acquire data from an endpoint
+3. Retrieve data via a job request
 
-#### a. Input a date in the correct format.
+#### a. Input a date in the correct format
 
 <img class="ug-img" src="/assets/img/since_1.svg" alt="" />
 
@@ -321,14 +321,14 @@ More information about the FHIR instant format can be found on the [FHIR Datatyp
 
 #### b. Start the job to acquire data from that endpoint
 
-To start the job, click Execute.
+To start the job, click `Execute`.
 
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section for the request you just made. 
 
-Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your job.
+Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the `content-location` header for status information on your job.
 
 <img class="ug-img" src="/assets/img/since_3.svg" alt="" />
 
 #### c. Getting your data
 
-Retrieving your files after a filtered bulk data request works similarily to making an unfiltered request. See the instructions for _5. Getting your data_ above
+Follow the previous instructions on for [getting your data from an unfiltered request](#5-getting-your-data) to retrieve your files after a filtered bulk data request. 
