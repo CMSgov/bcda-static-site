@@ -691,11 +691,9 @@ The `_since` parameter grants you the ability to apply a date parameter to your 
 
 For more information on `_since`, please consult the [FHIR standard on query parameters](https://hl7.org/Fhir/uv/bulkdata/export/index.html#query-parameters){:target="_blank"}.
 
-#### Usage
-There are a couple of helpful points to keep in mind when using `_since`.
 
-#### Before Using `_since` 
-Before using `_since` for the first time, we recommend that you retrieve all historical data. Once you have retrieved your historical data and begun using `_since`, you should use [`transactionTime`](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status){:target="_blank"} from your last bulk data request as the date for following `_since` calls.
+#### Request Historical Data Before Using `_since` 
+Before using `_since` for the first time, we recommend that you run an unfiltered request (without using `_since`) to all resource types on the `/Patient` endpoint in order to retrieve all historical data. You only need to do this once. On subsequent calls you can begin using `_since`, with the [`transactionTime`](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status){:target="_blank"} from your last bulk data request set as the `_since` date.
 
 **Note: Due to limitations in the Beneficiary FHIR Data (BFD) Server, data from before 02-12-2020 is marked with the arbitrary [lastUpdated](https://www.hl7.org/fhir/search.html#lastUpdated){:target="_blank"} date of 01-01-2020. If you input dates between 01-01-2020 and 02-11-2020 in the `_since` parameter, you will receive all historical data for your beneficiaries. Data loads from 02-12-2020 onwards have been marked with accurate dates.**
 
@@ -711,7 +709,7 @@ More information about the FHIR _instant_ format can be found in the [FHIR Datat
 #### Usage Examples
 See the [Authentication and Authorization section](/production/technical-user-guide/#authentication-and-authorization){:target="_blank"} above to obtain the API token needed before requesting data from any of the BCDA bulk data endpoints. 
 
-Here are examples of how to initiate an export job using `_since` to augment `/Patient`. We are seeking data from the `/Patient` endpoint for the Patient resource type since 8PM EST on February 13th, 2020. The steps and format would work similarly for other endpoints and resource types.
+In the example below, we are seeking data from the `/Patient` endpoint for the Patient resource type since 8PM EST on February 13th, 2020. The steps and format would work similarly for other endpoints and resource types.
 
 **Request**
 
@@ -732,9 +730,9 @@ curl -X GET "https://api.bcda.cms.gov/api/v1/Patient/$export?_type=Patient?_sinc
 
 **cURL Commands for Subsequent Steps**
 
-Instructions for checking the status of the export job and retrieving NDJSON output file(s) can be found in previous sections. See _3. Checking the status of the export job_ and _4. Retrieving NDJSON output file(s)_.
+Instructions for checking the status of the export job and retrieving NDJSON output file(s) can be found in previous sections on [checking the status of the export job](#3-check-the-status-of-the-export-job) and [retrieving NDJSON output file(s)](#4-retrieve-ndjson-output-files).
 
-For ease of use, we have listed the `Curl` commands below. The job ID (48) and file name for the NDJSON file (`4e2cd98c-4746-4138-872b-24778c000b02.ndjson`) will be different for your job.
+For ease of use, we have listed the `Curl` commands for these operations below. The job ID (48) and file name for the NDJSON file (`4e2cd98c-4746-4138-872b-24778c000b02.ndjson`) will be different for your job.
 
 **Check the status of the export job:**
 ```
