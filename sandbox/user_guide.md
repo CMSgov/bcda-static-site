@@ -276,7 +276,7 @@ Once the job is completed, you will receive a `HTTP 200 Complete` response, whic
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_10.svg" alt="Swagger: copy the file name: the part of the URL after the last '/'" />
 
-To retrieve your data, open the `GET /data/{jobId}/{filename.ndjson}` endpoint. Copy the `jobId` into the `jobId` field, and the last string of the URL received in the previous step (highlighted in green and dashed lines above) into the `filename` field, then hit `Execute`.
+To retrieve your data, open the `GET /data/{jobId}/{filename.ndjson}` endpoint. Copy the `jobId` into the `jobId` field, and the last string of the URL received in the previous step (underlined above) into the `filename` field, then hit `Execute`.
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_11.svg" alt="" />
 
@@ -302,12 +302,13 @@ Using the `_since` parameter comprises three steps:
 
 #### a. Input a date in the correct format
 
-<img class="ug-img" src="/assets/img/since_1.svg" alt="" />
+First, click “Try it Out” in the Swagger section for `GET /api/v1/Patient/export`. 
 
-First, click “Try it Out” in the Swagger section for `_since`. Then, enter your desired date into the dialog box labeled "`_since` (Optional)". Dates and times submitted in `_since` must adhere to a specific format for the server to understand. That format is the FHIR _instant_ format (`YYYY-MM-DDThh:mm:ss.sss+zz:zz`).
+<img class="ug-img" src="/assets/img/since_1.svg" alt="Swagger: navigate to the /Patient endpoint and click Try it Out" />
+
+Then, enter your desired date into the dialog box labeled "`_since` (Optional)". Dates and times submitted in `_since` must adhere to a specific format for the server to understand. That format is the FHIR _instant_ format (`YYYY-MM-DDThh:mm:ss.sss+zz:zz`).
 
 <img class="ug-img" src="/assets/img/since_2.svg" alt="" />
-
 
 The example below demonstrates how to convert a date/time combination into the FHIR format.
 
@@ -327,7 +328,7 @@ If you’d like to use the command line or implement this API call in code, look
 
 Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the `content-location` header for status information on your job.
 
-<img class="ug-img" src="/assets/img/since_3.svg" alt="" />
+<img class="ug-img" src="/assets/img/since_3.svg" alt="Swagger: cURL commands are listed in full in the Advanced User Guide" />
 
 #### c. Getting your data
 
