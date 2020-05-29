@@ -760,9 +760,6 @@ The `_since` parameter grants you the ability to apply a date parameter to your 
 
 For more information on `_since`, please consult the [FHIR standard on query parameters](https://hl7.org/Fhir/uv/bulkdata/export/index.html#query-parameters){:target="_blank"}.
 
-#### Usage
-There are a couple of helpful points to keep in mind when using `_since`.
-
 #### Date and Timezone Formatting
 Dates and times submitted in `_since` must be listed in the FHIR _instant_ format (`YYYY-MM-DDThh:mm:sss+zz:zz`).
 
@@ -775,7 +772,7 @@ More information about the FHIR _instant_ format can be found in the [FHIR Datat
 #### Usage Examples
 See the [Authentication and Authorization section](/sandbox/technical-user-guide/#authentication-and-authorization){:target="_blank"} above to obtain the API token needed before requesting data from any of the BCDA bulk data endpoints. 
 
-Here are examples of how to initiate an export job using `_since` to augment `/Patient`. We are seeking data from the `/Patient` endpoint for the Patient resource type since 8PM EST on February 13th, 2020. The steps and format would work similarly for other endpoints and resource types.
+In the example below, we are seeking data from the `/Patient` endpoint for the Patient resource type since 8PM EST on February 13th, 2020. The steps and format would work similarly for other endpoints and resource types.
 
 **Request**
 
@@ -794,11 +791,11 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v1/Patient/$export?_type=Patient?_
 -H 'Prefer: respond-async'
 ```
 
-**cURL Commands for Subsequent Steps**
+**cURL Commands for subsequent steps**
 
-Instructions for checking the status of the export job and retrieving NDJSON output file(s) can be found in previous sections. See _3. Checking the status of the export job_ and _4. Retrieving NDJSON output file(s)_.
+Instructions for checking the status of the export job and retrieving NDJSON output file(s) can be found in previous sections on [checking the status of the export job](#3-check-the-status-of-the-export-job) and [retrieving NDJSON output file(s)](#4-retrieve-ndjson-output-files).
 
-For ease of use, we have listed the `Curl` commands below. The job ID (48) and file name for the NDJSON file (`4e2cd98c-4746-4138-872b-24778c000b02.ndjson`) will be different for your job.
+For ease of use, we have listed the `Curl` commands for these operations below. The job ID (48) and file name for the NDJSON file (`4e2cd98c-4746-4138-872b-24778c000b02.ndjson`) will be different for your job.
 
 **Check the status of the export job:**
 ```
