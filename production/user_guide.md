@@ -230,9 +230,11 @@ After retrieving your historical data, it may be helpful to use the date of your
 
 #### b. Input a date in the correct format.
 
+First, click “Try it Out” in the Swagger section for `GET /api/v1/Patient/export`. 
+
 <img class="ug-img" src="/assets/img/since_1.svg" alt="" />
 
-First, click “Try it Out” in the Swagger section for `_since`. Then, enter your desired date into the dialog box labeled "`_since` (Optional)". Dates and times submitted in `_since` must adhere to a specific format for the server to understand. That format is the FHIR _instant_ format (`YYYY-MM-DDThh:mm:ss.sss+zz:zz`).
+Then, enter your desired date into the dialog box labeled "`_since` (Optional)". Dates and times submitted in `_since` must adhere to a specific format for the server to understand. That format is the FHIR _instant_ format (`YYYY-MM-DDThh:mm:ss.sss+zz:zz`).
 
 <img class="ug-img" src="/assets/img/since_2.svg" alt="" />
 
@@ -254,7 +256,7 @@ If you’d like to use the command line or implement this API call in code, look
 
 Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the `content-location` header for status information on your job.
 
-<img class="ug-img" src="/assets/img/since_3.svg" alt="" />
+<img class="ug-img" src="/assets/img/since_3.svg" alt="Swagger: 'curl' examples are given in full in the Advanced User Guide" />
 
 #### d. Getting your data
 
