@@ -210,7 +210,7 @@ Once you’ve downloaded the file, you’ll want to know what to do with the dat
 
 ### Filtering your requests using `_since`
 
-The `_since` parameter lets you filter your bulk data requests by the date when it was updated. This means that instead of receiving all your historical data each time you request data from the API, you will instead be able to enter the date since you last requested data. The API will return data updated between your `_since` input date and the present. The `since` parameter can be used with requests for all resource types.
+The `_since` parameter lets you filter your bulk data requests by the date when the data was updated. This means that instead of receiving all your historical data each time you request data from the API, you will instead be able to enter the date since you last requested data and receive only data updated between your `_since` input date and the present. The `since` parameter can be used with requests for all resource types.
 
 Before using `_since` for the first time, pull your historical data. Using the `_since` parameter subsequently comprises three steps:
 
@@ -226,13 +226,15 @@ See [Making Your First Requests for Data](/production/user-guide/#making-your-fi
 
 After retrieving your historical data, it may be helpful to use the date of your most recent bulk data request for subsequent data pulls using the `_since` parameter. You may retrieve this date by viewing the [_transactionTime_](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status){:target="_blank"} from your last bulk data request.
 
-**Note: Do not input dates before 02-12-2020 into `_since`. Limitations of the Beneficiary FHIR Data (BFD) Server prevent data before 02-12-2020 from being tagged correctly.  For more details, see the [Advanced User Guide](/production/technical-user-guide/#filtering-your-data-with-_since).**
+**Note: Do not input dates before 02-12-2020 into `_since`. Limitations of the Beneficiary FHIR Data (BFD) Server prevent data before 02-12-2020 from being tagged correctly. For more details, see the [Advanced User Guide](/production/technical-user-guide/#filtering-your-data-with-_since).**
 
 #### b. Input a date in the correct format.
 
+First, click “Try it Out” in the Swagger section for `GET /api/v1/Patient/export`. 
+
 <img class="ug-img" src="/assets/img/since_1.svg" alt="" />
 
-First, click “Try it Out” in the Swagger section for `_since`. Then, enter your desired date into the dialog box labeled "`_since` (Optional)". Dates and times submitted in `_since` must adhere to a specific format for the server to understand. That format is the FHIR _instant_ format (`YYYY-MM-DDThh:mm:ss.sss+zz:zz`).
+Then, enter your desired date into the dialog box labeled "`_since` (Optional)". Dates and times submitted in `_since` must adhere to a specific format for the server to understand. That format is the FHIR _instant_ format (`YYYY-MM-DDThh:mm:ss.sss+zz:zz`).
 
 <img class="ug-img" src="/assets/img/since_2.svg" alt="" />
 
@@ -248,17 +250,17 @@ More information about the FHIR instant format can be found on the [FHIR Datatyp
 
 #### c. Start the job to acquire data from that endpoint
 
-To start the job, click Execute.
+To start the job, click `Execute`.
 
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section for the request you just made. 
 
-Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your job.
+Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the `content-location` header for status information on your job.
 
-<img class="ug-img" src="/assets/img/since_3.svg" alt="" />
+<img class="ug-img" src="/assets/img/since_3.svg" alt="Swagger: 'curl' examples are given in full in the Advanced User Guide" />
 
 #### d. Getting your data
 
-Retrieving your files after a filtered bulk data request works similarily to making an unfiltered request. See the instructions for _5. Getting your data_ above
+Follow the previous instructions on for [getting your data from an unfiltered request](#5-getting-your-data) to retrieve your files after a filtered bulk data request. 
 
 ## <a name="frequently-asked-questions"></a>Frequently asked questions about making requests
 

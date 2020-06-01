@@ -220,7 +220,7 @@ Within the `Patient` endpoint, you can make requests for up to three resource ty
 
 ### 4. Making your first request for beneficiary data
 
-To get any bulk beneficiary data, you must first be authorized with BCDA. Make sure you’ve followed the steps above for [Setting up your credentials in Swagger](#setting-up-your-credentials-in-swagger) before moving forward.
+To get any bulk beneficiary data, you must first be authenticated with BCDA. Make sure you’ve followed the steps above for [Setting up your credentials in Swagger](#setting-up-your-credentials-in-swagger) before moving forward.
 
 Retrieving beneficiary data comprises two steps:
 
@@ -276,7 +276,7 @@ Once the job is completed, you will receive a `HTTP 200 Complete` response, whic
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_10.svg" alt="Swagger: copy the file name: the part of the URL after the last '/'" />
 
-To retrieve your data, open the `GET /data/{jobId}/{filename.ndjson}` endpoint. Copy the `jobId` into the `jobId` field, and the last string of the URL received in the previous step (highlighted in green and dashed lines above) into the `filename` field, then hit `Execute`.
+To retrieve your data, open the `GET /data/{jobId}/{filename.ndjson}` endpoint. Copy the `jobId` into the `jobId` field, and the last string of the URL received in the previous step (underlined above) into the `filename` field, then hit `Execute`.
 
 <img class="ug-img" src="/assets/img/swagger_walkthrough_11.svg" alt="" />
 
@@ -292,22 +292,23 @@ Once you’ve downloaded the file, you’ll want to know what to do with the dat
 
 ### Filtering your requests using `_since`
 
-The `_since` parameter lets you filter your bulk data requests by the date when it was updated. This means that instead of receiving all your historical data each time you request data from the API, you will instead be able to enter the date since you last requested data. The API will return data updated between your `_since` input date and the present. The `since` parameter can be used with requests for all resource types.
+The `_since` parameter lets you filter your bulk data requests by the date when the data was updated. This means that instead of receiving all your historical data each time you request data from the API, you will instead be able to enter the date since you last requested data. The API will return data updated between your `_since` input date and the present. The `since` parameter can be used with requests for all resource types.
 
 Using the `_since` parameter comprises three steps:
 
-1. Input a date in the correct format.
-2. Start the job to acquire data from an endpoint.
-3. Retrieve data via a job request.
+1. Input a date in the correct format
+2. Start the job to acquire data from an endpoint
+3. Retrieve data via a job request
 
-#### a. Input a date in the correct format.
+#### a. Input a date in the correct format
 
-<img class="ug-img" src="/assets/img/since_1.svg" alt="" />
+First, click “Try it Out” in the Swagger section for `GET /api/v1/Patient/export`. 
 
-First, click “Try it Out” in the Swagger section for `_since`. Then, enter your desired date into the dialog box labeled "`_since` (Optional)". Dates and times submitted in `_since` must adhere to a specific format for the server to understand. That format is the FHIR _instant_ format (`YYYY-MM-DDThh:mm:ss.sss+zz:zz`).
+<img class="ug-img" src="/assets/img/since_1.svg" alt="Swagger: navigate to the /Patient endpoint and click Try it Out" />
+
+Then, enter your desired date into the dialog box labeled "`_since` (Optional)". Dates and times submitted in `_since` must adhere to a specific format for the server to understand. That format is the FHIR _instant_ format (`YYYY-MM-DDThh:mm:ss.sss+zz:zz`).
 
 <img class="ug-img" src="/assets/img/since_2.svg" alt="" />
-
 
 The example below demonstrates how to convert a date/time combination into the FHIR format.
 
@@ -321,14 +322,14 @@ More information about the FHIR instant format can be found on the [FHIR Datatyp
 
 #### b. Start the job to acquire data from that endpoint
 
-To start the job, click Execute.
+To start the job, click `Execute`.
 
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section for the request you just made. 
 
-Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your job.
+Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the `content-location` header for status information on your job.
 
-<img class="ug-img" src="/assets/img/since_3.svg" alt="" />
+<img class="ug-img" src="/assets/img/since_3.svg" alt="Swagger: cURL commands are listed in full in the Advanced User Guide" />
 
 #### c. Getting your data
 
-Retrieving your files after a filtered bulk data request works similarily to making an unfiltered request. See the instructions for _5. Getting your data_ above
+Follow the previous instructions on for [getting your data from an unfiltered request](#5-getting-your-data) to retrieve your files after a filtered bulk data request. 
