@@ -27,7 +27,7 @@ Representatives of Shared Savings Program ACOs are now invited to express their 
 
 * **What if my ACO participates in a CMS Innovation Center model?** BCDA’s initial goal is to provide bulk beneficiary claims data that meets the needs of Shared Savings Program ACOs. In the months ahead, BCDA’s research team will begin learning about the data needs of Innovation Center Model ACOs, in order to begin accommodating those ACOs in the API in the future. While the sandbox environment focuses on the needs of Shared Savings Program ACOs, all ACOs and their vendor partners are invited to explore the sandbox and give their feedback.
 
-* **Note:** Some data fields have not yet been mapped from CCLFs to BCDA; The Beneficiary FHIR Data Server (BFD) API team is working hard to map all of the CCLF fields in the near future.
+**Note:** Some data fields have not yet been mapped from CCLFs to BCDA; The Beneficiary FHIR Data Server (BFD) API team is working hard to map all of the CCLF fields in the near future.
 
 ## Getting Started
   Moving from the CCLF file structure to BCDA’s FHIR-based API is a fairly big change. BCDA provides documentation and user guides to help Shared Savings Program ACOs at any stage of technical understanding learn how to interact with the API and the data.
@@ -58,6 +58,9 @@ Representatives of Shared Savings Program ACOs are now invited to express their 
 
   * **Why are Shared Savings Program ACOs getting access to this data?**
     * As indicated in the regulation [§425.704](https://www.ecfr.gov/cgi-bin/text-idx?SID=20d60582b65758d4ace3a6b5291cfc4f&mc=true&node=se42.3.425_1704&rgn=div8){:target="_blank"}, “subject to providing the beneficiary with the opportunity to decline data sharing as described in this §425.708, and subject to having a valid DUA in place, CMS, upon the ACO's request for the data for purposes of evaluating the performance of its ACO participants or its ACO providers/suppliers, conducting quality assessment and improvement activities, and conducting population-based activities relating to improved health, will provide the ACO with beneficiary identifiable claims data for preliminarily prospectively and prospectively assigned beneficiaries and other beneficiaries who receive primary care services from an ACO participant that submits claims for primary care services used to determine the ACO's assigned population under subpart E of this part during the performance year.”
+    
+  * **What claims does BCDA exclude?**
+    * BCDA excludes all claims with substance abuse codes (as required by the [Confidentiality of Alcohol and Drug Abuse Patient Records Regulations, 42 CFR Part 2](https://www.ecfr.gov/cgi-bin/text-idx?rgn=div5;node=42%3A1.0.1.1.2){:target="_blank"}).
 
   * **Sounds great! Where do I start?**
     * If your Shared Savings Program ACO is ready to start working with BCDA, the first step is to [let us know you’re interested](#getting-started). BCDA will onboard ACOs to the production environment in the order in which they sign up.
