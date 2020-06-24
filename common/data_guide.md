@@ -54,7 +54,7 @@ CMS provides Accountable Care Organizations (ACOs) with beneficiary identifiable
 
 For the appropriate beneficiaries, the data provided to the ACO through BCDA includes claims for all services covered by Part A (Hospital Insurance) and Part B (Supplemental Medical Insurance) that were provided and processed during the prior month. Claims data also include prescriptions covered by a Part D Prescription Drug Program in which the beneficiary is enrolled. ACOs will be able to retrieve both the CCLF and BCDA claims data concurrently for the foreseeable future; we encourage our users to use both the CCLF and BCDA data sources to compare and contrast the data that is being delivered to your ACO. BCDA Engineers have designed the API to deliver the same claims data as is contained in the CCLFs.
 
-**Note:** BCDA excludes all claims with substance abuse codes (as required by the Confidentiality of Alcohol and Drug Abuse Patient Records Regulations, [42 CFR Part 2)](https://www.ecfr.gov/cgi-bin/text-idx?rgn=div5;node=42%3A1.0.1.1.2){:target="_blank"}.
+**Note:** BCDA excludes all claims with substance abuse codes (as required by the Confidentiality of Alcohol and Drug Abuse Patient Records Regulations, [42 CFR Part 2])(https://www.ecfr.gov/cgi-bin/text-idx?rgn=div5;node=42%3A1.0.1.1.2){:target="_blank"}.
 
 ## Sample BCDA Files
 In order to aid in users’ understanding of BCDA file data and structure, we provide sample Explanation of Benefit, Patient, and Coverage files for download. These files contain synthetic data, but the structure of the files is similar to the actual files you will be pulling and downloading from BCDA.
