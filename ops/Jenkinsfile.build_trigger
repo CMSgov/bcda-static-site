@@ -51,7 +51,7 @@ pipeline {
     stage('Deploy Static Site') {
       steps {
         build job: 'BCDA - Deploy - Static Site', 
-        parameters: [string(name: 'BCDA_STATIC_SITE_BRANCH', value: "${env.BRANCH_NAME}"), string(name: 'DEPLOY', value: "${DEPLOY}")], 
+        parameters: [string(name: 'BCDA_STATIC_SITE_BRANCH', value: "${env.BRANCH_NAME}"), string(name: 'ENV', value: "${DEPLOY}")], 
         wait: true,
         propagate: true
       }
