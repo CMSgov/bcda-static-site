@@ -42,7 +42,7 @@ pipeline {
             ])
         script {
             if (env.BRANCH_NAME == "master") {
-                DEPLOY='opensbx'
+                DEPLOY='stage'
             }
         } 
       }
@@ -51,7 +51,7 @@ pipeline {
     stage('Deploy Static Site') {
       steps {
         build job: 'BCDA - Deploy - Static Site', 
-        parameters: [string(name: 'BCDA_GIT_VERSION', value: "${env.BRANCH_NAME}"), string(name: 'DEPLOY', value: "${DEPLOY}")], 
+        parameters: [string(name: 'BCDA_STATIC_SITE_BRANCH', value: "${env.BRANCH_NAME}"), string(name: 'DEPLOY', value: "${DEPLOY}")], 
         wait: true,
         propagate: true
       }
