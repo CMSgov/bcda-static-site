@@ -1,0 +1,59 @@
+DEPLOY = 'Do Not Deploy'
+
+pipeline {
+  agent {
+    node {
+      label ''
+      customWorkspace 'workspace/bcda-static-site-build_trigger'
+    }
+  }
+  triggers {
+     pollSCM 'H/2 * * * *'
+  }
+
+  stages {
+
+    stage('Clear the working dir') {
+      steps {
+        script {
+          dir('bcda-static-site-build_trigger') {
+            deleteDir()
+          }
+        }
+      }
+    }
+
+    stage('Checkout') {
+      steps {
+        checkout([
+            $class: 'GitSCM',
+            branches: [[
+                name: "${env.BRANCH_NAME}"
+            ]],
+            doGenerateSubmoduleConfigurations: false,
+            extensions: [[
+                $class: 'RelativeTargetDirectory',
+                relativeTargetDir: 'bcda-static-site'
+            ]],
+            userRemoteConfigs: [[
+                url: 'git@github.com:CMSgov/bcda-static-site.git'
+            ]]
+            ])
+        script {
+            if (env.BRANCH_NAME == "master") {
+                DEPLOY='stage'
+            }
+        } 
+      }
+     }
+
+    stage('Deploy Static Site') {
+      steps {
+        build job: 'BCDA - Deploy - Static Site', 
+        parameters: [string(name: 'BCDA_STATIC_SITE_BRANCH', value: "${env.BRANCH_NAME}"), string(name: 'ENV', value: "${DEPLOY}")], 
+        wait: true,
+        propagate: true
+      }
+    }
+  }
+}
