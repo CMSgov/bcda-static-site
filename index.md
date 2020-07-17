@@ -79,7 +79,7 @@ Representatives of Shared Savings Program ACOs are now invited to express their 
    BCDA is one member of a suite of FHIR APIs provided by CMS, which work together to provide claims data that enables higher-quality patient care.
 
 ### [Claims Data to Part D Sponsors API (AB2D):](https://ab2d.cms.gov){:target="_blank"}
-   * Provides FHIR-formatted bulk claims data to stand-alone Presciption Drug Sponsors for their enrollees.
+   * Provides FHIR-formatted bulk claims data to stand-alone Prescription Drug Sponsors for their enrollees.
 
 ### [Blue Button 2.0:](https://bluebutton.cms.gov){:target="_blank"}
    * Provides FHIR-formatted data for **one** individual Medicare beneficiary at a time, to registered applications with beneficiary authorization.
