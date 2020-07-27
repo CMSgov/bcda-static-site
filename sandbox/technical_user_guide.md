@@ -117,15 +117,10 @@ Client Secret:
 {% include copy_snippet.md code=client_secret %}
 </div>
 
-To get a token that can be used with protected endpoints, POST the credentials you've selected using [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication){:target="_blank"} to `https://sandbox.bcda.cms.gov/auth/token`:
+To get a token that can be used with protected endpoints, POST the credentials you’ve selected using [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication){:target="_blank"} to `https://sandbox.bcda.cms.gov/auth/token`.
 
+### Authentication Walkthrough
 
-Encoded Basic authentication:
-{%- capture auth_header -%}
-Basic Mzg0MWM1OTQtYThjMC00MWU1LTk4Y2MtMzhiYjQ1MzYwZDNjOmY5NzgwZDMyMzU4OGYxY2RmYzNlNjNlOTVhOGNiZGNkZDQ3NjAyZmY0OGE1MzdiNTFkYzVkNzgzNGJmNDY2NDE2YTcxNmJkNDUwOGU5MDRh
-{%- endcapture -%}
-
-{% include copy_snippet.md code=auth_header %}
 
 **Request**
 
@@ -136,16 +131,48 @@ Basic Mzg0MWM1OTQtYThjMC00MWU1LTk4Y2MtMzhiYjQ1MzYwZDNjOmY5NzgwZDMyMzU4OGYxY2RmYz
 * `Accept: application/json`
 * `Authorization: <Encoded Basic authentication>`
 
-**cURL command**
+**cURL commands**
+
+You can choose one of two cURL commands to use.
+
+**Option 1, which requires base-64 encoding be performed on your clientId and secret**
+
+With this option, you must base-64 encode the `clientId` and `secret`.  Once that is performed, the encoded credentials can be passed to `curl` as a header with the form: `authorization: Basic [base64-encoded clientId:secret]`
+
+In the following cURL command, we have concatenated the base64 encoding of the 'Client ID : Secret' as the argument to the -H flag.
+
+Example:
 
 ```
 curl -d '' -X POST "https://sandbox.bcda.cms.gov/auth/token" -H "accept: application/json" -H "authorization: Basic Mzg0MWM1OTQtYThjMC00MWU1LTk4Y2MtMzhiYjQ1MzYwZDNjOm\
 Y5NzgwZDMyMzU4OGYxY2RmYzNlNjNlOTVhOGNiZGNkZDQ3NjAy\
 ZmY0OGE1MzdiNTFkYzVkNzgzNGJmNDY2NDE2YTcxNmJkNDUwOGU5MDRh"
 ```
+
+**Option 2, which takes advantage of cURL's ability to base-64 encode your clientId and secret**
+
+With this option, the user can take advantage of cURL's built-in ability to base-64 encode the `clientId` and `secret`, and request and receive their token in a single step.
+
+Example:
+
+```
+curl -d '' -X POST "https://sandbox.bcda.cms.gov/auth/token" --user 3841c594-a8c0-41e5-98cc-38bb45360d3c:f9780d323588f1cdfc3e63e95a8cbdcdd47602ff48a537b51dc5d7834bf466416a716bd4508e904a -H "accept: application/json"
+```
+
 **Response**
 
 You will receive a `200 OK` response and an access token if your credentials were accepted.
+
+```
+{
+  “access_token”: “eyJhbGciOiJSUzUxMiIsInR5c ....”,
+  ”token_type”:“bearer”
+}
+```
+
+_Token string abbreviated for readability._
+
+You will receive a `401 Unauthorized` response if your credentials are invalid or if your token has expired. No additional information is returned with a `401` response. When you receive a `401` response for a token you were just using successfully, you should request a new access token as outlined above.
 
 ## Environment
 
@@ -726,3 +753,58 @@ curl https://sandbox.bcda.cms.gov/data/45/99dbc86f-74e5-4553-88a9-af3e718cb72b.n
 The response will be the requested data as [FHIR Coverage resources](https://www.hl7.org/fhir/coverage.html){:target="_blank"} in NDJSON format.
 
 An example of one such resource is available in the [guide to working with BCDA data](/data-guide/#sample-bcda-files).
+
+### Filtering Your Data with `_since`
+#### About `_since` 
+The `_since` parameter grants you the ability to apply a date parameter to your bulk data requests. Instead of receiving the full record of historical data every time you request data from an endpoint, you will be able to use `_since` to submit a date. BCDA will then produce claims data from the bulk data endpoints that have been loaded since the entered date.
+
+For more information on `_since`, please consult the [FHIR standard on query parameters](https://hl7.org/Fhir/uv/bulkdata/export/index.html#query-parameters){:target="_blank"}.
+
+#### Date and Timezone Formatting
+Dates and times submitted in `_since` must be listed in the FHIR _instant_ format (`YYYY-MM-DDThh:mm:sss+zz:zz`).
+
+* _Sample Date:_ February 20, 2020 12:00 PM EST
+* _instant Format:_ YYYY-MM-DDThh:mm:sss+zz:zz
+* _Formatted Sample:_ 2020-02-20T12:00:00.000-05:00
+
+More information about the FHIR _instant_ format can be found in the [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#instant){:target="_blank"}.
+
+#### Usage Examples
+See the [Authentication and Authorization section](/sandbox/technical-user-guide/#authentication-and-authorization){:target="_blank"} above to obtain the API token needed before requesting data from any of the BCDA bulk data endpoints. 
+
+In the example below, we are seeking data from the `/Patient` endpoint for the Patient resource type since 8PM EST on February 13th, 2020. The steps and format would work similarly for other endpoints and resource types.
+
+**Request**
+
+`GET /sandbox/v1/Patient/$export?_type=Patient?_since=2020-02-13T08:00:00.000-05:00`
+
+**Headers**
+* `Authorization: Bearer {token}`
+* `Accept: application/fhir+json`
+* `Prefer: respond-async`
+
+**cURL Command**
+```
+curl -X GET "https://sandbox.bcda.cms.gov/api/v1/Patient/$export?_type=Patient?_since=2020-02-13T08:00:00.000-05:00
+-H 'Authorization: Bearer {token}' \
+-H 'Accept: application/fhir+json' \
+-H 'Prefer: respond-async'
+```
+
+**cURL Commands for subsequent steps**
+
+Instructions for checking the status of the export job and retrieving NDJSON output file(s) can be found in previous sections on [checking the status of the export job](#3-check-the-status-of-the-export-job) and [retrieving NDJSON output file(s)](#4-retrieve-ndjson-output-files).
+
+For ease of use, we have listed the `Curl` commands for these operations below. The job ID (48) and file name for the NDJSON file (`4e2cd98c-4746-4138-872b-24778c000b02.ndjson`) will be different for your job.
+
+**Check the status of the export job:**
+```
+curl -v https://sandbox.bcda.cms.gov/api/v1/jobs/48 \
+-H 'Authorization: Bearer {token}'
+```
+
+**Retrieve NDJSON output file(s):**
+```
+curl https://sandbox.bcda.cms.gov/data/48/4e2cd98c-4746-4138-872b-24778c000b02.ndjson \
+-H 'Authorization: Bearer {token}'
+```

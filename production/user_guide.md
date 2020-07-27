@@ -47,37 +47,37 @@ Once the page is open, your first step will be getting an **access token**.  You
 * Find the section of the page shown below, in the **auth** category.
 * Click the lock icon.
 
-<img class="ug-img" src="/assets/img/nav_swag_01.png" alt="Swagger: Auth category with lock icon circled in red on the right"/>
+<img class="ug-img" src="/assets/img/nav_swag_01.svg" alt="Swagger: Auth category with lock icon circled in red on the right"/>
 
 When you enrolled in BCDA, you received **credentials**, which included a **client ID** and **secret**.  Here you'll enter them into Swagger.
 
 * Click the "Authorize" button when you've entered your credentials, then "Close"
 
-<img class="ug-img" src="/assets/img/nav_swag_02.png" alt=""/>
+<img class="ug-img" src="/assets/img/nav_swag_02.svg" alt=""/>
 
 Now you're ready to get a token!
 
 * To show more information about the `/auth/token` API endpoint, click on it (this time, away from the lock icon).
 * Click "Try it out"
 
-<img class="ug-img" src="/assets/img/nav_swag_03.png" alt="Swagger: Token endpoint field with 'Try it out' button, circled in red on the right"/>
+<img class="ug-img" src="/assets/img/nav_swag_03.svg" alt="Swagger: Token endpoint field with 'Try it out' button, circled in red on the right"/>
 
 * Click "Execute" to get your token
 
-<img class="ug-img" src="/assets/img/nav_swag_04.png" alt=""/>
+<img class="ug-img" src="/assets/img/nav_swag_04.svg" alt=""/>
 
 If all is well, the Server response section will look similar to the following snapshot: it will have a response code of `200`, and give an "access_token" in the response body.
 
 * Copy the access token.  It will not have any spaces or newlines; the hyphens at the end of the lines are indicating that the line continues unbroken.
 
-<img class="ug-img" src="/assets/img/nav_swag_05.png" alt="Swagger: Access token response showing long access token in text field"/>
+<img class="ug-img" src="/assets/img/nav_swag_05.svg" alt="Swagger: Access token response showing long access token in text field"/>
 
 Now that you have a token, you can tell Swagger to use it for your future requests.
 
 * Return to the top of the Swagger page
 * Click on the lock icon
 
-<img class="ug-img" src="/assets/img/nav_swag_06.png" alt=""/>
+<img class="ug-img" src="/assets/img/nav_swag_06.svg" alt=""/>
 
 In the "Value" box:
 
@@ -86,7 +86,7 @@ In the "Value" box:
 * Paste your token after the space following **_Bearer_**
 * Click "Authorize" and then "Close"
 
-<img class="ug-img" src="/assets/img/nav_swag_07.png" alt=""/>
+<img class="ug-img" src="/assets/img/nav_swag_07.svg" alt=""/>
 
 ### Follow-up questions about authorization
 
@@ -99,11 +99,11 @@ A: The token will expire after twenty minutes.  The next time you use the BCDA A
 ### 1. Getting comfortable in Swagger
 There are two categories of information that you can retrieve through BCDA: metadata and bulk beneficiary data.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_01.png" alt="Swagger: 'metadata' and 'bulkData' are categories that can be expanded further to get more detailed information" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_01.svg" alt="Swagger: 'metadata' and 'bulkData' are categories that can be expanded further to get more detailed information" />
 
 **Metadata** in BCDA includes information about the platform that is making, storing, and verifying credentials and tokens (the auth provider); information about the API’s version; and information about the actions you can perform using the API itself (also duplicatively termed metadata). There is no PII or PHI in the **metadata** endpoint, so you can access this endpoint without having to be authorized.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_02.png" alt="" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_02.svg" alt="" />
 
 ### 2. Looking at BCDA Metadata
 
@@ -111,15 +111,15 @@ We’ll use `auth` as an example here.
 
 Under the Metadata endpoint, click on `/_auth` to expand that section. After the information field expands, as shown below, click `Try it out`.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_03.png" alt="" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_03.svg" alt="" />
 
 Then, as shown below, click `Execute` to run the process of getting details about `auth`.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_04.png" alt="" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_04.svg" alt="" />
 
 As shown below, clicking `Execute` returns details about the authorization and authentication provider BCDA is using.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_05.png" alt="Swagger: the response body reveals that the auth_provider is 'alpha'" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_05.svg" alt="Swagger: the response body reveals that the auth_provider is 'alpha'" />
 
 You can repeat this process with the `/_version` and `/api/v1/metadata` endpoints as well.
 
@@ -135,7 +135,7 @@ Within the `Patient` endpoint, you can make requests for up to three resource ty
 * **Patient** data includes identification information about your assigned or assignable beneficiaries.
 * **Coverage** data includes each beneficiary’s Medicare coverage plan.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_06.png" alt="Swagger: use the 'type' parameter to specify resource type(s) for your request" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_06.svg" alt="Swagger: use the 'type' parameter to specify resource type(s) for your request" />
 
 ### 4. Making your first request for beneficiary data
 To get any bulk beneficiary data, you must first be authorized with BCDA. Make sure you’ve followed the steps above for [Setting up your credentials in Swagger](#setting-up-your-credentials-in-swagger) before moving forward.
@@ -151,15 +151,15 @@ In this example, we'll show a request for all three resource types in the `Patie
 
 First, click on `GET /api/v1/Patient/$export`, then click `Try it out`.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_06a.png" alt="" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_06a.svg" alt="" />
 
 Then, as shown below, click `Execute` to start the process of requesting data from the `Patient` endpoint.  Make sure you note the **job number** (also known as `jobId`)  in the **response header**, since you’ll need this job number to track the status of your data request.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_06b.png" alt="Swagger: making a call to the Patient endpoint with no Resource Types specified defaults to returning data from all three Resource Types at once" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_06b.svg" alt="Swagger: making a call to the Patient endpoint with no Resource Types specified defaults to returning data from all three Resource Types at once" />
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_06c.png" alt="Swagger: 'curl' examples are given in full in the Advanced User Guide" />
+If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image below) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your job.
 
-If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image above) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your job.
+<img class="ug-img" src="/assets/img/swagger_walkthrough_06c.svg" alt="Swagger: 'curl' examples are given in full in the Advanced User Guide" />
 
 #### b. Making a request for one resource type
 
@@ -167,16 +167,16 @@ Next, we'll show a specific example of requesting only the `Coverage` resource t
 
 First, click on `GET /api/v1/Patient/$export`, then click `Try it out`.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_07.png" alt="" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_07.svg" alt="" />
 
 As shown above, in the field labeled "Resource types requested," type "Coverage." Then click `Execute` to start the process of requesting Coverage data.  Make sure you note the **job number** (also known as `jobId`)  in the **response header**, since you’ll need this job number to track the status of your data request.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_08.png" alt="" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_08.svg" alt="" />
 
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image above) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your Coverage job.
 
 ### 5. Getting your data
-There are two steps to retrieving the requested Coverage data:
+There are two steps to retrieving the requested data:
 
 1. Checking the status of your job
 2. Downloading your bulk data file
@@ -185,27 +185,82 @@ Depending on the number of beneficiaries prospectively assigned or assignable to
 
 You can check the status of the job by entering the job number into the `jobId` text field, as shown in the image below.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_09.png" alt="Swagger: after entering the job ID into the job ID field, click execute" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_09.svg" alt="Swagger: after entering the job ID into the job ID field, click execute" />
 
 The X-Progress header indicates the job's workflow status (Pending, In Progress, Completed, Archived, Expired, Failed). When in the In Progress state, an estimated completion percentage is appended to the X-Progress value (e.g., "In Progress (10%)").
 
 Once the job is completed, you will receive a `HTTP 200 Complete` response, which includes a URL ending in .ndjson.  You’ll need the end of the URL in order to retrieve your data.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_10.png" alt="Swagger: copy the file name: the part of the URL after the last '/'" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_10.svg" alt="Swagger: copy the file name: the part of the URL after the last '/'" />
 
-To retrieve your data, open the `GET /data/{jobId}/{filename}` endpoint. Copy the `jobId` into the `jobId` field, and the last string of the URL received in the previous step (highlighted in green and dashed lines above) into the `filename` field, then hit `Execute`.
+To retrieve your data, open the `GET /data/{jobId}/{filename.ndjson}` endpoint. Copy the `jobId` into the `jobId` field, and the last string of the URL received in the previous step (highlighted in green and dashed lines above) into the `filename` field, then hit `Execute`.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_11.png" alt="" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_11.svg" alt="" />
 
 The `Response Body` contains the requested claims data in NDJSON format. Click the `Download` button that appears in the lower right corner of the response section. Note that a large file may take a while to download.
 
-<img class="ug-img" src="/assets/img/swagger_walkthrough_12.png" alt="" />
+<img class="ug-img" src="/assets/img/swagger_walkthrough_12.svg" alt="" />
 
 If you have requested data related to more than one Resource Type, the files related to each Resource Type will appear separately.
 
 You will have twenty minutes before your token expires, and you will need to get another from `/auth/token` if it expires before you are finished interacting with the API.
 
 Once you’ve downloaded the file, you’ll want to know what to do with the data. We’ve provided a [guide to working with BCDA data](/data-guide/){:target="_self"} to help you, including a crosswalk between CCLF fields and the corresponding sections of the NDJSON files.
+
+
+### Filtering your requests using `_since`
+
+The `_since` parameter lets you filter your bulk data requests by the date when the data was updated. This means that instead of receiving all your historical data each time you request data from the API, you will instead be able to enter the date since you last requested data and receive only data updated between your `_since` input date and the present. The `since` parameter can be used with requests for all resource types.
+
+Before using `_since` for the first time, pull your historical data. Using the `_since` parameter subsequently comprises three steps:
+
+1. Input a date in the correct format.
+2. Start the job to acquire data from an endpoint.
+3. Retrieve data via a job request.
+
+#### a. Pull your historical data.
+
+Before using `_since` for the first time, we recommend that you retrieve all historical data from the BCDA bulk data endpoints (do not use `_since`). Retrieving your historical data before before filtering bulk data with `_since` ensures that there will be no gaps in the claims data delivered from BCDA. 
+
+See [Making Your First Requests for Data](/production/user-guide/#making-your-first-requests-for-data) for step-by-step instructions on how to pull your historical data.
+
+After retrieving your historical data, it may be helpful to use the date of your most recent bulk data request for subsequent data pulls using the `_since` parameter. You may retrieve this date by viewing the [_transactionTime_](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status){:target="_blank"} from your last bulk data request.
+
+**Note: Do not input dates before 02-12-2020 into `_since`. Limitations of the Beneficiary FHIR Data (BFD) Server prevent data before 02-12-2020 from being tagged correctly. For more details, see the [Advanced User Guide](/production/technical-user-guide/#filtering-your-data-with-_since).**
+
+#### b. Input a date in the correct format.
+
+First, click “Try it Out” in the Swagger section for `GET /api/v1/Patient/export`. 
+
+<img class="ug-img" src="/assets/img/since_1.svg" alt="" />
+
+Then, enter your desired date into the dialog box labeled "`_since` (Optional)". Dates and times submitted in `_since` must adhere to a specific format for the server to understand. That format is the FHIR _instant_ format (`YYYY-MM-DDThh:mm:ss.sss+zz:zz`).
+
+<img class="ug-img" src="/assets/img/since_2.svg" alt="" />
+
+The example below demonstrates how to convert a date/time combination into the FHIR format.
+
+**Date and Time Example**
+
+* _Sample Date:_ February 20, 2020 12:00 PM EST
+* _instant Format:_ YYYY-MM-DDThh:mm:ss.sss+zz:zz
+* _Formatted Sample:_ 2020-02-20T12:00:00.000-05:00
+
+More information about the FHIR instant format can be found on the [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#instant){:target="_blank"}.
+
+#### c. Start the job to acquire data from that endpoint
+
+To start the job, click `Execute`.
+
+If you’d like to use the command line or implement this API call in code, look in the `Curl` section for the request you just made. 
+
+Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the `content-location` header for status information on your job.
+
+<img class="ug-img" src="/assets/img/since_3.svg" alt="Swagger: 'curl' examples are given in full in the Advanced User Guide" />
+
+#### d. Getting your data
+
+Follow the previous instructions on for [getting your data from an unfiltered request](#5-getting-your-data) to retrieve your files after a filtered bulk data request. 
 
 ## <a name="frequently-asked-questions"></a>Frequently asked questions about making requests
 
@@ -220,9 +275,3 @@ Once you’ve downloaded the file, you’ll want to know what to do with the dat
 * **How long do I have before my file is deleted?**
 
   You will need to download the data file within 24 hours of starting the request to a specific endpoint.
-
-* **Why is this data file so large?**
-
-  In the sandbox environment, we can only provide synthetic data up to an equivalent of 30,000 beneficiaries. Your ACO may be larger, in which case the production file will be larger and take longer to process.
-
-  Additionally, in the first iteration of BCDA in production, each request to a bulk data endpoint sends back seven years of historical data for your beneficiaries. In future iterations, we’ll add a way for you to limit the data to a specific date range.
