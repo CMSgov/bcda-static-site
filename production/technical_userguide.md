@@ -382,9 +382,9 @@ The `_since` parameter grants you the ability to apply a date parameter to your 
 
 **Note: The use of `_since` differs significantly between the `/Patient` and `/Group` endpoints:**
 
-If you want to request only the most recent beneficiary claims data, you can use the `_since` parameter with the `/Patient` endpoint. See the "Retrieve the most current beneficiary claims data for existing beneficiaries AND historical data for newly attributed beneficiaries" section for more details. 
+If you want to request only the most recent beneficiary claims data, you can use the `_since` parameter with the `/Patient` endpoint. See the _"Retrieve the most current beneficiary claims data for existing beneficiaries AND historical data for newly attributed beneficiaries"_ section for more details. 
 
-If you want to receive filtered data by the date of your choice for existing beneficiaries and also 7 years of historical data for all beneficiaries that are newly attributed to your ACO in the same API call, you can use the `_since` parameter (in combination with the ‘all’ identifier) with the `/Group` endpoint. See the ""Retrieve only the most current beneficiary claims data"" section for more details. 
+If you want to receive filtered data by the date of your choice for existing beneficiaries and also 7 years of historical data for all beneficiaries that are newly attributed to your ACO in the same API call, you can use the `_since` parameter (in combination with the ‘all’ identifier) with the `/Group` endpoint. See the _"Retrieve only the most current beneficiary claims data"_ section for more details. 
 
 For more information on `_since`, please consult the [FHIR standard on query parameters](https://hl7.org/Fhir/uv/bulkdata/export/index.html#query-parameters){:target="_blank"}.
 
@@ -506,6 +506,7 @@ If the request was successful, a `202 Accepted` response code will be returned a
 `Content-Location: https://api.bcda.cms.gov/api/v1/jobs/48`
 
 **3. Check the status of the export job**
+
 Instructions for checking the job status have been detailed in previous sections. See [checking the status of the export job](https://bcda.cms.gov/production/technical-user-guide/#3-check-the-status-of-the-export-job){:target="_blank"} above.
 
 For ease of use, we have listed the `cURL` commands for the operations below. The job ID (`48`) will be different for your job.
