@@ -126,8 +126,10 @@ You can repeat this process with the `/_version` and `/api/v1/metadata` endpoint
 If you’d like to do this from the command line or implement this API call in code, look in the `Curl` section for the request you just made.
 
 
-#### 3. Learning about the Bulk Data Resource Types
+### 3. Learning about the Bulk Data Resource Types
 The `bulkData` category provides information about beneficiaries. As shown below, there are three types of information (`Patient`, `Coverage`, and `Explanation of Benefit`) within the `bulkData` category that can be retrieved from two different endpoints (`/Group` and `/Patient`).
+
+<img class="ug-img" src="/assets/img/swagger_walkthrough_06.svg" alt="Swagger: Example of one of the two bulk data endpoints and the available resource types">
 
 Within either endpoint, you can make requests for up to three resource types:
 1. **ExplanationOfBenefit** includes the bulk of claims data for your beneficiaries.
@@ -138,7 +140,7 @@ There are two endpoints offered by BCDA that you may retrieve data from. They ha
 1. **Patient Endpoint:** You may request all three resource types: `ExplanationOfBenefit`, `Patient`, and/or `Coverage` data for all beneficiaries. Filter data by date using the `_since` parameter.
 2. **Group Endpoint:** You may request `ExplanationOfBenefit`, `Patient`, and/or `Coverage` data for all beneficiaries. Filter data by date using the `_since` parameter. Calls to this endpoint must include a `Group` identifier. The only supported identifier at this time is “`all`”. The `all` identifier simply designates that you would like to pull claims data for all of your attributed beneficiaries.
 
-**Note: The `/Group` endpoint differs from the `/Patient` endpoint in one key area. When filtering data using `_since` from the `/Group` endpoint, you will receive claims data since the date of your choice for existing beneficiaries AND you will also receive 7 years of historical data for all beneficiaries that are newly attributed to your ACO. See the “Filtering your data with `_since`” section for details and examples.**
+**Note: The `/Group` endpoint differs from the `/Patient` endpoint in one key area. When filtering data using `_since` from the `/Group` endpoint, you will receive claims data since the date of your choice for existing beneficiaries AND you will also receive 7 years of historical data for all beneficiaries that are newly attributed to your ACO. See the [“Filtering your requests using `_since`”](https://bcda.cms.gov/production/user-guide/####-filtering-your-requests-using-_since){:target="_blank"} section for details and examples.**
 
 #### 4. Making your first request for beneficiary data
 To get any bulk beneficiary data, you must first be authorized with BCDA. Make sure you’ve followed the steps above for [Setting up your credentials in Swagger](https://bcda.cms.gov/production/user-guide/#setting-up-your-credentials-in-swagger){:target="_blank"} before moving forward.
@@ -151,13 +153,19 @@ The examples below will demonstrate these steps using the `/Patient` endpoint. T
 
 **a. Making a request for all three resource types**
 
-In this example, we’ll show a request for all three resource types in the `Patient` endpoint. If you want to learn how to make a request for data from one resource type, jump to [step 4b: Making a Request for One Resource Type](https://bcda.cms.gov/production/user-guide/#b-making-a-request-for-one-resource-type){:target="_blank"}.
+In this example, we’ll show a request for all three resource types in the `/Patient` endpoint. If you want to learn how to make a request for data from one resource type, jump to [step 4b: Making a Request for One Resource Type](https://bcda.cms.gov/production/user-guide/#b-making-a-request-for-one-resource-type){:target="_blank"}.
 
 First, click on `GET /api/v1/Patient/$export`, then click `Try it out`.
 
+<img class="ug-img" src="/assets/img/swagger_walkthrough_06a.svg" alt="">
+
 Then, as shown below, click `Execute` to start the process of requesting data from the `Patient` endpoint. Make sure you note the job number (also known as `jobId`) in the response header, since you’ll need this job number to track the status of your data request.
 
+<img class="ug-img" src="/assets/img/swagger_walkthrough_06b.svg" alt="Swagger: making a call to the Patient endpoint with no Resource Types specified defaults to returning data from all three Resource Types at once">
+
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image below) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your job.
+
+<img class="ug-img" src="/assets/img/swagger_walkthrough_06c.svg" alt="Swagger: 'curl' examples are given in full in the Advanced User Guide">
 
 **b. Making a request for one resource type**
 
@@ -165,7 +173,11 @@ Next, we’ll show a specific example of requesting only the `Coverage` resource
 
 First, click on `GET /api/v1/Patient/$export`, then click `Try it out`.
 
+<img class="ug-img" src="/assets/img/swagger_walkthrough_07.svg" alt="">
+
 As shown above, in the field labeled “`Resource types requested`,” type “`Coverage`.” Then click `Execute` to start the process of requesting `Coverage` data. Make sure you note the job number (also known as `jobId`) in the response header, since you’ll need this job number to track the status of your data request.
+
+<img class="ug-img" src="/assets/img/swagger_walkthrough_08.svg" alt="">
 
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image above) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your `Coverage` job.
 
@@ -178,13 +190,21 @@ Depending on the number of beneficiaries prospectively assigned or assignable to
 
 You can check the status of the job by entering the job number into the `jobId` text field, as shown in the image below.
 
+<img class="ug-img" src="/assets/img/swagger_walkthrough_09.svg" alt="Swagger: after entering the job ID into the job ID field, click execute">
+
 The X-Progress header indicates the job’s workflow status (Pending, In Progress, Completed, Archived, Expired, Failed). When in the In Progress state, an estimated completion percentage is appended to the X-Progress value (e.g., “In Progress (10%)”).
 
 Once the job is completed, you will receive a `HTTP 200 Complete` response, which includes a URL ending in .ndjson. You’ll need the end of the URL in order to retrieve your data.
 
+<img class="ug-img" src="/assets/img/swagger_walkthrough_10.svg" alt="Swagger: copy the file name: the part of the URL after the last '/'">
+
 To retrieve your data, open the `GET /data/{jobId}/{filename.ndjson}` endpoint. Copy the `jobId` into the `jobId` field, and the last string of the URL received in the previous step (highlighted in green and dashed lines above) into the `filename` field, then hit `Execute`.
 
+<img class="ug-img" src="/assets/img/swagger_walkthrough_11.svg" alt="">
+
 The `Response Body` contains the requested claims data in NDJSON format. Click the `Download` button that appears in the lower right corner of the response section. Note that a large file may take a while to download.
+
+<img class="ug-img" src="/assets/img/swagger_walkthrough_12.svg" alt="">
 
 If you have requested data related to more than one Resource Type, the files related to each Resource Type will appear separately.
 
@@ -207,7 +227,7 @@ Before using `_since` for the first time, pull your historical data. Using the `
 2. Start the job to acquire data from an endpoint.
 3. Retrieve data via a job request.
 
-In the example below, we are seeking data from the `/Group` endpoint for the `ExplanationOfBenefit` resource type since 8PM EST on February 13th, 2020. Instructions work similarly for the `Patient` endpoint unless otherwise indicated.
+In the example below, we are seeking data from the `/Group` endpoint for the `ExplanationOfBenefit` resource type since 8PM EST on February 13th, 2020. Instructions work similarly for the `/Patient` endpoint unless otherwise indicated.
 
 **a. Pull your historical data.**
 
@@ -225,14 +245,14 @@ First, click “Try it Out” in the Swagger section for `GET /api/v1/Group/expo
 
 <img class="ug-img" src="/assets/img/BasicUG_since_image1.svg" alt="" />
 
-You will see three input fields for the `/Group` endpoint: `_type`, `_since`, and `groupID`. The `/Patient` endpoint does not include the `_groupID` identifier input field.
+You will see three input fields for the `/Group` endpoint: `_type`, `_since`, and `groupID`. The `/Patient` endpoint does not include the `_groupID` input field.
 
 <img class="ug-img" src="/assets/img/BasicUG_since_image2.svg" alt="" />
 
-Enter the “`ExplanationOfBenefit`” identifier into the `_type` field.
+Click "Add Item". Then, enter the “`ExplanationOfBenefit`” identifier into the `_type` field.
 Enter the “`all`” identifier into the `_groupID` field for all `_Group` calls. 
 
-**Note: When using the `/Patient` endpoint, there is no option, and thus no need to input a groupId in the Swagger interface. `GroupID` is only specific to the `/Group` endpoint.**
+**Note: When using the `/Patient` endpoint, there is no option, and thus no need to input a `groupID` in the Swagger interface. `GroupID` is only specific to the `/Group` endpoint.**
 
 Enter your desired date into the dialog box labeled “`_since` (Optional)”. Dates and times submitted in `_since` must adhere to a specific format for the server to understand. That format is the FHIR _instant_ format (`YYYY-MM-DDThh:mm:ss.sss+zz:zz`).
 
@@ -251,12 +271,12 @@ More information about the FHIR instant format can be found on the [FHIR Datatyp
 
 To start the job, click `Execute`.
 
-If you’d like to use the command line or implement this API call in code, look in the `Curl` section for the request you just made.
-Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the `content-location` header for status information on your job.
+If you’d like to use the command line or implement this API call in code, look in the `cURL` section for the request you just made.
+Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the `Content-Location` header for status information on your job.
 
 **d. Getting your data**
 
-Follow the previous instructions on for [getting your data from an unfiltered request](https://bcda.cms.gov/production/user-guide/#5-getting-your-data){target:”_blank”} to retrieve your files after a filtered bulk data request.
+Follow the previous instructions on for [getting your data from an unfiltered request](https://bcda.cms.gov/production/user-guide/#5-getting-your-data){:target=”_blank”} to retrieve your files after a filtered bulk data request.
 
 ## <a name="frequently-asked-questions"></a>Frequently asked questions about making requests
 
