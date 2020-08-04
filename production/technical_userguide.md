@@ -24,9 +24,9 @@ This API follows the workflow outlined by the [FHIR Bulk Data Export Proposal](h
 
 This guide serves as a starting point for users to begin working with the API. [Comprehensive Swagger documentation about all BCDA endpoints is also available.](https://api.bcda.cms.gov/api/v1/swagger){:target="_blank"}
 
-**Note:** if this documentation is a little too in-depth, you may want to start with our [guide to getting started in production](/production/user-guide/) for an overview of APIs and a gentler walk-through.
+**Note: if this documentation is a little too in-depth, you may want to start with our [guide to getting started in production](/production/user-guide/) for an overview of APIs and a gentler walk-through.**
 
-**Note:** If you have not yet received production credentials, you will not be able to access production endpoints and data. To put your ACO in the queue for access, please fill out the [BCDA Production Onboarding Request Form](https://airtable.com/shrMbfFSRZkTcSAof){:target="_blank"}. ACOs will be onboarded to production in the order in which requests are received. While you wait, you can [get familiar with the API in the sandbox environment](/sandbox/user-guide/), review the [data structure](/data-guide/) and join the [BCDA Google Group](https://groups.google.com/forum/#!forum/bc-api){:target="_blank"}, to have your questions answered.
+**Note: If you have not yet received production credentials, you will not be able to access production endpoints and data. To put your ACO in the queue for access, please fill out the [BCDA Production Onboarding Request Form](https://airtable.com/shrMbfFSRZkTcSAof){:target="_blank"}. ACOs will be onboarded to production in the order in which requests are received. While you wait, you can [get familiar with the API in the sandbox environment](/sandbox/user-guide/), review the [data structure](/data-guide/) and join the [BCDA Google Group](https://groups.google.com/forum/#!forum/bc-api){:target="_blank"}, to have your questions answered.**
 
 ## Authentication and Authorization
 
@@ -134,7 +134,9 @@ Metadata about the Beneficiary Claims Data API is available as a FHIR [Capabilit
 
 **`cURL` command**
 
-`curl https://api.bcda.cms.gov/api/v1/metadata`
+```
+curl https://api.bcda.cms.gov/api/v1/metadata
+```
 
 **Response**
 ```
@@ -251,11 +253,11 @@ You can make a request to the endpoints for all three Resource Types at once, on
 
 In the example below, we have provided `cURL` statements to retrieve any combination of the three resource types from the `/Patient` endpoint. Relevant `cURL` statements can be altered to retrieve any combination of resource types from the `/Group` endpoint as needed.
 
-##### 1. Obtain an access token
+**1. Obtain an access token**
 
 See [Authentication and Authorization](https://bcda.cms.gov/production/technical-user-guide/#authentication-and-authorization){:target="_blank"} above.
 
-##### 2. Initiate an export job
+**2. Initiate an export job**
 
 **Request all three resource types from the `/Patient` endpoint.** 
 
@@ -267,25 +269,28 @@ See [Authentication and Authorization](https://bcda.cms.gov/production/technical
 
 **Request a single resource type from the /Patient endpoint.**
 
-`GET /api/v1/Patient/$export?_type=ExplanationOfBenefit
-GET /api/v1/Patient/$export?_type=Patient
-GET /api/v1/Patient/$export?_type=Coverage`
+`GET /api/v1/Patient/$export?_type=ExplanationOfBenefit`
+
+`GET /api/v1/Patient/$export?_type=Patient`
+
+`GET /api/v1/Patient/$export?_type=Coverage`
 
 To start a data export job, a `GET` request is made to the `/Patient` endpoint including the desired resource types in the `_type` query parameter. If you are requesting multiple resource types, they are separated by commas. An access token as well as _Accept_ and _Prefer_ headers are required.
 The dollar sign (‘$’) before the word “export” in the URL indicates that the endpoint is an action rather than a resource. The format is defined by the [FHIR Bulk Data Export spec](https://github.com/HL7/bulk-data/blob/master/spec/export/index.md){:target="_blank"}.
 
 **Headers**
 
-`Authorization: Bearer {token}`
-`Accept: application/fhir+json`
-`Prefer: respond-async`
+* `Authorization: Bearer {token}`
+* `Accept: application/fhir+json`
+* `Prefer: respond-async`
 
 **`cURL` command**
-
-`curl -X GET "https://api.bcda.cms.gov/api/v1/Patient/$export"
+```
+curl -X GET "https://api.bcda.cms.gov/api/v1/Patient/$export"
 -H "accept: application/fhir+json"
 -H "Prefer: respond-async"
 -H "Authorization: Bearer {token}"`
+```
 
 **Response**
 
@@ -295,7 +300,7 @@ If the request was successful, a `202 Accepted` response code will be returned a
 
 `Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42`
 
-##### 3. Check the status of the export job
+**3. Check the status of the export job**
 
 **Request**
 
@@ -308,9 +313,11 @@ Using the Content-Location header value from the `Patient` data export response,
 
 **`cURL` Command**
 
-`curl -X GET "https://api.bcda.cms.gov/api/v1/jobs/42" \
+```
+curl -X GET "https://api.bcda.cms.gov/api/v1/jobs/42" \
 -H "accept: application/fhir+json" \
--H "Authorization: Bearer {token}"`
+-H "Authorization: Bearer {token}"
+```
 
 **Responses**
 
@@ -318,7 +325,8 @@ Using the Content-Location header value from the `Patient` data export response,
 `200 OK` indicates that the job is complete.
 
 Below is an example of the format of the response body.
-`{
+```
+{
   "transactionTime": "2019-12-09T20:44:01.705398Z",
   "request": "https://api.bcda.cms.gov/api/v1/Patient/$export",
   "requiresAccessToken": true,
@@ -338,11 +346,12 @@ Below is an example of the format of the response body.
   ],
   "error": [],
   "JobID": 42
-}`
+}
+```
 
 Claims data can be found at the URLs within the output field. The number `42` in the data file URLs is the same job ID from the _Content-Location_ header URL in the previous step. If some of the data cannot be exported due to errors, details of the errors can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR [OperationOutcome](https://www.hl7.org/fhir/operationoutcome.html){:target="_blank"} resources.
 
-#### 4. Retrieve NDJSON output file(s)
+**4. Retrieve NDJSON output file(s)**
 
 To obtain the exported data, make a `GET` request to the output URLs in the job status response when the job reaches the `Completed (200 OK)` state. The data will be presented as separate NDJSON files of [ExplanationOfBenefit](https://www.hl7.org/fhir/explanationofbenefit.html){:target="_blank"}, [Patient](https://www.hl7.org/fhir/patient.html){:target="_blank"}, [Coverage](https://www.hl7.org/fhir/coverage.html){:target="_blank"} and resources.
 
@@ -356,8 +365,10 @@ To obtain the exported data, make a `GET` request to the output URLs in the job 
 
 **`cURL` command**
 
-`curl https://api.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson \
--H 'Authorization: Bearer {token}'`
+```
+curl https://api.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson \
+-H 'Authorization: Bearer {token}'
+```
 
 **Response**
 
@@ -377,13 +388,13 @@ If you want to receive filtered data by the date of your choice for existing ben
 
 For more information on `_since`, please consult the [FHIR standard on query parameters](https://hl7.org/Fhir/uv/bulkdata/export/index.html#query-parameters){:target="_blank"}.
 
-##### Request Historical Data Before Using `_since`
+#### Request Historical Data Before Using `_since`
 
 Before using `_since` for the first time, we recommend that you run an unfiltered request (without using `_since`) to all resource types on the `/Patient` endpoint in order to retrieve all historical data for your ACO’s associated beneficiaries. You only need to do this once. On subsequent calls you can begin retrieving incremental claims data for your beneficiaries using `_since`. Use the [`transactionTime`](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status){:target="_blank"} from your last bulk data request set as the `_since` date.
 
-** Note: Due to limitations in the Beneficiary FHIR Data (BFD) Server, data from before 02-12-2020 is marked with the arbitrary [lastUpdated](https://www.hl7.org/fhir/search.html#lastUpdated){:target="_blank"} date of 01-01-2020. If you input dates between 01-01-2020 and 02-11-2020 in the `_since` parameter, you will receive all historical data for your beneficiaries. Data loads from 02-12-2020 onwards have been marked with accurate dates.**
+**Note: Due to limitations in the Beneficiary FHIR Data (BFD) Server, data from before 02-12-2020 is marked with the arbitrary [lastUpdated](https://www.hl7.org/fhir/search.html#lastUpdated){:target="_blank"} date of 01-01-2020. If you input dates between 01-01-2020 and 02-11-2020 in the `_since` parameter, you will receive all historical data for your beneficiaries. Data loads from 02-12-2020 onwards have been marked with accurate dates.**
 
-#### Date and Timezone Formatting
+**Date and Timezone Formatting**
 
 Dates and times submitted in `_since` must be listed in the FHIR instant format (`YYYY-MM-DDThh:mm:sss+zz:zz`).
 - Sample Date: February 20, 2020 12:00 PM EST
@@ -392,16 +403,16 @@ Dates and times submitted in `_since` must be listed in the FHIR instant format 
 
 [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#instant){:target="_blank"}.
 
-#### Retrieve only the most current beneficiary claims data
+**Retrieve only the most current beneficiary claims data**
 
 The `/Patient` endpoint allows users to filter data by a selected `_since` date. The request will return data for all beneficiaries since that selected date. 
 In the example below, we are seeking data from the `/Patient` endpoint for the `Patient` resource type since 8PM EST on February 13th, 2020. The steps and format would work similarly for other resource types.
 
-##### 1. Obtain an access token
+**1. Obtain an access token**
 
 See [Authentication and Authorization](https://bcda.cms.gov/production/technical-user-guide/#authentication-and-authorization){:target="_blank"} above.
 
-##### 2. Initiate an export job
+**2. Initiate an export job**
 
 **Request**
 
@@ -409,18 +420,20 @@ See [Authentication and Authorization](https://bcda.cms.gov/production/technical
 
 **Headers**
 
-- `Authorization: Bearer {token}`
-- `Accept: application/fhir+json`
-- `Prefer: respond-async`
+* `Authorization: Bearer {token}`
+* `Accept: application/fhir+json`
+* `Prefer: respond-async`
 
 **`cURL` command**
 
-`curl -X GET "https://api.bcda.cms.gov/api/v1/Patient/$export?_type=Patient?_since=2020-02-13T08:00:00.000-05:00
+```
+curl -X GET "https://api.bcda.cms.gov/api/v1/Patient/$export?_type=Patient?_since=2020-02-13T08:00:00.000-05:00
 -H 'Authorization: Bearer {token}' \
 -H 'Accept: application/fhir+json' \
--H 'Prefer: respond-async'`
+-H 'Prefer: respond-async'
+```
 
-##### 3. Check the status of the export job
+**3. Check the status of the export job**
 
 Instructions for checking the job status have been detailed in previous sections. See [checking the status of the export job](https://bcda.cms.gov/production/technical-user-guide/#3-check-the-status-of-the-export-job){:target="_blank"} above.
 
@@ -428,10 +441,12 @@ For ease of use, we have listed the `cURL` commands for the operations below. Th
 
 **`cURL` command**
 
-`curl -v https://api.bcda.cms.gov/api/v1/jobs/48 \
--H 'Authorization: Bearer {token}'`
+```
+curl -v https://api.bcda.cms.gov/api/v1/jobs/48 \
+-H 'Authorization: Bearer {token}'
+```
 
-##### 4. Retrieve the NDJSON output file
+**4. Retrieve the NDJSON output file**
 
 Instructions for retrieving the output file have been detailed in previous sections. See [retrieving NDJSON output file(s)](https://bcda.cms.gov/production/technical-user-guide/#4-retrieve-ndjson-output-files){:target="_blank"} above.
 
@@ -439,10 +454,12 @@ For ease of use, we have listed the `cURL` commands for the operation below. The
 
 **`cURL` command**
 
-`curl https://api.bcda.cms.gov/data/48/4e2cd98c-4746-4138-872b-24778c000b02.ndjson \
--H 'Authorization: Bearer {token}'`
+```
+curl https://api.bcda.cms.gov/data/48/4e2cd98c-4746-4138-872b-24778c000b02.ndjson \
+-H 'Authorization: Bearer {token}'
+```
 
-###### Retrieve the most current beneficiary claims data for existing beneficiaries AND historical data for newly attributed beneficiaries
+**Retrieve the most current beneficiary claims data for existing beneficiaries AND historical data for newly attributed beneficiaries**
 
 This section outlines the steps to make a request for ***both*** incremental claims data for existing beneficiaries and 7 years of historical data for beneficiaries that are newly attributed to your ACO within one API call.
 
@@ -461,21 +478,24 @@ See [Authentication and Authorization](https://bcda.cms.gov/production/technical
 **Request**
 
 `GET /api/v1/Group/all/$export?_type=Patient?_since=2020-02-13T08:00:00.000-05:00`
+
 To start a data export job for filtered data from existing beneficiaries since 8PM EST on February 13th, 2020 and all data for newly assigned beneficiaries that month, a `GET` request is made to the `/Group` endpoint. The `groupID` of “`all`” is provided as well as a `_since` date in the correct format. An access token as well as _Accept_ and _Prefer_ headers are required.
 The dollar sign (`$`) before the word “export” in the URL indicates that the endpoint is an action rather than a resource. The format is defined by the [FHIR Bulk Data Export spec](https://github.com/HL7/bulk-data/blob/master/spec/export/index.md){:target="_blank"}.
 
 **Headers**
 
-`- Authorization: Bearer {token}
-- Accept: application/fhir+json
-- Prefer: respond-async`
+* `Authorization: Bearer {token}`
+* `Accept: application/fhir+json`
+* `Prefer: respond-asnc`
 
 **`cURL` command**
 
-`curl -X GET "https://api.bcda.cms.gov/api/v1/Group/all/$export?_type=Patient?_since=2020-02-13T08:00:00.000-05:00
+```
+curl -X GET "https://api.bcda.cms.gov/api/v1/Group/all/$export?_type=Patient?_since=2020-02-13T08:00:00.000-05:00
 -H 'Authorization: Bearer {token}' \
 -H 'Accept: application/fhir+json' \
--H 'Prefer: respond-async'`
+-H 'Prefer: respond-async'
+```
 
 **Response**
 
@@ -492,8 +512,10 @@ For ease of use, we have listed the `cURL` commands for the operations below. Th
 
 **`cURL` command**
 
-`curl -v https://api.bcda.cms.gov/api/v1/jobs/48 \
--H 'Authorization: Bearer {token}'`
+```
+curl -v https://api.bcda.cms.gov/api/v1/jobs/48 \
+-H 'Authorization: Bearer {token}'
+```
 
 **4. Retrieve the NDJSON output file**
 
@@ -503,5 +525,7 @@ For ease of use, we have listed the `cURL` commands for the operation below. The
 
 **`cURL` command**
 
-`curl https://api.bcda.cms.gov/data/48/4e2cd98c-4746-4138-872b-24778c000b02.ndjson
--H 'Authorization: Bearer {token}'`
+```
+curl https://api.bcda.cms.gov/data/48/4e2cd98c-4746-4138-872b-24778c000b02.ndjson
+-H 'Authorization: Bearer {token}'
+```

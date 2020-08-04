@@ -138,7 +138,7 @@ There are two endpoints offered by BCDA that you may retrieve data from. They ha
 1. **Patient Endpoint:** You may request all three resource types: `ExplanationOfBenefit`, `Patient`, and/or `Coverage` data for all beneficiaries. Filter data by date using the `_since` parameter.
 2. **Group Endpoint:** You may request `ExplanationOfBenefit`, `Patient`, and/or `Coverage` data for all beneficiaries. Filter data by date using the `_since` parameter. Calls to this endpoint must include a `Group` identifier. The only supported identifier at this time is “`all`”. The `all` identifier simply designates that you would like to pull claims data for all of your attributed beneficiaries.
 
-**Note:**  The `/Group` endpoint differs from the `/Patient` endpoint in one key area. When filtering data using `_since` from the `/Group` endpoint, you will receive claims data since the date of your choice for existing beneficiaries AND you will also receive 7 years of historical data for all beneficiaries that are newly attributed to your ACO. See the “Filtering your data with `_since`” section for details and examples.
+**Note: The `/Group` endpoint differs from the `/Patient` endpoint in one key area. When filtering data using `_since` from the `/Group` endpoint, you will receive claims data since the date of your choice for existing beneficiaries AND you will also receive 7 years of historical data for all beneficiaries that are newly attributed to your ACO. See the “Filtering your data with `_since`” section for details and examples.**
 
 #### 4. Making your first request for beneficiary data
 To get any bulk beneficiary data, you must first be authorized with BCDA. Make sure you’ve followed the steps above for [Setting up your credentials in Swagger](https://bcda.cms.gov/production/user-guide/#setting-up-your-credentials-in-swagger){:target="_blank"} before moving forward.
@@ -149,7 +149,8 @@ Retrieving beneficiary data comprises two steps:
 
 The examples below will demonstrate these steps using the `/Patient` endpoint. These instructions work similarly for the `/Group` endpoint unless otherwise indicated.
 
-##### a. Making a request for all three resource types
+**a. Making a request for all three resource types**
+
 In this example, we’ll show a request for all three resource types in the `Patient` endpoint. If you want to learn how to make a request for data from one resource type, jump to [step 4b: Making a Request for One Resource Type](https://bcda.cms.gov/production/user-guide/#b-making-a-request-for-one-resource-type){:target="_blank"}.
 
 First, click on `GET /api/v1/Patient/$export`, then click `Try it out`.
@@ -158,7 +159,8 @@ Then, as shown below, click `Execute` to start the process of requesting data fr
 
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section (shown in the image below) for the request you just made. Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the content-location header for status information on your job.
 
-##### b. Making a request for one resource type
+**b. Making a request for one resource type**
+
 Next, we’ll show a specific example of requesting only the `Coverage` resource type from the `Patient` endpoint. You can follow the same steps for `ExplanationOfBenefit` or `Patient` data from the `Patient` endpoint, or any combination of the three.
 
 First, click on `GET /api/v1/Patient/$export`, then click `Try it out`.
@@ -207,7 +209,8 @@ Before using `_since` for the first time, pull your historical data. Using the `
 
 In the example below, we are seeking data from the `/Group` endpoint for the `ExplanationOfBenefit` resource type since 8PM EST on February 13th, 2020. Instructions work similarly for the `Patient` endpoint unless otherwise indicated.
 
-##### a. Pull your historical data.
+**a. Pull your historical data.**
+
 Before using `_since` for the first time, we recommend that you retrieve all historical data from the BCDA bulk data endpoints (do not use `_since`). Retrieving your historical data before before filtering bulk data with `_since` ensures that there will be no gaps in the claims data delivered from BCDA.
 
 See [Making Your First Requests for Data](https://bcda.cms.gov/production/user-guide/#making-your-first-requests-for-data){:target=”_blank”} for step-by-step instructions on how to pull your historical data.
@@ -216,7 +219,8 @@ After retrieving your historical data, it may be helpful to use the date of your
 
 **Note: Do not input dates before 02-12-2020 into `_since.` Limitations of the Beneficiary FHIR Data (BFD) Server prevent data before 02-12-2020 from being tagged correctly. For more details, see the [Advanced User Guide](https://bcda.cms.gov/production/technical-user-guide/#filtering-your-data-with-_since){:target=”_blank”}.**
 
-##### b. Input a date in the correct format.
+**b. Input a date in the correct format.**
+
 First, click “Try it Out” in the Swagger section for `GET /api/v1/Group/export`.
 
 <img class="ug-img" src="/assets/img/BasicUG_since_image1.svg" alt="" />
@@ -243,13 +247,15 @@ The example below demonstrates how to convert a date/time combination into the F
 
 More information about the FHIR instant format can be found on the [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#instant){:target=”_blank”}.
 
-##### c. Start the job to acquire data from that endpoint
+**c. Start the job to acquire data from that endpoint**
+
 To start the job, click `Execute`.
 
 If you’d like to use the command line or implement this API call in code, look in the `Curl` section for the request you just made.
 Not far below that, you can see the response: an `HTTP 202 Accepted` giving a link in the `content-location` header for status information on your job.
 
-##### d. Getting your data
+**d. Getting your data**
+
 Follow the previous instructions on for [getting your data from an unfiltered request](https://bcda.cms.gov/production/user-guide/#5-getting-your-data){target:”_blank”} to retrieve your files after a filtered bulk data request.
 
 ## <a name="frequently-asked-questions"></a>Frequently asked questions about making requests
