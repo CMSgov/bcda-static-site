@@ -140,10 +140,10 @@ There are two endpoints offered by BCDA that you may retrieve data from. They ha
 1. **Patient Endpoint:** You may request all three resource types: `ExplanationOfBenefit`, `Patient`, and/or `Coverage` data for all beneficiaries. Filter data by date using the `_since` parameter.
 2. **Group Endpoint:** You may request `ExplanationOfBenefit`, `Patient`, and/or `Coverage` data for all beneficiaries. Filter data by date using the `_since` parameter. Calls to this endpoint must include a `Group` identifier. The only supported identifier at this time is “`all`”. The `all` identifier simply designates that you would like to pull claims data for all of your attributed beneficiaries.
 
-**Note: The `/Group` endpoint differs from the `/Patient` endpoint in one key area. When filtering data using `_since` from the `/Group` endpoint, you will receive claims data since the date of your choice for existing beneficiaries AND you will also receive 7 years of historical data for all beneficiaries that are newly attributed to your ACO. See the [“Filtering your requests using `_since`”](https://bcda.cms.gov/production/user-guide/####-filtering-your-requests-using-_since){:target="_blank"} section for details and examples.**
+**Note: The `/Group` endpoint differs from the `/Patient` endpoint in one key area. When filtering data using `_since` from the `/Group` endpoint, you will receive claims data since the date of your choice for existing beneficiaries AND you will also receive 7 years of historical data for all beneficiaries that are newly attributed to your ACO. See [Filtering your requests using `_since`](https://bcda.cms.gov/production/user-guide/#filtering-your-requests-using-_since){:target="self"} for details and examples.**
 
 #### 4. Making your first request for beneficiary data
-To get any bulk beneficiary data, you must first be authorized with BCDA. Make sure you’ve followed the steps above for [Setting up your credentials in Swagger](https://bcda.cms.gov/production/user-guide/#setting-up-your-credentials-in-swagger){:target="_blank"} before moving forward.
+To get any bulk beneficiary data, you must first be authorized with BCDA. Make sure you’ve followed the steps above for [Setting up your credentials in Swagger](https://bcda.cms.gov/production/user-guide/#setting-up-your-credentials-in-swagger){:target="_self"} before moving forward.
 
 Retrieving beneficiary data comprises two steps:
 1. Starting a job to acquire data from either endpoint
@@ -233,7 +233,7 @@ In the example below, we are seeking data from the `/Group` endpoint for the `Ex
 
 Before using `_since` for the first time, we recommend that you retrieve all historical data from the BCDA bulk data endpoints (do not use `_since`). Retrieving your historical data before before filtering bulk data with `_since` ensures that there will be no gaps in the claims data delivered from BCDA.
 
-See [Making Your First Requests for Data](https://bcda.cms.gov/production/user-guide/#making-your-first-requests-for-data){:target=”_blank”} for step-by-step instructions on how to pull your historical data.
+See [Making Your First Requests for Data](https://bcda.cms.gov/production/user-guide/#making-your-first-requests-for-data){:target=”_self”} for step-by-step instructions on how to pull your historical data.
 
 After retrieving your historical data, it may be helpful to use the date of your most recent bulk data request for subsequent data pulls using the `_since` parameter. You may retrieve this date by viewing the [transactionTime](https://hl7.org/Fhir/uv/bulkdata/export/index.html#response---complete-status){:target=”_blank”} from your last bulk data request.
 
@@ -276,7 +276,7 @@ Not far below that, you can see the response: an `HTTP 202 Accepted` giving a li
 
 **d. Getting your data**
 
-Follow the previous instructions on for [getting your data from an unfiltered request](https://bcda.cms.gov/production/user-guide/#5-getting-your-data){:target=”_blank”} to retrieve your files after a filtered bulk data request.
+Follow the previous instructions for [getting your data from an unfiltered request](https://bcda.cms.gov/production/user-guide/#5-getting-your-data){:target=”_self”} to retrieve your files after a filtered bulk data request.
 
 ## <a name="frequently-asked-questions"></a>Frequently asked questions about making requests
 
