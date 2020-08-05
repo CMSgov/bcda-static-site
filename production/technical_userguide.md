@@ -298,7 +298,7 @@ If the request was successful, a `202 Accepted` response code will be returned a
 
 **Headers**
 
-`Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42`
+* `Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42`
 
 **3. Check the status of the export job**
 
@@ -309,7 +309,7 @@ Using the Content-Location header value from the `Patient` data export response,
 
 **Headers**
 
-`Authorization: Bearer {token}`
+* `Authorization: Bearer {token}`
 
 **`cURL` Command**
 
@@ -361,7 +361,7 @@ To obtain the exported data, make a `GET` request to the output URLs in the job 
 
 **Headers**
 
-`Authorization: Bearer {token}`
+* `Authorization: Bearer {token}`
 
 **`cURL` command**
 
@@ -503,7 +503,7 @@ If the request was successful, a `202 Accepted` response code will be returned a
 
 **Headers**
 
-`Content-Location: https://api.bcda.cms.gov/api/v1/jobs/48`
+* `Content-Location: https://api.bcda.cms.gov/api/v1/jobs/48`
 
 **3. Check the status of the export job**
 
