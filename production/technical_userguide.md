@@ -246,7 +246,7 @@ curl https://api.bcda.cms.gov/api/v1/metadata
 #### The BCDA/bulk FHIR Endpoints
 - **Patient Endpoint:** Request `ExplanationOfBenefit`, `Patient`, and/or `Coverage` data for all beneficiaries. Filter data by date using the `_since` parameter.
 - **Group Endpoint:** Request `ExplanationOfBenefit`, `Patient`, and/or `Coverage` data for all beneficiaries. Filter data by date using the `_since` parameter.
-  - **Note: If you filter data using _since within the /Group endpoint, you will receive claims data since the date of your choice for existing beneficiaries AND you will also receive 7 years of historical data for all beneficiaries that are newly attributed to your ACO. Learn more about how to retrieve the most current beneficiary claims data for existing beneficiaries AND historical data for newly attributed beneficiaries.** 
+  - **Note: If you filter data using `_since` within the /Group endpoint, you will receive claims data since the date of your choice for existing beneficiaries AND you will also receive 7 years of historical data for all beneficiaries that are newly attributed to your ACO. Learn more about how to retrieve the most current beneficiary claims data for existing beneficiaries AND historical data for newly attributed beneficiaries.** 
 
 #### Requesting Current and Historical Data for all Beneficiaries
 You can make a request to the endpoints for all three Resource Types at once, one at a time, or a combination of any two together by specifying the resource type of interest (separated by commas) in the `_type` query parameter for both the `/Patient` and `/Group` endpoints. 
