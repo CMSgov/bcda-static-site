@@ -382,9 +382,9 @@ The `_since` parameter grants you the ability to apply a date parameter to your 
 
 **Note: The use of `_since` differs significantly between the `/Patient` and `/Group` endpoints:**
 
-If you want to request only the most recent beneficiary claims data, you can use the `_since` parameter with the `/Patient` endpoint. See the _"Retrieve the most current beneficiary claims data for existing beneficiaries AND historical data for newly attributed beneficiaries"_ section for more details. 
+If you want to request only the most recent beneficiary claims data, you can [use the `_since` parameter with the `/Patient` endpoint](/#-Retrieve-only-the-most-current-beneficiary-claims-data){:target="_self"}. 
 
-If you want to receive filtered data by the date of your choice for existing beneficiaries and also 7 years of historical data for all beneficiaries that are newly attributed to your ACO in the same API call, you can use the `_since` parameter (in combination with the ‘all’ identifier) with the `/Group` endpoint. See the _"Retrieve only the most current beneficiary claims data"_ section for more details. 
+If you want to receive filtered data by the date of your choice for existing beneficiaries and also 7 years of historical data for all beneficiaries that are newly attributed to your ACO in the same API call, you can [use the `_since` parameter (in combination with the ‘all’ identifier) with the `/Group` endpoint](/#-Retrieve-the-most-current-beneficiary-claims-data-for-existing-beneficiaries-AND-historical-data-for-newly-attributed-beneficiaries){:target="_self"}. 
 
 For more information on `_since`, please consult the [FHIR standard on query parameters](https://hl7.org/Fhir/uv/bulkdata/export/index.html#query-parameters){:target="_blank"}.
 
@@ -403,7 +403,7 @@ Dates and times submitted in `_since` must be listed in the FHIR instant format 
 
 [FHIR Datatypes page](https://www.hl7.org/fhir/datatypes.html#instant){:target="_blank"}.
 
-**Retrieve only the most current beneficiary claims data**
+#### Retrieve only the most current beneficiary claims data
 
 The `/Patient` endpoint allows users to filter data by a selected `_since` date. The request will return data for all beneficiaries since that selected date. 
 In the example below, we are seeking data from the `/Patient` endpoint for the `Patient` resource type since 8PM EST on February 13th, 2020. The steps and format would work similarly for other resource types.
@@ -459,7 +459,7 @@ curl https://api.bcda.cms.gov/data/48/4e2cd98c-4746-4138-872b-24778c000b02.ndjso
 -H 'Authorization: Bearer {token}'
 ```
 
-**Retrieve the most current beneficiary claims data for existing beneficiaries AND historical data for newly attributed beneficiaries**
+#### Retrieve the most current beneficiary claims data for existing beneficiaries AND historical data for newly attributed beneficiaries
 
 This section outlines the steps to make a request for ***both*** incremental claims data for existing beneficiaries and 7 years of historical data for beneficiaries that are newly attributed to your ACO within one API call.
 
