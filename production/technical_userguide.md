@@ -382,9 +382,9 @@ The `_since` parameter grants you the ability to apply a date parameter to your 
 
 **Note: The use of `_since` differs significantly between the `/Patient` and `/Group` endpoints:**
 
-If you want to request only the most recent beneficiary claims data, you can [use the `_since` parameter with the `/Patient` endpoint](/#-Retrieve-only-the-most-current-beneficiary-claims-data){:target="_self"}. 
+If you want to request only the most recent beneficiary claims data, you can [use the `_since` parameter with the `/Patient` endpoint](https://bcda.cms.gov/production/technical-user-guide/#retrieve-only-the-most-current-beneficiary-claims-data){:target="_self"}. 
 
-If you want to receive filtered data by the date of your choice for existing beneficiaries and also 7 years of historical data for all beneficiaries that are newly attributed to your ACO in the same API call, you can [use the `_since` parameter (in combination with the ‘all’ identifier) with the `/Group` endpoint](/#-Retrieve-the-most-current-beneficiary-claims-data-for-existing-beneficiaries-AND-historical-data-for-newly-attributed-beneficiaries){:target="_self"}. 
+If you want to receive filtered data by the date of your choice for existing beneficiaries and also 7 years of historical data for all beneficiaries that are newly attributed to your ACO in the same API call, you can [use the `_since` parameter (in combination with the ‘all’ identifier) with the `/Group` endpoint](https://bcda.cms.gov/production/technical-user-guide/#retrieve-the-most-current-beneficiary-claims-data-for-existing-beneficiaries-and-historical-data-for-newly-attributed-beneficiaries){:target="_self"}. 
 
 For more information on `_since`, please consult the [FHIR standard on query parameters](https://hl7.org/Fhir/uv/bulkdata/export/index.html#query-parameters){:target="_blank"}.
 
