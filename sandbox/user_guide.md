@@ -320,7 +320,7 @@ After retrieving your historical data, it may be helpful to use the date of your
 
 **b. Input a date in the correct format.**
 
-First, click “Try it Out” in the Swagger section for `GET /api/v1/Group/export`.
+First, click “Try it Out” in the Swagger section for `GET /api/v1/Group/all/$export`.
 
 <img class="ug-img" src="/assets/img/BasicUG_since_image1.svg" alt="" />
 
