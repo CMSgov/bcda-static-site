@@ -607,4 +607,5 @@ There is an OpenAPI json file available which can be used to generate client cod
 While we will verify that OpenAPI JSON file is an accurate description of the BCDA API we cannot guarantee the quality of generated code for the client through this tool. However, here are some pointers that may help make development with the generated client smoother
 * Be sure to set the configuration for the host address to either `https://sandbox.bcda.cms.gov` for the sandbox environment or `https://bcda.cms.gov` for the production environment
 * Make sure to configure the client with your credentials before making requests
-* Some responses from the BCDA API include relevant information in the header. Make sure that you are using the correct methods that will pass the headers through
+* Some responses from the BCDA API include relevant information in the header. Make sure that you are using the correct methods that will pass the headers through from the cient
+* BCDA uses authentication tokens for all data requests. Make sure to aquire a token before making requests and prepend it with `Bearer:`. See the generated client README for more information
