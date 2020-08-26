@@ -14,7 +14,6 @@ sections:
   - Authentication and Authorization
   - Environment
   - Examples
-  - Generate Client Code
 ---
 
 ## User Guide
@@ -180,6 +179,9 @@ You will receive a `401 Unauthorized` response if your credentials are invalid o
 The examples below include [cURL](https://curl.haxx.se/){:target="_blank"} commands, but may be followed using any tool that can make HTTP GET requests with headers, such as [Postman](https://www.getpostman.com/){:target="_blank"}.
 
 ## Examples
+
+### Generate Client Code
+An OpenAPI v3 JSON schema file, which represents the service capabilities of the API, can be accessed at [https://sandbox.bcda.cms.gov/api/v1/swagger/openapi.json](https://sandbox.bcda.cms.gov/api/v1/swagger/openapi.json).  This file can be used to generate client code to interact with BCDA.  There are various tools that can be used to generate client code from an OpenAPI v3 JSON schema file; one of which is Swagger Editor ([https://editor.swagger.io/](https://editor.swagger.io/)), which can generate code in dozens of different programming languages and also produces a `README` describing usage of the newly generated client code.
 
 ### Sample Code
 BCDA provides [test code written in Golang](https://github.com/CMSgov/bcda-app/blob/master/test/smoke_test/bcda_client.go){:target="_blank"} in our GitHub instance that you can use to set up your system to work with the API.
@@ -598,14 +600,3 @@ For ease of use, we have listed the `cURL` commands for the operation below. The
 curl https://sandbox.bcda.cms.gov/data/48/4e2cd98c-4746-4138-872b-24778c000b02.ndjson
 -H 'Authorization: Bearer {token}'
 ```
-
-## Generate Client Code
-
-There is an OpenAPI json file available which can be used to generate client code to make integrating with BCDA easier. Take the JSON file from [here](https://sandbox.bcda.cms.gov/api/v1/swagger/openapi.json) and upload it to [https://editor.swagger.io/](https://editor.swagger.io/) to create a client with the offical Swagger tool. Then select the preferred language from the `Generate Client` dropdown to create and download an API client with README. This tool can be used to generate clients in Java, Python, Go, and other languages.
-
-### Common Issues
-While we will verify that OpenAPI JSON file is an accurate description of the BCDA API we cannot guarantee the quality of generated code for the client through this tool. However, here are some pointers that may help make development with the generated client smoother
-* Be sure to set the configuration for the host address to either `https://sandbox.bcda.cms.gov` for the sandbox environment or `https://bcda.cms.gov` for the production environment
-* Make sure to configure the client with your credentials before making requests
-* Some responses from the BCDA API include relevant information in the header. Make sure that you are using the correct methods that will pass the headers through from the cient
-* BCDA uses authentication tokens for all data requests. Make sure to aquire a token before making requests and prepend it with `Bearer:`. See the generated client README for more information
