@@ -113,7 +113,7 @@ The examples below include [cURL](https://curl.haxx.se){:target="_blank"} comman
 ## Examples
 
 ### Generate Client Code
-An OpenAPI v3 JSON schema file, which represents the service capabilities of the API, can be accessed at [https://sandbox.bcda.cms.gov/api/v1/swagger/openapi.json](https://sandbox.bcda.cms.gov/api/v1/swagger/openapi.json).  This file can be used to generate client code to interact with BCDA.  There are various tools that can be used to generate client code from an OpenAPI v3 JSON schema file; one of which is Swagger Editor ([https://editor.swagger.io/](https://editor.swagger.io/)), which can generate code in dozens of different programming languages and also produces a `README` describing usage of the newly generated client code.
+An OpenAPI v3 JSON schema file, which represents the service capabilities of the API, can be accessed at [https://api.bcda.cms.gov/api/v1/swagger/openapi.json](https://api.bcda.cms.gov/api/v1/swagger/openapi.json){:target="_blank"}.  This file can be used to generate client code to interact with BCDA.  There are various tools that can be used to generate client code from an OpenAPI v3 JSON schema file; one of which is Swagger Editor ([https://editor.swagger.io/](https://editor.swagger.io/){:target="_blank"}), which can generate code in dozens of different programming languages and also produces a `README` describing usage of the newly generated client code.
 
 ### Sample Code
 BCDA provides [test code written in Golang](https://github.com/CMSgov/bcda-app/blob/master/test/smoke_test/bcda_client.go){:target="_blank"} in our GitHub instance that you can use to set up your system to work with the API.
