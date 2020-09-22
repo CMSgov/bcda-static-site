@@ -486,7 +486,7 @@ See [Authentication and Authorization](#authentication-and-authorization){:targe
 
 **Request**
 
-`GET /api/v1/Patient/$export?_type=Patient?_since=2020-02-13T08:00:00.000-05:00`
+`GET /api/v1/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00`
 
 **Headers**
 
@@ -497,7 +497,7 @@ See [Authentication and Authorization](#authentication-and-authorization){:targe
 **`cURL` command**
 
 ```
-curl -X GET "https://sandbox.bcda.cms.gov/api/v1/Patient/$export?_type=Patient?_since=2020-02-13T08:00:00.000-05:00
+curl -X GET "https://sandbox.bcda.cms.gov/api/v1/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00
 -H 'Authorization: Bearer {token}' \
 -H 'Accept: application/fhir+json' \
 -H 'Prefer: respond-async'
@@ -547,7 +547,7 @@ See [Authentication and Authorization](#authentication-and-authorization){:targe
 
 **Request**
 
-`GET /api/v1/Group/all/$export?_type=Patient?_since=2020-02-13T08:00:00.000-05:00`
+`GET /api/v1/Group/all/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00`
 
 To start a data export job for filtered data from existing beneficiaries since 8PM EST on February 13th, 2020 and all data for newly assigned beneficiaries that month, a `GET` request is made to the `/Group` endpoint. The `groupID` of “`all`” is provided as well as a `_since` date in the correct format. An access token as well as _Accept_ and _Prefer_ headers are required.
 The dollar sign (`$`) before the word “export” in the URL indicates that the endpoint is an action rather than a resource. The format is defined by the [FHIR Bulk Data Export spec](https://github.com/HL7/bulk-data/blob/master/spec/export/index.md){:target="_blank"}.
@@ -561,7 +561,7 @@ The dollar sign (`$`) before the word “export” in the URL indicates that the
 **`cURL` command**
 
 ```
-curl -X GET "https://sandbox.bcda.cms.gov/api/v1/Group/all/$export?_type=Patient?_since=2020-02-13T08:00:00.000-05:00
+curl -X GET "https://sandbox.bcda.cms.gov/api/v1/Group/all/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00
 -H 'Authorization: Bearer {token}' \
 -H 'Accept: application/fhir+json' \
 -H 'Prefer: respond-async'
