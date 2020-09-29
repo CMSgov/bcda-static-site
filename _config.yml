@@ -27,12 +27,12 @@ cssurl: /assets/css/static-main.css
 global_nav:
   - title: Home
     id: home
-  - title: Try the API
-    id: sandbox-user-guide
-  - title: Learn about Production
-    id: prod-user-guide
-  - title: Understand BCDA Data
-    id: data-guide
+  - title: User Guide
+    id: guide
+  - title: Understanding the Data
+    id: data
+  - title: Updates
+    id: updates
 
 # Build settings
 markdown: kramdown
