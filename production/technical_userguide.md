@@ -26,7 +26,7 @@ This guide serves as a starting point for users to begin working with the API. [
 
 **Note: if this documentation is a little too in-depth, you may want to start with our [guide to getting started in production](/production/user-guide/) for an overview of APIs and a gentler walk-through.**
 
-**Note: If you have not yet received production credentials, you will not be able to access production endpoints and data. To put your ACO in the queue for access, please fill out the [BCDA Production Onboarding Request Form](https://airtable.com/shrMbfFSRZkTcSAof){:target="_blank"}. ACOs will be onboarded to production in the order in which requests are received. While you wait, you can [get familiar with the API in the sandbox environment](/sandbox/user-guide/), review the [data structure](/data-guide/) and join the [BCDA Google Group](https://groups.google.com/forum/#!forum/bc-api){:target="_blank"}, to have your questions answered.**
+**Note: If you have not yet received production credentials, you will not be able to access production endpoints and data. Representatives of Shared Savings Program ACOs are now able to generate BCDA credentials in their [ACO-MS portal accounts](https://acoms.cms.gov){:target="_blank"}. To view instructions on how to generate API credentials, log into your ACO-MS account and navigate to the ACO-MS Knowledge Library. **
 
 ## Authentication and Authorization
 
