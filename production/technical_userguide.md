@@ -26,7 +26,7 @@ This guide serves as a starting point for users to begin working with the API. [
 
 **Note: if this documentation is a little too in-depth, you may want to start with our [guide to getting started in production](/production/user-guide/) for an overview of APIs and a gentler walk-through.**
 
-**Note: If you have not yet received production credentials, you will not be able to access production endpoints and data. Representatives of Shared Savings Program ACOs are now able to generate BCDA credentials in their [ACO-MS portal accounts](https://acoms.cms.gov){:target="_blank"}. To view instructions on how to generate API credentials, log into your ACO-MS account and navigate to the ACO-MS Knowledge Library. **
+**Note: If you have not yet received production credentials, you will not be able to access production endpoints and data. Representatives of Shared Savings Program ACOs are now able to generate BCDA credentials in their [ACO-MS portal accounts](https://acoms.cms.gov){:target="_blank"}. To view instructions on how to generate API credentials, log into your ACO-MS account and navigate to the ACO-MS Knowledge Library.**
 
 ## Authentication and Authorization
 
