@@ -18,7 +18,7 @@ sections:
 ---
 
 ## Requesting production access
-Representatives of Shared Savings Program ACOs are now able to generate BCDA credentials in their [ACO-MS portal accounts](https://acoms.cms.gov){:target="_blank"} To view instructions on how to generate API credentials, log into your ACO-MS account and navigate to the ACO-MS Knowledge Library. Before you generate BCDA credentials, please try out the BCDA Sandbox experience.
+Representatives of Shared Savings Program ACOs are now able to generate BCDA credentials in their [ACO-MS portal](https://acoms.cms.gov){:target="_blank"} accounts. To view instructions on how to generate API credentials, log into your ACO-MS account and navigate to the ACO-MS Knowledge Library. Before you generate BCDA credentials, please try out the BCDA Sandbox experience.
 
 **Note:** Some of our early production beta partners have encountered issues accessing the API due to internal firewalls. If your corporate IT uses an internal DNS server, you may not be able to access the API. As you request production access, you may want to check in with your internal IT team to discuss your company’s network structure.
 
