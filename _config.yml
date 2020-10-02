@@ -51,3 +51,11 @@ exclude:
   - README.md
   - Dockerfiles/
   - docker-compose.yml
+  - node_modules/
+
+sass:
+  sass_dir: _sass
+  load_paths:
+    - _sass
+    - node_modules
+  style: compressed
