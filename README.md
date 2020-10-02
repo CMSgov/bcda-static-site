@@ -6,6 +6,7 @@ It is assumed that the environment already has these installed:
 * [rbenv](https://github.com/rbenv/rbenv) or [rvm](https://rvm.io/) to install versioned ruby
 * [ruby](https://www.ruby-lang.org/en/) currently using 2.4
 * [jekyll](https://jekyllrb.com/) currently using 3.5.2
+- [npm](https://www.npmjs.com/) currently using 12.14.1
 * [Docker](https://docs.docker.com/install/) to standardize builds across all contributors' local machines
 * [Docker Compose](https://docs.docker.com/compose/install/) to define and run multi-container Docker applications
 
@@ -13,6 +14,7 @@ It is assumed that the environment already has these installed:
 Navigate to the repository, and install the appropriate Gem file (a Gem file includes the dependencies for Ruby apps):
 1. `$ gem install bundler` <— install Gem bundler
 2. `$ bundle install` <— install Gem bundles
+3. `$ npm install` <- install node dependancies
 
 ## Local builds
 
