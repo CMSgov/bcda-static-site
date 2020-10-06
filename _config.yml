@@ -23,16 +23,21 @@ url: "https://bcda.cms.gov" # This is a kludge for HIMMS, we can fix it later as
 #twitter_username: jekyllrb
 #github_username:  jekyll
 cssurl: /assets/css/static-main.css
+logourl: /assets/img/BCDA_Logo.svg
 
 global_nav:
   - title: Home
     id: home
-  - title: User Guide
+  - title: Getting Started
     id: guide
+  - title: Building Your Application
+    id: build
   - title: Understanding the Data
     id: data
   - title: Updates
     id: updates
+  - title: Terms of Service
+    id: terms
 
 # Build settings
 markdown: kramdown
