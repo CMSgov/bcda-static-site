@@ -7,11 +7,9 @@
   font-size: $h5-font-size;
   font-weight: $font-bold;
   text-decoration: none;
-  width: 15rem;
 
   @media (min-width: $width-sm) {
     font-size: $h3-font-size;
-    width: 20rem;
   }
 
   img {
@@ -36,7 +34,7 @@
   align-items: center;
   background-color: #fff;
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   padding: $spacer-2;
   position: relative;
 
@@ -103,6 +101,7 @@
   padding: $spacer-1 $spacer-3 $spacer-1 $spacer-3;
   transform: translateX($spacer-3);
   width: auto;
+  margin-left:auto; margin-right:0;
 
   @media (min-width: $width-nav) {
     display: none;
