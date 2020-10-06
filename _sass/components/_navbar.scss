@@ -16,12 +16,16 @@
 
   img {
     margin-right: $spacer-1;
-    width: $spacer-2;
+    width: $spacer-7;
 
     @media (min-width: $width-sm) {
-      width: $spacer-4;
+      width: $spacer-7;
     }
   }
+}
+
+.site-logo-text{
+  width: 88px;
 }
 
 .site-logo-text:hover {
