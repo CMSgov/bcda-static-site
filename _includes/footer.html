@@ -1,22 +1,27 @@
-<footer class="ds-base ds-u-fill--white ds-u-margin-top--7 ds-u-padding-y--6">
+<footer  class="ds-base ds-u-fill--white ds-u-padding-y--6 site-footer" role="contentinfo">
   <div class="ds-l-container">
     <div class="ds-l-row">
-      <div class="ds-u-font-size--small ds-l-col--12 ds-l-sm-col--6 ds-l-md-col--3 ds-u-margin-bottom--2">
+      <div class="ds-u-font-size--small ds-l-col--12 ds-l-sm-col--12 ds-l-lg-col--3 ds-u-margin-bottom--2">
         <div class="ds-u-float--left ds-u-margin-right--2">
           {% include HHS-logo.svg %}
         </div>
-        A federal government website managed by the Centers for Medicare &amp; Medicaid Services 7500 Security Boulevard, Baltimore, MD 21124
+        <p class="ds-u-margin-top--0 ds-u-measure--wide">A federal government website managed by the Centers for Medicare &amp; Medicaid Services 7500 Security Boulevard, Baltimore, MD 21124</p>
       </div>
-      <div class="ds-l-col--12 ds-l-sm-col--6 ds-l-md-col--3 ds-u-margin-bottom--2">
+      <div class="ds-l-col--12 ds-l-sm-col--4 ds-l-lg-col--3 ds-u-margin-bottom--2">
         <h2 class="ds-h4">Beneficiary Claims Data API</h2>
         <ul class="ds-c-list ds-c-list--bare ds-u-font-size--small">
-          <li><a href="/#overview">Documentation</a></li>
-          <li><a href="/#frequently-asked-questions">Frequently Asked Questions</a></li>
+          {% for item in site.global_nav %}
+            {% assign pages = site.pages | where:"id",item.id %}
+            {% for p in pages %}
+              {% assign prefix = page.id | split: "-" %}
+              <li><a href="{{ p.url }}"> {{item.title}} </a></li>
+            {% endfor %}
+          {% endfor %}
           <li><a target="_blank" href="https://github.com/CMSgov/bcda-app">BCDA on GitHub</a></li>
-          <li><a target="_blank" href="https://groups.google.com/forum/#!forum/bc-api">BCDA Google Group</a></li>
+          <li><a target="_blank" href="https://groups.google.com/g/bc-api?pli=1">BCDA Google Group</a></li>
         </ul>
       </div>
-      <div class="ds-l-col--12 ds-l-sm-col--6 ds-l-md-col--3 ds-u-margin-bottom--2">
+      <div class="ds-l-col--12 ds-l-sm-col--4 ds-l-lg-col--3 ds-u-margin-bottom--2">
         <h2 class="ds-h4">CMS &amp; HHS Websites</h2>
         <ul class="ds-c-list ds-c-list--bare ds-u-font-size--small">
           <li><a target="_blank" href="https://www.cms.gov/">CMS.gov</a></li>
@@ -27,10 +32,10 @@
           <li><a target="_blank" href="https://www.hhs.gov/">HHS.gov</a></li>
         </ul>
       </div>
-      <div class="ds-l-col--12 ds-l-sm-col--6 ds-l-md-col--3 ds-u-margin-bottom--2">
+      <div class="ds-l-col--12 ds-l-sm-col--4 ds-l-lg-col--3 ds-u-margin-bottom--2">
         <h2 class="ds-h4">Additional resources</h2>
         <ul class="ds-c-list ds-c-list--bare ds-u-font-size--small">
-          <li><a target="_blank" href="https://standards.usa.gov/">U.S. Web Design Standards</a></li>
+          <li><a target="_blank" href="https://design.cms.gov/">CMS Design System</a></li>
           <li><a target="_blank" href="https://www.foia.gov/">Freedom of Information Act</a></li>
           <li><a target="_blank" href="https://oig.hhs.gov/">Inspector General</a></li>
           <li><a target="_blank" href="https://www.cms.gov/About-CMS/Agency-Information/Aboutwebsite/NoFearAct.html">No Fear Act</a></li>

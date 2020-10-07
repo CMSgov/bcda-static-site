@@ -1,64 +1,34 @@
-<!-- Header -->
-<header id="site-top">
-  <!-- Desktop Navigation -->
-  <div class="ds-c-desktop-nav">
-    <!-- Logo Link Container -->
-    <a class="logo-link-container" href="/">
-      <!-- Arrow Icon
-      <svg fill="none" height="35" viewBox="0 0 35 35" width="35" xmlns="http://www.w3.org/2000/svg"><circle cx="17.5" cy="17.5" r="17" stroke="#323a45"/><circle cx="17.5" cy="17.5" fill="#323a45" r="15.1667"/><path d="m11.5 18.5h-1.5v6h14.5v-6h-1.5v4h-11.5z" fill="#f7f7f7"/><path d="m17.5 19-5-5h3.5v-7h3.5v7h3z" fill="#f7f7f7"/><g stroke="#f7f7f7"><path d="m11.5 18.5h-1.5v6h14.5v-6h-1.5v4h-11.5z"/><path d="m17.5 19-5-5h3.5v-7h3.5v7h3z"/></g></svg>
-      -->
-      <!-- Logo Text -->
-      <div class="site-title .ds-u-color--white">
-        Beneficiary Claims Data API
-      </div>
-    </a>
-    <!-- Desktop navigation -->
-    <nav aria-label="Secondary" class="desktop-nav-items">
-      <!-- removing for now
-      <a href="{{ '/api/v1/swagger' }}">Documentation</a>
-      -->
-      <a class="ds-c-link" href="{{ 'https://groups.google.com/forum/#!forum/bc-api' }}" target="_blank">Join the Google Group</a>
-    </nav>
-  </div>
+<nav class="navbar" id="navbar">
+  <a class="site-logo" href="/">
+    <img src="{{ site.logourl | relative_url }}" alt="BCDA logo"> <span class="site-logo-text ds-u-font-size--base">Beneficiary Claims Data API</span>
+  </a>
 
-  <!-- Mobile Navigation -->
-  <div class="ds-c-mobile-nav">
-    <!-- Logo Link Container -->
-    <a class="logo-link-container" href="/">
-      <!-- Arrow Icon -->
-      <svg fill="none" height="35" viewBox="0 0 35 35" width="35" xmlns="http://www.w3.org/2000/svg"><circle cx="17.5" cy="17.5" r="17" stroke="#323a45"/><circle cx="17.5" cy="17.5" fill="#323a45" r="15.1667"/><path d="m11.5 18.5h-1.5v6h14.5v-6h-1.5v4h-11.5z" fill="#f7f7f7"/><path d="m17.5 19-5-5h3.5v-7h3.5v7h3z" fill="#f7f7f7"/><g stroke="#f7f7f7"><path d="m11.5 18.5h-1.5v6h14.5v-6h-1.5v4h-11.5z"/><path d="m17.5 19-5-5h3.5v-7h3.5v7h3z"/></g></svg>
-      <!-- Logo Text -->
-      <div class="site-title">
-        Beneficiary Claims Data API
-      </div>
-    </a>
-    <!-- Mobile Nav Trigger Button -->
-    <button class="mobile-nav-trigger-button" type="button" aria-expanded="false">
-      <span class="mobile-nav-trigger-text">Menu</span>
-      <i class="mobile-nav-icon" data-feather="menu"></i>
-    </button>
+  <button id="topnav__show-button" class="ds-c-button ds-c-button--transparent ds-c-button--big topnav__show-button" type="button" aria-controls="topnav-wrap" aria-label="Show menu">
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <use xlink:href="/assets/img/solid.svg#bars"></use>
+    </svg>
+  </button>
+  
+  <div class="topnav-wrap" id="topnav-wrap">
+    <button id="topnav__close-button" class="ds-c-button ds-c-button--transparent ds-c-button--big topnav__close-button" type="button"
+aria-controls="topnav-wrap" aria-label="Close menu">
+      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <use xlink:href="/assets/img/solid.svg#times"></use>
+        </svg>
+      </button>
+    <ul class="topnav">
+      {% for item in site.global_nav %}
+          {% assign pages = site.pages | where:"id",item.id %}
+          {% for p in pages %}
+              <li class="topnav__item">
+                  {% assign prefix = page.id | split: "-" %}
+                  <a class="topnav__link ds-u-text-align--center ds-u-font-size--small" href="{{ p.url }}"> {{item.title}} </a>
+              </li>
+          {% endfor %}
+      {% endfor %}
+      <li class="topnav__item topnav__item--buttons ds-u-padding-right--1 ds-u-text-align--center">
+        <a class="ds-c-link" href="https://groups.google.com/forum/#!forum/bc-api" target="_blank"><button class="ds-c-button ds-c-button--primary ds-u-fill--focus-color ds-u-color--black">Join the Google Group</button></a>
+      </li>
+    </ul>
   </div>
-  <!-- Mobile Nav Items -->
-  <nav aria-label="Secondary" class="mobile-nav-items">
-    <!-- Items Appended Here by JS -->
-  </nav>
-  <div class="ds-base">
-    <div class="blueberry-lime-gradient-background main-header ds-u-margin-bottom--2 ds-u-lg-margin-bottom--5">
-      <div class="api-pattern">
-        <div class="">
-          <div class="ds-l-container">
-            <div class="ds-l-row">
-              <div class="content_buffer ds-l-sm-cold--12 ds-l-xl-col--10 ds-u-margin-left--auto ds-u-padding-x--4"> <!-- ds-u-margin-left--auto ds-u-padding-x--4 -->
-                  <h1 class="ds-display">{{ page.title | escape }}</h1>
-                  <p class="ds-text--lead">
-                    {{ page.description | escape }}
-                  </p>
-                  {% include global_nav.html %}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
-</header>
+</nav>
