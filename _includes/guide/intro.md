@@ -1,0 +1,3 @@
+The Beneficiary Claims Data API (BCDA) enables Accountable Care Organizations (ACOs) to retrieve claims data for their Medicare beneficiaries. This includes claims data for instances in which beneficiaries receive care outside of the ACO, allowing a full picture of patient care.
+This API follows the workflow outlined by the [FHIR Bulk Data Export Proposal](https://github.com/HL7/bulk-data/blob/master/spec/export/index.md) using the HL7 FHIR Standard. Claims data is provided as FHIR resources in NDJSON format.
+This guide serves as a starting point for users to begin working with the API. It is split into two major sections with multiple parts.
