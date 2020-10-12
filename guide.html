@@ -69,14 +69,14 @@ layout: default
         </li>
       </ul>
     </aside>
-    
+
     <article id="content" class="ds-l-md-col--8 ds-l-lg-col--9">
       <div id="what-is-an-api">
         <div class="ds-u-font-size--display">
           What is an API?
         </div>
         <div class="ds-u-font-size--base">
-          {% include guide/what_is_api.md %}
+          {% include guide/what_is_api.html %}
         </div>
       </div>
       <div id="what-is-fhir">
@@ -84,7 +84,7 @@ layout: default
           What is FHIR?
         </div>
         <div class="ds-u-font-size--base">
-          {% include guide/what_is_fhir.md %}
+          {% include guide/what_is_fhir.html %}
         </div>
       </div>
       <div id="fhir-endpoints">
@@ -96,7 +96,7 @@ layout: default
             /Patient endpoint
           </div>
           <div>
-            {% include guide/patient_endpoint.md %}
+            {% include guide/patient_endpoint.html %}
           </div>
         </div>
         <div id="group-endpoint">
@@ -104,14 +104,14 @@ layout: default
             /Group endpoint
           </div>
           <div>
-            {% include guide/group_endpoint.md %}
+            {% include guide/group_endpoint.html %}
           </div>
         </div>
         <div class="ds-c-alert ds-c-alert--hide-icon" id="endpoint-alert">
           <div class="ds-c-alert__body">
             <h3 class="ds-c-alert__heading">Differences between /Patient and /Group when using _since</h3>
             <p class="ds-c-alert__text">
-              {% include guide/endpoint_alert.md %}
+              {% include guide/endpoint_alert.html %}
             </p>
           </div>
         </div>
@@ -121,7 +121,7 @@ layout: default
           Sandbox
         </div>
         <div>
-          {% include guide/sandbox.md %}
+          {% include guide/sandbox.html %}
         </div>
       </div>
       <div id="try-the-api">
@@ -129,7 +129,7 @@ layout: default
           Try the API
         </div>
         <div>
-          {% include guide/try_the_api.md %}
+          {% include guide/try_the_api.html %}
         </div>
       </div>
     </article>

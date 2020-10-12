@@ -1,2 +1,0 @@
-Both /Patient and /Group support the _since parameter, but they have a key difference in how new beneficiaries are treated. 
-If you use _since within the /Group endpoint, you will receive claims data since the date of your choice for existing beneficiaries AND you will also receive 7 years of historical data for all beneficiaries that are newly attributed to your ACO. Learn more about how to retrieve the most current beneficiary claims data for existing beneficiaries AND historical data for newly attributed beneficiaries
