@@ -6,7 +6,15 @@ layout: default
 
 <main class="ds-base ds-l-container">
   <a class="ds-c-skip-nav" href="#content">Skip to main content</a>
-  <div class="ds-l-row">
+  <div class="ds-l-row ds-u-fill--primary-darker">
+    <div class="ds-l-col--12 ds-u-text-align--right ds-u-font-size--display ds-u-color--white">
+      Getting Started
+    </div>
+    <div class="ds-l-col--12 ds-u-text-align--right ds-u-font-size--h1 ds-u-color--white">
+      The Quickstart Guide to BCDA
+    </div>
+  </div>
+  <div class="ds-l-row ds-u-padding-top--2">
     <aside class="ds-u-margin-bottom--4 ds-u-md-margin-bottom--0 ds-l-md-col--4 ds-l-lg-col--3">
       <ul class="ds-c-vertical-nav">
         <li class="ds-c-vertical-nav__item">
@@ -76,7 +84,7 @@ layout: default
           What is an API?
         </div>
         <div class="ds-u-font-size--base">
-          {% include guide/what_is_api.html %}
+          {% include guide/what_is_an_api.html %}
         </div>
       </div>
       <div id="what-is-fhir">
@@ -92,16 +100,16 @@ layout: default
           BCDA's Bulk FHIR Endpoints
         </div>
         <div id="patient-endpoint">
-          <div class="ds-u-font-size--lead">
-            /Patient endpoint
+          <div class="ds-u-font-size--lead ds-u-text-decoration--underline ds-u-font-weight--bold">
+            1. /Patient endpoint
           </div>
           <div>
             {% include guide/patient_endpoint.html %}
           </div>
         </div>
         <div id="group-endpoint">
-          <div class="ds-u-font-size--lead">
-            /Group endpoint
+          <div class="ds-u-font-size--lead ds-u-text-decoration--underline ds-u-font-weight--bold">
+            2. /Group endpoint
           </div>
           <div>
             {% include guide/group_endpoint.html %}
