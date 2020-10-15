@@ -3,4 +3,209 @@ id: guide
 title: Getting Started
 layout: default
 ---
-<h1>Getting Started</h1>
+
+<main class="ds-base ds-l-container">
+  <a class="ds-c-skip-nav" href="#content">Skip to main content</a>
+  <div class="ds-l-row ds-u-fill--primary-darker">
+    <div class="ds-l-col--12 ds-u-text-align--right ds-u-font-size--display ds-u-color--white">
+      Getting Started
+    </div>
+    <div class="ds-l-col--12 ds-u-text-align--right ds-u-font-size--h1 ds-u-color--white">
+      The Quickstart Guide to BCDA
+    </div>
+  </div>
+  <div class="ds-l-row ds-u-padding-top--2">
+    <aside class="ds-u-margin-bottom--4 ds-u-md-margin-bottom--0 ds-l-md-col--4 ds-l-lg-col--3">
+      <ul class="ds-c-vertical-nav">
+        <li class="ds-c-vertical-nav__item">
+          <a
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            href="#what-is-an-api"
+          >
+            What is an API
+          </a>
+        </li>
+        <li class="ds-c-vertical-nav__item">
+          <a
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            href="#what-is-fhir"
+          >
+            What is FHIR
+          </a>
+        </li>
+        <li class="ds-c-vertical-nav__item">
+          <a
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            href="#fhir-endpoints"
+          >
+            BCDA's Bulk FHIR Endpoints
+          </a>
+          <ul class="ds-c-vertical-nav__subnav">
+            <li class="ds-c-vertical-nav__subnav">
+              <a
+                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                href="#patient-endpoint"
+              >
+                /Patient Endpoint
+              </a>
+            </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a
+                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                href="#group-endpoint"
+              >
+                /Group Endpoint
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="ds-c-vertical-nav__item">
+          <a
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            href="#fhir-types"
+          >
+            FHIR Resource Types
+          </a>
+          <ul class="ds-c-vertical-nav__subnav">
+            <li class="ds-c-vertical-nav__subnav">
+              <a
+                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                href="#eob-resource"
+              >
+                Explanation of Benefit (EOB)
+              </a>
+            </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a
+                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                href="#patient-resource"
+              >
+                Patient
+              </a>
+            </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a
+                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                href="#coverage-resource"
+              >
+                Coverage
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="ds-c-vertical-nav__item">
+          <a
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            href="#sandbox"
+          >
+            Sandbox
+          </a>
+        </li>
+        <li class="ds-c-vertical-nav__item">
+          <a
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            href="#try-the-api"
+          >
+            Try the API
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <article id="content" class="ds-l-md-col--8 ds-l-lg-col--9">
+      <div id="what-is-an-api">
+        <div class="ds-u-font-size--display">
+          What is an API?
+        </div>
+        <div class="ds-u-font-size--base">
+          {% include guide/what_is_an_api.html %}
+        </div>
+      </div>
+      <div id="what-is-fhir">
+        <div class="ds-u-font-size--display">
+          What is FHIR?
+        </div>
+        <div class="ds-u-font-size--base">
+          {% include guide/what_is_fhir.html %}
+        </div>
+      </div>
+      <div id="fhir-endpoints">
+        <div class="ds-u-font-size--display">
+          BCDA's Bulk FHIR Endpoints
+        </div>
+        <div id="patient-endpoint">
+          <div class="ds-u-font-size--lead ds-u-text-decoration--underline ds-u-font-weight--bold">
+            1. /Patient endpoint
+          </div>
+          <div>
+            {% include guide/patient_endpoint.html %}
+          </div>
+        </div>
+        <div id="group-endpoint">
+          <div class="ds-u-font-size--lead ds-u-text-decoration--underline ds-u-font-weight--bold">
+            2. /Group endpoint
+          </div>
+          <div>
+            {% include guide/group_endpoint.html %}
+          </div>
+        </div>
+        <div class="ds-c-alert ds-c-alert--hide-icon" id="endpoint-alert">
+          <div class="ds-c-alert__body">
+            <h3 class="ds-c-alert__heading">Differences between /Patient and /Group when using _since</h3>
+            <p class="ds-c-alert__text">
+              {% include guide/endpoint_alert.html %}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="fhir-types">
+        <div class="ds-u-font-size--display">
+          BCDA's FHIR Resource Types
+        </div>
+        <div>
+          {% include guide/fhir_types.html %}
+        </div>
+        <div id="eob-resource">
+          <div class="ds-u-font-size--lead ds-u-text-decoration--underline ds-u-font-weight--bold">
+            1. Explanation of Benefit (EOB)
+          </div>
+          <div>
+            {% include guide/eob_resource.html %}
+          </div>
+        </div>
+        <div id="patient-resource">
+          <div class="ds-u-font-size--lead ds-u-text-decoration--underline ds-u-font-weight--bold">
+            2. Patient
+          </div>
+          <div>
+            {% include guide/patient_resource.html %}
+          </div>
+        </div>
+        <div id="coverage-resource">
+          <div class="ds-u-font-size--lead ds-u-text-decoration--underline ds-u-font-weight--bold">
+            2. Coverage
+          </div>
+          <div>
+            {% include guide/coverage_resource.html %}
+          </div>
+        </div>
+      </div>
+      <div id="sandbox">
+        <div class="ds-u-font-size--display">
+          Sandbox
+        </div>
+        <div>
+          {% include guide/sandbox.html %}
+        </div>
+      </div>
+      <div id="try-the-api">
+        <div class="ds-u-font-size--display">
+          Try the API
+        </div>
+        <div>
+          {% include guide/try_the_api.html %}
+        </div>
+      </div>
+    </article>
+  </div>
+</main>
