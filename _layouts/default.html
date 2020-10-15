@@ -4,11 +4,13 @@
   {% include head.html %}
 
   <body class="">
-    <a class="ds-c-skip-nav" href="#main">Skip to main content</a>
+    <a class="ds-c-skip-nav" href="#content">Skip to main content</a>
 
     {% include header.html %}
 
-    {{ content }}
+    <div id="content">
+      {{ content }}
+    </div>
 
     {% include footer.html %}
 
