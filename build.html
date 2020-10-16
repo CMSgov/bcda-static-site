@@ -3,4 +3,150 @@ id: build
 title: Building Your Application
 layout: default
 ---
-<h1>Building Your Application</h1>
+<main class="ds-base ds-l-container">
+  <a class="ds-c-skip-nav" href="#content">Skip to main content</a>
+  <div class="ds-l-row ds-u-fill--primary-darker">
+    <div class="ds-l-col--12 ds-u-text-align--right ds-u-font-size--display ds-u-color--white">
+      Building Your Application
+    </div>
+    <div class="ds-l-col--12 ds-u-text-align--right ds-u-font-size--h1 ds-u-color--white">
+      The User Guide for ACO's in Production
+    </div>
+  </div>
+
+  <div class="ds-l-row ds-u-padding-top--2">
+
+    <!-- Table of Contents -->
+    <aside class="ds-u-margin-bottom--4 ds-u-md-margin-bottom--0 ds-l-md-col--4 ds-l-lg-col--3">
+      <ul class="ds-c-vertical-nav">
+        <li class="ds-c-vertical-nav__item">
+          <a
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            href="#bcda-user-guide"
+          >
+            BCDA User Guide Documentation
+          </a>
+        </li>
+        <li class="ds-c-vertical-nav__item">
+          <a
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            href="#request-metadata"
+          >
+          Request Metadata
+          </a>
+        </li>
+        <li class="ds-c-vertical-nav__item">
+          <a
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            href="#authorization"
+          >
+            Authorization and Authentication
+          </a>
+          <ul class="ds-c-vertical-nav__subnav">
+            <li class="ds-c-vertical-nav__subnav">
+              <a
+                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                href="#bcda-credentials"
+              >
+                Obtain your BCDA Credentials
+              </a>
+            </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a
+                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                href="#access-token"
+              >
+                Obtain your Access Token
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="ds-c-vertical-nav__item">
+          <a
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            href="#requesting-data"
+          >
+            Requesting Data
+          </a>
+          <ul class="ds-c-vertical-nav__subnav">
+            <li class="ds-c-vertical-nav__subnav">
+              <a
+                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                href="#request-all"
+              >
+                Request All Three Resource Types
+              </a>
+            </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a
+                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                href="#request-filtered"
+              >
+                Requesting Filtered Data
+              </a>
+            </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a
+                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                href="#request-recent-and-historical"
+              >
+                Request recent data AND historical data
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+
+    <article id="content" class="ds-l-md-col--8 ds-l-lg-col--9">
+      <div id="bcda-user-guide">
+        <div class="ds-u-font-size--display">
+          BCDA User Guide Documentation
+        </div>
+        <div class="ds-u-font-size--base">
+          {% include build/bcda_user_guide.html %}
+        </div>
+      </div>
+      <div id="request-metadata">
+        <div class="ds-u-font-size--h2">
+          Request Metadata
+        </div>
+        <div class="ds-u-font-size--base">
+          {% include build/request_metadata.html %}
+        </div>
+      </div>
+      <div id="authorization">
+        <div class="ds-u-font-size--display">
+          Authorization and Authentication
+        </div>
+        <div class="ds-u-font-size--base">
+          {% include build/authorization.html %}
+        </div>
+        <div id="bcda-credentials">
+          <div class="ds-u-font-size--display">
+            Obtain your BCDA Credentials
+          </div>
+          <div class="ds-u-font-size--base">
+            {% include build/bcda_credentials.html %}
+          </div>
+        </div>
+        <div id="access-token">
+          <div class="ds-u-font-size--display">
+            Obtain your Access Token
+          </div>
+          <div class="ds-u-font-size--base">
+            {% include build/access_token.html %}
+          </div>
+        </div>
+      </div>
+      <div id="requesting-data">
+        <div class="ds-u-font-size--display">
+          Requesting Data
+        </div>
+        <div class="ds-u-font-size--base">
+          {% include build/requesting_data.html %}
+        </div>
+      </div>
+    </article>
+  </div>
+</main>
