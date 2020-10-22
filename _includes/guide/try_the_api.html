@@ -1,6 +1,92 @@
 <p>
-  Lo-fi ut microdosing biodiesel. Leggings food truck trust fund man braid, sriracha do veniam VHS edison bulb. Qui minim mollit meh, williamsburg lo-fi blue bottle iceland YOLO man bun taiyaki schlitz raw denim et. Succulents vape cray ramps food truck sint drinking vinegar occaecat tacos copper mug literally esse pinterest. Duis health goth drinking vinegar, bicycle rights leggings poke magna la croix heirloom etsy swag nostrud scenester whatever.
+	To get you started with the BCDA API, we have provided the bare minimum steps to access data in the sandbox! Using the four cURL commands below, you should be able to walk through the standard process of retrieving data from the API.
 </p>
 <p>
-  Heirloom godard williamsburg anim. Tbh you probably haven't heard of them migas yr minim heirloom. Nisi YOLO gochujang semiotics marfa ut, tousled occupy cloud bread selvage do taxidermy. Cloud bread et craft beer yuccie. Succulents you probably haven't heard of them copper mug cliche shaman eiusmod taxidermy tilde shoreditch deserunt tattooed coloring book. Coloring book knausgaard offal food truck four loko mixtape PBR&B marfa hell of pop-up cillum tempor williamsburg vice cronut. Keffiyeh labore enim non gastropub.
+	Please follow along this short demo in your Terminal window or through an application such as Postman.
+</p>
+<p>
+	For far more detail for each of these steps and for retrieving production data, see the <a href=/build.html target="_blank"> Building Your Application</a> page.
+</p>
+<H3>
+	Step 1: Authentication
+</H3>
+<p>
+	For this demonstration, we will provide sample API credentials to the sandbox environment.
+</p>
+<H4>
+	Sample credentials for an Extra-Small ACO (25 beneficiaries)
+</H4>
+<p>
+	Client ID:
+	09869a7f-46ce-4908-a914-6129d080a2ae
+
+	Client Secret:
+	64916fe96f71adc79c5735e49f4e72f18ff941d0dd62cf43ee1ae0857e204f173ba10e4250c12c48
+</p>
+<H4>
+	cURL Command to Submit Credentials for an Access Token
+</H4>
+<p>
+	curl -d '' -X POST "https://api.bcda.cms.gov/auth/token" --user <client secret>
+<p>
+	-H "accept: application/json"
+</p>
+</p>
+<H4>
+	Authentication Response
+</H4>
+<p>
+	For this demonstration, we will provide sample API credentials to the sandbox environment.
+</p>
+
+
+<H3>
+	Step 2: Start a Job
+</H3>
+<H4>
+	Sample cURL Command
+</H4>
+<p>
+	curl -X GET "https://api.bcda.cms.gov/api/v1/Patient/$export"
+<p>
+	-H "accept: application/fhir+json"
+</p>
+<p>
+	-H "Prefer: respond-async"
+</p>
+<p>
+	-H "Authorization: Bearer {token}"`
+</p>
+</p>
+
+<H3>
+	Step 3: Check the Job Status
+</H3>
+<H4>
+	Sample cURL Command
+</H4>
+<p>
+	curl -X GET "https://api.bcda.cms.gov/api/v1/jobs/42" \
+<p>
+	-H "accept: application/fhir+json" \
+</p>
+<p>
+	-H "Authorization: Bearer {token}"
+</p>
+</p>
+
+<H3>
+	Step 4: Download the Data
+</H3>
+<H4>
+	Sample cURL Command
+</H4>
+<p>
+	curl https://api.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson \
+<p>
+	-H 'Authorization: Bearer {token}'
+</p>
+<p>
+	-H ‘Accept-Encoding: gzip’
+</p>
 </p>
