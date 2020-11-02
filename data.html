@@ -3,4 +3,87 @@ id: data
 title: Understanding the Data
 layout: default
 ---
-<h1>Understanding Data</h1>
+<main class="ds-base ds-l-container">
+  <a class="ds-c-skip-nav" href="#content">Skip to main content</a>
+  <div class="ds-l-row ds-u-fill--primary-darker">
+    <div class="ds-l-col--12 ds-u-text-align--right ds-u-font-size--display ds-u-color--white">
+      Understanding the Data
+    </div>
+    <div class="ds-l-col--12 ds-u-text-align--right ds-u-font-size--h1 ds-u-color--white">
+      The User Guide for ACOs in Production
+    </div>
+  </div>
+  <div class="ds-l-row ds-u-padding-top--2">
+    <aside class="ds-u-margin-bottom--4 ds-u-md-margin-bottom--0 ds-l-md-col--4 ds-l-lg-col--3">
+      <ul class="ds-c-vertical-nav">
+        <li class="ds-c-vertical-nav__item">
+          <a
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            href="#cclf-v-bcda"
+          >
+            CCLF v. BCDA Data
+          </a>
+        </li>
+        <li class="ds-c-vertical-nav__item">
+          <a
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            href="#security-and-quality"
+          >
+            BCDA Data Security and Quality
+          </a>
+        </li>
+        <li class="ds-c-vertical-nav__item">
+          <a
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            href="#bcda-data-dictionary"
+          >
+            BCDA Data Dictionary
+          </a>
+        </li>
+        <li class="ds-c-vertical-nav__item">
+          <a
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            href="#sample-files"
+          >
+            Sample BCDA Files
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <article id="content" class="ds-l-md-col--8 ds-l-lg-col--9">
+      <div id="cclf-v-bcda">
+        <div class="ds-u-font-size--display">
+          CCLF v. BCDA Data
+        </div>
+        <div class="ds-u-font-size--base">
+          {% include data/cclf_v_bcda.html %}
+        </div>
+      </div>
+      <div id="security-and-quality">
+        <div class="ds-u-font-size--display">
+          BCDA Data Security and Quality
+        </div>
+        <div class="ds-u-font-size--base">
+          {% include data/security_and_quality.html %}
+        </div>
+      </div>
+      <div id="bcda-data-dictionary">
+        <div class="ds-u-font-size--display">
+          BCDA Data Dictionary
+        </div>
+        <div class="ds-u-font-size--base">
+          {% include data/data_dictionary.html %}
+        </div>
+      </div>
+      <div id="sample-files">
+        <div class="ds-u-font-size--display">
+          Sample BCDA Files
+        </div>
+        <div class="ds-u-font-size--base">
+          {% include data/sample_files.html %}
+        </div>
+      </div>
+    </article>
+  </div>
+</main>
