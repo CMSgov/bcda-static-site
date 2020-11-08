@@ -24,15 +24,15 @@ article h2{
   position: relative;
 }
 
-article h2::after {
-    content: "";
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    height: 4px;
-    width: 100%;
-    background: linear-gradient(30deg, #087BAE 10%, #34EFA4 90%);
-}
+// article h2::after {
+//     content: "";
+//     position: absolute;
+//     bottom: -8px;
+//     left: 0;
+//     height: 4px;
+//     width: 100%;
+//     background: linear-gradient(30deg, #087BAE 10%, #34EFA4 90%);
+// }
 .subnav .blueberry-lime-link:active:before,
 .subnav .blueberry-lime-link:focus:before,
 .subnav .blueberry-lime-link:hover:before {

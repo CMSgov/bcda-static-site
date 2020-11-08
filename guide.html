@@ -16,7 +16,7 @@ layout: default
   </div>
   <div class="ds-l-row ds-u-padding-top--2">
     <aside class="ds-u-margin-bottom--4 ds-u-md-margin-bottom--0 ds-l-md-col--4 ds-l-lg-col--3">
-      <ul class="ds-c-vertical-nav">
+      <ul class="ds-c-vertical-nav sidenav">
         <li class="ds-c-vertical-nav__item">
           <a
             class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
@@ -114,44 +114,44 @@ layout: default
 
     <article id="content" class="ds-l-md-col--8 ds-l-lg-col--9">
       <div id="what-is-an-api">
-        <div class="ds-u-font-size--display">
+        <h1>
           What is an API?
-        </div>
+        </h1>
         <div class="ds-u-font-size--base">
           {% include guide/what_is_an_api.html %}
         </div>
       </div>
       <div id="what-is-fhir">
-        <div class="ds-u-font-size--display">
+        <h1>
           What is FHIR?
-        </div>
+        </h1>
         <div class="ds-u-font-size--base">
           {% include guide/what_is_fhir.html %}
         </div>
       </div>
       <div id="fhir-endpoints">
-        <div class="ds-u-font-size--display">
+        <h1>
           BCDA's Bulk FHIR Endpoints
-        </div>
+        </h1>
         <div id="patient-endpoint">
-          <div class="ds-u-font-size--lead ds-u-text-decoration--underline ds-u-font-weight--bold">
+          <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
             1. /Patient endpoint
-          </div>
+          </h2>
           <div>
             {% include guide/patient_endpoint.html %}
           </div>
         </div>
         <div id="group-endpoint">
-          <div class="ds-u-font-size--lead ds-u-text-decoration--underline ds-u-font-weight--bold">
+          <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
             2. /Group endpoint
-          </div>
+          </h2>
           <div>
             {% include guide/group_endpoint.html %}
           </div>
         </div>
         <div class="ds-c-alert ds-c-alert--hide-icon" id="endpoint-alert">
           <div class="ds-c-alert__body">
-            <h3 class="ds-c-alert__heading">Differences between /Patient and /Group when using _since</h3>
+            <h2 class="ds-c-alert__heading">Differences between /Patient and /Group when using _since</h2>
             <p class="ds-c-alert__text">
               {% include guide/endpoint_alert.html %}
             </p>
@@ -159,49 +159,49 @@ layout: default
         </div>
       </div>
       <div id="fhir-types">
-        <div class="ds-u-font-size--display">
+        <h1>
           BCDA's FHIR Resource Types
-        </div>
+        </h1>
         <div>
           {% include guide/fhir_types.html %}
         </div>
         <div id="eob-resource">
-          <div class="ds-u-font-size--lead ds-u-text-decoration--underline ds-u-font-weight--bold">
+          <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
             1. Explanation of Benefit (EOB)
-          </div>
+          </h2>
           <div>
             {% include guide/eob_resource.html %}
           </div>
         </div>
         <div id="patient-resource">
-          <div class="ds-u-font-size--lead ds-u-text-decoration--underline ds-u-font-weight--bold">
+          <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
             2. Patient
-          </div>
+          </h2>
           <div>
             {% include guide/patient_resource.html %}
           </div>
         </div>
         <div id="coverage-resource">
-          <div class="ds-u-font-size--lead ds-u-text-decoration--underline ds-u-font-weight--bold">
-            2. Coverage
-          </div>
+          <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+            3. Coverage
+          </h2>
           <div>
             {% include guide/coverage_resource.html %}
           </div>
         </div>
       </div>
       <div id="sandbox">
-        <div class="ds-u-font-size--display">
+        <h1>
           Sandbox
-        </div>
+        </h1>
         <div>
           {% include guide/sandbox.html %}
         </div>
       </div>
       <div id="try-the-api">
-        <div class="ds-u-font-size--display">
+        <h1>
           Try the API
-        </div>
+        </h1>
         <div>
           {% include guide/try_the_api.html %}
         </div>
