@@ -5,5 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfiles/Dockerfile.static_site
+    environment:
+      - JEKYLL_ENV=dev
     volumes:
       - .:/bcda-site-static
