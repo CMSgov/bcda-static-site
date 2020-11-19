@@ -33,9 +33,14 @@
 
 <h2>Request all three resource types</h2>
 
-<p>
-	<b>Note: We have provided a few examples below. But, we are retrieving resource types only from the /Patient endpoint for only certain resource types. The request and cURL statements can be altered to retrieve any combination of resource types and resource types from the /Group endpoint as needed.</b>
-</p>
+<div class="ds-c-alert ds-c-alert--hide-icon">
+    	<div class="ds-c-alert__body">
+    	  <h3 class="ds-c-alert__heading"> The examples below are for the /Patient endpoint.</h3>
+    	    <p class="ds-c-alert__text">
+    	      Note: We have provided a few examples below. But, we are retrieving resource types only from the /Patient endpoint for only certain resource types. The request and cURL statements can be altered to retrieve any combination of resource types and resource types from the /Group endpoint as needed.
+    	  	</p>
+    	</div>
+	</div>
 
 
 
@@ -222,212 +227,19 @@
 	<p>
 		This operation will allow you to obtain the exported data. Notice that the request contains the output URL for a job that is complete (200 OK status).
 	</p>
+	
+	<div class="ds-c-alert ds-c-alert--hide-icon">
+    	<div class="ds-c-alert__body">
+    	  <h3 class="ds-c-alert__heading"> Files expire after 24 hours.</h3>
+    	    <p class="ds-c-alert__text">
+				Note:: You will need to download the data file within 24 hours of starting the request to a specific endpoint. Otherwise, the files will expire and you will need to restart the job.
+			</p>	
+    	</div>
+	</div>
+	
 	<p>
-		<b>Note:: You will need to download the data file within 24 hours of starting the request to a specific endpoint. Otherwise, the files will expire and you will need to restart the job.</b>
-	</p>
-	<p>	
 		The "Accept-Encoding: gzip" header is optional, but will return a significantly smaller (40X smaller) file with a faster download speed. You	 will need to uncompress the file after downloa	ding 	if you supply this header. When downloading multiple files, you can further speed up the process by downloading multiple files concurrently.	
 	</p>	
 	<p>	
 		The response will be the requested data as FHIR resources in NDJSON format. Each file related to a different resource type will appear separately and labeled as to which resource type it 	contains. Examples of data from each Resource Type are available in the guide to working with BCDA data.
 	</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2>Requesting Filtered Data</h2>
-
-<p>
-	<b>Note: Before using _since for the first time, we recommend that you run an unfiltered request (without using _since) to all resource types on the /Patient endpoint in order to retrieve all historical data for your ACO's associated beneficiaries. You only need to do this once. On subsequent calls you can begin retrieving incremental claims data for your beneficiaries using _since. Use the transactionTime from your last bulk data request set as the _since date.</b>
-</p>
-<p>
-	You may want to obtain filtered data for all of your beneficiaries or for a subset of your beneficiaries in order to reduce file size and download time. You can make a request using the _since parameter to either the /Patient or /Group endpoints, but be wary that you understand the difference regarding new beneficiaries. You may want to do this as a repeating call or as a way to check for new data.
-</p>
-
-<h4>List of Requests</h4>
-	<p>
-		You can make a few different filtered requests for data:
-	</p>
-	<ol>
-		<li>Request the most recent data for all beneficiaries</li>
-		<li>Use _since within the /Patient endpoint</li>
-		<li>Request the most recent data for all beneficiaries AND historical data for newly added beneficiaries</li>
-		<li>Use _since within the /Group endpoint</li>
-	</ol>
-
-<h4>Steps</h4>
-	<p>
-		Each request will follow the same four step process as an unfiltered request:
-	</p>
-		<ol>
-			<li>Obtain an access token</li>
-			<li>Start a job to acquire data</li>
-			<li>Check the job status</li>
-			<li>Download the data</li>
-		</ol>
-	<p>
-		The only difference appears in the request of Step 2: Start a job to acquire data.
-	</p>
-
-
-<h3>Using the _since parameter</h3>
-
-<h4>Format dates and times by the FHIR standard</h4>
-	<p>
-	Dates and times submitted in _since must be listed in the FHIR instant format (YYYY-MM-DDThh:mm:sss+zz:zz).
-	</p>
-		<ul>
-			<li>Sample Date: February 20, 2020 12:00 PM EST</li>
-			<li>instant Format: YYYY-MM-DDThh:mm:sss+zz:zz</li>
-			<li>Formatted Sample: 2020-02-20T12:00:00.000-05:00</li>
-		</ul>
-	<p>
-		For more information consult <a href="https://www.hl7.org/fhir/datatypes.html#instant">FHIR Datatypes page</a>.
-	</p>
-
-<h4>Be wary of requesting data from before 02-12-2020</h4>
-	<p>
-		Due to limitations in the Beneficiary FHIR Data (BFD) Server, data from before 02-12-2020 is marked with the arbitrary <a href="https://www.hl7.org/fhir/search.html#lastUpdated">lastUpdated</a> date of 01-01-2020. If you input dates between 01-01-2020 and 02-11-2020 in the _since parameter, you will receive all historical data for your beneficiaries. Data loads from 02-12-2020 onwards have been marked with accurate dates.
-	</p>
-
-
-
-<h3>Request the most recent data for all beneficiaries</h3>
-
-<h4>Step 1: Obtain an Access Token</h4>
-<p>See <a href="https://bcda.cms.gov/production/technical-user-guide/#authentication-and-authorization">Authentication and Authorization</a> above.</p>
-
-<h4>Step 2: Start a job</h4>
-
-<h4>Request to start a job using the _since parameter with the /Patient endpoint</h4>
-	<code>
-		<p>GET /api/v1/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00</p>
-	</code>
-
-<h4>Request Headers</h4>
-	<code>
-	<ul>
-		<li>Authorization: Bearer {token}</li>
-		<li>Accept: application/fhir+json</li>
-		<li>Prefer: respond-async</li>
-	</ul>
-	</code>
-
-<h4>cURL Command using the _since parameter with the /Patient endpoint</h4>
-	<code>
-		<p>curl -X GET "https://api.bcda.cms.gov/api/v1/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00</p>
-		<p>-H 'Authorization: Bearer {token}' \</p>
-		<p>-H 'Accept: application/fhir+json' \</p>
-		<p>-H 'Prefer: respond-async'</p> 
-	</code>
-
-<h4>Response Example</h4>
-	<code>
-		<p>EMPTY_BODY</p>
-	</code>
-
-<h4>Response Headers</h4>
-	<code>
-		<p>Content-Location: <a href="https://api.bcda.cms.gov/api/v1/jobs/42">https://api.bcda.cms.gov/api/v1/jobs/42</a></p>
-	</code>
-
-<h4>Start a Job using _since with /Patient Explanation</h4>
-<p>This operation will start a job for data for all beneficiaries since the selected date: February 13, 2020. Notice that we are seeking data from the /Patient endpoint. This request would behave differently if it was made from the /Group endpoint. In the example, we request the Patient resource type. The steps and format would work similarly for other resource types.</p>
-<p>You must provide a _since date in the FHIR format. An access token as well as Accept and Prefer headers are required. The dollar sign ($) before the word "export" in the URL indicates that the endpoint is an action rather than a resource. The format is defined by the FHIR Bulk Data Export spec.</p>
-<p>If the request was successful, a 202 Accepted response code will be returned and the response will include a Content-Location header. The value of this header indicates the location to check for job status and outcome. In the example header below, the number 48 in the URL represents the ID of the export job.</p>
-
-
-<h4>Step 3: Check the job status</h4>
-<p>See <em>Step 3: Check the job status</em> in the Request Data section above.</p>
-
-<h4>Step 4: Download the data</h4>
-<p>See <em>Step 4: Download the data</em> in the Request Data section above.</p>
-
-
-
-
-
-
-<h3>Request recent data for current beneficiaries AND all historical data for newly attributed beneficiaries</h3>
-
-<h4>Step 1: Obtain an Access Token</h4>
-<p>See <a href="https://bcda.cms.gov/production/technical-user-guide/#authentication-and-authorization">Authentication and Authorization</a> above.</p>
-
-
-
-<h4>Step 2: Start a job</h4>
-
-<h4>Request to Start a job using the _since parameter with the /Group endpoint</h4>
-	<code>
-		<p>GET /api/v1/Group/all/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00</p>
-	</code>
-
-<h4>Request Headers</h4>
-	<code>
-		<ul>
-			<li>Authorization: Bearer {token}</li>
-			<li>Accept: application/fhir+json</li>
-			<li>Prefer: respond-asnc</li>
-		</ul>
-	</code>
-
-<h4>cURL Command using the _since parameter with the /Group endpoint</h4>
-	<code>
-		<p>curl -X GET "https://api.bcda.cms.gov/api/v1/Group/all/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00</p>
-		<p>-H 'Authorization: Bearer {token}' \</p>
-		<p>-H 'Accept: application/fhir+json' \</p>
-		<p>-H 'Prefer: respond-async'</p>
-	</code>
-
-<h4>Response Example</h4>
-	<code>
-		<p>
-		EMPTY_BODY
-		</p>
-	</code>
-
-<h4>Response Headers</h4>
-	<code>
-		<p>Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42</p>
-	</code>
-
-
-<h4>Start a Job using _since with /Group Explanation</h4>
-	<p>
-		This operation will start a job for filtered data for existing beneficiaries since 8PM EST on February 13th, 2020 and all data for newly assigned beneficiaries that month. Notice that a GET 	request is made to the /Group endpoint. This request would behave differently if it was made from the /Patient endpoint. In the example, we request the Patient resource type. The steps and form	at 	would work similarly for other resource types.
-	</p>	
-	<p>
-		You must provide the groupID of "all" as well a	s a _since date in the FHIR format. An access token as well as Accept and Prefer headers are required. The dollar sign ($) before the word 	"export" in the URL indicates that the endpoint is	 an action rather than a resource. The format is defined by the FHIR Bulk Data Export spec.
-	</p>	
-	<p>
-		If the request was successful, a 202 Accepted r	esponse code will be returned and the response will include a Content-Location header. The valu	e of this header indicates the location to c	heck 	for job status and outcome. In the example header 	below, the number 48 in the URL represents the ID of the export job.
-	</p>	
-	<p>
-		<b>Note:, Attribution Data: While most claims data is updated on a weekly cadence (and we encourage you to retrieve you	r ACO's claims data weekly), ACO attribution is only updated one time per 	month, so you will only be able to retrieve historical claims data for newly attributed beneficiaries once per month. Additional calls will only yield duplicative data for these newly attributed 
-	beneficiaries.</b>
-	</p>
-
-<h4>Step 3: Check the job status</h4>
-	<p>See <em>Step 3: Check the job status</em> in the Request Data section above.</p>
-
-<h4>Step 4: Download the data</h4>
-	<p>See <em>Step 4: Download the data</em> in the Request Data section above.</p>

@@ -61,6 +61,8 @@ layout: default
             </li>
           </ul>
         </li>
+
+
         <li class="ds-c-vertical-nav__item">
           <a
             class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
@@ -69,6 +71,7 @@ layout: default
             Requesting Data
           </a>
           <ul class="ds-c-vertical-nav__subnav">
+            
             <li class="ds-c-vertical-nav__subnav">
               <a
                 class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
@@ -77,26 +80,40 @@ layout: default
                 Request All Three Resource Types
               </a>
             </li>
+
+      <li class="ds-c-vertical-nav__item">
+          <a
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            href="#requesting-filtered-data"
+          >
+            Requesting Filtered Data
+          </a>
+          <ul class="ds-c-vertical-nav__subnav">
+            <li class="ds-c-vertical-nav__subnav">
+              <a
+                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                href="#request-all"
+              >
+                Request using _since with /Patient
+              </a>
+            </li>
+
+
             <li class="ds-c-vertical-nav__subnav">
               <a
                 class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
                 href="#request-filtered"
               >
-                Requesting Filtered Data
-              </a>
-            </li>
-            <li class="ds-c-vertical-nav__subnav">
-              <a
-                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
-                href="#request-recent-and-historical"
-              >
-                Request recent data AND historical data
+                Request using _since with /Group
               </a>
             </li>
           </ul>
         </li>
+
+
       </ul>
     </aside>
+    <!-- Table of Contents END -->
 
     <article id="content" class="ds-l-md-col--8 ds-l-lg-col--9">
       <div id="bcda-user-guide">
@@ -145,6 +162,14 @@ layout: default
         </h1>
         <div class="ds-u-font-size--base">
           {% include build/requesting_data.html %}
+        </div>
+      </div>
+      <div id="requesting-filtered-data">
+        <h1>
+          Requesting Filtered Data
+        </h1>
+        <div class="ds-u-font-size--base">
+          {% include build/requesting_filtered_data.html %}
         </div>
       </div>
     </article>
