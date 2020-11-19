@@ -112,6 +112,14 @@ layout: default
       </ul>
     </aside>
 
+
+
+
+
+
+
+
+
     <article id="content" class="ds-l-md-col--8 ds-l-lg-col--9">
       <div id="what-is-an-api">
         <h1>
@@ -129,13 +137,23 @@ layout: default
           {% include guide/what_is_fhir.html %}
         </div>
       </div>
+
+
       <div id="fhir-endpoints">
         <h1>
           BCDA's Bulk FHIR Endpoints
         </h1>
+        <div id="metadata-endpoint">
+          <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+            1. /Metadata endpoint
+          </h2>
+          <div>
+            {% include guide/metadata_endpoint.html %}
+          </div>
+        </div>
         <div id="patient-endpoint">
           <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
-            1. /Patient endpoint
+            2. /Patient endpoint
           </h2>
           <div>
             {% include guide/patient_endpoint.html %}
@@ -143,7 +161,7 @@ layout: default
         </div>
         <div id="group-endpoint">
           <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
-            2. /Group endpoint
+            3. /Group endpoint
           </h2>
           <div>
             {% include guide/group_endpoint.html %}
@@ -158,6 +176,10 @@ layout: default
           </div>
         </div>
       </div>
+
+
+
+
       <div id="fhir-types">
         <h1>
           BCDA's FHIR Resource Types
@@ -190,12 +212,59 @@ layout: default
           </div>
         </div>
       </div>
-      <div id="sandbox">
+
+
+
+      <div id="BCDA-parameters">
         <h1>
-          Sandbox
+          BCDA's Parameters
         </h1>
         <div>
-          {% include guide/sandbox.html %}
+          {% include guide/bcda_parameters.html %}
+        </div>
+        <div id="type-parameter">
+          <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+            1. The _type parameter
+          </h2>
+          <div>
+            {% include guide/type_parameter.html %}
+          </div>
+        </div>
+        <div id="since-parameter">
+          <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+            2. The _since parameter
+          </h2>
+          <div>
+            {% include guide/since_parameter.html %}
+          </div>
+        </div>
+      </div>
+
+
+
+
+<div id="BCDA-environments">
+        <h1>
+          BCDA's Environments
+        </h1>
+        <div>
+          {% include guide/bcda_environments.html %}
+        </div>
+        <div id="production-environment">
+          <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+            1. Production Environment
+          </h2>
+          <div>
+            {% include guide/production_environment.html %}
+          </div>
+        </div>
+        <div id="sandbox">
+          <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+            2. Sandbox Environment
+          </h2>
+          <div>
+            {% include guide/sandbox_environment.html %}
+          </div>
         </div>
       </div>
       <div id="try-the-api">
