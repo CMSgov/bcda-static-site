@@ -36,14 +36,21 @@
 <h4>
 	Access Token cURL Command
 </h4>
-<code>
-	cURL Option 1: This cURL command requires separate base-64 encryption. We have concatenated the base64 encoding of the ‘Client ID : Secret’ as the argument to the -H flag.
-	curl -d '' -X POST "https://api.bcda.cms.gov/auth/token" -H "accept: application/json" -H "authorization: Basic Mzg0MWM1OTQtYThjMC00MWU1LTk4Y2MtMzhiYjQ1MzYwZDNjOm\
-	Y5NzgwZDMyMzU4OGYxY2RmYzNlNjNlOTVhOGNiZGNkZDQ3NjAy\
-	ZmY0OGE1MzdiNTFkYzVkNzgzNGJmNDY2NDE2YTcxNmJkNDUwOGU5MDRh"
-	cURL Option 2: This cURL command innately encrypts your credentials with base-64 encryption
-	curl -d '' -X POST "https://api.bcda.cms.gov/auth/token" --user 3841c594-a8c0-41e5-98cc-38bb45360d3c:f9780d323588f1cdfc3e63e95a8cbdcdd47602ff48a537b51dc5d7834bf466416a716bd4508e904a -H "accept: 	application/json"
-</code>
+	<p>
+		cURL Option 1: This cURL command requires separate base-64 encryption. We have concatenated the base64 encoding of the ‘Client ID : Secret’ as the argument to the -H flag.
+	</p>
+	<code>
+		curl -d '' -X POST "https://api.bcda.cms.gov/auth/token" -H "accept: application/json" -H "authorization: Basic Mzg0MWM1OTQtYThjMC00MWU1LTk4Y2MtMzhiYjQ1MzYwZDNjOm\
+		Y5NzgwZDMyMzU4OGYxY2RmYzNlNjNlOTVhOGNiZGNkZDQ3NjAy\
+		ZmY0OGE1MzdiNTFkYzVkNzgzNGJmNDY2NDE2YTcxNmJkNDUwOGU5MDRh"
+	</code>	
+	
+	<p>
+		cURL Option 2: This cURL command innately encrypts your credentials with base-64 encryption
+	</p>
+	<code>		
+		curl -d '' -X POST "https://api.bcda.cms.gov/auth/token" --user 	3841c594-a8c0-41e5-98cc-38bb45360d3c:f9780d323588f1cdfc3e63e95a8cbdcdd47602ff48a537b51dc5d7834bf466416a716bd4508e904a -H "accept: 	application/json"
+	</code>
 
 <h4>
 	Access Token Response Example
