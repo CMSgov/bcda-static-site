@@ -14,6 +14,10 @@ layout: default
       The Quickstart Guide to BCDA
     </div>
   </div>
+
+
+
+
   <div class="ds-l-row ds-u-padding-top--2">
     <aside class="ds-u-margin-bottom--4 ds-u-md-margin-bottom--0 ds-l-md-col--4 ds-l-lg-col--3">
       <ul class="ds-c-vertical-nav sidenav">
@@ -93,6 +97,68 @@ layout: default
             </li>
           </ul>
         </li>
+        
+
+
+        <li class="ds-c-vertical-nav__item">
+          <a
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            href="#fhir-endpoints"
+          >
+            BCDA's Bulk FHIR Endpoints
+          </a>
+          <ul class="ds-c-vertical-nav__subnav">
+            <li class="ds-c-vertical-nav__subnav">
+              <a
+                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                href="#patient-endpoint"
+              >
+                /Patient Endpoint
+              </a>
+            </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a
+                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                href="#group-endpoint"
+              >
+                /Group Endpoint
+              </a>
+            </li>
+          </ul>
+        </li>
+
+
+
+        <li class="ds-c-vertical-nav__item">
+          <a
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            href="#BCDA-environments"
+          >
+            BCDA's Environments
+          </a>
+          <ul class="ds-c-vertical-nav__subnav">
+            <li class="ds-c-vertical-nav__subnav">
+              <a
+                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                href="#production-environment"
+              >
+                Production Environment
+              </a>
+            </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a
+                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                href="#sandbox-environment"
+              >
+                Sandbox Environment
+              </a>
+            </li>
+          </ul>
+        </li>
+
+
+
+
         <li class="ds-c-vertical-nav__item">
           <a
             class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
@@ -258,7 +324,7 @@ layout: default
             {% include guide/production_environment.html %}
           </div>
         </div>
-        <div id="sandbox">
+        <div id="sandbox-environment">
           <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
             2. Sandbox Environment
           </h2>
