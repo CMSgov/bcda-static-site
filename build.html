@@ -21,7 +21,7 @@ layout: default
       <ul class="ds-c-vertical-nav sidenav">
         <li class="ds-c-vertical-nav__item">
           <a
-            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label"
             href="#bcda-user-guide"
           >
             BCDA User Guide Documentation
@@ -29,7 +29,7 @@ layout: default
         </li>
         <li class="ds-c-vertical-nav__item">
           <a
-            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label"
             href="#request-metadata"
           >
           Request Metadata
@@ -37,7 +37,7 @@ layout: default
         </li>
         <li class="ds-c-vertical-nav__item">
           <a
-            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label"
             href="#authorization"
           >
             Authorization and Authentication
@@ -45,7 +45,7 @@ layout: default
           <ul class="ds-c-vertical-nav__subnav">
             <li class="ds-c-vertical-nav__subnav">
               <a
-                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                class="ds-c-vertical-nav__label ds-c-vertical-nav__label"
                 href="#bcda-credentials"
               >
                 Obtain your BCDA Credentials
@@ -53,7 +53,7 @@ layout: default
             </li>
             <li class="ds-c-vertical-nav__subnav">
               <a
-                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                class="ds-c-vertical-nav__label ds-c-vertical-nav__label"
                 href="#access-token"
               >
                 Obtain your Access Token
@@ -65,7 +65,7 @@ layout: default
 
         <li class="ds-c-vertical-nav__item">
           <a
-            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label"
             href="#requesting-data"
           >
             Requesting Data
@@ -74,16 +74,17 @@ layout: default
             
             <li class="ds-c-vertical-nav__subnav">
               <a
-                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
-                href="#request-all"
+                class="ds-c-vertical-nav__label ds-c-vertical-nav__label"
+                href="#requesting-all-three"
               >
-                Request All Three Resource Types
+                Request all three Resource Types
               </a>
             </li>
+          </ul>
 
       <li class="ds-c-vertical-nav__item">
           <a
-            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            class="ds-c-vertical-nav__label ds-c-vertical-nav__label"
             href="#requesting-filtered-data"
           >
             Requesting Filtered Data
@@ -91,18 +92,16 @@ layout: default
           <ul class="ds-c-vertical-nav__subnav">
             <li class="ds-c-vertical-nav__subnav">
               <a
-                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
-                href="#request-all"
+                class="ds-c-vertical-nav__label ds-c-vertical-nav__label"
+                href="#requesting-since-with-Patient"
               >
                 Request using _since with /Patient
               </a>
             </li>
-
-
             <li class="ds-c-vertical-nav__subnav">
               <a
-                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
-                href="#request-filtered"
+                class="ds-c-vertical-nav__label ds-c-vertical-nav__label"
+                href="#requesting-since-with-Group"
               >
                 Request using _since with /Group
               </a>
@@ -164,12 +163,36 @@ layout: default
           {% include build/requesting_data.html %}
         </div>
       </div>
+      <div id="requesting-all-three">
+        <h2>
+          Request All Three Resource Types
+        </h2>
+        <div class="ds-u-font-size--base">
+          {% include build/requesting_data_all_three.html %}
+        </div>
+      </div>
       <div id="requesting-filtered-data">
         <h1>
           Requesting Filtered Data
         </h1>
         <div class="ds-u-font-size--base">
           {% include build/requesting_filtered_data.html %}
+        </div>
+      </div>
+      <div id="requesting-since-with-Patient">
+        <h2>
+          Requesting using _since with the /Patient endpoint
+        </h2>
+        <div class="ds-u-font-size--base">
+          {% include build/requesting_filtered_data_since_Patient.html %}
+        </div>
+      </div>
+      <div id="requesting-since-with-Group">
+        <h2>
+          Requesting using _since with the /Group endpoint
+        </h2>
+        <div class="ds-u-font-size--base">
+          {% include build/requesting_filtered_data_since_Group.html %}
         </div>
       </div>
     </article>

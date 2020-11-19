@@ -1,0 +1,60 @@
+<h3>Request the most recent data for all beneficiaries</h3>
+
+<h3>Step 1: Obtain an Access Token</h3>
+<p>See <a href="https://bcda.cms.gov/production/technical-user-guide/#authentication-and-authorization">Authentication and Authorization</a> above.</p>
+
+<h3>Step 2: Start a job</h3>
+
+<h4>Request to start a job using the _since parameter with the /Patient endpoint</h4>
+	<code>
+		<p>GET /api/v1/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00</p>
+	</code>
+
+<h4>Request Headers</h4>
+	<code>
+	<ul>
+		<li>Authorization: Bearer {token}</li>
+		<li>Accept: application/fhir+json</li>
+		<li>Prefer: respond-async</li>
+	</ul>
+	</code>
+
+<h4>cURL Command using the _since parameter with the /Patient endpoint</h4>
+	<code>
+		<p>curl -X GET "https://api.bcda.cms.gov/api/v1/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00</p>
+		<p>-H 'Authorization: Bearer {token}' \</p>
+		<p>-H 'Accept: application/fhir+json' \</p>
+		<p>-H 'Prefer: respond-async'</p> 
+	</code>
+
+<h4>Response Example</h4>
+	<code>
+		<p>EMPTY_BODY</p>
+	</code>
+
+<h4>Response Headers</h4>
+	<code>
+		<p>Content-Location: <a href="https://api.bcda.cms.gov/api/v1/jobs/42">https://api.bcda.cms.gov/api/v1/jobs/42</a></p>
+	</code>
+
+<h4>Start a Job using _since with /Patient Explanation</h4>
+	<p>
+		This operation will start a job for data for all beneficiaries since the selected date: February 13, 2020. Notice that we are seeking data from the /Patient endpoint. This request would behave 	differently if it was made from the /Group endpoint. In the example, we request the Patient resource type. The steps and format would work similarly for other resource types.
+	</p>	
+	<p>
+		You must provide a _since date in the FHIR format. An access token as well as Accept and Prefer headers are required. The dollar sign ($) before the word "export" in the URL i	ndicates that the 	endpoint is an action rather than a resource. The format is defined by the FHIR Bulk Data Export spec.
+	</p>	
+	<p>
+		If the request was successful, a 202 Accepted response code will be returned and the response will include a Content-Location header. The value of this header indicates the location to check 	for job status and outcome. In the example header below, the number 48 in the URL represents the ID of the export job.
+	</p>
+
+
+<h3>Step 3: Check the job status</h3>
+	<p>
+		See <em>Step 3: Check the job status</em> in the Request Data section above.
+	</p>
+
+<h3>Step 4: Download the data</h3>
+	<p>
+		See <em>Step 4: Download the data</em> in the Request Data section above.
+	</p>
