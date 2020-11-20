@@ -11,7 +11,6 @@
 	<p>
 		See <a href="https://bcda.cms.gov/production/technical-user-guide/#authentication-and-authorization">Authentication and Authorization</a> above.
 	</p>
-d
 <h3>Step 2: Start a job to acquire data</h3>
 
 <h4>Requests to start a job</h4>
@@ -69,10 +68,10 @@ Prefer: respond-async
 		For all three resource types, a GET request is made to the /Patient endpoint without the _type query parameter. For one or two resource types, the desired resources are set in the _type query parameter. Notice that, for multiple resource types, they must be separated by commas.
 	</p>	
 	<p>
-		Your access token is required and set as a header. Accept and Prefer headers are also r	equired. The dollar sign ('$') before the word "export" in the URL indicates that the endpoint is an action rather than a resource. The format is defined by the FHIR Bulk Data Export spec.
+		Your access token is required and set as a header. Accept and Prefer headers are also required. The dollar sign ('$') before the word "export" in the URL indicates that the endpoint is an action rather than a resource. The format is defined by the FHIR Bulk Data Export spec.
 	</p>	
 	<p>
-		If the request was successful, a 202 Accepted response code will be returned and the re	sponse will include a Content-Location header. The value of this header indicates the location to check for job status and outcome. In the example header below, the number 42 in the URL represents the ID of the export job.
+		If the request was successful, a 202 Accepted response code will be returned and the response will include a Content-Location header. The value of this header indicates the location to check for job status and outcome. In the example header below, the number 42 in the URL represents the ID of the export job.
 	</p>
 	<p>
 		If you're already requesting data from one endpoint and try to request data from that endpoint again while the first request is processing, you'll receive a 429 Too Many Requests error.

@@ -35,7 +35,7 @@ Prefer: respond-async
 		This operation will start a job for data for all beneficiaries since the selected date: February 13, 2020. Notice that we are seeking data from the /Patient endpoint. This request would behave 	differently if it was made from the /Group endpoint. In the example, we request the Patient resource type. The steps and format would work similarly for other resource types.
 	</p>	
 	<p>
-		You must provide a _since date in the FHIR format. An access token as well as Accept and Prefer headers are required. The dollar sign ($) before the word "export" in the URL i	ndicates that the 	endpoint is an action rather than a resource. The format is defined by the FHIR Bulk Data Export spec.
+		You must provide a _since date in the FHIR format. An access token as well as Accept and Prefer headers are required. The dollar sign ($) before the word "export" in the URL indicates that the 	endpoint is an action rather than a resource. The format is defined by the FHIR Bulk Data Export spec.
 	</p>	
 	<p>
 		If the request was successful, a 202 Accepted response code will be returned and the response will include a Content-Location header. The value of this header indicates the location to check 	for job status and outcome. In the example header below, the number 48 in the URL represents the ID of the export job.
