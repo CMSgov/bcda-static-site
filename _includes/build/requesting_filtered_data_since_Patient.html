@@ -6,36 +6,29 @@
 <h3>Step 2: Start a job</h3>
 
 <h4>Request to start a job using the _since parameter with the /Patient endpoint</h4>
-	<code>
-		<p>GET /api/v1/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00</p>
-	</code>
+	<pre><code>GET /api/v1/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00</code></pre>
 
 <h4>Request Headers</h4>
-	<code>
-	<ul>
-		<li>Authorization: Bearer {token}</li>
-		<li>Accept: application/fhir+json</li>
-		<li>Prefer: respond-async</li>
-	</ul>
-	</code>
+<pre><code>Authorization: Bearer <span style="color: #046B99;">{access_token}</span>
+Accept: application/fhir+json
+Prefer: respond-async
+</code></pre>
 
 <h4>cURL Command using the _since parameter with the /Patient endpoint</h4>
-	<code>
-		<p>curl -X GET "https://api.bcda.cms.gov/api/v1/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00</p>
-		<p>-H 'Authorization: Bearer {token}' \</p>
-		<p>-H 'Accept: application/fhir+json' \</p>
-		<p>-H 'Prefer: respond-async'</p> 
-	</code>
+	<pre><code>curl -X GET 'https://api.bcda.cms.gov/api/v1/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00' \
+	-H "Accept: application/fhir+json" \
+	-H "Prefer: respond-async" \
+	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
 
-<h4>Response Example</h4>
-	<code>
-		<p>EMPTY_BODY</p>
-	</code>
+<h4>Response Example: Successful Request</h4>
+<pre><code>202 Accepted</code></pre>
+
+<h4>Response Example: Too Many Requests</h4>
+<pre><code>429 Too Many Requests</code></pre>
 
 <h4>Response Headers</h4>
-	<code>
-		<p>Content-Location: <a href="https://api.bcda.cms.gov/api/v1/jobs/42">https://api.bcda.cms.gov/api/v1/jobs/42</a></p>
-	</code>
+<pre><code>Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42</code></pre>
+
 
 <h4>Start a Job using _since with /Patient Explanation</h4>
 	<p>
@@ -50,11 +43,7 @@
 
 
 <h3>Step 3: Check the job status</h3>
-	<p>
-		See <em>Step 3: Check the job status</em> in the Request Data section above.
-	</p>
+<p>See <a href="#checkJob"><em>Step 3: Check the job status</em></a> in the Request Data section above.</p>
 
 <h3>Step 4: Download the data</h3>
-	<p>
-		See <em>Step 4: Download the data</em> in the Request Data section above.
-	</p>
+<p>See <a href="#downloadData"><em>Step 4: Download the data</em></a> in the Request Data section above.</p>
