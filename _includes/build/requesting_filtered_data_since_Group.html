@@ -10,38 +10,28 @@
 <h3>Step 2: Start a job</h3>
 
 <h4>Request to Start a job using the _since parameter with the /Group endpoint</h4>
-	<code>
-		<p>GET /api/v1/Group/all/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00</p>
-	</code>
+	<pre><code>GET /api/v1/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00</code></pre>
 
 <h4>Request Headers</h4>
-	<code>
-		<ul>
-			<li>Authorization: Bearer {token}</li>
-			<li>Accept: application/fhir+json</li>
-			<li>Prefer: respond-asnc</li>
-		</ul>
-	</code>
+<pre><code>Authorization: Bearer <span style="color: #046B99;">{access_token}</span>
+Accept: application/fhir+json
+Prefer: respond-async
+</code></pre>
 
 <h4>cURL Command using the _since parameter with the /Group endpoint</h4>
-	<code>
-		<p>curl -X GET "https://api.bcda.cms.gov/api/v1/Group/all/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00</p>
-		<p>-H 'Authorization: Bearer {token}' \</p>
-		<p>-H 'Accept: application/fhir+json' \</p>
-		<p>-H 'Prefer: respond-async'</p>
-	</code>
+	<pre><code>curl -X GET 'https://api.bcda.cms.gov/api/v1/Group/all/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00' \
+	-H "Accept: application/fhir+json" \
+	-H "Prefer: respond-async" \
+	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
 
-<h4>Response Example</h4>
-	<code>
-		<p>
-		EMPTY_BODY
-		</p>
-	</code>
+<h4>Response Example: Successful Request</h4>
+<pre><code>202 Accepted</code></pre>
+
+<h4>Response Example: Too Many Requests</h4>
+<pre><code>429 Too Many Requests</code></pre>
 
 <h4>Response Headers</h4>
-	<code>
-		<p>Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42</p>
-	</code>
+<pre><code>Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42</code></pre>
 
 
 <h4>Start a Job using _since with /Group Explanation</h4>
@@ -49,10 +39,10 @@
 		This operation will start a job for filtered data for existing beneficiaries since 8PM EST on February 13th, 2020 and all data for newly assigned beneficiaries that month. Notice that a GET 	request is made to the /Group endpoint. This request would behave differently if it was made from the /Patient endpoint. In the example, we request the Patient resource type. The steps and form	at 	would work similarly for other resource types.
 	</p>	
 	<p>
-		You must provide the groupID of "all" as well a	s a _since date in the FHIR format. An access token as well as Accept and Prefer headers are required. The dollar sign ($) before the word 	"export" in the URL indicates that the endpoint is	 an action rather than a resource. The format is defined by the FHIR Bulk Data Export spec.
+		You must provide the groupID of "all" as well as a _since date in the FHIR format. An access token as well as Accept and Prefer headers are required. The dollar sign ($) before the word 	"export" in the URL indicates that the endpoint is	 an action rather than a resource. The format is defined by the FHIR Bulk Data Export spec.
 	</p>	
 	<p>
-		If the request was successful, a 202 Accepted r	esponse code will be returned and the response will include a Content-Location header. The valu	e of this header indicates the location to c	heck 	for job status and outcome. In the example header 	below, the number 48 in the URL represents the ID of the export job.
+		If the request was successful, a 202 Accepted response code will be returned and the response will include a Content-Location header. The value of this header indicates the location to check 	for job status and outcome. In the example header 	below, the number 48 in the URL represents the ID of the export job.
 	</p>	
 	
 	<div class="ds-c-alert ds-c-alert--hide-icon">
