@@ -7,6 +7,9 @@
 <p>
 	For far more detail for each of these steps and for retrieving production data, see the <a href=/build.html target="_blank"> Building Your Application</a> page.
 </p>
+
+
+
 <H3>
 	Step 1: Authentication
 </H3>
@@ -16,21 +19,29 @@
 <H4>
 	Sample credentials for an Extra-Small ACO (25 beneficiaries)
 </H4>
-<p>
-	Client ID:
-	09869a7f-46ce-4908-a914-6129d080a2ae
-	<br />
-	Client Secret:
-	64916fe96f71adc79c5735e49f4e72f18ff941d0dd62cf43ee1ae0857e204f173ba10e4250c12c48
-</p>
+	<code>
+		<p>
+			Client ID:
+			09869a7f-46ce-4908-a914-6129d080a2ae
+		</p>
+		<p>
+			Client Secret:
+			64916fe96f71adc79c5735e49f4e72f18ff941d0dd62cf43ee1ae0857e204f173ba10e4250c12c48
+		</p>
+	</code>
+
 <H4>
 	cURL Command to Submit Credentials for an Access Token
 </H4>
-<p>
-	curl -d '' -X POST "https://api.bcda.cms.gov/auth/token" --user {Client ID:Client Secret} \
-	<br />
-	-H "accept: application/json"
-</p>
+	<code>
+		<p>
+			curl -d '' -X POST "https://api.bcda.cms.gov/auth/token" --user <client secret>
+		</p>		
+		<p>
+			-H "accept: application/json"
+		</p>
+	</code>
+
 <H4>
 	Authentication Response
 </H4>
@@ -39,21 +50,31 @@
 </p>
 
 
+
+
 <H3>
 	Step 2: Start a Job
 </H3>
 <H4>
 	Sample cURL Command
 </H4>
-<p>
-	curl -X GET "https://api.bcda.cms.gov/api/v1/Patient/$export" \
-	<br />
-	-H "accept: application/fhir+json" \
-	<br />
-	-H "Prefer: respond-async" \
-	<br />
-	-H "Authorization: Bearer {token}"
-</p>
+	<code>	
+		<p>
+			curl -X GET "https://api.bcda.cms.gov/api/v1/Patient/$export"
+		<p>
+			-H "accept: application/fhir+json"
+		</p>
+		<p>
+			-H "Prefer: respond-async"
+		</p>
+		<p>
+			-H "Authorization: Bearer {token}"`
+		</p>
+		</p>
+	</code>
+
+
+
 
 <H3>
 	Step 3: Check the Job Status
@@ -61,13 +82,21 @@
 <H4>
 	Sample cURL Command
 </H4>
-<p>
-	curl -X GET "https://api.bcda.cms.gov/api/v1/jobs/42" \
-	<br />
-	-H "accept: application/fhir+json" \
-	<br />
-	-H "Authorization: Bearer {token}"
-</p>
+	<code>
+		<p>
+			curl -X GET "https://api.bcda.cms.gov/api/v1/jobs/42" \
+		<p>
+			-H "accept: application/fhir+json" \
+		</p>
+		<p>
+			-H "Authorization: Bearer {token}"
+		</p>
+		</p>
+	</code>
+
+
+
+
 
 <H3>
 	Step 4: Download the Data
@@ -75,10 +104,14 @@
 <H4>
 	Sample cURL Command
 </H4>
-<p>
-	curl https://api.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson \
-	<br />
-	-H 'Authorization: Bearer {token}' \
-	<br />
-	-H ‘Accept-Encoding: gzip’
-</p>
+	<code>	
+		<p>
+			curl https://api.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson \
+		</p>
+		<p>
+			-H 'Authorization: Bearer {token}'
+		</p>
+		<p>
+			-H ‘Accept-Encoding: gzip’
+		</p>
+	</code>
