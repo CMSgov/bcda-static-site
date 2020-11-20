@@ -68,7 +68,4 @@ sass:
   style: compressed
 
 collections:
-  updates:
-    output: false
-  pizza:
-    output: false
+  - updates
