@@ -57,6 +57,8 @@ exclude:
   - Dockerfiles/
   - docker-compose.yml
   - node_modules/
+  - _updates/README.md
+  - _updates/example_update.html
 
 sass:
   sass_dir: _sass
@@ -64,3 +66,6 @@ sass:
     - _sass
     - node_modules
   style: compressed
+
+collections:
+  - updates
