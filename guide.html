@@ -14,12 +14,16 @@ layout: default
       The Quickstart Guide to BCDA
     </div>
   </div>
+
+
+
+
   <div class="ds-l-row ds-u-padding-top--2">
     <aside class="ds-u-margin-bottom--4 ds-u-md-margin-bottom--0 ds-l-md-col--4 ds-l-lg-col--3">
       <ul class="ds-c-vertical-nav sidenav">
         <li class="ds-c-vertical-nav__item">
           <a
-            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            class="ds-c-vertical-nav__label"
             href="#what-is-an-api"
           >
             What is an API
@@ -27,7 +31,7 @@ layout: default
         </li>
         <li class="ds-c-vertical-nav__item">
           <a
-            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            class="ds-c-vertical-nav__label"
             href="#what-is-fhir"
           >
             What is FHIR
@@ -35,7 +39,7 @@ layout: default
         </li>
         <li class="ds-c-vertical-nav__item">
           <a
-            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            class="ds-c-vertical-nav__label"
             href="#fhir-endpoints"
           >
             BCDA's Bulk FHIR Endpoints
@@ -43,7 +47,7 @@ layout: default
           <ul class="ds-c-vertical-nav__subnav">
             <li class="ds-c-vertical-nav__subnav">
               <a
-                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                class="ds-c-vertical-nav__label"
                 href="#patient-endpoint"
               >
                 /Patient Endpoint
@@ -51,7 +55,7 @@ layout: default
             </li>
             <li class="ds-c-vertical-nav__subnav">
               <a
-                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                class="ds-c-vertical-nav__label"
                 href="#group-endpoint"
               >
                 /Group Endpoint
@@ -61,7 +65,7 @@ layout: default
         </li>
         <li class="ds-c-vertical-nav__item">
           <a
-            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            class="ds-c-vertical-nav__label"
             href="#fhir-types"
           >
             FHIR Resource Types
@@ -69,7 +73,7 @@ layout: default
           <ul class="ds-c-vertical-nav__subnav">
             <li class="ds-c-vertical-nav__subnav">
               <a
-                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                class="ds-c-vertical-nav__label"
                 href="#eob-resource"
               >
                 Explanation of Benefit (EOB)
@@ -77,7 +81,7 @@ layout: default
             </li>
             <li class="ds-c-vertical-nav__subnav">
               <a
-                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                class="ds-c-vertical-nav__label"
                 href="#patient-resource"
               >
                 Patient
@@ -85,7 +89,7 @@ layout: default
             </li>
             <li class="ds-c-vertical-nav__subnav">
               <a
-                class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+                class="ds-c-vertical-nav__label"
                 href="#coverage-resource"
               >
                 Coverage
@@ -93,9 +97,71 @@ layout: default
             </li>
           </ul>
         </li>
+        
+
+
         <li class="ds-c-vertical-nav__item">
           <a
-            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            class="ds-c-vertical-nav__label"
+            href="#fhir-endpoints"
+          >
+            BCDA's Bulk FHIR Endpoints
+          </a>
+          <ul class="ds-c-vertical-nav__subnav">
+            <li class="ds-c-vertical-nav__subnav">
+              <a
+                class="ds-c-vertical-nav__label"
+                href="#patient-endpoint"
+              >
+                /Patient Endpoint
+              </a>
+            </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a
+                class="ds-c-vertical-nav__label"
+                href="#group-endpoint"
+              >
+                /Group Endpoint
+              </a>
+            </li>
+          </ul>
+        </li>
+
+
+
+        <li class="ds-c-vertical-nav__item">
+          <a
+            class="ds-c-vertical-nav__label"
+            href="#BCDA-environments"
+          >
+            BCDA's Environments
+          </a>
+          <ul class="ds-c-vertical-nav__subnav">
+            <li class="ds-c-vertical-nav__subnav">
+              <a
+                class="ds-c-vertical-nav__label"
+                href="#production-environment"
+              >
+                Production Environment
+              </a>
+            </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a
+                class="ds-c-vertical-nav__label"
+                href="#sandbox-environment"
+              >
+                Sandbox Environment
+              </a>
+            </li>
+          </ul>
+        </li>
+
+
+
+
+        <li class="ds-c-vertical-nav__item">
+          <a
+            class="ds-c-vertical-nav__label"
             href="#sandbox"
           >
             Sandbox
@@ -103,7 +169,7 @@ layout: default
         </li>
         <li class="ds-c-vertical-nav__item">
           <a
-            class="ds-c-vertical-nav__label ds-c-vertical-nav__label--current"
+            class="ds-c-vertical-nav__label"
             href="#try-the-api"
           >
             Try the API
@@ -111,6 +177,14 @@ layout: default
         </li>
       </ul>
     </aside>
+
+
+
+
+
+
+
+
 
     <article id="content" class="ds-l-md-col--8 ds-l-lg-col--9">
       <div id="what-is-an-api">
@@ -129,13 +203,23 @@ layout: default
           {% include guide/what_is_fhir.html %}
         </div>
       </div>
+
+
       <div id="fhir-endpoints">
         <h1>
           BCDA's Bulk FHIR Endpoints
         </h1>
+        <div id="metadata-endpoint">
+          <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+            1. /Metadata endpoint
+          </h2>
+          <div>
+            {% include guide/metadata_endpoint.html %}
+          </div>
+        </div>
         <div id="patient-endpoint">
           <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
-            1. /Patient endpoint
+            2. /Patient endpoint
           </h2>
           <div>
             {% include guide/patient_endpoint.html %}
@@ -143,7 +227,7 @@ layout: default
         </div>
         <div id="group-endpoint">
           <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
-            2. /Group endpoint
+            3. /Group endpoint
           </h2>
           <div>
             {% include guide/group_endpoint.html %}
@@ -158,6 +242,10 @@ layout: default
           </div>
         </div>
       </div>
+
+
+
+
       <div id="fhir-types">
         <h1>
           BCDA's FHIR Resource Types
@@ -190,12 +278,59 @@ layout: default
           </div>
         </div>
       </div>
-      <div id="sandbox">
+
+
+
+      <div id="BCDA-parameters">
         <h1>
-          Sandbox
+          BCDA's Parameters
         </h1>
         <div>
-          {% include guide/sandbox.html %}
+          {% include guide/bcda_parameters.html %}
+        </div>
+        <div id="type-parameter">
+          <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+            1. The _type parameter
+          </h2>
+          <div>
+            {% include guide/type_parameter.html %}
+          </div>
+        </div>
+        <div id="since-parameter">
+          <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+            2. The _since parameter
+          </h2>
+          <div>
+            {% include guide/since_parameter.html %}
+          </div>
+        </div>
+      </div>
+
+
+
+
+<div id="BCDA-environments">
+        <h1>
+          BCDA's Environments
+        </h1>
+        <div>
+          {% include guide/bcda_environments.html %}
+        </div>
+        <div id="production-environment">
+          <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+            1. Production Environment
+          </h2>
+          <div>
+            {% include guide/production_environment.html %}
+          </div>
+        </div>
+        <div id="sandbox-environment">
+          <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+            2. Sandbox Environment
+          </h2>
+          <div>
+            {% include guide/sandbox_environment.html %}
+          </div>
         </div>
       </div>
       <div id="try-the-api">
