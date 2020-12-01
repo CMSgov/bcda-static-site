@@ -1,11 +1,6 @@
 <p>
-	The /Patient endpoint allows you to request ExplanationOfBenefit, Patient, and/or Coverage data for all beneficiaries assigned or assignable to your ACO. 
+	In order to obtain your organization’s claims data in the production environment, you must have obtained API credentials from either the ACO-MS system (for Shared Savings Program ACO’s) or specifically from a member of the BCDA team. Every request demands a bearer token which can only be obtained with active BCDA credentials.
 </p>
-
 <p>
-	Note that the /Patient endpoint does not allow requests for data patient-by-patient. By the Bulk FHIR specification, only data for all patients associated with the authorized users’ credentials can be returned.
-</p>
-
-<p>
-	You may also filter data by date using the _since parameter. If no filter is applied, a request to the /Patient endpoint in BCDA returns seven years of historical data for all assigned and assignable beneficiaries.
+	Representatives of SSP ACOs are now able to generate BCDA credentials in their ACO-MS portal accounts. To view instructions on how to generate API credentials, log into your ACO-MS account and navigate to the ACO-MS Knowledge Library. Before you generate BCDA credentials, please try out the BCDA Sandbox experience.
 </p>

@@ -1,6 +1,12 @@
 <p>
-  Both /Patient and /Group support the _since parameter, but they have a key difference in how new beneficiaries are treated. 
+  Both /Patient and /Group support the _since parameter, but they have a key difference in how new beneficiaries are treated. New beneficiaries are those that are newly assigned to you since your last attribution date. 
 </p>
 <p>
-  If you use _since within the /Group endpoint, you will receive claims data since the date of your choice for existing beneficiaries AND you will also receive 7 years of historical data for all beneficiaries that are newly attributed to your ACO. Learn more about how to retrieve the most current beneficiary claims data for existing beneficiaries AND historical data for newly attributed beneficiaries
+	If you use _since within the /Patient endpoint, you will receive data filtered since the selected date for ALL of your assigned and assignable beneficiaries. Here, new beneficiary data is filtered along with all other beneficiaries.
+</p>
+<p>
+	If you use _since within the /Group endpoint, you will receive data filtered since the selected date for your existing beneficiaries AND you will receive 7 years of historical data unfiltered by date for new beneficiaires. Here, new beneficiaries are excluded from the _since filter so that your organization can easily retrieve all new data with a single request.
+</p>
+<p>
+	For more detail on these differences and examples of how to make the requests, see the <a href="/build/#requesting-filtered-data"><em>Step 3: Check the job status</em></a> Filtered Data section.
 </p>

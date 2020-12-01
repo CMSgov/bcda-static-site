@@ -1,15 +1,13 @@
-<h3>Request recent data for current beneficiaries AND all historical data for newly attributed beneficiaries</h3>
-
 <h3>Step 1: Obtain an Access Token</h3>
 	<p>
-		See <a href="https://bcda.cms.gov/production/technical-user-guide/#authentication-and-authorization">Authentication and Authorization</a> above.
+		See <a href="#authorization">Authentication and Authorization</a> above.
 	</p>
 
 
 
 <h3>Step 2: Start a job</h3>
 
-<h4>Request to Start a job using the _since parameter with the /Group endpoint</h4>
+<h4>Request to Start a job using the _since parameter within the /Group endpoint</h4>
 	<pre><code>GET /api/v1/Group/all/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00</code></pre>
 
 <h4>Request Headers</h4>
@@ -18,7 +16,7 @@ Accept: application/fhir+json
 Prefer: respond-async
 </code></pre>
 
-<h4>cURL Command using the _since parameter with the /Group endpoint</h4>
+<h4>cURL Command using the _since parameter within the /Group endpoint</h4>
 	<pre><code>curl -X GET 'https://api.bcda.cms.gov/api/v1/Group/all/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00' \
 	-H "Accept: application/fhir+json" \
 	-H "Prefer: respond-async" \
@@ -34,9 +32,9 @@ Prefer: respond-async
 <pre><code>Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42</code></pre>
 
 
-<h4>Start a Job using _since with /Group Explanation</h4>
+<h4>Start a Job using _since within the /Group endpoint Explanation</h4>
 	<p>
-		This operation will start a job for filtered data for existing beneficiaries since 8PM EST on February 13th, 2020 and all data for newly assigned beneficiaries that month. Notice that a GET 	request is made to the /Group endpoint. This request would behave differently if it was made from the /Patient endpoint. In the example, we request the Patient resource type. The steps and form	at 	would work similarly for other resource types.
+		This operation will start a job for filtered data for existing beneficiaries since 8PM EST on February 13th, 2020 and all 7 years of historical data for beneficiaries assigned to your organization in the last month. In the example, we request the Patient resource type. The steps and format would work similarly for other resource types.
 	</p>	
 	<p>
 		You must provide the groupID of "all" as well as a _since date in the FHIR format. An access token as well as Accept and Prefer headers are required. The dollar sign ($) before the word 	"export" in the URL indicates that the endpoint is	 an action rather than a resource. The format is defined by the FHIR Bulk Data Export spec.

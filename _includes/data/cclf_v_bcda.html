@@ -1,9 +1,9 @@
 <div>
-  <p>The goal of the Beneficiary Claims Data API (BCDA) is to provide Accountable Care Organizations with the same claims data as they were receiving in Claims and Claim-line Feeds (CCLFs). The data delivered to you via BCDA should be the same information as the CCLFs, however this data is now delivered in a new format.</p>
-  <p>BCDA follows the bulk FHIR specification, and provides the same data as the CCLFs using three FHIR resources: explanation of benefit, patient, and coverage. This means that your claims data will arrive in three files, rather than 12, and will already provide links between claim lines in the same claim.</p>
+  <p>The goal of the Beneficiary Claims Data API (BCDA) is to provide Accountable Care Organizations with the same claims data as they were receiving in Claim and Claim-line Feeds (CCLFs). The data delivered to you via BCDA should be the same information as the CCLFs, however this data is now delivered in a new format.</p>
+  <p>BCDA follows the bulk FHIR specification, and provides the same data as the CCLFs using three FHIR resources: Explanation Of Benefit (EOB), Patient, and Coverage. This means that your claims data will be delivered through three resource types rather than 12 CCLF files.</p>
   <ul>
-    <li> The <b>Explanation of Benefit</b> file provides the same information you’ve previously received in CCLF files 1-7. This file contains the lines within an episode of care, including where and when the service was performed, the diagnosis codes, the provider who performed the service, and the cost of care.</li>
-    <li>The <b>Patient</b> file can be thought of as your CCLF files 8 and 9: this is where you get your information about who your beneficiaries are, their demographic information, and updates to their patient identifiers.</li>
-    <li>The <b>Coverage</b> file provides information about the beneficiaries’ insurance coverage, including information about dual coverage.</li>
+    <li> The <b>Explanation of Benefit</b> resource type provides the same information you’ve previously received in CCLF files 1-7. The EOB files contain the lines within an episode of care, including where and when the service was performed, the diagnosis codes, the provider who performed the service, and the cost of care.</li>
+    <li>The <b>Patient</b> resource type can be thought of as your CCLF files 8 and 9: this is where you get your information about who your beneficiaries are, their demographic information, and updates to their patient identifiers.</li>
+    <li>The <b>Coverage</b> resource type provides information about the beneficiaries’ insurance coverage, including information about dual coverage.</li>
   </ul>
 </div>
