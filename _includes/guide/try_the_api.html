@@ -1,5 +1,5 @@
 <p>
-	To get you started with the BCDA API, we have provided the bare minimum steps to access data in the sandbox! Using the four cURL commands below, you should be able to walk through the standard process of retrieving data from the API. This standard process is:
+	To get you started with the BCDA API, we have provided the bare minimum steps to access data in the sandbox. Using the four cURL commands below, you should be able to walk through the standard process of retrieving data from the API:
 </p>
 <ol>
 	<li>Obtain an access token: How do I show the API that I can receive this data?</li>
@@ -8,10 +8,10 @@
 	<li>Download the data: Pull the pie out of the oven.</li>
 </ol>
 <p>
-	All requests for BCDA data follow this four step process, as do other API's following the Bulk FHIR specifications.
+	All requests for BCDA data follow this four step process, as do other APIs following the Bulk FHIR specifications.
 </p>
 <p>
-	For far more detail for each of these steps and for retrieving production data, see the <a href=/build.html target="_blank"> Building Your Application</a> page. For this short demo, please follow along in your Terminal window or through an application such as Postman.
+	For far more detail for each of these steps and specific information for retrieving production data, see the <a href=/build.html target="_blank"> Building Your Application</a> page. For this short demo, please follow along in your Terminal window or through an application such as Postman.
 </p>
 
 
@@ -64,7 +64,7 @@
 	With our new access token, we are clear to make more requests to the API. We will now tell the server to serve up our data.
 </p>
 <p>
-	In this simple example, we're requesting data from the /Patient endpoint with no date filter (no _since parameter) and no specified resource type (no _type parameter). We will include the long string of characters from the previous step (our access token) in the authorization header (-H "Authorization: Bearer "). Notice that we need to include the word Bearer with a space before the access token.
+	In this example, we're requesting data from the /Patient endpoint with no date filter (no _since parameter) and no specified resource type (no _type parameter). We will include the long string of characters from the previous step (our access token) in the authorization header (-H "Authorization: Bearer "). Notice that we need to include the word Bearer with a space before the access token.
 </p>
 	<H4>
 		Sample cURL Command to Start a Job
@@ -77,7 +77,7 @@
 
 <h4>Response Example after Starting a Job</h4>
 <p>
-	We've just started a data export job! It may take some time to complete, depending on how much claims data is contained in our job.
+	We've now started a data export job. It may take some time to complete, depending on how much claims data is contained in our job.
 </p>
 <p>
 	If the request was successful, we will receive a response with the code 202 containing a few headers. One of the headers (Content-Location) will contain a URL. Notice that the URL ends in a number. This is the Job ID of the job we just started. In the next step, we will use this URL and Job ID to check if the server is done preparing our file(s).
@@ -98,7 +98,7 @@ Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42
 	Step 3: Check the Job Status
 </H3>
 <p>
-	Now that our job is in progress, we can check back in occasionally to see if it is finished. The data for our synthetic, sandbox ACOs should not take too long to compile.
+	Now that our job is in progress, we can check back in occasionally to see if it is finished. The data for our synthetic sandbox ACOs should not take too long to compile.
 </p>
 <p>
 	We will make a request to the API to check on our job. Notice the URL in the first line (curl -X GET "URL") is the same as the URL from the previous step in the Content-Location header.
@@ -114,7 +114,7 @@ Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42
 	Response Example after Checking on a Job
 </h4>
 <p>
-	It looks like our job is finished and our data is ready to be downloaded!
+	It looks like our job is finished and our data is ready to be downloaded.
 </p>
 <p>
 	If the request was successful, and the job is finished, we will receive a response containing many headers. Some of these headers ("url") will contain a URL. Each of these URLs corresponds to a file containing claims data. We received three files: one for each resource type. We will use these URLs to download the data in the final step.
@@ -148,7 +148,7 @@ Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42
 	Step 4: Download the Data
 </H3>
 <p>
-	The final step in the workflow is to download your data. Simply make another request to the API, this time using any of the URLs retrieved in the previous step. Each URL corresponds to a single file and will begin the download of that file. We will need to make three download requests to get all three of our files.
+	The final step in the workflow is to download your data. Make another request to the API, this time using any of the URLs retrieved in the previous step. Each URL corresponds to a single file and will begin the download of that file. We will need to make three download requests to get all three of our files.
 </p>
 	<H4>
 		Sample cURL Command to Download the Data
@@ -180,5 +180,5 @@ Response Example after Downloading the Data
 	If the all of the steps above worked, you will now have files of synthetic beneficiary claims data on your local machine! You have walked through the process of proving your authentication to the API, starting a job to compile your data, checking on that job using its ID number, and downloading the results using the filenames. This four step process is universal for BCDA data requests (and many other Bulk FHIR workflows).
 </p>
 <p>
-	Remember, this was just the most basic call for claims data that could be made to the BCDA. To see how to download different combinations of Resource Types, filter data by date, filter some beneficiary data by date while retrieving all data for others, and (most importantly) to download data for your organizations' real beneficiaries, see the Building Your Application page!
+	Remember, this was just the most basic call for claims data that could be made to the BCDA. To see how to download different combinations of Resource Types, filter data by date, filter some beneficiary data by date while retrieving all data for others, and (most importantly) to download data for your organizations' real beneficiaries, see the Building Your Application page.
 </p>
