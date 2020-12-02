@@ -59,7 +59,7 @@ exclude:
   - node_modules/
   - _updates/README.md
   - _updates/example_update.html
-  - terms.html # Not publishing ToS page until it becomes ready
+  - terms.html # Not publishing ToS page until it becomes ready (See BCDA-4024 for re-enablement)
 
 sass:
   sass_dir: _sass
