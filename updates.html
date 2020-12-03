@@ -3,7 +3,7 @@ id: updates
 title: Updates
 layout: default
 ---
-<main class="ds-base ds-l-container">
+<div class="ds-base ds-l-container">
   <div class="ds-l-row ds-u-fill--primary-darker">
     <div class="ds-l-col--12 ds-u-text-align--right ds-u-font-size--display ds-u-color--white">
       Updates
@@ -15,9 +15,9 @@ layout: default
   <div class="ds-l-col--12 ds-u-padding-y--2">
     {% include updates/intro.html %}
   </div>
-  <div class="ds-u-padding-y--2">
+  <main class="ds-u-padding-y--2">
     {% for item in site.updates reversed %}
       {{ item.content }}
     {% endfor %}
-  </div>
-</main>
+  </main>
+</div>

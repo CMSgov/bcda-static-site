@@ -2,29 +2,27 @@
 	Currently, access tokens expire after twenty minutes. To illustrate this cycle, we’ll use the published open sandbox credentials for Extra-Small ACOs.
 </p>
 
+<pre><code><b>Example Client ID (Extra-Small ACOs):</b>
+3841c594-a8c0-41e5-98cc-38bb45360d3c
+
+<b>Example Client Secret (Extra-Small ACOs):</b>
+F9780d323588f1cdfc3e63e95a8cbdcdd47602ff48a537b51dc5d7834bf466416a716bd4508e904a
+</code></pre>
+
 <div class="ds-c-alert ds-c-alert--hide-icon">
     <div class="ds-c-alert__body">
       <h3 class="ds-c-alert__heading">These credentials do not work in production.</h3>
       <p class="ds-c-alert__text">
-	Note: These credentials will not work in the production environment; please follow along using the credentials you were issued.
+	Note: These credentials will not work in the production environment. Please follow along using the credentials you were issued.
 	</div>
   </div>
-
-<p>
-	<code>
-		Example Client ID (Extra-Small ACOs):
-		3841c594-a8c0-41e5-98cc-38bb45360d3c
-	</code>
-	<code>
-		Example Client Secret (Extra-Small ACOs):
-		F9780d323588f1cdfc3e63e95a8cbdcdd47602ff48a537b51dc5d7834bf466416a716bd4508e904a
-	</code>
-</p>
-
 
 <h3>
 	Submit your credentials to receive an Access Token
 </h3>
+<p>
+	You will need to submit the Client ID and the Client Secret issued to your organization using a POST request. You will receive an Access Token that allows access to the API for 20 minutes before expiring.
+</p>
 
 <h4>
 	Access Token Request
@@ -37,14 +35,14 @@
 	<p>
 		cURL Option 1: This cURL command requires separate base-64 encryption. We have concatenated the base64 encoding of the ‘Client ID : Secret’ as the argument to the -H flag.
 	</p>
-	<pre><code>curl -d '' -X POST 'https://api.bcda.cms.gov/auth/token' \
+<pre><code>curl -d '' -X POST 'https://api.bcda.cms.gov/auth/token' \
 	-H "accept: application/json" \
-	-H "authorization: Basic Mzg0MWM1OTQtYThjMC00MWU1LTk4Y2MtMzhiYjQ1MzYwZDNjOmY5NzgwZDMyMzU4OGYxY2RmYzNlNjNlOTVhOGNiZGNkZDQ3NjAyZmY0OGE1MzdiNTFkYzVkNzgzNGJmNDY2NDE2YTcxNmJkNDUwOGU5MDRh"</code></pre>
-	
-	<p>
-		cURL Option 2: This cURL command innately encrypts your credentials with base-64 encryption
-	</p>
-	<pre><code>curl -d '' -X POST 'https://api.bcda.cms.gov/auth/token' \
+	-H "authorization: Basic Mzg0MWM1OTQtYThjMC00MWU1Tk4Y2MtMzhiYjQ1MzYwZDNjOmY5NzgwZDMyMzU4OGYxY2RmYzNlNjNlOTVhOGNiZGNkZDQ3NjAyZmY0OGE1MzdiNTFkYzVkNzgzNGJmNDY2NDE2YTcxNmJkNDUwOGU5MDRh"</code></pre>
+
+<p>
+	cURL Option 2: This cURL command innately encrypts your credentials with base-64 encryption
+</p>
+<pre><code>curl -d '' -X POST 'https://api.bcda.cms.gov/auth/token' \
 	--user 3841c594-a8c0-41e5-98cc-38bb45360d3c:f9780d323588f1cdfc3e63e95a8cbdcdd47602ff48a537b51dc5d7834bf466416a716bd4508e904a \
 	-H "accept: application/json"</code></pre>
 
@@ -55,8 +53,8 @@
 	The token string below has been abbreviated for readability.
 </p>
 <pre><code>{
-  "access_token": "eyJhbGciOiJSUzUxMiIsInR5c...",
-  "token_type":"bearer"
+"access_token": "eyJhbGciOiJSUzUxMiIsInR5c...",
+"token_type":"bearer"
 }</code></pre>
 
 

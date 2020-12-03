@@ -3,14 +3,13 @@ id: data
 title: Understanding the Data
 layout: default
 ---
-<main class="ds-base ds-l-container">
-  <a class="ds-c-skip-nav" href="#content">Skip to main content</a>
+<div class="ds-base ds-l-container">
   <div class="ds-l-row ds-u-fill--primary-darker">
     <div class="ds-l-col--12 ds-u-text-align--right ds-u-font-size--display ds-u-color--white">
       Understanding the Data
     </div>
     <div class="ds-l-col--12 ds-u-text-align--right ds-u-font-size--h1 ds-u-color--white">
-      The User Guide for ACOs in Production
+      Resources for Working with BCDA Data
     </div>
   </div>
   <div class="ds-l-row ds-u-padding-top--2">
@@ -48,10 +47,18 @@ layout: default
             Sample BCDA Files
           </a>
         </li>
+        <li class="ds-c-vertical-nav__item">
+          <a
+            class="ds-c-vertical-nav__label"
+            href="#additional-resources"
+          >
+            Additional Resources
+          </a>
+        </li>
       </ul>
     </aside>
 
-    <article id="content" class="ds-l-md-col--8 ds-l-lg-col--9">
+    <main id="main-content" class="ds-l-md-col--8 ds-l-lg-col--9">
       <div id="cclf-v-bcda">
         <h1>
           CCLF v. BCDA Data
@@ -83,7 +90,14 @@ layout: default
         <div class="ds-u-font-size--base">
           {% include data/sample_files.html %}
         </div>
+      <div id="additional-resources">
+        <h1>
+          Additional Resources
+        </h1>
+        <div class="ds-u-font-size--base">
+          {% include data/additional_resources.html %}
+        </div> 
       </div>
-    </article>
+    </main>
   </div>
-</main>
+</div>

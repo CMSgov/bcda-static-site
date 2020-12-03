@@ -1,11 +1,9 @@
-<h3>Request the most recent data for all beneficiaries</h3>
-
 <h3>Step 1: Obtain an Access Token</h3>
-<p>See <a href="https://bcda.cms.gov/production/technical-user-guide/#authentication-and-authorization">Authentication and Authorization</a> above.</p>
+<p>See <a href="#authorization">Authentication and Authorization</a> above.</p>
 
 <h3>Step 2: Start a job</h3>
 
-<h4>Request to start a job using the _since parameter with the /Patient endpoint</h4>
+<h4>Request to start a job using the _since parameter within the /Patient endpoint</h4>
 	<pre><code>GET /api/v1/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00</code></pre>
 
 <h4>Request Headers</h4>
@@ -14,7 +12,7 @@ Accept: application/fhir+json
 Prefer: respond-async
 </code></pre>
 
-<h4>cURL Command using the _since parameter with the /Patient endpoint</h4>
+<h4>cURL Command using the _since parameter within the /Patient endpoint</h4>
 	<pre><code>curl -X GET 'https://api.bcda.cms.gov/api/v1/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00' \
 	-H "Accept: application/fhir+json" \
 	-H "Prefer: respond-async" \
@@ -30,7 +28,7 @@ Prefer: respond-async
 <pre><code>Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42</code></pre>
 
 
-<h4>Start a Job using _since with /Patient Explanation</h4>
+<h4>Start a Job using _since within the /Patient endpoint Explanation</h4>
 	<p>
 		This operation will start a job for data for all beneficiaries since the selected date: February 13, 2020. Notice that we are seeking data from the /Patient endpoint. This request would behave 	differently if it was made from the /Group endpoint. In the example, we request the Patient resource type. The steps and format would work similarly for other resource types.
 	</p>	
