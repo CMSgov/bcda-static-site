@@ -1,12 +1,3 @@
-<div class="ds-c-alert ds-c-alert--hide-icon">
-    	<div class="ds-c-alert__body">
-    	  <h3 class="ds-c-alert__heading"> The examples below are for the /Patient endpoint.</h3>
-    	    <p class="ds-c-alert__text">
-    	      Note: We have provided a few examples below. But, we are retrieving resource types only from the /Patient endpoint for only certain resource types. The request and cURL statements can be altered to retrieve any combination of resource types and resource types from the /Group endpoint as needed.
-    	  	</p>
-    </div>
-</div>
-
 <h3>Step 1: Obtain an Access Token</h3>
 	<p>
 		See <a href="https://bcda.cms.gov/production/technical-user-guide/#authentication-and-authorization">Authentication and Authorization</a> above.
@@ -15,9 +6,9 @@
 
 <h4>Requests to start a job</h4>
 <ol>
-	<li><pre><code>GET /api/v1/Patient/$export</code></pre></li>
-	<li><pre><code>GET /api/v1/Patient/$export?_type=ExplanationOfBenefit,Patient</code></pre></li>
-	<li><pre><code>GET /api/v1/Patient/$export?_type=Patient</code></pre></li>
+	<li><pre><code>GET /api/v1/Group/runout/$export</code></pre></li>
+	<li><pre><code>GET /api/v1/Group/runout/$export?_type=ExplanationOfBenefit,Patient</code></pre></li>
+	<li><pre><code>GET /api/v1/Group/runout/$export?_type=Patient</code></pre></li>
 </ol>
 
 <h4>Request Headers</h4>
@@ -29,19 +20,19 @@ Prefer: respond-async
 <h4>cURL Commands to start a job</h4>
 <ol>	
 	<li>
-		<pre><code>curl -X GET 'https://api.bcda.cms.gov/api/v1/Patient/$export' \
+		<pre><code>curl -X GET 'https://api.bcda.cms.gov/api/v1/Group/runout/$export' \
 	-H "accept: application/fhir+json" \
 	-H "Prefer: respond-async" \
 	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
 	</li>
 	<li>
-		<pre><code>curl -X GET 'https://api.bcda.cms.gov/api/v1/Patient/$export?_type=ExplanationOfBenefit,Patient' \
+		<pre><code>curl -X GET 'https://api.bcda.cms.gov/api/v1/Group/runout/$export?_type=ExplanationOfBenefit,Patient' \
 	-H "accept: application/fhir+json" \
 	-H "Prefer: respond-async" \
 	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
 	</li>
 	<li>
-		<pre><code>curl -X GET 'https://api.bcda.cms.gov/api/v1/Patient/$export?_type=Patient' \
+		<pre><code>curl -X GET 'https://api.bcda.cms.gov/api/v1/Group/runout/$export?_type=Patient' \
 	-H "accept: application/fhir+json" \
 	-H "Prefer: respond-async" \
 	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
@@ -51,8 +42,8 @@ Prefer: respond-async
 <h4>Response Example: Successful Request</h4>
 	<pre><code>202 Accepted</code></pre>
 
-<h4>Response Example: Too Many Requests</h4>
-	<pre><code>429 Too Many Requests</code></pre>
+<h4>Response Example: Runout Identifier Not Included</h4>
+	<pre><code>400 Bad Request</code></pre>
 
 <h4>Response Headers</h4>
 	<pre><code>Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42</code></pre>
@@ -65,16 +56,16 @@ Prefer: respond-async
 			<li>Any single resource type (we use Patient as an example)</li>
 		</ol>
 	<p>
-		For all three resource types, a GET request is made to the /Patient endpoint without the _type query parameter. For one or two resource types, the desired resources are set in the _type query parameter. Notice that, for multiple resource types, they must be separated by commas.
+		For all of the requests, a GET request is made to the /Group endpoint with the `runout` identifier. To retrieve all three resource types, simply exclude the _type query parameter. For one or two resource types, the desired resources are set in the _type query parameter. Notice that, for multiple resource types, they must be separated by commas.
 	</p>	
 	<p>
 		Your access token is required and set as a header. Accept and Prefer headers are also required. The dollar sign ('$') before the word "export" in the URL indicates that the endpoint is an action rather than a resource. The format is defined by the FHIR Bulk Data Export spec.
 	</p>	
 	<p>
-		If the request was successful, a 202 Accepted response code will be returned and the response will include a Content-Location header. The value of this header indicates the location to check for job status and outcome. In the example header below, the number 42 in the URL represents the ID of the export job.
+		If the request was successful, a 202 Accepted response code will be returned and the response will include a Content-Location header. The value of the Content-Location header indicates the location to check for job status and outcome. In the example header below, the number 42 in the URL represents the ID of the export job. The claims returned in the job will be filtered to have a serviceDate of 12/31/30 or before.
 	</p>
 	<p>
-		If you're already requesting data from one endpoint and try to request data from that endpoint again while the first request is processing, you'll receive a 429 Too Many Requests error.
+		If you try to request data from the /Patient endpoint or from the /Group endpoint without using the 'runout' identifier, you will receive a 400 Bad Request error. The operational outcome will direct you to the /Group endpoint with `runout`. If you're already requesting data from one endpoint and try to request data from that endpoint again while the first request is processing, you'll receive a 429 Too Many Requests error.
 	</p>
 
 
@@ -99,7 +90,7 @@ Accept: application/fhir+json</code></pre>
 <h4>Response Example: Completed Job</h4>
 	<pre><code>{
   "transactionTime": "2019-12-09T20:44:01.705398Z",
-  "request": "https://api.bcda.cms.gov/api/v1/Patient/$export",
+  "request": "https://api.bcda.cms.gov/api/v1/Group/runout/$export",
   "requiresAccessToken": true,
   "output": [
     {
@@ -127,7 +118,7 @@ Accept: application/fhir+json</code></pre>
 	<p>This operation will check on the status of a job and return its progress if it has not finished. Notice that the GET request is simply the URL found in the Content-Location header. The Content 	Location header is found from the previous step (starting a job) within the response section.</p>	
 	<p>Within the response, a 202 Accepted indicates that the job is processing. The response headers	 will include the X-Progress header. The X-Progress header value will include text indicating the 	job's status in BCDA's workflow and an estimated progress percentage. For example, X-Progress: In	 Progress, 80%.</p>	
 	<p>The status will change from 202 Accepted to 200 OK when the export job is complete and the data is ready to be downloaded.</p>	
-	<p>Claims data can be found at the URLs within the output field. The number 42 in the data file URLs is the same job ID from the Content-Location header URL in the previous step. If some of the 	data cannot be exported due to errors, details of the errors can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR OperationOutcome resources.</p>
+	<p>Claims data can be found at the URLs within the output field. The claims returned in the job will be filtered to have a serviceDate of 12/31/30 or before. The number 42 in the data file URLs is the same job ID from the Content-Location header URL in the previous step. If some of the 	data cannot be exported due to errors, details of the errors can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR OperationOutcome resources.</p>
 
 <h3 id="downloadData">Step 4: Download the data</h3>
 
@@ -170,7 +161,7 @@ Accept-Encoding: gzip</code></pre>
 	</div>
 	
 	<p>
-		The "Accept-Encoding: gzip" header is optional, but will return a significantly smaller (40X smaller) file with a faster download speed. You	 will need to uncompress the file after downloading if you supply this header. When downloading multiple files, you can further speed up the process by downloading multiple files concurrently.	
+		The "Accept-Encoding: gzip" header is optional, but will return a significantly smaller (40X smaller) file with a faster download speed. You	 will need to uncompress the file after downloading if you supply this header. When downloading multiple files, you can further speed up the process by downloading multiple files concurrently. The claims returned in the job will be filtered to have a serviceDate of 12/31/30 or before.	
 	</p>	
 	<p>	
 		The response will be the requested data as FHIR resources in NDJSON format. Each file related to a different resource type will appear separately and labeled as to which resource type it 	contains. Examples of data from each Resource Type are available in the guide to working with BCDA data.
