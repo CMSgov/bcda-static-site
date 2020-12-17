@@ -9,7 +9,7 @@ id: home
 ---
 
 <!-- Hero Banner -->
-<section class="ds-l-container ds-u-padding--1 ds-u-sm-padding--2 ds-u-md-padding--3 ds-u-lg-padding--4 ds-u-xl-padding--5">
+<section role="region" aria-label="hero-banner" class="ds-l-container ds-u-padding--1 ds-u-sm-padding--2 ds-u-md-padding--3 ds-u-lg-padding--4 ds-u-xl-padding--5">
   <div class="ds-l-row ds-u-align-items--center">
     <div class="ds-l-sm-col--12 ds-l-md-col--12 ds-l-lg-col--6 ds-u-text-align--center">
       <div class="ds-u-font-size--h1 ds-u-leading--base ds-u-font-weight--bold ds-u-padding-y--3 ds-u-text-transform--uppercase">
@@ -28,8 +28,8 @@ id: home
   </div>
 </section>
 
-<!-- Features -->
-<main>
+<main id="main">
+  <!-- Features -->
   <div class="ds-u-fill--primary-darker">
     <section class="ds-l-container ds-u-padding--1 ds-u-sm-padding--2 ds-u-md-padding--3 ds-u-lg-padding--4 ds-u-xl-padding--5 ds-u-color--white">
       <div class="ds-l-row">
@@ -38,29 +38,21 @@ id: home
         </div>
       </div>
       <div class="ds-l-row ds-u-margin-top--5">
-        <div class="ds-l-sm-col--12 ds-l-md-col--12 ds-l-lg-col--3 benefit-prop">
+        <div class="ds-l-sm-col--12 ds-l-md-col--12 ds-l-lg-col--4 benefit-prop">
           <img src="/assets/img/homepage/ValueProp_1.svg" alt="Improve">
           <div class="benefit-prop__body ds-u-padding-y--1">
             <div class="ds-u-font-size--lead ds-u-font-weight--semibold">Supplement Insights</div>
             <p>BCDA supplements ACOs' insight into their assigned beneficiary populations with Medicare claims data.</p>
           </div>
         </div>
-        <div class="ds-l-sm-col--12 ds-l-md-col--12 ds-l-lg-col--3 benefit-prop">
-          <img src="/assets/img/homepage/ValueProp_2.svg" alt="Reduce Labor">
-          <div class="benefit-prop__body ds-u-padding-y--1">
-            <div class="ds-u-font-size--lead ds-u-font-weight--semibold">Reduce Burden</div>
-            <p>BCDA removes the burden of providing a beneficiary roster to receive Medicare claims data. CMS already has it; BCDA uses
-            it!</p>
-          </div>
-        </div>
-        <div class="ds-l-sm-col--12 ds-l-md-col--12 ds-l-lg-col--3 benefit-prop">
+        <div class="ds-l-sm-col--12 ds-l-md-col--12 ds-l-lg-col--4 benefit-prop">
           <img src="/assets/img/homepage/ValueProp_4.svg" alt="Decrease Time">
           <div class="benefit-prop__body ds-u-padding-y--1">
             <div class="ds-u-font-size--lead ds-u-font-weight--semibold">Enable ACOs</div>
             <p>BCDA enables ACOs to make claims data requests more often - once a week.</p>
           </div>
         </div>
-        <div class="ds-l-sm-col--12 ds-l-md-col--12 ds-l-lg-col--3 benefit-prop">
+        <div class="ds-l-sm-col--12 ds-l-md-col--12 ds-l-lg-col--4 benefit-prop">
           <img src="/assets/img/homepage/ValueProp_3.svg" alt="Accessibility">
           <div class="benefit-prop__body ds-u-padding-y--1">
             <div class="ds-u-font-size--lead ds-u-font-weight--semibold">Standardize Claims Format</div>
@@ -137,7 +129,7 @@ id: home
   </section>
 
   <!-- Updates -->
-  <div class="ds-u-fill--primary-darker">
+  <div class="ds-u-fill--primary-darker ds-base--inverse">
     <section class="ds-l-container ds-u-padding--1 ds-u-sm-padding--2 ds-u-md-padding--3 ds-u-lg-padding--4 ds-u-xl-padding--5 ds-u-color--white">
       <h1 class="ds-u-color--white">The Latest & Greatest from BCDA!</h1>
       <div class="ds-u-padding-y--2">
@@ -148,50 +140,51 @@ id: home
       </div>
     </section>
   </div>
+
+  <!-- Other CMS APIs -->
+  <div class="ds-u-fill--primary-darkest hex_background">
+    <section class="ds-l-container ds-u-padding--1 ds-u-sm-padding--2 ds-u-md-padding--3 ds-u-lg-padding--4 ds-u-xl-padding--5">
+      <div class="ds-l-row">
+        <div class="ds-l-col--12">
+          <div class="ds-u-font-size--h1 ds-u-color--white ds-u-text-align--center ds-u-font-weight--bold">CMS Claims-Based FHIR APIs</div>  
+          <div class="ds-u-font-size--h3 ds-u-color--white ds-u-padding-y--4 ds-u-font-weight--semi-bold">BCDA is one of several CMS APIs that offer Medicare claims data sharing in FHIR format.</div>
+          <div class="ds-u-color--white">Check out these other CMS APIs for more information:</div>
+      </div>
+      <div class="ds-l-row ds-u-padding-y--3">
+        <div class="ds-l-sm-col--12 ds-l-md-col--12 ds-l-lg-col--4 ds-u-align-items--stretch ds-u-display--flex">
+          <div class="ds-u-fill--primary-alt ds-u-padding--3">
+            <img hspace=0 vspace=8 src="/assets/img/homepage/logos/DPC_Logo.svg" alt="Data at the Point of Care API logo">
+            <div>
+              The Data at the Point of Care API enables healthcare providers with claims data to fill-in gaps in patient history at the point of care and deliver high quality care to Medicare beneficiaries.
+            </div>
+            <div class="ds-l-container ds-u-padding-top--2 ds-u-justify-content--center">
+              <a class="ds-c-button ds-c-button--primary ds-u-justify-content--center ds-l-col--12" href="https://dpc.cms.gov/" target="_blank">DPC</a>
+            </div>
+          </div>
+        </div>
+        <div class="ds-l-sm-col--12 ds-l-md-col--12 ds-l-lg-col--4 ds-u-align-items--stretch ds-u-display--flex">
+          <div class="ds-u-fill--gray-lightest ds-u-padding--3">
+            <img hspace=0 vspace=0 src="/assets/img/homepage/logos/BB2.0_logo.svg" alt="Blue Button 2.0 API logo">
+            <div class="ds-u-padding-y--1">
+              The Blue Button 2.0 API enables beneficiaries to connect their Medicare claims data to the applications, services, and research programs they trust.
+            </div>
+            <div class="ds-l-container ds-u-padding-top--3 ds-u-justify-content--center">
+              <a class="ds-c-button ds-c-button--primary ds-u-justify-content--center ds-l-col--12" href="https://bluebutton.cms.gov/" target="_blank">BB 2.0</a>
+            </div>
+          </div>
+        </div>
+        <div class="ds-l-sm-col--12 ds-l-md-col--12 ds-l-lg-col--4 ds-u-align-items--stretch ds-u-display--flex">
+          <div class="ds-u-fill--warn-lighter ds-u-padding--3">
+            <img hspace=0 vspace=108 src="/assets/img/homepage/logos/AB2D_logo.svg" alt="AB2D API logo">
+            <div>
+              The AB2D API provides stand-alone PDP sponsors with Medicare Parts A and B claims data for their active enrollees.
+            </div>
+            <div class="ds-l-container ds-u-padding-top--5 ds-u-justify-content--center">
+              <a class="ds-c-button ds-c-button--primary ds-u-justify-content--center ds-l-col--12" href="https://ab2d.cms.gov/" target="_blank">AB2D</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </main>
-<!-- Other CMS APIs -->
-<div class="ds-u-fill--primary-darkest hex_background">
-  <section class="ds-l-container ds-u-padding--1 ds-u-sm-padding--2 ds-u-md-padding--3 ds-u-lg-padding--4 ds-u-xl-padding--5">
-    <div class="ds-l-row">
-      <div class="ds-l-col--12">
-        <div class="ds-u-font-size--h1 ds-u-color--white ds-u-text-align--center ds-u-font-weight--bold">CMS Claims-Based FHIR APIs</div>  
-        <div class="ds-u-font-size--h3 ds-u-color--white ds-u-padding-y--4 ds-u-font-weight--semi-bold">BCDA is one of several CMS APIs that offer Medicare claims data sharing in FHIR format.</div>
-        <div class="ds-u-color--white">Check out these other CMS APIs for more information:</div>
-    </div>
-    <div class="ds-l-row ds-u-padding-y--3">
-      <div class="ds-l-sm-col--12 ds-l-md-col--12 ds-l-lg-col--4 ds-u-align-items--stretch ds-u-display--flex">
-        <div class="ds-u-fill--primary-alt ds-u-padding--3">
-          <img hspace=0 vspace=8 src="/assets/img/homepage/logos/DPC_Logo.svg" alt="Data at the Point of Care API logo">
-          <div>
-            The Data at the Point of Care API enables healthcare providers with claims data to fill-in gaps in patient history at the point of care and deliver high quality care to Medicare beneficiaries.
-          </div>
-          <div class="ds-l-container ds-u-padding-top--2 ds-u-justify-content--center">
-            <a class="ds-c-button ds-c-button--primary ds-u-justify-content--center ds-l-col--12" href="https://dpc.cms.gov/" target="_blank">DPC</a>
-          </div>
-        </div>
-      </div>
-      <div class="ds-l-sm-col--12 ds-l-md-col--12 ds-l-lg-col--4 ds-u-align-items--stretch ds-u-display--flex">
-        <div class="ds-u-fill--gray-lightest ds-u-padding--3">
-          <img hspace=0 vspace=0 src="/assets/img/homepage/logos/BB2.0_logo.svg" alt="Blue Button 2.0 API logo">
-          <div class="ds-u-padding-y--1">
-            The Blue Button 2.0 API enables beneficiaries to connect their Medicare claims data to the applications, services, and research programs they trust.
-          </div>
-          <div class="ds-l-container ds-u-padding-top--3 ds-u-justify-content--center">
-            <a class="ds-c-button ds-c-button--primary ds-u-justify-content--center ds-l-col--12" href="https://bluebutton.cms.gov/" target="_blank">BB 2.0</a>
-          </div>
-        </div>
-      </div>
-      <div class="ds-l-sm-col--12 ds-l-md-col--12 ds-l-lg-col--4 ds-u-align-items--stretch ds-u-display--flex">
-        <div class="ds-u-fill--warn-lighter ds-u-padding--3">
-          <img hspace=0 vspace=108 src="/assets/img/homepage/logos/AB2D_logo.svg" alt="AB2D API logo">
-          <div>
-            The AB2D API provides stand-alone PDP sponsors with Medicare Parts A and B claims data for their active enrollees.
-          </div>
-          <div class="ds-l-container ds-u-padding-top--5 ds-u-justify-content--center">
-            <a class="ds-c-button ds-c-button--primary ds-u-justify-content--center ds-l-col--12" href="https://ab2d.cms.gov/" target="_blank">AB2D</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
