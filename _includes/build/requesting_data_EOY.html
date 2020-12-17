@@ -62,7 +62,7 @@ Prefer: respond-async
 		Your access token is required and set as a header. Accept and Prefer headers are also required. The dollar sign ('$') before the word "export" in the URL indicates that the endpoint is an action rather than a resource. The format is defined by the FHIR Bulk Data Export spec.
 	</p>	
 	<p>
-		If the request was successful, a 202 Accepted response code will be returned and the response will include a Content-Location header. The value of the Content-Location header indicates the location to check for job status and outcome. In the example header below, the number 42 in the URL represents the ID of the export job. The claims returned in the job will be filtered to have a serviceDate of 12/31/30 or before.
+		If the request was successful, a 202 Accepted response code will be returned and the response will include a Content-Location header. The value of the Content-Location header indicates the location to check for job status and outcome. In the example header below, the number 42 in the URL represents the ID of the export job. The claims returned in the job will be filtered to have a serviceDate of 12/31/2020 or before.
 	</p>
 	<p>
 		If you try to request data from the /Patient endpoint or from the /Group endpoint without using the 'runout' identifier, you will receive a `400 Bad Request` error. The operational outcome will direct you to make a new request to the /Group endpoint with `runout`. 
