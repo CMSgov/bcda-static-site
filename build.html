@@ -44,6 +44,22 @@ layout: default
             </li>
           </ul>
         </li>
+
+        <li class="ds-c-vertical-nav__item">
+          <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#requesting-data-EOY">
+            Requesting End of Year Data
+          </a>
+          <ul class="ds-c-vertical-nav__subnav">
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#requesting-all-three-EOY">
+                Request all three Resource Types (EOY)
+              </a>
+            </li>
+          </ul>
+        </li>
+
+
+
         <li class="ds-c-vertical-nav__item">
           <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#requesting-data">
             Requesting Data
@@ -56,6 +72,8 @@ layout: default
               </a>
             </li>
           </ul>
+        </li>
+
         <li class="ds-c-vertical-nav__item">
           <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#requesting-filtered-data">
             Requesting Filtered Data
@@ -119,13 +137,29 @@ layout: default
             </div>
           </div>
         </div>
-        <div id="requesting-data">
-          <h1>
-            Requesting Data
-          </h1>
-          <div class="ds-u-font-size--base">
-            {% include build/requesting_data.html %}
-          </div>
+      </div>
+      <div id="requesting-data-EOY">
+        <h1>
+          Requesting Data during End of Year Attribution
+        </h1>
+        <div class="ds-u-font-size--base">
+          {% include build/requesting_data_EOY_intro.html %}
+        </div>
+      </div>
+      <div id="requesting-all-three-EOY">
+        <h2>
+          Request All Three Resource Types with /Group and `runout`
+        </h2>
+        <div class="ds-u-font-size--base">
+          {% include build/requesting_data_EOY.html %}
+        </div>
+      </div>
+      <div id="requesting-data">
+        <h1>
+          Requesting Data
+        </h1>
+        <div class="ds-u-font-size--base">
+          {% include build/requesting_data.html %}
         </div>
         <div id="requesting-all-three">
           <h2>
@@ -135,13 +169,14 @@ layout: default
             {% include build/requesting_data_all_three.html %}
           </div>
         </div>
-        <div id="requesting-filtered-data">
-          <h1>
-            Requesting Filtered Data
-          </h1>
-          <div class="ds-u-font-size--base">
-            {% include build/requesting_filtered_data.html %}
-          </div>
+      </div>
+
+      <div id="requesting-filtered-data">
+        <h1>
+          Requesting Filtered Data
+        </h1>
+        <div class="ds-u-font-size--base">
+          {% include build/requesting_filtered_data.html %}
         </div>
         <div id="requesting-since-with-Patient">
           <h2>

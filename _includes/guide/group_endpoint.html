@@ -1,3 +1,15 @@
+<div class="ds-c-alert ds-c-alert--hide-icon">
+    <div class="ds-c-alert__body">
+      <h3 class="ds-c-alert__heading">Temporary Change to Production Requests</h3>
+      <p class="ds-c-alert__text">
+		Throughout January 2021, users will need to use the `runout` identifier with the /Group endpoint <b>in order to request any claims from BCDA's production environment</b>. Requests to the /Group and /Patient endpoints without the `runout` identifier will result in an error message. When using the `runout` identifier, data returned by the API will be restricted to claims with a service date of 12/31/2020 or earlier. 
+	</p>
+	<p>
+		These changes are in place to ensure that BCDA does not return any data not assigned to your organization during the transition between performance years. Please see the full details in the <a href="#requesting-data-EOY">End of Year Requests</a> section on the Building Your API page.
+	</p>
+   </div>
+</div>
+
 <p>
 	The <a href="https://build.fhir.org/ig/HL7/us-bulk-data/#endpoint---group-of-patients" target="_blank"> /Group endpoint</a> allows you to request ExplanationOfBenefit, Patient, and/or Coverage data for all beneficiaries assigned or assignable to your ACO.  You must supply a group parameter. The only supported parameter currently is ‘all’. 
 </p>
