@@ -118,10 +118,10 @@ Accept: application/fhir+json</code></pre>
 	<pre><code>X-Progress: In Progress</code></pre>
 
 <h4>Check the Job Status Explanation</h4>
-	<p>This operation will check on the status of a job and return its progress if it has not finished. Notice that the GET request is simply the URL found in the Content-Location header. The Content 	Location header is found from the previous step (starting a job) within the response section.</p>	
-	<p>Within the response, a 202 Accepted indicates that the job is processing. The response headers	 will include the X-Progress header. The X-Progress header value will include text indicating the 	job's status in BCDA's workflow and an estimated progress percentage. For example, X-Progress: In	 Progress, 80%.</p>	
-	<p>The status will change from 202 Accepted to 200 OK when the export job is complete and the data is ready to be downloaded.</p>	
-	<p>Claims data can be found at the URLs within the output field. The claims returned in the job will be filtered to have a serviceDate of 12/31/30 or before. The number 42 in the data file URLs is the same job ID from the Content-Location header URL in the previous step. If some of the 	data cannot be exported due to errors, details of the errors can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR OperationOutcome resources.</p>
+	<p>This operation will check on the status of a job and return its progress if it has not finished. Notice that the GET request is simply the URL found in the Content-Location header from the previous step (starting a job) within the response section.</p>	
+	<p>Within the response, a `202 Accepted` indicates that the job is processing. The response headers will include the X-Progress header. The X-Progress header value will include text indicating the job's status in BCDA's workflow and an estimated progress percentage. For example, `X-Progress: In Progress, 80%.`</p>	
+	<p>The status will change from `202 Accepted` to `200 OK` when the export job is complete and the data is ready to be downloaded.</p>	
+	<p>Claims data can be found at the URLs within the output field. The claims returned in the job will be filtered to have a serviceDate of 12/31/2020 or before. The number 42 in the data file URLs is the same job ID from the Content-Location header URL in the previous step. If some of the data cannot be exported due to errors, details of the errors can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR OperationOutcome resources.</p>
 
 <h3 id="downloadData">Step 4: Download the data</h3>
 
