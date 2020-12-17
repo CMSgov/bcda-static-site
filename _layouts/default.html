@@ -26,18 +26,24 @@
           utag.link({ ga_event_category: 'BCDA', ga_event_action: 'click: side-nav', ga_event_label: anchor.textContent.trim().toLowerCase() })
         })
       }
-    }
   </script>
-  <a class="ds-c-skip-nav" href="#main-content">Skip to main content</a>
+  <!-- Loading script asynchronously -->
+  <script type="text/javascript">
+      (function (a, b, c, d) {
+        a = 'https://tags.tiqcdn.com/utag/cmsgov/cms-general/{{ jekyll.environment }}/utag.js'; b = document; c = 'script'; d = b.createElement(c); d.src = a; d.type = 'text/java' + c; d.async = true; a = b.getElementsByTagName(c)[0]; a.parentNode.insertBefore(d, a);
+      })();
+  </script>
+  <a class="ds-c-skip-nav" href="#main">Skip to main content</a>
 
-  {% include header.html %}
-
+  <header>
+    {% include header.html %}
+  </header>
   <div id="content">
     {{ content }}
   </div>
-
-  {% include footer.html %}
-
+  <footer>
+    {% include footer.html %}
+  </footer>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
 
@@ -45,7 +51,7 @@
   <script src="https://unpkg.com/feather-icons"></script>
 
   <script>
-    feather.replace()
+      feather.replace()
   </script>
 
   <!-- Custom JavaScript -->
