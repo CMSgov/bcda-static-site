@@ -65,7 +65,10 @@ Prefer: respond-async
 		If the request was successful, a 202 Accepted response code will be returned and the response will include a Content-Location header. The value of the Content-Location header indicates the location to check for job status and outcome. In the example header below, the number 42 in the URL represents the ID of the export job. The claims returned in the job will be filtered to have a serviceDate of 12/31/30 or before.
 	</p>
 	<p>
-		If you try to request data from the /Patient endpoint or from the /Group endpoint without using the 'runout' identifier, you will receive a 400 Bad Request error. The operational outcome will direct you to the /Group endpoint with `runout`. If you're already requesting data from one endpoint and try to request data from that endpoint again while the first request is processing, you'll receive a 429 Too Many Requests error.
+		If you try to request data from the /Patient endpoint or from the /Group endpoint without using the 'runout' identifier, you will receive a `400 Bad Request` error. The operational outcome will direct you to make a new request to the /Group endpoint with `runout`. 
+	</p>
+	<p>
+		If you're already requesting data from one endpoint and try to request data from that endpoint again while the first request is processing, you'll receive a 429 Too Many Requests error.
 	</p>
 
 
