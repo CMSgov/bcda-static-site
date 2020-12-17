@@ -1,6 +1,6 @@
 <h3>Step 1: Obtain an Access Token</h3>
 	<p>
-		See <a href="https://bcda.cms.gov/production/technical-user-guide/#authentication-and-authorization">Authentication and Authorization</a> above.
+		See <a href="#authorization">Authentication and Authorization</a> above.
 	</p>
 <h3>Step 2: Start a job to acquire data</h3>
 
@@ -62,7 +62,7 @@ Prefer: respond-async
 		Your access token is required and set as a header. Accept and Prefer headers are also required. The dollar sign ('$') before the word "export" in the URL indicates that the endpoint is an action rather than a resource. The format is defined by the FHIR Bulk Data Export spec.
 	</p>	
 	<p>
-		If the request was successful, a 202 Accepted response code will be returned and the response will include a Content-Location header. The value of the Content-Location header indicates the location to check for job status and outcome. In the example header below, the number 42 in the URL represents the ID of the export job. The claims returned in the job will be filtered to have a serviceDate of 12/31/30 or before.
+		If the request was successful, a 202 Accepted response code will be returned and the response will include a Content-Location header. The value of the Content-Location header indicates the location to check for job status and outcome. In the example header below, the number 42 in the URL represents the ID of the export job. The claims returned in the job will be filtered to have a serviceDate of 12/31/2020 or before.
 	</p>
 	<p>
 		If you try to request data from the /Patient endpoint or from the /Group endpoint without using the 'runout' identifier, you will receive a `400 Bad Request` error. The operational outcome will direct you to make a new request to the /Group endpoint with `runout`. 
@@ -141,8 +141,8 @@ Accept-Encoding: gzip</code></pre>
 	<p>
 	<ol>
 	    <li><b><a href="https://bcda.cms.gov/assets/data/ExplanationOfBenefit.ndjson" target="_blank"> Explanation of Benefit</a></b></li>
-	    <li><b><a href="https://bcda.cms.gov/assets/data/Coverage.ndjson" target="_blank"> Patient</a></b></li>
-	    <li><b><a href="https://bcda.cms.gov/assets/data/Patient.ndjson" target="_blank"> Coverage</a></b></li>
+	    <li><b><a href="https://bcda.cms.gov/assets/data/Patient.ndjson" target="_blank"> Patient</a></b></li>
+	    <li><b><a href="https://bcda.cms.gov/assets/data/Coverage.ndjson" target="_blank"> Coverage</a></b></li>
 	  </ol>
 	</p>
 
@@ -158,14 +158,14 @@ Accept-Encoding: gzip</code></pre>
     	<div class="ds-c-alert__body">
     	  <h3 class="ds-c-alert__heading"> Files expire after 24 hours.</h3>
     	    <p class="ds-c-alert__text">
-				Note: You will need to download the data file within 24 hours of starting the request to a specific endpoint. Otherwise, the files will expire and you will need to restart the job.
+				You will need to download the data file within 24 hours of starting the request to a specific endpoint. Otherwise, the files will expire and you will need to restart the job.
 			</p>	
     	</div>
 	</div>
 	
 	<p>
-		The "Accept-Encoding: gzip" header is optional, but will return a significantly smaller (40X smaller) file with a faster download speed. You	 will need to uncompress the file after downloading if you supply this header. When downloading multiple files, you can further speed up the process by downloading multiple files concurrently. The claims returned in the job will be filtered to have a serviceDate of 12/31/30 or before.	
+		The "Accept-Encoding: gzip" header is optional, but will return a significantly smaller (40X smaller) file with a faster download speed. You will need to uncompress the file after downloading if you supply this header. When downloading multiple files, you can further speed up the process by downloading multiple files concurrently. The claims returned in the job will be filtered to have a serviceDate of 12/31/2020 or before.	
 	</p>	
 	<p>	
-		The response will be the requested data as FHIR resources in NDJSON format. Each file related to a different resource type will appear separately and labeled as to which resource type it 	contains. Examples of data from each Resource Type are available in the guide to working with BCDA data.
+		The response will be the requested data as FHIR resources in NDJSON format. Each file related to a different resource type will appear separately and labeled as to which resource type it contains. Examples of data from each Resource Type are available in the <a href=/data/>guide to working with BCDA data</a>.
 	</p>

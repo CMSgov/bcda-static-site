@@ -2,14 +2,14 @@
     	<div class="ds-c-alert__body">
     	  <h3 class="ds-c-alert__heading"> The examples below are for the /Patient endpoint.</h3>
     	    <p class="ds-c-alert__text">
-    	      Note: We have provided a few examples below. But, we are retrieving resource types only from the /Patient endpoint for only certain resource types. The request and cURL statements can be altered to retrieve any combination of resource types and resource types from the /Group endpoint as needed.
+    	      We have provided a few examples below in which we show retrieving only certain resource types from the /Patient endpoint. The request and cURL statements can be altered to retrieve any combination of resource types and resource types from the /Group endpoint as needed.
     	  	</p>
     </div>
 </div>
 
 <h3>Step 1: Obtain an Access Token</h3>
 	<p>
-		See <a href="https://bcda.cms.gov/production/technical-user-guide/#authentication-and-authorization">Authentication and Authorization</a> above.
+		See <a href="#authorization">Authentication and Authorization</a> above.
 	</p>
 <h3>Step 2: Start a job to acquire data</h3>
 
@@ -147,8 +147,8 @@ Accept-Encoding: gzip</code></pre>
 	<p>
 	<ol>
 	    <li><b><a href="https://bcda.cms.gov/assets/data/ExplanationOfBenefit.ndjson" target="_blank"> Explanation of Benefit</a></b></li>
-	    <li><b><a href="https://bcda.cms.gov/assets/data/Coverage.ndjson" target="_blank"> Patient</a></b></li>
-	    <li><b><a href="https://bcda.cms.gov/assets/data/Patient.ndjson" target="_blank"> Coverage</a></b></li>
+	    <li><b><a href="https://bcda.cms.gov/assets/data/Patient.ndjson" target="_blank"> Patient</a></b></li>
+	    <li><b><a href="https://bcda.cms.gov/assets/data/Coverage.ndjson" target="_blank"> Coverage</a></b></li>
 	  </ol>
 	</p>
 
@@ -164,7 +164,7 @@ Accept-Encoding: gzip</code></pre>
     	<div class="ds-c-alert__body">
     	  <h3 class="ds-c-alert__heading"> Files expire after 24 hours.</h3>
     	    <p class="ds-c-alert__text">
-				Note: You will need to download the data file within 24 hours of starting the request to a specific endpoint. Otherwise, the files will expire and you will need to restart the job.
+				You will need to download the data file within 24 hours of starting the request to a specific endpoint. Otherwise, the files will expire and you will need to restart the job.
 			</p>	
     	</div>
 	</div>
