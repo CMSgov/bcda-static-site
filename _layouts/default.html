@@ -23,7 +23,7 @@
       var anchors = document.querySelectorAll('a.ds-c-vertical-nav__label');
       for (const anchor of anchors) {
         anchor.addEventListener('click', function (event) {
-          utag.link({ ga_event_category: 'BCDA', ga_event_action: 'click: side-nav', ga_event_label: anchor.textContent })
+          utag.link({ ga_event_category: 'BCDA', ga_event_action: 'click: side-nav', ga_event_label: anchor.textContent.trim().toLowerCase() })
         })
       }
     }
