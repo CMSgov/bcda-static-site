@@ -1,55 +1,64 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
 
-  {% include head.html %}
+{% include head.html %}
 
-  <body class="">
-    <script type="text/javascript">
-      var utag_data = {
-        language: "en",
-        environment: "{{ jekyll.environment }}",
-        site_name: "bcda"
+<body class="">
+  <script type="text/javascript">
+    var utag_data = {
+      language: "en",
+      environment: "{{ jekyll.environment }}",
+      site_name: "bcda"
+    }
+  </script>
+  <!-- Loading script asynchronously -->
+  <script type="text/javascript">
+      (function (a, b, c, d) {
+        a = 'https://tags.tiqcdn.com/utag/cmsgov/cms-general/{{ jekyll.environment }}/utag.js'; b = document; c = 'script'; d = b.createElement(c); d.src = a; d.type = 'text/java' + c; d.async = true; a = b.getElementsByTagName(c)[0]; a.parentNode.insertBefore(d, a);
+      })();
+  </script>
+  <!-- Adding event for all side nav clicks-->
+  <script type="text/javascript">
+    window.onload = function () {
+      var anchors = document.querySelectorAll('a.ds-c-vertical-nav__label');
+      for (const anchor of anchors) {
+        anchor.addEventListener('click', function (event) {
+          utag.link({ ga_event_category: 'BCDA', ga_event_action: 'click: side-nav', ga_event_label: anchor.textContent.trim().toLowerCase() })
+        })
       }
-    </script>
-    <!-- Loading script asynchronously -->
-    <script type="text/javascript">
-        (function (a, b, c, d) {
-          a = 'https://tags.tiqcdn.com/utag/cmsgov/cms-general/{{ jekyll.environment }}/utag.js'; b = document; c = 'script'; d = b.createElement(c); d.src = a; d.type = 'text/java' + c; d.async = true; a = b.getElementsByTagName(c)[0]; a.parentNode.insertBefore(d, a);
-        })();
-    </script>
-    <a class="ds-c-skip-nav" href="#main">Skip to main content</a>
+    }
+  </script>
+  <a class="ds-c-skip-nav" href="#main">Skip to main content</a>
 
-    <header>
-      {% include header.html %}
-    </header>
-    <div id="content">
-      {{ content }}
-    </div>
-    <footer>
-      {% include footer.html %}
-    </footer>
-    <script
-    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
-    crossorigin="anonymous"></script>
+  <header>
+    {% include header.html %}
+  </header>
+  <div id="content">
+    {{ content }}
+  </div>
+  <footer>
+    {% include footer.html %}
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
 
-    <!-- Feather Icons -->
-    <script src="https://unpkg.com/feather-icons"></script>
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
 
-    <script>
+  <script>
       feather.replace()
-    </script>
+  </script>
 
-    <!-- Custom JavaScript -->
-    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
-    <script src="{{ '/assets/js/accordion.js' | relative_url }}"></script>
-    <script src="{{ '/assets/js/code.js' | relative_url }}"></script>
-    <script src="{{ 'assets/js/mobile-nav-trigger-button.js' | relative_url }}"></script>
+  <!-- Custom JavaScript -->
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/accordion.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/code.js' | relative_url }}"></script>
+  <script src="{{ 'assets/js/mobile-nav-trigger-button.js' | relative_url }}"></script>
 
-    <!-- Crazy Egg Script
+  <!-- Crazy Egg Script
     BCDA will use this one day.  Just not now
     <script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0078/9905.js" async="async"></script>
     -->
-  </body>
+</body>
 
 </html>
