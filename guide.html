@@ -1,0 +1,260 @@
+---
+id: guide
+title: Getting Started
+layout: default
+---
+
+<div class="ds-base ds-l-container">
+  <div role="region" aria-label="page-title" class="ds-l-row ds-u-fill--primary-darker">
+    <div class="ds-l-col--12 ds-u-text-align--right ds-u-font-size--display ds-u-color--white">
+      Getting Started
+    </div>
+    <div class="ds-l-col--12 ds-u-text-align--right ds-u-font-size--h1 ds-u-color--white">
+      Learn About BCDA in Sandbox
+    </div>
+  </div>
+  <div class="ds-l-row ds-u-padding-top--2">
+    <aside class="ds-u-margin-bottom--4 ds-u-md-margin-bottom--0 ds-l-md-col--4 ds-l-lg-col--3">
+      <ul class="ds-c-vertical-nav sidenav">
+        <li class="ds-c-vertical-nav__item">
+          <a class="ds-c-vertical-nav__label" href="#what-is-an-api">
+            What is an API?
+          </a>
+        </li>
+        <li class="ds-c-vertical-nav__item">
+          <a class="ds-c-vertical-nav__label" href="#what-is-fhir">
+            What is FHIR?
+          </a>
+        </li>
+        <li class="ds-c-vertical-nav__item">
+          <a class="ds-c-vertical-nav__label" href="#BCDA-environments">
+            BCDA's Environments
+          </a>
+          <ul class="ds-c-vertical-nav__subnav">
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label" href="#sandbox-environment">
+                Sandbox Environment
+              </a>
+            </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label" href="#production-environment">
+                Production Environment
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="ds-c-vertical-nav__item">
+          <a class="ds-c-vertical-nav__label" href="#fhir-types">
+            FHIR Resource Types
+          </a>
+          <ul class="ds-c-vertical-nav__subnav">
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label" href="#eob-resource">
+                Explanation of Benefit (EOB)
+              </a>
+            </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label" href="#patient-resource">
+                Patient
+              </a>
+            </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label" href="#coverage-resource">
+                Coverage
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="ds-c-vertical-nav__item">
+          <a class="ds-c-vertical-nav__label" href="#fhir-endpoints">
+            BCDA's Bulk FHIR Endpoints
+          </a>
+          <ul class="ds-c-vertical-nav__subnav">
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label" href="#metadata-endpoint">
+                /Metadata Endpoint
+              </a>
+            </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label" href="#patient-endpoint">
+                /Patient Endpoint
+              </a>
+            </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label" href="#group-endpoint">
+                /Group Endpoint
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="ds-c-vertical-nav__item">
+          <a class="ds-c-vertical-nav__label" href="#BCDA-parameters">
+            BCDA Parameters
+          </a>
+          <ul class="ds-c-vertical-nav__subnav">
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label" href="#type-parameter">
+                The _type parameter
+              </a>
+            </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label" href="#since-parameter">
+                The _since parameter
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="ds-c-vertical-nav__item">
+          <a class="ds-c-vertical-nav__label" href="#try-the-api">
+            Try the API
+          </a>
+        </li>
+      </ul>
+    </aside>
+    <main id="main" class="ds-l-md-col--8 ds-l-lg-col--9">
+      <div class="guide-content">
+        <div id="what-is-an-api">
+          <h1>
+            What is an API?
+          </h1>
+          <div class="ds-u-font-size--base">
+            {% include guide/what_is_an_api.html %}
+          </div>
+        </div>
+        <div id="what-is-fhir">
+          <h1>
+            What is FHIR?
+          </h1>
+          <div class="ds-u-font-size--base">
+            {% include guide/what_is_fhir.html %}
+          </div>
+        </div>
+        <div id="BCDA-environments">
+          <h1>
+            BCDA's Environments
+          </h1>
+          <div>
+            {% include guide/bcda_environments.html %}
+          </div>
+        </div>
+        <div id="sandbox-environment">
+          <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+            1. Sandbox Environment
+          </h2>
+          <div>
+            {% include guide/sandbox_environment.html %}
+          </div>
+          <div id="production-environment">
+            <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+              2. Production Environment
+            </h2>
+            <div>
+              {% include guide/production_environment.html %}
+            </div>
+          </div>
+        </div>
+        <div id="fhir-types">
+          <h1>
+            BCDA's FHIR Resource Types
+          </h1>
+          <div>
+            {% include guide/bcda_resource_types.html %}
+          </div>
+          <div id="eob-resource">
+            <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+              1. Explanation of Benefit (EOB)
+            </h2>
+            <div>
+              {% include guide/eob_resource.html %}
+            </div>
+          </div>
+          <div id="patient-resource">
+            <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+              2. Patient
+            </h2>
+            <div>
+              {% include guide/patient_resource.html %}
+            </div>
+          </div>
+          <div id="coverage-resource">
+            <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+              3. Coverage
+            </h2>
+            <div>
+              {% include guide/coverage_resource.html %}
+            </div>
+          </div>
+        </div>
+        <div id="fhir-endpoints">
+          <h1>
+            BCDA's Bulk FHIR Endpoints
+          </h1>
+          <div id="metadata-endpoint">
+            <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+              1. /Metadata endpoint
+            </h2>
+            <div>
+              {% include guide/metadata_endpoint.html %}
+            </div>
+          </div>
+          <div id="patient-endpoint">
+            <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+              2. /Patient endpoint
+            </h2>
+            <div>
+              {% include guide/patient_endpoint.html %}
+            </div>
+          </div>
+          <div id="group-endpoint">
+            <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+              3. /Group endpoint
+            </h2>
+            <div>
+              {% include guide/group_endpoint.html %}
+            </div>
+          </div>
+          <div class="ds-c-alert ds-c-alert--hide-icon" id="endpoint-alert">
+            <div class="ds-c-alert__body">
+              <h2 class="ds-c-alert__heading">Differences between /Patient and /Group when using _since</h2>
+              <p class="ds-c-alert__text">
+                {% include guide/endpoint_alert.html %}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="BCDA-parameters">
+          <h1>
+            BCDA's Parameters
+          </h1>
+          <div>
+            {% include guide/bcda_parameters.html %}
+          </div>
+          <div id="type-parameter">
+            <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+              1. The type parameter
+            </h2>
+            <div>
+              {% include guide/type_parameter.html %}
+            </div>
+          </div>
+          <div id="since-parameter">
+            <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+              2. The since parameter
+            </h2>
+            <div>
+              {% include guide/since_parameter.html %}
+            </div>
+          </div>
+        </div>
+        <div id="try-the-api">
+          <h1>
+            Try the API
+          </h1>
+          <div>
+            {% include guide/try_the_api.html %}
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+<p>
+	Currently, access tokens expire after twenty minutes. To illustrate this cycle, we’ll use the published open sandbox credentials for Extra-Small ACOs.
+</p>
+
+<pre><code><b>Example Client ID (Extra-Small ACOs):</b>
+3841c594-a8c0-41e5-98cc-38bb45360d3c
+
+<b>Example Client Secret (Extra-Small ACOs):</b>
+F9780d323588f1cdfc3e63e95a8cbdcdd47602ff48a537b51dc5d7834bf466416a716bd4508e904a
+</code></pre>
+
+<div class="ds-c-alert ds-c-alert--hide-icon">
+    <div class="ds-c-alert__body">
+      <h3 class="ds-c-alert__heading">These credentials do not work in production.</h3>
+      <p class="ds-c-alert__text">
+	The sample credentials above will not work in the production environment. For production data, follow along using the credentials your ACO was issued.
+	</div>
+  </div>
+
+<h3>
+	Submit your credentials to receive an Access Token
+</h3>
+<p>
+	You will need to submit the Client ID and the Client Secret issued to your organization using a POST request. You will receive an Access Token that allows access to the API for 20 minutes before expiring.
+</p>
+
+<h4>
+	Access Token Request
+</h4>
+<pre><code>POST /auth/token</code></pre>
+
+<h4>
+	Access Token cURL Command
+</h4>
+	<p>
+		cURL Option 1: This cURL command requires separate base-64 encryption. We have concatenated the base64 encoding of the ‘Client ID : Secret’ as the argument to the -H flag.
+	</p>
+<pre><code>curl -d '' -X POST 'https://api.bcda.cms.gov/auth/token' \
+	-H "accept: application/json" \
+	-H "authorization: Basic Mzg0MWM1OTQtYThjMC00MWU1Tk4Y2MtMzhiYjQ1MzYwZDNjOmY5NzgwZDMyMzU4OGYxY2RmYzNlNjNlOTVhOGNiZGNkZDQ3NjAyZmY0OGE1MzdiNTFkYzVkNzgzNGJmNDY2NDE2YTcxNmJkNDUwOGU5MDRh"</code></pre>
+
+<p>
+	cURL Option 2: This cURL command innately encrypts your credentials with base-64 encryption
+</p>
+<pre><code>curl -d '' -X POST 'https://api.bcda.cms.gov/auth/token' \
+	--user 3841c594-a8c0-41e5-98cc-38bb45360d3c:f9780d323588f1cdfc3e63e95a8cbdcdd47602ff48a537b51dc5d7834bf466416a716bd4508e904a \
+	-H "accept: application/json"</code></pre>
+
+<h4>
+	Access Token Response Example
+</h4>
+<p>
+	The token string below has been abbreviated for readability.
+</p>
+<pre><code>{
+"access_token": "eyJhbGciOiJSUzUxMiIsInR5c...",
+"token_type":"bearer"
+}</code></pre>
+
+
+<h4>
+	Access Token Response Headers
+</h4>
+<p>access_token: The full text string will serve as your access token.
+token_type: A fixed value as “bearer”.</p>
+
+<h4>
+	Access Token Explanation
+</h4>
+<p>In cURL Option 1, you must base-64 encode the clientId and secret. Once that is performed, the encoded credentials can be passed to cURL as a header with the form: authorization: Basic [base64-encoded clientId:secret]</p>
+<p>In cURL Option 2, the user can take advantage of cURL’s built-in ability to base-64 encode the clientId and secret, and request and receive their token in a single step.
+If your operation succeeds, you will receive a 202 response with your access token as a header. You will receive a 401 Unauthorized response if your credentials are invalid or if your token has expired. No additional information is returned with a 401 response. When you receive a 401 response for a token you were just using successfully, you should request a new access token as outlined above.</p>
+
+<h2>
+	Set your Access Token as a Bearer Token
+</h2>
+<p>
+	In all of your requests, set your access token as the Bearer token. The Bearer token is included in the header of any requests as follows:
+</p>
+<pre><code>Authorization: Bearer <span style="color: #046B99;">{access_token}</span></code></pre>
+<p>
+	Notice that the word “Bearer” must be included with a capital B and followed by a space.
+</p>

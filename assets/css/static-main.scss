@@ -1,0 +1,250 @@
+---
+---
+@import 'styles.scss';
+
+.api-pattern {
+    background-image: url(../img/iconsbcda.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top right;
+    width: 100%;
+}
+
+.blueberry-lime-gradient-background {
+background: linear-gradient(30deg, #339392, #339392 73%, #62C5C4);
+}
+
+.solid-container {
+    width: 60%;
+    background-color: #339392;
+}
+
+article h2{
+  display: inline-block;
+  position: relative;
+}
+
+.faq-question{
+    color: #FAD980
+}
+
+.subnav .blueberry-lime-link:active:before,
+.subnav .blueberry-lime-link:focus:before,
+.subnav .blueberry-lime-link:hover:before {
+    background: linear-gradient(30deg, #34EFA4 10%, #087BAE 90%)
+}
+
+.logo-link-container{
+  color: #0071BC
+}
+
+.ds-c-desktop-nav .desktop-nav-items a, .mobile-nav-items a{
+  color: #0071BC
+}
+
+.bcda_callout {
+    background-color: #F5F5F5;
+    padding: 20px;
+}
+
+.no_list{
+  list-style: none;
+}
+
+.button p{
+  text-align: center;
+  width:100%;
+  margin: auto;
+}
+
+.button p a{
+  color:white;
+  text-decoration: none;
+  width:60%;
+  border-radius:3px;
+  padding: 10px;
+  background-color: #0071BC;
+  display:block;
+  margin:auto;
+}
+
+#google_logo {
+    max-height: 60px;
+    float: right;
+    margin-top: -15px;
+    padding-bottom: 25px;
+  }
+
+.ds-text--lead {
+    font-size: 24px;
+}
+
+@media only screen and (max-width: 1090px){
+  .api-pattern {
+    background:none;
+    background-color: #339392;
+  }
+  .solid-container {
+      width: 100%;
+  }
+
+}
+
+@media only screen and (min-width: 1960px){
+    .solid-container {
+        width: 80%;
+    }
+    .blueberry-lime-gradient-background {
+        background: linear-gradient(30deg, #339392, #339392 83%, #62C5C4);
+    }
+
+}
+
+.topdrop {
+    display: inline-block;
+    margin-left: -10px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-right:20px;
+}
+
+.topmenu ,
+.topmenu:visited {
+    position:relative;
+    display: inline-block;
+    appearance: none;
+    background-color: #339392;
+    border-radius: 3px 3px 0px 0px;
+    cursor: pointer;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s ease;
+    color: #fff;
+    padding: 5px 10px 8px 10px;
+}
+
+.topmenu:active,
+.topmenu:hover,
+.topmenu.active {
+    background-color: #fff;
+    color: #339392;
+}
+
+@media only screen and (max-width: 1023px){
+  .topmenu {
+    padding: 8px 10px;
+    margin: 5px;
+  }
+  .topmenu:active,
+  .topmenu:focus,
+  .topmenu:hover,
+  .topmenu.active {
+    border-radius: 3px;
+  }
+}
+
+.content_buffer {
+    margin-top: 56px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.highlight {
+    background-color: #fff;
+    color: #326867;
+}
+
+#main p img.ug-img {
+  width: 100%;
+  max-width: 500px;
+}
+
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+.accordion_active {
+    border: 2px #fff solid;
+    background-color: #fff;
+}
+
+.acc_content {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+}
+
+.accordion:after {
+    content: '\02795';
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+.accordion_active:after {
+    content: "\2796";
+}
+
+a {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+code {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+pre {
+    color: #203341;
+}
+
+.slim_ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Visual focus on the all code elements. */
+code[tabindex="0"]:focus {
+    outline: 1px dotted #567482;
+}
+
+/* Visual focus on the pre element, which contain code elements. */
+pre:focus-within {
+    outline: 1px dotted #567482;
+}
+
+/* Cancels visual focus on code elements inside pre element so there isn't a double outline. */
+pre:focus-within code[tabindex="0"]:focus {
+    outline: 0 none;
+}
+
+.ds-c-link:focus, .ds-c-link:focus:visited, a:focus, a:focus:visited,
+.ds-c-desktop-nav .desktop-nav-items a:focus, .mobile-nav-items a:focus,
+a.ds-c-button.ds-u-margin-top--4:focus, button.accordion:focus, button.accordion:hover,
+.button p a:focus {
+    // background-color: #68C1BF;
+    color: #212121;
+}
+
+.hex_background {
+    background-image: url("/assets/img/hex_background.svg");
+}

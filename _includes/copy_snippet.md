@@ -1,13 +1,12 @@
 {% assign code = include.code %}
-
+{% assign aco = include.aco %}
+{% assign type = include.type %}
 {% assign nanosecond = "now" | date: "%N" %}
-<div class="highlight"><pre><code id="code{{ nanosecond }}">{{code}}</code></pre></div>
+<div class="highlight" aria-hidden="true"><pre><code id="code{{ nanosecond }}">{{code}}</code></pre></div>
 
 <div class="button" on>
     <p>
-        <a href="javascript:void(0)" onclick="copyText{{ nanosecond }}()" id="copybutton{{ nanosecond }}">
-          Copy to clipboard
-        </a>
+        <button class="ds-c-button" type="button" href="javascript:void(0)" onclick="copyText{{ nanosecond }}()" id="copybutton{{ nanosecond }}" aria-label="Copy {{ aco }} {{ type }} to clipboard">Copy to clipboard</button>
     </p>
 </div>
 

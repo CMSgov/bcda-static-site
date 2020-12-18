@@ -1,0 +1,107 @@
+<p>You may want to retrieve metadata to check what version of the API is currently active or to check on the status of the API.
+</p>
+<p>
+	Metadata about the Beneficiary Claims Data API is available as a FHIR CapabilityStatement resource. A token is not required to access this information.
+</p>
+
+<h3>
+	Metadata Request
+</h3>
+
+<pre><code>GET /api/v1/metadata</code></pre>
+
+<h3>
+	Metadata cURL Command
+</h3>
+<pre><code>curl https://api.bcda.cms.gov/api/v1/metadata</code></pre>
+
+<h3>
+	Metadata Response Example
+</h3>
+<pre><code>{
+  "resourceType": "CapabilityStatement",
+  "status": "active",
+  "date": "2020-10-15",
+  "publisher": "Centers for Medicare & Medicaid Services",
+  "kind": "instance",
+  "instantiates": [
+    "https://prod-sbx.bfd.cms.gov/baseDstu3/metadata/",
+    "http://hl7.org/fhir/uv/bulkdata/CapabilityStatement/bulk-data"
+  ],
+  "software": {
+    "name": "Beneficiary Claims Data API",
+    "version": "r79",
+    "releaseDate": "2020-10-15"
+  },
+  "implementation": {
+    "description": "The Beneficiary Claims Data API (BCDA) enables Accountable Care Organizations (ACOs) participating in the Shared Savings Program to retrieve Medicare Part A, Part B, and Part D claims data for their prospectively assigned or assignable beneficiaries.",
+    "url": "https://sandbox.bcda.cms.gov"
+  },
+  "fhirVersion": "3.0.1",
+  "acceptUnknown": "extensions",
+  "format": [
+    "application/json",
+    "application/fhir+json"
+  ],
+  "rest": [
+    {
+      "mode": "server",
+      "security": {
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "token",
+                "valueUri": "https://sandbox.bcda.cms.gov/auth/token"
+              }
+            ],
+            "url": "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris"
+          }
+        ],
+        "cors": true,
+        "service": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/restful-security-service",
+                "code": "OAuth",
+                "display": "OAuth"
+              }
+            ],
+            "text": "OAuth"
+          }
+        ]
+      },
+      "interaction": [
+        {
+          "code": "batch"
+        },
+        {
+          "code": "search-system"
+        }
+      ],
+      "operation": [
+        {
+          "name": "patient-export",
+          "definition": {
+            "reference": "http://hl7.org/fhir/uv/bulkdata/OperationDefinition/patient-export"
+          }
+        },
+        {
+          "name": "group-export",
+          "definition": {
+            "reference": "http://hl7.org/fhir/uv/bulkdata/OperationDefinition/group-export"
+          }
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+
+<h3>
+	Metadata Explanation
+</h3>
+<p>
+	This operation will return data about the API in an NDJSON format. You may view the version of the API that is currently active, the version of FHIR currently supported, and other useful information.
+</p>
