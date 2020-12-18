@@ -76,7 +76,7 @@ Prefer: respond-async
 
 
 
-<h3 id="checkJob">Step 3: Check the job status</h3>
+<h3 id="checkJobEOY">Step 3: Check the job status</h3>
 
 <h4>Request to check the job status</h4>
 	<pre><code>GET https://api.bcda.cms.gov/api/v1/jobs/42</code></pre>
@@ -123,7 +123,7 @@ Accept: application/fhir+json</code></pre>
 	<p>The status will change from `202 Accepted` to `200 OK` when the export job is complete and the data is ready to be downloaded.</p>	
 	<p>Claims data can be found at the URLs within the output field. The claims returned in the job will be filtered to have a serviceDate of 12/31/2020 or before. The number 42 in the data file URLs is the same job ID from the Content-Location header URL in the previous step. If some of the data cannot be exported due to errors, details of the errors can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR OperationOutcome resources.</p>
 
-<h3 id="downloadData">Step 4: Download the data</h3>
+<h3 id="downloadDataEOY">Step 4: Download the data</h3>
 
 <h4>Request to download the data</h4>
 	<pre><code>GET https://api.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson</code></pre>
