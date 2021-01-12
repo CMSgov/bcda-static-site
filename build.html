@@ -21,12 +21,25 @@ layout: default
           <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#bcda-user-guide">
             BCDA User Guide Documentation
           </a>
+          <ul class="ds-c-vertical-nav__subnav">
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#openapi">
+                Generating Client Code
+              </a>
+            </li>
+          </ul>
         </li>
+
+
+
         <li class="ds-c-vertical-nav__item">
           <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#request-metadata">
             Request Metadata
           </a>
         </li>
+
+
+
         <li class="ds-c-vertical-nav__item">
           <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#authorization">
             Authorization and Authentication
@@ -44,6 +57,9 @@ layout: default
             </li>
           </ul>
         </li>
+
+
+
 
         <li class="ds-c-vertical-nav__item">
           <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#requesting-data-EOY">
@@ -105,6 +121,11 @@ layout: default
             {% include build/bcda_user_guide.html %}
           </div>
         </div>
+        <div id="openapi">
+          <div class="ds-u-font-size--base">
+            {% include build/openapi.html %}
+          </div>
+        </div> 
         <div id="request-metadata">
           <h2>
             Request Metadata
