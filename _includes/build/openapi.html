@@ -1,0 +1,29 @@
+<h2>
+	Generating Client Code
+</h2>
+
+	<h3>
+		OpenAPI Code Generator
+	</h3>
+
+		<p>
+			An OpenAPI v3 JSON schema file, which represents the service capabilities of the API, can be accessed through BCDA’s Swagger page.This file can be used to generate client code to interact with BCDA.
+		</p>
+		<p>
+			There are various tools that can be used to generate client code from an OpenAPI v3 JSON schema file, one of which is Swagger Codegen. It can generate code in dozens of different programming languages and also produces a README describing usage of the newly generated client code.
+		</p>
+		<p>
+			Throughout, this guide the README files produced when generating code will be invaluable. Consult your libraries README to learn to invoke each API interaction.
+		</p>
+
+	<h3>
+		Sample GoLang Code
+	</h3>
+		<p>	
+			BCDA provides test code written in Golang in our GitHub instance that you can use to set up your system to work with the API. A sample invocation is below:
+		</p>
+	<h3>
+		Golang Sample Code Invocation
+	</h3>
+	
+<pre><code>go run bcda_client.go -host=$HOSTNAME -clientID=$CLIENT_ID -clientSecret=$CLIENT_SECRET -endpoint=Patient -resourceType=ExplanationOfBenefit</code></pre>
