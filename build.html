@@ -22,11 +22,17 @@ layout: default
             BCDA User Guide Documentation
           </a>
         </li>
+
+
+
         <li class="ds-c-vertical-nav__item">
           <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#request-metadata">
             Request Metadata
           </a>
         </li>
+
+
+
         <li class="ds-c-vertical-nav__item">
           <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#authorization">
             Authorization and Authentication
@@ -40,19 +46,6 @@ layout: default
             <li class="ds-c-vertical-nav__subnav">
               <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#access-token">
                 Obtain your Access Token
-              </a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="ds-c-vertical-nav__item">
-          <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#requesting-data-EOY">
-            Requesting End of Year Data
-          </a>
-          <ul class="ds-c-vertical-nav__subnav">
-            <li class="ds-c-vertical-nav__subnav">
-              <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#requesting-all-three-EOY">
-                Request all three Resource Types (EOY)
               </a>
             </li>
           </ul>
@@ -74,6 +67,9 @@ layout: default
           </ul>
         </li>
 
+
+
+
         <li class="ds-c-vertical-nav__item">
           <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#requesting-filtered-data">
             Requesting Filtered Data
@@ -90,6 +86,13 @@ layout: default
               </a>
             </li>
           </ul>
+          <ul class="ds-c-vertical-nav__subnav">
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#requesting-all-three-EOY">
+                Request runouts data using runout with /Group
+              </a>
+            </li>
+          </ul> 
         </li>
       </ul>
     </aside>
@@ -138,22 +141,6 @@ layout: default
           </div>
         </div>
       </div>
-      <div id="requesting-data-EOY">
-        <h1>
-          Requesting Data during End of Year Attribution
-        </h1>
-        <div class="ds-u-font-size--base guide-content">
-          {% include build/requesting_data_EOY_intro.html %}
-        </div>
-      </div>
-      <div id="requesting-all-three-EOY">
-        <h2>
-          Request All Three Resource Types with /Group and `runout`
-        </h2>
-        <div class="ds-u-font-size--base guide-content">
-          {% include build/requesting_data_EOY.html %}
-        </div>
-      </div>
       <div id="requesting-data">
         <h1>
           Requesting Data
@@ -194,6 +181,14 @@ layout: default
             {% include build/requesting_filtered_data_since_Group.html %}
           </div>
         </div>
+        <div id="requesting-all-three-EOY">
+          <h2>
+            Request All Three Resource Types with /Group and `runout`
+          </h2>
+          <div class="ds-u-font-size--base guide-content">
+            {% include build/requesting_data_EOY.html %}
+          </div>
+        </div>        
       </div>
     </main>
   </div>
