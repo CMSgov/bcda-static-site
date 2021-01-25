@@ -1,6 +1,12 @@
 <div>
 <p>
-	You may want to obtain filtered data for all of your beneficiaries or for a subset of your beneficiaries in order to reduce file size and download time. You can make a request using the _since parameter to either the /Patient or /Group endpoints, but be wary that you understand the difference regarding newly added beneficiaries. You may want to do this as a repeating call or as a way to check for new data.
+	You may want to obtain filtered data for all of your beneficiaries (or for a subset of your beneficiaries) in order to reduce file size and download time. You may also want to target specific data, such as your runouts data. 
+</p>
+<p>
+	To reduce file size, use the _since parameter with either the /Patient or /Group endpoints, but be wary that you understand the difference regarding newly added beneficiaries. You may want to do this as a repeating call or as a way to check for new data.
+</p>
+<p>
+	To obtain runouts data, use the 'runout' parameter with the /Group endpoint. You may want to do this during the runouts period early in the year.
 </p>
 
 <div class="ds-c-alert ds-c-alert--hide-icon">
@@ -26,6 +32,7 @@
 	<ol>
 		<li>Request the most recent data for all beneficiaries: Use _since within the /Patient endpoint</li>
 		<li>Request the most recent data for all beneficiaries AND historical data for newly added beneficiaries: Use _since within the /Group endpoint</li>
+		<li>Request runouts data: Use 'runout' within the /Group endpoint</li>
 	</ol>
 
 <h2>Steps</h2>
@@ -45,7 +52,7 @@
 
 
 
-<h2>Format dates and times by the FHIR standard</h2>
+<h2>When using _since, format dates and times by the FHIR standard</h2>
 	<p>
 	Dates and times submitted in _since must be listed in the FHIR instant format (YYYY-MM-DDThh:mm:sss+zz:zz).
 	</p>
