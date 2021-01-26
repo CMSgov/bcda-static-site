@@ -6,7 +6,7 @@
 	To reduce file size, use the _since parameter with either the /Patient or /Group endpoints, but be wary that you understand the difference regarding newly added beneficiaries. You may want to do this as a repeating call or as a way to check for new data.
 </p>
 <p>
-	To obtain runouts data, use the 'runout' parameter with the /Group endpoint. You may want to do this during the runouts period early in the year.
+	To obtain claims runout data, use the <a href="#requesting-all-three-EOY">'runout' parameter with the /Group endpoint</a>, which returns data for beneficiaries who were attributed to your ACO the previous year but not the current year. These claims will have a service date no later than December 31 of the previous year.
 </p>
 
 <div class="ds-c-alert ds-c-alert--hide-icon">
@@ -30,9 +30,9 @@
 		You can make a few different filtered requests for data:
 	</p>
 	<ol>
-		<li>Request the most recent data for all beneficiaries: Use _since within the /Patient endpoint</li>
-		<li>Request the most recent data for all beneficiaries AND historical data for newly added beneficiaries: Use _since within the /Group endpoint</li>
-		<li>Request runouts data: Use 'runout' within the /Group endpoint</li>
+		<li>Request the most recent data for all beneficiaries: <a href="#requesting-since-with-Patient">Use _since within the /Patient endpoint</a></li>
+		<li>Request the most recent data for all beneficiaries AND historical data for newly added beneficiaries: <a href="#requesting-since-with-Group">Use _since within the /Group endpoint</a></li>
+		<li>Request runouts data: <a href="#requesting-all-three-EOY">Use 'runout' within the /Group endpoint</a></li>
 	</ol>
 
 <h2>Steps</h2>
