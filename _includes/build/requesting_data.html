@@ -1,15 +1,3 @@
-<div class="ds-c-alert ds-c-alert--hide-icon">
-    <div class="ds-c-alert__body">
-      <h2 class="ds-c-alert__heading">Temporary Change to Production Requests</h2>
-      <p class="ds-c-alert__text">
-	Throughout January 2021, users will need to use the `runout` identifier with the /Group endpoint <b>in order to request any claims from BCDA's production environment</b>. Requests to the /Group and /Patient endpoints without the `runout` identifier will result in an error message. When using the `runout` identifier, data returned by the API will be restricted to claims with a service date of 12/31/2020 or earlier. 
-</p>
-<p>
-	These changes are in place to ensure that BCDA does not return any data not assigned to your organization during the transition between performance years. Please see the full details in the <a href="#requesting-all-three-EOY">End of Year Requests</a> section above.
-</p>
-   </div>
-</div>
-
 <p>
 	To obtain all the available data (up to 7 years) for all of your beneficiaries, you can make a request to either the /Patient or /Group endpoint. You may want to do this as a first call, as a way to check for BCDA files against CCLF, or to create a database.
 </p>
