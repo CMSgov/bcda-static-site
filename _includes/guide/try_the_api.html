@@ -19,6 +19,9 @@
 	{% include guide/credentials.html %}
 </div>
 
+
+
+
 <h2>
 	Step 1: Obtain an Access Token
 </h2>
@@ -69,7 +72,7 @@
 	<h3>
 		Sample cURL Command to Start a Job
 	</h3>
-<pre><code>curl -X GET "https://sandbox.bcda.cms.gov/api/v1/Patient/$export"
+<pre><code>curl -X GET 'https://sandbox.bcda.cms.gov/api/v1/Patient/$export'
 -H "accept: application/fhir+json" \
 -H "Prefer: respond-async" \
 -H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"
@@ -106,7 +109,7 @@ Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42
 <H4>
 	Sample cURL Command to Check the Job Status
 </H4>
-<pre><code>curl -X GET "https://sandbox.bcda.cms.gov/api/v1/jobs/42" \
+<pre><code>curl -X GET 'https://sandbox.bcda.cms.gov/api/v1/jobs/42' \
 -H "accept: application/fhir+json" \
 -H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"
 </code></pre>
@@ -153,7 +156,7 @@ Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42
 	<H4>
 		Sample cURL Command to Download the Data
 	</H4>
-<pre><code>curl https://sandbox.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson \
+<pre><code>curl 'https://sandbox.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson' \
 -H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>" \
 -H "Accept-Encoding: gzip"
 </code></pre>
