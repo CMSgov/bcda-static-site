@@ -11,24 +11,131 @@
       site_name: "bcda"
     }
   </script>
+
   <!-- Loading script asynchronously -->
-  <script type="text/javascript">
-      (function (a, b, c, d) {
-        a = 'https://tags.tiqcdn.com/utag/cmsgov/cms-general/{{ jekyll.environment }}/utag.js'; b = document; c = 'script'; d = b.createElement(c); d.src = a; d.type = 'text/java' + c; d.async = true; a = b.getElementsByTagName(c)[0]; a.parentNode.insertBefore(d, a);
-      })();
-  </script>
-  <!-- Adding event for all side nav clicks-->
+  <script src="{{ '/assets/js/tagging.js' | relative_url }}"></script>
   <script type="text/javascript">
     window.onload = function () {
-      var anchors = document.querySelectorAll('a.ds-c-vertical-nav__label');
-      for (const anchor of anchors) {
-        anchor.addEventListener('click', function (event) {
-          utag.link({ ga_event_category: 'BCDA', ga_event_action: 'click: side-nav', ga_event_label: anchor.textContent.trim().toLowerCase() })
+      // Get the page name (empty page is home page)
+      var page = window.location.pathname.split("/").pop();
+      if (page == '') {
+        page = 'home.html';
+      }
+
+      // Adding event for all side nav clicks
+      var sideAnchors = document.querySelectorAll('a.ds-c-vertical-nav__label');
+      for (const sideAnchor of sideAnchors) {
+        sideAnchor.addEventListener('click', function (event) {
+          metricTagging('BCDA', 'click: side-nav', page + ': ' + sideAnchor.textContent.trim().toLowerCase())
+        })
+      };
+
+      // Adding event for all top nav clicks
+      var topAnchors = document.querySelectorAll('a.topnav__link');
+      for (const topAnchor of topAnchors) {
+        topAnchor.addEventListener('click', function (event) {
+          metricTagging('BCDA', 'click: top-nav', page + ': ' + topAnchor.textContent.trim().toLowerCase())
+        })
+      }
+
+      // Adding event for all in-text link clicks
+      var inTextAnchors = document.querySelectorAll('a.in-text__link');
+      for (const inTextAnchor of inTextAnchors) {
+        inTextAnchor.addEventListener('click', function (event) {
+          metricTagging('BCDA', 'click: In-text Link', page + ': ' + inTextAnchor.textContent.trim().toLowerCase().concat(':', inTextAnchor.href))
         })
       }
     }
   </script>
   <a class="ds-c-skip-nav" href="#main">Skip to main content</a>
+
+  <!-- Listener to check for ctrl-c -->
+  <script type="text/javascript">
+    // if text is selected and copied within the website
+    // Declare function to get selected text from document
+    function getSelectionText() {
+      var text = "";
+      if (window.getSelection) {
+        text = window.getSelection().toString();
+      } else if (document.selection && document.selection.type != "Control") {
+        text = document.selection.createRange().text;
+      }
+        return text;
+    }
+
+    // Declare function on copy event
+    document.addEventListener('copy', function(e){
+      utag.link({
+          ga_event_category: "BCDA",
+          ga_event_action: document.title + " - Text is copied",
+          ga_event_label: getSelectionText().length + " - " + getSelectionText(),
+          ga_event_non_interaction: 1
+      });
+    });
+  </script>
+
+  <!-- Listener to check for ctrl-f -->
+  <script type="text/javascript">
+    /*
+    This script identifies if a browsers' search is toggled open
+
+    It can capture start and the mouse away from focus.
+    It cannot capture what is typed or searched for.
+    */
+    var KEY_CTRL = 17; // control key for pc keyboard
+    var KEY_CMD = 91;  // command key for apple keyboard
+    var KEY_f = 70;
+
+    var isReserved = false;
+    var useExclusiveKeyEvent = false;
+    var isNewSearchEvent = false;
+
+
+    /*THIS VARIABLE IS RENDERED BY SERVER SIDE*/
+    var clientRandomKey = "78349DE472AA30032DE2DF344FF28374";
+
+    window.onkeyup=function(ev){
+      if((ev.which == KEY_CTRL)||(ev.which == KEY_CMD)){
+        isReserved=false;
+      }
+    }
+    window.onkeydown=function(ev){
+      //!IMPORTANT NOT MAKE UI DELAY IN THIS FUCTION
+      if((ev.which == KEY_CTRL)||(ev.which == KEY_CMD)) {
+           isReserved=true;
+      }
+      if((isReserved==true)&&(ev.which == KEY_f)) {
+        var currentDate = new Date();
+
+        utag.link({
+          ga_event_category: "BCDA",
+          ga_event_action: document.title + " - Browser Find (ctrl+f)",
+          ga_event_label: "into - launch search a word",
+          ga_event_non_interaction: 1
+        });
+        isNewSearchEvent=true;
+        if(useExclusiveKeyEvent){
+          return false;
+        }
+      }
+    }
+
+    window.setInterval(function(){
+      if(isNewSearchEvent){
+        isNewSearchEvent=false;
+        //TODO ajax send code
+        var currentDate = new Date();
+
+
+        utag.link({
+          ga_event_category: "BCDA",
+          ga_event_action: document.title + " - Browser Find (ctrl+f)",
+          ga_event_label: "mouse away - launch search a word",
+          ga_event_non_interaction: 1
+        });
+      }
+    },2500);
+  </script>
 
   <header>
     {% include header.html %}

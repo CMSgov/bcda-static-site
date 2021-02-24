@@ -1,6 +1,6 @@
 <h3>Step 1: Obtain an Access Token</h3>
 	<p>
-		See <a href="#authorization">Authentication and Authorization</a> above.
+		See <a href="#authorization" class="in-text__link">Authentication and Authorization</a> above.
 	</p>
 
 
@@ -35,14 +35,14 @@ Prefer: respond-async
 <h4>Start a Job using _since within the /Group endpoint Explanation</h4>
 	<p>
 		This operation will start a job for filtered data for existing beneficiaries since 8PM EST on February 13th, 2020 and all 7 years of historical data for beneficiaries assigned to your organization in the last month. In the example, we request the Patient resource type. The steps and format would work similarly for other resource types.
-	</p>	
+	</p>
 	<p>
 		You must provide the groupID of "all" as well as a _since date in the FHIR format. An access token as well as Accept and Prefer headers are required. The dollar sign ($) before the word 	"export" in the URL indicates that the endpoint is	 an action rather than a resource. The format is defined by the FHIR Bulk Data Export spec.
-	</p>	
+	</p>
 	<p>
 		If the request was successful, a 202 Accepted response code will be returned and the response will include a Content-Location header. The value of this header indicates the location to check 	for job status and outcome. In the example header 	below, the number 48 in the URL represents the ID of the export job.
-	</p>	
-	
+	</p>
+
 	<div class="ds-c-alert ds-c-alert--hide-icon">
     	<div class="ds-c-alert__body">
     	  <h3 class="ds-c-alert__heading"> Attribution data is only updated once per month.</h3>
@@ -54,7 +54,7 @@ Prefer: respond-async
 
 
 <h3>Step 3: Check the job status</h3>
-	<p>See <a href="#checkJob"><em>Step 3: Check the job status</em></a> in the Request Data section above.</p>
+	<p>See <a href="#checkJob" class="in-text__link"><em>Step 3: Check the job status</em></a> in the Request Data section above.</p>
 
 <h3>Step 4: Download the data</h3>
-	<p>See <a href="#downloadData"><em>Step 4: Download the data</em></a> in the Request Data section above.</p>
+	<p>See <a href="#downloadData" class="in-text__link"><em>Step 4: Download the data</em></a> in the Request Data section above.</p>
