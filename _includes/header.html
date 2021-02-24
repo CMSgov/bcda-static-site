@@ -1,5 +1,5 @@
 <nav class="navbar" id="navbar">
-  <a class="site-logo" href="/">
+  <a class="site-logo" href="/" onclick='metricTagging("BCDA", "Top Navigation: Link Click", "Beneficiary Claims Data API")'>
     <img src="{{ site.logourl | relative_url }}" alt="BCDA logo"> <span class="site-logo-text ds-u-font-size--base">Beneficiary Claims Data API</span>
   </a>
 
@@ -8,7 +8,7 @@
       <use xlink:href="/assets/img/solid.svg#bars"></use>
     </svg>
   </button>
-  
+
   <div class="topnav-wrap" id="topnav-wrap">
     <button id="topnav__close-button" class="ds-c-button ds-c-button--transparent ds-c-button--big topnav__close-button" type="button"
 aria-controls="topnav-wrap" aria-label="Close menu">
@@ -27,7 +27,7 @@ aria-controls="topnav-wrap" aria-label="Close menu">
           {% endfor %}
       {% endfor %}
       <li class="topnav__item topnav__item--buttons ds-u-padding-right--1 ds-u-text-align--center">
-        <a class="ds-c-link" href="https://groups.google.com/forum/#!forum/bc-api" target="_blank"><button class="ds-c-button ds-c-button--primary ds-u-fill--warn-lighter ds-u-color--black">Join the Google Group</button></a>
+        <a class="ds-c-link" href="https://groups.google.com/forum/#!forum/bc-api" target="_blank"><button class="ds-c-button ds-c-button--primary ds-u-fill--warn-lighter ds-u-color--black" onclick='metricTagging("BCDA", "Top Navigation: Link Click", "Join Google Group")'>Join the Google Group</button></a>
       </li>
     </ul>
   </div>
