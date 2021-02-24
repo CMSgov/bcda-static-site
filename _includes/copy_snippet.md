@@ -6,7 +6,7 @@
 
 <div class="button" on>
     <p>
-        <button class="ds-c-button" type="button" href="javascript:void(0)" onclick="copyText{{ nanosecond }}()" id="copybutton{{ nanosecond }}" aria-label="Copy {{ aco }} {{ type }} to clipboard">Copy to clipboard</button>
+        <button class="ds-c-button" type="button" href="javascript:void(0)" onclick='copyText{{ nanosecond }}();metricTagging("BCDA", "Try the API: Accordion: Copy to Clipboard", "{{ type }}:{{ aco }}")' id="copybutton{{ nanosecond }}" aria-label="Copy {{ aco }} {{ type }} to clipboard">Copy to clipboard</button>
     </p>
 </div>
 
