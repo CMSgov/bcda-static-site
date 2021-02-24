@@ -16,11 +16,17 @@
   <script src="{{ '/assets/js/tagging.js' | relative_url }}"></script>
   <script type="text/javascript">
     window.onload = function () {
+      // Get the page name (empty page is home page)
+      var page = window.location.pathname.split("/").pop();
+      if (page == '') {
+        page = 'home.html';
+      }
+
       // Adding event for all side nav clicks
       var sideAnchors = document.querySelectorAll('a.ds-c-vertical-nav__label');
       for (const sideAnchor of sideAnchors) {
         sideAnchor.addEventListener('click', function (event) {
-          metricTagging('BCDA', document.title + ' click: side-nav', sideAnchor.textContent.trim().toLowerCase())
+          metricTagging('BCDA', 'click: side-nav', page + ': ' + sideAnchor.textContent.trim().toLowerCase())
         })
       };
 
@@ -28,7 +34,7 @@
       var topAnchors = document.querySelectorAll('a.topnav__link');
       for (const topAnchor of topAnchors) {
         topAnchor.addEventListener('click', function (event) {
-          metricTagging('BCDA', document.title + ' click: top-nav', topAnchor.textContent.trim().toLowerCase())
+          metricTagging('BCDA', 'click: top-nav', page + ': ' + topAnchor.textContent.trim().toLowerCase())
         })
       }
 
@@ -36,7 +42,7 @@
       var inTextAnchors = document.querySelectorAll('a.in-text__link');
       for (const inTextAnchor of inTextAnchors) {
         inTextAnchor.addEventListener('click', function (event) {
-          metricTagging('BCDA', document.title + ' click: In-text Link', inTextAnchor.textContent.trim().toLowerCase().concat(':', inTextAnchor.href))
+          metricTagging('BCDA', 'click: In-text Link', page + ': ' + inTextAnchor.textContent.trim().toLowerCase().concat(':', inTextAnchor.href))
         })
       }
     }
