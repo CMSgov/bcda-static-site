@@ -20,7 +20,7 @@
       var sideAnchors = document.querySelectorAll('a.ds-c-vertical-nav__label');
       for (const sideAnchor of sideAnchors) {
         sideAnchor.addEventListener('click', function (event) {
-          metricTagging('BCDA', 'click: side-nav', sideAnchor.textContent.trim().toLowerCase())
+          metricTagging('BCDA', document.title + ' click: side-nav', sideAnchor.textContent.trim().toLowerCase())
         })
       };
 
@@ -28,7 +28,7 @@
       var topAnchors = document.querySelectorAll('a.topnav__link');
       for (const topAnchor of topAnchors) {
         topAnchor.addEventListener('click', function (event) {
-          metricTagging('BCDA', 'click: top-nav', topAnchor.textContent.trim().toLowerCase())
+          metricTagging('BCDA', document.title + ' click: top-nav', topAnchor.textContent.trim().toLowerCase())
         })
       }
 
@@ -36,7 +36,7 @@
       var inTextAnchors = document.querySelectorAll('a.in-text__link');
       for (const inTextAnchor of inTextAnchors) {
         inTextAnchor.addEventListener('click', function (event) {
-          metricTagging('BCDA', 'click: In-text Link', inTextAnchor.textContent.trim().toLowerCase().concat(':', inTextAnchor.href))
+          metricTagging('BCDA', document.title + ' click: In-text Link', inTextAnchor.textContent.trim().toLowerCase().concat(':', inTextAnchor.href))
         })
       }
     }
