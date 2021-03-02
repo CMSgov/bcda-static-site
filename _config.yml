@@ -60,6 +60,11 @@ exclude:
   - _updates/README.md
   - _updates/example_update.html
   - terms.html # Not publishing ToS page until it becomes ready (See BCDA-4024 for re-enablement)
+  - package.json
+  - package-lock.json
+  - ops/
+  - scripts/
+  - Makefile
 
 sass:
   sass_dir: _sass
