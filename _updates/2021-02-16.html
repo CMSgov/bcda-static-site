@@ -1,0 +1,24 @@
+---
+---
+<div class="ds-u-padding-y--2">
+  <div class="ds-u-font-size--h3 ds-u-font-weight--bold">
+    New endpoint added allowing cancelling/deletion of active jobs. 
+  </div>
+  <div class="ds-u-font-size--lead ds-u-padding-y--1">
+    February 26 2020
+  </div>
+ 	<div>
+    <p>
+    Users may now cancel/delete running jobs by utilizing the DELETE endpoint. The new delete feature will only work on jobs actively running and not in any terminal state (completed, failed, archived, expired, cancelled).
+    </p>
+    <p>
+      Example Request to the new DELETE endpoint
+    </p>
+    <p>
+      DELETE /api/v1/jobs/{jobId}
+    </p>
+    <p>
+      We hope this feature will be useful in cancelling especially long-running jobs. For more details, see the Building Your Application page.
+    </p>
+  </div>
+</div>
