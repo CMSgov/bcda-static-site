@@ -64,6 +64,11 @@ layout: default
                 Request all three Resource Types
               </a>
             </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#deleting-jobs">
+                Delete active jobs
+              </a>
+            </li>
           </ul>
         </li>
 
@@ -143,17 +148,26 @@ layout: default
       </div>
       <div id="requesting-data">
         <h1>
-          Requesting Data
+          Requesting TEST Data
         </h1>
         <div class="ds-u-font-size--base">
           {% include build/requesting_data.html %}
         </div>
+        
         <div id="requesting-all-three">
           <h2>
             Request All Three Resource Types
           </h2>
           <div class="ds-u-font-size--base guide-content">
             {% include build/requesting_data_all_three.html %}
+          </div>
+        
+        <div id="deleting-jobs">
+          <h2>
+            Deleting Active Jobs
+          </h2>
+          <div class="ds-u-font-size--base">
+            {% include build/deleting_jobs.html %}
           </div>
         </div>
       </div>
