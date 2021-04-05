@@ -2,7 +2,7 @@
 	<p>
 		See <a href="#authorization" class="in-text__link">Authentication and Authorization</a> above.
 	</p>
-<h3>Step 2: Send a Request to Delete a Job</h3>
+<h3>Step 2: Send a Request to Cancel a Job</h3>
 
 <h4>Request to Cancel a Job</h4>
       <pre><code>DELETE /api/v1/jobs/{jobId}</code></pre>
@@ -13,7 +13,7 @@
 
 <h4>Cancel a Job Explanation</h4>
 	<p>
-		This operation will send a request to delete any active job. You may want to do this for very long-running jobs or to preserve resources.
+		This operation will send a request to cancel any active job. You may want to do this for very long-running jobs or to preserve resources.
 	</p>
 	<p>
 		If the request is successful, the active job will be terminated and a 202 response will be returned.
