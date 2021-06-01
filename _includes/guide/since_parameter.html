@@ -1,11 +1,7 @@
 <p>
-	The /Patient endpoint allows you to request ExplanationOfBenefit, Patient, and/or Coverage data for all beneficiaries assigned or assignable to your ACO. 
+	The _since parameter allows you to apply a date parameter to your bulk data requests. Instead of receiving the full record of historical data every time you request data from an endpoint, you will be able to use _since to submit a date. The API will then produce claims data from the bulk data endpoints that have been loaded since the entered date.
 </p>
 
 <p>
-	Note that the /Patient endpoint does not allow requests for data patient-by-patient. By the Bulk FHIR specification, only data for all patients associated with the authorized users’ credentials can be returned.
-</p>
-
-<p>
-	You may also filter data by date using the _since parameter. If no filter is applied, a request to the /Patient endpoint in BCDA returns seven years of historical data for all assigned and assignable beneficiaries.
+	To learn more about the differences using _since between the /Patient and /Group endpoints see the above section.
 </p>
