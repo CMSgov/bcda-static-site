@@ -1,11 +1,7 @@
 <p>
-	The /Patient endpoint allows you to request ExplanationOfBenefit, Patient, and/or Coverage data for all beneficiaries assigned or assignable to your ACO. 
+	The _type parameter allows you to request different Resource Types from the API. Instead of receiving data from all three Resource Types when no _type parameter is specified, you will be able to use the _type parameter to submit one or more Resource Types. The API will then produce data from the specified Resource Types.
 </p>
 
 <p>
-	Note that the /Patient endpoint does not allow requests for data patient-by-patient. By the Bulk FHIR specification, only data for all patients associated with the authorized users’ credentials can be returned.
-</p>
-
-<p>
-	You may also filter data by date using the _since parameter. If no filter is applied, a request to the /Patient endpoint in BCDA returns seven years of historical data for all assigned and assignable beneficiaries.
+	To learn more about the Resource Types see the <a href="https://bcda.cms.gov/guide.html#fhir-types" target="_blank" class="in-text__link">FHIR Resource Types</a> section above.
 </p>
