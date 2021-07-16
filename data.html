@@ -32,6 +32,14 @@ layout: default
           </a>
         </li>
         <li class="ds-c-vertical-nav__item">
+          <a 
+            class="ds-c-vertical-nav__label"
+            href="#bcda-v2-data"
+          >
+            BCDA Version 2 (V2) Data
+          </a>
+        </li>
+        <li class="ds-c-vertical-nav__item">
           <a
             class="ds-c-vertical-nav__label"
             href="#bcda-data-dictionary"
@@ -59,6 +67,15 @@ layout: default
     </aside>
 
     <main id="main" class="ds-l-md-col--8 ds-l-lg-col--9">
+      <div class="ds-c-alert ds-c-alert--hide-icon" id="version-2-header-alert">
+        <div class="ds-c-alert__body">
+          <p class="ds-c-alert__text">
+            Version 2 of the Beneficiary Claims Data API (BCDA V2) is now available as of Summer 2021.
+            If you are interested in learning more about how BCDA is changing in this new version of BCDA endpoints, 
+            please navigate to the <a href="/data.html#bcda-v2-data" class="in-text__link"><em>BCDA Version 2(V2) Data</em></a> section for more information.
+          </p>
+        </div>
+      </div>
       <div id="cclf-v-bcda">
         <h1>
           CCLF v. BCDA Data
@@ -73,6 +90,14 @@ layout: default
         </h1>
         <div class="ds-u-font-size--base">
           {% include data/security_and_quality.html %}
+        </div>
+      </div>
+      <div id="bcda-v2-data">
+        <h1>
+          BCDA Version 2 (V2) Data
+        </h1>
+        <div class="ds-u-font-size--base">
+          {% include data/bcda_v2_data.html %}
         </div>
       </div>
       <div id="bcda-data-dictionary">

@@ -1,0 +1,170 @@
+<p>
+    Version 2 of the Beneficiary Claims Data API (BCDA V2) is now available as of Summer 2021. 
+    To support industry alignment, BCDA V2 conforms to the <a href="https://hl7.org/fhir/R4/" class="in-text__link">FHIR R4 specification</a> and follows the <a href="http://hl7.org/fhir/us/carin-bb/history.html" class="in-text__link">CARIN Implementation Guide</a>. 
+    Below is a high level summary of data differences to expect between BCDA V1 (which supports FHIR version STU3) and BCDA V2 (which supports FHIR R4), 
+    focusing on the three primary resources provided in the API:  ExplanationOfBenefit, Patient and Coverage. 
+    In general, the differences for each resources can be grouped into two categories: 
+    1.) differences due to changes in the FHIR specification between STU3 and R4 and 
+    2.) differences due to following a different implementation guide. 
+    For more information on specific API-related changes in BCDA V2, please visit the <a href="/guide.html" class="in-text__link">Getting Started</a> Page. 
+</p>
+<h2>
+    Specification Based Changes
+</h2>
+<h3>
+    Explanation Of Benefit
+</h3>
+<p>
+    The following table summarizes changes to the EOB resource due to changes between versions 3 (STU3) and 4 (R4) of the FHIR specification.
+</p>
+<p>
+    For details, see the <a href="http://www.hl7.org/fhir/explanationofbenefit.html#resource" class="in-text__link">FHIR Explanation of Benefit resource</a> page, and select the "R3 Diff" tab under section 13.10.3 "Resource Content"
+</p>
+<table style="width:100%">
+    <tr>
+        <th>Change Type</th>
+        <th>Description</th>
+        <th>Examples</th>
+    </tr>
+    <tr>
+        <td valign=top>Consolidated/Removed Elements</td>
+        <td valign=top>Some elements were consolidated and/or removed. For instance, in STU3 there were two elements (Eob.Organization and Eob.Provider) that could represent the party responsible for the claim.  In R4, this has been consolidated into one element (Eob.provider)</td>
+        <td id="cex" valign=top>
+            <ul>
+                <li>Eob.provider</li>
+                <li>Eob.hospitalization</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td valign=top>Added Constraints</td>
+        <td valign=top>Fifteen fields were changed from optional to mandatory.  Changing the optionality in this context generally has no impact on users consuming this data.   A few other minor constraints were added or modified (such as valueset bindings and reference targets)</td>
+        <td id="cex" valign=top>
+            <ul>
+                <li>Eob.use</li>
+                <li>Eob.patient</li>
+                <li>Eob.referral</li>
+                <li>Eob.outcome</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td valign=top>New Elements</td>
+        <td valign=top>Approximately 35 new elements were added to the EOB resource.  About 65% of these new elements are child elements of the .addItem property which is not supplied by the BCDA api.  Of the remaining 35%, very few, if any, of these elements are populated by BCDA.</td>
+        <td id="cex" valign=top>
+            <ul>
+                <li>Eob.priority</li>
+                <li>Eob.preAuthRef</li>
+                <li>Eob.diagnosis.onAdmission</li>
+                <li>Eob.formCode</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td valign=top>Renamed Elements</td>
+        <td valign=top>A handful of elements were renamed.  For users converting from V1 (STU3) to V2 (R4), it is likely that existing parsing/handling logic must be adjusted.</td>
+        <td id="cex" valign=top>
+            <ul>
+                <li>Eob.information → Eob.SupportingInfo</li>
+                <li>Eob.careTeamLinkId → Eob.careTeamSequence</li>
+                <li>Eob.diagnosisLinkId → Eob.diagnosisSequence</li>
+                <li>Eob.service → Eob.productOrService</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+<h3>
+    Patient
+</h3>
+<p>
+    The following table summarizes changes to the Patient resource due to changes between versions 3 (STU3) and 4 (R4) of the FHIR specification.  The Patient resource is normative, with a maturity level of 5.  In other words, because this resource has been in a mature state for quite some time, the amount of change to this resource in R4 is minimal.
+</p>
+<p>
+    For details, see the <a href="http://hl7.org/fhir/R4/patient.html#resource" class="in-text__link">FHIR Patient resource</a> page, and select the "R3 Diff" tab under section 8.1.2 "Resource Content"
+</p>
+<table style="width:100%">
+    <tr>
+        <th>Change Type</th>
+        <th>Description</th>
+        <th>Examples</th>
+    </tr>
+    <tr>
+        <td valign=top>Consolidated/Removed Elements</td>
+        <td valign=top>Only one element was removed (Patient.animal) which has no effect on the BCDA api.</td>
+        <td id="cex" valign=top>
+            <ul>
+                <li>Patient.animal</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td valign=top>Constraints</td>
+        <td valign=top>A handful of fields are bound to different valuesets.  Other minor changes to default value and reference target.</td>
+        <td id="cex" valign=top>
+            <ul>
+                <li>Patient.active</li>
+                <li>Patient.gender</li>
+                <li>Patient.generalPractitioner</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+<h3>
+    Coverage
+</h3>
+<p>
+    The following table summarizes changes to the Coverage resource due to changes between versions 3 (STU3) and 4 (R4) of the FHIR specification. 
+</p>
+<p>
+    For details, see the <a href="http://hl7.org/fhir/R4/coverage.html#resource" class="in-text__link">FHIR Coverage resource</a> page, and select the "R3 Diff" tab under section 13.10.3 "Resource Content"
+</p>
+<table style="width:100%">
+    <tr>
+        <th>Change Type</th>
+        <th>Description</th>
+        <th>Examples</th>
+    </tr>
+    <tr>
+        <td valign=top>New Elements</td>
+        <td valign=top>Six new elements were added to the Coverage resource.  Most of the new elements relate to costToBeneficiary and will not be supplied in BCDA.</td>
+        <td id="cex" valign=top>
+            <ul>
+                <li>Coverage.class.name</li>
+                <li>Coverage.costToBeneficiary</li>
+                <li>Coverage.costToBeneficiary.type</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td valign=top>Consolidated/Removed Elements</td>
+        <td valign=top>The Coverage.grouping element was removed.  The equivalent element in R4 is Coverage.class.  This element is provided in the API, so any user converting from V1 to V2 will be required to make minor changes to their parsing/handling logic.</td>
+        <td id="cex" valign=top>
+            <ul>
+                <li>Coverage.grouping</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td valign=top>Added Constraints</td>
+        <td valign=top>A few changes to make certain elements mandatory.  Generally this has little or no impact to any users consuming this data.</td>
+        <td id="cex" valign=top>
+            <ul>
+                <li>Coverage.beneficiary</li>
+                <li>Coverage.payor</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+<h2>
+    Implementation Guide Based Changes
+</h2>
+<p>
+    Whereas version 1 of the API was based on the <a href="https://bluebutton.cms.gov/assets/ig/index.html" class="in-text__link">Blue Button 2.0 Implementation Guide</a>, version 2 is based on the <a href="http://www.hl7.org/fhir/us/carin-bb/StructureDefinition-C4BB-ExplanationOfBenefit.html" class="in-text__link">CARIN CDPDE Implementation Guide</a>. 
+    Subsequently, there will be minor changes to the mapping and values of certain data elements based on conformance to the CARIN IG. 
+    For instance, slicing/discriminator rules can be different, and some valuesets will be bound to CARIN or HL7 valusets instead of BlueButton. 
+    As an example,  Patient.identifier.type in V2 is bound to <a href="http://www.hl7.org/fhir/us/carin-bb/ValueSet-C4BBPatientIdentifierType.html" class="in-text__link">http://www.hl7.org/fhir/us/carin-bb/ValueSet-C4BBPatientIdentifierType.html</a>. 
+    As another example, Eob.Type is bound to <a href="http://www.hl7.org/fhir/us/carin-bb/ValueSet-C4BBPayeeType.html" class="in-text__link">http://www.hl7.org/fhir/us/carin-bb/ValueSet-C4BBPayeeType.html</a> and the associated value will be one of the codes in that valueset. 
+</p>
+<p>
+    The <a href="https://docs.google.com/spreadsheets/d/1b1DlcSOQMOBM9SiDEUvtfrRqFtpWJnTEHeEWw88K6LY/edit?ts=6021bb18&pli=1#gid=2076553942" class="in-text__link">V2 Data Dictionary</a> will provide specifics on things like mappings, discriminators, valueset bindings and extensions.
+</p>
