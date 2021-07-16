@@ -148,6 +148,21 @@ article h2{
   .topmenu.active {
     border-radius: 3px;
   }
+  .benefit-prop img {
+    max-width: 50%;
+    display: block;
+    margin: 0 auto;
+  }
+  .api-card img {
+    max-width: 50%;
+    display: block;
+    margin: 0 auto;
+    min-height: 250px;
+  }
+  .api-card {
+      min-height: 500px;
+      width: 100%;
+  }
 }
 
 .content_buffer {
@@ -247,4 +262,22 @@ a.ds-c-button.ds-u-margin-top--4:focus, button.accordion:focus, button.accordion
 
 .hex_background {
     background-image: url("/assets/img/hex_background.svg");
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: lightgrey;
+}
+
+#cex {
+    padding: 0px;
 }
