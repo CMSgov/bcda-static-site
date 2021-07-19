@@ -153,15 +153,15 @@ article h2{
     display: block;
     margin: 0 auto;
   }
-  .api-card img {
-    max-width: 50%;
-    display: block;
-    margin: 0 auto;
-    min-height: 250px;
-  }
   .api-card {
-      min-height: 500px;
-      width: 100%;
+    min-height: 500px;
+    width: 100%;
+    img {
+      max-width: 50%;
+      display: block;
+      margin: 0 auto;
+      min-height: 250px;
+    }
   }
 }
 
