@@ -29,7 +29,7 @@
     <tr>
         <td valign=top>Consolidated/Removed Elements</td>
         <td valign=top>Some elements were consolidated and/or removed. For instance, in STU3 there were two elements (Eob.Organization and Eob.Provider) that could represent the party responsible for the claim.  In R4, this has been consolidated into one element (Eob.provider)</td>
-        <td id="cex" valign=top>
+        <td class="cex" valign=top>
             <ul>
                 <li>Eob.provider</li>
                 <li>Eob.hospitalization</li>
@@ -39,7 +39,7 @@
     <tr>
         <td valign=top>Added Constraints</td>
         <td valign=top>Fifteen fields were changed from optional to mandatory.  Changing the optionality in this context generally has no impact on users consuming this data.   A few other minor constraints were added or modified (such as valueset bindings and reference targets)</td>
-        <td id="cex" valign=top>
+        <td class="cex" valign=top>
             <ul>
                 <li>Eob.use</li>
                 <li>Eob.patient</li>
@@ -51,7 +51,7 @@
     <tr>
         <td valign=top>New Elements</td>
         <td valign=top>Approximately 35 new elements were added to the EOB resource.  About 65% of these new elements are child elements of the .addItem property which is not supplied by the BCDA api.  Of the remaining 35%, very few, if any, of these elements are populated by BCDA.</td>
-        <td id="cex" valign=top>
+        <td class="cex" valign=top>
             <ul>
                 <li>Eob.priority</li>
                 <li>Eob.preAuthRef</li>
@@ -63,7 +63,7 @@
     <tr>
         <td valign=top>Renamed Elements</td>
         <td valign=top>A handful of elements were renamed.  For users converting from V1 (STU3) to V2 (R4), it is likely that existing parsing/handling logic must be adjusted.</td>
-        <td id="cex" valign=top>
+        <td class="cex" valign=top>
             <ul>
                 <li>Eob.information → Eob.SupportingInfo</li>
                 <li>Eob.careTeamLinkId → Eob.careTeamSequence</li>
@@ -91,7 +91,7 @@
     <tr>
         <td valign=top>Consolidated/Removed Elements</td>
         <td valign=top>Only one element was removed (Patient.animal) which has no effect on the BCDA api.</td>
-        <td id="cex" valign=top>
+        <td class="cex" valign=top>
             <ul>
                 <li>Patient.animal</li>
             </ul>
@@ -100,7 +100,7 @@
     <tr>
         <td valign=top>Constraints</td>
         <td valign=top>A handful of fields are bound to different valuesets.  Other minor changes to default value and reference target.</td>
-        <td id="cex" valign=top>
+        <td class="cex" valign=top>
             <ul>
                 <li>Patient.active</li>
                 <li>Patient.gender</li>
@@ -127,7 +127,7 @@
     <tr>
         <td valign=top>New Elements</td>
         <td valign=top>Six new elements were added to the Coverage resource.  Most of the new elements relate to costToBeneficiary and will not be supplied in BCDA.</td>
-        <td id="cex" valign=top>
+        <td class="cex" valign=top>
             <ul>
                 <li>Coverage.class.name</li>
                 <li>Coverage.costToBeneficiary</li>
@@ -138,7 +138,7 @@
     <tr>
         <td valign=top>Consolidated/Removed Elements</td>
         <td valign=top>The Coverage.grouping element was removed.  The equivalent element in R4 is Coverage.class.  This element is provided in the API, so any user converting from V1 to V2 will be required to make minor changes to their parsing/handling logic.</td>
-        <td id="cex" valign=top>
+        <td class="cex" valign=top>
             <ul>
                 <li>Coverage.grouping</li>
             </ul>
@@ -147,7 +147,7 @@
     <tr>
         <td valign=top>Added Constraints</td>
         <td valign=top>A few changes to make certain elements mandatory.  Generally this has little or no impact to any users consuming this data.</td>
-        <td id="cex" valign=top>
+        <td class="cex" valign=top>
             <ul>
                 <li>Coverage.beneficiary</li>
                 <li>Coverage.payor</li>
