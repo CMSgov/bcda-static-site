@@ -20,16 +20,16 @@
 <p>
     For details, see the <a href="http://www.hl7.org/fhir/explanationofbenefit.html#resource" class="in-text__link">FHIR Explanation of Benefit resource</a> page, and select the "R3 Diff" tab under section 13.10.3 "Resource Content"
 </p>
-<table style="width:100%">
+<table style="width:100%" aria-describedby="EoB">
     <tr>
-        <th>Change Type</th>
-        <th>Description</th>
-        <th>Examples</th>
+        <th scope="col">Change Type</th>
+        <th scope="col">Description</th>
+        <th scope="col">Examples</th>
     </tr>
     <tr>
-        <td valign=top>Consolidated/Removed Elements</td>
-        <td valign=top>Some elements were consolidated and/or removed. For instance, in STU3 there were two elements (Eob.Organization and Eob.Provider) that could represent the party responsible for the claim.  In R4, this has been consolidated into one element (Eob.provider)</td>
-        <td class="cex" valign=top>
+        <td>Consolidated/Removed Elements</td>
+        <td>Some elements were consolidated and/or removed. For instance, in STU3 there were two elements (Eob.Organization and Eob.Provider) that could represent the party responsible for the claim.  In R4, this has been consolidated into one element (Eob.provider)</td>
+        <td class="cex">
             <ul>
                 <li>Eob.provider</li>
                 <li>Eob.hospitalization</li>
@@ -37,9 +37,9 @@
         </td>
     </tr>
     <tr>
-        <td valign=top>Added Constraints</td>
-        <td valign=top>Fifteen fields were changed from optional to mandatory.  Changing the optionality in this context generally has no impact on users consuming this data.   A few other minor constraints were added or modified (such as valueset bindings and reference targets)</td>
-        <td class="cex" valign=top>
+        <td>Added Constraints</td>
+        <td>Fifteen fields were changed from optional to mandatory.  Changing the optionality in this context generally has no impact on users consuming this data.   A few other minor constraints were added or modified (such as valueset bindings and reference targets)</td>
+        <td class="cex">
             <ul>
                 <li>Eob.use</li>
                 <li>Eob.patient</li>
@@ -49,9 +49,9 @@
         </td>
     </tr>
     <tr>
-        <td valign=top>New Elements</td>
-        <td valign=top>Approximately 35 new elements were added to the EOB resource.  About 65% of these new elements are child elements of the .addItem property which is not supplied by the BCDA api.  Of the remaining 35%, very few, if any, of these elements are populated by BCDA.</td>
-        <td class="cex" valign=top>
+        <td>New Elements</td>
+        <td>Approximately 35 new elements were added to the EOB resource.  About 65% of these new elements are child elements of the .addItem property which is not supplied by the BCDA api.  Of the remaining 35%, very few, if any, of these elements are populated by BCDA.</td>
+        <td class="cex">
             <ul>
                 <li>Eob.priority</li>
                 <li>Eob.preAuthRef</li>
@@ -61,9 +61,9 @@
         </td>
     </tr>
     <tr>
-        <td valign=top>Renamed Elements</td>
-        <td valign=top>A handful of elements were renamed.  For users converting from V1 (STU3) to V2 (R4), it is likely that existing parsing/handling logic must be adjusted.</td>
-        <td class="cex" valign=top>
+        <td>Renamed Elements</td>
+        <td>A handful of elements were renamed.  For users converting from V1 (STU3) to V2 (R4), it is likely that existing parsing/handling logic must be adjusted.</td>
+        <td class="cex">
             <ul>
                 <li>Eob.information → Eob.SupportingInfo</li>
                 <li>Eob.careTeamLinkId → Eob.careTeamSequence</li>
@@ -82,25 +82,25 @@
 <p>
     For details, see the <a href="http://hl7.org/fhir/R4/patient.html#resource" class="in-text__link">FHIR Patient resource</a> page, and select the "R3 Diff" tab under section 8.1.2 "Resource Content"
 </p>
-<table style="width:100%">
+<table style="width:100%" aria-describedby="Patient">
     <tr>
-        <th>Change Type</th>
-        <th>Description</th>
-        <th>Examples</th>
+        <th scope="col">Change Type</th>
+        <th scope="col">Description</th>
+        <th scope="col">Examples</th>
     </tr>
     <tr>
-        <td valign=top>Consolidated/Removed Elements</td>
-        <td valign=top>Only one element was removed (Patient.animal) which has no effect on the BCDA api.</td>
-        <td class="cex" valign=top>
+        <td>Consolidated/Removed Elements</td>
+        <td>Only one element was removed (Patient.animal) which has no effect on the BCDA api.</td>
+        <td class="cex">
             <ul>
                 <li>Patient.animal</li>
             </ul>
         </td>
     </tr>
     <tr>
-        <td valign=top>Constraints</td>
-        <td valign=top>A handful of fields are bound to different valuesets.  Other minor changes to default value and reference target.</td>
-        <td class="cex" valign=top>
+        <td>Constraints</td>
+        <td>A handful of fields are bound to different valuesets.  Other minor changes to default value and reference target.</td>
+        <td class="cex">
             <ul>
                 <li>Patient.active</li>
                 <li>Patient.gender</li>
@@ -118,16 +118,16 @@
 <p>
     For details, see the <a href="http://hl7.org/fhir/R4/coverage.html#resource" class="in-text__link">FHIR Coverage resource</a> page, and select the "R3 Diff" tab under section 13.10.3 "Resource Content"
 </p>
-<table style="width:100%">
+<table style="width:100%" aria-describedby="Coverage">
     <tr>
-        <th>Change Type</th>
-        <th>Description</th>
-        <th>Examples</th>
+        <th scope="col">Change Type</th>
+        <th scope="col">Description</th>
+        <th scope="col">Examples</th>
     </tr>
     <tr>
-        <td valign=top>New Elements</td>
-        <td valign=top>Six new elements were added to the Coverage resource.  Most of the new elements relate to costToBeneficiary and will not be supplied in BCDA.</td>
-        <td class="cex" valign=top>
+        <td>New Elements</td>
+        <td>Six new elements were added to the Coverage resource.  Most of the new elements relate to costToBeneficiary and will not be supplied in BCDA.</td>
+        <td class="cex">
             <ul>
                 <li>Coverage.class.name</li>
                 <li>Coverage.costToBeneficiary</li>
@@ -136,18 +136,18 @@
         </td>
     </tr>
     <tr>
-        <td valign=top>Consolidated/Removed Elements</td>
-        <td valign=top>The Coverage.grouping element was removed.  The equivalent element in R4 is Coverage.class.  This element is provided in the API, so any user converting from V1 to V2 will be required to make minor changes to their parsing/handling logic.</td>
-        <td class="cex" valign=top>
+        <td>Consolidated/Removed Elements</td>
+        <td>The Coverage.grouping element was removed.  The equivalent element in R4 is Coverage.class.  This element is provided in the API, so any user converting from V1 to V2 will be required to make minor changes to their parsing/handling logic.</td>
+        <td class="cex">
             <ul>
                 <li>Coverage.grouping</li>
             </ul>
         </td>
     </tr>
     <tr>
-        <td valign=top>Added Constraints</td>
-        <td valign=top>A few changes to make certain elements mandatory.  Generally this has little or no impact to any users consuming this data.</td>
-        <td class="cex" valign=top>
+        <td>Added Constraints</td>
+        <td>A few changes to make certain elements mandatory.  Generally this has little or no impact to any users consuming this data.</td>
+        <td class="cex">
             <ul>
                 <li>Coverage.beneficiary</li>
                 <li>Coverage.payor</li>
