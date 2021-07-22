@@ -18,7 +18,7 @@ test() {
     curl localhost:4000 | grep "Join the Google Group"
     
     # Perform accessibility scan
-    TARGETS_TO_SCAN="http://host.docker.internal:4000"
+    TARGETS_TO_SCAN=http://host.docker.internal:4000
     TARGETS_TO_SCAN="${TARGETS_TO_SCAN} ${TARGET_TEST_ENV}/guide.html"
     TARGETS_TO_SCAN="${TARGETS_TO_SCAN} ${TARGET_TEST_ENV}/build.html"
     TARGETS_TO_SCAN="${TARGETS_TO_SCAN} ${TARGET_TEST_ENV}/data.html"
