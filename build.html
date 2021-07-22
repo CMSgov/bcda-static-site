@@ -24,6 +24,13 @@ layout: default
         </li>
 
 
+        <li class="ds-c-vertical-nav__item">
+          <a class="ds-c-vertical-nav__label" href="#bcda-v2">
+            BCDA Version 2 (V2)
+          </a>
+        </li>
+
+
 
         <li class="ds-c-vertical-nav__item">
           <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#request-metadata">
@@ -64,6 +71,11 @@ layout: default
                 Request all three Resource Types
               </a>
             </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#cancelling-jobs">
+                Cancel a job
+              </a>
+            </li>
           </ul>
         </li>
 
@@ -100,6 +112,15 @@ layout: default
 
     <main id="main" class="ds-l-md-col--8 ds-l-lg-col--9">
       <div class="guide-content">
+        <div class="ds-c-alert ds-c-alert--hide-icon" id="version-2-header-alert">
+          <div class="ds-c-alert__body">
+            <p class="ds-c-alert__text">
+              Version 2 of the Beneficiary Claims Data API (BCDA V2) endpoints are available as of Summer 2021.
+              If you are interested in interacting with BCDA V2 endpoints, 
+              please navigate to the <a href="/build.html#bcda-v2" class="in-text__link"><em>BCDA Version 2 (V2)</em></a> section for more information.
+            </p>
+          </div>
+        </div>
         <div id="bcda-user-guide">
           <h1>
             BCDA User Guide Documentation
@@ -108,10 +129,25 @@ layout: default
             {% include build/bcda_user_guide.html %}
           </div>
         </div>
+        <div id="bcda-v2">
+          <h1>
+            BCDA Version 2 (V2)
+          </h1>
+          <div class="ds-c-alert ds-c-alert--hide-icon" id="version-2-alert">
+            <div class="ds-c-alert__body">
+              <p class="ds-c-alert__text">
+                Version 2 of the Beneficiary Claims Data API (BCDA V2) is now available as of Summer 2021. 
+              </p>
+            </div>
+          </div>
+          <div class="ds-u-font-size--base">
+            {% include build/bcda_v2.html %}
+          </div>
+        </div>
         <div id="request-metadata">
-          <h2>
+          <h1>
             Request Metadata
-          </h2>
+          </h1>
           <div class="ds-u-font-size--base">
             {% include build/request_metadata.html %}
           </div>
@@ -148,12 +184,21 @@ layout: default
         <div class="ds-u-font-size--base">
           {% include build/requesting_data.html %}
         </div>
+        
         <div id="requesting-all-three">
           <h2>
             Request All Three Resource Types
           </h2>
           <div class="ds-u-font-size--base guide-content">
             {% include build/requesting_data_all_three.html %}
+          </div>
+        
+        <div id="cancelling-jobs">
+          <h2>
+            Cancelling a Job
+          </h2>
+          <div class="ds-u-font-size--base">
+            {% include build/cancelling_jobs.html %}
           </div>
         </div>
       </div>

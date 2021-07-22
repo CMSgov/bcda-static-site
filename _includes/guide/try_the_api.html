@@ -36,7 +36,7 @@
 	Sample cURL Command to Submit Credentials for an Access Token
 </h3>
 <pre><code>curl -d '' -X POST 'https://sandbox.bcda.cms.gov/auth/token' \
---user 3841c594-a8c0-41e5-98cc-38bb45360d3c:f9780d323588f1cdfc3e63e95a8cbdcdd47602ff48a537b51dc5d7834bf466416a716bd4508e904a \
+--user 0c527d2e-2e8a-4808-b11d-0fa06baf8254:36e0ea2217e6d6180f3ab1108d02ca100d684ebdccc04817ce842300996e568c3d77fc61d84006a3 \
 -H "accept: application/json"</code></pre>
 
 <h3>
@@ -72,7 +72,7 @@
 	<h3>
 		Sample cURL Command to Start a Job
 	</h3>
-<pre><code>curl -X GET 'https://sandbox.bcda.cms.gov/api/v1/Patient/$export'
+<pre><code>curl -X GET 'https://sandbox.bcda.cms.gov/api/v1/Patient/$export' \
 -H "accept: application/fhir+json" \
 -H "Prefer: respond-async" \
 -H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"
@@ -86,7 +86,7 @@
 	If the request was successful, we will receive a response with the code 202 containing a few headers. One of the headers (Content-Location) will contain a URL. Notice that the URL ends in a number. This is the Job ID of the job we just started. In the next step, we will use this URL and Job ID to check if the server is done preparing our file(s).
 </p>
 <pre><code>202 Accepted
-Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42
+Content-Location: https://sandbox.bcda.cms.gov/api/v1/jobs/42
 </code></pre>
 
 
@@ -124,20 +124,20 @@ Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42
 </p>
 	<pre><code>{
   "transactionTime": "2019-12-09T20:44:01.705398Z",
-  "request": "https://api.bcda.cms.gov/api/v1/Patient/$export",
+  "request": "https://sandbox.bcda.cms.gov/api/v1/Patient/$export",
   "requiresAccessToken": true,
   "output": [
     {
       "type": "ExplanationOfBenefit",
-      "url": "https://api.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson"
+      "url": "https://sandbox.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson"
     },
     {
       "type": "Coverage",
-      "url": "https://api.bcda.cms.gov/data/42/f76a0b76-48ed-4033-aad9-d3eec37e7e83.ndjson"
+      "url": "https://sandbox.bcda.cms.gov/data/42/f76a0b76-48ed-4033-aad9-d3eec37e7e83.ndjson"
     },
     {
       "type": "Patient",
-      "url": "https://api.bcda.cms.gov/data/42/f92dcf16-63a2-448e-a12a-3bf677f966ed.ndjson"
+      "url": "https://sandbox.bcda.cms.gov/data/42/f92dcf16-63a2-448e-a12a-3bf677f966ed.ndjson"
     }
   ],
   "error": [],
