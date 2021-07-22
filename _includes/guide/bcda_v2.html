@@ -1,0 +1,27 @@
+<p>
+    BCDA V2 conforms to the <a href="https://hl7.org/fhir/R4/" class="in-text__link">FHIR R4 specification</a> and follows the <a href="http://hl7.org/fhir/us/carin-bb/history.html" class="in-text__link">CARIN Implementation Guide</a> for industry alignment. 
+    BCDA will support all functionality for both V1 and V2 of the API  for the foreseeable future; however, 
+    upgrading to BCDA’s V2 API ensures your product is aligned with the latest industry standards. 
+    For more information on BCDA V2, please visit the <a href="https://github.com/CMSgov/beneficiary-fhir-data/wiki/Migrating-to-V2-FAQ" class="in-text__link">CMS V2 API FAQ Documentation</a>. 
+    For more information on how BCDA data will change in BCDA V2, please visit the BCDA <a href="/data.html" class="in-text__link">Understanding the Data page</a>. 
+</p>
+<h2>
+	How will BCDA V2 change how I interact with the BCDA API?
+</h2>
+<p>
+    BCDA V2 supports the same functionality as V1 API endpoints in both the Sandbox and Production API environments. All V2 API endpoints should work as described in existing BCDA documentation. If you wish to transition your implementation to utilize BCDA V2 endpoints instead of V1, users simply need to replace ‘v1’ in API call URLs with ‘v2’. Here is an example:
+</p>
+<h3>
+    Sample cURL Command in BCDA V1:
+</h3>
+<pre><code>curl -X GET 'https://sandbox.bcda.cms.gov/api/v1/Patient/$export' \
+-H "accept: application/fhir+json" \
+-H "Prefer: respond-async" \
+-H "Authorization: Bearer {access_token}"</code></pre>
+<h3>
+    Sample cURL Command in BCDA V2:
+</h3>
+<pre><code>curl -X GET 'https://sandbox.bcda.cms.gov/api/v2/Patient/$export' \
+-H "accept: application/fhir+json" \
+-H "Prefer: respond-async" \
+-H "Authorization: Bearer {access_token}"</code></pre>
