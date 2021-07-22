@@ -86,7 +86,7 @@
 	If the request was successful, we will receive a response with the code 202 containing a few headers. One of the headers (Content-Location) will contain a URL. Notice that the URL ends in a number. This is the Job ID of the job we just started. In the next step, we will use this URL and Job ID to check if the server is done preparing our file(s).
 </p>
 <pre><code>202 Accepted
-Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42
+Content-Location: https://sandbox.bcda.cms.gov/api/v1/jobs/42
 </code></pre>
 
 
@@ -124,20 +124,20 @@ Content-Location: https://api.bcda.cms.gov/api/v1/jobs/42
 </p>
 	<pre><code>{
   "transactionTime": "2019-12-09T20:44:01.705398Z",
-  "request": "https://api.bcda.cms.gov/api/v1/Patient/$export",
+  "request": "https://sandbox.bcda.cms.gov/api/v1/Patient/$export",
   "requiresAccessToken": true,
   "output": [
     {
       "type": "ExplanationOfBenefit",
-      "url": "https://api.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson"
+      "url": "https://sandbox.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson"
     },
     {
       "type": "Coverage",
-      "url": "https://api.bcda.cms.gov/data/42/f76a0b76-48ed-4033-aad9-d3eec37e7e83.ndjson"
+      "url": "https://sandbox.bcda.cms.gov/data/42/f76a0b76-48ed-4033-aad9-d3eec37e7e83.ndjson"
     },
     {
       "type": "Patient",
-      "url": "https://api.bcda.cms.gov/data/42/f92dcf16-63a2-448e-a12a-3bf677f966ed.ndjson"
+      "url": "https://sandbox.bcda.cms.gov/data/42/f92dcf16-63a2-448e-a12a-3bf677f966ed.ndjson"
     }
   ],
   "error": [],
