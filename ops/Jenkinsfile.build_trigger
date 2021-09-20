@@ -36,7 +36,8 @@ pipeline {
                 relativeTargetDir: 'bcda-static-site'
             ]],
             userRemoteConfigs: [[
-                url: 'git@github.com:CMSgov/bcda-static-site.git'
+                url: 'https://github.com/CMSgov/bcda-static-site.git',
+                credentialsId: 'GITHUB_CREDS'
             ]]
             ])
         script {
