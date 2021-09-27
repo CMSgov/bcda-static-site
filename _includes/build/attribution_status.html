@@ -1,0 +1,42 @@
+<h3>Step 1: Obtain an Access Token</h3>
+	
+<p>
+	See <a href="#authorization" class="in-text__link">Authentication and Authorization</a> above.
+</p>
+
+<h3>Step 2: Send a Request to the Attribution Status Endpoint</h3>
+
+<h4>Requests to check the last updated date of your attribution data</h4>  
+<pre><code>GET /api/v1/attribution_status</code></pre>
+
+<h4>Request Headers</h4>
+<pre><code>Authorization: Bearer <span style="color: #046B99;">{access_token}</span>
+Accept: application/json</code></pre>
+
+<h4>cURL Command to retrieve the attribution status</h4>
+<pre><code>curl -X GET 'https://api.bcda.cms.gov/api/v1/attribution_status' \
+    -H "accept: application/json" \
+    -H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
+
+<h4>Response Example</h4>
+<pre><code>{
+    “Ingestion_dates”: [
+        {
+            “type”: “last_attribution_update”,
+            “timestamp”: “2020-12-22 22:31:40.397916+00”
+        },
+        {
+            “type”: “last_runout_update”,
+            “timestamp”: “2020-12-22 22:31:40.397916+00”
+        }
+    ]
+}</code></pre>
+
+<h4>Check the Last Updated Date of your Attribution Data Explanation</h4>
+<p>
+    This operation will return a timestamp of the last time your attribution data was updated in the BCDA system. You may want to use this timestamp to check whether to run a new job request. You can do so by comparing it to the last date/time your organization requested data from BCDA.
+</p>
+
+<p>
+    If BCDA has never ingested an attribution file or a runout file for your organization, you will receive a NOT FOUND 404 response.
+</p>
