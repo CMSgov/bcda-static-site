@@ -67,7 +67,7 @@ layout: default
         </li>
         <li class="ds-c-vertical-nav__item">
           <a class="ds-c-vertical-nav__label" href="#fhir-endpoints">
-            BCDA's Bulk FHIR Endpoints
+            BCDA's Endpoints
           </a>
           <ul class="ds-c-vertical-nav__subnav">
             <li class="ds-c-vertical-nav__subnav">
@@ -83,6 +83,16 @@ layout: default
             <li class="ds-c-vertical-nav__subnav">
               <a class="ds-c-vertical-nav__label" href="#group-endpoint">
                 /Group Endpoint
+              </a>
+            </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label" href="#jobs-endpoint">
+                /Jobs Endpoint
+              </a>
+            </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label" href="#attribution-status-endpoint">
+                /Attribution_Status Endpoint
               </a>
             </li>
           </ul>
@@ -201,7 +211,7 @@ layout: default
         </div>
         <div id="fhir-endpoints">
           <h1>
-            BCDA's Bulk FHIR Endpoints
+            BCDA's Endpoints
           </h1>
           <div id="metadata-endpoint">
             <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
@@ -233,6 +243,22 @@ layout: default
               <p class="ds-c-alert__text">
                 {% include guide/endpoint_alert.html %}
               </p>
+            </div>
+          </div>
+          <div id="jobs-endpoint">
+            <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+              4. /Jobs endpoint
+            </h2>
+            <div>
+              {% include guide/jobs_endpoint.html %}
+            </div>
+          </div>
+          <div id="attribution-status-endpoint">
+            <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+              5. /Attribution_Status endpoint
+            </h2>
+            <div>
+              {% include guide/attribution_status_endpoint.html %}
             </div>
           </div>
         </div>

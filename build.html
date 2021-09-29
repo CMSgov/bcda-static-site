@@ -76,6 +76,16 @@ layout: default
                 Cancel a job
               </a>
             </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#jobs-history">
+                Request jobs history
+              </a>
+            </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#attribution-status">
+                Request attribution status
+              </a>
+            </li>
           </ul>
         </li>
 
@@ -177,7 +187,7 @@ layout: default
           </div>
         </div>
       </div>
-      <div id="requesting-data">
+      <div id="requesting-data" class="guide-content">
         <h1>
           Requesting Data
         </h1>
@@ -189,7 +199,7 @@ layout: default
           <h2>
             Request All Three Resource Types
           </h2>
-          <div class="ds-u-font-size--base guide-content">
+          <div class="ds-u-font-size--base">
             {% include build/requesting_data_all_three.html %}
           </div>
         
@@ -201,20 +211,38 @@ layout: default
             {% include build/cancelling_jobs.html %}
           </div>
         </div>
+
+        <div id="jobs-history">
+          <h2>
+            Request Jobs History
+          </h2>
+          <div class="ds-u-font-size--base">
+            {% include build/jobs_history.html %}
+          </div>
+        </div>
+
+        <div id="attribution-status">
+          <h2>
+            Request Attribution Status
+          </h2>
+          <div class="ds-u-font-size--base">
+            {% include build/attribution_status.html %}
+          </div>
+        </div>
       </div>
 
-      <div id="requesting-filtered-data">
+      <div id="requesting-filtered-data" class="guide-content">
         <h1>
           Requesting Filtered Data
         </h1>
-        <div class="ds-u-font-size--base">
+        <div class="ds-u-font-size--base ">
           {% include build/requesting_filtered_data.html %}
         </div>
         <div id="requesting-since-with-Patient">
           <h2>
             Requesting using _since with the /Patient endpoint
           </h2>
-          <div class="ds-u-font-size--base guide-content">
+          <div class="ds-u-font-size--base">
             {% include build/requesting_filtered_data_since_Patient.html %}
           </div>
         </div>
@@ -222,7 +250,7 @@ layout: default
           <h2>
             Requesting using _since with the /Group endpoint
           </h2>
-          <div class="ds-u-font-size--base guide-content">
+          <div class="ds-u-font-size--base">
             {% include build/requesting_filtered_data_since_Group.html %}
           </div>
         </div>
@@ -230,7 +258,7 @@ layout: default
           <h2>
             Request runouts data with /Group and `runout`
           </h2>
-          <div class="ds-u-font-size--base guide-content">
+          <div class="ds-u-font-size--base">
             {% include build/requesting_data_runouts.html %}
           </div>
         </div>        
