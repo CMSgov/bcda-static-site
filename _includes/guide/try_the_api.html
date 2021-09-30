@@ -14,13 +14,34 @@
 	For far more detail for each of these steps and specific information for retrieving production data, see the <a href=/build.html target="_blank" class="in-text__link"> Building Your Application</a> page. For this short demo, please follow along in your Terminal window or through an application such as Postman.
 </p>
 
+<h2>
+	BCDA Synthetic Data
+</h2>
+<p>
+	BCDA has provided seven synthetic data sample sets for use. Because all of these data sets are synthetic, they can be accessed without any BCDA production environment credentials or approval by BCDA.
+</p>
+
+<h3>
+	Simple Datasets - Five Sizes
+</h3>
+<p>
+	Five of these datasets are simple approximations of BCDA data designed for ACOs to test the stress of retrieving and downloading large data files into their internal ingestion processes. These datasets are offered in various sizes so that organizations can test files with a number of beneficiaries that best matches the needs of their organization (the data sets range from 50 to 30,000 synthetic beneficiaries). However, the data in these API payloads will not reflect the distribution of disease and demographic information you might expect from production data.
+</p>
 
 <div>
 	{% include guide/credentials.html %}
 </div>
 
+<h3>
+	Advanced Datasets  - Two Sizes
+</h3>
+<p>
+	The last two datasets are designed to offer data that is a more accurate representation of BCDA production data. They follow BCDA’s Bulk FHIR format and should contain a more realistic distribution of disease and demographic information. The realistic datasets are offered in two sizes: Extra Small (100 beneficiaries) and Large (10,000 beneficiaries). We suggest using the Extra-Small ACO file to simply view and begin to understand the format of BCDA data. You may want to use the Large dataset for more in-depth exploration of the data or early load testing of your systems.
+</p>
 
-
+<div>
+	{% include guide/adv_credentials.html %}
+</div>
 
 <h2>
 	Step 1: Obtain an Access Token
