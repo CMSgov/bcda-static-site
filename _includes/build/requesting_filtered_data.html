@@ -6,7 +6,7 @@
 	To reduce file size, use the _since parameter with either the /Patient or /Group endpoints, but be wary that you understand the difference regarding newly added beneficiaries. You may want to do this as a repeating call or as a way to check for new data.
 </p>
 <p>
-	To obtain claims runout data, use the <a href="#requesting-all-three-EOY" class="in-text__link">'runout' parameter with the /Group endpoint</a>, which returns data for beneficiaries who were attributed to your ACO the previous year but not the current year. These claims will have a service date no later than December 31 of the previous year.
+	To obtain claims runout data, use the <a href="#requesting-data-runouts" class="in-text__link">'runout' parameter with the /Group endpoint</a>, which returns data for beneficiaries who were attributed to your ACO the previous year but not the current year. These claims will have a service date no later than December 31 of the previous year.
 </p>
 
 <div class="ds-c-alert ds-c-alert--hide-icon">
@@ -62,14 +62,14 @@
 			<li>Formatted Sample: 2020-02-20T12:00:00.000-05:00</li>
 		</ul>
 	<p>
-		For more information consult <a href="https://www.hl7.org/fhir/datatypes.html#instant" class="in-text__link">FHIR Datatypes page</a>.
+		For more information consult <a href="https://www.hl7.org/fhir/datatypes.html#instant" target="_blank" class="in-text__link">FHIR Datatypes page</a>.
 	</p>
 
 <div class="ds-c-alert ds-c-alert--hide-icon">
     <div class="ds-c-alert__body">
       <h3 class="ds-c-alert__heading">Be wary of requesting data from before 02-12-2020</h3>
       <p class="ds-c-alert__text">
-		Due to limitations in the Beneficiary FHIR Data (BFD) Server, data from before 02-12-2020 is marked with the arbitrary <a href="https://www.hl7.org/fhir/search.html#lastUpdated" class="in-text__link">lastUpdated</a> date of 01-01-2020. If you input dates between 01-01-2020 and 02-11-2020 in the _since parameter, you will receive all historical data for your beneficiaries. Data loads from 02-12-2020 onwards have been marked with accurate dates.
+		Due to limitations in the Beneficiary FHIR Data (BFD) Server, data from before 02-12-2020 is marked with the arbitrary <a href="https://www.hl7.org/fhir/search.html#lastUpdated" target="_blank" class="in-text__link">lastUpdated</a> date of 01-01-2020. If you input dates between 01-01-2020 and 02-11-2020 in the _since parameter, you will receive all historical data for your beneficiaries. Data loads from 02-12-2020 onwards have been marked with accurate dates.
 	</div>
   </div>
 </div>
