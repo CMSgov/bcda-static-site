@@ -1,4 +1,5 @@
 <div>
+
   <p>
     The Beneficiary Claims Data API (BCDA) serves data according to the bulk
     FHIR specification using three FHIR resources: Explanation of Benefit
@@ -8,11 +9,11 @@
 
   <ul>
     <li>
-      The <strong>Explanation of Benefit</strong> resource type provides information
-      you’ve previously received in CCLF files 1-7. The EOB files contain the
-      lines within an episode of care, including where and when the service was
-      performed, the diagnosis codes, the provider who performed the service,
-      and the cost of care.
+      The <strong>Explanation of Benefit</strong> (EOB) resource type provides
+      similar information to what was previously provided in CCLF files 1-7.
+      The EOB files contain lines within an episode of care, including where
+      and when the service was performed, the diagnosis codes, the provider who
+      performed the service, and the cost of care.
     </li>
 
     <li>
@@ -23,7 +24,7 @@
     </li>
 
     <li>
-      The <strong>Coverage</strong> resource type provides information about the
+      The <strong>Coverage</strong> resource type provides information about 
       beneficiaries’ insurance coverage, including information about dual
       coverage.
     </li>
@@ -36,18 +37,14 @@
     monthly. Since BCDA and CCLF receive updates to claims at different
     intervals, one will almost always be more current than the other. Any
     discrepancies you may encounter when using BCDA data to supplement CCLF
-    data should eventually resolve themselves by the next month.
+    data should resolve themselves by the following month.
   </p>
 
   <p>
     CMS provides Accountable Care Organizations (ACOs) with beneficiary
     identifiable claims data for preliminarily prospectively and prospectively
     assigned beneficiaries and other beneficiaries who receive primary care
-    services from an ACO. CMS reminds ACOs that there are limitations to using
-    claims data–whether through CCLF or BCDA–to replicate or validate your
-    ACO’s assigned beneficiaries and expenditure/utilization calculations. CMS
-    provides ACOs with beneficiary-identifiable claims data for the purposes
-    of:
+    services from an ACO. This data may be used to:
   </p>
 
   <ul>
@@ -75,26 +72,15 @@
     </li>
   </ul>
   
-  <p>
-    For the appropriate beneficiaries, the data provided to the ACO through
-    BCDA includes claims for all services covered by Part A (Hospital
-    Insurance) and Part B (Supplemental Medical Insurance) that were provided
-    and processed during the prior month. Claims data also include
-    prescriptions covered by a Part D Prescription Drug Program in which the
-    beneficiary is enrolled. ACOs will be able to retrieve both the CCLF and
-    BCDA claims data concurrently for the foreseeable future; we encourage our
-    users to use both the CCLF and BCDA data sources to compare and contrast
-    the data that is being delivered to your ACO. BCDA Engineers have designed
-    the API to deliver the same claims data as is contained in the CCLFs.
-  </p>
-
   <div class="ds-c-alert ds-c-alert--hide-icon">
     <div class="ds-c-alert__body">
       <h2 class="ds-c-alert__heading">Substance Abuse Codes Not Included</h2>
       <p class="ds-c-alert__text">
 	BCDA excludes all claims with substance abuse codes (as required by the
 	Confidentiality of Alcohol and Drug Abuse Patient Records Regulations,
-	42 CFR Part 2).
+	42 CFR Part 2). BCDA will serve these claims to Next Generation
+	Accountable Care Organizations (NGACOs) for their attributed
+	beneficiaries who have opted-in to sharing these clais.
       </p>
     </div>
   </div>
