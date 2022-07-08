@@ -1,33 +1,4 @@
 <div>
-  <p>
-    The Beneficiary Claims Data API (BCDA) serves data according to the bulk
-    FHIR specification using three FHIR resources: Explanation of Benefit
-    (EOB), Patient, and Coverage. This means that your claims data will be
-    delivered through three FHIR resource types rather than 12 CCLF files.
-  </p>
-
-  <ul>
-    <li>
-      The <strong>Explanation of Benefit</strong> (EOB) resource type provides
-      similar information to what was previously provided in CCLF files 1-7.
-      The EOB files contain lines within an episode of care, including where
-      and when the service was performed, the diagnosis codes, the provider who
-      performed the service, and the cost of care.
-    </li>
-
-    <li>
-      The <strong>Patient</strong> resource type can be thought of as your CCLF files 8
-      and 9. This is where you get your information about who your
-      beneficiaries are, their demographic information, and updates to their
-      patient identifiers.
-    </li>
-
-    <li>
-      The <strong>Coverage</strong> resource type provides information about 
-      beneficiaries’ insurance coverage, including information about dual
-      coverage.
-    </li>
-  </ul>
  
   <p> 
     Beneficiary claims data may be updated for a variety of reasons; from a
@@ -65,6 +36,36 @@
 
     <li>
       Conducting population-based activities relating to improved health
+    </li>
+  </ul>
+
+  <p>
+    The Beneficiary Claims Data API (BCDA) serves data according to the bulk
+    FHIR specification using three FHIR resources: Explanation of Benefit
+    (EOB), Patient, and Coverage. This means that your claims data will be
+    delivered through three FHIR resource types rather than 12 CCLF files.
+  </p>
+
+  <ul>
+    <li>
+      The <strong>Explanation of Benefit</strong> (EOB) resource type provides
+      similar information to what was previously provided in CCLF files 1-7.
+      The EOB files contain lines within an episode of care, including where
+      and when the service was performed, the diagnosis codes, the provider who
+      performed the service, and the cost of care.
+    </li>
+
+    <li>
+      The <strong>Patient</strong> resource type can be thought of as your CCLF files 8
+      and 9. This is where you get your information about who your
+      beneficiaries are, their demographic information, and updates to their
+      patient identifiers.
+    </li>
+
+    <li>
+      The <strong>Coverage</strong> resource type provides information about 
+      beneficiaries’ insurance coverage, including information about dual
+      coverage.
     </li>
   </ul>
   
