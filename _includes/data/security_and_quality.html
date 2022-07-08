@@ -3,15 +3,19 @@
   <p> 
     Beneficiary claims data may be updated for a variety of reasons; from a
     beneficiary disputing a claim, to a claim being adjusted by the healthcare
-    provider. BCDA receives updates to claims weekly, while CCLF receives them
-    monthly. Since BCDA and CCLF receive updates to claims at different
-    intervals, one will almost always be more current than the other. Any
-    discrepancies you may encounter when using BCDA data to supplement CCLF
-    data should resolve themselves by the following month.  CMS provides
-    Accountable Care Organizations (ACOs) with beneficiary identifiable claims
-    data for preliminarily prospectively and prospectively assigned
-    beneficiaries and other beneficiaries who receive primary care services
-    from an ACO. This data may be used to:
+    provider. The Beneficiary Claims Data API (BCDA) receives updates to claims
+    weekly, while Claim and Claimline Feed (CCLF) files receives them monthly.
+    Since BCDA and CCLF receive updates to claims at different intervals, one
+    will almost always be more current than the other. Any discrepancies you
+    may encounter when using BCDA data to supplement CCLF data should resolve
+    themselves by the following month.  
+  </p>
+
+  <p>
+    CMS provides Accountable Care Organizations (ACOs) with beneficiary
+    identifiable claims data for preliminarily prospectively and prospectively
+    assigned beneficiaries and other beneficiaries who receive primary care
+    services from an ACO. This data may be used to:
   </p>
 
   <ul>
@@ -40,10 +44,10 @@
   </ul>
 
   <p>
-    The Beneficiary Claims Data API (BCDA) serves data according to the bulk
-    FHIR specification using three FHIR resources: Explanation of Benefit
-    (EOB), Patient, and Coverage. This means that your claims data will be
-    delivered through three FHIR resource types rather than 12 CCLF files.
+    BCDA serves data according to the bulk FHIR specification using three FHIR
+    resources: Explanation of Benefit (EOB), Patient, and Coverage. This means
+    that your claims data will be delivered through three FHIR resource types
+    rather than 12 CCLF files.
   </p>
 
   <ul>
