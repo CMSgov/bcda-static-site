@@ -31,6 +31,7 @@
           class="ds-c-usa-banner__button"
           aria-expanded="false"
           aria-controls="gov-banner_1"
+          id="usa-banner__button"
         >
           <span class="ds-c-usa-banner__button-text">Here’s how you know</span>
           <svg
@@ -138,11 +139,12 @@
   </section>
 
   <script defer type="text/javascript">
+    var usaBannerDropdownButton = document.getElementById("usa-banner__button");
     var usaBannerDropdownIcon = document.getElementById("icon-3");
     var usaBannerDropdown = document.getElementById("gov-banner_1");
     var usaBannerDropDownFlag = false;
 
-    usaBannerDropdownIcon.addEventListener("click", function(ev) {
+    usaBannerDropdownButton.addEventListener("click", function(ev) {
       if (usaBannerDropDownFlag === false) {
         usaBannerDropdown.removeAttribute("hidden");
         usaBannerDropdownIcon.classList.remove('ds-c-icon--arrow-down');
