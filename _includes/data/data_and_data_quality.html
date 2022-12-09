@@ -1,0 +1,88 @@
+<div>
+ 
+  <p> 
+    Beneficiary claims data may be updated for a variety of reasons; from a
+    beneficiary disputing a claim, to a claim being adjusted by the healthcare
+    provider. The Beneficiary Claims Data API (BCDA) receives updates to claims
+    weekly, while Claim and Claimline Feed (CCLF) files receives them monthly.
+    Since BCDA and CCLF receive updates to claims at different intervals, one
+    will almost always be more current than the other. Any discrepancies you
+    may encounter when using BCDA data to supplement CCLF data should resolve
+    themselves by the following month.  
+  </p>
+
+  <p>
+    CMS provides Accountable Care Organizations (ACOs) with beneficiary
+    identifiable claims data for preliminarily prospectively and prospectively
+    assigned beneficiaries and other beneficiaries who receive primary care
+    services from an ACO. This data may be used to:
+  </p>
+
+  <ul>
+    <li>
+      Redesign care processes and coordination of care for ACOs beneficiary
+      populations
+    </li>
+
+    <li>
+      Enable practitioners in an ACO to better coordinate and target care
+      strategies toward individual beneficiaries
+    </li>
+
+    <li>
+      Evaluate the performance of its ACO participants or its ACO
+      providers/suppliers
+    </li>
+
+    <li>
+      Conduct quality assessment and improvement activities
+    </li>
+
+    <li>
+      Conduct population-based activities relating to improved health
+    </li>
+  </ul>
+
+  <p>
+    BCDA serves data according to the bulk FHIR specification using three FHIR
+    resources: Explanation of Benefit (EOB), Patient, and Coverage. This means
+    that your claims data will be delivered through three FHIR resource types
+    rather than 12 CCLF files.
+  </p>
+
+  <ul>
+    <li>
+      The <strong>Explanation of Benefit</strong> (EOB) resource type provides
+      similar information to what was previously provided in CCLF files 1-7.
+      The EOB files contain lines within an episode of care, including where
+      and when the service was performed, the diagnosis codes, the provider who
+      performed the service, and the cost of care.
+    </li>
+
+    <li>
+      The <strong>Patient</strong> resource type can be thought of as your CCLF files 8
+      and 9. This is where you get your information about who your
+      beneficiaries are, their demographic information, and updates to their
+      patient identifiers.
+    </li>
+
+    <li>
+      The <strong>Coverage</strong> resource type provides information about 
+      beneficiaries’ insurance coverage, including information about dual
+      coverage.
+    </li>
+  </ul>
+  
+  <div class="ds-c-alert ds-c-alert--hide-icon">
+    <div class="ds-c-alert__body">
+      <h2 class="ds-c-alert__heading">Substance Abuse Codes Not Included</h2>
+      <p class="ds-c-alert__text">
+	BCDA excludes all claims with substance abuse codes (as required by the
+	Confidentiality of Alcohol and Drug Abuse Patient Records Regulations,
+	42 CFR Part 2). BCDA will serve these claims to Next Generation
+	Accountable Care Organizations (NGACOs) for their attributed
+	beneficiaries who have opted-in to sharing these claims.
+      </p>
+    </div>
+  </div>
+</div>
