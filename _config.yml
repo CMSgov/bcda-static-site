@@ -24,6 +24,7 @@ url: "https://bcda.cms.gov" # This is a kludge for HIMMS, we can fix it later as
 #github_username:  jekyll
 cssurl: /assets/css/static-main.css
 logourl: /assets/img/BCDA_Logo.svg
+lang: en
 
 global_nav:
   - title: Home
