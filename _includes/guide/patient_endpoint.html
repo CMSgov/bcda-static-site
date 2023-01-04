@@ -1,11 +1,11 @@
 <p>
-	The <a href="https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---all-patients" target="_blank" rel="noopener" class="in-text__link"> /Patient endpoint</a> allows you to request ExplanationOfBenefit, Patient, and/or Coverage data for all beneficiaries assigned or assignable to your ACO.
+	The <a style= "color:rgb(0,51,102)"; href="https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---all-patients" target="_blank" rel="noopener" class="in-text__link"> /Patient endpoint</a> allows you to request ExplanationOfBenefit, Patient, and/or Coverage data for all beneficiaries assigned or assignable to your model entity.
 </p>
 
 <p>
 	Note that the /Patient endpoint does not allow requests for data patient-by-patient. By the Bulk FHIR specification, only data for all patients associated with the authorized users’ credentials can be returned.
-</p>
+</p>	
 
 <p>
-	You may also filter data by date using the _since parameter. If no filter is applied, a request to the /Patient endpoint in BCDA returns seven years of historical data for all assigned and assignable beneficiaries.
+	You may also filter data by date using the _since parameter. If no filter is applied, a request to the /Patient endpoint in BCDA returns historical data for all assigned and assignable beneficiaries as far back as 2014.
 </p>
