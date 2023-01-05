@@ -1,19 +1,19 @@
 <p>
-	Currently, access tokens expire after twenty minutes. To illustrate this cycle, we’ll use the published open sandbox credentials for Extra-Small ACOs.
+	Currently, access tokens expire after twenty minutes. To illustrate this cycle, we’ll use the published open sandbox credentials for Extra-Small Model Entities.
 </p>
 
-<pre><code><b>Example Client ID (Extra-Small ACOs):</b>
-0c527d2e-2e8a-4808-b11d-0fa06baf8254
+<pre><code><b>Example Client ID (Extra-Small Model Entities):</b>
+3841c594-a8c0-41e5-98cc-38bb45360d3c
 
-<b>Example Client Secret (Extra-Small ACOs):</b>
-36e0ea2217e6d6180f3ab1108d02ca100d684ebdccc04817ce842300996e568c3d77fc61d84006a3
+<b>Example Client Secret (Extra-Small Model Entities):</b>
+d89810016460e6924a1c62583e5f51d1cbf911366c6bc6f040ff9f620a944efbf2b7264afe071609
 </code></pre>
 
 <div class="ds-c-alert ds-c-alert--hide-icon">
     <div class="ds-c-alert__body">
       <h3 class="ds-c-alert__heading">These credentials do not work in production.</h3>
       <p class="ds-c-alert__text">
-	The sample credentials above will not work in the production environment. For production data, follow along using the credentials your ACO was issued.
+	The sample credentials above will <b>not</b> work in the production environment. For production data, follow along using the credentials your model entity was issued.
 	</div>
   </div>
 
@@ -33,14 +33,14 @@
 	Access Token cURL Command
 </h4>
 	<p>
-		cURL Option 1: This cURL command requires separate base-64 encryption. We have concatenated the base64 encoding of the ‘Client ID : Secret’ as the argument to the -H flag.
+		cURL Option 1: This cURL command requires separate base-64 encryption. We have concatenated the base64 encoding of the ‘Client ID : Secret’ as the argument to the -H flag. Please note that the URL in the Production environment will be different. 
 	</p>
 <pre><code>curl -d '' -X POST 'https://api.bcda.cms.gov/auth/token' \
 	-H "accept: application/json" \
 	-H "authorization: Basic Mzg0MWM1OTQtYThjMC00MWU1Tk4Y2MtMzhiYjQ1MzYwZDNjOmY5NzgwZDMyMzU4OGYxY2RmYzNlNjNlOTVhOGNiZGNkZDQ3NjAyZmY0OGE1MzdiNTFkYzVkNzgzNGJmNDY2NDE2YTcxNmJkNDUwOGU5MDRh"</code></pre>
 
 <p>
-	cURL Option 2: This cURL command innately encrypts your credentials with base-64 encryption
+	cURL Option 2: This cURL command encrypts your credentials with base-64 encryption
 </p>
 <pre><code>curl -d '' -X POST 'https://api.bcda.cms.gov/auth/token' \
 	--user 3841c594-a8c0-41e5-98cc-38bb45360d3c:f9780d323588f1cdfc3e63e95a8cbdcdd47602ff48a537b51dc5d7834bf466416a716bd4508e904a \
@@ -67,7 +67,7 @@ token_type: A fixed value as “bearer”.</p>
 <h4>
 	Access Token Explanation
 </h4>
-<p>In cURL Option 1, you must base-64 encode the clientId and secret. Once that is performed, the encoded credentials can be passed to cURL as a header with the form: authorization: Basic [base64-encoded clientId:secret]</p>
+<p>In cURL Option 1, you must base-64 encode the Client ID and Secret. Once that is performed, the encoded credentials can be passed to cURL as a header with the form: authorization: Basic [base64-encoded clientId:secret]</p>
 <p>In cURL Option 2, the user can take advantage of cURL’s built-in ability to base-64 encode the clientId and secret, and request and receive their token in a single step.
 If your operation succeeds, you will receive a 202 response with your access token as a header. You will receive a 401 Unauthorized response if your credentials are invalid or if your token has expired. No additional information is returned with a 401 response. When you receive a 401 response for a token you were just using successfully, you should request a new access token as outlined above.</p>
 
