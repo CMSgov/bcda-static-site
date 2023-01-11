@@ -1,0 +1,20 @@
+<div>
+  <p>CMS provides model entities – Accountable Care Organizations (ACO), Direct Contracting Entities (DCE), Kidney Contracting Entities (KCE), and Kidney Choice First (KCF) Entities – with beneficiary identifiable claims data for assigned beneficiaries and other beneficiaries who receive primary care services from a model entity.
+  </p>
+  <p>BCDA serves data according to the bulk FHIR specification using three FHIR resources: ExplanationOfBenefit (EOB), Patient, and Coverage. This means that your claims data will be delivered through three FHIR resource types rather than 12 CCLF files.
+  </p>
+  <ul>
+    <li> The <b>ExplanationOfBenefit (EOB)</b> resource type provides similar information to what is provided in CCLF files 1-7. The EOB files contain lines within an episode of care, including where and when the service was performed, the diagnosis codes, the provider who performed the service, and the cost of care.</li>
+    <li>The <b>Patient</b> resource type provides similar information to what is provided in CCLF files 8 and 9. This is where you get your information about who your beneficiaries are, their demographic information, and updates to their patient identifiers.</li>
+    <li>The <b>Coverage</b> resource type provides information about beneficiaries’ insurance coverage, including information about dual coverage.</li>
+  </ul>
+  <div class="ds-c-alert ds-c-alert--hide-icon">
+    <div class="ds-c-alert__body">
+      <h2 class="ds-c-alert__heading">Confidentiality and Medical Data Sharing</h2>
+      <p class="ds-c-alert__text">
+        In accordance with applicable law, including HIPAA and the regulations in 42 CFR Part 2, a beneficiary’s substance use disorder records are confidential. For example, claims data related to alcohol and drug abuse treatment are <b>not</b> shared.</p>
+        <p class="ds-c-alert__text">In addition, BCDA will not share <b>any</b> data of beneficiaries who have opted out of data sharing.</p>  
+
+    </div>
+  </div>
+</div>

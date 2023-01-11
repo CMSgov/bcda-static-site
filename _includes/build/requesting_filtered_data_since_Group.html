@@ -34,7 +34,7 @@ Prefer: respond-async
 
 <h4>Start a Job using _since within the /Group endpoint Explanation</h4>
 	<p>
-		This operation will start a job for filtered data for existing beneficiaries since 8PM EST on February 13th, 2020 and all 7 years of historical data for beneficiaries assigned to your organization in the last month. In the example, we request the Patient resource type. The steps and format would work similarly for other resource types.
+		This operation will start a job for filtered data for existing beneficiaries since 8PM EST on February 13th, 2020 and going as far back as 2014 for historical data for beneficiaries assigned to your organization in the last month. In the example, we request the Patient resource type. The steps and format would work similarly for other resource types.
 	</p>
 	<p>
 		You must provide the groupID of "all" as well as a _since date in the FHIR format. An access token as well as Accept and Prefer headers are required. The dollar sign ($) before the word 	"export" in the URL indicates that the endpoint is	 an action rather than a resource. The format is defined by the FHIR Bulk Data Export spec.
@@ -47,7 +47,7 @@ Prefer: respond-async
     	<div class="ds-c-alert__body">
     	  <h3 class="ds-c-alert__heading"> Attribution data is only updated once per month.</h3>
     	    <p class="ds-c-alert__text">
-    	     While most claims data is updated on a weekly cadence (and we encourage you to retrieve your ACO's claims data weekly), ACO attribution is only updated one time per month, so you will only be able to retrieve historical claims data for newly attributed beneficiaries once per month. Additional calls will only yield duplicative data for these newly attributed beneficiaries.
+    	     While most claims data is updated on a weekly cadence (and we encourage you to retrieve your model entity's claims data weekly), attribution is only updated one time per month, so you will only be able to retrieve historical claims data for newly attributed beneficiaries once per month. Additional calls will only yield duplicative data for these newly attributed beneficiaries.
     	  	</p>
     	</div>
 	</div>
