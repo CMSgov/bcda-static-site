@@ -1,7 +1,6 @@
 <p>
-	The <a href="https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---group-of-patients" target="_blank" rel="noopener" class="in-text__link"> /Group endpoint</a> allows you to request ExplanationOfBenefit, Patient, and/or Coverage data for all beneficiaries assigned or assignable to your ACO.  You must supply a group parameter. The only supported parameter currently is ‘all’.
-				
+	The <a href="https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---group-of-patients" target="_blank" rel="noopener" class="in-text__link"> /Group endpoint</a> allows you to request ExplanationOfBenefit, Patient, and/or Coverage data for all beneficiaries assigned or assignable to your model entity.  You must supply a group parameter. The only supported parameter currently is ‘all’.			
 </p>
 <p>
-	You may also filter data by date using the _since parameter. If no filter is applied, a request to the /Group endpoint in BCDA returns seven years of historical data for all assigned and assignable beneficiaries.
+	You may also filter data by date using the _since parameter. If no filter is applied, a request to the /Group endpoint in BCDA returns historical data for all assigned and assignable beneficiaries as far back as 2014.
 </p>
