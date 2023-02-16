@@ -1,0 +1,21 @@
+<p>BCDA is currently in the limited launch phase of a data enhancement feature available for credentialed Accountable Care Organization Realizing Equity, Access, and Community Health (ACO REACH) model participants. This enhancement reduces the time to access Parts A and B fee-for-service claims. These claims are partially adjudicated, meaning they have entered the Medicare claims processing system, but have not yet been fully processed or paid by CMS. Direct Contracting Entities (DCEs) with BCDA credentials can access partially adjudicated claims within 2-4 days after claim submission. The data is delivered through Claim and ClaimResponse bulk FHIR® specification resource types.</p>
+<p>The potential benefits for DCEs include:</p>
+  <ul>
+    <li>accessing data 2-4 days after claim submission</li>
+    <li>coordinating care more efficiently</li>
+    <li>tracking out-of-network care</li>
+    <li>improving clinical context</li>
+    <li>planning out downstream payment arrangements</li>
+    <li>tracking financial performance</li>
+    <li>staying ahead of claim rejections</li>
+    <li>correcting the course on quality measures</li>
+  </ul>
+
+<p><strong>Characteristics of BCDA Partially Adjudicated Enhancement data</strong></p>
+  <ol>
+    <li>This is an initial subset of the fields that are present in BCDA today. Supporting care coordination through these fields should be beneficial.</li>
+    <li>Provides fee-for-service claims from Medicare Fiscal Intermediary Shared System (FISS) and Medicare Multi-Carrier Claims System (MCS) (for institutional claims).</li>
+    <li>The data does not include claims for Part D (drug coverage) or Durable Medical Equipment (DME).</li>
+    <li>DCEs only receive data about aligned beneficiaries (who have not opted out of data sharing). Under the Confidentiality of Alcohol and Drug Abuse Patient Records Regulations, 42 CFR Part 2, BCDA excludes all claims with substance abuse codes.</li>
+    <li>Beneficiary Claims Data API Version 2 (BCDA V2) must be used to retrieve the data.</li>
+  </ul>
