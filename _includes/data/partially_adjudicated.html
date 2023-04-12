@@ -1,21 +1,67 @@
-<p>BCDA is currently in the limited launch phase of a data enhancement feature available for credentialed Accountable Care Organization Realizing Equity, Access, and Community Health (ACO REACH) model participants. This enhancement reduces the time to access Parts A and B fee-for-service claims. These claims are partially adjudicated, meaning they have entered the Medicare claims processing system, but have not yet been fully processed or paid by CMS. Direct Contracting Entities (DCEs) with BCDA credentials can access partially adjudicated claims within 2-4 days after claim submission. The data is delivered through Claim and ClaimResponse bulk FHIR® specification resource types.</p>
-<p>The potential benefits for DCEs include:</p>
-  <ul>
-    <li>accessing data 2-4 days after claim submission</li>
-    <li>coordinating care more efficiently</li>
-    <li>tracking out-of-network care</li>
-    <li>improving clinical context</li>
-    <li>planning out downstream payment arrangements</li>
-    <li>tracking financial performance</li>
-    <li>staying ahead of claim rejections</li>
-    <li>correcting the course on quality measures</li>
-  </ul>
+<p>Now in limited launch, a new BCDA enhancement gives access to data from claims only 2-4 days after they’ve been
+submitted. These claims are partially adjudicated, meaning not fully processed or paid. Partially processed claims offer
+valuable patient data. Providers would otherwise be unable to view this data for up to 14 days following full
+adjudication.</p>
 
-<p><strong>Characteristics of BCDA Partially Adjudicated Enhancement data</strong></p>
-  <ol>
-    <li>This is an initial subset of the fields that are present in BCDA today. Supporting care coordination through these fields should be beneficial.</li>
-    <li>Provides fee-for-service claims from Medicare Fiscal Intermediary Shared System (FISS) and Medicare Multi-Carrier Claims System (MCS) (for institutional claims).</li>
-    <li>The data does not include claims for Part D (drug coverage) or Durable Medical Equipment (DME).</li>
-    <li>DCEs only receive data about aligned beneficiaries (who have not opted out of data sharing). Under the Confidentiality of Alcohol and Drug Abuse Patient Records Regulations, 42 CFR Part 2, BCDA excludes all claims with substance abuse codes.</li>
-    <li>Beneficiary Claims Data API Version 2 (BCDA V2) must be used to retrieve the data.</li>
-  </ul>
+<h2>
+  How to access the BCDA Partially Adjucated Enhancement
+</h2>
+<p>
+  The enhancement is currently available to Direct Contracting Entities (DCEs) participating in the ACO REACH (Accountable
+  Care Organizations Realizing Equity, Access, and Community Health) model. Partially adjudicated data will be expanded to
+  additional models after the limited launch. In the meantime, all organizations are encouraged to preview the data format
+  in our sandbox environment.
+</p>
+
+<a href=/try_the_api.html target="_self" class="in-text__link">Try the BCDA enhancement</a>
+
+<p>
+  Claims data is delivered through Claim and ClaimResponse bulk FHIR® specification resource types. The enhancement
+  requires Beneficiary Claims Data API Version 2 (BCDA V2). It includes a subset of current BCDA fields.
+</p>
+
+<h2>
+  Value to DCEs and beneficiaries
+</h2>
+<p>
+  Beneficiaries often seek care from different providers while previous claims are still in adjudication. These claims
+  contain valuable clinical information. The enhancement reduces gaps in visibility to this data by as many as 12 days.
+  Closing the loop on these gaps helps DCEs:
+</p>
+<ul>
+  <li>
+    Receive more consistent access to data across beneficiaries’ healthcare journeys
+  </li>
+  <li>
+    Coordinate follow up care after hospitalization
+  </li>
+  <li>
+    View status of processing claims on a near-daily basis
+  </li>
+  <li>
+    Track out-of-network care
+  </li>
+  <li>
+    Plan downstream payment arrangements
+  </li>
+  <li>
+    Track financial performance
+  </li>
+  <li>
+    Anticipate claim rejections
+  </li>
+</ul>
+
+<h2>Data scope and requirements</h2>
+<p>
+  The enhancement applies to Medicare Part A and B fee-for-service claims from the Medicare Fiscal Intermediary Shared
+  System (FISS) and Multi-Carrier System (MCS). Other requirements include:
+</p>
+<ul>
+  <li>Beneficiaries must be opted into data sharing</li>
+  <li>Medicare Part D drug plans and Durable Medical Equipment (DME) claims are excluded</li>
+  <li>Substance abuse codes are also excluded</li>
+</ul>
+<p>
+  Try <a href=/try_the_api.html target="_self" class="in-text__link">our sandbox environment</a> to see how the enhancement reveals untapped opportunities to provide high quality care.
+</p>
