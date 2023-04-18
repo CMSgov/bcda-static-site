@@ -1,200 +1,169 @@
 <p>
-  To get you started with BCDA, we provide the minimum steps to access data in the sandbox. Using the four cURL commands
-  below, you should be able to walk through the standard process of retrieving data from the API:
+	To get you started with BCDA, we provide the minimum steps to access data in the sandbox. Using the four cURL commands below, you should be able to walk through the standard process of retrieving data from the API:
 </p>
 <ol>
-  <li>Obtain an access token: How do I show the API that I can receive this data?</li>
-  <li>Start a job to acquire data: How do I tell the API to get my data?</li>
-  <li>Check the job status: How do I check when the API is done getting my data?</li>
-  <li>Download the data: How do I get my data once it is done?</li>
+	<li>Obtain an access token: How do I show the API that I can receive this data?</li>
+	<li>Start a job to acquire data: How do I tell the API to get my data?</li>
+	<li>Check the job status: How do I check when the API is done getting my data?</li>
+	<li>Download the data: How do I get my data once it is done?</li>
 </ol>
 <p>
-  All requests for BCDA data follow this four step process, as do other APIs following the Bulk FHIR specifications.
+	All requests for BCDA data follow this four step process, as do other APIs following the Bulk FHIR specifications.
 </p>
 <p>
-  For more detail for each of these steps and specific information for retrieving production data, see the <a
-    href=/build.html target="_self" class="in-text__link"> Building Your Application</a> page. For this short demo,
-  follow along in your Terminal window or through an application such as Postman.
+	For more detail for each of these steps and specific information for retrieving production data, see the <a href=/build.html target="_self" class="in-text__link"> Building Your Application</a> page. For this short demo, follow along in your Terminal window or through an application such as Postman.
 </p>
-​
+
 <h2>
-  BCDA Synthetic Data
+	BCDA Synthetic Data
 </h2>
 <p>
-  BCDA has provided nine synthetic data sample sets for use. Because all of these data sets are synthetic, they can be
-  accessed without any BCDA production environment credentials or approval by BCDA.
+	BCDA has provided nine synthetic data sample sets for use. Because all of these data sets are synthetic, they can be accessed without any BCDA production environment credentials or approval by BCDA.
 </p>
-​
+
 <h3>
-  Simple Datasets - Five Sizes
+	Simple Datasets - Five Sizes
 </h3>
 <p>
-  Five of these datasets are simple approximations of BCDA data designed for model entities to test the stress of
-  retrieving and downloading large data files into their internal ingestion processes. These datasets are offered in
-  various sizes so that organizations can test files with a number of beneficiaries that best matches the needs of their
-  organization (the datasets range from 50 to 30,000 synthetic beneficiaries). However, the data in these API payloads
-  will not reflect the distribution of disease and demographic information you might expect from production data.
+	Five of these datasets are simple approximations of BCDA data designed for model entities to test the stress of retrieving and downloading large data files into their internal ingestion processes. These datasets are offered in various sizes so that organizations can test files with a number of beneficiaries that best matches the needs of their organization (the datasets range from 50 to 30,000 synthetic beneficiaries). However, the data in these API payloads will not reflect the distribution of disease and demographic information you might expect from production data.
 </p>
-​
+
 <div>
-  {% include guide/credentials.html %}
+	{% include guide/credentials.html %}
 </div>
-​
+
 <h3>
-  Advanced Datasets - Two Sizes
+	Advanced Datasets  - Two Sizes
 </h3>
 <p>
-  These two datasets are designed to offer data that is a more accurate representation of BCDA production data. They
-  follow BCDA’s Bulk FHIR format and should contain a more realistic distribution of disease and demographic
-  information. The advanced datasets are offered in two sizes: Extra Small (100 beneficiaries) and Large (10,000
-  beneficiaries). We suggest using the Extra-Small Model Entity file to simply view and begin to understand the format
-  of BCDA data. You may want to use the Large dataset for more in-depth exploration of the data or early load testing of
-  your systems.
+	These two datasets are designed to offer data that is a more accurate representation of BCDA production data. They follow BCDA’s Bulk FHIR format and should contain a more realistic distribution of disease and demographic information. The advanced datasets are offered in two sizes: Extra Small (100 beneficiaries) and Large (10,000 beneficiaries). We suggest using the Extra-Small Model Entity file to simply view and begin to understand the format of BCDA data. You may want to use the Large dataset for more in-depth exploration of the data or early load testing of your systems.
 </p>
-​
+
 <div>
-  {% include guide/adv_credentials.html %}
+	{% include guide/adv_credentials.html %}
 </div>
-​
+
 <h3>
-  BCDA Partially Adjudicated Enhancement - Two Sizes
+	BCDA Partially Adjudicated Enhancement  - Two Sizes
 </h3>
 <p>
-  This is sample data from the BCDA Partially Adjudicated Enhancement. The enhancement gives access to data 2-4 days
-  after
+  This is sample data from the BCDA Partially Adjudicated Enhancement. The enhancement gives access to data 2-4 days after
   claim submission. Samples include the FHIR® Claim and ClaimResponse resources.
 </p>
 <ol>
-  <li><strong>Claim:</strong> Professional and institutional claims submitted for payment. Includes services received by
-    beneficiaries.</li>
+  <li><strong>Claim:</strong> Professional and institutional claims submitted for payment. Includes services received by beneficiaries.</li>
   <li><strong>ClaimResponse:</strong> Claim adjudication status and results.</li>
 </ol>
-​
+
 <h3>Sample Credentials</h3>
 <div>
-  {% include guide/bcda_enhancement_credentials.html %}
+	{% include guide/bcda_enhancement_credentials.html %}
 </div>
-​
-​
+
+
 <h2>
-  Step 1: Obtain an Access Token
+	Step 1: Obtain an Access Token
 </h2>
 <p>
-  For this demonstration, we will provide sample API credentials to the sandbox environment. We will be using the sample
-  credentials for an Extra-Small Model Entity (25 beneficiaries). Feel free to follow along with any of the sample
-  credentials.
+	For this demonstration, we will provide sample API credentials to the sandbox environment. We will be using the sample
+	credentials for an Extra-Small Model Entity (25 beneficiaries). Feel free to follow along with any of the sample credentials.
 </p>
 <p>
-  Our credentials come in two pieces: a Client ID and a Client Secret. We will submit these two pieces to the API.
-  Notice that the credentials are included in one of the headers (--user). You must use this format: --user {insert
-  client id}{insert colon}{insert client secret}.
+	Our credentials come in two pieces: a Client ID and a Client Secret. We will submit these two pieces to the API. Notice that the credentials are included in one of the headers (--user). You must use this format: --user {insert client id}{insert colon}{insert client secret}.
 </p>
 <h3>
-  Sample cURL Command to Submit Credentials for an Access Token
+	Sample cURL Command to Submit Credentials for an Access Token
 </h3>
 <pre><code>curl -d '' -X POST 'https://sandbox.bcda.cms.gov/auth/token' \
-​
+
 	--user 2462c96b-6427-4efb-aed7-118e20c2e997:8e87f0ebc50d10f1bc9734329a9900179b84ccd39e4d0920b905cc359cf6e94a6e760bbe3a0890c7 \
 	-H "accept: application/json"</code></pre>
-​
+
 <h3>
-  Response Example after Submitting Credentials for an Access Token
+	Response Example after Submitting Credentials for an Access Token
 </h3>
 <p>
-  We have a key (an access token) to interact with the API! It expires after 20 minutes.
+	We have a key (an access token) to interact with the API! It expires after 20 minutes.
 </p>
 <p>
-  If the request was successful, we will receive a response with the code 200 containing a few headers. The first header
-  ("access token") contains a long string of characters. This is our access token which must be attached to all of our
-  other requests to the API.
+	If the request was successful, we will receive a response with the code 200 containing a few headers. The first header ("access token") contains a long string of characters. This is our access token which must be attached to all of our other requests to the API.
 </p>
 <pre><code>{
 "access_token": "eyJhbGciOiJSUzUxMiIsInR5c...",
 "token_type":"bearer"
 }</code></pre>
-​
-​
-​
-​
-​
-​
-​
-​
+
+
+
+
+
+
+
+
 <h2>
-  Step 2: Start a Job
+	Step 2: Start a Job
 </h2>
 <p>
-  With our new access token, we are able to make more requests to the API. We will now tell the server to deliver our
-  data.
+	With our new access token, we are able to make more requests to the API. We will now tell the server to deliver our data.
 </p>
 <p>
-  In this example, we requested data from the /Patient endpoint with no date filter (no _since parameter) and no
-  specified resource type (no _type parameter). We included the long string of characters from the previous step (our
-  access token) in the authorization header (-H "Authorization: Bearer "). Notice that we needed to include the word
-  "Bearer" followed by a space before the access token. We also added "-v" in order to see the Job ID.
+	In this example, we requested data from the /Patient endpoint with no date filter (no _since parameter) and no specified resource type (no _type parameter). We included the long string of characters from the previous step (our access token) in the authorization header (-H "Authorization: Bearer "). Notice that we needed to include the word "Bearer" followed by a space before the access token. We also added "-v" in order to see the Job ID.
 </p>
-<h3>
-  Sample cURL Command to Start a Job
-</h3>
+	<h3>
+		Sample cURL Command to Start a Job
+	</h3>
 <pre><code>curl -X GET 'https://sandbox.bcda.cms.gov/api/v1/Patient/$export' \
 -H "accept: application/fhir+json" \
 -H "Prefer: respond-async" \
 -H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>" \
 -v
 </code></pre>
-​
+
 <h3>Response Example after Starting a Job</h3>
 <p>
-  We've now started a data export job. It may take some time to complete, depending on how much claims data is contained
-  in our job.
+	We've now started a data export job. It may take some time to complete, depending on how much claims data is contained in our job.
 </p>
 <p>
-  If the request was successful, we will receive a response with the code 202 containing a few headers. One of the
-  headers (Content-Location) will contain a URL. Notice that the URL ends in a number. This is the Job ID of the job we
-  just started. In the next step, we will use this URL and Job ID to check if the server is done preparing our file(s).
+	If the request was successful, we will receive a response with the code 202 containing a few headers. One of the headers (Content-Location) will contain a URL. Notice that the URL ends in a number. This is the Job ID of the job we just started. In the next step, we will use this URL and Job ID to check if the server is done preparing our file(s).
 </p>
 <pre><code>202 Accepted
 Content-Location: https://sandbox.bcda.cms.gov/api/v1/jobs/42
 </code></pre>
-​
-​
-​
-​
-​
-​
-​
-​
-​
+
+
+
+
+
+
+
+
+
 <H3>
-  Step 3: Check the Job Status
+	Step 3: Check the Job Status
 </H3>
 <p>
-  Now that our job is in progress, we can check back in occasionally to see if it is finished. The data for our
-  synthetic sandbox model entities should not take too long to compile.
+	Now that our job is in progress, we can check back in occasionally to see if it is finished. The data for our synthetic sandbox model entities should not take too long to compile.
 </p>
 <p>
-  We will make a request to the API to check on our job. Notice the URL in the first line (curl -X GET "URL") is the
-  same as the URL from the previous step in the Content-Location header.
+	We will make a request to the API to check on our job. Notice the URL in the first line (curl -X GET "URL") is the same as the URL from the previous step in the Content-Location header.
 </p>
 <H4>
-  Sample cURL Command to Check the Job Status
+	Sample cURL Command to Check the Job Status
 </H4>
 <pre><code>curl -X GET 'https://sandbox.bcda.cms.gov/api/v1/jobs/42' \
 -H "accept: application/fhir+json" \
 -H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"
 </code></pre>
 <h4>
-  Response Example after Checking on a Job
+	Response Example after Checking on a Job
 </h4>
 <p>
-  It looks like our job is finished and our data is ready to be downloaded.
+	It looks like our job is finished and our data is ready to be downloaded.
 </p>
 <p>
-  If the request was successful, and the job is finished, we will receive a response containing many headers. Some of
-  these headers ("url") will contain a URL. Each of these URLs corresponds to a file containing claims data. We received
-  three files: one for each resource type. We will use these URLs to download the data in the final step.
+	If the request was successful, and the job is finished, we will receive a response containing many headers. Some of these headers ("url") will contain a URL. Each of these URLs corresponds to a file containing claims data. We received three files: one for each resource type. We will use these URLs to download the data in the final step.
 </p>
-<pre><code>{
+	<pre><code>{
   "transactionTime": "2019-12-09T20:44:01.705398Z",
   "request": "https://sandbox.bcda.cms.gov/api/v1/Patient/$export",
   "requiresAccessToken": true,
@@ -215,54 +184,44 @@ Content-Location: https://sandbox.bcda.cms.gov/api/v1/jobs/42
   "error": [],
   "JobID": 42
 }</code></pre>
-​
-​
-​
-​
+
+
+
+
 <H3>
-  Step 4: Download the Data
+	Step 4: Download the Data
 </H3>
 <p>
-  The final step in the workflow is to download your data. Make another request to the API, this time using any of the
-  URLs retrieved in the previous step. Each URL corresponds to a single file and will begin the download of that file.
-  We will need to make three download requests to get all three of our files.
+	The final step in the workflow is to download your data. Make another request to the API, this time using any of the URLs retrieved in the previous step. Each URL corresponds to a single file and will begin the download of that file. We will need to make three download requests to get all three of our files.
 </p>
-<H4>
-  Sample cURL Command to Download the Data
-</H4>
+	<H4>
+		Sample cURL Command to Download the Data
+	</H4>
 <pre><code>curl 'https://sandbox.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson' \
 -H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>" \
 -H "Accept-Encoding: gzip"
 </code></pre>
 <h4>
-  Response Example after Downloading the Data
+Response Example after Downloading the Data
 </h4>
 <p>
-<ol>
-  <li><strong><a href="https://bcda.cms.gov/assets/data/ExplanationOfBenefit.ndjson" target="_blank" rel="noopener"
-        class="in-text__link"> Explanation of Benefit</a></strong></li>
-  <li><strong><a href="https://bcda.cms.gov/assets/data/Patient.ndjson" target="_blank" rel="noopener"
-        class="in-text__link"> Patient</a></strong></li>
-  <li><strong><a href="https://bcda.cms.gov/assets/data/Coverage.ndjson" target="_blank" rel="noopener"
-        class="in-text__link"> Coverage</a></strong></li>
-</ol>
+	<ol>
+		<li><strong><a href="https://bcda.cms.gov/assets/data/ExplanationOfBenefit.ndjson" target="_blank" rel="noopener" class="in-text__link"> Explanation of Benefit</a></strong></li>
+		<li><strong><a href="https://bcda.cms.gov/assets/data/Patient.ndjson" target="_blank" rel="noopener" class="in-text__link"> Patient</a></strong></li>
+		<li><strong><a href="https://bcda.cms.gov/assets/data/Coverage.ndjson" target="_blank" rel="noopener" class="in-text__link"> Coverage</a></strong></li>
+	</ol>
 </p>
-​
-​
-​
-​
-​
-​
+
+
+
+
+
+
 <H3>
-  Congratulations!
+	Congratulations!
 </H3>
 <p>
-  If all of the steps above worked, you will now have files of synthetic beneficiary claims data on your local machine!
-  You have walked through the process of proving your authentication to the API, starting a job to compile your data,
-  checking on that job using its ID number, and downloading the results using the filenames. This four step process is
-  universal for BCDA data requests (and many other Bulk FHIR workflows).
-</p>
-Go to the <a href="/build.html" target="_self">Building Your Application page</a> to see how to download data for your
-organizations' real beneficiaries, download different combinations of Resource Types, filter data by date, and filter
-some beneficiary data by date while retrieving all data for others.
+	If all of the steps above worked, you will now have files of synthetic beneficiary claims data on your local machine! You have walked through the process of proving your authentication to the API, starting a job to compile your data, checking on that job using its ID number, and downloading the results using the filenames. This four step process is universal for BCDA data requests (and many other Bulk FHIR workflows).
+</p>	 
+	Go to the <a href="/build.html" target="_self">Building Your Application page</a> to see how to download data for your organizations' real beneficiaries, download different combinations of Resource Types, filter data by date, and filter some beneficiary data by date while retrieving all data for others.
 </p>
