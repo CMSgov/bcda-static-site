@@ -1,0 +1,127 @@
+<div>
+  <h4>1) Question: What are BCDA (Beneficiary Claims Data API) Partially Adjudicated Claims data?
+  </h4>
+  <p>Answer: The BCDA Partially Adjudicated Claims data can be used to increase care coordination, improve healthcare outcomes, and reduce overall healthcare cost for enrollees. It does this by reducing the time to access Parts A and B Fee-for-Service (FFS) claims from typically up to 14 days for adjudicated claims, to 2-4 days using partially adjudicated claims data. Partially adjudicated claims are claims that have entered the Medicare processing system but are not fully paid or processed by CMS. Part D (drug related) and Durable Medical Equipment (DME) are not included in partially adjudicated claims. The BCDA Partially Adjudicated Claims data is accessible through BCDA. This capability is available to Realizing Equity, Access, and Community Health (REACH) Accountable Care Organizations (ACOs). The initial release provides these REACH ACOs with an opportunity to streamline their clinical care processes. REACH ACOs with BCDA credentials who access BCDA V2 will, by default, also retrieve partially adjudicated claims through the Claim and ClaimResponse resource types.
+  </p>
+  <h4>2) Question: What FHIR® resources can I access in the BCDA production environment?
+  </h4>
+  <p>Answer: REACH ACOs with BCDA credentials can currently access adjudicated claims data through three (3) bulk Fast Healthcare Interoperability Resource (FHIR®) resource types: Explanation of Benefit, Patient, and Coverage. The BCDA Partially Adjudicated Claims functionality exposes the following two (2) additional bulk FHIR® resource types: Claim and ClaimResponse, so that REACH ACOs with BCDA credentials can also access partially adjudicated claims data.
+  </p>
+  <h4>3) Question: What are the BCDA API endpoints for the BCDA Partially Adjudicated Claims?
+  </h4>
+  <p>Answer: The endpoints that expose BCDA Partially Adjudicated Claims are as follows. 
+  </p>
+  <ul>
+    <li>
+      /Patient endpoint
+    </li>
+    <li>
+      /Group endpoint
+    </li>
+  </ul>
+  <p>These endpoints are used for adjudicated claims as well.
+  </p>
+  <h4>4) Question: Where can I find the Data Dictionary to learn more about the data fields that are included in BCDA Partially Adjudicated Claims data?
+  </h4>
+  <p>Answer: The Data Dictionary for the BCDA Partially Adjudicated Claims data can be found here (need URL link or downloadable PDF).
+  </p>
+  <h4>5) Question: In analyzing events like tests and referrals for Low-Value Care patients, is there any benefit to using partially adjudicated claims if the event was already completed?
+  </h4>
+  <p>Answer: Using partially adjudicated claims data for simple, one-stage events, like Vitamin D testing, will not provide much benefit since the event has already been completed and the payment has been made. If the event becomes a multi-event with a potentially high cost, you may want to look into partially adjudicated claims data early on.
+  </p>
+  <h4>6) Question: What’s the best way for us to get support?
+  </h4>
+  <p>Answer: Email is the best way to get in touch with the BCDA Project Team [bcapi@cms.hhs.gov]. We are also available to answer questions in the BCDA Google Group which can be found <a href="https://groups.google.com/u/0/g/bc-api" target="_self" class="in-text__link">here</a>.
+  </p>
+  <h4>7) Question: Why do I get connection timeout issues with my credentials in production?
+  </h4>
+  <p>Answer: Please make sure the IP address you are connecting with is whitelisted in 4i, found <a href="https://4innovation.cms.gov/" target="_self" class="in-text__link">here</a>.
+  </p>
+  <h4>8) Question: What do I need to be able to access the BCDA (Beneficiary Claims Data API) Partially Adjudicated Claims data in the Production environment?
+  </h4>
+  <p>Answer: There are 5 basic things that are required to access the BCDA (Beneficiary Claims Data API) Partially Adjudicated Claims data?
+  </p>
+  <ol>
+    <li>
+      Must be an ACO REACH model participant
+    </li>
+    <li>
+      Must have valid BCDA credentials - If you do not have BCDA credentials, you can fine out how to get them <a href="/build.html#bcda-credentials" target="_self" class="in-text__link">here</a>.
+    </li>
+    <li>
+      Complete the Health Insurance Portability and Accountability (HIPAA) - Covered Disclosure Request Attestation and Data Specification Worksheet to access the BCDA production environment. Instructions for this worksheet can be found <a href="https://4innovation.cms.gov/files/tipsheets/HIPAA%20covered%20disclosure%20request%20form%20TipSheet.pdf" target="_self" class="in-text__link">here</a>.
+    </li>
+    <li>
+      Obtain Your Access Token by following these instructions found <a href="/build.html#access-token" target="_self" class="in-text__link">here</a>.
+    </li>
+    <li>
+      Request Partially Adjudicated Claims Data via the Beneficiary Claims Data API (BCDA), found <a href="/build.html#requesting-data" target="_self" class="in-text__link">here</a>.
+    </li>
+  </ol>
+  <h4>9) Question: What version of the BCDA API do I need to access the BCDA Partially Adjudicated Claims sandbox?
+  </h4>
+  <p>Answer: BCDA API version 2 (V2) is required to access the BCDA Partially Adjudicated Claims data.
+  </p>
+  <h4>10) Question: How do I access the sandbox for the BCDA Partially Adjudicated Claims data?
+  </h4>
+  <p>Answer: Currently, the BCDA Partially Adjudicated Claims Data is only available to REACH ACOs with BCDA credentials. BCDA has made synthetic data sets available for anyone to test partially adjudicated claims in the BCDA Sandbox. You can learn more about the BCDA sandbox access <a href="/guide.html#try-the-api" target="_self" class="in-text__link">here</a>.
+  </p>
+  <h4>11) Question: How do I obtain credentials to access the BCDA (Beneficiary Claims Data API) Partially Adjudicated Claims Sandbox?
+  </h4>
+  <p>Answer: The credentials for BCDA Sandbox are available on the BCDA website, found <a href="/guide.html" target="_self" class="in-text__link">here</a>.
+  </p>
+  <h4>12 Question: For REACH ACOs who would like access to partially adjudicated claims, do they need to update their credentials to access Version 2 (V2) of the BDCA API?
+  </h4>
+  <p>Answer: Access to the Claim and ClaimResponse resources is handled within BCDA on a per ACO (Accountable Care Organization) ID level. There are no required changes to credentials for those REACH ACOs who would like access to the V2 endpoint. The BCDA V2 service supports the same functionality as V1 API endpoints in both the sandbox and production API environments. All V2 endpoints should work as described in the existing BCDA documentation. To transition from V1 to your BCDA V2 endpoints, replace ‘v1’ in the API call URLs with ‘v2’, as in the cURL example below:
+  </p>
+<pre><code>curl -X GET 'https://sandbox.bcda.cms.gov/api/v1/Patient/$export' \
+-H "accept: application/fhir+json" \
+-H "Prefer: respond-async" \
+-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>" \
+-v
+</code></pre>
+  <h4>13) Question: Are partially adjudicated claims received after a supplier’s orders are completed and the claims are submitted for payment? Or, are they received in a pre-authorization form? For example, if we place an order for an x-ray and then the x-ray supplier first submits a pre-op before they even see the patient, would we be receiving any of those before the event actually happens or is partially adjudicated data only available after the fact?
+  </h4>
+  <p>Answer: In Medicare Fee-for-Service (FFS), in the timeline of a supplier order and partially adjudicated data, there is no pre-authorization information available. In BCDA, we only see partially adjudicated claims for actual claims, not for the pre-authorization type or a pre-determination type.
+  </p>
+  <h4>14A) Question: What is the estimated amount of data we will receive through partially adjudicated claims? How does that compare to adjudicated claims?
+  </h4>
+  <p>Answer: As for the amount of data you can expect between adjudicated claims and partially adjudicated claims, partially adjudicated claims will experience iterations during their journey, potentially causing them to look larger in the database than the adjudicated claims. By nature, you're getting access and visibility into the claim as it moves along. Every time an adjudicated claims goes to a different step, we are including an update message in the data. The volume of claims data you're going to see depends on how many MBIs (Medicare Beneficiary Identifiers) you have access to, given the number of enrollees attributed to your REACH ACO, as well as the number of updates a given claim receives. You could consider using a database query (e.g. on the number of enrollees) in your environment for more information on your specific needs.
+  </p>
+  <h4>14B) Question: Can you please provide some guidance in terms of a ballpark ratio for every Explanation of Benefits (EOB) that one would expect to see, e.g. whether it's five, ten, or five hundred passes for a Claim or ClaimResponse?
+  </h4>
+  <p>Answer: One portion of the volume of data is tied to a claims journey during the adjudication process. During the claims journey, claims can have many iterations. Through the three (3) phases, a claim can go through a rapid number of iterations as it is denied and reprocessed. With partially adjudicated claims, you can get access and visibility during the claim’s journey. Every time the claim travels through a different step, you can see an updated message in a partially adjudicated claims data. For the entire claim, we have seen on average, about 12 million MCS (Multi-Carrier System) claims and 5 or 6 million FISS (Fiscal Intermediary Standard System) claims per day. This is approximately 160,000 each day and 18 million adjustments throughout the week. You will see a significant increase in volume if you are keeping every single version as the ClaimResponse evolves. The second part of the volume for partially adjudicated claims data depends on how many MBIs to which an organization has access.
+  </p>
+  <h4>14C) Question: How many updates to a claim can a user expect to see?
+  </h4>
+  <p>Answer: All claims data that appear in the claims submission process are captured, this includes every change that could come in from upstream claims data. Not all changes are data fields that are visible to end users. This means that a change could occur, but then the data won't reflect it. More in-depth queries would need to be done to determine this information.
+  </p>
+  <h4>14D) Question: If we get the Claim Resource and ClaimResponse Resource, does that negate the need for the Explanation of Benefit (EOB) Resource?
+  </h4>
+  <p>Answer: This would not negate the need for the EOB Resource. The Claim and ClaimResponse resources contain a subset of data elements that are in the EOB. So if you would like to get the full set of data elements, you would need to have the EoB resource.
+  </p>
+  <h4>14E) Question: How often do you recommend we query the Explanation of Benefits (EOB), Patient and Coverage resources? How often should we query the Claim and ClaimResponse resources?
+  </h4>
+  <p>Answer: We cannot make a recommendation on the frequency you should query the Explanation of Benefits (EOB), Patient and Coverage resources. These resources are typically updated weekly. The Claim and ClaimResponse resources are typically updated every 2 to 4 days.
+  </p>
+  <h4>15) Question: Does every Claim have a corresponding ClaimResponse? Are version numbers present?
+  </h4>
+  <p>Answer: Every Claim has one and only one ClaimResponse. Version numbers are not currently provided for claims. We can explore providing versioning in the future based on interest.
+  </p>
+  <h4>16) Question: Will you be releasing additional data elements for partially adjudicated claims data in the future?
+  </h4>
+  <p>Answer: The BCDA Partially Adjudicated Project Team is continuously working to source, ingest (import data), and add new data fields to the API. Please let us know if there are any fields that you would like to see us add.
+  </p>
+  <h4>17) Question: Are the Claim ID and Claim Group ID fields visible in partially adjudicated claims data?
+  </h4>
+  <p>Answer: These two fields are not present in the partially adjudicated data fields at this time. We are always looking for feedback to help improve the availability of data elements that can improve healthcare coordination and patient outcomes.
+  </p>
+  <h4>18) Question: Why do I get connection timeout issues with my credentials in production when using a 3rd party web-based REST client?
+  </h4>
+  <p>Answer: Please be very careful using 3rd party web-based clients that are not in your control. You may unintentionally be sharing your credentials with them to make REST calls on your behalf; thus becoming a security risk. We recommend speaking with your technical team to assist you in using secure REST client tools that do not leak data. Additionally; you will need to make sure that the 4i IP whitelisting rules apply to whatever tool you are using.
+  </p>
+  <h4>19) Question: The *.ndjson files downloaded are difficult to parse. Can I use a 3rd party website tool to view them more easily?
+  </h4>
+  <p>Answer: Again, please be very careful in using 3rd party website utilities that are outside of the control of your REACH ACO. You may be sharing sensitive PII/PHI patient data with these websites. We recommend speaking with your technical team to assist you in using secure parsing tools that do not leak any data.
+  </p>
+</div>

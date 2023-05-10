@@ -36,6 +36,8 @@ global_nav:
     id: data
   - title: Updates
     id: updates
+  - title: BCDA Partial Adjudicated Claims
+    id: partial
   - title: Terms of Service
     id: terms
 

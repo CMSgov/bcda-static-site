@@ -44,15 +44,14 @@
 </div>
 
 <h3>
-	BCDA Partially Adjudicated Enhancement  - Two Sizes
+  BCDA Partially Adjudicated Claims
 </h3>
 <p>
-  This is sample data from the BCDA Partially Adjudicated Enhancement. The enhancement gives access to data 2-4 days after
-  claim submission. Samples include the FHIR® Claim and ClaimResponse resources.
+       These last two datasets are examples representing data from our Partially Adjudicated Claims data. They include the additional FHIR® resources Claim and ClaimResponse for Partially Adjudicated Claims data. The Partially adjudicated claims data requires BCDA v2.
 </p>
 <ol>
-  <li><strong>Claim:</strong> Professional and institutional claims submitted for payment. Includes services received by beneficiaries.</li>
-  <li><strong>ClaimResponse:</strong> Claim adjudication status and results.</li>
+  <li><strong>Claim:</strong> Contains information about professional and institutional claims that providers submit for payment, including the services that beneficiaries receive.</li>
+  <li><strong>ClaimResponse:</strong> Provides information about a claim's adjudication status and results.</li>
 </ol>
 
 <h3>Sample Credentials</h3>
@@ -179,6 +178,14 @@ Content-Location: https://sandbox.bcda.cms.gov/api/v1/jobs/42
     {
       "type": "Patient",
       "url": "https://sandbox.bcda.cms.gov/data/42/f92dcf16-63a2-448e-a12a-3bf677f966ed.ndjson"
+    },
+    {
+      "type": "Claim",
+      "url": "https://sandbox.bcda.cms.gov/data/42/6397b6b8-5842-493a-9206-e68b2995c001.ndjson"
+    },
+    {
+      "type": "ClaimResponse",
+      "url": "https://sandbox.bcda.cms.gov/data/42/0a0b1312-e0a2-4284-a094-1b98bdd0de3c.ndjson"
     }
   ],
   "error": [],
@@ -209,6 +216,8 @@ Response Example after Downloading the Data
 		<li><strong><a href="https://bcda.cms.gov/assets/data/ExplanationOfBenefit.ndjson" target="_blank" rel="noopener" class="in-text__link"> Explanation of Benefit</a></strong></li>
 		<li><strong><a href="https://bcda.cms.gov/assets/data/Patient.ndjson" target="_blank" rel="noopener" class="in-text__link"> Patient</a></strong></li>
 		<li><strong><a href="https://bcda.cms.gov/assets/data/Coverage.ndjson" target="_blank" rel="noopener" class="in-text__link"> Coverage</a></strong></li>
+		<li><strong><a href="https://bcda.cms.gov/assets/data/Claim.ndjson" target="_blank" rel="noopener" class="in-text__link"> Claim</a></strong></li>
+		<li><strong><a href="https://bcda.cms.gov/assets/data/ClaimResponse.ndjson" target="_blank" rel="noopener" class="in-text__link"> ClaimResponse</a></strong></li>
 	</ol>
 </p>
 
