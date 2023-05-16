@@ -1,65 +1,24 @@
-<p>Now in limited launch, a new BCDA enhancement gives access to data from claims only 2-4 days after they’ve been
-submitted. These claims are partially adjudicated, meaning not fully processed or paid. Partially processed claims offer
-valuable patient data. Providers would otherwise be unable to view this data for up to 14 days following full
-adjudication.</p>
-
-<h2>
-  How to access the BCDA Partially Adjudicated Enhancement
-</h2>
 <p>
-  The enhancement is currently available to a limited set of organizations participating in the ACO REACH (Accountable Care Organizations Realizing Equity, Access, and Community Health) model. In the meantime, all organizations are encouraged to preview the data format
-  in our sandbox environment.
-</p>
-
-<a href=/guide.html#try-the-api target="_self" class="in-text__link">Try the BCDA enhancement</a>
-
-<p>
-  Claims data is delivered through Claim and ClaimResponse bulk FHIR® specification resource types. The enhancement
-  requires Beneficiary Claims Data API Version 2 (BCDA V2). It includes a subset of current BCDA fields.
+  The BCDA Partially Adjudicated Claims data was designed as an expansion of the data already available to Medicare providers from BCDA. Partially adjudicated claims are claims that have entered the Medicare processing system but are not fully paid or processed by CMS. This reduces the time to access Parts A and B Fee-for-Service (FFS) claims from typically up to 14 days for adjudicated claims, to 2-4 days using partially adjudicated claims data. REACH ACOs with BCDA credentials can currently access adjudicated claims data through three (3) bulk Fast Healthcare Interoperability Resource (FHIR®) resource types: Explanation of Benefit, Patient, and Coverage. The BCDA Partially Adjudicated Enhancement exposes the following two (2) additional bulk FHIR® resource types: Claim and ClaimResponse, so that REACH ACOs with BCDA credentials can also access partially adjudicated claims data.
 </p>
 
 <h2>
-  Value to REACH ACOs and beneficiaries
+  Characteristics of BCDA Partially Adjudicated Claims Data
 </h2>
-<p>
-  Beneficiaries often seek care from different providers while previous claims are still in adjudication. These claims
-  contain valuable clinical information. The enhancement reduces gaps in visibility to this data by as many as 12 days.
-  Closing the loop on these gaps helps REACH ACOs:
-</p>
-<ul>
+<ol>
   <li>
-    Receive more consistent access to data across beneficiaries’ healthcare journeys
+    Adds additional data to a subset of fields that exist in BCDA today. These fields have the potential to be beneficial in supporting care coordination. 
   </li>
   <li>
-    Coordinate follow up care after hospitalization
+    Provides Fee-for-Service (FFS) claims from the Medicare Fiscal Intermediary Shared System (FISS, for institutional claims) and Medicare Multi-Carrier System (MCS, for professional claims).
   </li>
   <li>
-    View status of processing claims on a near-daily basis
+    Excludes Part D (drug coverage) and Durable Medical Equipment (DME) claims.
   </li>
   <li>
-    Track out-of-network care
+    Filters claim data so that REACH ACOs only receive data about their aligned beneficiaries (who have not opted out of data sharing). BCDA also excludes all claims with substance abuse codes (as required by the Confidentiality of Alcohol and Drug Abuse Patient Records Regulations, 42 CFR Part 2).
   </li>
   <li>
-    Plan downstream payment arrangements
+    Must be retrieved through Beneficiary Claims Data API Version 2 (BCDA V2).
   </li>
-  <li>
-    Track financial performance
-  </li>
-  <li>
-    Anticipate claim rejections
-  </li>
-</ul>
-
-<h2>Data scope and requirements</h2>
-<p>
-  The enhancement applies to Medicare Part A and B fee-for-service claims from the Medicare Fiscal Intermediary Shared
-  System (FISS) and Multi-Carrier System (MCS). Other requirements include:
-</p>
-<ul>
-  <li>Beneficiaries must be opted into data sharing</li>
-  <li>Medicare Part D drug plans and Durable Medical Equipment (DME) claims are excluded</li>
-  <li>Substance abuse codes are also excluded</li>
-</ul>
-<p>
-  Try <a href=/guide.html#try-the-api target="_self" class="in-text__link">our sandbox environment</a> to see how the enhancement reveals untapped opportunities to provide high quality care.
-</p>
+</ol>

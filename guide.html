@@ -33,7 +33,7 @@ layout: default
           <ul class="ds-c-vertical-nav__subnav">
             <li class="ds-c-vertical-nav__subnav">
               <a class="ds-c-vertical-nav__label" href="#sandbox-environment">
-                Sandbox Environment
+                Sandbox Environment BCDA
               </a>
             </li>
             <li class="ds-c-vertical-nav__subnav">
@@ -61,6 +61,16 @@ layout: default
             <li class="ds-c-vertical-nav__subnav">
               <a class="ds-c-vertical-nav__label" href="#coverage-resource">
                 Coverage
+              </a>
+            </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label" href="#claim-resource">
+                Claim
+              </a>
+            </li>
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label" href="#claimresponse-resource">
+                ClaimResponse
               </a>
             </li>
           </ul>
@@ -206,6 +216,22 @@ layout: default
             </h2>
             <div>
               {% include guide/coverage_resource.html %}
+            </div>
+          </div>
+          <div id="claim-resource">
+            <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+              4. Claim
+            </h2>
+            <div>
+              {% include guide/claim_resource.html %}
+            </div>
+          </div>
+          <div id="claimresponse-resource">
+            <h2 class="ds-u-text-decoration--underline ds-u-font-weight--bold">
+              5. ClaimResponse
+            </h2>
+            <div>
+              {% include guide/claimresponse_resource.html %}
             </div>
           </div>
         </div>
