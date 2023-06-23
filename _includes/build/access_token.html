@@ -35,9 +35,9 @@
 	<p>
 		cURL Option 1: This cURL command requires separate base-64 encryption. We have concatenated the base64 encoding of the ‘Client ID : Secret’ as the argument to the -H flag. Please note that the URL in the Production environment will be different. 
 	</p>
-<pre><code>curl -d '' -X POST 'https://sandbox.bcda.cms.gov/ ' \ 
-	-H "accept: application/json" \ 
-	-H "authorization: Basic Mzg0MWM1OTQtYThjMC00MWU1Tk4Y2MtMzhiYjQ1MzYwZDNjOmY5NzgwZDMyMzU4OGYxY2RmYzNlNjNlOTVhOGNiZGNkZDQ3NjAyZmY0OGE1MzdiNTFkYzVkNzgzNGJmNDY2NDE2YTcxNmJkNDUwOGU5MDRh"</code></pre>
+<pre><code>curl -d '' -X POST 'https://sandbox.bcda.cms.gov/auth/token' \
+	-H "accept: application/json" \
+	-H "authorization: Basic MjQ2MmM5NmItNjQyNy00ZWZiLWFlZDctMTE4ZTIwYzJlOTk3OjhlODdmMGViYzUwZDEwZjFiYzk3MzQzMjlhOTkwMDE3OWI4NGNjZDM5ZTRkMDkyMGI5MDVjYzM1OWNmNmU5NGE2ZTc2MGJiZTNhMDg5MGM3"</code></pre>
 
 <p>
 	cURL Option 2: This cURL command encrypts your credentials with base-64 encryption
