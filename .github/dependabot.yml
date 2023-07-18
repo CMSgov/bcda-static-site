@@ -10,12 +10,6 @@ updates:
       interval: "daily"
     open-pull-requests-limit: 0
 
-  - package-ecosystem: "terraform"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    open-pull-requests-limit: 0
-
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
