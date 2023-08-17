@@ -2,23 +2,64 @@
 ---
 <div class="ds-u-padding-y--2">
   <div class="ds-u-font-size--h3 ds-u-font-weight--bold">
-    Updated version of the BCDA Data Dictionary has been released
+    Reminder to not share PII, PHI, and sensitive information
   </div>
   <div class="ds-u-font-size--lead ds-u-padding-y--1">
-    June 06, 2021
+    November 3, 2022
   </div>
   <div>
     <p>
-      The BCDA team is excited to announce a release of the newest version of the BCDA data dictionary, which provides a crosswalk between BCDA data and the Claim and Claim Line Feed (CCLF) file. Summary of the updates:
+      Please do not share Personally Identifiable Information (PII) as defined in the <a href="https://www.justice.gov/opcl/privacy-act-1974" target="_self" class="in-text__link">Privacy Act of 1974</a> or <a href="https://www.hhs.gov/answers/hipaa/what-is-phi/index.html" target="_self" class="in-text__link">Protected Health Information</a> (PHI) when posting to the <a href="https://groups.google.com/g/bc-api" target="_self" class="in-text__link">BCDA Google Group</a> under any circumstances.
     </p>
     <p>
-      - Corrections from the previous version of the data dictionary.
+      While the BCDA Google Group is a place to share general information, it is still a public forum where PII, PHI, and
+      sensitive information cannot be shared. A good rule of thumb is, <strong>“when in doubt, leave it out”</strong>.
     </p>
     <p>
-      - Inclusion of new tabs to help with interpretation: "Column Definitions", "Glossary", and "Change Log".
+      Examples of PII, PHI, and other sensitive information include:
     </p>
+    <ul>
+      <li><strong>Medicare Beneficiary Identifier (MBI)</strong></li>
+      <li><strong>Taxpayer Identification Number (TIN)</strong></li>
+      <li><strong>National Provider Identifier (NPI)</strong></li>
+      <li><strong>Social Security Number (SSN)</strong></li>
+      <li><strong>API keys or access credentials (e.g., Client ID, Client Secret)</strong></li>
+    </ul>
     <p>
-      Please visit the <a href="/data.html#bcda-data-dictionary" class="in-text__link">Understanding BCDA Data Page</a> to download this new data dictionary and review the updates.
+      Personal information commonly appears in API requests or payloads referenced in:
     </p>
+    <ul>
+      <li><strong>Google Group posts or emails</strong></li>
+      <li><strong>Files and attachments</strong></li>
+    </ul>
+    <p>Please redact PII, PHI, and other sensitive information in the following ways:</p>
+    <ul>
+      <li>For emails and editable documents, replace sensitive information with the word "REDACTED."<span class="ds-u-color--error">*</span></li>
+      <li>For screenshots and non-editable documents (e.g., PDFs) use any editing tool to completely cover or erase sensitive
+      information. This can be done by adding a shape over the information. Make sure the shape is set to 100% opaque and save
+      the final image in a format that supports layers (e.g., PDF).</li>
+    </ul>
+    <div class="ds-u-font-size--h4 ds-u-font-weight--bold">
+      <span class="ds-u-color--error">*</span>EXAMPLE OF A REDACTED RESPONSE
+    </div> 
+    <pre>
+      <code>
+        {
+        
+        "entityType": "individual",
+        
+        "taxpayerIdentificationNumber": "REDACTED",
+        
+        "nationalProviderIdentifier": "REDACTED",
+        
+        "performanceYear": 2017,
+        
+        "measurementSets": [
+        
+        {
+        
+        "measurements": [
+      </code>
+    </pre>
   </div>
 </div>
