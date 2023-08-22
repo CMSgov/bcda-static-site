@@ -2,24 +2,38 @@
 ---
 <div class="ds-u-padding-y--2">
   <div class="ds-u-font-size--h3 ds-u-font-weight--bold">
-    Version 2 of BCDA is now live, conforming with the FHIR R4 specification!
+    Version 1 of the BCDA Partially Adjudicated Claims Enhancement live for use on May 16!
   </div>
   <div class="ds-u-font-size--lead ds-u-padding-y--1">
-    July 14, 2021
+    May 16, 2023
   </div>
   <div>
     <p>
-    Version 2 of the Beneficiary Claims Data API (BCDA V2) is now live for production use. BCDA will support all
-    functionality for both V1 and V2 of the API for the foreseeable future. However, because BCDA V2 conforms to the <a href="https://hl7.org/fhir/R4/" target="_self" class="in-text__link">FHIR R4
-    specification</a> and follows the <a href="http://hl7.org/fhir/us/carin-bb/history.html" target="_self" class="in-text__link">CARIN Implementation Guide</a>, your organization may want to switch over to ensure you’re
-    aligned with the latest industry standard.
+      The Centers for Medicare & Medicaid Services (CMS) is pleased to announce the initial production release of Beneficiary
+      Claims Data Application Programming Interface (BCDA) Partially Adjudicated Enhancement on May 16th, 2023. This initial
+      release was designed as an expansion of the data available to Medicare providers from the BCDA and is available to
+      Accountable Care Organizations (ACOs) participating in the ACO Realizing Equity, Access, and Community Health (ACO
+      REACH) Model.
     </p>
     <p>
-      If you wish to transition your implementation to utilize BCDA V2 endpoints instead of V1, simply replace ‘v1’ in API
-      call URLs with ‘v2’. For more information, see the <a href="https://bcda.cms.gov/build.html" target="_self" class="in-text__link">Building Your Application</a> page or explore the <a href="https://github.com/CMSgov/beneficiary-fhir-data/wiki/Migrating-to-V2-FAQ" target="_self" class="in-text__link">CMS V2 API FAQ Documentation</a>
-      . The BCDA Data Dictionary has also been updated with V2 FHIR data mapping information. For more
-      information, please visit the <a href="https://bcda.cms.gov/data.html" target="_self"
-        class="in-text__link">Understand the Data Page</a>.
+      Access to partially adjudicated claims data reduces the time to access Parts A and B fee-for-service claims to 2-4 days
+      after claim submission, while it is typically up to 14 days for fully adjudicated claims data. As ‘partially
+      adjudicated’ claims, these claims have entered the Medicare processing system, however, they are not paid or fully
+      processed by CMS and may be subject to changes.
+    </p>
+    <p>
+      The data is delivered through the Claim and ClaimResponse bulk Fast Health Interoperability (FHIR®) specification
+      resource types. Part D (drug coverage) and Durable Medical Equipment (DME) are not included in partially adjudicated
+      claims. This enhancement helps to increase care coordination, improve healthcare outcomes, and reduce overall healthcare
+      cost for Medicare beneficiaries.
+    </p>
+    <p>
+      For more information on partially adjudicated claims, the User Guide can be found <a href="https://confluence.cms.gov/assets/data/BCDA_Partially_Adjudicated_Claims_Enhancement_User_Guide_v1.0.0.pdf" target="_self" class="in-text__link">here</a> and the Data Dictionary can be
+      found <a href="https://confluence.cms.gov/assets/data/BCDA_Partially_Adjudicated_Claims_Enhancement_User_Guide_v1.0.0.pdf" target="_self" class="in-text__link">here</a>.
+    </p>
+    <p>
+      Additionally, please check out the <a href="https://groups.google.com/g/bc-api/c/atcHnkpqgCk" target="_self" class="in-text__link">BCDA Google Group announcement</a> that also contains additional details about the PACA
+      launch.
     </p>
   </div>
 </div>
