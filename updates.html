@@ -19,5 +19,7 @@ layout: default
     {% for item in site.updates reversed %}
       {{ item.content }}
     {% endfor %}
+    {% include updates/links.html %}
+    {% include updates/bottom.html %}
   </main>
 </div>
