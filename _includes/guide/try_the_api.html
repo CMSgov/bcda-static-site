@@ -110,7 +110,7 @@
 	<h3>
 		Sample cURL Command to Start a Job
 	</h3>
-<pre><code>curl -X GET 'https://sandbox.bcda.cms.gov/api/v1/Patient/$export' \
+<pre><code>curl -X GET 'https://sandbox.bcda.cms.gov/api/v2/Group/all/$export' \
 -H "accept: application/fhir+json" \
 -H "Prefer: respond-async" \
 -H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>" \
@@ -125,7 +125,7 @@
 	If the request was successful, we will receive a response with the code 202 containing a few headers. One of the headers (Content-Location) will contain a URL. Notice that the URL ends in a number. This is the Job ID of the job we just started. In the next step, we will use this URL and Job ID to check if the server is done preparing our file(s).
 </p>
 <pre><code>202 Accepted
-Content-Location: https://sandbox.bcda.cms.gov/api/v1/jobs/42
+Content-Location: https://sandbox.bcda.cms.gov/api/v2/jobs/42
 </code></pre>
 
 
@@ -148,7 +148,7 @@ Content-Location: https://sandbox.bcda.cms.gov/api/v1/jobs/42
 <H4>
 	Sample cURL Command to Check the Job Status
 </H4>
-<pre><code>curl -X GET 'https://sandbox.bcda.cms.gov/api/v1/jobs/42' \
+<pre><code>curl -X GET 'https://sandbox.bcda.cms.gov/api/v2/jobs/42' \
 -H "accept: application/fhir+json" \
 -H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"
 </code></pre>
@@ -159,11 +159,11 @@ Content-Location: https://sandbox.bcda.cms.gov/api/v1/jobs/42
 	It looks like our job is finished and our data is ready to be downloaded.
 </p>
 <p>
-	If the request was successful, and the job is finished, we will receive a response containing many headers. Some of these headers ("url") will contain a URL. Each of these URLs corresponds to a file containing claims data. We received three files: one for each resource type. We will use these URLs to download the data in the final step.
+	If the request was successful, and the job is finished, we will receive a response containing many headers. Some of these headers ("url") will contain a URL. Each of these URLs corresponds to a file containing claims data. We received five files: one for each resource type. We will use these URLs to download the data in the final step.
 </p>
 	<pre><code>{
   "transactionTime": "2021-12-09T20:44:01.705398Z",
-  "request": "https://sandbox.bcda.cms.gov/api/v1/Patient/$export",
+  "request": "https://sandbox.bcda.cms.gov/api/v2/Patient/$export",
   "requiresAccessToken": true,
   "output": [
     {

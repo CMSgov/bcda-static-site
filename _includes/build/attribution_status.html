@@ -7,14 +7,14 @@
 <h3>Step 2: Send a Request to the Attribution Status Endpoint</h3>
 
 <h4>Requests to check the last updated date of your attribution data</h4>  
-<pre><code>GET /api/v1/attribution_status</code></pre>
+<pre><code>GET /api/v2/attribution_status</code></pre>
 
 <h4>Request Headers</h4>
 <pre><code>Authorization: Bearer <span style="color: #046B99;">{access_token}</span>
 Accept: application/json</code></pre>
 
 <h4>cURL Command to retrieve the attribution status</h4>
-<pre><code>curl -X GET 'https://api.bcda.cms.gov/api/v1/attribution_status' \
+<pre><code>curl -X GET 'https://api.bcda.cms.gov/api/v2/attribution_status' \
     -H "accept: application/json" \
     -H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
 
