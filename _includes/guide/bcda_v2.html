@@ -15,22 +15,24 @@
 <div style="overflow-x:auto;">    
     <table aria-label="Example Curl commands">
         <tr>
-            <th>Sample cURL Command in BCDA V1:</th>
             <th>Sample cURL Command in BCDA V2:</th>
+            <th>Sample cURL Command in BCDA V1:</th>
         </tr>
         <tr>
             <td>
-                <code>curl -X GET 'https://sandbox.bcda.cms.gov/api/v1/Patient/$export' \
-                    -H "accept: application/fhir+json" \
-                    -H "Prefer: respond-async" \
-                    -H "Authorization: Bearer {access_token}"</code>
+                <pre><code>curl -X GET 'https://sandbox.bcda.cms.gov/api/v2/Group/all/$export' \
+-H "accept: application/fhir+json" \
+-H "Prefer: respond-async" \
+-H "Authorization: Bearer {access_token}" \
+-v</code></pre>
             </td>
             <td>
-                <code>curl -X GET 'https://sandbox.bcda.cms.gov/api/v2/Patient/$export' \
-                    -H "accept: application/fhir+json" \
-                    -H "Prefer: respond-async" \
-                    -H "Authorization: Bearer {access_token}"</code>
-            </td>    
+                <pre><code>curl -X GET 'https://sandbox.bcda.cms.gov/api/v1/Group/all/$export' \
+-H "accept: application/fhir+json" \
+-H "Prefer: respond-async" \
+-H "Authorization: Bearer {access_token}" \
+-v</code></pre>
+            </td>  
         </tr>
     </table>
 </div>    
