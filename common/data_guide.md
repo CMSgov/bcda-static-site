@@ -70,7 +70,7 @@ To learn more about FHIR, bulk FHIR specifications, or the  Beneficiary FHIR Dat
 * [Bulk FHIR specification](http://build.fhir.org/ig/HL7/VhDir/bulk-data.html){:target="_blank"}
 * [Beneficiary FHIR Data Server (BFD)/ Blue Button API](https://bluebutton.cms.gov/developers/){:target="_blank"}
 * [Beneficiary FHIR Data Server (BFD)/ Blue Button Implementation Guide](https://bluebutton.cms.gov/assets/ig/index.html){:target="_blank"}
-* [Intro to JSON Format](http://json.org){:target="_blank"} [and] [http://https://github.com/ndjson/ndjson-spec/](http://https://github.com/ndjson/ndjson-spec/){:target="_blank"}
+* [Intro to JSON Format](http://json.org){:target="_blank"} [and] [ndjson-spec](https://github.com/ndjson/ndjson-spec/){:target="_blank"}
 * [JSON format viewer/validator (raw text/JSON format converter)](https://jsonlint.com/){:target="_blank"}
 * [Intro to valid FHIR formats](http://hl7.org/fhir/STU3/validation.html){:target="_blank"}
 
