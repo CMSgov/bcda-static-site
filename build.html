@@ -116,6 +116,20 @@ layout: default
             </li>
           </ul> 
         </li>
+
+
+        <li class="ds-c-vertical-nav__item">
+          <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#bulk-best-practices">
+            Best Practices
+          </a>
+          <ul class="ds-c-vertical-nav__subnav">
+            <li class="ds-c-vertical-nav__subnav">
+              <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#handling-429-error">
+                Handling 429 status codes
+              </a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </aside>
     <!-- Table of Contents END -->
@@ -265,6 +279,23 @@ layout: default
             {% include build/requesting_data_runouts.html %}
           </div>
         </div>        
+      </div>
+
+      <div id="bulk-best-practices" class="guide-content">
+        <h1>
+          Best Practices for Utilizing BCDA
+        </h1>
+        <div class="ds-u-font-size--base ">
+          {% include build/best_practices.html %}
+        </div>
+        <div id="handling-429-error">
+          <h2>
+            Handling 429 status codes
+          </h2>
+          <div class="ds-u-font-size--base">
+            {% include build/best_practices_429.html %}
+          </div>
+        </div>
       </div>
     </main>
   </div>

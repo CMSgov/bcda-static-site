@@ -1,0 +1,15 @@
+
+<div>
+    <p>Occasionally, when interacting with BCDA, you might encounter responses with a status code of <code>429 Too Many Requests</code>. This can happen for two main reasons:</p>
+  
+    <p>BCDA assigns 429 response codes based on two independent criteria:</p>
+  
+    <ol>
+      <li>Making too many HTTP requests in a period of time.</li>
+      <li>Attempting to create duplicate jobs.</li>
+    </ol>
+  
+    <p>Regardless of the reason, BCDA will include a <strong>Retry-After</strong> header in its response. It's considered best practice to wait until the period specified in this header has elapsed before making further requests. This ensures your client can adapt without manual intervention, even if the rate-limiting parameters change.</p>
+  
+    <p>Concerning duplicate jobs, BCDA defines them as attempts to recreate a job already marked as "In-Progress". For reference, you can view both existing and past jobs by accessing the job history endpoint at <code>/jobs</code>.</p>
+</div>
