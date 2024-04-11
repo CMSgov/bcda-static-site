@@ -61,9 +61,10 @@ Prefer: respond-async
 	<p>
 		If the request was successful, a 202 Accepted response code will be returned and the response will include a Content-Location header. The value of the Content-Location header indicates the location to check for job status and outcome. In the example header above, the number 42 in the URL represents the ID of the export job. The claims returned in the job will be filtered to have a serviceDate of 12/31/2020 or before.
 	</p>
-	<p>
-		If you're already requesting data from one endpoint and try to request data from that endpoint again while the first request is processing, you'll receive a 429 Too Many Requests error.
-	</p>
+	<p> 
+		If you're already requesting data from one endpoint and try to request data from that endpoint again while the first request is processing, you'll receive a 429 Too Many Requests error. For guidance on how to handle 429 errors, refer to our <a href="#handling-429-error">best practices</a>.
+	</p> 
+	
 
 <h3>Step 3: Check the job status</h3>
 	<p>See <a href="#checkJob" class="in-text__link"><em>Step 3: Check the job status</em></a> in the Request Data section above.</p>
