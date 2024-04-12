@@ -29,19 +29,19 @@ Prefer: respond-async
 <h4>cURL Commands to start a job</h4>
 <ol>
 	<li>
-		<pre><code>curl -X GET 'https://api.bcda.cms.gov/api/v2/Group/all/$export' \
+		<pre><code>curl -X GET "https://api.bcda.cms.gov/api/v2/Group/all/$export" \
 	-H "accept: application/fhir+json" \
 	-H "Prefer: respond-async" \
 	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
 	</li>
 	<li>
-		<pre><code>curl -X GET 'https://api.bcda.cms.gov/api/v2/Group/all/$export?_type=ExplanationOfBenefit,Patient' \
+		<pre><code>curl -X GET "https://api.bcda.cms.gov/api/v2/Group/all/$export?_type=ExplanationOfBenefit,Patient" \
 	-H "accept: application/fhir+json" \
 	-H "Prefer: respond-async" \
 	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
 	</li>
 	<li>
-		<pre><code>curl -X GET 'https://api.bcda.cms.gov/api/v2/Group/all/$export?_type=Patient' \
+		<pre><code>curl -X GET "https://api.bcda.cms.gov/api/v2/Group/all/$export?_type=Patient" \
 	-H "accept: application/fhir+json" \
 	-H "Prefer: respond-async" \
 	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
@@ -92,7 +92,7 @@ Prefer: respond-async
 Accept: application/fhir+json</code></pre>
 
 <h4>cURL Command to check the job status</h4>
-	<pre><code>curl -X GET 'https://api.bcda.cms.gov/api/v2/jobs/42' \
+	<pre><code>curl -X GET "https://api.bcda.cms.gov/api/v2/jobs/42" \
 	-H "accept: application/fhir+json" \
 	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
 
@@ -139,7 +139,7 @@ Accept: application/fhir+json</code></pre>
 Accept-Encoding: gzip</code></pre>
 
 <h4>cURL Command to download the data</h4>
-	<pre><code>curl -X GET 'https://api.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson' \
+	<pre><code>curl -X GET "https://api.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson" \
 	-H "Accept-Encoding: gzip" \
 	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
 
