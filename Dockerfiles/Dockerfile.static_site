@@ -5,3 +5,4 @@ WORKDIR /bcda-site-static
 COPY . .
 RUN ["bundle", "install"]
 ENTRYPOINT ["bundle", "exec", "jekyll", "build", "--config", "_config.yml,_version_config.yml"]
+USER 1000:1000
