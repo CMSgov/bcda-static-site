@@ -65,7 +65,7 @@
 </h2>
 <p>
 	For this demonstration, we will provide sample API credentials to the sandbox environment. We will be using the sample
-	credentials for an Extra-Small Model Entity (25 beneficiaries). Feel free to follow along with any of the sample credentials.
+	credentials for an Extra-Small Model Entity (50 beneficiaries). Feel free to follow along with any of the sample credentials.
 </p>
 <p>
 	Our credentials come in two pieces: a Client ID and a Client Secret. We will submit these two pieces to the API. Notice that the credentials are included in one of the headers (--user). You must use this format: --user {insert client id}{insert colon}{insert client secret}.
@@ -74,7 +74,7 @@
 	Sample cURL Command to Submit Credentials for an Access Token
 </h3>
 <pre><code>curl -d "" -X POST "https://sandbox.bcda.cms.gov/auth/token" \
-	--user 2462c96b-6427-4efb-aed7-118e20c2e997:8e87f0ebc50d10f1bc9734329a9900179b84ccd39e4d0920b905cc359cf6e94a6e760bbe3a0890c7 \
+	--user {{site.data.credentials.extra_small.client_id}}:{{site.data.credentials.extra_small.client_secret}} \
 	-H "accept: application/json"</code></pre>
 
 <h3>
