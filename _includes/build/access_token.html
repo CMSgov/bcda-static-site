@@ -33,14 +33,14 @@
 	Access Token cURL Command
 </h4>
 	<p>
-		cURL Option 1: This cURL command requires separate base-64 encryption. We have concatenated the base64 encoding of the ‘Client ID : Secret’ as the argument to the -H flag. Please note that the URL in the Production environment will be different. 
+		cURL Option 1: This cURL command requires separate Base64 encoding. We have concatenated the Base64 encoding of the ‘Client ID : Secret’ as the argument to the -H flag. Please note that the URL in the Production environment will be different. 
 	</p>
 <pre><code>curl -d "" -X POST "https://sandbox.bcda.cms.gov/auth/token" \
 	-H "accept: application/json" \
 	-H "authorization: Basic MjQ2MmM5NmItNjQyNy00ZWZiLWFlZDctMTE4ZTIwYzJlOTk3OjhlODdmMGViYzUwZDEwZjFiYzk3MzQzMjlhOTkwMDE3OWI4NGNjZDM5ZTRkMDkyMGI5MDVjYzM1OWNmNmU5NGE2ZTc2MGJiZTNhMDg5MGM3"</code></pre>
 
 <p>
-	cURL Option 2: This cURL command encrypts your credentials with base-64 encryption
+	cURL Option 2: This cURL command encodes your credentials into Base64.
 </p>
 
 <pre><code>curl -d "" -X POST "https://sandbox.bcda.cms.gov/auth/token" \
@@ -67,7 +67,7 @@ token_type: A fixed value as “bearer”.</p>
 <h4>
 	Access Token Explanation
 </h4>
-<p>In cURL Option 1, you must base-64 encode the Client ID and Secret. Once that is performed, the encoded credentials can be passed to cURL as a header with the form: authorization: Basic [base64-encoded clientId:secret]</p>
+<p>In cURL Option 1, you must base-64 encode the Client ID and Secret. Once that is performed, the encoded credentials can be passed to cURL as a header with the form: authorization: Basic [Base64-encoded clientId:secret]</p>
 <p>In cURL Option 2, the user can take advantage of cURL’s built-in ability to base-64 encode the clientId and secret, and request and receive their token in a single step.
 If your operation succeeds, you will receive a 202 response with your access token as a header. You will receive a 401 Unauthorized response if your credentials are invalid or if your token has expired. No additional information is returned with a 401 response. When you receive a 401 response for a token you were just using successfully, you should request a new access token as outlined above.</p>
 
