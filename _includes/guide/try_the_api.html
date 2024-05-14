@@ -11,7 +11,7 @@
 	All requests for BCDA data follow this four step process, as do other APIs following the Bulk FHIR specifications.
 </p>
 <p>
-	For more detail for each of these steps and specific information for retrieving production data, see the <a href=/build.html target="_self" class="in-text__link"> Building Your Application</a> page. For this short demo, follow along in your Terminal window or through an application such as Postman.
+	For more detail for each of these steps and specific information for retrieving production data, see the <a href=/build.html target="_self" class="in-text__link"> Building Your Application</a> page. For this short demo, follow along in your Terminal window or through an application such as Postman. PowerShell users will need to replace backslash characters \ with backticks ` to properly escape the $export operation.
 </p>
 
 <h2>
@@ -74,7 +74,7 @@
 	Sample cURL Command to Submit Credentials for an Access Token
 </h3>
 <pre><code>curl -d "" -X POST "https://sandbox.bcda.cms.gov/auth/token" \
-	--user {{site.data.credentials.extra_small.client_id}}:{{site.data.credentials.extra_small.client_secret}} \
+	--user {{site.data.credentials.sandbox.extra_small.client_id}}:{{site.data.credentials.sandbox.extra_small.client_secret}} \
 	-H "accept: application/json"</code></pre>
 
 <h3>
@@ -110,7 +110,7 @@
 	<h3>
 		Sample cURL Command to Start a Job
 	</h3>
-<pre><code>curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/$export" \
+<pre><code>curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export" \
 -H "accept: application/fhir+json" \
 -H "Prefer: respond-async" \
 -H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>" \
