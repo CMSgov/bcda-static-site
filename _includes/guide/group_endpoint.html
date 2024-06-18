@@ -1,9 +1,13 @@
 <p>
-	The <a href="https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---group-of-patients" target="_blank" rel="noopener" class="in-text__link"> /Group endpoint</a> allows you to request ExplanationOfBenefit, Patient, and/or Coverage data for all beneficiaries assigned or assignable to your model entity.  For partially adjudicated claims, the resource types that are available include Claim and ClaimResponse (REACH ACOs only).
+	Similar to the /Patient endpoint, the <a href="https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---group-of-patients" target="_blank" rel="noopener" class="in-text__link"> /Group endpoint</a> allows you to request resource types for enrollees assigned or assignable to your model entity. For adjudicated claims, this includes ExplanationOfBenefit, Patient, and/or Coverage. For partially adjudicated claims, this includes Claim and ClaimResponse (REACH ACOs only).
 </p>
 <p>
-        You must supply a group parameter. The only supported parameter currently is ‘all’.
+	You must provide one of the identifiers `all` or `runout` when using this endpoint. These group identifiers inform BCDA which Medicare enrollees should have their data included in your request.
 </p>
+<ul>
+	<li>/Group/all - returns data for all Medicare enrollees who are currently attributed to your model entity.</li>
+    <li>/Group/runout - returns data for Medicare enrollees who were attributed to your model entity during the previous year, but not the current year. These claims will have a service date no later than December 31st of the previous year.</li> 
+</ul>
 <p>
-	You may also filter data by date using the _since parameter. If no filter is applied, a request to the /Group endpoint in BCDA returns historical data for all assigned and assignable beneficiaries as far back as 2014.
+	You may also use the <a href="https://bcda.cms.gov/guide.html#since-parameter" target="_blank" rel="noopener" class="in-text__link">_since parameter</a> to filter for claims last updated after a specified date. If no filter is applied, BCDA will return data as far back as 2014.
 </p>

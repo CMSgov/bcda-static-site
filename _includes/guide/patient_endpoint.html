@@ -1,7 +1,11 @@
 <p>
-	The <a href="https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---all-patients" target="_blank" rel="noopener" class="in-text__link"> /Patient endpoint</a> allows you to request ExplanationOfBenefit. For adjudicated claims the resource types that are available include Patient and/or Coverage data (all eligible model entities), while for partially adjudicated claims the resource types that are available include Claim and ClaimResponse (REACH ACOs only).  Both kinds of data are available for all enrollees assigned or assignable to your model entity. Note that the /Patient endpoint does not allow requests for data patient-by-patient. By the Bulk FHIR specification, only data for all patients associated with the authorized users’ credentials can be returned.
+	The <a href="https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---all-patients" target="_blank" rel="noopener" class="in-text__link"> /Patient endpoint</a> allows you to request resource types for Medicare enrollees assigned or assignable to your model entity. For adjudicated claims, this includes ExplanationOfBenefit, Patient, and/or Coverage. For partially adjudicated claims, this includes Claim and ClaimResponse (REACH ACOs only). 
 </p>
 
 <p>
-	You may also filter data by date using the _since parameter. If no filter is applied, a request to the /Patient endpoint in BCDA returns historical data for all assigned and assignable beneficiaries as far back as 2014.
+	However, this does not allow requests for data patient-by-patient. By the Bulk FHIR specification, only data for all patients associated with the authorized users’ credentials can be returned. 
+</p>
+
+<p>
+	You may also use the <a href="https://bcda.cms.gov/guide.html#since-parameter" target="_blank" rel="noopener" class="in-text__link">_since parameter</a> to filter for claims last updated after a specified date. If no filter is applied, BCDA will return data as far back as 2014.
 </p>
