@@ -1,12 +1,11 @@
 <p>
-  The /Patient and /Group endpoints have a key difference in how new beneficiaries are treated. New beneficiaries are those that are newly assigned to you since your last attribution date.
+	Using the _since parameter with the /Patient endpoint will return claims last updated after the date provided. This includes claims for existing and newly attributed enrollees, those who have been assigned to your model entity since your last attribution date.
 </p>
 <p>
-	If you use _since within the /Patient endpoint, you will receive data filtered since the selected date for ALL of your assigned and assignable beneficiaries. Here, new beneficiary data is filtered along with all other beneficiaries.
+	Using _since with the /Group endpoint will return claims last updated after the date provided for existing enrollees only. For newly attributed enrollees, this parameter will return all historic claims for the /Group endpoint, regardless of when it was last updated. This is so you can retrieve all of your organization's new claims data with a single request.
+	
 </p>
 <p>
-	If you use _since within the /Group endpoint, you will receive data filtered since the selected date for your existing beneficiaries AND you will receive historical data as far back as 2014 unfiltered by date for new beneficiaries. Here, new beneficiaries are excluded from the _since filter so that your organization can retrieve all new data with a single request.
+	<a href="https://bcda.cms.gov/build.html#requesting-filtered-data" target="_blank" rel="noopener" class="in-text__link">Learn more about the differences and how to make these requests. </a> 
 </p>
-<p>
-	For more detail on these differences and examples of how to make the requests, see the <a href="/build.html#requesting-filtered-data" class="in-text__link"><em>Requesting Filtered Data</em></a> section of the Building Your Application page.
-</p>
+
