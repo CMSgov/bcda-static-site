@@ -67,7 +67,7 @@ In order to aid in users’ understanding of BCDA file data and structure, we pr
 To learn more about FHIR, bulk FHIR specifications, or the  Beneficiary FHIR Data Server (BFD) API, please visit these resources:
 
 * [FHIR/HL7](https://www.hl7.org/fhir/){:target="_blank"}
-* [Bulk FHIR specification](http://build.fhir.org/ig/HL7/VhDir/bulk-data.html){:target="_blank"}
+* [Bulk FHIR specification](http://hl7.org/fhir/uv/bulkdata/){:target="_blank"}
 * [Beneficiary FHIR Data Server (BFD)/ Blue Button API](https://bluebutton.cms.gov/developers/){:target="_blank"}
 * [Beneficiary FHIR Data Server (BFD)/ Blue Button Implementation Guide](https://bluebutton.cms.gov/assets/ig/index.html){:target="_blank"}
 * Intro to the [JSON Format](http://json.org){:target="_blank"} and [NDJSON](https://github.com/ndjson/ndjson-spec/){:target="_blank"}
