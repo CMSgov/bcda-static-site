@@ -32,19 +32,22 @@ Prefer: respond-async
 		<pre><code>curl -X GET "https://api.bcda.cms.gov/api/v2/Group/all/\$export" \
 	-H "accept: application/fhir+json" \
 	-H "Prefer: respond-async" \
-	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
+	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>" \
+	-i</code></pre>
 	</li>
 	<li>
 		<pre><code>curl -X GET "https://api.bcda.cms.gov/api/v2/Group/all/\$export?_type=ExplanationOfBenefit,Patient" \
 	-H "accept: application/fhir+json" \
 	-H "Prefer: respond-async" \
-	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
+	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>" \
+	-i</code></pre>
 	</li>
 	<li>
 		<pre><code>curl -X GET "https://api.bcda.cms.gov/api/v2/Group/all/\$export?_type=Patient" \
 	-H "accept: application/fhir+json" \
 	-H "Prefer: respond-async" \
-	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
+	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>" \
+	-i</code></pre>
 	</li>
 </ol>
 
@@ -93,8 +96,8 @@ Accept: application/fhir+json</code></pre>
 
 <h4>cURL Command to check the job status</h4>
 	<pre><code>curl -X GET "https://api.bcda.cms.gov/api/v2/jobs/42" \
-	-H "accept: application/fhir+json" \
-	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
+-H "accept: application/fhir+json" \
+-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
 
 <h4>Response Example: Completed Job</h4>
 	<pre><code>{
