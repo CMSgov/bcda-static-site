@@ -74,7 +74,7 @@
 	Sample cURL Command to Submit Credentials for an Access Token
 </h3>
 <pre><code>curl -d "" -X POST "https://sandbox.bcda.cms.gov/auth/token" \
-	--user <span style="color: #046B99;">{client_id}</span>:<span style="color: #046B99;">{client_secret}</span> \
+	--user {{site.data.credentials.sandbox.extra_small.client_id}}:{{site.data.credentials.sandbox.extra_small.client_secret}} \
 	-H "accept: application/json"</code></pre>
 
 <h3>
