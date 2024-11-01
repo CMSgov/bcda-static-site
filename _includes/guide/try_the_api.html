@@ -74,7 +74,7 @@
 	Sample cURL Command to Submit Credentials for an Access Token
 </h3>
 <pre><code>curl -d "" -X POST "https://sandbox.bcda.cms.gov/auth/token" \
-	--user {{site.data.credentials.sandbox.extra_small.client_id}}:{{site.data.credentials.sandbox.extra_small.client_secret}} \
+	--user <span style="color: #046B99;">{client_id}</span>:<span style="color: #046B99;">{client_secret}</span> \
 	-H "accept: application/json"</code></pre>
 
 <h3>
@@ -87,7 +87,7 @@
 	If the request was successful, we will receive a response with the code 200 containing a few headers. The first header ("access token") contains a long string of characters. This is our access token which must be attached to all of our other requests to the API.
 </p>
 <pre><code>{
-"access_token": "eyJhbGciOiJSUzUxMiIsInR5c...",
+"access_token": "<span style="color: #046B99;">{access_token}</span>",
 "token_type":"bearer"
 }</code></pre>
 
@@ -124,7 +124,7 @@
 	If the request was successful, we will receive a response with the code 202 containing a few headers. One of the headers (Content-Location) will contain a URL. Notice that the URL ends in a number. This is the Job ID of the job we just started. In the next step, we will use this URL and Job ID to check if the server is done preparing our file(s).
 </p>
 <pre><code>202 Accepted
-Content-Location: https://sandbox.bcda.cms.gov/api/v2/jobs/42
+Content-Location: https://sandbox.bcda.cms.gov/api/v2/jobs/<span style="color: #046B99;">{job_id}</span>
 </code></pre>
 
 
@@ -147,9 +147,9 @@ Content-Location: https://sandbox.bcda.cms.gov/api/v2/jobs/42
 <H4>
 	Sample cURL Command to Check the Job Status
 </H4>
-<pre><code>curl -X GET "https://sandbox.bcda.cms.gov/api/v2/jobs/42" \
--H "accept: application/fhir+json" \
--H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
+<pre><code>curl -X GET "https://sandbox.bcda.cms.gov/api/v2/jobs/<span style="color: #046B99;">{job_id}</span>" \
+	-H "accept: application/fhir+json" \
+	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
 <h4>
 	Response Example after Checking on a Job
 </h4>
@@ -166,27 +166,27 @@ Content-Location: https://sandbox.bcda.cms.gov/api/v2/jobs/42
   "output": [
     {
       "type": "ExplanationOfBenefit",
-      "url": "https://sandbox.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson"
+      "url": "<span style="color: #046B99;">{output_url}</span>"
     },
     {
       "type": "Coverage",
-      "url": "https://sandbox.bcda.cms.gov/data/42/f76a0b76-48ed-4033-aad9-d3eec37e7e83.ndjson"
+      "url": "<span style="color: #046B99;">{output_url}</span>"
     },
     {
       "type": "Patient",
-      "url": "https://sandbox.bcda.cms.gov/data/42/f92dcf16-63a2-448e-a12a-3bf677f966ed.ndjson"
+      "url": "<span style="color: #046B99;">{output_url}</span>"
     },
     {
       "type": "Claim",
-      "url": "https://sandbox.bcda.cms.gov/data/42/6397b6b8-5842-493a-9206-e68b2995c001.ndjson"
+      "url": "<span style="color: #046B99;">{output_url}</span>"
     },
     {
       "type": "ClaimResponse",
-      "url": "https://sandbox.bcda.cms.gov/data/42/0a0b1312-e0a2-4284-a094-1b98bdd0de3c.ndjson"
+      "url": "<span style="color: #046B99;">{output_url}</span>"
     }
   ],
   "error": [],
-  "JobID": 42
+  "JobID": <span style="color: #046B99;">{job_id}</span>
 }</code></pre>
 
 
@@ -201,9 +201,9 @@ Content-Location: https://sandbox.bcda.cms.gov/api/v2/jobs/42
 	<H4>
 		Sample cURL Command to Download the Data
 	</H4>
-<pre><code>curl "https://sandbox.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson" \
--H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>" \
--H "Accept-Encoding: gzip"
+<pre><code>curl "<span style="color: #046B99;">{output_url}</span>" \
+	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>" \
+	-H "Accept-Encoding: gzip"
 </code></pre>
 <h4>
 Response Example after Downloading the Data

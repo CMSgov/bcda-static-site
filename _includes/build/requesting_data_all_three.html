@@ -58,7 +58,7 @@ Prefer: respond-async
 	<pre><code>429 Too Many Requests</code></pre>
 
 <h4>Response Headers</h4>
-	<pre><code>Content-Location: https://api.bcda.cms.gov/api/v2/jobs/42</code></pre>
+	<pre><code>Content-Location: https://api.bcda.cms.gov/api/v2/jobs/<span style="color: #046B99;">{job_id}</span></code></pre>
 
 <h4>Start a Job Explanation</h4>
 	<p>This operation will start a data export job. We have provided three example requests and three example cURL statements to start a job for:</p>
@@ -88,14 +88,14 @@ Prefer: respond-async
 <h3 id="checkJob">Step 3: Check the job status</h3>
 
 <h4>Request to check the job status</h4>
-	<pre><code>GET https://api.bcda.cms.gov/api/v2/jobs/42</code></pre>
+	<pre><code>GET https://api.bcda.cms.gov/api/v2/jobs/<span style="color: #046B99;">{job_id}</span></code></pre>
 
 <h4>Request Headers</h4>
 	<pre><code>Authorization: Bearer <span style="color: #046B99;">{access_token}</span>
 Accept: application/fhir+json</code></pre>
 
 <h4>cURL Command to check the job status</h4>
-	<pre><code>curl -X GET "https://api.bcda.cms.gov/api/v2/jobs/42" \
+	<pre><code>curl -X GET "https://api.bcda.cms.gov/api/v2/jobs/<span style="color: #046B99;">{job_id}</span>" \
 	-H "accept: application/fhir+json" \
 	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
 
@@ -107,19 +107,19 @@ Accept: application/fhir+json</code></pre>
   "output": [
     {
       "type": "ExplanationOfBenefit",
-      "url": "https://api.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson"
+      "url": "<span style="color: #046B99;">{output_url}</span>"
     },
     {
       "type": "Coverage",
-      "url": "https://api.bcda.cms.gov/data/42/f76a0b76-48ed-4033-aad9-d3eec37e7e83.ndjson"
+      "url": "<span style="color: #046B99;">{output_url}</span>"
     },
     {
       "type": "Patient",
-      "url": "https://api.bcda.cms.gov/data/42/f92dcf16-63a2-448e-a12a-3bf677f966ed.ndjson"
+      "url": "<span style="color: #046B99;">{output_url}</span>"
     }
   ],
   "error": [],
-  "JobID": 42
+  "JobID": <span style="color: #046B99;">{job_id}</span>
 }
 </code></pre>
 
@@ -135,14 +135,14 @@ Accept: application/fhir+json</code></pre>
 <h3 id="downloadData">Step 4: Download the data</h3>
 
 <h4>Request to download the data</h4>
-	<pre><code>GET https://api.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson</code></pre>
+	<pre><code>GET <span style="color: #046B99;">{output_url}</span></code></pre>
 
 <h4>Request Headers</h4>
 	<pre><code>Authorization: Bearer <span style="color: #046B99;">{access_token}</span>
 Accept-Encoding: gzip</code></pre>
 
 <h4>cURL Command to download the data</h4>
-	<pre><code>curl -X GET "https://api.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson" \
+	<pre><code>curl -X GET "<span style="color: #046B99;">{output_url}</span>" \
 	-H "Accept-Encoding: gzip" \
 	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
 
