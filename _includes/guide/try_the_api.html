@@ -87,7 +87,7 @@
 	If the request was successful, we will receive a response with the code 200 containing a few headers. The first header ("access token") contains a long string of characters. This is our access token which must be attached to all of our other requests to the API.
 </p>
 <pre><code>{
-"access_token": "eyJhbGciOiJSUzUxMiIsInR5c...",
+"access_token": "<span style="color: #046B99;">{access_token}</span>",
 "token_type":"bearer"
 }</code></pre>
 
@@ -105,17 +105,16 @@
 	With our new access token, we are able to make more requests to the API. We will now tell the server to deliver our data.
 </p>
 <p>
-	In this example, we requested data from the /Patient endpoint with no date filter (no _since parameter) and no specified resource type (no _type parameter). We included the long string of characters from the previous step (our access token) in the authorization header (-H "Authorization: Bearer "). Notice that we needed to include the word "Bearer" followed by a space before the access token. We also added "-v" in order to see the Job ID.
+	In this example, we requested data from the /Patient endpoint with no date filter (no _since parameter) and no specified resource type (no _type parameter). We included the long string of characters from the previous step (our access token) in the authorization header (-H "Authorization: Bearer "). Notice that we needed to include the word "Bearer" followed by a space before the access token. We also added "-i" in order to see the Job ID.
 </p>
 	<h3>
 		Sample cURL Command to Start a Job
 	</h3>
 <pre><code>curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export" \
--H "accept: application/fhir+json" \
--H "Prefer: respond-async" \
--H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>" \
--v
-</code></pre>
+	-H "accept: application/fhir+json" \
+	-H "Prefer: respond-async" \
+	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>" \
+	-i</code></pre>
 
 <h3>Response Example after Starting a Job</h3>
 <p>
@@ -125,7 +124,7 @@
 	If the request was successful, we will receive a response with the code 202 containing a few headers. One of the headers (Content-Location) will contain a URL. Notice that the URL ends in a number. This is the Job ID of the job we just started. In the next step, we will use this URL and Job ID to check if the server is done preparing our file(s).
 </p>
 <pre><code>202 Accepted
-Content-Location: https://sandbox.bcda.cms.gov/api/v2/jobs/42
+Content-Location: https://sandbox.bcda.cms.gov/api/v2/jobs/<span style="color: #046B99;">{job_id}</span>
 </code></pre>
 
 
@@ -148,10 +147,9 @@ Content-Location: https://sandbox.bcda.cms.gov/api/v2/jobs/42
 <H4>
 	Sample cURL Command to Check the Job Status
 </H4>
-<pre><code>curl -X GET "https://sandbox.bcda.cms.gov/api/v2/jobs/42" \
--H "accept: application/fhir+json" \
--H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"
-</code></pre>
+<pre><code>curl -X GET "https://sandbox.bcda.cms.gov/api/v2/jobs/<span style="color: #046B99;">{job_id}</span>" \
+	-H "accept: application/fhir+json" \
+	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
 <h4>
 	Response Example after Checking on a Job
 </h4>
@@ -203,9 +201,9 @@ Content-Location: https://sandbox.bcda.cms.gov/api/v2/jobs/42
 	<H4>
 		Sample cURL Command to Download the Data
 	</H4>
-<pre><code>curl "https://sandbox.bcda.cms.gov/data/42/afd22dfa-c239-4063-8882-eb2712f9f638.ndjson" \
--H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>" \
--H "Accept-Encoding: gzip"
+<pre><code>curl "<span style="color: #046B99;">{output_url}</span>" \
+	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>" \
+	-H "Accept-Encoding: gzip"
 </code></pre>
 <h4>
 Response Example after Downloading the Data
