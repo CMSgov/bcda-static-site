@@ -32,15 +32,9 @@
 <h4>
 	Access Token cURL Command
 </h4>
-	<p>
-		cURL Option 1: This cURL command requires separate Base64 encoding. We have concatenated the Base64 encoding of the ‘Client ID : Secret’ as the argument to the -H flag. Please note that the URL in the Production environment will be different. 
-	</p>
-<pre><code>curl -d "" -X POST "https://sandbox.bcda.cms.gov/auth/token" \
-	-H "accept: application/json" \
-	-H "authorization: Basic MjQ2MmM5NmItNjQyNy00ZWZiLWFlZDctMTE4ZTIwYzJlOTk3OjhlODdmMGViYzUwZDEwZjFiYzk3MzQzMjlhOTkwMDE3OWI4NGNjZDM5ZTRkMDkyMGI5MDVjYzM1OWNmNmU5NGE2ZTc2MGJiZTNhMDg5MGM3"</code></pre>
 
 <p>
-	cURL Option 2: This cURL command encodes your credentials into Base64.
+	This command takes advantage of curl’s built-in ability to Base-64 encode your credentials, request, and receive your token in a single step. The authorization in your request header will be substituted with "--user {client_id}:{client_secret}"
 </p>
 
 <pre><code>curl -d "" -X POST "https://sandbox.bcda.cms.gov/auth/token" \
