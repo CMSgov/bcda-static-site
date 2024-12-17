@@ -144,7 +144,8 @@ Accept-Encoding: gzip</code></pre>
 <h4>cURL Command to download the data</h4>
 	<pre><code>curl -X GET "<span style="color: #046B99;">{output_url}</span>" \
 	-H "Accept-Encoding: gzip" \
-	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
+	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>" \
+	--output "your-file-name"</code></pre>
 
 <h4>Response Example</h4>
 	<p>
@@ -173,7 +174,7 @@ Accept-Encoding: gzip</code></pre>
 	</div>
 
 	<p>
-		The "Accept-Encoding: gzip" header is optional, but will return a significantly smaller (about 30X smaller) file with a faster download speed. Follow our recommended best practices for <a href="#speeding-up-downloads" class="in-text__link">speeding up downloads</a>.
+		The "Accept-Encoding: gzip" header is optional, but will return a significantly smaller (about 30X smaller) file with a faster download speed. Follow our recommended best practices for <a href="#speeding-up-downloads" class="in-text__link">speeding up downloads</a>.  Note that the file downloaded will be a gzip file which you will need to extract into its ndjson format.
 	</p>
 	<p>
 		The response will be the requested data as FHIR resources in NDJSON format. Each file related to a different resource type will appear separately and labeled as to which resource type it contains. Examples of data from each Resource Type are available in the guide to working with BCDA data.

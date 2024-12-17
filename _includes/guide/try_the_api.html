@@ -203,7 +203,8 @@ Content-Location: https://sandbox.bcda.cms.gov/api/v2/jobs/<span style="color: #
 	</H4>
 <pre><code>curl "<span style="color: #046B99;">{output_url}</span>" \
 	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>" \
-	-H "Accept-Encoding: gzip"
+	-H "Accept-Encoding: gzip" \
+	--output "your-file-name"
 </code></pre>
 <h4>
 Response Example after Downloading the Data
