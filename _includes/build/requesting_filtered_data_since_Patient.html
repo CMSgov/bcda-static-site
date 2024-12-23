@@ -16,7 +16,8 @@ Prefer: respond-async
 	<pre><code>curl -X GET "https://api.bcda.cms.gov/api/v2/Patient/\$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00" \
 	-H "Accept: application/fhir+json" \
 	-H "Prefer: respond-async" \
-	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>"</code></pre>
+	-H "Authorization: Bearer <span style="color: #046B99;">{access_token}</span>" \
+	-i</code></pre>
 
 <h4>Response Example: Successful Request</h4>
 <pre><code>202 Accepted</code></pre>
@@ -25,7 +26,7 @@ Prefer: respond-async
 <pre><code>429 Too Many Requests</code></pre>
 
 <h4>Response Headers</h4>
-<pre><code>Content-Location: https://api.bcda.cms.gov/api/v2/jobs/42</code></pre>
+<pre><code>Content-Location: https://api.bcda.cms.gov/api/v2/jobs/<span style="color: #046B99;">{job_id}</span></code></pre>
 
 
 <h4>Start a Job using _since within the /Patient endpoint Explanation</h4>
