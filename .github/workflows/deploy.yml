@@ -1,0 +1,86 @@
+name: 'Deploy Static Site'
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_environment:
+        description: Deploy where?
+        required: false
+        default: 'stage'
+        type: choice
+        options:
+          - stage
+          - prod
+      static_repo_ref:
+        description: Which branch or tag?
+        required: true
+        default: 'main'
+        type: 'string'
+  workflow_call:
+    inputs:
+      target_environment:
+        description: Deploy where?
+        required: false
+        default: 'stage'
+        type: 'string'
+      static_repo_ref:
+        description: Which branch or tag?
+        required: true
+        default: 'main'
+        type: 'string'
+jobs:
+  deploy_static_site:
+    name: Deploy Static Site
+    runs-on: self-hosted
+    env:
+      TARGET_BUCKET: ${{ inputs.target_environment == 'prod' && 'bcda.cms.gov' || 'stage.bcda.cms.gov' }}
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v4
+        with:
+          repository: 'CMSgov/bcda-static-site'
+          ref: ${{ inputs.static_repo_ref }}
+      - name: "Set Version"
+        env:
+          STATIC_REPO_REF: ${{ inputs.static_repo_ref }}
+        run: |
+          echo "version: $STATIC_REPO_REF" >> _version_config.yml
+      - name: "Add dirs"
+        run: mkdir -p _site && mkdir -p .jekyll-cache
+      - name: 'Build Image'
+        run: docker compose -f docker-compose.yml build static_site
+      - name: 'Build Site'
+        env:
+          JEKYLL_ENV: ${{ inputs.target_environment == 'prod' && 'prod' || 'dev' }}
+        run: docker compose -f docker-compose.yml run -e JEKYLL_ENV=$JEKYLL_ENV --rm static_site
+      - name: Set env vars from AWS params
+        uses: cmsgov/ab2d-bcda-dpc-platform/actions/aws-params-env-action@main
+        env:
+          AWS_REGION: ${{ vars.AWS_REGION }}
+        with:
+          params: |
+            SONAR_HOST_URL=/sonarqube/url
+            SONAR_TOKEN=/sonarqube/token
+      - name: Run quality gate scan
+        if: ${{ inputs.target_environment == 'stage' }}
+        uses: sonarsource/sonarqube-scan-action@master
+        with:
+          args:
+            -Dsonar.projectKey=bcda-aco-static-site
+            -Dsonar.host.url=https://sonarqube.cloud.cms.gov
+            -Dsonar.sources=.
+            -Dsonar.exclusions=ops/*
+            -Dsonar.branch.name=${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
+            -Dsonar.projectVersion=${{ github.ref_name == 'main' && github.sha || 'branch' }}
+            -Dsonar.working.directory=./sonar_workspace
+            -Dsonar.qualitygate.wait=true
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: ${{ vars.AWS_REGION }}
+          role-to-assume: arn:aws:iam::${{ secrets.ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-${{ inputs.target_environment == 'prod' && 'prod' || 'dev' }}-github-actions
+      - name: "Sync _site"
+        run: aws s3 sync _site/ s3://$TARGET_BUCKET/ --delete
+      - name: Invalidate Cloudfront cache
+        run: |
+          DISTRIBUTION_ID=`aws cloudfront list-distributions --query "DistributionList.Items[].{Id:Id, OriginDomainName: Origins.Items[0].DomainName}[?starts_with(OriginDomainName, '$TARGET_BUCKET')].Id" --output text`
+          aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*'

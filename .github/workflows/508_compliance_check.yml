@@ -1,0 +1,33 @@
+name: 508 Compliance Check
+
+on:
+  schedule:
+    - cron: 17 8 * * 1
+  workflow_dispatch:
+    inputs:
+      target_host:
+        description: Check where?
+        required: true
+        default: 'https://stage.bcda.cms.gov'
+        type: choice
+        options:
+          - 'https://stage.bcda.cms.gov'
+          - 'https://bcda.cms.gov'
+
+jobs:
+  compliance_check:
+    name: Compliance Check
+    runs-on: self-hosted
+    steps:
+      - name: Run Axe Check
+        env:
+          TARGET_BASE_URL: ${{ inputs.target_host }}
+        run: |
+          TARGETS_TO_SCAN="${TARGET_BASE_URL}"
+          TARGETS_TO_SCAN="${TARGETS_TO_SCAN} ${TARGET_TEST_ENV}/guide.html"
+          TARGETS_TO_SCAN="${TARGETS_TO_SCAN} ${TARGET_TEST_ENV}/build.html"
+          TARGETS_TO_SCAN="${TARGETS_TO_SCAN} ${TARGET_TEST_ENV}/data.html"
+          TARGETS_TO_SCAN="${TARGETS_TO_SCAN} ${TARGET_TEST_ENV}/updates.html"
+          TARGETS_TO_SCAN="${TARGETS_TO_SCAN} ${TARGET_TEST_ENV}/partial.html"
+          docker run --init --rm --cap-add=SYS_ADMIN orenfromberg/axe-puppeteer-ci:1.0.0@sha256:f83527a3ae8ab74088c001abfe44836946ba73f0afbbf460447f8a0c40281e70 ${TARGETS_TO_SCAN}
+          
