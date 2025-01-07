@@ -1,22 +1,21 @@
 name: 'Deploy Static Site'
 
 on:
-  push:
-  # workflow_dispatch:
-  #   inputs:
-  #     target_environment:
-  #       description: Deploy where?
-  #       required: false
-  #       default: 'stage'
-  #       type: choice
-  #       options:
-  #         - stage
-  #         - prod
-  #     static_repo_ref:
-  #       description: Which branch or tag?
-  #       required: true
-  #       default: 'main'
-  #       type: 'string'
+  workflow_dispatch:
+    inputs:
+      target_environment:
+        description: Deploy where?
+        required: false
+        default: 'stage'
+        type: choice
+        options:
+          - stage
+          - prod
+      static_repo_ref:
+        description: Which branch or tag?
+        required: true
+        default: 'main'
+        type: 'string'
   workflow_call:
     inputs:
       target_environment:
@@ -35,19 +34,16 @@ jobs:
     name: Deploy Static Site
     runs-on: self-hosted
     env:
-      # TARGET_BUCKET: ${{ inputs.target_environment == 'prod' && 'bcda.cms.gov' || 'stage.bcda.cms.gov' }}
-      TARGET_BUCKET: 'stage.bcda.cms.gov'
+      TARGET_BUCKET: ${{ inputs.target_environment == 'prod' && 'bcda.cms.gov' || 'stage.bcda.cms.gov' }}
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v4
         with:
           repository: 'CMSgov/bcda-static-site'
-          # ref: ${{ inputs.static_repo_ref }}
-          ref: 'main'
+          ref: ${{ inputs.static_repo_ref }}
       - name: "Set Version"
         env:
-          # STATIC_REPO_REF: ${{ inputs.static_repo_ref }}
-          STATIC_REPO_REF: 'main'
+          STATIC_REPO_REF: ${{ inputs.static_repo_ref }}
         run: |
           echo "version: $STATIC_REPO_REF" >> _version_config.yml
       - name: "Add dirs"
@@ -56,8 +52,7 @@ jobs:
         run: docker build . -f Dockerfiles/Dockerfile.static_site -t static_site
       - name: 'Build Site'
         env:
-          # JEKYLL_ENV: ${{ inputs.target_environment == 'prod' && 'prod' || 'dev' }}
-          JEKYLL_ENV: 'dev'
+          JEKYLL_ENV: ${{ inputs.target_environment == 'prod' && 'prod' || 'dev' }}
         run: docker run -e JEKYLL_ENV=$JEKYLL_ENV -v ./_site:/bcda-site-static/_site -v ./.jekyll-cache:/bcda-site-static/.jekyll-cache --rm static_site
       - name: Set env vars from AWS params
         uses: cmsgov/ab2d-bcda-dpc-platform/actions/aws-params-env-action@main
@@ -82,8 +77,7 @@ jobs:
       - uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: ${{ vars.AWS_REGION }}
-          # role-to-assume: arn:aws:iam::${{ secrets.ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-${{ inputs.target_environment == 'prod' && 'prod' || 'dev' }}-github-actions
-          role-to-assume: arn:aws:iam::${{ secrets.ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-dev-github-actions
+          role-to-assume: arn:aws:iam::${{ secrets.ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-${{ inputs.target_environment == 'prod' && 'prod' || 'dev' }}-github-actions
       - name: "Sync _site"
         run: aws s3 sync _site/ s3://$TARGET_BUCKET/ --delete
       - name: Invalidate Cloudfront cache
