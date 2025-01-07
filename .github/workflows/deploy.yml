@@ -74,12 +74,10 @@ jobs:
         with:
           args:
             -Dsonar.projectKey=bcda-aco-static-site
-            -Dsonar.host.url=https://sonarqube.cloud.cms.gov
             -Dsonar.sources=.
-            -Dsonar.exclusions=ops/*
+            -Dsonar.working.directory=./sonar_workspace
             -Dsonar.branch.name=${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
             -Dsonar.projectVersion=${{ github.ref_name == 'main' && github.sha || 'branch' }}
-            -Dsonar.working.directory=./sonar_workspace
             -Dsonar.qualitygate.wait=true
       - uses: aws-actions/configure-aws-credentials@v4
         with:

@@ -1,19 +1,18 @@
 name: 508 Compliance Check
 
 on:
-  push:
-  # schedule:
-  #   - cron: 17 8 * * 1
-  # workflow_dispatch:
-  #   inputs:
-  #     target_host:
-  #       description: Check where?
-  #       required: true
-  #       default: 'https://stage.bcda.cms.gov'
-  #       type: choice
-  #       options:
-  #         - 'https://stage.bcda.cms.gov'
-  #         - 'https://bcda.cms.gov'
+  schedule:
+    - cron: 17 8 * * 1
+  workflow_dispatch:
+    inputs:
+      target_host:
+        description: Check where?
+        required: true
+        default: 'https://stage.bcda.cms.gov'
+        type: choice
+        options:
+          - 'https://stage.bcda.cms.gov'
+          - 'https://bcda.cms.gov'
 
 jobs:
   compliance_check:
@@ -22,8 +21,7 @@ jobs:
     steps:
       - name: Run Axe Check
         env:
-          # TARGET_BASE_URL: ${{ inputs.target_host }}
-          TARGET_BASE_URL: 'https://stage.bcda.cms.gov'
+          TARGET_BASE_URL: ${{ inputs.target_host }}
         run: |
           TARGETS_TO_SCAN="${TARGET_BASE_URL}"
           TARGETS_TO_SCAN="${TARGETS_TO_SCAN} ${TARGET_BASE_URL}/guide.html"
