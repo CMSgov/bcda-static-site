@@ -1,28 +1,31 @@
 name: 'Tag and Deploy Static Site'
 
 on:
-  workflow_dispatch:
-    inputs:
-      deploy:
-        description: 'Also deploy to staging?'
-        type: boolean
-        default: true
-        required: true
-      repo_ref:
-        description: 'Which branch or tag?'
-        required: true
-        default: 'main'
-        type: 'string'
+  push:
+  # workflow_dispatch:
+  #   inputs:
+  #     deploy:
+  #       description: 'Also deploy to staging?'
+  #       type: boolean
+  #       default: true
+  #       required: true
+  #     repo_ref:
+  #       description: 'Which branch or tag?'
+  #       required: true
+  #       default: 'main'
+  #       type: 'string'
 
 jobs:
   tag_repo:
     name: Tag Repo
     uses: CMSgov/dpc-app/.github/workflows/tag_release.yml@main
     with:
-      repo_ref: ${{ inputs.repo_ref }}
+      # repo_ref: ${{ inputs.repo_ref }}
+      repo_ref: 'carl/BCDA-8636-add-github-actions-deploy'
     secrets: inherit
   deploy:
-    if: ${{ inputs.deploy }}
+    # if: ${{ inputs.deploy }}
+    if: true
     name: Deploy to Staging
     needs: tag_repo
     uses: ./.github/workflows/deploy.yml
