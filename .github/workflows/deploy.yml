@@ -63,8 +63,7 @@ jobs:
             SONAR_HOST_URL=/sonarqube/url
             SONAR_TOKEN=/sonarqube/token
       - name: Run quality gate scan
-        # if: ${{ inputs.target_environment == 'stage' }}
-        if: true
+        if: ${{ inputs.target_environment == 'stage' }}
         uses: sonarsource/sonarqube-scan-action@master
         with:
           args:
