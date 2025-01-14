@@ -19,9 +19,13 @@ jobs:
     name: Compliance Check
     runs-on: self-hosted
     steps:
+      - name: Set Target Base
+        id: target-base
+        run: |
+          echo "TARGET_BASE_URL=${{ inputs.target_host || 'https://stage.bcda.cms.gov' }}" >> "$GITHUB_OUTPUT"
       - name: Run Axe Check
         env:
-          TARGET_BASE_URL: ${{ inputs.target_host }}
+          TARGET_BASE_URL: ${{ steps.target-base.outputs.TARGET_BASE_URL }}
         run: |
           TARGETS_TO_SCAN="${TARGET_BASE_URL}"
           TARGETS_TO_SCAN="${TARGETS_TO_SCAN} ${TARGET_BASE_URL}/guide.html"
