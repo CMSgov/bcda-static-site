@@ -8,11 +8,11 @@ on:
       target_host:
         description: Check where?
         required: true
-        default: 'https://stage.bcda.cms.gov'
+        default: "https://stage.bcda.cms.gov"
         type: choice
         options:
-          - 'https://stage.bcda.cms.gov'
-          - 'https://bcda.cms.gov'
+          - "https://stage.bcda.cms.gov"
+          - "https://bcda.cms.gov"
 
 jobs:
   compliance_check:
@@ -34,4 +34,31 @@ jobs:
           TARGETS_TO_SCAN="${TARGETS_TO_SCAN} ${TARGET_BASE_URL}/updates.html"
           TARGETS_TO_SCAN="${TARGETS_TO_SCAN} ${TARGET_BASE_URL}/partial.html"
           docker run --init --rm --cap-add=SYS_ADMIN orenfromberg/axe-puppeteer-ci:1.0.0@sha256:f83527a3ae8ab74088c001abfe44836946ba73f0afbbf460447f8a0c40281e70 ${TARGETS_TO_SCAN}
-          
+      - uses: slackapi/slack-github-action@v2.0.0
+        name: Slack Success
+        with:
+          method: chat.postMessage
+          token: ${{ secrets.SLACK_BOT_TOKEN }}
+          # Sends to bcda-alerts
+          payload: |
+            channel: "C034CFU945C"
+            attachments:
+              - color: good
+                text: "SUCCESS: <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Static Site 508 Compliance>"
+                mrkdown_in:
+                  - text
+      - uses: slackapi/slack-github-action@v2.0.0
+        name: Slack failure
+        if: ${{ failure() }}
+        with:
+          method: chat.postMessage
+          token: ${{ secrets.SLACK_BOT_TOKEN }}
+          # Sends to bcda-alerts
+          payload: |
+            channel: "C034CFU945C"
+            attachments:
+              - color: danger
+                text: "FAILURE: <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Static Site 508 Compliance>"
+                mrkdown_in:
+                  - text
+
