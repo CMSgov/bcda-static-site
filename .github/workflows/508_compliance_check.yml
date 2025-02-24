@@ -34,8 +34,6 @@ jobs:
           TARGETS_TO_SCAN="${TARGETS_TO_SCAN} ${TARGET_BASE_URL}/updates.html"
           TARGETS_TO_SCAN="${TARGETS_TO_SCAN} ${TARGET_BASE_URL}/partial.html"
           docker run --init --rm --cap-add=SYS_ADMIN orenfromberg/axe-puppeteer-ci:1.0.0@sha256:f83527a3ae8ab74088c001abfe44836946ba73f0afbbf460447f8a0c40281e70 ${TARGETS_TO_SCAN}
-      - name: Failure test
-        run: exit 1
       - uses: slackapi/slack-github-action@v2.0.0
         name: Slack Success
         with:
