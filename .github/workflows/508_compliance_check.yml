@@ -36,12 +36,13 @@ jobs:
           docker run --init --rm --cap-add=SYS_ADMIN orenfromberg/axe-puppeteer-ci:1.0.0@sha256:f83527a3ae8ab74088c001abfe44836946ba73f0afbbf460447f8a0c40281e70 ${TARGETS_TO_SCAN}
       - uses: slackapi/slack-github-action@v2.0.0
         name: Slack Success
+        if: ${{ success() }}
         with:
           method: chat.postMessage
           token: ${{ secrets.SLACK_BOT_TOKEN }}
-          # Sends to bcda-alerts
+          # Sends to bcda-deploy
           payload: |
-            channel: "C034CFU945C"
+            channel: "C03S23MJFJS"
             attachments:
               - color: good
                 text: "SUCCESS: <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Static Site 508 Compliance>"
@@ -61,4 +62,3 @@ jobs:
                 text: "FAILURE: <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Static Site 508 Compliance>"
                 mrkdown_in:
                   - text
-
