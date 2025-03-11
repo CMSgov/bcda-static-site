@@ -62,7 +62,7 @@ brew install pre-commit
 
 Other installation options can be found in the [pre-commit documentation](https://pre-commit.com/#install).
 
-### Step 2: Install the hooks
+### Step 2: Install the hooks test123
 
 Run the following command to install the gitleaks hook:
 
