@@ -4,9 +4,6 @@
 
     - name: How to Get a Bearer Token
       url: /get-a-bearer-token
-
+      
     - name: How to Access Claims Data
       url: /access-claims-data
-
-    - name: Troubleshooting Guide
-      url: /troubleshooting-guide

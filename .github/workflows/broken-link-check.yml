@@ -1,0 +1,20 @@
+name: "Broken Link Check"
+
+on: 
+  workflow_call
+
+jobs:
+  broken-link-check:
+    runs-on: self-hosted
+    
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v4
+
+      - name: "Check for broken links"
+        uses: lycheeverse/lychee-action@v2
+        id: lychee
+        with:
+          jobSummary: true
+          fail: true
+          args: --no-progress --accept '200..=299, 401, 403, 405' ~/_[pages,layouts,includes]/**.[md,html]

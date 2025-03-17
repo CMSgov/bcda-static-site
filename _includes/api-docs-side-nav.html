@@ -34,42 +34,8 @@
       </ul>
     </li>
     {% endfor %}
-    <!--ab2d data pages-->
-    {% for item in site.data.ab2d-data-nav %}
     <li class="usa-sidenav__item">
-      <a href="{{ item.url | relative_url }}"
-        class="{% if page.permalink == item.url %}{{ 'usa-current' }}{% endif %}"
-        data-tealium="navigation"
-      >
-        {%- if item.icon -%}
-          {%- include sprite.html icon=item.icon size="3" class="margin-right-05 text-middle" -%}
-        {%- endif -%}
-        {{- item.name -}}
-      </a>
-      <ul class="usa-sidenav__sublist">
-        {% for child in item.children %}
-        <li class="usa-sidenav__item">
-          <a href="{{ child.url | relative_url }}"
-            class="{% if page.permalink == child.url %}{{ 'usa-current' }}{% endif %}"
-            data-tealium="navigation"
-          >{{ child.name }}</a>
-          <ul class="usa-sidenav__sublist">
-            {% for grandchild in child.children %}
-            <li class="usa-sidenav__item">
-              <a href="{{ grandchild.url | relative_url }}"
-                class="{% if page.permalink == grandchild.url %}{{ 'usa-current' }}{% endif %}"
-                data-tealium="navigation"
-              >{{ grandchild.name }}</a>
-            </li>
-            {% endfor %}
-          </ul>
-        </li>
-        {% endfor %}
-      </ul>
-    </li>
-    {% endfor %}
-    <li class="usa-sidenav__item">
-      <a href="https://github.com/CMSgov/ab2d" class="usa-nav-link" data-tealium="navigation">
+      <a href="" class="usa-nav-link" data-tealium="navigation">
         <span>    
           {% include sprite.html icon="github" size="3" class="margin-right-05 text-middle" %}
           GitHub repo
@@ -77,7 +43,7 @@
       </a>
     </li>
     <li class="usa-sidenav__item">
-      <a href="https://sandbox.ab2d.cms.gov/swagger-ui/index.html" class="usa-nav-link" data-tealium="navigation">
+      <a href="" class="usa-nav-link" data-tealium="navigation">
         <span>    
           {% include sprite.html icon="code" size="3" class="margin-right-05 text-middle" %}
           Swagger
