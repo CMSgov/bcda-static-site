@@ -1,3 +1,5 @@
+# Legacy file 2024
+
 name: "BCDA Static Site CI Workflow"
 
 on: [push]

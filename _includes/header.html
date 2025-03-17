@@ -1,36 +1,80 @@
-{% include usa_banner.html %}
-
-<nav class="navbar" id="navbar">
-  <a class="site-logo" href="/" onclick='metricTagging("BCDA", "Top Navigation: Link Click", "Beneficiary Claims Data API")'>
-    <img src="{{ site.logourl | relative_url }}" alt="BCDA logo"> <span class="site-logo-text ds-u-font-size--base">Beneficiary Claims Data API</span>
-  </a>
-
-  <button id="topnav__show-button" class="ds-c-button ds-c-button--transparent ds-c-button--big topnav__show-button" type="button" aria-controls="topnav-wrap" aria-label="Show menu">
-    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <use xlink:href="/assets/img/solid.svg#bars"></use>
-    </svg>
-  </button>
-
-  <div class="topnav-wrap" id="topnav-wrap">
-    <button id="topnav__close-button" class="ds-c-button ds-c-button--transparent ds-c-button--big topnav__close-button" type="button"
-aria-controls="topnav-wrap" aria-label="Close menu">
-      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <use xlink:href="/assets/img/solid.svg#times"></use>
-        </svg>
-      </button>
-    <ul class="topnav">
-      {% for item in site.global_nav %}
-          {% assign pages = site.pages | where:"id",item.id %}
-          {% for p in pages %}
-              <li class="topnav__item">
-                  {% assign prefix = page.id | split: "-" %}
-                  <a class="topnav__link ds-u-text-align--center ds-u-font-size--small" href="{{ p.url }}"> {{item.title}} </a>
+<div class=" position-sticky top-0 bg-white shadow-1 z-500">
+  <div class="usa-overlay"></div>
+  <header class="usa-header usa-header--basic">
+    <div class="usa-nav-container">
+      <div class="usa-navbar">
+        <div class="usa-logo">
+          <em class="usa-logo__text">
+            <a href="{{ '/' | relative_url }}" title="AB2D" data-tealium="navigation">
+              <img src="{{ '/assets/img/logo-horiz-dark.svg' | relative_url }}" alt="AB2D logo" />
+            </a>
+          </em>
+        </div>
+        <button type="button" class="usa-menu-btn">Menu</button>
+      </div>
+      <nav aria-label="Primary navigation" class="usa-nav">
+        <button type="button" class="usa-nav__close">
+          <img src="{{ '/assets/uswds/img/usa-icons/close.svg' | relative_url }}" role="img" alt="Close" />
+        </button>
+        <!--About dropdown-->
+        <ul class="usa-nav__primary usa-accordion">
+          <li class="usa-nav__primary-item margin-top-1">
+            <button
+              class="usa-accordion__button usa-nav__link {% if page.permalink == '/about' %}{{ 'usa-current' }}{% endif %}"
+              aria-expanded="false"
+              aria-controls="basic-nav-section-one"
+            >
+              <span>About</span>
+            </button>
+            <ul id="basic-nav-section-one" class="usa-nav__submenu">
+              <li class="usa-nav__submenu-item">
+                <a href="{{ '/about' | relative_url }}" data-tealium="navigation">
+                  <span>About BCDA</span>
+                </a>
               </li>
+              <li class="usa-nav__submenu-item">
+                <a href="{{ '/use-cases' | relative_url }}" data-tealium="navigation">
+                  <span>Use cases</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+          <!--Header nav items without subpages-->
+          {% for item in site.data.nav-primary %}
+          <li class="usa-nav__primary-item">
+            <a
+              href="{{ item.url | relative_url }}"
+              class="usa-nav-link {% if page.permalink == item.url %}{{ 'usa-current' }}{% endif %}"
+              data-tealium="navigation"
+              ><span>{{ item.text }}</span></a
+            >
+          </li>
           {% endfor %}
-      {% endfor %}
-      <li class="topnav__item topnav__item--buttons ds-u-padding-right--1 ds-u-text-align--center">
-        <a class="ds-c-link" href="https://groups.google.com/forum/#!forum/bc-api" target="_blank" rel="noopener"><button class="ds-c-button ds-c-button--primary ds-u-fill--warn-lighter ds-u-color--black" onclick='metricTagging("BCDA", "Top Navigation: Link Click", "Join Google Group")'>Join the Google Group</button></a>
-      </li>
-    </ul>
-  </div>
-</nav>
+          <!--Github, Swagger -->
+          <li class="usa-nav__primary-item desktop:display-none">
+            <a href="https://github.com/CMSgov/ab2d" class="usa-nav-link" data-tealium="navigation">
+              <span>    
+                {% include sprite.html icon="github" size="3" class="margin-right-05 text-middle" %}
+                Github repo
+              </span>
+            </a>
+          </li>
+          <li class="usa-nav__primary-item desktop:display-none">
+            <a href="https://sandbox.ab2d.cms.gov/swagger-ui/index.html" class="usa-nav-link" data-tealium="navigation">
+              <span>    
+                {% include sprite.html icon="code" size="3" class="margin-right-05 text-middle" %}
+                Swagger
+              </span>
+            </a>
+          </li>
+        <!--Get Started-->
+        <section class="width-100 padding-left-1">
+          <a href="{{ '/api-documentation' | relative_url }}" class="usa-button" data-tealium="navigation"
+            >Get Started</a
+          >
+        </section>
+      </nav>
+    </div>
+  </header>
+</div>

@@ -1,34 +1,155 @@
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="version" content="{{ site.version }}">
-	<!-- Metadata for Twitter -->
-	<meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}" />
-	<meta name="twitter:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" />
-	<meta name="twitter:image" content="{{ layout.image | default: '/assets/img/default-share-image.jpg' | absolute_url }}" />
-	<meta name="twitter:site" content="{{ page.url }}" />
-	<meta name="twitter:card" content="summary_large_image">
-	<!-- Facebook / OpenGraph Metadata -->
-  <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}" />
-	<meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" />
-	<meta property="og:image" content="{{ layout.image | default: '/assets/img/default-share-image.jpg' | absolute_url }}" />
-	<meta property="og:url" content="{{ page.url }}" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ page.description }}">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        {% if page.seo_title and page.seo_title != '' %}
+            {{ page.seo_title }}
+        {% elsif page.page_title and page.page_title != '' %}
+            {{ page.page_title }}
+        {% else %}
+            {{ site.title }}
+        {% endif %}
+    </title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="sitemap" href="/sitemap.xml">
 
-  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+<!-- USWDS & theme -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <script src="{{ '/assets/uswds/js/uswds-init.min.js' | relative_url }}"></script>
+    <link href="{{ '/assets/uswds/css/styles.css' | relative_url }}?{{site.time | pubDate: '%s'}}" rel="stylesheet">
 
-  <link rel="icon" type="image/x-icon" href="{{ '/assets/img/favicon.ico' | relative_url }}">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/favicon-32x32.png' | relative_url }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/img/favicon-16x16.png' | relative_url }}">
+<!-- CMS Tealium/Google Analytics BEGIN -->
+    <!-- 
+    * PII ALERT: Please be careful not to pass any dynamic values that could
+    * contain any personal information such as first name, last name, email
+    * or address. In these cases, you may use a link descriptor instead.
+    -->
+    
+    <!--DataLayer (utag_data) Snippet
+    Within <head> of document at the highest possible point.-->
+    <script type="text/javascript">
+        var utag_data = { }
+    </script>
 
-  <link rel="icon" href="{{ '/assets/img/BCDA_Logo.svg' | relative_url }}" type="image/svg+xml">
+    <!-- Within <head> of document below DataLayer snippet .
+    The utag.sync.js script should run as early as possible -->
 
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+    <script src="https://tealium-tags.cms.gov/cms-ab2d/dev/utag.sync.js"></script>
+        
+    <!-- Loading utag.js script asynchronously -->
+        <script type="text/javascript">
+            (function(a,b,c,d)
+                { a='https://tealium-tags.cms.gov/cms-ab2d/dev/utag.js'; b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true; a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a); }
+            )();
+        </script> 
 
-  <link rel="stylesheet" href="{{ site.cssurl | relative_url }}" />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.google-analytics.com/analytics.js"></script>
-    <script async src="/assets/js/autotrack.js"></script>
+    <!-- link clicks -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var links = document.getElementsByTagName('a');
+            Array.from(links).forEach((linkEl)=>{
+                linkEl.addEventListener('click', function(event) {
+                    var target = event.target;
+                    var targetUrl = target.href; 
+                    var baseUrl = "{{site.baseurl}}"; 
+                    if (!target.hasAttribute('data-tealium')) {
+                        //internal link clicked
+                        if (targetUrl.startsWith(baseUrl)) {
+                            utag.link({
+                                "event_name": "internal_link_clicked",
+                                "link_type": "link_other",
+                                "link_url": target.href,
+                                "parent_component_heading": target.offsetParent, 
+                                "parent_component_type": "",
+                                "text": target.innerText,
+                            });
+                        // external link clicked
+                        } else {
+                            utag.link({
+                                "event_name": "external_link_click",
+                                "text": target.innerText,
+                                "link_type": "link_external",
+                                "link_url": target.href,
+                                "parent_component_heading":target.offsetParent, 
+                                "parent_component_type": "",  
+                            });                    
+                        }
+                    }
+                });
+            });
+            // button clicks
+            var buttons = document.querySelectorAll('[data-tealium="button"]'); 
+            buttons.forEach((buttonEl)=>{
+                buttonEl.addEventListener('click', function(event) {
+                    var target = event.currentTarget;
+                    utag.link({
+                        "event_name": "button_engagement",
+                        "button_style": "", 
+                        "button_type": "copy", // Since they are all copy buttons 
+                        "link_type": "link_other",
+                        "link_url": target.href,
+                        "parent_component_heading": target.formAction, 
+                        "parent_component_type": "",
+                        "text": target.innerText,
+                    });
+                });
+            });
+            // accordion clicks
+            var accordions = document.querySelectorAll('[data-tealium="accordion"]'); 
+            accordions.forEach((accordionEl)=>{
+                accordionEl.addEventListener('click', function(event) {
+                    var target = event.currentTarget;
+                    if (event.currentTarget.getAttribute('aria-expanded') == 'false')
+                    utag.link({
+                        "event_name": "accordion_opened",
+                        "heading": target.innerText,
+                        "parent_component_heading": "",
+                        "parent_component_type": target.parentElement, // returns h3.usa-accordion__heading
+                    });
+                });
+            });
+            // file downloads
+            var downloads = document.querySelectorAll('[data-tealium="download"]'); 
+            downloads.forEach((downloadEl)=>{
+                downloadEl.addEventListener('click', function(event) {
+                    var target = event.currentTarget;
+                    utag.link({
+                        "event_name": "file_download",
+                        "file_name": target.pathname,
+                        "file_extension": "",
+                        "file_postDate": "",
+                        "link_type": "link_download",
+                        "link_url": target.href,
+                        "text": target.innerText,
+                    });
+                });
+            });
+            // navigation clicks
+            var navigation = document.querySelectorAll('[data-tealium="navigation"]'); 
+            Array.from(navigation).forEach((navigationEl)=>{
+                navigationEl.addEventListener('click', function(event) {
+                    var target = event.currentTarget;
+                    utag.link({
+                        "event_name": "navigation_clicked",
+                        "heading": target.innerText,
+                        "link_type": "link_other",
+                        "link_url": target.href,
+                        "navigation_type": target.parentElement,
+                        // primary header nav returns li.usa-nav__primary-item
+                        // header child items return li.usa-nav__submenu-item
+                        // header dropdown child item returns
+                        // side nav returns li.usa-sidenav__item
+                        // in page nav DOES NOT WORK: NO HREF OR UNIQUE INNERTEXT
+                        "text": target.text, 
+                    });
+                });
+            });
+        });
+    </script>
+
 </head>

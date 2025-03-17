@@ -1,171 +1,19 @@
-<!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+---
+layout: base
+---
 
-{% include head.html %}
-
-<body class="">
-  <script type="text/javascript">
-    var utag_data = {
-      language: "en",
-      environment: "{{ jekyll.environment }}",
-      site_name: "bcda"
-    }
-  </script>
-
-  <!-- Loading script asynchronously -->
-  <script src="{{ '/assets/js/tagging.js' | relative_url }}"></script>
-  <script type="text/javascript">
-    window.onload = function () {
-      // Get the page name (empty page is home page)
-      var page = window.location.pathname.split("/").pop();
-      if (page == '') {
-        page = 'home.html';
-      }
-
-      // Adding event for all side nav clicks
-      var sideAnchors = document.querySelectorAll('a.ds-c-vertical-nav__label');
-      for (const sideAnchor of sideAnchors) {
-        sideAnchor.addEventListener('click', function (event) {
-          metricTagging('BCDA', 'click: side-nav', page + ': ' + sideAnchor.textContent.trim().toLowerCase())
-        })
-      };
-
-      // Adding event for all top nav clicks
-      var topAnchors = document.querySelectorAll('a.topnav__link');
-      for (const topAnchor of topAnchors) {
-        topAnchor.addEventListener('click', function (event) {
-          metricTagging('BCDA', 'click: top-nav', page + ': ' + topAnchor.textContent.trim().toLowerCase())
-        })
-      }
-
-      // Adding event for all in-text link clicks
-      var inTextAnchors = document.querySelectorAll('a.in-text__link');
-      for (const inTextAnchor of inTextAnchors) {
-        inTextAnchor.addEventListener('click', function (event) {
-          metricTagging('BCDA', 'click: In-text Link', page + ': ' + inTextAnchor.textContent.trim().toLowerCase().concat(':', inTextAnchor.href))
-        })
-      }
-    }
-  </script>
-  <a class="ds-c-skip-nav" href="#main">Skip to main content</a>
-
-  <!-- Listener to check for ctrl-c -->
-  <script type="text/javascript">
-    // if text is selected and copied within the website
-    // Declare function to get selected text from document
-    function getSelectionText() {
-      var text = "";
-      if (window.getSelection) {
-        text = window.getSelection().toString();
-      } else if (document.selection && document.selection.type != "Control") {
-        text = document.selection.createRange().text;
-      }
-        return text;
-    }
-
-    // Declare function on copy event
-    document.addEventListener('copy', function(e){
-      utag.link({
-          ga_event_category: "BCDA",
-          ga_event_action: document.title + " - Text is copied",
-          ga_event_label: getSelectionText().length + " - " + getSelectionText(),
-          ga_event_non_interaction: 1
-      });
-    });
-  </script>
-
-  <!-- Listener to check for ctrl-f -->
-  <script type="text/javascript">
-    /*
-    This script identifies if a browsers' search is toggled open
-
-    It can capture start and the mouse away from focus.
-    It cannot capture what is typed or searched for.
-    */
-    var KEY_CTRL = 17; // control key for pc keyboard
-    var KEY_CMD = 91;  // command key for apple keyboard
-    var KEY_f = 70;
-
-    var isReserved = false;
-    var useExclusiveKeyEvent = false;
-    var isNewSearchEvent = false;
-
-
-    /*THIS VARIABLE IS RENDERED BY SERVER SIDE*/
-    var clientRandomKey = "78349DE472AA30032DE2DF344FF28374";
-
-    window.onkeyup=function(ev){
-      if((ev.which == KEY_CTRL)||(ev.which == KEY_CMD)){
-        isReserved=false;
-      }
-    }
-    window.onkeydown=function(ev){
-      //!IMPORTANT NOT MAKE UI DELAY IN THIS FUCTION
-      if((ev.which == KEY_CTRL)||(ev.which == KEY_CMD)) {
-           isReserved=true;
-      }
-      if((isReserved==true)&&(ev.which == KEY_f)) {
-        var currentDate = new Date();
-
-        utag.link({
-          ga_event_category: "BCDA",
-          ga_event_action: document.title + " - Browser Find (ctrl+f)",
-          ga_event_label: "into - launch search a word",
-          ga_event_non_interaction: 1
-        });
-        isNewSearchEvent=true;
-        if(useExclusiveKeyEvent){
-          return false;
-        }
-      }
-    }
-
-    window.setInterval(function(){
-      if(isNewSearchEvent){
-        isNewSearchEvent=false;
-        //TODO ajax send code
-        var currentDate = new Date();
-
-
-        utag.link({
-          ga_event_category: "BCDA",
-          ga_event_action: document.title + " - Browser Find (ctrl+f)",
-          ga_event_label: "mouse away - launch search a word",
-          ga_event_non_interaction: 1
-        });
-      }
-    },2500);
-  </script>
-
-  <header>
-    {% include header.html %}
-  </header>
-  <div id="content">
-    {{ content }}
+<div class="grid-container">
+  <div class="grid-row flex-align-start">
+    {% if page.show-side-nav != false %}
+      <div class="display-none position-sticky tablet:display-block tablet:grid-col-auto overflow-y-auto overflow-x-hidden padding-y-6" style="top: 5.75rem; height: calc(100vh - 6rem);">
+        <div class="width-card-lg">
+          {% include api-docs-side-nav.html %}
+        </div>
+      </div>
+    {% endif %}
+    
+    <main id="main-content" class="grid-col-fill">
+      {{ content }}
+    </main>
   </div>
-  <footer>
-    {% include footer.html %}
-  </footer>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
-
-  <!-- Feather Icons -->
-  <script src="https://unpkg.com/feather-icons"></script>
-
-  <script>
-      feather.replace()
-  </script>
-
-  <!-- Custom JavaScript -->
-  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
-  <script src="{{ '/assets/js/accordion.js' | relative_url }}"></script>
-  <script src="{{ '/assets/js/code.js' | relative_url }}"></script>
-  <script src="{{ 'assets/js/mobile-nav-trigger-button.js' | relative_url }}"></script>
-
-  <!-- Crazy Egg Script
-    BCDA will use this one day.  Just not now
-    <script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0078/9905.js" async="async"></script>
-    -->
-</body>
-
-</html>
+</div>

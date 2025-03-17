@@ -1,3 +1,4 @@
+# Legacy file 2024
 #!/usr/bin/env bash
 
 set -eo pipefail

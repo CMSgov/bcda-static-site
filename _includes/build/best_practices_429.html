@@ -1,8 +1,0 @@
-<div>
-    <p>A status code of <code>429</code> indicates “Too Many Requests.” This can occur due to two reasons:</p>
-    <ol>
-      <li>Making too many HTTP requests within a period of time</li>
-      <li>Trying to recreate jobs already marked as "In-Progress.” For reference, you can view both existing and past jobs using the /jobs endpoint. See <a href=build.html#jobs-history>Request Jobs History</a> for more details.</li>
-    </ol>
-    <p>Regardless of the reason, you will see a <strong>Retry-After</strong> response in the header. Wait until the period of time specified in the header has passed before making any more requests. This makes sure your client can adapt without manual intervention, even if the rate-limiting parameters change.</p>
-</div>
