@@ -41,29 +41,9 @@ webrick:
   headers:
     Cache-Control: no-cache
     Pragma: no-cache
-
-exclude:
-  - assets/uswds/img/favicons
-  - assets/uswds/img/material-icons
-  - assets/uswds/img/material-icons-deprecated
-  - assets/uswds/img/usa-icons/*
-  - assets/uswds/img/usa-icons-bg/*
-  - assets/uswds/img/uswds-icons/*
-
+    
 include:
    - _pages
-   - assets/uswds/img/usa-icons/add.svg
-   - assets/uswds/img/usa-icons/check_circle.svg
-   - assets/uswds/img/usa-icons/close.svg
-   - assets/uswds/img/usa-icons/error.svg
-   - assets/uswds/img/usa-icons/error--white.svg
-   - assets/uswds/img/usa-icons/expand_more.svg
-   - assets/uswds/img/usa-icons/expand_less.svg
-   - assets/uswds/img/usa-icons/info.svg
-   - assets/uswds/img/usa-icons/launch.svg
-   - assets/uswds/img/usa-icons/launch--white.svg
-   - assets/uswds/img/usa-icons/remove.svg
-   - assets/uswds/img/usa-icons/warning.svg
 
 defaults:
   -
