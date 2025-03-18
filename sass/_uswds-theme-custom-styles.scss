@@ -72,11 +72,6 @@ main {
 
 }
 
-// Prevent orphaned words in short blocks of text
-.text-balance {
-  text-wrap: balance;
-}
-
 // Landing page hero background
 .bg-primary-gradient {
   background: linear-gradient(135deg,color('primary') 33%,color('accent-cool-dark') 100%);
