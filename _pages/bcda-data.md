@@ -9,10 +9,10 @@ in-page-nav: true
 
 # {{ page.page_title }}
 
-The Beneficiary Claims Data API (BCDA) share large volumes of enrollee data, including:
+Beneficiary Claims Data API (BCDA) shares attributed enrollees’ claims data:
 
 <table class="usa-table usa-table--borderless usa-table--stacked margin-bottom-4">
-  <caption class="usa-sr-only">Definitions of Part A and Part B claims data</caption>
+  <caption class="usa-sr-only">Definitions of Part A, B, and D claims data</caption>
   <thead>
     <tr>
       <th scope="col">Data type</th>
@@ -29,7 +29,7 @@ The Beneficiary Claims Data API (BCDA) share large volumes of enrollee data, inc
     <tr>
       <th scope="row">Medicare Part B claims data</th>
       <td>
-        various doctors' services, outpatient care, medical supplies, and preventive services
+        various doctors' services, outpatient care, preventive services, and durable medical equipment (DME)
       </td>
     </tr>
     <tr>
@@ -41,11 +41,11 @@ The Beneficiary Claims Data API (BCDA) share large volumes of enrollee data, inc
   </tbody>
 </table>
 
-Model entities can use BCDA to access data files for all attributed enrollees, rather than on a patient-by-patient basis. BCDA automatically updates partially adjudicated claims data daily and fully adjudicated claims data weekly. 
+BCDA updates partially adjudicated claims data daily and adjudicated claims data weekly. Data is not shared on a patient-by-patient basis. 
 
 ## Partially adjudicated claims data
 
-Accountable Care Organizations participating in the Realizing Equity, Access, and Community Health Model can access partially adjudicated claims data. These are claims that aren’t fully processed or approved. **This reduces the time to access Parts A and B claims data to 2-4 days after submission.**
+REACH ACOs can access claims that aren’t fully processed or approved yet. **This reduces the time to access Parts A and B claims data to 2-4 days after submission.**
 
 <div class="grid-row grid-gap margin-y-4">
   <div class="grid-col-2 tablet:grid-col-3 text-center">
@@ -65,7 +65,7 @@ Accountable Care Organizations participating in the Realizing Equity, Access, an
 
 ## Data Dictionary 
 
-Similar to Claim and Claim Line Feed (CCLF) files, BCDA offers access to Medicare Parts A, B, and D claims data. However, BCDA uses the FHIR format with differences in data mapping and field names. [Explore the differences between BCDA and CCLF files.]({{ '/placeholder' | relative_url }})
+The Data Dictionary maps the different data fields and locations between BCDA and Claim and Claim Line Feed (CCLF) files. [Explore all differences between the data sources.]({{ '/placeholder' | relative_url }})
 
 <div class="grid-row grid-gap margin-y-4 flex-align-center">
   <div class="grid-col-2 tablet:grid-col-3 text-center">
@@ -92,20 +92,19 @@ Similar to Claim and Claim Line Feed (CCLF) files, BCDA offers access to Medicar
 
 ## Resource types
 
-Claims data is organized into resource types, which can be requested by the /Patient and /Group endpoints. 
+Claims data is organized by resource type, which can be requested by the /Patient and /Group [endpoints]({{ '/placeholder' | relative_url }}). 
 
-- [Explanation of Benefit (EOB)](https://hl7.org/fhir/R4/explanationofbenefit.html) (similar to CCLF files 1-7) – details from each episode of care, including where and when the service was performed, diagnosis codes, healthcare provider, and cost of care 
-- [Patient](https://hl7.org/fhir/R4/patient.html) (similar to CCLF files 8 and 9) – enrollees' demographic details and updates to their patient identifiers
-- [Coverage](https://hl7.org/fhir/R4/coverage.html) – enrollees' insurance coverage details, including dual coverage
-- [Claim](https://hl7.org/fhir/R4/claim.html) (partially adjudicated claims only) – financial and clinical details on professional and institutional claims. This is typically used for treatment payment planning and reimbursement by benefit payors, insurers, and national health programs.
-- [ClaimResponse](https://hl7.org/fhir/R4/claimresponse.html) (partially adjudicated claims only) –  details about the adjudication status and processing results for a claim, predetermination, or preauthorization.
+- [Explanation of Benefit (EOB)](https://hl7.org/fhir/R4/explanationofbenefit.html) (similar to CCLF files 1-7): details from each episode of care, including where and when the service was performed, diagnosis codes, healthcare provider, and cost of care 
+- [Patient](https://hl7.org/fhir/R4/patient.html) (similar to CCLF files 8 and 9): enrollees' demographic details and updates to their patient identifiers
+- [Coverage](https://hl7.org/fhir/R4/coverage.html): enrollees' insurance coverage details, including dual coverage
+- [Claim](https://hl7.org/fhir/R4/claim.html) (partially adjudicated claims only): financial and clinical details on professional and institutional claims. This is typically used for treatment payment planning and reimbursement by benefit payors, insurers, and national health programs.
+- [ClaimResponse](https://hl7.org/fhir/R4/claimresponse.html) (partially adjudicated claims only): details about the adjudication status and processing results for a claim, predetermination, or preauthorization.
 
-We recommend using BCDA V2, which has minor changes in specification and resource types from V1. 
+BCDA V2 has [minor changes]({{ '/placeholder' | relative_url }}) in specification and resource types from V1. 
 
 ## Sample Files
 
-Download sample resource files of BCDA data. These files have similar content and structure to actual production data. [Try out the sandbox environment]({{ 'placeholder' | relative_url }}) to access synthetic data using API requests.  
-
+Download sample data files, which have similar content and structure to production data. [Try the sandbox environment]({{ 'placeholder' | relative_url }}) to access test data from the API.
 
 <div class="grid-row grid-gap margin-y-4 flex-align-center">
   <div class="grid-col-2 tablet:grid-col-3 text-center">
