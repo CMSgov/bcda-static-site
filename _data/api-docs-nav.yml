@@ -7,3 +7,18 @@
       
     - name: How to Access Claims Data
       url: /access-claims-data
+
+- name: BCDA Data 
+  url: /bcda-data
+  children:
+
+    - name: Guide to Partially Adjudicated Claims Data
+      url: /partially-adjudicated-claims-data
+
+    - name: Comparison of BCDA and CCLF
+      url: /bcda-cclf-comparison
+
+    - name: How to Filter Claims Data
+      url: /filter-claims-data
+
+    

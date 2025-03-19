@@ -35,7 +35,6 @@ webrick:
     Pragma: no-cache
 
 exclude:
-  - kitchen-sink.html # Don't build this page in production
   - assets/uswds/img/favicons
   - assets/uswds/img/material-icons
   - assets/uswds/img/material-icons-deprecated
