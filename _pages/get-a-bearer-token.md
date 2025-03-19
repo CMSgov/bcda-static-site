@@ -55,47 +55,59 @@ Authorization: Bearer {bearer_token}
 
 <!-- Code snippets for instructions section END -->
 
-<ol>
-    <li>
-        <h3>Get your organization's credentials</h3>
-        <p>BCDA protects its token endpoint with Basic Auth. Your credentials will be formatted as a client ID and client secret.</p>
-        <ul>
-            <li>If you’re trying to access the <strong>sandbox environment:</strong> Use the sample client IDs and secrets provided in the <a href="{{ '/production-access' | relative_url }}">sandbox credentials section.</a></li>
-            <li>If you’re trying to access the <strong>production environment:</strong> Use the client ID and secret issued by your model-specific system during onboarding.</li>
-        </ul>
-    </li>
-    <li>
-        <h3>Request a bearer token</h3>
-        <p>Start a request for a bearer token in your terminal window or using a tool such as Postman. For the examples below, you may use the credentials for the extra-small model entity in BCDA's sandbox environment:</p>
-        <h4>Sample Credentials</h4>
-        {% include copy_snippet.html code=Snippet1 language="yaml" %}
-        <h4>Request to retrieve a token</h4>
-        {% include copy_snippet.html code=Snippet2 language="yaml" %}
-        <h4>Request header</h4>
-        <p>The header contains “Authorization: Basic” followed by your credentials. The credentials (clientID:secret) must be joined by a colon, then encoded in Base64 format.</p>
-        {% include copy_snippet.html code=Snippet3 language="yaml" %}
-        <h4>Example curl command to request a bearer token</h4>
-        <p>In this example, the authorization in the request header is replaced with `--user {client ID}:{client secret}`. This command uses curl’s built-in ability to Base-64 encode your credentials, request, and receive your token in a single step.</p>
-        {% include copy_snippet.html code=Snippet4 language="yaml" %}
-        <div class="usa-alert usa-alert--info">
-            <div class="usa-alert__body">
-                <h4 class="usa-alert__heading">Remember to use the correct URL for your environment</h4>
-                <p class="usa-alert__text">
-                    Requests to get a bearer token contain a URL. Use <code>sandbox.bcda.cms.gov</code> to access the sandbox or <code>api.bcda.cms.gov</code> to access the production environment.
-                </p>
-            </div>
-        </div>
-        <h4>Response example: successful request</h4>
-        <p>If your request succeeds, you’ll receive a 200 response with your bearer token in the response body. It’ll be the full text string that follows “access_token.” The token string below has been abbreviated for readability.</p>
-        <p>“Expires_in” counts down the seconds remaining before the token expires, which is 20 minutes after it is generated. “Token_type: Bearer” is a fixed value.</p>
-        {% include copy_snippet.html code=Snippet5 language="yaml" %}
-    </li>
-    <li>
-        <h3>Set your bearer token in your request headers</h3>
-        <p>You must include your bearer token in the authorization header when requesting data from /Group, /Patient, and other endpoints in the sandbox or production environment. “Bearer” must be included in the header with a capital B and followed by a space.</p>
-        {% include copy_snippet.html code=Snippet6 language="yaml" %}
-    </li>
-</ol>
+
+### 1. Get your organization's credentials
+
+BCDA protects its token endpoint with Basic Auth. Your credentials will be formatted as a client ID and client secret.
+- If you’re trying to access the **sandbox environment:** Use the sample client IDs and secrets provided in the [sandbox credentials section]({{ '/production-access' | relative_url }}).
+- If you’re trying to access the **production environment:** Use the client ID and secret issued by your model-specific system during onboarding.
+
+### 2. Request a bearer token
+
+Start a request for a bearer token in your terminal window or using a tool such as Postman. For the examples below, you may use the credentials for the extra-small model entity in BCDA's sandbox environment:
+
+#### Sample Credentials
+
+{% include copy_snippet.html code=Snippet1 language="yaml" %}
+
+#### Request to retrieve a token
+
+{% include copy_snippet.html code=Snippet2 language="yaml" %}
+
+#### Request header
+
+The header contains “Authorization: Basic” followed by your credentials. The credentials (clientID:secret) must be joined by a colon, then encoded in Base64 format.
+
+{% include copy_snippet.html code=Snippet3 language="yaml" %}
+
+#### Example curl command to request a bearer token
+
+In this example, the authorization in the request header is replaced with `--user {client ID}:{client secret}`. This command uses curl’s built-in ability to Base-64 encode your credentials, request, and receive your token in a single step.
+
+{% include copy_snippet.html code=Snippet4 language="yaml" %}
+
+<div class="usa-alert usa-alert--info">
+    <div class="usa-alert__body">
+        <h4 class="usa-alert__heading">Remember to use the correct URL for your environment</h4>
+        <p class="usa-alert__text">
+            Requests to get a bearer token contain a URL. Use <code>sandbox.bcda.cms.gov</code> to access the sandbox or <code>api.bcda.cms.gov</code> to access the production environment.
+        </p>
+    </div>
+</div>
+
+#### Response example: successful request
+
+If your request succeeds, you’ll receive a 200 response with your bearer token in the response body. It’ll be the full text string that follows “access_token.” The token string below has been abbreviated for readability.
+
+“Expires_in” counts down the seconds remaining before the token expires, which is 20 minutes after it is generated. “Token_type: Bearer” is a fixed value.
+
+{% include copy_snippet.html code=Snippet5 language="yaml" %}
+
+### 3. Set your bearer token in your request headers
+
+You must include your bearer token in the authorization header when requesting data from /Group, /Patient, and other endpoints in the sandbox or production environment. “Bearer” must be included in the header with a capital B and followed by a space.
+
+{% include copy_snippet.html code=Snippet6 language="yaml" %}
 
 ## Guides
 
