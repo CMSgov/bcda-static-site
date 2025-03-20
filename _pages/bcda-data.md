@@ -90,18 +90,6 @@ The Data Dictionary maps the different data fields and locations between BCDA an
   </div>
 </div>
 
-## Resource types
-
-Claims data is organized by resource type, which can be requested by the /Patient and /Group [endpoints]({{ '/placeholder' | relative_url }}). 
-
-- [Explanation of Benefit (EOB)](https://hl7.org/fhir/R4/explanationofbenefit.html) (similar to CCLF files 1-7): details from each episode of care, including where and when the service was performed, diagnosis codes, healthcare provider, and cost of care 
-- [Patient](https://hl7.org/fhir/R4/patient.html) (similar to CCLF files 8 and 9): enrollees' demographic details and updates to their patient identifiers
-- [Coverage](https://hl7.org/fhir/R4/coverage.html): enrollees' insurance coverage details, including dual coverage
-- [Claim](https://hl7.org/fhir/R4/claim.html) (partially adjudicated claims only): financial and clinical details on professional and institutional claims. This is typically used for treatment payment planning and reimbursement by benefit payors, insurers, and national health programs.
-- [ClaimResponse](https://hl7.org/fhir/R4/claimresponse.html) (partially adjudicated claims only): details about the adjudication status and processing results for a claim, predetermination, or preauthorization.
-
-BCDA V2 has [minor changes]({{ '/placeholder' | relative_url }}) in specification and resource types from V1. 
-
 ## Sample Files
 
 Download sample data files, which have similar content and structure to production data. [Try the sandbox environment]({{ 'placeholder' | relative_url }}) to access test data from the API.
@@ -118,5 +106,57 @@ Download sample data files, which have similar content and structure to producti
         <li><a href="{{ 'placeholder' | relative_url }}">Claim (partially adjudicated claims data){% include sprite.html icon="file_download" class="text-middle"%}</a></li>
         <li><a href="{{ 'placeholder' | relative_url }}">ClaimResponse (partially adjudicated claims data){% include sprite.html icon="file_download" class="text-middle"%}</a></li>
     </ul>
+  </div>
+</div>
+
+## Resource types
+
+Claims data is organized by resource type, which can be requested by the /Patient and /Group [endpoints]({{ '/placeholder' | relative_url }}). 
+
+<dl>
+  <dt class="font-sans-md text-bold">
+    <a href="https://hl7.org/fhir/R4/explanationofbenefit.html">Explanation of Benefit (EOB)</a>
+  </dt>
+  <dd class="margin-left-0 margin-bottom-4">
+    <p>(Similar to CCLF files 1-7) – details from each episode of care, including where and when the service was performed, diagnosis codes, healthcare provider, and cost of care</p>
+  </dd>
+  
+  <dt class="font-sans-md text-bold">
+    <a href="https://hl7.org/fhir/R4/patient.html">Patient</a>
+  </dt>
+  <dd class="margin-left-0 margin-bottom-4">
+    <p>(Similar to CCLF files 8 and 9) – enrollees' demographic details and updates to their patient identifiers</p>
+  </dd>
+
+  <dt class="font-sans-md text-bold">
+    <a href="https://hl7.org/fhir/R4/coverage.html">Coverage</a>
+  </dt>
+  <dd class="margin-left-0 margin-bottom-4">
+    <p>Enrollees' insurance coverage details, including dual coverage</p>
+  </dd>
+
+  <dt class="font-sans-md text-bold">
+    <a href="https://hl7.org/fhir/R4/claim.html">Claim</a>
+  </dt>
+  <dd class="margin-left-0 margin-bottom-4">
+    <p>(Partially adjudicated claims only) – financial and clinical details on professional and institutional claims. This is typically used for treatment payment planning and reimbursement by benefit payors, insurers, and national health programs</p>
+  </dd>
+
+   <dt class="font-sans-md text-bold">
+    <a href="https://hl7.org/fhir/R4/claimresponse.html">ClaimResponse</a>
+  </dt>
+  <dd class="margin-left-0 margin-bottom-4">
+    <p>(Partially adjudicated claims only) –  details about the adjudication status and processing results for a claim, predetermination, or preauthorization</p>
+  </dd>
+</dl>
+
+BCDA V2 has [minor changes]({{ '/placeholder' | relative_url }}) in specification and resource types from V1. 
+
+<div class="usa-alert usa-alert--info">
+  <div class="usa-alert__body">
+    <h4 class="usa-alert__heading">Confidentiality and medical data sharing</h4>
+    <p class="usa-alert__text">
+      In accordance with applicable law, including HIPAA and 42 CFR Part 2, substance use disorder records are confidential. BCDA also does not share data on enrollees who have opted out of data sharing.
+    </p>
   </div>
 </div>
