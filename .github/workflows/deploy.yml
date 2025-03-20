@@ -1,6 +1,8 @@
 name: 'Deploy Static Site'
 
 on:
+  push:
+    branches: [carl/BCDA-8862-fix-deploy-issues]
   workflow_dispatch:
     inputs:
       target_environment:
@@ -34,26 +36,42 @@ jobs:
     name: Deploy Static Site
     runs-on: self-hosted
     env:
-      TARGET_BUCKET: ${{ inputs.target_environment == 'prod' && 'bcda.cms.gov' || 'stage.bcda.cms.gov' }}
+      # TARGET_BUCKET: ${{ inputs.target_environment == 'prod' && 'bcda.cms.gov' || 'stage.bcda.cms.gov' }}
+      TARGET_BUCKET: 'stage.bcda.cms.gov'
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v4
         with:
           repository: 'CMSgov/bcda-static-site'
-          ref: ${{ inputs.static_repo_ref }}
+          # ref: ${{ inputs.static_repo_ref }}
+          ref: carl/BCDA-8862-fix-deploy-issues
       - name: "Set Version"
         env:
-          STATIC_REPO_REF: ${{ inputs.static_repo_ref }}
+          # STATIC_REPO_REF: ${{ inputs.static_repo_ref }}
+          STATIC_REPO_REF: carl/BCDA-8862-fix-deploy-issues
         run: |
           echo "version: $STATIC_REPO_REF" >> _version_config.yml
       - name: "Add dirs"
-        run: mkdir -p _site && mkdir -p .jekyll-cache
+        run: |
+          pwd
+          ls -als
+          mkdir -p _site && mkdir -p .jekyll-cache
+          ls -als
+          chmod 755 _site
+          chmod 755 .jekyll-cache
+          ls -als
       - name: 'Build Image'
         run: docker build . -f Dockerfiles/Dockerfile.static_site -t static_site
       - name: 'Build Site'
         env:
-          JEKYLL_ENV: ${{ inputs.target_environment == 'prod' && 'prod' || 'dev' }}
-        run: docker run -e JEKYLL_ENV=$JEKYLL_ENV -v ./_site:/bcda-site-static/_site -v ./.jekyll-cache:/bcda-site-static/.jekyll-cache --rm static_site
+          # JEKYLL_ENV: ${{ inputs.target_environment == 'prod' && 'prod' || 'dev' }}
+          JEKYLL_ENV: dev
+        run: |
+          pwd
+          ls -als
+          ls -als ./.jekyll-cache
+          ls -als ./_site
+          docker run -e JEKYLL_ENV=$JEKYLL_ENV -v ./_site:/bcda-site-static/_site -v ./.jekyll-cache:/bcda-site-static/.jekyll-cache --rm static_site
       - name: Set env vars from AWS params
         uses: cmsgov/ab2d-bcda-dpc-platform/actions/aws-params-env-action@main
         env:
@@ -63,7 +81,7 @@ jobs:
             SONAR_HOST_URL=/sonarqube/url
             SONAR_TOKEN=/sonarqube/token
       - name: Run quality gate scan
-        if: ${{ inputs.target_environment == 'stage' }}
+        # if: ${{ inputs.target_environment == 'stage' }}
         uses: sonarsource/sonarqube-scan-action@master
         with:
           args:
@@ -76,7 +94,8 @@ jobs:
       - uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: ${{ vars.AWS_REGION }}
-          role-to-assume: arn:aws:iam::${{ secrets.ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-${{ inputs.target_environment == 'prod' && 'prod' || 'dev' }}-github-actions
+          # role-to-assume: arn:aws:iam::${{ secrets.ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-${{ inputs.target_environment == 'prod' && 'prod' || 'dev' }}-github-actions
+          role-to-assume: arn:aws:iam::${{ secrets.ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-dev-github-actions
       - name: "Sync _site"
         run: aws s3 sync _site/ s3://$TARGET_BUCKET/ --delete
       - name: Invalidate Cloudfront cache
