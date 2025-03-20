@@ -85,7 +85,7 @@ jobs:
       - uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: ${{ vars.AWS_REGION }}
-          role-to-assume: arn:aws:iam::${{ secrets.ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-${{ env.TARGET_ENV }}-github-actions
+          role-to-assume: arn:aws:iam::${{ secrets.ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-${{ env.JEKYLL_ENV }}-github-actions
       - name: Sync _site with s3
         run: aws s3 sync _site/ s3://$TARGET_BUCKET/ --delete
       - name: Invalidate Cloudfront cache
