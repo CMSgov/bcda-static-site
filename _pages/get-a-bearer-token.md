@@ -9,11 +9,7 @@ in-page-nav: true
 
 # {{ page.page_title }}
 
-A bearer token, also known as an access token or JSON web token (JWT), authorizes use of the Beneficiary Claims Data API (BCDA) endpoints. After getting a bearer token, you can [access claims data]({{ '/access-claims-data' | relative_url }}) in the sandbox and production environments.
-
-The sandbox environment (sandbox.bcda.cms.gov) can be accessed by anyone and contains test data. The production environment (api.bcda.cms.gov) is only available to organizations who have completed [onboarding]({{ '/production-access' | relative_url }}) and contains actual Medicare claims data. 
-
-Whether you’re trying to access the sandbox or production environment, follow the instructions below to first obtain a bearer token. The steps are nearly identical for both environments, with minor differences in the source of your credentials and URL.  
+Bearer tokens, also known as access tokens or JSON web tokens, authorize use of the Beneficiary Claims Data API (BCDA) endpoints. You will need a bearer token to [access claims data]({{ '/access-claims-data' | relative_url }}) in the sandbox and production environments.
 
 ## Instructions
 
@@ -59,14 +55,14 @@ Authorization: Bearer {bearer_token}
 ### 1. Get your organization's credentials
 
 BCDA protects its token endpoint with Basic Auth. Your credentials will be formatted as a client ID and client secret.
-- If you’re trying to access the **sandbox environment:** Use the sample client IDs and secrets provided in the [sandbox credentials section]({{ '/production-access' | relative_url }}).
-- If you’re trying to access the **production environment:** Use the client ID and secret issued by your model-specific system during onboarding.
+- If you’re trying to access the **sandbox environment:** Use a sample client ID and secret from the [sandbox credentials section]({{ '/get-a-bearer-token' | relative_url }}#sandbox-credentials).
+- If you’re trying to access the **production environment:** Use the client ID and secret issued by your model-specific system during [production access]({{ '/production-access' | relative_url }}).
 
 ### 2. Request a bearer token
 
-Start a request for a bearer token in your terminal window or using a tool such as Postman. For the examples below, you may use the credentials for the extra-small model entity in BCDA's sandbox environment:
+Start a request in your terminal window or using a tool like Postman. The examples below use sandbox credentials for the extra-small model entity:
 
-#### Sample Credentials
+#### Sample credentials
 
 {% include copy_snippet.html code=Snippet1 language="yaml" %}
 
@@ -76,28 +72,30 @@ Start a request for a bearer token in your terminal window or using a tool such 
 
 #### Request header
 
-The header contains “Authorization: Basic” followed by your credentials. The credentials (clientID:secret) must be joined by a colon, then encoded in Base64 format.
+The header has “Authorization: Basic” followed by the credentials. Credentials (clientID:secret) are joined by a colon, then encoded in Base64 format.
 
 {% include copy_snippet.html code=Snippet3 language="yaml" %}
 
 #### Example curl command to request a bearer token
 
-In this example, the authorization in the request header is replaced with `--user {client ID}:{client secret}`. This command uses curl’s built-in ability to Base-64 encode your credentials, request, and receive your token in a single step.
+In this example, the authorization in the request header is replaced with `--user {client ID}:{client secret}` 
 
-{% include copy_snippet.html code=Snippet4 language="yaml" %}
+This command uses curl’s built-in ability to Base-64 encode your credentials, request, and receive your token in a single step.
+
+{% include copy_snippet.html code=Snippet4 language="yaml" can_copy=true %}
 
 <div class="usa-alert usa-alert--info">
     <div class="usa-alert__body">
         <h4 class="usa-alert__heading">Remember to use the correct URL for your environment</h4>
         <p class="usa-alert__text">
-            Requests to get a bearer token contain a URL. Use <code>sandbox.bcda.cms.gov</code> to access the sandbox or <code>api.bcda.cms.gov</code> to access the production environment.
+            Use sandbox.bcda.cms.gov to access the sandbox or api.bcda.cms.gov to access the production environment.
         </p>
     </div>
 </div>
 
 #### Response example: successful request
 
-If your request succeeds, you’ll receive a 200 response with your bearer token in the response body. It’ll be the full text string that follows “access_token.” The token string below has been abbreviated for readability.
+If your request succeeds, you’ll receive a 200 response with your bearer token in the response body. It’ll be the full text string that follows “access_token”. The token string below has been abbreviated for readability.
 
 “Expires_in” counts down the seconds remaining before the token expires, which is 20 minutes after it is generated. “Token_type: Bearer” is a fixed value.
 
@@ -105,22 +103,22 @@ If your request succeeds, you’ll receive a 200 response with your bearer token
 
 ### 3. Set your bearer token in your request headers
 
-You must include your bearer token in the authorization header when requesting data from /Group, /Patient, and other endpoints in the sandbox or production environment. “Bearer” must be included in the header with a capital B and followed by a space.
+Include your bearer token in the authorization header when requesting data in the sandbox and production environments. “Bearer” must be included in the header with a capital B and followed by a space.
 
 {% include copy_snippet.html code=Snippet6 language="yaml" %}
 
 ## Guides
 
-Once you have a bearer token, learn [how to access claims data]({{ '/placeholder' | relative_url }}). This documentation can be used for both the sandbox and production environments, which are nearly identical. The biggest differences, as noted above, are the credentials you use and the URL in your requests. 
+Once you have a bearer token, begin [accessing claims data]({{ '/access-claims-data' | relative_url }}). The production and sandbox environments use the same workflow, endpoints, and resource types.  
 
 ## Sandbox credentials
 
-Sandbox credentials allow anyone to access synthetic claims data. BCDA has provided credentials for sample model entities which differ in the size of their data sets, ranging from 50 to 30,000 synthetic enrollees. This allows you to retrieve test claims data for whichever number of enrollees best matches the needs of your organization. 
+Sandbox credentials allow anyone to access test claims data. These credentials will not work in the production environment. 
 
-These credentials will not work in the production environment. Remember that when getting a bearer token with sandbox credentials, you’ll need to use the sandbox URL (sandbox.bcda.cms.gov) in your requests. 
+Sample data sets vary in size, ranging from 50 to 30,000 synthetic enrollees, to best match the needs of your model entity.  
 
 ### Adjudicated claims data sets - 5 simple sizes
-Adjudicated claims data is available to all eligible model entities. These 5 data sets are simple approximations of BCDA data. They are designed to test the stress of retrieving and downloading large data files into your internal ingestion processes. However, the data in these API payloads won’t reflect the distribution of disease and demographic information you might expect from production data.
+The data sets are designed to test the stress of retrieving and downloading large data files into your internal ingestion processes. However, the test data may not reflect an accurate distribution of disease and demographic information.
 
 #### Extra-small model entity (50 synthetic enrollees)
 
@@ -156,9 +154,9 @@ f35e507b5a744c311a89f8f1d8743f011daa390b128ce092e221120e88bd53cf22e3af58cd07c618
 
 ### Adjudicated claims data sets – 2 advanced sizes
 
-Advanced data sets offer a more accurate representation of BCDA production data. They follow BCDA’s Bulk FHIR format and contain a more realistic distribution of disease and demographic information. 
+Advanced data sets offer a more accurate representation with the bulk FHIR format and a realistic distribution of disease and demographic information. 
 
-We suggest using the extra-small data set to view and understand the format of BCDA data. The large data set may be better for more in-depth exploration of the data or early load testing of your systems.
+The small data set helps you understand the format of BCDA data. The large data set is better for in-depth exploration or early load testing of your systems.
 
 #### Extra-small model entity (100 synthetic enrollees)
 
@@ -194,7 +192,7 @@ Client secret:
 
 ### Partially adjudicated claims data sets 
 
-Anyone can access [partially adjudicated claims]({{ '/access-claims-data' | relative_url }}) data sets in the sandbox. However, only organizations participating in the Accountable Care Organizations Realizing Equity, Access, and Community Health (ACO REACH) Model can access partially adjudicated claims data in the production environment. 
+Anyone can access [partially adjudicated claims data]({{ '/partially-adjudicated-claims-data' | relative_url }}) in the sandbox. Only REACH ACOs can access enrollees' partially adjudicated claims data during production. 
 
 #### Extra-small REACH ACO (110 synthetic enrollees)
 
