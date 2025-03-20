@@ -54,7 +54,7 @@ REACH ACOs can access claims that aren’t fully processed or approved yet. **Th
   <div class="grid-col-fill tablet:grid-col-9">
     <ul>
         <li>
-            <a href="{{ 'placeholder' | relative_url }}">Guide to Partially Adjudicated Claims Data</a>
+            <a href="{{ 'partially-adjudicated-claims-data' | relative_url }}">Guide to Partially Adjudicated Claims Data</a>
         </li>
         <li>
             <a href="{{ 'placeholder' | relative_url }}" data-tealium="download">Data Dictionary for Partially Adjudicated Claims Data {% include sprite.html icon="file_download" class="text-middle" %}</a>
@@ -65,7 +65,7 @@ REACH ACOs can access claims that aren’t fully processed or approved yet. **Th
 
 ## Data Dictionary 
 
-The Data Dictionary maps the different data fields and locations between BCDA and Claim and Claim Line Feed (CCLF) files. [Explore all differences between the data sources.]({{ '/placeholder' | relative_url }})
+The Data Dictionary maps the different data fields and locations between BCDA and Claim and Claim Line Feed (CCLF) files. [Explore all the differences between the data sources.]({{ '/bcda-cclf-comparison' | relative_url }})
 
 <div class="grid-row grid-gap margin-y-4 flex-align-center">
   <div class="grid-col-2 tablet:grid-col-3 text-center">
@@ -85,7 +85,7 @@ The Data Dictionary maps the different data fields and locations between BCDA an
 <div class="usa-alert usa-alert--info usa-alert--slim">
   <div class="usa-alert__body">
     <p class="usa-alert__text">
-      <strong>Some data fields are not mapped from CCLF to BCDA.</strong> Visit the Notes column in the Data Dictionary for more details.
+      <strong>Some data fields are not mapped between CCLF Files and BCDA</strong> Visit the Notes column in the Data Dictionary for more details.
     </p>
   </div>
 </div>
@@ -111,7 +111,7 @@ Download sample data files, which have similar content and structure to producti
 
 ## Resource types
 
-Claims data is organized by resource type, which can be requested by the /Patient and /Group [endpoints]({{ '/placeholder' | relative_url }}). 
+Claims data is organized by resource types, which are requested at the /Patient and /Group [endpoints]({{ '/api-documentation' | relative_url }}#endpoints). Version 2 has [minor changes]({{ '/placeholder' | relative_url }}) in resource types from V1.
 
 <dl>
   <dt class="font-sans-md text-bold">
@@ -149,8 +149,6 @@ Claims data is organized by resource type, which can be requested by the /Patien
     <p>(Partially adjudicated claims only) –  details about the adjudication status and processing results for a claim, predetermination, or preauthorization</p>
   </dd>
 </dl>
-
-BCDA V2 has [minor changes]({{ '/placeholder' | relative_url }}) in specification and resource types from V1. 
 
 <div class="usa-alert usa-alert--info">
   <div class="usa-alert__body">
