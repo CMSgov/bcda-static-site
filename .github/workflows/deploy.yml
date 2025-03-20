@@ -54,6 +54,7 @@ jobs:
       - name: Add dirs
         run: |
           mkdir -p _site && mkdir -p .jekyll-cache
+          chmod -R 777 _site
           chmod -R 777 .jekyll-cache
       - name: Build Image
         run: docker build . -f Dockerfiles/Dockerfile.static_site -t static_site

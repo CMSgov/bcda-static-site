@@ -3,7 +3,6 @@ FROM jekyll/builder:4.2.0
 ENV BUNDLE_PATH=$GEM_HOME
 WORKDIR /bcda-site-static
 COPY . .
-RUN ["ls", "-als"]
 RUN ["bundle", "install"]
 ENTRYPOINT ["bundle", "exec", "jekyll", "build", "--config", "_config.yml,_version_config.yml"]
 USER 1000:1000
