@@ -80,7 +80,7 @@ jobs:
             -Dsonar.working.directory=./sonar_workspace
             -Dsonar.branch.name=${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
             -Dsonar.projectVersion=${{ github.ref_name == 'main' && github.sha || 'branch' }}
-            -Dsonar.coverage.exclusions=./ops/*
+            -Dsonar.exclusions=ops/**,scripts/**,node_modules/**
             -Dsonar.qualitygate.wait=true
       - uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -92,3 +92,31 @@ jobs:
         run: |
           DISTRIBUTION_ID=`aws cloudfront list-distributions --query "DistributionList.Items[].{Id:Id, OriginDomainName: Origins.Items[0].DomainName}[?starts_with(OriginDomainName, '$TARGET_BUCKET')].Id" --output text`
           aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*'
+      - uses: slackapi/slack-github-action@v2.0.0
+        name: Slack Success
+        if: ${{ success() }}
+        with:
+          method: chat.postMessage
+          token: ${{ secrets.SLACK_BOT_TOKEN }}
+          # Sends to bcda-deploy
+          payload: |
+            channel: "C03S23MJFJS"
+            attachments:
+              - color: good
+                text: "SUCCESS: Deploy Static Site to ${{ env.TARGET_ENV }}.  <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|${{ github.run_id }}>"
+                mrkdown_in:
+                  - text
+      - uses: slackapi/slack-github-action@v2.0.0
+        name: Slack failure
+        if: ${{ failure() }}
+        with:
+          method: chat.postMessage
+          token: ${{ secrets.SLACK_BOT_TOKEN }}
+          # Sends to bcda-alerts
+          payload: |
+            channel: "C034CFU945C"
+            attachments:
+              - color: danger
+                text: "FAILURE: Deploy Static Site to ${{ env.TARGET_ENV }}.  <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|${{ github.run_id }}>"
+                mrkdown_in:
+                  - text
