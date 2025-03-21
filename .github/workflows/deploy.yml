@@ -2,7 +2,7 @@ name: 'Deploy Static Site'
 
 on:
   push:
-    branches: [carl/BCDA-8862-fix-sonarqube-issues, main] # autodeploy on push to main
+    branches: [main] # autodeploy on push to main
   workflow_dispatch:
     inputs:
       target_environment:
