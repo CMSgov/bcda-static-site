@@ -2,7 +2,7 @@ name: 'Deploy Static Site'
 
 on:
   push:
-    branches: [main] # autodeploy on push to main
+    branches: [carl/BCDA-8862-fix-sonarqube-issues, main] # autodeploy on push to main
   workflow_dispatch:
     inputs:
       target_environment:
@@ -80,7 +80,7 @@ jobs:
             -Dsonar.working.directory=./sonar_workspace
             -Dsonar.branch.name=${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
             -Dsonar.projectVersion=${{ github.ref_name == 'main' && github.sha || 'branch' }}
-            -Dsonar.coverage.exclusions=./ops/*
+            -Dsonar.coverage.exclusions=ops/**,scripts/**,node_modules/**
             -Dsonar.qualitygate.wait=true
       - uses: aws-actions/configure-aws-credentials@v4
         with:
