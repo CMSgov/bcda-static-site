@@ -9,7 +9,7 @@ in-page-nav: true
 
 # {{ page.page_title }}
 
-Beneficiary Claims Data API (BCDA) uses [Fast Healthcare Interoperability Resources (FHIR)](https://hl7.org/fhir/R4/overview.html)to share Medicare Parts A, B, and D claims data. You can use a variety of tools or client software programs, like curl, to access the sandbox and production environments.
+Beneficiary Claims Data API (BCDA) uses [Fast Healthcare Interoperability Resources (FHIR)](https://hl7.org/fhir/R4/overview.html) to share claims data. You can use a variety of tools or client software programs to access the sandbox and production environments.
 
 ## Getting started
 
@@ -36,7 +36,7 @@ Beneficiary Claims Data API (BCDA) uses [Fast Healthcare Interoperability Resour
 
 ## Endpoints
 
-Endpoints let you request [resource types]({{ '/placeholder' | relative_url }}), which store claims data for enrollees attributed to your model entity. These requests do not include access to individual patient data. [Read more about FHIR resource types](https://placeholder.html).
+Endpoints let you request [resource types]({{ '/bcda-data' | relative_url }}#resource-types), which store claims data for enrollees attributed to your model entity. These requests do not include access to individual patient data. [Read more about FHIR resource types](https://build.fhir.org/resourcelist.html).
 
 ### [/Metadata](https://hl7.org/fhir/R4/capabilitystatement.html)
 
@@ -48,29 +48,33 @@ Request the ExplanationOfBenefit, Patient, and Coverage resource types. For part
 - /Group/all: returns data for all Medicare enrollees currently attributed to your model entity
 - /Group/runout: returns data for Medicare enrollees attributed to your model entity during the previous year, but not the current year. The data will have a service date no later than December 31 of the previous year.
 
-You can use the [_since parameter]({{ '/api-documentation/parameters' | relative_url }}) with the /Group endpoint. If you don’t apply any parameters, BCDA will return data as early as 2014.
+You can use the [_since parameter]({{ '/api-documentation/parameters' | relative_url }}) with /Group. If you don’t apply any parameters, BCDA will return data as early as 2014.
 
 ### [/Patient](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---all-patients)
 
-Similar to /Group, use /Patient to request ExplanationOfBenefit, Patient, Coverage, Claim, and ClaimResponse. If you don’t apply any parameters, BCDA will return data as early as 2014.
+Similar to /Group, use /Patient to request ExplanationOfBenefit, Patient, Coverage, Claim, and ClaimResponse. You can use the _since parameter with /Patient. If you don’t apply the _since parameter, BCDA will return data as early as 2014.
 
 ### /Jobs
 
-Request information about previous job requests, including the job ID, creation time, completion time, and original job request. If you can’t remember the job ID after starting a job, you can use this endpoint to retrieve the ID rather than restarting a new job. Each entry in the resource is in the [FHIR Task](https://www.hl7.org/fhir/task.html) format.
+Request information about previous job requests, including the job ID, creation time, completion time, and original job request. 
+
+If you can’t remember the job ID after starting a job, use this endpoint to retrieve the ID. Each entry in the resource is in the [FHIR Task](https://www.hl7.org/fhir/task.html) format.
 
 ### /Attribution_Status
 
-Request a datetime and timestamp for when your enrollee list or runout files were last updated. You can retrieve historical claims data for newly attributed enrollees once attribution data is updated, which is once per month. When this happens, it can be useful to run a query for all their historic claims data (i.e., without using the _since parameter) to get a full picture of their health histories. 
+Request a datetime and timestamp for when your enrollee list or runout files were last updated, which is once per month. 
+
+It can be useful to retrieve all claims data for newly attributed enrollees to get a full picture of their health histories. 
 
 ## Parameters
 
-Use parameters when running job requests to filter or specify the resources returned. 
+Use parameters during job requests to filter or specify the resources returned. 
 
-- **The _type parameter:** Limit your request to specific resource types. Instead of receiving data from all of the available resource types, you can specify 1 or more. 
+- **The _type parameter:** Limit your request to specific resource types. Instead of receiving data from all available resource types, specify 1 or more. 
 
-- **The _since parameter:** Apply a date boundary to your requests. Instead of receiving the full record of historical data, filter for resources last updated after a specified date. Review the differences between /Patient and /Group when using _since.
+- **The _since parameter:** Apply a date boundary to your requests. Instead of receiving the full record of historical data, filter for resources last updated after a specified date. 
 
-[Explore how to filter claims data.]({{ '/placeholder' | relative_url }})
+[Explore how to filter claims data.]({{ '/filter-claims-data' | relative_url }})
 
 ## Additional resources
 
