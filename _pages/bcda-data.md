@@ -23,19 +23,19 @@ Beneficiary Claims Data API (BCDA) updates partially adjudicated claims data dai
     <tr>
       <th scope="row">Medicare Part A claims data</th>
       <td>
-        inpatient hospital stays, care in skilled nursing facilities, and hospice care
+        Inpatient hospital stays, care in skilled nursing facilities, and hospice care
       </td>
     </tr>
     <tr>
       <th scope="row">Medicare Part B claims data</th>
       <td>
-        various doctors' services, outpatient care, preventive services, and durable medical equipment (DME)
+        Various doctors' services, outpatient care, preventive services, and durable medical equipment (DME)
       </td>
     </tr>
     <tr>
       <th scope="row">Medicare Part D claims data</th>
       <td>
-         prescription drugs prescribed by healthcare providers
+         Prescription drugs prescribed by healthcare providers
       </td>
     </tr>
   </tbody>
@@ -105,37 +105,37 @@ Claims data is organized by resource types, which are requested at the /Patient 
 <dl>
   <dt class="font-sans-md text-bold">
     <a href="https://hl7.org/fhir/R4/explanationofbenefit.html" target="blank" rel="noopener noreferrer">Explanation of Benefit (EOB)</a>
-  </dt>
-  <dd class="margin-left-0 margin-bottom-4">
-    <p>(Similar to CCLF files 1-7) – details from each episode of care, including where and when the service was performed, diagnosis codes, healthcare provider, and cost of care</p>
+  </dt> 
+  <dd class="margin-left-0 margin-bottom-4"> 
+    <p> Similar to CCLF files 1-7, EOB stores details for episodes of care, including where and when the service was performed, diagnosis codes, provider, and cost.</p>
   </dd>
   
   <dt class="font-sans-md text-bold">
     <a href="https://hl7.org/fhir/R4/patient.html" target="blank" rel="noopener noreferrer">Patient</a>
   </dt>
   <dd class="margin-left-0 margin-bottom-4">
-    <p>(Similar to CCLF files 8 and 9) – enrollees' demographic details and updates to their patient identifiers</p>
+    <p>Similar to CCLF files 8 and 9, Patient stores enrollees' demographic details and updates to their patient identifiers.</p>
   </dd>
 
   <dt class="font-sans-md text-bold">
     <a href="https://hl7.org/fhir/R4/coverage.html" target="blank" rel="noopener noreferrer">Coverage</a>
   </dt>
   <dd class="margin-left-0 margin-bottom-4">
-    <p>Enrollees' insurance coverage details, including dual coverage</p>
+    <p>Coverage stores enrollees' insurance coverage details, including dual coverage.</p>
   </dd>
 
   <dt class="font-sans-md text-bold">
     <a href="https://hl7.org/fhir/R4/claim.html" target="blank" rel="noopener noreferrer">Claim</a>
   </dt>
   <dd class="margin-left-0 margin-bottom-4">
-    <p>(Partially adjudicated claims only) – financial and clinical details on professional and institutional claims. This is typically used for treatment payment planning and reimbursement by benefit payors, insurers, and national health programs</p>
+    <p>Available for partially adjudicated claims only, Claim stores financial and clinical details on professional and institutional claims. This is typically used for treatment payment planning and reimbursement.</p>
   </dd>
 
    <dt class="font-sans-md text-bold">
     <a href="https://hl7.org/fhir/R4/claimresponse.html">ClaimResponse</a>
   </dt>
   <dd class="margin-left-0 margin-bottom-4">
-    <p>(Partially adjudicated claims only) –  details about the adjudication status and processing results for a claim, predetermination, or preauthorization</p>
+    <p>Available for partially adjudicated claims only, ClaimResponse stores details about the adjudication status and processing results for a claim, predetermination, or preauthorization.</p>
   </dd>
 </dl>
 
