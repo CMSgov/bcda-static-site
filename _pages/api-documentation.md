@@ -48,7 +48,7 @@ Use the [/Group](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---
 - /Group/all: returns data for all Medicare enrollees currently attributed to your model entity
 - /Group/runout: returns data for Medicare enrollees attributed to your model entity during the previous year, but not the current year. The data will have a service date no later than December 31 of the previous year.
 
-Using the [_since parameter]({{ '/filter-claims-data' | relative_url }}) with /Group will return **resources updated after the date provided** for existing enrollees and **all resources** for newly attributed enrollees. 
+Using the [_since parameter]({{ '/filter-claims-data' | relative_url }}) with /Group will return resources updated after the date provided for existing enrollees and all resources for newly attributed enrollees. 
 
 This lets you retrieve all new claims data with a single request. If you don’t apply _since, BCDA will return data as early as 2014.
 
@@ -56,7 +56,7 @@ This lets you retrieve all new claims data with a single request. If you don’t
 
 Similar to /Group/all, use the[/Patient endpoint](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---all-patients) to request data for all Medicare enrollees currently attributed to your model entity. 
 
-The difference is using the _since parameter with /Patient will return resources updated after the date provided for existing **and** newly attributed enrollees. 
+The difference is using the _since parameter with /Patient will return resources updated after the date provided for existing and newly attributed enrollees. 
 
 Newly attributed enrollees are those who’ve been assigned to your model entity since your last attribution date. If you don’t apply _since, BCDA will return data as early as 2014.
 
