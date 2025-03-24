@@ -79,7 +79,7 @@ The Data Dictionary maps the different data fields and locations between BCDA an
   </div>
 </div>
 
-## Sample Files
+## Sample files
 
 Download sample data files, which have similar content and structure to production data. [Try the sandbox environment]({{ 'placeholder' | relative_url }}) to access test data from the API.
 
