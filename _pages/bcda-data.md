@@ -61,9 +61,9 @@ REACH ACOs can access claims that aren’t fully processed or approved yet. **Th
   </div>
 </div>
 
-## Data Dictionary 
+## Data Dictionary
 
-The Data Dictionary maps the different data fields and locations between BCDA and Claim and Claim Line Feed (CCLF) files. [Explore all the differences between the data sources.]({{ '/bcda-cclf-comparison' | relative_url }})
+The Data Dictionary maps the different data fields and locations between BCDA and Claim and Claim Line Feed (CCLF) files. [Explore all the differences between the data sources]({{ '/bcda-cclf-comparison' | relative_url }}).
 
 <div class="grid-row grid-gap margin-y-4 flex-align-center">
   <div class="grid-col-2 tablet:grid-col-3 text-center">
@@ -104,28 +104,28 @@ Claims data is organized by resource types, which are requested at the /Patient 
 
 <dl>
   <dt class="font-sans-md text-bold">
-    <a href="https://hl7.org/fhir/R4/explanationofbenefit.html">Explanation of Benefit (EOB)</a>
+    <a href="https://hl7.org/fhir/R4/explanationofbenefit.html" target="blank" rel="noopener noreferrer">Explanation of Benefit (EOB)</a>
   </dt>
   <dd class="margin-left-0 margin-bottom-4">
     <p>(Similar to CCLF files 1-7) – details from each episode of care, including where and when the service was performed, diagnosis codes, healthcare provider, and cost of care</p>
   </dd>
   
   <dt class="font-sans-md text-bold">
-    <a href="https://hl7.org/fhir/R4/patient.html">Patient</a>
+    <a href="https://hl7.org/fhir/R4/patient.html" target="blank" rel="noopener noreferrer">Patient</a>
   </dt>
   <dd class="margin-left-0 margin-bottom-4">
     <p>(Similar to CCLF files 8 and 9) – enrollees' demographic details and updates to their patient identifiers</p>
   </dd>
 
   <dt class="font-sans-md text-bold">
-    <a href="https://hl7.org/fhir/R4/coverage.html">Coverage</a>
+    <a href="https://hl7.org/fhir/R4/coverage.html" target="blank" rel="noopener noreferrer">Coverage</a>
   </dt>
   <dd class="margin-left-0 margin-bottom-4">
     <p>Enrollees' insurance coverage details, including dual coverage</p>
   </dd>
 
   <dt class="font-sans-md text-bold">
-    <a href="https://hl7.org/fhir/R4/claim.html">Claim</a>
+    <a href="https://hl7.org/fhir/R4/claim.html" target="blank" rel="noopener noreferrer">Claim</a>
   </dt>
   <dd class="margin-left-0 margin-bottom-4">
     <p>(Partially adjudicated claims only) – financial and clinical details on professional and institutional claims. This is typically used for treatment payment planning and reimbursement by benefit payors, insurers, and national health programs</p>
