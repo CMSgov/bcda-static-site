@@ -9,7 +9,7 @@ in-page-nav: true
 
 # {{ page.page_title }}
 
-Beneficiary Claims Data API (BCDA) shares attributed enrollees’ claims data:
+Beneficiary Claims Data API (BCDA) updates partially adjudicated claims data daily and adjudicated claims data weekly. Data includes:
 
 <table class="usa-table usa-table--borderless usa-table--stacked margin-bottom-4">
   <caption class="usa-sr-only">Definitions of Part A, B, and D claims data</caption>
@@ -40,8 +40,6 @@ Beneficiary Claims Data API (BCDA) shares attributed enrollees’ claims data:
     </tr>
   </tbody>
 </table>
-
-BCDA updates partially adjudicated claims data daily and adjudicated claims data weekly. Data is not shared on a patient-by-patient basis. 
 
 ## Partially adjudicated claims data
 
@@ -78,15 +76,6 @@ The Data Dictionary maps the different data fields and locations between BCDA an
         <li>new data field locations</li>
         <li>data types and format</li>
     </ul>
-  </div>
-</div>
-
-<!-- Opting to use html insteal of jekyll component for simplicity -->
-<div class="usa-alert usa-alert--info usa-alert--slim">
-  <div class="usa-alert__body">
-    <p class="usa-alert__text">
-      <strong>Some data fields are not mapped between CCLF Files and BCDA</strong> Visit the Notes column in the Data Dictionary for more details.
-    </p>
   </div>
 </div>
 
