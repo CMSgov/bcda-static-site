@@ -36,23 +36,29 @@ Beneficiary Claims Data API (BCDA) uses [Fast Healthcare Interoperability Resour
 
 ## Endpoints
 
-Endpoints let you request [resource types]({{ '/bcda-data' | relative_url }}#resource-types), which store claims data for enrollees attributed to your model entity. These requests do not include access to individual patient data. [Read more about FHIR resource types](https://build.fhir.org/resourcelist.html).
+Endpoints request data by [resource type]({{ '/bcda-data' | relative_url }}#resource-types). Data will be returned for all enrollees attributed to your organization, but you can not make requests for individual data. 
 
-### [/Metadata](https://hl7.org/fhir/R4/capabilitystatement.html)
+### /Metadata
 
-Request basic API information, like its version and whether it’s currently active. This endpoint does not require authorization. 
+Request the [FHIR CapabilityStatement](https://hl7.org/fhir/R4/capabilitystatement.html) for basic information on the API, like its version and whether it’s currently active. This does not require authorization. 
 
-### [/Group](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---group-of-patients)
-Request the ExplanationOfBenefit, Patient, and Coverage resource types. For partially adjudicated claims, this includes Claim and ClaimResponse. Provide the `all` or `runout` identifier to indicate whose data you’d like returned: 
+### /Group
+Use the [/Group](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---group-of-patients) endpoint to request the ExplanationOfBenefit, Patient, and Coverage resource types. For partially adjudicated claims, this includes Claim and ClaimResponse. Provide the `all` or `runout` identifier to indicate whose data you’d like returned: 
 
 - /Group/all: returns data for all Medicare enrollees currently attributed to your model entity
 - /Group/runout: returns data for Medicare enrollees attributed to your model entity during the previous year, but not the current year. The data will have a service date no later than December 31 of the previous year.
 
-You can use the [_since parameter]({{ '/api-documentation/parameters' | relative_url }}) with /Group. If you don’t apply any parameters, BCDA will return data as early as 2014.
+Using the [_since parameter]({{ '/filter-claims-data' | relative_url }}) with /Group will return **resources updated after the date provided** for existing enrollees and **all resources** for newly attributed enrollees. 
 
-### [/Patient](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---all-patients)
+This lets you retrieve all new claims data with a single request. If you don’t apply _since, BCDA will return data as early as 2014.
 
-Similar to /Group, use /Patient to request ExplanationOfBenefit, Patient, Coverage, Claim, and ClaimResponse. You can use the _since parameter with /Patient. If you don’t apply the _since parameter, BCDA will return data as early as 2014.
+### /Patient
+
+Similar to /Group/all, use the[/Patient endpoint](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---all-patients) to request data for all Medicare enrollees currently attributed to your model entity. 
+
+The difference is using the _since parameter with /Patient will return resources updated after the date provided for existing **and** newly attributed enrollees. 
+
+Newly attributed enrollees are those who’ve been assigned to your model entity since your last attribution date. If you don’t apply _since, BCDA will return data as early as 2014.
 
 ### /Jobs
 
@@ -62,9 +68,9 @@ If you can’t remember the job ID after starting a job, use this endpoint to re
 
 ### /Attribution_Status
 
-Request a datetime and timestamp for when your enrollee list or runout files were last updated, which is once per month. 
+Request a datetime and timestamp for when your enrollee list or runout files were last updated. 
 
-It can be useful to retrieve all claims data for newly attributed enrollees to get a full picture of their health histories. 
+Attribution files are updated once per month. It can be useful to retrieve all claims data for newly attributed enrollees to get a full picture of their health histories. 
 
 ## Parameters
 
