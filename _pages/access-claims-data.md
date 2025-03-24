@@ -9,9 +9,9 @@ in-page-nav: true
 
 # {{ page.page_title }}
 
-Learn how to access claims data for both the sandbox and production environments or request Beneficiary Claims Data API (BCDA) endpoints. 
+Learn how to access claims data for both the sandbox and production environments and use Beneficiary Claims Data API (BCDA) endpoints. 
 
-The sandbox and production environments follow the same instructions for access. Both environments share the same workflow, endpoints, parameters, and resource types. 
+The sandbox and production environments follow similar instructions. They share the same workflow, endpoints, parameters, and resource types. 
 
 <table class="usa-table usa-table--borderless margin-bottom-6">
   <caption class="usa-sr-only">Sandbox and Production environments comparison</caption>
@@ -23,11 +23,11 @@ The sandbox and production environments follow the same instructions for access.
   </thead>
   <tbody>
     <tr>
-      <td>Available to everyone</td>
-      <td>Must have completed the steps for <a href="{{ '/production-access' | relative_url }}">production access</a></td>
+      <td>Available to everyone via test credentials</td>
+      <td>Must <a href="{{ '/production-access' | relative_url }}">complete the steps</a> for production credentials</td>
     </tr>
     <tr>
-      <td>Contains synthetic claims data</td>
+      <td>Contains test claims data</td>
       <td>Contains real Medicare enrollee data</td>
     </tr>
     <tr>
@@ -42,10 +42,7 @@ The sandbox and production environments follow the same instructions for access.
     <div class="usa-alert__body">
         <h4 class="usa-alert__heading">    BCDA recommends using V2 of the API</h4>
         <p class="usa-alert__text">
-            This is the latest API version which follows the <a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener">FHIR R4 specification</a>. Accountable Care Organizations participating in the Realizing Equity, Access, and Community Health (ACO REACH) Model must use V2 to access <a href="{{ '/placeholder' | relative_url }}">partially adjudicated claims data</a>.
-        </p>
-        <p>    
-            <a href="https://github.com/CMSgov/ab2d-pdp-documentation/raw/main/AB2D%20STU3-R4%20Migration%20Guide%20Final.xlsx" target="_blank" rel="noopener">Learn more about migrating from V1 to V2</a>.
+            This is the latest version which follows the <a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener">FHIR R4 specification</a>. REACH ACOs must use V2 for <a href="{{ '/partially-adjudicated-claims-data' | relative_url }}">partially adjudicated claims data</a>.
         </p>
     </div>
 </div>
@@ -54,11 +51,9 @@ The sandbox and production environments follow the same instructions for access.
 
 ### 1. Get a bearer token 
 
-You will need a [bearer token]({{ '/placeholder' | relative_url }}) to call the API. The process requires credentials, which are formatted as a client ID and client secret. If you’re trying to access test claims data, you can use BCDA’s sandbox credentials. If you’re trying to access production claims data, use the credentials issued from your model-specific system during [onboarding]({{ '/placeholder' | relative_url }}). 
+You will need a [bearer token]({{ '/get-a-bearer-token' | relative_url }}) to call the API. The process requires credentials, which are formatted as a client ID and client secret. 
 
 ### 2. Start a job 
-
-Make a GET request to either the /Group or /Patient endpoint to start a data export job. The examples below are curl requests to /Group in V2 of the sandbox environment. You can follow along in your terminal or using a tool such as Postman.
 
 <div class="usa-alert usa-alert--warning usa-alert--no-icon">
     <div class="usa-alert__body">
@@ -67,27 +62,23 @@ Make a GET request to either the /Group or /Patient endpoint to start a data exp
     </div>
 </div>
 
+Make a GET request to the /Group or /Patient endpoint to start a data export job. The examples below are sandbox curl requests to /Group. Follow along in your terminal or using a tool like Postman.
+
 #### Request all resource types 
 
-By default, the GET request returns all available [resource types]({{ '/bcda-data#resource-types' | relative_url }}). For REACH ACOs who want to access [partially adjudicated claims data]({{ '/placeholder' | relative_url }}), this automatically includes the additional resource types Claim and ClaimResponse. 
+By default, the GET request returns all available [resource types]({{ '/bcda-data#resource-types' | relative_url }}). 
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 GET /api/v2/Group/all/$export
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
+{% include copy_snippet.html code=curlSnippet language="shell" %}
 
-You can also use the _type parameter to specify which resource types you’d like returned. [Explore all the parameters and how to use them.]({{ '/placeholder' | relative_url }})
+Use the [_type parameter]({{ '/filter-claims-data' | relative_url }}) to specify which resource types you’d like returned. 
 
 #### Request header
 
 The header must contain your bearer token. You may receive a 401 response if your credentials are invalid or expired. 
-
-<div class="usa-alert usa-alert--warning usa-alert--no-icon">
-    <div class="usa-alert__body">
-        <p class="usa-alert__text">Tokens expire 20 minutes after they are generated. </p>
-    </div>
-</div>
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -95,12 +86,18 @@ Authorization: Bearer {bearer_token}
 Accept: application/fhir+json
 Prefer: respond-async
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
+{% include copy_snippet.html code=curlSnippet language="shell" %}
+
+<div class="usa-alert usa-alert--warning usa-alert--no-icon">
+    <div class="usa-alert__body">
+        <p class="usa-alert__text">Tokens expire 20 minutes after they are generated. </p>
+    </div>
+</div>
 
 #### Example curl commands to start a job 
 
 <ul>
-    <li>This command combines your GET request for resources with the request header.</li>
+    <li>Combine your GET request for resources with the request header.</li>
     <li>The dollar sign ($) before "export" in the URL indicates the endpoint is an <a href="https://hl7.org/fhir/R4/operations.html" target="blank" rel="noopener">operation</a>, rather than a CRUD interaction. </li>
     <li>PowerShell users will need to replace backslash characters (\) with backticks (`) to properly escape the $export operation.</li>
 </ul>
@@ -112,7 +109,7 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export" \
     -H "Prefer: respond-async" \
     -H "Authorization: Bearer {bearer_token}"
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
 {% capture curlSnippet %}{% raw %}
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=ExplanationOfBenefit,Patient" \
@@ -120,7 +117,7 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=Explan
     -H "Prefer: respond-async" \
     -H "Authorization: Bearer {bearer_token}"
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
 {% capture curlSnippet %}{% raw %}
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=Patient" \
@@ -128,11 +125,11 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=Patien
     -H "Prefer: respond-async" \
     -H "Authorization: Bearer {bearer_token}"
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
 #### Response example: successful request
 
-A 202 response with a Content-Location header indicates a successful job request.
+A 202 response with a Content-Location header indicates a successful request.
 
 <!-- Snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -142,7 +139,7 @@ A 202 response with a Content-Location header indicates a successful job request
 
 #### Response header example
 
-You’ll need the URL and job ID in the Content-Location header to check on your job status in step 3. 
+You’ll need the job ID in the Content-Location header to check your job status. 
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -155,7 +152,7 @@ Content-Location: https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}
 A 429 response indicates “Too Many Requests.” This can occur due to 2 reasons:
 
 1. Making too many HTTP requests within a period of time
-2. Trying to recreate jobs already marked as "In-Progress.” For reference, you can view both existing and past jobs using the [/Jobs endpoint]({{ '/access-claims-data#request-jobs-history' | relative_url }}). 
+2. Trying to recreate jobs already marked as "In-Progress.” For reference, you can view both existing and past jobs using the [/Jobs endpoint]({{ '/access-claims-data' | relative_url }}#request-job-history). 
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -173,7 +170,7 @@ Retry-After: <delay-seconds>
 
 ### 3. Check job status
 
-Make a GET request to check the status of the job. You’ll need the URL found in the Content-Location header from step 2. You may need another bearer token if it’s been more than 20 minutes since it was last generated.
+Make a GET request to check the status using the job ID from step 2. You may need another bearer token if it’s been over 20 minutes since it was generated.
 
 #### Request to check the job status
 
@@ -181,7 +178,7 @@ Make a GET request to check the status of the job. You’ll need the URL found i
 {% capture curlSnippet %}{% raw %}
 GET https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
+{% include copy_snippet.html code=curlSnippet language="shell" %}
 
 #### Request header
 
@@ -190,7 +187,7 @@ GET https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}
 Authorization: Bearer {bearer_token}
 Accept: application/fhir+json
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
+{% include copy_snippet.html code=curlSnippet language="shell" %}
 
 #### curl command to check the job status
 
@@ -204,7 +201,7 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}" \
 
 #### Response example: incomplete job
 
-A 202 response indicates your job is still processing. The status will change to 200 OK when the export is complete and the data is ready to be downloaded.
+A 202 response indicates your job is still processing. The status will change to 200 OK when the export is complete and the data is ready for download.
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -263,7 +260,9 @@ There is a separate URL for each resource type requested. The example below requ
 
 ### 4. Download the data
 
-Make a GET request to download your data using the URL(s) from the completed response in step 3. If you're downloading from more than 1 URL, make multiple download requests concurrently to save time. Large files may take significantly longer to download. 
+Make a GET request to download your data using the URL(s) from step 3. 
+
+If you're downloading from more than 1 URL, make multiple download requests concurrently to save time. Large files may take significantly longer to download. 
 
 #### Request to download the data
 
@@ -271,20 +270,20 @@ Make a GET request to download your data using the URL(s) from the completed res
 {% capture curlSnippet %}{% raw %}
 GET https://sandbox.bcda.cms.gov/data/{job_id}/{file_name}
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
+{% include copy_snippet.html code=curlSnippet language="shell" %}
 
 #### Request header
 
-Requesting compressed data can help increase your download speed. You can request compressed data files by specifying the optional `Accept-Encoding: gzip` header in your download requests. Afterward, decompress (unzip) the files into NDJSON format. 
+Request compressed data files with the optional `Accept-Encoding: gzip` header in your requests for faster download times. Afterward, decompress (unzip) the files into NDJSON format. 
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 Authorization: Bearer {bearer_token}
 Accept-Encoding: gzip
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
+{% include copy_snippet.html code=curlSnippet language="shell" %}
 
-curl command to download the data
+#### curl command to download the data
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -298,7 +297,7 @@ If some of the data can’t be exported due to errors, details can be found at t
 
 #### Response example
 
-You’ll receive the requested data as FHIR resources in NDJSON format. Each resource will appear as a separate, labeled file. 
+By default, you’ll receive the requested data as FHIR resources in NDJSON format. Each resource will appear as a separate, labeled file. 
 
 1. [Explanation of Benefit](https://bcda.cms.gov/assets/data/ExplanationOfBenefit.ndjson)
 2. [Patient](https://bcda.cms.gov/assets/data/Patient.ndjson)
@@ -308,7 +307,7 @@ You’ll receive the requested data as FHIR resources in NDJSON format. Each res
 
 ### Cancel a job
 
-Send a request to cancel any active job, for example, if it has been taking too long to complete. If the request is successful, the active job will be terminated and a 202 response will be returned.
+Cancel any active job. If the request is successful, you'll receive a 202 response.
 
 #### Request to cancel a job
  
@@ -316,7 +315,7 @@ Send a request to cancel any active job, for example, if it has been taking too 
 {% capture curlSnippet %}{% raw %}
 DELETE /api/v2/jobs/{job_id}
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
+{% include copy_snippet.html code=curlSnippet language="shell" %}
 
 #### Request header
 
@@ -324,7 +323,7 @@ DELETE /api/v2/jobs/{job_id}
 {% capture curlSnippet %}{% raw %}
 Authorization: Bearer {bearer_token}
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
+{% include copy_snippet.html code=curlSnippet language="shell" %}
 
 #### curl command to cancel a job
 
@@ -339,21 +338,21 @@ curl -X DELETE "https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}" \
 
 ### Request job history
 
-Send a request to retrieve details on your organization’s historical requests, including the job’s start datetime, end datetime, unique identifier, original valueString request, and status. 
+Retrieve details on your organization’s historical requests, including the start and end datetime, unique ID, original valueString request, and status. 
 
-#### Request to retrieve data on job history
+#### Request to retrieve all past jobs
 
-This is an unfiltered request for all past jobs. If your organization has no jobs to return, you’ll receive a 404 ERROR response.
+If your organization has no jobs to return, you’ll receive a 404 ERROR response.
 
  <!-- snippet -->
  {% capture curlSnippet %}{% raw %}
 GET /api/v2/jobs
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
+{% include copy_snippet.html code=curlSnippet language="shell" %}
 
 #### Request that filters jobs by end state
 
-You can supply the _status parameter to filter for jobs with a specific end state. BCDA jobs have 9 possible end states: Completed, Archived, Expired, Failed, FailedExpired, In Progress, Pending, Cancelled, and CancelledExpired. 
+Supply the _status parameter to filter for jobs with a specific end state. BCDA jobs have 9 possible end states: Completed, Archived, Expired, Failed, FailedExpired, In Progress, Pending, Cancelled, and CancelledExpired. 
 
 However, the _status parameter only supports 4 possible values. These are how the job end states map to the supported values you’ll receive in your response:
 
@@ -368,7 +367,7 @@ The example below is a filtered request for all past archived jobs. If any are f
 {% capture curlSnippet %}{% raw %}
 GET /api/v2/Jobs?_status=Archived
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
+{% include copy_snippet.html code=curlSnippet language="shell" %}
 
 #### Request header
 
@@ -378,7 +377,7 @@ Authorization: Bearer {access_token}
 Accept: application/fhir+json
 Prefer: respond-async
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
+{% include copy_snippet.html code=curlSnippet language="shell" %}
 
 #### curl command to check the job status
 
@@ -393,9 +392,9 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/jobs" \
 
 #### Response example: completed job
 
-The response will contain a bundle of resources for each historical job requested by your organization. Each resource section in the response represents a single past job request.  
+The response will contain a bundle of resources for each historical job. Each resource section in the response represents a single past job request.  
 
-The example below shows 1 historical job with a “Completed” status. Since this is in response to an unfiltered request, the job could either be archived, expired, or completed.
+This example shows 1 historical job with a “Completed” status. Since this was an unfiltered request, the job could either be archived, expired, or completed.
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -437,9 +436,7 @@ The example below shows 1 historical job with a “Completed” status. Since th
 
 ### Request attribution status
 
-Send a request to check your attribution status. You’ll get a timestamp of the last time your attribution data was updated in the BCDA system. By comparing this timestamp to the date of your most recent job, you can determine if your organization has new claims data to download.
-
-If BCDA has never ingested an attribution or runout file for your organization, you’ll receive a 404 NOT FOUND response.
+Check your attribution status for a timestamp of when your attribution data was last updated. By comparing the timestamp to the date of your most recent job, you can determine if your organization has new claims data to download.
 
 #### Request to check when your attribution data was last updated
 
@@ -447,7 +444,7 @@ If BCDA has never ingested an attribution or runout file for your organization, 
 {% capture curlSnippet %}{% raw %}
 GET /api/v2/attribution_status
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
+{% include copy_snippet.html code=curlSnippet language="shell" %}
 
 #### Request header
 
@@ -456,7 +453,7 @@ GET /api/v2/attribution_status
 Authorization: Bearer {access_token}
 Accept: application/json
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
+{% include copy_snippet.html code=curlSnippet language="shell" %}
 
 #### curl command to retrieve the attribution status
 
@@ -469,7 +466,7 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/attribution_status" \
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
 #### Response example
-
+If BCDA has never ingested an attribution or runout file for your organization, you’ll receive a 404 NOT FOUND response.
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 {
@@ -489,7 +486,7 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/attribution_status" \
 
 ### Check API status
 
-You can retrieve metadata to view what release or FHIR version of the API is currently active and check on the current status. A bearer token, and therefore a response header, is not required for this request.
+Retrieve metadata to view the current status and release or FHIR version of the API. A bearer token, and therefore a response header, is not required.
 
 #### Request to check API status
 
@@ -497,7 +494,7 @@ You can retrieve metadata to view what release or FHIR version of the API is cur
 {% capture curlSnippet %}{% raw %}
 GET /api/v2/metadata
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
+{% include copy_snippet.html code=curlSnippet language="shell" %}
 
 #### curl command to check API status
 
