@@ -34,19 +34,19 @@ show-side-nav: false
     <tr>
       <th scope="row">Medicare Part A claims data</th>
       <td>
-        inpatient hospital stays, care in skilled nursing facilities, and hospice care
+        Inpatient hospital stays, care in skilled nursing facilities, and hospice care
       </td>
     </tr>
     <tr>
       <th scope="row">Medicare Part B claims data</th>
       <td>
-        various doctors' services, outpatient care, medical supplies, and preventive services
+        Various doctors' services, outpatient care, medical supplies, and preventive services
       </td>
     </tr>
     <tr>
       <th scope="row">Medicare Part D claims data</th>
       <td>
-        prescription drugs prescribed by healthcare providers          
+        Prescription drugs prescribed by healthcare providers          
       </td>
     </tr>
   </tbody>
@@ -73,7 +73,7 @@ show-side-nav: false
     </li>
       <li class="usa-process-list__item">
         <h4 class="usa-process-list__heading">BCDA shares adjudicated claims data </h4>
-        <p class="usa-intro font-ui-md text-bold text-italic text-base margin-top-1">14 days after submission</p>
+        <p class="usa-intro font-ui-md text-bold text-italic text-base margin-top-1">14 days after submission typically</p>
         <p>
           BCDA updates adjudicated claims data weekly from the <a href="https://www2.ccwdata.org/web/guest/home" target="_blank" rel="noopener noreferrer">Chronic Conditions Data Warehouse (CCW)</a>.
         </p>
