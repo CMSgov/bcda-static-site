@@ -36,14 +36,14 @@ Beneficiary Claims Data API (BCDA) uses [Fast Healthcare Interoperability Resour
 
 ## Endpoints
 
-Endpoints request data by [resource type]({{ '/bcda-data' | relative_url }}#resource-types). Data will be returned for all enrollees attributed to your organization, but you can not make requests for individual data. 
+Endpoints request data by [resource type]({{ '/bcda-data' | relative_url }}#resource-types). Data is returned for enrollees attributed to your organization, but you can't make requests for individual patient data. 
 
 ### /Metadata
 
 Request the [FHIR CapabilityStatement](https://hl7.org/fhir/R4/capabilitystatement.html) for basic information on the API, like its version and whether it’s currently active. This does not require authorization. 
 
 ### /Group
-Use the [/Group](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---group-of-patients) endpoint to request the ExplanationOfBenefit, Patient, and Coverage resource types. For partially adjudicated claims, this includes Claim and ClaimResponse. Provide the `all` or `runout` identifier to indicate whose data you’d like returned: 
+Use the [/Group endpoint](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---group-of-patients) to request the ExplanationOfBenefit, Patient, and Coverage resource types. For partially adjudicated claims, this includes Claim and ClaimResponse. Provide the `all` or `runout` identifier to indicate whose data you’d like returned: 
 
 - /Group/all: returns data for all Medicare enrollees currently attributed to your model entity
 - /Group/runout: returns data for Medicare enrollees attributed to your model entity during the previous year, but not the current year. The data will have a service date no later than December 31 of the previous year.
@@ -54,7 +54,7 @@ This lets you retrieve all new claims data with a single request. If you don’t
 
 ### /Patient
 
-Similar to /Group/all, use the[/Patient endpoint](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---all-patients) to request data for all Medicare enrollees currently attributed to your model entity. 
+Similar to /Group/all, use the [/Patient endpoint](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---all-patients) to request data for all Medicare enrollees currently attributed to your model entity.
 
 The difference is using the _since parameter with /Patient will return resources updated after the date provided for existing and newly attributed enrollees. 
 
@@ -74,7 +74,7 @@ Attribution files are updated once per month. It can be useful to retrieve all c
 
 ## Parameters
 
-Use parameters during job requests to filter or specify the resources returned. 
+Use parameters during job requests to filter or specify the resources returned:
 
 - **The _type parameter:** Limit your request to specific resource types. Instead of receiving data from all available resource types, specify 1 or more. 
 
