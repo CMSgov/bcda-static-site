@@ -64,7 +64,7 @@ Newly attributed enrollees are those who’ve been assigned to your model entity
 
 Request information about previous job requests, including the job ID, creation time, completion time, and original job request. 
 
-If you can’t remember the job ID after starting a job, use this endpoint to retrieve the ID. Each entry in the resource is in the [FHIR Task](https://www.hl7.org/fhir/task.html) format.
+If you can’t remember the job ID after starting a job, use this endpoint to retrieve the ID. Each entry in the resource bundle is in the [FHIR Task](https://www.hl7.org/fhir/task.html) format.
 
 ### /Attribution_Status
 
