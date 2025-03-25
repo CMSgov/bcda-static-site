@@ -104,7 +104,7 @@ Claims data is organized by resource types, which are requested at the /Patient 
 
 <dl>
   <dt class="font-sans-md text-bold">
-    <a href="https://hl7.org/fhir/R4/explanationofbenefit.html" target="blank" rel="noopener noreferrer">Explanation Of Benefit (EOB)</a>
+    <a href="https://hl7.org/fhir/R4/explanationofbenefit.html" target="blank" rel="noopener noreferrer">ExplanationOfBenefit (EOB)</a>
   </dt> 
   <dd class="margin-left-0 margin-bottom-4"> 
     <p> Similar to CCLF files 1-7, EOB stores details for episodes of care, including where and when the service was performed, diagnosis codes, provider, and cost.</p>
