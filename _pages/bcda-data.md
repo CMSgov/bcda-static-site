@@ -41,6 +41,24 @@ Beneficiary Claims Data API (BCDA) updates partially adjudicated claims data dai
   </tbody>
 </table>
 
+## Data Dictionary
+
+The Data Dictionary maps the different data fields and locations between BCDA and Claim and Claim Line Feed (CCLF) files. [Explore all the differences between the data sources]({{ '/bcda-cclf-comparison' | relative_url }}).
+
+<div class="grid-row grid-gap margin-y-4 flex-align-center">
+  <div class="grid-col-2 tablet:grid-col-3 text-center">
+    <img src="{{ '/assets/img/book.svg' | relative_url }}" alt="book illustration">
+  </div>
+  <div class="grid-col-fill tablet:grid-col-9">
+        <p>Download the <a href="{{ 'placeholder' | relative_url }}">BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a> to learn about:</p>
+    <ul>
+        <li>claim field names and descriptions</li>
+        <li>new data field locations</li>
+        <li>data types and format</li>
+    </ul>
+  </div>
+</div>
+
 ## Partially adjudicated claims data
 
 REACH ACOs can access claims that aren’t fully processed or approved yet. **This reduces the time to access Parts A and B claims data to 2-4 days after submission.**
@@ -61,27 +79,9 @@ REACH ACOs can access claims that aren’t fully processed or approved yet. **Th
   </div>
 </div>
 
-## Data Dictionary
-
-The Data Dictionary maps the different data fields and locations between BCDA and Claim and Claim Line Feed (CCLF) files. [Explore all the differences between the data sources]({{ '/bcda-cclf-comparison' | relative_url }}).
-
-<div class="grid-row grid-gap margin-y-4 flex-align-center">
-  <div class="grid-col-2 tablet:grid-col-3 text-center">
-    <img src="{{ '/assets/img/book.svg' | relative_url }}" alt="book illustration">
-  </div>
-  <div class="grid-col-fill tablet:grid-col-9">
-        <p>Download the <a href="{{ 'placeholder' | relative_url }}">BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a> to learn about:</p>
-    <ul>
-        <li>claim field names and descriptions</li>
-        <li>new data field locations</li>
-        <li>data types and format</li>
-    </ul>
-  </div>
-</div>
-
 ## Sample files
 
-Download sample data files, which have similar content and structure to production data. [Try the sandbox environment]({{ 'placeholder' | relative_url }}) to access test data from the API.
+Download sample data files, which share similar content and structure to production data. [Try the sandbox environment]({{ 'placeholder' | relative_url }}) to access test data from the API.
 
 <div class="grid-row grid-gap margin-y-4 flex-align-center">
   <div class="grid-col-2 tablet:grid-col-3 text-center">
@@ -89,7 +89,7 @@ Download sample data files, which have similar content and structure to producti
   </div>
   <div class="grid-col-fill tablet:grid-col-9">
     <ul>
-        <li><a href="{{ 'placeholder' | relative_url }}">ExplanationofBenefit {% include sprite.html icon="file_download" class="text-middle"%}</a></li>
+        <li><a href="{{ 'placeholder' | relative_url }}">ExplanationOfBenefit {% include sprite.html icon="file_download" class="text-middle"%}</a></li>
         <li><a href="{{ 'placeholder' | relative_url }}">Patient{% include sprite.html icon="file_download" class="text-middle"%}</a></li>
         <li><a href="{{ 'placeholder' | relative_url }}">Coverage{% include sprite.html icon="file_download" class="text-middle"%}</a></li>
         <li><a href="{{ 'placeholder' | relative_url }}">Claim (partially adjudicated claims data){% include sprite.html icon="file_download" class="text-middle"%}</a></li>
@@ -104,7 +104,7 @@ Claims data is organized by resource types, which are requested at the /Patient 
 
 <dl>
   <dt class="font-sans-md text-bold">
-    <a href="https://hl7.org/fhir/R4/explanationofbenefit.html" target="blank" rel="noopener noreferrer">Explanation of Benefit (EOB)</a>
+    <a href="https://hl7.org/fhir/R4/explanationofbenefit.html" target="blank" rel="noopener noreferrer">Explanation Of Benefit (EOB)</a>
   </dt> 
   <dd class="margin-left-0 margin-bottom-4"> 
     <p> Similar to CCLF files 1-7, EOB stores details for episodes of care, including where and when the service was performed, diagnosis codes, provider, and cost.</p>
