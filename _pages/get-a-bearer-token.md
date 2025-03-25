@@ -109,7 +109,7 @@ Include your bearer token in the authorization header when requesting data in th
 
 ## Guides
 
-Once you have a bearer token, begin [accessing claims data]({{ '/access-claims-data' | relative_url }}). The production and sandbox environments use the same workflow, endpoints, and resource types.  
+Once you have a bearer token, begin [accessing claims data]({{ '/access-claims-data' | relative_url }}). The production and sandbox environments support the same workflow, endpoints, and resource types.  
 
 ## Sandbox credentials
 
