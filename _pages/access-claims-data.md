@@ -11,7 +11,7 @@ in-page-nav: true
 
 Learn how to access claims data for both the sandbox and production environments and use Beneficiary Claims Data API (BCDA) endpoints. 
 
-The sandbox and production environments follow similar instructions. They share the same workflow, endpoints, parameters, and resource types. 
+The sandbox and production environments follow similar instructions. They support the same workflow, endpoints, parameters, and resource types. 
 
 <table class="usa-table usa-table--borderless margin-bottom-6">
   <caption class="usa-sr-only">Sandbox and Production environments comparison</caption>
@@ -31,8 +31,8 @@ The sandbox and production environments follow similar instructions. They share 
       <td>Contains real Medicare enrollee data</td>
     </tr>
     <tr>
-      <td>sandbox.bcda.cms.gov</td>
-      <td>api.bcda.cms.gov</td>
+      <td>Sandbox.bcda.cms.gov</td>
+      <td>Api.bcda.cms.gov</td>
     </tr>
   </tbody>
 </table>
@@ -299,7 +299,7 @@ If some of the data can’t be exported due to errors, details can be found at t
 
 By default, you’ll receive the requested data as FHIR resources in NDJSON format. Each resource will appear as a separate, labeled file. 
 
-1. [Explanation of Benefit](https://bcda.cms.gov/assets/data/ExplanationOfBenefit.ndjson)
+1. [ExplanationOfBenefit](https://bcda.cms.gov/assets/data/ExplanationOfBenefit.ndjson)
 2. [Patient](https://bcda.cms.gov/assets/data/Patient.ndjson)
 3. [Coverage](https://bcda.cms.gov/assets/data/Coverage.ndjson)
 
@@ -373,7 +373,7 @@ GET /api/v2/Jobs?_status=Archived
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
-Authorization: Bearer {access_token}
+Authorization: Bearer {bearer_token}
 Accept: application/fhir+json
 Prefer: respond-async
 {% endraw %}{% endcapture %}
@@ -386,7 +386,7 @@ Prefer: respond-async
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/jobs" \
     -H "accept: application/fhir+json" \
     -H "Prefer: respond-async" \
-    -H "Authorization: Bearer {access_token}"
+    -H "Authorization: Bearer {bearer_token}"
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
@@ -438,7 +438,7 @@ This example shows 1 historical job with a “Completed” status. Since this wa
 
 Check your attribution status for a timestamp of when your attribution data was last updated. By comparing the timestamp to the date of your most recent job, you can determine if your organization has new claims data to download.
 
-#### Request to check when your attribution data was last updated
+#### Request to check attribution status
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -450,18 +450,18 @@ GET /api/v2/attribution_status
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
-Authorization: Bearer {access_token}
+Authorization: Bearer {bearer_token}
 Accept: application/json
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
-#### curl command to retrieve the attribution status
+#### curl command to check attribution status
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/attribution_status" \
     -H "accept: application/json" \
-    -H "Authorization: Bearer {access_token}"
+    -H "Authorization: Bearer {bearer_token}"
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
