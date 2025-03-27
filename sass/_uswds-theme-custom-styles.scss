@@ -239,7 +239,6 @@ main {
   @include u-padding-right(15);
 }
 
-
 code.language-plaintext.highlighter-rouge, code.inline-code {
   background-color: color('base-lightest');
    padding-top: .125rem;
@@ -261,4 +260,15 @@ body {
 
 a {
   text-underline-offset: 4px;
+}
+
+// external links automatically styled with an icon
+$external-href: '[href^="https"]:not([href*="bcda.cms.gov"]):not([href*="github.com"]):not(.usa-footer a):not(.usa-identifier a)';
+
+#{$external-href} {
+  @include external-link;
+
+  &.usa-button {
+    display: inline-block;
+  }
 }
