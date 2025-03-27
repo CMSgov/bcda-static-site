@@ -81,7 +81,7 @@ REACH ACOs can access claims that aren’t fully processed or approved yet. **Th
 
 ## Sample files
 
-Download sample data files, which have similar content and structure to production data. [Try the sandbox environment]({{ 'placeholder' | relative_url }}) to access test data from the API.
+Download sample data files, which share similar content and structure to production data. [Try the sandbox environment]({{ 'placeholder' | relative_url }}) to access test data from the API.
 
 <div class="grid-row grid-gap margin-y-4 flex-align-center">
   <div class="grid-col-2 tablet:grid-col-3 text-center">
@@ -89,7 +89,7 @@ Download sample data files, which have similar content and structure to producti
   </div>
   <div class="grid-col-fill tablet:grid-col-9">
     <ul>
-        <li><a href="{{ 'placeholder' | relative_url }}">ExplanationofBenefit {% include sprite.html icon="file_download" class="text-middle"%}</a></li>
+        <li><a href="{{ 'placeholder' | relative_url }}">ExplanationOfBenefit {% include sprite.html icon="file_download" class="text-middle"%}</a></li>
         <li><a href="{{ 'placeholder' | relative_url }}">Patient{% include sprite.html icon="file_download" class="text-middle"%}</a></li>
         <li><a href="{{ 'placeholder' | relative_url }}">Coverage{% include sprite.html icon="file_download" class="text-middle"%}</a></li>
         <li><a href="{{ 'placeholder' | relative_url }}">Claim (partially adjudicated claims data){% include sprite.html icon="file_download" class="text-middle"%}</a></li>
@@ -104,38 +104,39 @@ Claims data is organized by resource types, which are requested at the /Patient 
 
 <dl>
   <dt class="font-sans-md text-bold">
-    <a href="https://hl7.org/fhir/R4/explanationofbenefit.html" target="blank" rel="noopener noreferrer">Explanation of Benefit (EOB)</a>
+    ExplanationofBenefit (EOB)
   </dt> 
   <dd class="margin-left-0 margin-bottom-4"> 
-    <p> Similar to CCLF files 1-7, EOB stores details for episodes of care, including where and when the service was performed, diagnosis codes, provider, and cost.</p>
+    <p> Similar to CCLF files 1-7, <a href="https://hl7.org/fhir/R4/explanationofbenefit.html" target="blank" rel="noopener noreferrer">ExplanationofBenefit</a> stores details for episodes of care, including where and when the service was performed, diagnosis codes, provider, and cost of care.</p>
   </dd>
   
   <dt class="font-sans-md text-bold">
-    <a href="https://hl7.org/fhir/R4/patient.html" target="blank" rel="noopener noreferrer">Patient</a>
+  Patient
   </dt>
   <dd class="margin-left-0 margin-bottom-4">
-    <p>Similar to CCLF files 8 and 9, Patient stores enrollees' demographic details and updates to their patient identifiers.</p>
+    <p>Similar to CCLF files 8 and 9, <a href="https://hl7.org/fhir/R4/patient.html" target="blank" rel="noopener noreferrer">Patient</a> stores enrollees' demographic details and updates to their patient identifiers.</p>
   </dd>
 
   <dt class="font-sans-md text-bold">
-    <a href="https://hl7.org/fhir/R4/coverage.html" target="blank" rel="noopener noreferrer">Coverage</a>
+  Coverage
   </dt>
   <dd class="margin-left-0 margin-bottom-4">
-    <p>Coverage stores enrollees' insurance coverage details, including dual coverage.</p>
+    <p><a href="https://hl7.org/fhir/R4/coverage.html" target="blank" rel="noopener noreferrer">Coverage</a> stores enrollees' insurance coverage details, including dual coverage.</p>
   </dd>
 
   <dt class="font-sans-md text-bold">
-    <a href="https://hl7.org/fhir/R4/claim.html" target="blank" rel="noopener noreferrer">Claim</a>
+    Claim
   </dt>
   <dd class="margin-left-0 margin-bottom-4">
-    <p>Available for partially adjudicated claims only, Claim stores financial and clinical details on professional and institutional claims. This is typically used for treatment payment planning and reimbursement.</p>
+    <p>Available for partially adjudicated claims only, <a href="https://hl7.org/fhir/R4/claim.html" target="blank" rel="noopener noreferrer">Claim</a> stores financial and clinical details on professional and institutional claims. This is typically used for treatment payment planning and reimbursement. </p> 
   </dd>
 
    <dt class="font-sans-md text-bold">
-    <a href="https://hl7.org/fhir/R4/claimresponse.html">ClaimResponse</a>
+   ClaimResponse
   </dt>
   <dd class="margin-left-0 margin-bottom-4">
-    <p>Available for partially adjudicated claims only, ClaimResponse stores details about the adjudication status and processing results for a claim, predetermination, or preauthorization.</p>
+    <p>Available for partially adjudicated claims only, <a href="https://hl7.org/fhir/R4/claimresponse.html" target="blank" rel="noopener noreferrer">ClaimResponse</a> stores details about the adjudication status and processing results for a claim, predetermination, or preauthorization.</p>
+    
   </dd>
 </dl>
 
