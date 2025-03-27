@@ -14,29 +14,7 @@
         <button type="button" class="usa-nav__close">
           <img src="{{ '/assets/uswds/img/usa-icons/close.svg' | relative_url }}" role="img" alt="Close" />
         </button>
-
-        <!--About dropdown-->
         <ul class="usa-nav__primary usa-accordion">
-          <li class="usa-nav__primary-item">
-            <button
-              class="usa-accordion__button usa-nav__link {% if page.permalink == '/about' %}{{ 'usa-current' }}{% endif %}"
-              aria-expanded="false"
-              aria-controls="basic-nav-section-one"
-              ><span>About</span>
-            </button>
-            <ul id="basic-nav-section-one" class="usa-nav__submenu">
-              <li class="usa-nav__submenu-item">
-                <a href="{{ '/about' | relative_url }}" data-tealium="navigation">
-                  <span>About BCDA</span>
-                </a>
-              </li>
-              <li class="usa-nav__submenu-item">
-                <a href="{{ '/use-cases' | relative_url }}" data-tealium="navigation">
-                  <span>Use cases</span>
-                </a>
-              </li>
-            </ul>
-          </li>
           {% for item in site.data.nav-primary %}
             <li class="usa-nav__primary-item">
               <a

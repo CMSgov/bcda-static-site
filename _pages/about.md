@@ -54,33 +54,33 @@ show-side-nav: false
 
 ## Claims data process
 
-<ol class="usa-process-list margin-top-2">
-    <li class="usa-process-list__item">
-        <h4 class="usa-process-list__heading">Medicare enrollee receives care</h4>
-    </li>
-    <li class="usa-process-list__item">
-        <h4 class="usa-process-list__heading">Provider submits Medicare claim</h4>
-    </li>
-    <li class="usa-process-list__item">
-        <h4 class="usa-process-list__heading">BCDA shares partially adjudicated claims data </h4>
-        <p class="usa-intro font-ui-md text-bold text-italic text-base margin-top-1">2-4 days after submission</p>
-        <p>
-          Partially adjudicated claims haven’t been fully processed and approved yet. BCDA updates this data daily from the Fiscal Intermediary Standard System (FISS) and Multi-Carrier System (MCS). 
-        </p>
-    </li>
-    <li class="usa-process-list__item">
-        <h4 class="usa-process-list__heading">Medicare approves the claims</h4>
-    </li>
+<div class="about-process-list">
+  <ol class="usa-process-list margin-top-2">
       <li class="usa-process-list__item">
-        <h4 class="usa-process-list__heading">BCDA shares adjudicated claims data </h4>
-        <p class="usa-intro font-ui-md text-bold text-italic text-base margin-top-1">14 days after submission typically</p>
-        <p>
-          BCDA updates adjudicated claims data weekly from the <a href="https://www2.ccwdata.org/web/guest/home" target="_blank" rel="noopener noreferrer">Chronic Conditions Data Warehouse (CCW)</a>.
-        </p>
-    </li>
-    
-</ol>
-
+          <h4 class="usa-process-list__heading">Medicare enrollee receives care</h4>
+      </li>
+      <li class="usa-process-list__item">
+          <h4 class="usa-process-list__heading">Provider submits Medicare claim</h4>
+      </li>
+      <li class="usa-process-list__item">
+          <h4 class="usa-process-list__heading">BCDA shares partially adjudicated claims data </h4>
+          <p class="usa-intro font-ui-md text-bold text-italic text-base margin-top-1">2-4 days after submission</p>
+          <p>
+            Partially adjudicated claims haven’t been fully processed and approved yet. BCDA updates this data daily from the Fiscal Intermediary Standard System (FISS) and Multi-Carrier System (MCS). 
+          </p>
+      </li>
+      <li class="usa-process-list__item">
+          <h4 class="usa-process-list__heading">Medicare approves the claims</h4>
+      </li>
+        <li class="usa-process-list__item">
+          <h4 class="usa-process-list__heading">BCDA shares adjudicated claims data </h4>
+          <p class="usa-intro font-ui-md text-bold text-italic text-base margin-top-1">14 days after submission typically</p>
+          <p>
+            BCDA updates adjudicated claims data weekly from the <a href="https://www2.ccwdata.org/web/guest/home" target="_blank" rel="noopener noreferrer">Chronic Conditions Data Warehouse (CCW)</a>.
+          </p>
+      </li> 
+  </ol>
+</div>
 
 ## What are the other CMS claims-based FHIR APIs?
 
