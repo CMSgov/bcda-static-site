@@ -263,7 +263,7 @@ a {
 }
 
 // external links automatically styled with an icon
-$external-href: '[href^="https"]:not([href*="bcda.cms.gov"]):not([href*="github.com"]):not(.usa-footer a):not(.usa-identifier a)';
+$external-href: '[href^="https"]:not([href*="bcda.cms.gov"]):not([href*="github.com/CMSgov/bcda-app"]):not(.usa-footer a):not(.usa-identifier a)';
 
 #{$external-href} {
   @include external-link;

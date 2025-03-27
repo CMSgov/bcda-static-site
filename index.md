@@ -15,13 +15,13 @@ show-side-nav: false
       </p>
       <div class="grid-row grid-gap margin-top-2">
         <div class="tablet:grid-col-auto margin-top-2">
-          <a href="{{ "/api-documentation" | relative_url }}" class="hero-button usa-button usa-button--inverse usa-button--outline width-full">
+          <a href="{{ '/api-documentation' | relative_url }}" class="hero-button usa-button usa-button--inverse usa-button--outline width-full">
             Get Started
             {% include sprite.html icon="arrow_forward" size="3" %}
           </a>
         </div>
         <div class="tablet:grid-col-auto margin-top-2">
-          <a href="https://github.com/CMSgov/ab2d" target="_blank" rel="noopener" class="hero-button usa-button usa-button--inverse usa-button--outline width-full">
+          <a href="https://github.com/CMSgov/bcda-app" target="_blank" rel="noopener" class="hero-button usa-button usa-button--inverse usa-button--outline width-full">
             Code Repo
             {% include sprite.html icon="github" size="3" %}
           </a>
@@ -69,7 +69,7 @@ show-side-nav: false
               Get claims data faster
             </h3>
             <p>
-              Model entities eligible for <a href="https://bcda.cms.gov/partially-adjuciated-claims-data">partially adjudicated claims data</a> have early access to claims as soon as 2-4 days after Medicare submission.
+              Model entities eligible for <a href="{{ '/placeholder' | relative_url }}">partially adjudicated claims data</a> have early access to claims as soon as 2-4 days after Medicare submission.
             </p>
           </div>
         </div>
@@ -107,7 +107,7 @@ show-side-nav: false
             <li>diagnosis codes</li>
             <li>dates and times of service</li>
           </ul>
-          <p><a href="{{ '/ab2d-data' | relative_url }}" class="usa-button usa-button--unstyled">Learn about the data {% include sprite.html icon="arrow_forward" %}</a></p>
+          <p><a href="{{ '/bcda-data' | relative_url }}" class="usa-button usa-button--unstyled">Learn about the data {% include sprite.html icon="arrow_forward" %}</a></p>
         </div>
       </div>
     </div>
