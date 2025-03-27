@@ -41,6 +41,24 @@ Beneficiary Claims Data API (BCDA) updates partially adjudicated claims data dai
   </tbody>
 </table>
 
+## Data Dictionary
+
+The Data Dictionary maps the different data fields and locations between BCDA and Claim and Claim Line Feed (CCLF) files. [Explore all the differences between the data sources]({{ '/bcda-cclf-comparison' | relative_url }}).
+
+<div class="grid-row grid-gap margin-y-4 flex-align-center">
+  <div class="grid-col-2 tablet:grid-col-3 text-center">
+    <img src="{{ '/assets/img/book.svg' | relative_url }}" alt="book illustration">
+  </div>
+  <div class="grid-col-fill tablet:grid-col-9">
+        <p>Download the <a href="{{ 'placeholder' | relative_url }}">BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a> to learn about:</p>
+    <ul>
+        <li>claim field names and descriptions</li>
+        <li>new data field locations</li>
+        <li>data types and format</li>
+    </ul>
+  </div>
+</div>
+
 ## Partially adjudicated claims data
 
 REACH ACOs can access claims that aren’t fully processed or approved yet. **This reduces the time to access Parts A and B claims data to 2-4 days after submission.**
@@ -57,24 +75,6 @@ REACH ACOs can access claims that aren’t fully processed or approved yet. **Th
         <li>
             <a href="{{ 'placeholder' | relative_url }}" data-tealium="download">Data Dictionary for Partially Adjudicated Claims Data {% include sprite.html icon="file_download" class="text-middle" %}</a>
         </li>
-    </ul>
-  </div>
-</div>
-
-## Data Dictionary
-
-The Data Dictionary maps the different data fields and locations between BCDA and Claim and Claim Line Feed (CCLF) files. [Explore all the differences between the data sources]({{ '/bcda-cclf-comparison' | relative_url }}).
-
-<div class="grid-row grid-gap margin-y-4 flex-align-center">
-  <div class="grid-col-2 tablet:grid-col-3 text-center">
-    <img src="{{ '/assets/img/book.svg' | relative_url }}" alt="book illustration">
-  </div>
-  <div class="grid-col-fill tablet:grid-col-9">
-        <p>Download the <a href="{{ 'placeholder' | relative_url }}">BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a> to learn about:</p>
-    <ul>
-        <li>claim field names and descriptions</li>
-        <li>new data field locations</li>
-        <li>data types and format</li>
     </ul>
   </div>
 </div>
