@@ -120,7 +120,7 @@ BCDA uses the <a href="https://hl7.org/fhir/uv/bulkdata/" target="blank" rel="no
 
 *[Review all unmapped data fields between BCDA and CCLF files {% include sprite.html icon="file_download" class="text-middle" %}]({{ '/assets/downloads/unmapped-fields-between-cclf-and-bcda.xlsx' | relative_url }})
 
-## What’s the difference between CCW and IDR?
+## What are the differences between the data sources?
 
 CCLF files get data from IDR monthly once its financial reports are complete. BCDA gets adjudicated claims data from CCW every weekend and partially adjudicated claims data from FISS and MCS daily. BCDA combines CCW data with IDR’s alignment data (e.g., suppression assumption, data sharing preferences included) to create claims extracts similar to those in CCLF files.
 
@@ -137,4 +137,4 @@ Yes, using both data sources provides many benefits:
 
 - **Ensure data accuracy:** Compare and cross-reference both sources to access a wider variety of historical data and identify any discrepancies. 
 - **Understand utilization patterns, health outcomes, and cost trends:** Combine CCLF files' enrollment data (e.g., start and end dates, coverage type, demographic details) with BCDA data. This can support population health management, risk stratification, and targeted intervention strategies.
-- **Evaluate care coordination and payment processes:** Combine BCDA’s enrollee insurance coverage details with the payment data from CCLF files. This can evaluate the coordination of benefits between Medicare and other insurers, determine primary or secondary payers, and assess the financial impact on all parties.
+- **Evaluate care coordination and payment processes:** Combine BCDA’s insurance coverage details with CCLF Files' payment data. This can evaluate the coordination of benefits between Medicare and other insurers, assess the financial impact on all parties, and identify primary or secondary payers.
