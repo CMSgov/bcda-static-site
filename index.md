@@ -101,7 +101,7 @@ show-side-nav: false
       <div class="tablet:grid-col padding-top-4 tablet:padding-top-0 display-flex flex-align-center">
         <div>
           <h2>Using the data</h2>
-          <p>BCDA is an Application Programming Interface (API) that updates enrollee claims data at least once a week. Data is provided in NDJSON format and includes: :</p>
+          <p>BCDA is an Application Programming Interface (API) that updates enrollee claims data at least once a week. Data is provided in NDJSON format and includes:</p>
           <ul>
             <li>Medicare enrollee identifiers</li>
             <li>diagnosis codes</li>
