@@ -272,7 +272,7 @@ GET https://sandbox.bcda.cms.gov/data/{job_id}/{file_name}
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
-#### Request header
+#### Request header: compressed data files
 
 Request compressed data files with the optional `Accept-Encoding: gzip` header in your requests for faster download times. Afterward, decompress (unzip) the files into NDJSON format. 
 
