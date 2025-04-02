@@ -72,6 +72,7 @@ Using _since with /Patient will return resources updated after the date provided
 
 Newly attributed enrollees are those who’ve been assigned to your model entity since your last attribution date. If you don’t apply _since, BCDA will return data as early as 2014. 
 
+**Example request using _since with /Patient**
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 GET /api/v2/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00
@@ -82,11 +83,14 @@ GET /api/v2/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00
 
 Using _since with /Group will return resources updated after the date provided for existing enrollees and all resources for newly attributed enrollees. 
 
-This lets you retrieve all new claims data with a single request. If you don’t apply _since, BCDA will return data as early as 2014. The request  below will return: 
+This lets you retrieve all new claims data with a single request. If you don’t apply _since, BCDA will return data as early as 2014. 
+
+**Example request using _since with /Group**
+
+The request below will return: 
 
 - Claims data last updated since February 13, 2020 for existing enrollees 
 - Claims data as far back as 2014 for all new enrollees attributed to your organization in the last month
-
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 GET /api/v2/Group/all/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00
