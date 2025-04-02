@@ -1,12 +1,12 @@
 name: "Broken Link Check"
 
-on: 
+on:
   workflow_call
 
 jobs:
   broken-link-check:
     runs-on: self-hosted
-    
+
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v4
