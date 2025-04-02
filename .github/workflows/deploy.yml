@@ -38,7 +38,6 @@ jobs:
       - name: Set up ruby
         run: |
           ruby -v
-          ruby -ropenssl -e 'puts OpenSSL::OPENSSL_VERSION'
           echo 'export GEM_HOME="$HOME/gems"' >> $GITHUB_ENV
           echo 'export PATH="$HOME/ec2-user/bin:$HOME/gems/bin:$PATH"' >> $GITHUB_ENV
 
