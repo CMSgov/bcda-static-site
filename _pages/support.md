@@ -7,6 +7,15 @@ permalink: /support
 show-side-nav: false
 ---
 
+
+<div class="usa-alert usa-alert--warning usa-alert--slim">
+  <div class="usa-alert__body">
+    <p class="usa-alert__text" style="text-wrap: nowrap">
+      Please do not share <a href="{{ '/support#how-do-i-redact-phi-and-pii-when-sharing-information-with-the-bcda-team' | relative_url }}">Personally Identifiable Information (PII)</a> in the group or via email.
+    </p>
+  </div>
+</div>
+
 # {{ page.page_title }}
 
 <div class="grid-row grid-gap-4 desktop:grid-gap-6 padding-y-4 flex-align-center">
@@ -16,29 +25,17 @@ show-side-nav: false
   <div class="tablet:grid-col tablet:order-1 padding-top-2">
     <h2>We're here to help</h2>
     <p>
-        The <a href="https://groups.google.com/u/0/g/cms-ab2d-api" target="_blank" rel="noopener">BCDA Google Group</a> is an active community where you can ask questions, give feedback, and get the latest news. Use the topic labels to find relevant posts. You can also email us at <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hss.gov</a>
+        Join the <a href="https://groups.google.com/u/0/g/cms-ab2d-api" target="_blank" rel="noopener">Google Group</a> or email <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hss.gov</a> to ask questions and get help. When troubleshooting API requests, please include:
     </p>
-    <div class="usa-alert usa-alert--warning usa-alert--slim">
-        <div class="usa-alert__body">
-            <p class="usa-alert__text">
-                Please do not share <a href="https://www.hhs.gov/answers/hhs-administrative/what-is-pii/index.html" target="_blank" rel="noopener">Personally Identifiable Information (PII)</a> or <a href="https://www.hhs.gov/answers/hipaa/what-is-phi/index.html" target="_blank" rel="noopener">Protected Health Information (PHI)</a> in the group or via email.
-             </p>
-        </div>
-    </div>  
-    <p>
-        When troubleshooting API requests, please include the following details:
-        <ul>
-            <li>whether this is is a sandbox or production API request</li>
-            <li>your organization’s 5 character entity ID or sandbox data set</li>
-            <li>the API request that is resulting in the problem (Please cover or label sensitive information as “REDACTED.”)</li>
-            <li>any response and additional messaging from the API</li>
-        </ul>
-    </p>
+    <ul>
+        <li>whether this is is a sandbox or production API request</li>
+        <li>your organization’s 5 character entity ID or sandbox data set</li>
+        <li>the API request that is resulting in the problem </li>
+        <li>any response and additional messaging from the API</li>
+    </ul> 
     <a href="https://groups.google.com/u/0/g/cms-ab2d-api" target="_blank" rel="noopener" class="usa-button margin-top-2">Join the Google Group</a>
   </div>
 </div>
-
-
 
 ## Frequently asked questions
 
@@ -164,6 +161,9 @@ show-side-nav: false
 
 <!-- FAQ section -->
 <div class="grid-col-8">
+
+<h3 class="margin-bottom-2">About the API</h3>
+
 {% include accordion.html 
     id="a1" 
     expanded=true 
@@ -172,11 +172,36 @@ show-side-nav: false
 %}
 
 {% include accordion.html 
+    id="a6" 
+    expanded=false 
+    heading="What is the difference between BCDA and CCLF files?" 
+    accordionContent=a6AccordionContent     
+%}
+
+{% include accordion.html 
+    id="a10" 
+    expanded=false 
+    heading="What’s the difference between BCDA V1 and V2?" 
+    accordionContent=a10AccordionContent     
+%}
+
+<h3 class="margin-bottom-2">Compliance and restrictions</h3>
+
+{% include accordion.html 
     id="a2" 
     expanded=true 
     heading="How do I redact PHI and PII when sharing information with the BCDA Team?" 
     accordionContent=a2AccordionContent     
 %}
+
+{% include accordion.html 
+    id="a9" 
+    expanded=false 
+    heading="Can I use 3rd party web-based REST clients or tools?" 
+    accordionContent=a9AccordionContent     
+%}
+
+<h3 class="margin-bottom-2">BCDA Data</h3>
 
 {% include accordion.html 
     id="a3" 
@@ -198,20 +223,7 @@ show-side-nav: false
     heading="How often is data refreshed?" 
     accordionContent=a5AccordionContent     
 %}
-
-{% include accordion.html 
-    id="a6" 
-    expanded=false 
-    heading="What is the difference between BCDA and CCLF files?" 
-    accordionContent=a6AccordionContent     
-%}
-
-{% include accordion.html 
-    id="a7" 
-    expanded=false 
-    heading="Why am I getting a 429 error response?" 
-    accordionContent=a7AccordionContent     
-%}
+<h3 class="margin-bottom-2">Troubleshooting</h3>
 
 {% include accordion.html 
     id="a8" 
@@ -221,17 +233,10 @@ show-side-nav: false
 %}
 
 {% include accordion.html 
-    id="a9" 
+    id="a7" 
     expanded=false 
-    heading="Can I use 3rd party web-based REST clients or tools?" 
-    accordionContent=a9AccordionContent     
-%}
-
-{% include accordion.html 
-    id="a10" 
-    expanded=false 
-    heading="What’s the difference between BCDA V1 and V2?" 
-    accordionContent=a10AccordionContent     
+    heading="Why am I getting a 429 error response?" 
+    accordionContent=a7AccordionContent     
 %}
 
 </div>
