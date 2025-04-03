@@ -15,7 +15,7 @@ show-side-nav: false
 
 **Before accessing the production environment, download test claims data in the sandbox environment and follow the steps in [API Documentation]({{ '/api-documentation' | relative_url }}).**
 
-<ol class="usa-process-list margin-top-4">
+<ol class="usa-process-list margin-top-4 production-access-process-list">
   <li class="usa-process-list__item">
     <h2 class="usa-process-list__heading margin-y-2">Authorize your model entity</h2>
       <p>
@@ -50,7 +50,7 @@ show-side-nav: false
     <h3 class="font-ui-sm">Revoke (deactivate) credentials if compromised</h3>
     <p class="margin-top-05">Visit <em>BCDA Credentials</em> and select the delete icon in the <em>Actions</em> column. Email <a href="mailto:bcapi@cms.hhs.gov" target="blank" rel="noopener">bcapi@cms.hhs.gov</a> to review recent activity.</p>
   </li>
-  <li class="usa-process-list__item">
+  <li class="usa-process-list__item production-access-final-item">
     <h2 class="usa-process-list__heading margin-y-2">Access production claims data</h2>
       <p>
         The sandbox and production environments support the same workflow, endpoints, and resource types. Follow similar steps as you did in the sandbox to <a href="{{ '/get-a-bearer-token' | relative_url }}">get a bearer token</a> and <a href="{{ '/access-claims-data' | relative_url }}">access claims data</a>.

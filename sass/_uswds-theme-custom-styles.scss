@@ -273,6 +273,7 @@ $external-href: '[href^="https"]:not([href*="bcda.cms.gov"]):not([href*="github.
   }
 }
 
+// custom styles for process lists on different pages
 .about-process-list {
   .usa-process-list__item {
     border-left: 2rem solid color('blue-5v');
@@ -290,9 +291,24 @@ $external-href: '[href^="https"]:not([href*="bcda.cms.gov"]):not([href*="github.
 .docs-process-list {
   .usa-process-list__item {
     margin-left: .75rem;
-    border-left: .5rem solid color('blue-10');
+    border-left: .5rem solid color('base-lighter');
+
   }
  .docs-final-item {
+    border-left: .5rem solid rgba(0, 0, 0, 0);
+ }
+}
+
+.production-access-process-list {
+  .usa-process-list__item {
+    margin-left: .75rem;
+    border-left: .5rem solid color('gold-5v');
+
+    &::before {
+      border: .25rem solid color('gold-20v');
+    }
+  }
+  .production-access-final-item {
     border-left: .5rem solid rgba(0, 0, 0, 0);
  }
 }
