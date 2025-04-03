@@ -272,3 +272,27 @@ $external-href: '[href^="https"]:not([href*="bcda.cms.gov"]):not([href*="github.
     display: inline-block;
   }
 }
+
+.about-process-list {
+  .usa-process-list__item {
+    border-left: 2rem solid color('blue-5v');
+  
+    &::before {
+      border: .25rem solid color('blue-60v');
+    }
+  }
+
+  .about-final-item {
+    border-left: 2rem solid rgba(0, 0, 0, 0);
+  }
+}
+
+.docs-process-list {
+  .usa-process-list__item {
+    margin-left: .75rem;
+    border-left: .5rem solid color('blue-10');
+  }
+ .docs-final-item {
+    border-left: .5rem solid rgba(0, 0, 0, 0);
+ }
+}

@@ -13,7 +13,7 @@ Beneficiary Claims Data API (BCDA) uses [Fast Healthcare Interoperability Resour
 
 ## Getting started
 
-<ol class="usa-process-list margin-top-1">
+<ol class="usa-process-list margin-top-1 docs-process-list">
   <li class="usa-process-list__item">
     <p class="usa-process-list__heading">Learn about BCDA</p>
     <p>
@@ -26,7 +26,7 @@ Beneficiary Claims Data API (BCDA) uses [Fast Healthcare Interoperability Resour
       The sandbox environment allows anyone to try the API and download test claims data. Learn how to <a href="{{ '/get-a-bearer-token' | relative_url }}">get a bearer token</a> and <a href="{{ '/access-claims-data' | relative_url }}">access the sandbox</a>.  
     </p>
   </li>
-  <li class="usa-process-list__item">
+  <li class="usa-process-list__item docs-final-item">
     <p class="usa-process-list__heading">Get production access</p>
     <p>
       <a href="{{ '/index#eligible-model-entities' | relative_url }}">Eligible model entities</a> must have <a href="{{ '/production-access' | relative_url }}">production credentials</a> to access their enrollees’ claims data. 

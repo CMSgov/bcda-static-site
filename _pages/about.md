@@ -54,9 +54,8 @@ show-side-nav: false
 
 ## Claims data process
 
-<div class="about-process-list">
-  <ol class="usa-process-list margin-top-2">
-      <li class="usa-process-list__item">
+  <ol class="usa-process-list margin-top-2 about-process-list">
+      <li class="usa-process-list__item about-connector">
           <h4 class="usa-process-list__heading">Medicare enrollee receives care</h4>
       </li>
       <li class="usa-process-list__item">
@@ -72,7 +71,7 @@ show-side-nav: false
       <li class="usa-process-list__item">
           <h4 class="usa-process-list__heading">Medicare approves the claims</h4>
       </li>
-        <li class="usa-process-list__item">
+        <li class="usa-process-list__item about-final-item">
           <h4 class="usa-process-list__heading">BCDA shares adjudicated claims data </h4>
           <p class="usa-intro font-ui-md text-bold text-italic text-base margin-top-1">14 days after submission typically</p>
           <p>
@@ -80,7 +79,6 @@ show-side-nav: false
           </p>
       </li> 
   </ol>
-</div>
 
 ## What are the other CMS claims-based FHIR APIs?
 
