@@ -1,0 +1,12 @@
+name: release
+
+on:
+  release:
+    types: ['released']
+
+jobs:
+  deploy:
+    with:
+      deploy_path: "uswds-redesign"
+    uses: ./.github/workflows/promote.yml
+    secrets: inherit
