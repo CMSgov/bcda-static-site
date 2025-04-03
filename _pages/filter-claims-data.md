@@ -23,7 +23,7 @@ The _type parameter lets you specify which resource types you’d like returned.
 
 You’ll need to use commas when specifying multiple resource types. The examples below are curl requests to /Group using _type. 
 
-**Example request for 2 resource types**
+<h3 class="font-ui-sm">Example request for 2 resource types</h3>
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -31,7 +31,7 @@ GET /api/v2/Group/all/$export?_type=ExplanationOfBenefit,Patient
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
-**[REACH ACOs only] Example request for 2 resource types**
+<h3 class="font-ui-sm">[REACH ACOs only] Example request for 2 resource types</h3>
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -39,7 +39,7 @@ GET /api/v2/Group/all/$export?_type=Claim,ClaimResponse
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
-**Example request for 1 resource type**
+<h3 class="font-ui-sm">Example request for 1 resource type</h3>
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -72,7 +72,7 @@ Using _since with /Patient will return resources updated after the date provided
 
 Newly attributed enrollees are those who’ve been assigned to your model entity since your last attribution date. If you don’t apply _since, BCDA will return data as early as 2014. 
 
-**Example request using _since with /Patient**
+#### Example request using _since with /Patient
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 GET /api/v2/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00
@@ -85,7 +85,7 @@ Using _since with /Group will return resources updated after the date provided f
 
 This lets you retrieve all new claims data with a single request. If you don’t apply _since, BCDA will return data as early as 2014. 
 
-**Example request using _since with /Group**
+#### Example request using _since with /Group
 
 The request below will return: 
 
@@ -97,7 +97,7 @@ GET /api/v2/Group/all/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
-**Request header**
+#### Request header
 
 Your header must contain your bearer token. 
 
@@ -109,7 +109,7 @@ Prefer: respond-async
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
-**Example curl command using _since with /Patient**
+#### Example curl command using _since with /Patient
 
 This command combines the GET request and request header. The dollar sign ($) before "export" in the URL indicates the endpoint is an action, not a resource.
 
@@ -122,7 +122,7 @@ curl -X GET "https://api.bcda.cms.gov/api/v2/Patient/\$export?_type=Patient&_sin
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
-**Example curl command using _since with /Group** 
+#### Example curl command using _since with /Group
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -139,7 +139,7 @@ The `runout` identifier lets you request runouts data for enrollees attributed t
 
 The examples below are GET requests made to the /Group endpoint. 
 
-**Request for all resources using `runout`** 
+<h3 class="font-ui-sm">Request for all resources using `runout`</h3>
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -147,7 +147,7 @@ GET /api/v2/Group/runout/$export
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
-**Example request for 2 resource types using `runout`**
+<h3 class="font-ui-sm">Example request for 2 resource types using `runout`</h3>
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -155,7 +155,7 @@ GET /api/v2/Group/runout/$export?_type=ExplanationOfBenefit,Patient
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
-**Example request for 1 resource type using `runout`**
+<h3 class="font-ui-sm">Example request for 1 resource type using `runout`</h3>
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -163,7 +163,7 @@ GET /api/v2/Group/runout/$export?_type=Patient
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
-**Request header**
+<h3 class="font-ui-sm">Request header</h3>
 
 Your header must contain your bearer token. 
 
@@ -175,7 +175,7 @@ Prefer: respond-async
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
-**Example curl commands using `runout`**
+<h3 class="font-ui-sm">Example curl commands using `runout`</h3>
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
