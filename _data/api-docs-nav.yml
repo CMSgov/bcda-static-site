@@ -13,7 +13,7 @@
   children:
 
     - name: Guide to Partially Adjudicated Claims Data
-      url: /partially-adjudicated-claims-data
+      url: /guide-to-partially-adjudicated-claims-data
 
     - name: Comparison of BCDA and CCLF
       url: /bcda-cclf-comparison
