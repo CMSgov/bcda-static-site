@@ -5,6 +5,7 @@ seo_title: ""
 description: ""
 permalink: /guide-to-partially-adjudicated-claims-data
 in-page-nav: true
+in-page-nav-levels: "h3"
 ---
 
 # {{ page.page_title }}
@@ -64,7 +65,7 @@ On September 6, 2022, Mr. Fritz underwent a duplex scan to evaluate for carotid 
 
 REACH ACOs can also track performance on cases where the care may be of limited value. For example, if Mr. Fritz does not have neurologic symptoms, then this kind of scan has been indicated to be more harmful than beneficial. This information could be used by the REACH ACO to reduce the volume of unnecessary procedures. 
 
-### Enhance care coordination
+### Example 3: Enhance care coordination
 
 REACH ACOs can use partially adjudicated claims data to get more information on patients’ health histories, build their clinical profile, and improve care coordination. 
 
@@ -82,6 +83,11 @@ In the past, it would take weeks to know whether patients received care outside 
 
 <div class="padding-y-1"></div>
 
+<!-- Accordion content -->
+{% capture a0AccordionContent %}
+Claims adjudication is Medicare’s process of reviewing and approving claims. It involves submission, validation, review, and approval.
+{% endcapture %}
+
 {% capture a1AccordionContent %}
 Visit <a href="{{ '/production-access' | relative_url }}">Production Access</a> to retrieve synthetic data, authorize your model entity, and get production credentials.
 {% endcapture %}
@@ -95,16 +101,106 @@ Visit <a href="{{ '/production-access' | relative_url }}">Production Access</a> 
 </p>
 {% endcapture %}
 
+{% capture a3AccordionContent %}
+BCDA receives partially adjudicated claims data after it’s submitted to Medicare. BCDA only has access to actual claims, not pre-authorization or pre-determination data.
+{% endcapture %}
+
+{% capture a4AccordionContent %}
+<p>
+    Partially adjudicated claims data won’t provide much benefit for simple, single-stage events (e.g., Vitamin D testing) since the event is complete and the payment has been made.
+</p>
+<p>
+    However, the data is useful for tracking completed stages of multi-events. With Claim and ClaimResponse, you’ll have earlier notice of the multi-event. This lets you intervene sooner and mitigate high or recurring costs.
+</p>
+{% endcapture %}
+
+{% capture a5AccordionContent %}
+<p>
+    In general, the volume of claims data you're going to receive depends on how many enrollees are attributed to your model entity and the number of updates a given claim receives. You can use a database query (e.g., on the number of enrollees) for more information.
+</p>
+<p>
+    You can expect a higher number of updates with partially adjudicated claims data. It’s subject to more changes since there may be multiple rounds of processing and adjustments. You will get updates when this occurs, resulting in a seemingly larger amount of data than adjudicated claims, which are final-action.
+</p>
+{% endcapture %}
+
+{% capture a6AccordionContent %}
+<p>
+    No, Claim and ClaimResponse resources contain a subset of the data elements available in EOB resources. They are also subject to more changes. Claim and ClaimResponse resources are only available for 60 days after their most recent update.
+</p>
+<p>
+    During this time, the claim is typically adjudicated and details on the episode of care will be available to your organization as EOB resources. EOB resources provide the full set of data elements and are more accurate for long-term records.
+</p>
+{% endcapture %}
+
+{% capture a7AccordionContent %}
+Every Claim has only 1 ClaimResponse. Version numbers aren’t currently provided. <a href="https://groups.google.com/forum/#!forum/bc-api" target="blank" rel="noopener">Contact us</a> if you’d like us to explore versioning in the future.
+{% endcapture %}
+
+{% capture a8AccordionContent %}
+No, these 2 fields are not currently available. Join our<a href="https://groups.google.com/forum/#!forum/bc-api" target="blank" rel="noopener"> Google Group</a> if you have feedback to improve the availability of data elements. 
+{% endcapture %}
+
+{% capture a9AccordionContent %}
+BCDA is continuously working to source and add new data fields. <a href="https://groups.google.com/forum/#!forum/bc-api" target="blank" rel="noopener">Contact us</a> if there are any fields you’d like added.
+{% endcapture %}
+
+<!-- Insert accordions -->
+{%  include accordion.html id="a0" 
+    heading="How does the claims adjudication process work?"
+    expanded=false 
+    bordered=false 
+    accordionContent=a0AccordionContent %}
+
 {%  include accordion.html id="a1" 
-    heading="How can REACH ACOs access partially adjudicated claims data?" 
+    heading="How can REACH ACOs access partially adjudicated claims data?"
     expanded=true 
     bordered=false 
     accordionContent=a1AccordionContent %}
 
 {%  include accordion.html id="a2" 
-    heading="Do REACH ACOs on BCDA V1 need to update their credentials to access V2 for partially adjudicated claims data?" 
+    heading="Do REACH ACOs on BCDA V1 need to update their credentials to access V2 for partially adjudicated claims data?"
     expanded=false 
     bordered=false 
     accordionContent=a1AccordionContent %}
 
+{%  include accordion.html id="a3" 
+    heading="Is partially adjudicated claims data received after a supplier’s orders are completed and the claims are submitted for payment? Or is it received in a pre-authorization form?"
+    expanded=false 
+    bordered=false 
+    accordionContent=a3AccordionContent %}
 
+{%  include accordion.html id="a4" 
+    heading="Is there any benefit to partially adjudicated claims data if the event was already completed?"
+    expanded=false 
+    bordered=false 
+    accordionContent=a4AccordionContent %}
+    
+{%  include accordion.html id="a5" 
+    heading="What’s the estimated amount of data REACH ACOs will receive through partially adjudicated claims? How does that compare to adjudicated claims?"
+    expanded=false 
+    bordered=false 
+    accordionContent=a5AccordionContent %}
+
+{%  include accordion.html id="a6" 
+    heading="Do the Claim and ClaimResponse resource types negate the need for ExplanationofBenefits (EOBs)?"
+    expanded=false 
+    bordered=false 
+    accordionContent=a6AccordionContent %}
+
+{%  include accordion.html id="a7" 
+    heading="Does every Claim have a corresponding ClaimResponse? Are there version numbers?"
+    expanded=false 
+    bordered=false 
+    accordionContent=a7AccordionContent %}
+
+{%  include accordion.html id="a8" 
+    heading="Does partially adjudicated claims data show Claim ID and Claim Group ID fields?"
+    expanded=false 
+    bordered=false 
+    accordionContent=a8AccordionContent %}
+
+{%  include accordion.html id="a9" 
+    heading="Will you release additional data elements for partially adjudicated claims data in the future?"
+    expanded=false 
+    bordered=false 
+    accordionContent=a9AccordionContent %}
