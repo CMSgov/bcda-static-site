@@ -41,6 +41,14 @@ exclude:
   - assets/uswds/img/usa-icons/*
   - assets/uswds/img/usa-icons-bg/*
   - assets/uswds/img/uswds-icons/*
+  - package.json
+  - package-lock.json
+  - gulpfile.js
+  - pa11yci.ci.json
+  - pa11yci.local.json
+  - README.md
+  - Dockerfile
+  - feed.xml
 
 include:
    - _pages
