@@ -3,7 +3,6 @@ layout: api-docs
 page_title: "Production Access"
 seo_title: ""
 description: ""
-permalink: /production-access
 in-page-nav: true
 in-page-nav-levels: "h2"
 show-side-nav: false

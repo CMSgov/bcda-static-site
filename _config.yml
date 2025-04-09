@@ -66,8 +66,7 @@ include:
    - assets/uswds/img/usa-icons/warning.svg
 
 defaults:
-  -
-    scope:
-      path: "_pages" 
+  - scope:
+      path: "_pages"
     values:
-      permalink: "/:title"
+      permalink: /:basename/

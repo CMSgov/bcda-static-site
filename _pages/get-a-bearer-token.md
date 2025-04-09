@@ -3,7 +3,6 @@ layout: api-docs
 page_title: "How to Get a Bearer Token"
 seo_title: ""
 description: ""
-permalink: /get-a-bearer-token
 in-page-nav: true
 ---
 

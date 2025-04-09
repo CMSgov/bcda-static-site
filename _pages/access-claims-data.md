@@ -3,7 +3,6 @@ layout: api-docs
 page_title: "How to Access Claims Data"
 seo_title: ""
 description: ""
-permalink: /access-claims-data
 in-page-nav: true
 ---
 

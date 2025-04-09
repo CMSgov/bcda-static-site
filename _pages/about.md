@@ -3,7 +3,6 @@ layout: default
 page_title: "About BCDA"
 seo_title: ""
 description: ""
-permalink: /about
 show-side-nav: false
 ---
 

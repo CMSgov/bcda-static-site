@@ -3,7 +3,6 @@ layout: api-docs
 page_title: "BCDA Data"
 seo_title: ""
 description: ""
-permalink: /bcda-data
 in-page-nav: true
 ---
 

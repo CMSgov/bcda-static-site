@@ -3,7 +3,6 @@ layout: api-docs
 page_title: "API Documentation"
 seo_title: ""
 description: ""
-permalink: /api-documentation
 in-page-nav: true
 ---
 
