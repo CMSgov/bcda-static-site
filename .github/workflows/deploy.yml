@@ -57,11 +57,17 @@ jobs:
           role-to-assume: arn:aws:iam::${{ secrets.ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-dev-github-actions
 
       # Step 7: Deploy to Dev
-      - name: Deploy the site
+      - name: Copy site to Dev Bucket
         run: |
           aws s3 sync _site/ s3://stage.bcda.cms.gov/${{ inputs.deploy_path }}/ --delete
-
-      - name: Invalidate Cloudfront cache
+      
+      # Step 8: Get Distribution ID
+      - name: Get CloudFront Distribution ID
         run: |
-          DISTRIBUTION_ID=`aws cloudfront list-distributions --query "DistributionList.Items[].{Id:Id, OriginDomainName: Origins.Items[0].DomainName}[?starts_with(OriginDomainName, 'stage.bcda.cms.gov')].Id" --output text`
-          aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*'
+          DISTRIBUTION_ID=$(aws cloudfront list-distributions --query "DistributionList.Items[?Origins.Items[0].DomainName=='stage.bcda.cms.gov.s3.us-east-1.amazonaws.com'].Id" --output text)
+          echo "DISTRIBUTION_ID=$DISTRIBUTION_ID" >> $GITHUB_ENV
+      
+      # Step 9: Invalidate existing cache
+      - name: Invalidate Dev Distribution
+        run: |
+          aws cloudfront create-invalidation --distribution-id "$DISTRIBUTION_ID" --paths "/*"
