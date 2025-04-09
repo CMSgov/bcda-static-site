@@ -102,40 +102,44 @@ Download sample data files, which share similar content and structure to product
 Claims data is organized by resource types, which are requested at the /Patient and /Group [endpoints]({{ '/api-documentation.html' | relative_url }}#endpoints). Version 2 has [minor changes]({{ '/placeholder' | relative_url }}) in resource types from V1.
 
 <dl>
+<div id="explanationofbenefit">
   <dt class="font-sans-md text-bold">
-    ExplanationofBenefit (EOB)
-  </dt> 
+    ExplanationOfBenefit (EOB)
+  </dt> </div>
   <dd class="margin-left-0 margin-bottom-4"> 
-    <p> Similar to CCLF files 1-7, <a href="https://hl7.org/fhir/R4/explanationofbenefit.html" target="blank" rel="noopener noreferrer">ExplanationofBenefit</a> stores details for episodes of care, including where and when the service was performed, diagnosis codes, provider, and cost of care.</p>
-  </dd>
+    <p> Similar to CCLF files 1-7, <a href="https://hl7.org/fhir/R4/explanationofbenefit.html" target="blank" rel="noopener noreferrer">ExplanationOfBenefit</a> stores details for episodes of care, including where and when the service was performed, diagnosis codes, provider, and cost of care.</p>
+  </dd> 
   
+  <div id="patient">
   <dt class="font-sans-md text-bold">
   Patient
-  </dt>
+  </dt></div>
   <dd class="margin-left-0 margin-bottom-4">
     <p>Similar to CCLF files 8 and 9, <a href="https://hl7.org/fhir/R4/patient.html" target="blank" rel="noopener noreferrer">Patient</a> stores enrollees' demographic details and updates to their patient identifiers.</p>
   </dd>
 
+<div id="coverage">
   <dt class="font-sans-md text-bold">
   Coverage
-  </dt>
+  </dt> </div>
   <dd class="margin-left-0 margin-bottom-4">
     <p><a href="https://hl7.org/fhir/R4/coverage.html" target="blank" rel="noopener noreferrer">Coverage</a> stores enrollees' insurance coverage details, including dual coverage.</p>
   </dd>
 
+<div id="claim">
   <dt class="font-sans-md text-bold">
     Claim
-  </dt>
+  </dt> </div>
   <dd class="margin-left-0 margin-bottom-4">
     <p>Available for partially adjudicated claims only, <a href="https://hl7.org/fhir/R4/claim.html" target="blank" rel="noopener noreferrer">Claim</a> stores financial and clinical details on professional and institutional claims. This is typically used for treatment payment planning and reimbursement. </p> 
   </dd>
 
+<div id="claimresponse">
    <dt class="font-sans-md text-bold">
    ClaimResponse
-  </dt>
+  </dt> </div>
   <dd class="margin-left-0 margin-bottom-4">
     <p>Available for partially adjudicated claims only, <a href="https://hl7.org/fhir/R4/claimresponse.html" target="blank" rel="noopener noreferrer">ClaimResponse</a> stores details about the adjudication status and processing results for a claim, predetermination, or preauthorization.</p>
-    
   </dd>
 </dl>
 
