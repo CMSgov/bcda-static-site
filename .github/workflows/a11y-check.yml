@@ -31,7 +31,7 @@ jobs:
 
       # Step 4: Run pa11y
       - name: Run pa11y
-        run: npx pa11y-ci --config pa11yci.ci.json --sitemap https://stage.bcda.cms.gov/${{ env.DEPLOY_PATH }}/sitemap.xml --sitemap-exclude "/*.pdf"  --sitemap-find https://ab2d.cms.gov/ --sitemap-replace https://dyx9tyg1h7v8p.cloudfront.net/ --json > pa11y-results.json || echo "EXIT_CODE=$?" >> $GITHUB_ENV
+        run: npx pa11y-ci --config pa11yci.ci.json --sitemap https://d27n86ormmec02.cloudfront.net/${{ env.DEPLOY_PATH }}/sitemap.xml --sitemap-exclude "/*.pdf"  --sitemap-find https://bcda.cms.gov/ --sitemap-replace https://d27n86ormmec02.cloudfront.net/ --json > pa11y-results.json || echo "EXIT_CODE=$?" >> $GITHUB_ENV
 
       # Step 5: Save pa11y summary
       - name: Save Report to Action Summary
