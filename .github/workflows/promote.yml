@@ -17,42 +17,35 @@ jobs:
     runs-on: self-hosted
     steps:
 
-      # Step 1: Configure Dev credentials
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: ${{ vars.AWS_REGION }}
           role-to-assume: arn:aws:iam::${{ secrets.TEST_ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-dev-github-actions
 
-      # Step 2: Download Dev site
       - name: Download Dev Bucket
         run: |
           aws s3 sync s3://stage.bcda.cms.gov/${{ inputs.deploy_path }}/ ./temp-site/
 
-      # Step 3: Configure Prod credentials
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: ${{ vars.AWS_REGION }}
           role-to-assume: arn:aws:iam::${{ secrets.PROD_ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-prod-github-actions
 
-      # Step 4: Get Distribution ID
       - name: Get CloudFront Distribution ID
         run: |
           DISTRIBUTION_ID=$(aws cloudfront list-distributions --query "DistributionList.Items[?Origins.Items[0].DomainName=='bcda.cms.gov.s3.us-east-1.amazonaws.com'].Id" --output text)
           echo "DISTRIBUTION_ID=$DISTRIBUTION_ID" >> $GITHUB_ENV
 
-      # Step 5: Copy site to Prod
       - name: Copy site to Prod Bucket
         run: |
           aws s3 sync ./temp-site/ s3://bcda.cms.gov/
 
-      # Step 6: Invalidate existing cache
       - name: Invalidate Prod Distribution
         run: |
           aws cloudfront create-invalidation --distribution-id "$DISTRIBUTION_ID" --paths "/*"
 
-      # Step 7a: Post to Slack on Successful deploy
       - name: Slack Success
         uses: slackapi/slack-github-action@v2.0.0
         if: ${{ success() }}
@@ -68,7 +61,6 @@ jobs:
                 mrkdown_in:
                   - text
 
-      # Step 7b: Post to Slack on Failed deploy
       - name: Slack Failure
         uses: slackapi/slack-github-action@v2.0.0
         if: ${{ failure() }}

@@ -8,11 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repo
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Step 2: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -20,7 +18,6 @@ jobs:
           node-version-file: '.nvmrc'
           # node-version: 20 ## Using a .nvmrc file to stay in sync with the repo
 
-      # Step 3: Set base url/deployment path
       - name: Set Deployment Path
         run: |
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
@@ -29,11 +26,9 @@ jobs:
             echo "DEPLOY_PATH=${{ github.ref_name }}" >> $GITHUB_ENV
           fi
 
-      # Step 4: Run pa11y
       - name: Run pa11y
         run: npx pa11y-ci --config pa11yci.ci.json --sitemap https://d27n86ormmec02.cloudfront.net/${{ env.DEPLOY_PATH }}/sitemap.xml --sitemap-exclude "/*.pdf"  --sitemap-find https://bcda.cms.gov/ --sitemap-replace https://d27n86ormmec02.cloudfront.net/ --json > pa11y-results.json || echo "EXIT_CODE=$?" >> $GITHUB_ENV
 
-      # Step 5: Save pa11y summary
       - name: Save Report to Action Summary
         uses: actions/github-script@v7
         if: env.EXIT_CODE == 0 || env.EXIT_CODE == 2
