@@ -24,6 +24,7 @@ jobs:
   a11y-check:
     needs: deploy
     uses: ./.github/workflows/a11y-check.yml
+    secrets: inherit
 
   # broken-link-check:
   #   uses: ./.github/workflows/broken-link-check.yml
