@@ -51,7 +51,6 @@ exclude:
   - feed.xml
 
 include:
-   - _pages
    - assets/uswds/img/usa-icons/add.svg
    - assets/uswds/img/usa-icons/check_circle.svg
    - assets/uswds/img/usa-icons/close.svg
@@ -65,8 +64,7 @@ include:
    - assets/uswds/img/usa-icons/remove.svg
    - assets/uswds/img/usa-icons/warning.svg
 
-defaults:
-  - scope:
-      path: "_pages"
-    values:
-      permalink: /:basename/
+collections:
+  pages:
+    output: true
+    permalink: /:title/
