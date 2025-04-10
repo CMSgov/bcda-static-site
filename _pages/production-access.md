@@ -3,7 +3,6 @@ layout: api-docs
 page_title: "Production Access"
 seo_title: ""
 description: ""
-permalink: /production-access
 in-page-nav: true
 in-page-nav-levels: "h2"
 show-side-nav: false
@@ -11,9 +10,9 @@ show-side-nav: false
 
 # {{ page.page_title }}
 
-[Eligible organizations]({{ '/index#eligible-model-entities' | relative_url }}) must get credentials from their model-specific systems to access enrollee claims data. 
+[Eligible organizations]({{ '/index.html#eligible-model-entities' | relative_url }}) must get credentials from their model-specific systems to access enrollee claims data. 
 
-**Before accessing the production environment, download test claims data in the sandbox environment and follow the steps in [API Documentation]({{ '/api-documentation' | relative_url }}).**
+**Before accessing the production environment, download test claims data in the sandbox environment and follow the steps in [API Documentation]({{ '/api-documentation.html' | relative_url }}).**
 
 <ol class="usa-process-list margin-top-4 production-access-process-list">
   <li class="usa-process-list__item">
@@ -53,10 +52,10 @@ show-side-nav: false
   <li class="usa-process-list__item production-access-final-item">
     <h2 class="usa-process-list__heading margin-y-2">Access production claims data</h2>
       <p>
-        The sandbox and production environments support the same workflow, endpoints, and resource types. Follow similar steps as you did in the sandbox to <a href="{{ '/get-a-bearer-token' | relative_url }}">get a bearer token</a> and <a href="{{ '/access-claims-data' | relative_url }}">access claims data</a>.
+        The sandbox and production environments support the same workflow, endpoints, and resource types. Follow similar steps as you did in the sandbox to <a href="{{ '/get-a-bearer-token.html' | relative_url }}">get a bearer token</a> and <a href="{{ '/access-claims-data.html' | relative_url }}">retrieve claims data</a>.
       </p>
       <p>
-        Visit <a href="{{ '/support' | relative_url }}">Support</a> or <a href="https://groups.google.com/forum/#!forum/bc-api" target="blank" rel="noopener">join the Google Group</a> if you have questions. Do not share <a href="{{ '/placeholder' | relative_url }}">Personally Identifiable Information (PII)</a> like tokens, credentials, or claims data. 
+        Visit <a href="{{ '/support.html' | relative_url }}">Support</a> or <a href="https://groups.google.com/forum/#!forum/bc-api" target="blank" rel="noopener">join the Google Group</a> if you have questions. Do not share <a href="{{ '/placeholder.html' | relative_url }}">Personally Identifiable Information (PII)</a> like tokens, credentials, or claims data. 
       </p>
   </li>
 </ol>

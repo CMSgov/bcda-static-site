@@ -1,0 +1,64 @@
+name: "deploy"
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploy_path:
+        description: "S3 directory deployment location"
+        default: "uswds-redesign"
+  workflow_call:
+    inputs:
+      deploy_path:
+        required: false
+        type: string
+
+jobs:
+  deploy-dev:
+    runs-on: self-hosted
+    if: ${{ !startsWith(github.actor, 'bot-') }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          cache: 'npm'
+          node-version-file: '.nvmrc'
+          # node-version: 20 ## Using a .nvmrc file to stay in sync with the repo
+
+      - name: Install npm dependencies
+        run: |
+          npm ci
+
+      - name: Compile assets with Gulp
+        run: |
+          npm run assets:build
+
+      - name: Build the site
+        env:
+          # This is redundant but keeping for posterity
+          JEKYLL_ENV: "production"
+        run: |
+          docker build -t jekyll-site .
+          docker run --rm -v "$PWD:/srv/jekyll" jekyll-site --baseurl ${{ inputs.deploy_path && format('/{0}', inputs.deploy_path) || ''}}
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: ${{ vars.AWS_REGION }}
+          role-to-assume: arn:aws:iam::${{ secrets.ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-dev-github-actions
+
+      - name: Copy site to Dev Bucket
+        run: |
+          aws s3 sync _site/ s3://stage.bcda.cms.gov/${{ inputs.deploy_path }}/ --delete
+      
+      - name: Get CloudFront Distribution ID
+        run: |
+          DISTRIBUTION_ID=$(aws cloudfront list-distributions --query "DistributionList.Items[?Origins.Items[0].DomainName=='stage.bcda.cms.gov.s3.us-east-1.amazonaws.com'].Id" --output text)
+          echo "DISTRIBUTION_ID=$DISTRIBUTION_ID" >> $GITHUB_ENV
+      
+      - name: Invalidate Dev Distribution
+        run: |
+          aws cloudfront create-invalidation --distribution-id "$DISTRIBUTION_ID" --paths "/*"

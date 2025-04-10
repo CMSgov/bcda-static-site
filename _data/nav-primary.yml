@@ -1,14 +1,14 @@
 - text: About
-  url: /about
+  url: /about.html
 
 - text: API Documentation
-  url: /api-documentation
+  url: /api-documentation.html
   
 - text: BCDA Data
-  url: /bcda-data
+  url: /bcda-data.html
 
 - text: Production Access
-  url: /production-access
+  url: /production-access.html
 
 - text: Support
-  url: /support
+  url: /support.html
