@@ -15,7 +15,7 @@ jobs:
             const commentIdentifier = '## Deploy Preview';
             const commitSha = context.payload.pull_request.head.sha;
             const commitUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${commitSha}`;
-            const previewUrl = `https://https://d27n86ormmec02.cloudfront.net/${context.issue.number}/`
+            const previewUrl = `https://https://d3obyxkdm48edr.cloudfront.net/${context.issue.number}/`
 
             const body = `${commentIdentifier}
 
