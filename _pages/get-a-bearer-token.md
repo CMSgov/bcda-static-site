@@ -84,7 +84,7 @@ This command uses curl’s built-in ability to Base-64 encode your credentials, 
 
 {% include copy_snippet.html code=Snippet4 language="yaml" can_copy=true %}
 
-<div class="usa-alert usa-alert--info">
+<div class="usa-alert usa-alert--warning usa-alert--no-icon">
     <div class="usa-alert__body">
         <h4 class="usa-alert__heading">Remember to use the correct URL for your environment</h4>
         <p class="usa-alert__text">
