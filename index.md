@@ -15,7 +15,7 @@ show-side-nav: false
       </p>
       <div class="grid-row grid-gap margin-top-2">
         <div class="tablet:grid-col-auto margin-top-2">
-          <a href="{{ '/api-documentation' | relative_url }}" class="hero-button usa-button usa-button--inverse usa-button--outline width-full">
+          <a href="{{ '/api-documentation.html' | relative_url }}" class="hero-button usa-button usa-button--inverse usa-button--outline width-full">
             Get Started
             {% include sprite.html icon="arrow_forward" size="3" %}
           </a>
@@ -107,7 +107,7 @@ show-side-nav: false
             <li>diagnosis codes</li>
             <li>dates and times of service</li>
           </ul>
-          <p><a href="{{ '/bcda-data' | relative_url }}" class="usa-button usa-button--unstyled">Learn about the data {% include sprite.html icon="arrow_forward" %}</a></p>
+          <p><a href="{{ '/bcda-data.html' | relative_url }}" class="usa-button usa-button--unstyled">Learn about the data {% include sprite.html icon="arrow_forward" %}</a></p>
         </div>
       </div>
     </div>

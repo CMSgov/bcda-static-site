@@ -3,7 +3,6 @@ layout: api-docs
 page_title: "How to Access Claims Data"
 seo_title: ""
 description: ""
-permalink: /access-claims-data
 in-page-nav: true
 ---
 
@@ -24,7 +23,7 @@ The sandbox and production environments follow similar instructions. They suppor
   <tbody>
     <tr>
       <td>Available to everyone via test credentials</td>
-      <td>Must <a href="{{ '/production-access' | relative_url }}">complete the steps</a> for production credentials</td>
+      <td>Must <a href="{{ '/production-access.html' | relative_url }}">complete the steps</a> for production credentials</td>
     </tr>
     <tr>
       <td>Contains test claims data</td>
@@ -42,7 +41,7 @@ The sandbox and production environments follow similar instructions. They suppor
     <div class="usa-alert__body">
         <h4 class="usa-alert__heading">    BCDA recommends using V2 of the API</h4>
         <p class="usa-alert__text">
-            This is the latest version which follows the <a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener">FHIR R4 specification</a>. REACH ACOs must use V2 for <a href="{{ '/partially-adjudicated-claims-data' | relative_url }}">partially adjudicated claims data</a>.
+            This is the latest version which follows the <a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener">FHIR R4 specification</a>. REACH ACOs must use V2 for <a href="{{ '/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a>.
         </p>
     </div>
 </div>
@@ -51,7 +50,7 @@ The sandbox and production environments follow similar instructions. They suppor
 
 ### 1. Get a bearer token 
 
-You will need a [bearer token]({{ '/get-a-bearer-token' | relative_url }}) to call the API. The process requires credentials, which are formatted as a client ID and client secret. 
+You will need a [bearer token]({{ '/get-a-bearer-token.html' | relative_url }}) to call the API. The process requires credentials, which are formatted as a client ID and client secret. 
 
 ### 2. Start a job 
 
@@ -66,7 +65,7 @@ Make a GET request to the /Group or /Patient endpoint to start a data export job
 
 #### Request all resource types 
 
-By default, the GET request returns all available [resource types]({{ '/bcda-data#resource-types' | relative_url }}). 
+By default, the GET request returns all available [resource types]({{ '/bcda-data.html#resource-types' | relative_url }}). 
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -74,7 +73,7 @@ GET /api/v2/Group/all/$export
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
-Use the [_type parameter]({{ '/filter-claims-data' | relative_url }}) to specify which resource types you’d like returned. 
+Use the [_type parameter]({{ '/filter-claims-data.html' | relative_url }}) to specify which resource types you’d like returned. 
 
 #### Request header
 
@@ -152,7 +151,7 @@ Content-Location: https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}
 A 429 response indicates “Too Many Requests.” This can occur due to 2 reasons:
 
 1. Making too many HTTP requests within a period of time
-2. Trying to recreate jobs already marked as "In-Progress.” For reference, you can view both existing and past jobs using the [/Jobs endpoint]({{ '/access-claims-data' | relative_url }}#request-job-history). 
+2. Trying to recreate jobs already marked as "In-Progress.” For reference, you can view both existing and past jobs using the [/Jobs endpoint]({{ '/access-claims-data.html' | relative_url }}#request-job-history). 
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}

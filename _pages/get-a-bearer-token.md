@@ -3,13 +3,12 @@ layout: api-docs
 page_title: "How to Get a Bearer Token"
 seo_title: ""
 description: ""
-permalink: /get-a-bearer-token
 in-page-nav: true
 ---
 
 # {{ page.page_title }}
 
-Bearer tokens, also known as access tokens or JSON web tokens, authorize use of the Beneficiary Claims Data API (BCDA) endpoints. You will need a bearer token to [access claims data]({{ '/access-claims-data' | relative_url }}) in the sandbox and production environments.
+Bearer tokens, also known as access tokens or JSON web tokens, authorize use of the Beneficiary Claims Data API (BCDA) endpoints. You will need a bearer token to [access claims data]({{ '/access-claims-data.html' | relative_url }}) in the sandbox and production environments.
 
 ## Instructions
 
@@ -55,8 +54,8 @@ Authorization: Bearer {bearer_token}
 ### 1. Get your organization's credentials
 
 BCDA protects its token endpoint with Basic Auth. Your credentials will be formatted as a client ID and client secret.
-- If you’re trying to access the **sandbox environment:** Use a sample client ID and secret from the [sandbox credentials section]({{ '/get-a-bearer-token' | relative_url }}#sandbox-credentials).
-- If you’re trying to access the **production environment:** Use the client ID and secret issued by your model-specific system during [production access]({{ '/production-access' | relative_url }}).
+- If you’re trying to access the **sandbox environment:** Use a sample client ID and secret from the [sandbox credentials section]({{ '/get-a-bearer-token.html' | relative_url }}#sandbox-credentials).
+- If you’re trying to access the **production environment:** Use the client ID and secret issued by your model-specific system during [production access]({{ '/production-access.html' | relative_url }}).
 
 ### 2. Request a bearer token
 
@@ -109,7 +108,7 @@ Include your bearer token in the authorization header when requesting data in th
 
 ## Guides
 
-Once you have a bearer token, begin [accessing claims data]({{ '/access-claims-data' | relative_url }}). The production and sandbox environments support the same workflow, endpoints, and resource types.  
+Once you have a bearer token, begin [accessing claims data]({{ '/access-claims-data.html' | relative_url }}). The production and sandbox environments support the same workflow, endpoints, and resource types.  
 
 ## Sandbox credentials
 
@@ -192,7 +191,7 @@ Client secret:
 
 ### Partially adjudicated claims data sets 
 
-Anyone can access [partially adjudicated claims data]({{ '/partially-adjudicated-claims-data' | relative_url }}) in the sandbox. Only REACH ACOs can access enrollees' partially adjudicated claims data during production. 
+Anyone can access [partially adjudicated claims data]({{ '/partially-adjudicated-claims-data.html' | relative_url }}) in the sandbox. Only REACH ACOs can access enrollees' partially adjudicated claims data during production. 
 
 #### Extra-small REACH ACO (110 synthetic enrollees)
 
