@@ -3,7 +3,6 @@ layout: api-docs
 page_title: "How to Filter Claims Data "
 seo_title: ""
 description: ""
-permalink: /filter-claims-data
 in-page-nav: true
 in-page-nav-levels: "h2"
 ---

@@ -69,7 +69,7 @@ show-side-nav: false
               Get claims data faster
             </h3>
             <p>
-              Model entities eligible for <a href="{{ '/placeholder' | relative_url }}">partially adjudicated claims data</a> have early access to claims as soon as 2-4 days after Medicare submission.
+              Model entities eligible for <a href="{{ '/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a> have early access to claims as soon as 2-4 days after Medicare submission.
             </p>
           </div>
         </div>

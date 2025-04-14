@@ -3,15 +3,15 @@ layout: api-docs
 page_title: "Support"
 seo_title: ""
 description: ""
-permalink: /support
 show-side-nav: false
+in-page-nav: true
 ---
 
 
 <div class="usa-alert usa-alert--warning usa-alert--slim">
   <div class="usa-alert__body">
     <p class="usa-alert__text" style="text-wrap: nowrap">
-      Please cover or label <a href="{{ '/support#how-do-i-redact-phi-and-pii-when-sharing-information-with-the-bcda-team' | relative_url }}">Personally Identifiable Information (PII)</a> as "REDACTED" in the Google Group and via email.
+      Please cover or label <a href="{{ '/support.html#how-do-i-redact-phi-and-pii-when-sharing-information' | relative_url }}">Personally Identifiable Information (PII)</a> as "REDACTED" in the Google Group and via email.
     </p>
   </div>
 </div>
@@ -50,7 +50,7 @@ show-side-nav: false
             <li>Kidney Care Choices (KCC) Model</li>
             <li>Accountable Care Organizations Realizing Equity, Access, and Community Health (ACO REACH) Model</li>
         </ul>
-    Only REACH ACOs can access <a href="{{ '/partially-adjudicated-claims-data' | relative_url }}">partially adjudicated claims data</a>. 
+    Only REACH ACOs can access <a href="{{ '/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a>. 
 </p>
 {% endcapture %}
 
@@ -89,7 +89,7 @@ show-side-nav: false
 
 {% capture a3AccordionContent %}
 <p>
-    It typically takes 2-4 days after submission to receive <a href="{{ '/partially-adjudicated-claims-data' | relative_url }}">partially adjudicated claims data</a> and up to 14 days for adjudicated claims data. Even after adjudication, claims may go through additional processing. BCDA provides the latest updates available for each claim.
+    It typically takes 2-4 days after submission to receive <a href="{{ '/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a> and up to 14 days for adjudicated claims data. Even after adjudication, claims may go through additional processing. BCDA provides the latest updates available for each claim.
 </p>
 <p>
     According to Section 6404 of the Affordable Care Act, Medicare Fee-for-Service claims must be submitted within 12 months (1 calendar year) of the date of service. <a href="https://www2.ccwdata.org/documents/10280/19002256/medicare-claims-maturity.pdf" target="blank" rel="noopener">Learn about claims submission and approval time frames.</a></p>
@@ -106,7 +106,7 @@ show-side-nav: false
     Adjudicated claims data (ExplanationOfBenefit, Patient, Coverage) is updated weekly and partially adjudicated claims data (Claim, ClaimResponse) is updated daily.
 </p>
 <p>
-    You can export data as often as you like, depending on your needs and how often the data is refreshed. We don’t recommend exporting data more than once a week for adjudicated claims and once a day for partially adjudicated claims. Use the <a href="{{ '/filter-claims-data' | relative_url }}#the-since-parameter">_since parameter</a> when running jobs to avoid downloading duplicate data.
+    You can export data as often as you like, depending on your needs and how often the data is refreshed. We don’t recommend exporting data more than once a week for adjudicated claims and once a day for partially adjudicated claims. Use the <a href="{{ '/filter-claims-data.html' | relative_url }}#the-since-parameter">_since parameter</a> when running jobs to avoid downloading duplicate data.
 </p>
 {% endcapture %}
 
@@ -118,18 +118,18 @@ show-side-nav: false
         <li><B>Format:</b> CCLF files use 12 flat files, while BCDA provides a snapshot of enrollees’ claims database across 3 resource types. Additionally, BCDA uses the <a href="https://hl7.org/fhir/uv/bulkdata/" target="blank" rel="noopener">Bulk Fast Healthcare Interoperability Resources (FHIR)</a> format, as required by CMS.</li>
     </ul>
 </p>
-<p>Each data source has unique advantages. You can use both for a more accurate and wider variety of data. <a href="{{ '/bcda-cclf-comparison' | relative_url }}">Review all the differences between BCDA and CCLF files.</a></p>
+<p>Each data source has unique advantages. You can use both for a more accurate and wider variety of data. <a href="{{ '//comparison-bcda-cclf-files.html' | relative_url }}">Review all the differences between BCDA and CCLF files.</a></p>
 {% endcapture %}
 
 {% capture a7AccordionContent %}
 <p>A status code of 429 indicates “Too Many Requests.” Wait until the period of time specified in the header has passed before making more requests.</p>
 
-<p>This makes sure your client can adapt without manual intervention, even if the rate-limiting parameters change. <a href="{{ '/access-claims-data' | relative_url }}#response-example-too-many-requests">Learn more about the 429 status code.</a></p>
+<p>This makes sure your client can adapt without manual intervention, even if the rate-limiting parameters change. <a href="{{ '/access-claims-data.html' | relative_url }}#response-example-too-many-requests">Learn more about the 429 status code.</a></p>
 {% endcapture %}
 
 {% capture a8AccordionContent %}
 <p>
-    BCDA requires that all production requests come from a registered IP address. Make sure the IP address(es) you’re using to request data have been added to the allow list in your model-specific system. Visit <a href="{{ '/production-access' | relative_url }}">Production Access</a> for more details.
+    BCDA requires that all production requests come from a registered IP address. Make sure the IP address(es) you’re using to request data have been added to the allow list in your model-specific system. Visit <a href="{{ '/production-access.html' | relative_url }}">Production Access</a> for more details.
 </p>
 {% endcapture %}
 
@@ -142,7 +142,7 @@ show-side-nav: false
     BCDA V1 (<a href="https://hl7.org/fhir/STU3/" target="blank" rel="noopener">STU3</a>) and V2 (<a href="https://hl7.org/fhir/R4/" target="blank" rel="noopener">R4</a>) differ primarily in their FHIR specification. Version 1 is based on the Blue Button 2.0 Implementation Guide, while version 2 is based on the CARIN CDPDE Implementation Guide.
 </p>
 <p>There are minor differences in the mapping and values of certain data elements.</p>
-<p><a href="{{ '/difference-between-v1-v2' | relative_url }}">Review the full summary of changes.{% include sprite.html icon="arrow_forward" class="text-middle" %}</a></p>
+<p><a href="{{ '/difference-between-v1-v2.html' | relative_url }}">Review the full summary of changes.{% include sprite.html icon="arrow_forward" class="text-middle" %}</a></p>
 
 {% endcapture %}
 
