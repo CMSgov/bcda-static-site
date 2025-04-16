@@ -30,8 +30,8 @@ The sandbox and production environments follow similar instructions. They suppor
       <td>Contains real Medicare enrollee data</td>
     </tr>
     <tr>
-      <td>Sandbox.bcda.cms.gov</td>
-      <td>Api.bcda.cms.gov</td>
+      <td>sandbox.bcda.cms.gov</td>
+      <td>api.bcda.cms.gov</td>
     </tr>
   </tbody>
 </table>

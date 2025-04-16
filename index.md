@@ -11,18 +11,18 @@ show-side-nav: false
           Improve Care Coordination with Medicare Claims Data
       </h1>
       <p class="hero-paragraph line-height-sans-4 measure-5">
-      The Beneficiary Claims Data Application Programming Interface (BCDA) gives eligible model entities access to their attributed enrollees’ Medicare Parts A, B, and D claims data, including data from any care received outside their organization.
+      Beneficiary Claims Data Application Programming Interface (BCDA) gives eligible model entities access to their attributed enrollees’ Medicare Parts A, B, and D claims data, including data from any care received outside their organization.
       </p>
       <div class="grid-row grid-gap margin-top-2">
         <div class="tablet:grid-col-auto margin-top-2">
           <a href="{{ '/api-documentation.html' | relative_url }}" class="hero-button usa-button usa-button--inverse usa-button--outline width-full">
-            Get Started
+            Get started
             {% include sprite.html icon="arrow_forward" size="3" %}
           </a>
         </div>
         <div class="tablet:grid-col-auto margin-top-2">
           <a href="https://github.com/CMSgov/bcda-app" target="_blank" rel="noopener" class="hero-button usa-button usa-button--inverse usa-button--outline width-full">
-            Code Repo
+            Code repo
             {% include sprite.html icon="github" size="3" %}
           </a>
         </div>
@@ -40,9 +40,9 @@ show-side-nav: false
           <h2>Eligible model entities</h2>
           <p>BCDA supports organizations participating in the following <a href="https://www.cms.gov/priorities/innovation/about/alternative-payment-models" target="_blank" rel="noopener">Alternative Payment Models</a>:</p>
           <ul>
-            <li><a href="https://www.cms.gov/medicare/payment/fee-for-service-providers/shared-savings-program-ssp-acos" target="_blank" rel="noopener">Medicare Shared Savings Program</a></li>
-            <li><a href="https://www.cms.gov/priorities/innovation/innovation-models/kidney-care-choices-kcc-model" target="_blank" rel="noopener">Kidney Care Choices Model</a></li>
-            <li><a href="https://www.cms.gov/priorities/innovation/innovation-models/aco-reach" target="_blank" rel="noopener">Accountable Care Organizations Realizing Equity, Access, and Community Health Model</a></li>
+            <li><a href="https://www.cms.gov/medicare/payment/fee-for-service-providers/shared-savings-program-ssp-acos" target="_blank" rel="noopener">Medicare Shared Savings Program (SSP)</a></li>
+            <li><a href="https://www.cms.gov/priorities/innovation/innovation-models/kidney-care-choices-kcc-model" target="_blank" rel="noopener">Kidney Care Choices (KCC) Model</a></li>
+            <li><a href="https://www.cms.gov/priorities/innovation/innovation-models/aco-reach" target="_blank" rel="noopener">Accountable Care Organizations Realizing Equity, Access, and Community Health (ACO REACH) Model</a></li>
           </ul>
         </div>
       </div>
@@ -55,10 +55,10 @@ show-side-nav: false
           <div>{% include sprite.html icon="people" size="8" %}</div>
           <div class="tablet:margin-left-2">
             <h3 class="margin-y-1">
-              Target MTM program enrollees
+              Boost data insights 
             </h3>
             <p>
-              Identify Medication Therapy Management (MTM) enrollees by using data for a more thorough search capability.
+             Leverage claims data for quantitative insights into your enrollee populations. 
             </p>
           </div>
         </div>
