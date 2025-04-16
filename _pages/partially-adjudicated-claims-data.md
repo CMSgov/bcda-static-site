@@ -3,7 +3,6 @@ layout: api-docs
 page_title: "Guide to Partially Adjudicated Claims Data"
 seo_title: ""
 description: ""
-permalink: /guide-to-partially-adjudicated-claims-data
 in-page-nav: true
 in-page-nav-levels: "h3"
 ---
@@ -20,7 +19,7 @@ Unlike most claims, partially adjudicated claims are not fully paid or processed
 
 Visit the resources below to learn more: 
 
-- [Access partially adjudicated claims data in the BCDA Sandbox]({{ '/get-a-bearer-token#partially-adjudicated-claims-data-sets' | relative_url }})
+- [Access partially adjudicated claims data in the BCDA Sandbox]({{ '/get-a-bearer-token.html#partially-adjudicated-claims-data-sets' | relative_url }})
 - [Fee-for-Service (FFS) Claims Processing](https://4innovation.cms.gov/secure/knowledge-management/ view/341)
 - [Services covered by Medicare Parts A and B](https://www.medicare.gov/what-medicare-covers)
 - [Reporting and Data Sharing Overview](https://4innovation.cms.gov/secure/knowledge-management/view/491)
@@ -89,7 +88,7 @@ Claims adjudication is Medicare’s process of reviewing and approving claims. I
 {% endcapture %}
 
 {% capture a1AccordionContent %}
-Visit <a href="{{ '/production-access' | relative_url }}">Production Access</a> to retrieve synthetic data, authorize your model entity, and get production credentials.
+Visit <a href="{{ '/production-access.html' | relative_url }}">Production Access</a> to retrieve synthetic data, authorize your model entity, and get production credentials.
 {% endcapture %}
 
 {% capture a2AccordionContent %}
@@ -97,7 +96,7 @@ Visit <a href="{{ '/production-access' | relative_url }}">Production Access</a> 
     No, REACH ACOs don’t need to update their credentials since V2 supports the same functionality as V1 in both the sandbox and production environments. 
 </p>
 <p>
-    All V2 endpoints will work as described in the existing BCDA documentation. <a href="{{ '/placeholder' | relative_url }}">Learn more about the differences between V1 and V2</a>.
+    All V2 endpoints will work as described in the existing BCDA documentation. <a href="{{ '/difference-between-v1-v2.html' | relative_url }}">Learn more about the differences between V1 and V2</a>.
 </p>
 {% endcapture %}
 

@@ -42,14 +42,14 @@ Beneficiary Claims Data API (BCDA) updates partially adjudicated claims data dai
 
 ## Data Dictionary
 
-The Data Dictionary maps the different data fields and locations between BCDA and Claim and Claim Line Feed (CCLF) files. [Explore all the differences between the data sources]({{ '/bcda-cclf-comparison.html' | relative_url }}).
+The Data Dictionary maps the different data fields and locations between BCDA and Claim and Claim Line Feed (CCLF) files. [Explore all the differences between the data sources]({{ '/comparison-bcda-cclf-files.html' | relative_url }}).
 
 <div class="grid-row grid-gap margin-y-4 flex-align-center">
   <div class="grid-col-2 tablet:grid-col-3 text-center">
     <img src="{{ '/assets/img/book.svg' | relative_url }}" alt="book illustration">
   </div>
   <div class="grid-col-fill tablet:grid-col-9">
-        <p>Download the <a href="{{ 'placeholder' | relative_url }}">BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a> to learn about:</p>
+        <p>Download the <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}">BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a> to learn about:</p>
     <ul>
         <li>claim field names and descriptions</li>
         <li>new data field locations</li>
@@ -72,7 +72,7 @@ REACH ACOs can access claims that aren’t fully processed or approved yet. **Th
             <a href="{{ 'partially-adjudicated-claims-data.html' | relative_url }}">Guide to Partially Adjudicated Claims Data</a>
         </li>
         <li>
-            <a href="{{ 'placeholder' | relative_url }}" data-tealium="download">Data Dictionary for Partially Adjudicated Claims Data {% include sprite.html icon="file_download" class="text-middle" %}</a>
+            <a href="{{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">Data Dictionary for Partially Adjudicated Claims Data {% include sprite.html icon="file_download" class="text-middle" %}</a>
         </li>
     </ul>
   </div>
@@ -80,7 +80,7 @@ REACH ACOs can access claims that aren’t fully processed or approved yet. **Th
 
 ## Sample files
 
-Download sample data files, which share similar content and structure to production data. [Try the sandbox environment]({{ 'placeholder' | relative_url }}) to access test data from the API.
+Download sample data files, which share similar content and structure to production data. [Try the sandbox environment]({{ '/api-documentation.html' | relative_url }}) to access test data from the API.
 
 <div class="grid-row grid-gap margin-y-4 flex-align-center">
   <div class="grid-col-2 tablet:grid-col-3 text-center">
@@ -88,18 +88,18 @@ Download sample data files, which share similar content and structure to product
   </div>
   <div class="grid-col-fill tablet:grid-col-9">
     <ul>
-        <li><a href="{{ 'placeholder' | relative_url }}">ExplanationOfBenefit {% include sprite.html icon="file_download" class="text-middle"%}</a></li>
-        <li><a href="{{ 'placeholder' | relative_url }}">Patient{% include sprite.html icon="file_download" class="text-middle"%}</a></li>
-        <li><a href="{{ 'placeholder' | relative_url }}">Coverage{% include sprite.html icon="file_download" class="text-middle"%}</a></li>
-        <li><a href="{{ 'placeholder' | relative_url }}">Claim (partially adjudicated claims data){% include sprite.html icon="file_download" class="text-middle"%}</a></li>
-        <li><a href="{{ 'placeholder' | relative_url }}">ClaimResponse (partially adjudicated claims data){% include sprite.html icon="file_download" class="text-middle"%}</a></li>
+        <li><a href="https://hl7.org/fhir/R4/explanationofbenefit.html" target="blank" rel="noopener">ExplanationOfBenefit {% include sprite.html icon="file_download" class="text-middle"%}</a></li>
+        <li><a href="https://hl7.org/fhir/R4/patient.html" target="blank" rel="noopener">Patient{% include sprite.html icon="file_download" class="text-middle"%}</a></li>
+        <li><a href="https://hl7.org/fhir/R4/coverage.html" target="blank" rel="noopener">Coverage{% include sprite.html icon="file_download" class="text-middle"%}</a></li>
+        <li><a href="https://hl7.org/fhir/R4/claim.html" target="blank" rel="noopener">Claim (partially adjudicated claims data){% include sprite.html icon="file_download" class="text-middle"%}</a></li>
+        <li><a href="https://hl7.org/fhir/R4/claimresponse.html" target="blank" rel="noopener">ClaimResponse (partially adjudicated claims data){% include sprite.html icon="file_download" class="text-middle"%}</a></li>
     </ul>
   </div>
 </div>
 
 ## Resource types
 
-Claims data is organized by resource types, which are requested at the /Patient and /Group [endpoints]({{ '/api-documentation.html' | relative_url }}#endpoints). Version 2 has [minor changes]({{ '/placeholder' | relative_url }}) in resource types from V1.
+Claims data is organized by resource types, which are requested at the /Patient and /Group [endpoints]({{ '/api-documentation.html' | relative_url }}#endpoints). Version 2 has [minor changes]({{ '/difference-between-v1-v2.html' | relative_url }}) in resource types from V1.
 
 <dl>
 <div id="explanationofbenefit">

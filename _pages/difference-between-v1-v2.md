@@ -3,7 +3,6 @@ layout: default
 page_title: "What’s the difference between BCDA V1 and V2?"
 seo_title: ""
 description: ""
-permalink: /difference-between-v1-v2
 in-page-nav: true
 show-side-nav: false
 ---

@@ -55,7 +55,7 @@ show-side-nav: false
         The sandbox and production environments support the same workflow, endpoints, and resource types. Follow similar steps as you did in the sandbox to <a href="{{ '/get-a-bearer-token.html' | relative_url }}">get a bearer token</a> and <a href="{{ '/access-claims-data.html' | relative_url }}">retrieve claims data</a>.
       </p>
       <p>
-        Visit <a href="{{ '/support.html' | relative_url }}">Support</a> or <a href="https://groups.google.com/forum/#!forum/bc-api" target="blank" rel="noopener">join the Google Group</a> if you have questions. Do not share <a href="{{ '/placeholder.html' | relative_url }}">Personally Identifiable Information (PII)</a> like tokens, credentials, or claims data. 
+        Visit <a href="{{ '/support.html' | relative_url }}">Support</a> or <a href="https://groups.google.com/forum/#!forum/bc-api" target="blank" rel="noopener">join the Google Group</a> if you have questions. Do not share <a href="{{ '/support.html#how-do-i-redact-phi-and-pii-when-sharing-information' | relative_url }}">Personally Identifiable Information (PII)</a> like tokens, credentials, or claims data. 
       </p>
   </li>
 </ol>
