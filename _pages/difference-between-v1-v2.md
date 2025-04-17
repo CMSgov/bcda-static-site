@@ -12,14 +12,11 @@ show-side-nav: false
 <p>
     BCDA V1 (<a href="https://hl7.org/fhir/STU3/" target="blank" rel="noopener">STU3</a>) and V2 (<a href="https://hl7.org/fhir/R4/" target="blank" rel="noopener">R4</a>) differ primarily in their FHIR specification. Version 1 is based on the Blue Button 2.0 Implementation Guide, while version 2 is based on the CARIN CDPDE Implementation Guide.
 </p>
-<p>There are minor differences in the mapping and values of certain data elements: 
-    <ul>
-        <li>Slicing/discriminator rules can be different, and some value sets will be bound to CARIN or HL7 value sets instead of BlueButton.</li>
+<p>There are minor differences in the mapping and values of certain data elements. Slicing/discriminator rules can be different, and some value sets will be bound to CARIN or HL7 value sets instead of BlueButton:
         <ul>
             <li>Example 1: Patient.identifier.type in V2 is bound to the <a href="http://www.hl7.org/fhir/us/carin-bb/ValueSet-C4BBPatientIdentifierType.html" target="blank" rel="noopener">C4BB Patient Identifier type value set</a>.</li>
             <li>Example 2: EOB.Type is bound to the <a href="http://www.hl7.org/fhir/us/carin-bb/ValueSet-C4BBPayeeType.html" target="blank" rel="noopener">C4BB Payee Type value set</a> and the associated value will be one of the codes in that value set.</li>
         </ul>
-    </ul>
 </p>
 <h2>Summary of changes</h2>
 <p>
@@ -74,7 +71,7 @@ show-side-nav: false
                     New elements
                 </td>
                 <td>
-                    Approximately 35 elements were added to the EOB resource type. About 65% of these are child elements of the .addItem property, which isn’t supplied by BCDA. Of the remaining 35%, few if any are populated by BCDA.
+                    Approximately 35 elements were added to the EOB resource type. About 65% of these are child elements of the .addItem property, which isn’t supplied by BCDA. Of the remaining 35%, few are populated by BCDA.
                 </td>
                  <td>
                     <ul>
@@ -90,7 +87,7 @@ show-side-nav: false
                     Renamed elements
                 </td>
                 <td>
-                    Four elements were renamed. For users converting from V1 (STU3) to V2 (R4), it’s likely that existing parsing or handling logic needs to be adjusted.
+                    Four elements were renamed. For users converting to V2, it’s likely that existing parsing or handling logic needs to be adjusted.
                 </td>
                  <td>
                     <ul>

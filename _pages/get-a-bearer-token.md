@@ -59,11 +59,7 @@ BCDA protects its token endpoint with Basic Auth. Your credentials will be forma
 
 ### 2. Request a bearer token
 
-Start a request in your terminal window or using a tool like Postman. The examples below use sandbox credentials for the extra-small model entity:
-
-#### Sample credentials
-
-{% include copy_snippet.html code=Snippet1 language="yaml" %}
+Start a request in your terminal window or using a tool like Postman.
 
 #### Request to retrieve a token
 
@@ -106,18 +102,16 @@ Include your bearer token in the authorization header when requesting data in th
 
 {% include copy_snippet.html code=Snippet6 language="yaml" %}
 
-## Guides
-
-Once you have a bearer token, begin [accessing claims data]({{ '/access-claims-data.html' | relative_url }}). The production and sandbox environments support the same workflow, endpoints, and resource types.  
+Now you can begin [accessing claims data]({{ '/access-claims-data.html' | relative_url }}). The production and sandbox environments support the same workflow, endpoints, and resource types.  
 
 ## Sandbox credentials
 
 Sandbox credentials allow anyone to access test claims data. These credentials will not work in the production environment. 
 
-Sample data sets vary in size, ranging from 50 to 30,000 synthetic enrollees, to best match the needs of your model entity.  
+Sample data sets vary in size and data complexity, ranging from 50 to 30,000 synthetic enrollees, to best match the needs of your model entity.  
 
 ### Adjudicated claims data sets - 5 simple sizes
-The data sets are designed to test the stress of retrieving and downloading large data files into your internal ingestion processes. However, the test data may not reflect an accurate distribution of disease and demographic information.
+Use the data sets to test retrieving and downloading data files into your internal ingestion processes. However, the test data may not reflect an accurate distribution of disease and demographic information.
 
 #### Extra-small model entity (50 synthetic enrollees)
 
