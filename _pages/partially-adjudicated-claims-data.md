@@ -90,7 +90,7 @@ REACH ACOs can visit <a href="{{ '/production-access.html' | relative_url }}">Pr
 {% endcapture %}
 
 {% capture a1AccordionContent %}
-Adjudication is Medicare’s process of reviewing and approving claims. It involves submission, validation, review, and approval. <a href="{{ '/about.html' | relative_url }}#claims-data-process">Learn more about the claims data process</a>. 
+Adjudication is Medicare’s process of reviewing and approving claims. It involves submission, validation, review, and approval. <a href="{{ '/about.html#claims-data-process' | relative_url }}">Learn more about the claims data process</a>. 
 {% endcapture %}
 
 {% capture a2AccordionContent %}
