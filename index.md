@@ -52,7 +52,7 @@ show-side-nav: false
       <h2>Use cases for BCDA</h2>
       <div class="usa-graphic-list__row grid-row tablet:grid-gap-6 padding-y-2">
         <div class="tablet:grid-col-6 padding-y-3 tablet:display-flex">
-          <div>{% include sprite.html icon="people" size="8" %}</div>
+          <div>{% include sprite.html icon="insights" size="8" %}</div>
           <div class="tablet:margin-left-2">
             <h3 class="margin-y-1">
               Boost data insights 
@@ -63,7 +63,7 @@ show-side-nav: false
           </div>
         </div>
         <div class="tablet:grid-col-6 padding-y-3 tablet:display-flex">
-          <div>{% include sprite.html icon="insights" size="8" %}</div>
+          <div>{% include sprite.html icon="autorenew" size="8" %}</div>
           <div class="tablet:margin-left-2">
             <h3 class="margin-y-1">
               Get claims data faster
@@ -74,7 +74,7 @@ show-side-nav: false
           </div>
         </div>
          <div class="tablet:grid-col-6 padding-y-3 tablet:display-flex">
-            <div>{% include sprite.html icon="security" size="7" %}</div>
+            <div>{% include sprite.html icon="medical_services" size="7" %}</div>
             <div class="tablet:margin-left-2">
               <h3 class="margin-y-1">Provide value-based care</h3>
               <p>
@@ -83,7 +83,7 @@ show-side-nav: false
             </div>
         </div>
         <div class="tablet:grid-col-6 padding-y-3 tablet:display-flex">
-          <div>{% include sprite.html icon="security" size="7" %}</div>
+          <div>{% include sprite.html icon="identification" size="7" %}</div>
           <div class="tablet:margin-left-2">
             <h3 class="margin-y-1">Receive standardized claims data</h3>
             <p>
