@@ -4,13 +4,11 @@ page_title: "Support"
 seo_title: ""
 description: ""
 show-side-nav: false
-in-page-nav: true
 ---
-
 
 <div class="usa-alert usa-alert--warning usa-alert--slim">
   <div class="usa-alert__body">
-    <p class="usa-alert__text" style="text-wrap: nowrap">
+    <p class="usa-alert__text maxw-desktop-lg" style="text-wrap: fill">
       Please cover or label <a href="{{ '/support.html#how-do-i-redact-phi-and-pii-when-sharing-information' | relative_url }}">Personally Identifiable Information (PII)</a> as "REDACTED" in the Google Group and via email.
     </p>
   </div>
