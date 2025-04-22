@@ -469,16 +469,16 @@ If BCDA has never ingested an attribution or runout file for your organization, 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 {
-    “Ingestion_dates”: [
-        {
-            “type”: “last_attribution_update”,
-            “timestamp”: “2020-12-22 22:31:40.397916+00”
-        },
-        {
-            “type”: “last_runout_update”,
-            “timestamp”: “2020-12-22 22:31:40.397916+00”
-        }
-]
+  "Ingestion_dates": [
+    {
+      "type": "last_attribution_update",
+      "timestamp": "2020-12-22 22:31:40.397916+00"
+    },
+    {
+      "type": "last_runout_update",
+      "timestamp": "2020-12-22 22:31:40.397916+00"
+    }
+  ]
 }
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
