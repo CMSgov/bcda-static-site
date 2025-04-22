@@ -16,7 +16,7 @@ Beneficiary Claims Data API (BCDA) uses [Fast Healthcare Interoperability Resour
   <li class="usa-process-list__item">
     <p class="usa-process-list__heading">Learn about BCDA</p>
     <p>
-      Explore the <a href="{{ '/api-documentation.html#endpoints' | relative_url }}">documentation</a>, <a href="{{ '/bcda-data.html#data-dictionary' | relative_url }}">Data Dictionary</a>, and <a href="{{ '/bcda-data.html#sample-files' | relative_url }}">sample files</a>.
+      Explore the documentation, <a href="{{ '/bcda-data.html#data-dictionary' | relative_url }}">Data Dictionary</a>, and <a href="{{ '/bcda-data.html#sample-files' | relative_url }}">sample files</a>.
     </p>
   </li>
   <li class="usa-process-list__item">

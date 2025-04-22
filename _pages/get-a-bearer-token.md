@@ -38,9 +38,9 @@ curl -d "" -X POST "https://sandbox.bcda.cms.gov/auth/token" \
 
 {% capture Snippet5 %}{% raw %}
 {
-"access_token": "eyJhbGciOiJSUzUxMiIsInR...", 
-"expires_in": "1200",
-"token_type":"bearer"
+  "access_token": "eyJhbGciOiJSUzUxMiIsInR...",
+  "expires_in": "1200",
+  "token_type": "bearer"
 }
 {% endraw %}{% endcapture %}
 
