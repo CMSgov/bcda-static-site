@@ -193,7 +193,7 @@ Accept: application/fhir+json
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}" \
-    -H "accept: application/fhir+json" \
+    -H "Accept: application/fhir+json" \
     -H "Authorization: Bearer {bearer_token}"
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
@@ -329,7 +329,7 @@ Authorization: Bearer {bearer_token}
  <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 curl -X DELETE "https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}" \
-    -H "accept: application/fhir+json" \
+    -H "Accept: application/fhir+json" \
     -H "Authorization: Bearer {bearer_token}" \
     -i
 {% endraw %}{% endcapture %}
@@ -383,7 +383,7 @@ Prefer: respond-async
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/jobs" \
-    -H "accept: application/fhir+json" \
+    -H "Accept: application/fhir+json" \
     -H "Prefer: respond-async" \
     -H "Authorization: Bearer {bearer_token}"
 {% endraw %}{% endcapture %}
@@ -398,37 +398,37 @@ This example shows 1 historical job with a “Completed” status. Since this wa
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 {
-    "entry":[
-        {
-            "resource":{
-                "executionPeriod":{
-                    "end":"2021-08-14T00:07:48+00:00",
-                    "start":"2021-08-13T00:07:48+00:00"
-                },
-                "identifier":[
-                    {
-                        "system":"http://bcda.cms.gov/api/v2/jobs",
-                        "use":"official",
-                        "value":"1"
-                    }
-                ],
-                "input":[
-                    {
-                        "type":{
-                            "text":"BULK FHIR Export"
-                        },
-                        "valueString":"GET https://bcda.test.gov/this-is-a-test"
-                    }
-                ],
-                "intent":"order",
-                "resourceType":"Task",
-                "status":"completed"
-            }
-        }
-    ],
-    "resourceType":"Bundle",
-    "total":1,
-    "type":"searchset"
+  "entry": [
+    {
+      "resource": {
+        "executionPeriod": {
+          "end": "2021-08-14T00:07:48+00:00",
+          "start": "2021-08-13T00:07:48+00:00"
+        },
+        "identifier": [
+          {
+            "system": "http://bcda.cms.gov/api/v2/jobs",
+            "use": "official",
+            "value": "1"
+          }
+        ],
+        "input": [
+          {
+            "type": {
+              "text": "BULK FHIR Export"
+            },
+            "valueString": "GET https://bcda.test.gov/this-is-a-test"
+          }
+        ],
+        "intent": "order",
+        "resourceType": "Task",
+        "status": "completed"
+      }
+    }
+  ],
+  "resourceType": "Bundle",
+  "total": 1,
+  "type": "searchset"
 }
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
@@ -459,7 +459,7 @@ Accept: application/json
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/attribution_status" \
-    -H "accept: application/json" \
+    -H "Accept: application/json" \
     -H "Authorization: Bearer {bearer_token}"
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
@@ -469,16 +469,16 @@ If BCDA has never ingested an attribution or runout file for your organization, 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 {
-    “Ingestion_dates”: [
-        {
-            “type”: “last_attribution_update”,
-            “timestamp”: “2020-12-22 22:31:40.397916+00”
-        },
-        {
-            “type”: “last_runout_update”,
-            “timestamp”: “2020-12-22 22:31:40.397916+00”
-        }
-    ]
+  "Ingestion_dates": [
+    {
+      "type": "last_attribution_update",
+      "timestamp": "2020-12-22 22:31:40.397916+00"
+    },
+    {
+      "type": "last_runout_update",
+      "timestamp": "2020-12-22 22:31:40.397916+00"
+    }
+  ]
 }
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
