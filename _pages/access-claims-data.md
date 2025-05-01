@@ -61,7 +61,7 @@ You will need a [bearer token]({{ '/get-a-bearer-token.html' | relative_url }}) 
     </div>
 </div>
 
-Make a GET request to the /Group or /Patient endpoint to start a data export job. The examples below are sandbox curl requests to /Group. Follow along in your terminal or using a tool like Postman.
+Make a `GET` request to the /Group or /Patient endpoint to start a data export job. The examples below are sandbox curl requests to /Group. Follow along in your terminal or using a tool like Postman.
 
 #### Request all resource types 
 
@@ -169,7 +169,7 @@ Retry-After: <delay-seconds>
 
 ### 3. Check job status
 
-Make a GET request to check the status using the job ID from step 2. You may need another bearer token if it’s been over 20 minutes since it was generated.
+Make a `GET` request to check the status using the job ID from step 2. You may need another bearer token if it’s been over 20 minutes since it was generated.
 
 #### Request to check the job status
 
@@ -259,7 +259,7 @@ There is a separate URL for each resource type requested. The example below requ
 
 ### 4. Download the data
 
-Make a GET request to download your data using the URL(s) from step 3. 
+Make a `GET` request to download your data using the URL(s) from step 3. 
 
 If you're downloading from more than 1 URL, make multiple download requests concurrently to save time. Large files may take significantly longer to download. 
 
@@ -301,6 +301,12 @@ By default, you’ll receive the requested data as FHIR resources in NDJSON form
 1. [ExplanationOfBenefit](https://bcda.cms.gov/assets/data/ExplanationOfBenefit.ndjson)
 2. [Patient](https://bcda.cms.gov/assets/data/Patient.ndjson)
 3. [Coverage](https://bcda.cms.gov/assets/data/Coverage.ndjson)
+
+<div class="usa-alert usa-alert--info usa-alert--slim">
+    <div class="usa-alert__body">
+        <p class="usa-alert__text">Test data from the sandbox contains negative Patient IDs.</p>
+    </div>
+</div>
 
 ## Other BCDA endpoints 
 

@@ -53,9 +53,9 @@ The _since parameter lets you filter for claims data last updated after a specif
 - Sample date: February 20, 2020 12:00 PM EST
 - Formatted sample: 2020-02-20T12:00:00.000-05:00
 
-<div class="usa-alert usa-alert--warning">
+<div class="usa-alert usa-alert--warning usa-alert--no-icon">
     <div class="usa-alert__body">
-        <h4 class="usa-alert__heading">Requesting data from before 02/12/2020</h4>
+                <p class="usa-alert__text text-bold">Requesting data from before 02/12/2020</p>
         <p class="usa-alert__text">Due to data source limitations, claims before 02/12/2020 are marked with the arbitrary lastUpdated date of 01/01/2020. </p>
         <p>If you specify a date between 01/01/2020 and 02/11/2020 for _since, you’ll receive all historical data for your enrollees. Data requests from February 12, 2020 onwards are marked with accurate dates.</p>
     </div>

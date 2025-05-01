@@ -81,7 +81,7 @@ This command uses curl’s built-in ability to Base-64 encode your credentials, 
 
 <div class="usa-alert usa-alert--warning usa-alert--no-icon">
     <div class="usa-alert__body">
-        <h4 class="usa-alert__heading">Remember to use the correct URL for your environment</h4>
+        <p class="usa-alert__text text-bold">Remember to use the correct URL for your environment</p>
         <p class="usa-alert__text">
             Use sandbox.bcda.cms.gov to access the sandbox or api.bcda.cms.gov to access the production environment.
         </p>
