@@ -4,7 +4,7 @@
     {% for item in site.data.api-docs-nav %}
     <li class="usa-sidenav__item">
       <a href="{{ item.url | relative_url }}"
-        class="{% if page.permalink == item.url %}{{ 'usa-current' }}{% endif %}"
+        class="{% if page.url == item.url %}{{ 'usa-current' }}{% endif %}"
         data-tealium="navigation"
       >
         {%- if item.icon -%}
@@ -16,14 +16,14 @@
         {% for child in item.children %}
         <li class="usa-sidenav__item">
           <a href="{{ child.url | relative_url }}"
-            class="{% if page.permalink == child.url %}{{ 'usa-current' }}{% endif %}"
+            class="{% if page.url == child.url %}{{ 'usa-current' }}{% endif %}"
             data-tealium="navigation"
           >{{ child.name }}</a>
           <ul class="usa-sidenav__sublist">
             {% for grandchild in child.children %}
             <li class="usa-sidenav__item">
               <a href="{{ grandchild.url | relative_url }}"
-                class="{% if page.permalink == grandchild.url %}{{ 'usa-current' }}{% endif %}"
+                class="{% if page.url == grandchild.url %}{{ 'usa-current' }}{% endif %}"
                 data-tealium="navigation"
               >{{ grandchild.name }}</a>
             </li>
