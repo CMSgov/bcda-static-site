@@ -304,7 +304,7 @@ By default, you’ll receive the requested data as FHIR resources in NDJSON form
 
 <div class="usa-alert usa-alert--info usa-alert--slim">
     <div class="usa-alert__body">
-        <p class="usa-alert__text">Test data from the sandbox contains negative Patient IDs.</p>
+        <p class="usa-alert__text">Test data from the sandbox contains only negative Patient IDs.</p>
     </div>
 </div>
 
