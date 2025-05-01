@@ -85,7 +85,7 @@ Authorization: Bearer {bearer_token}
 Accept: application/fhir+json
 Prefer: respond-async
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="yaml" %}
 
 <div class="usa-alert usa-alert--warning usa-alert--no-icon">
     <div class="usa-alert__body">
@@ -186,7 +186,7 @@ GET https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}
 Authorization: Bearer {bearer_token}
 Accept: application/fhir+json
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="yaml" %}
 
 #### curl command to check the job status
 
@@ -280,7 +280,7 @@ Request compressed data files with the optional `Accept-Encoding: gzip` header i
 Authorization: Bearer {bearer_token}
 Accept-Encoding: gzip
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="yaml" %}
 
 #### curl command to download the data
 
@@ -322,7 +322,7 @@ DELETE /api/v2/jobs/{job_id}
 {% capture curlSnippet %}{% raw %}
 Authorization: Bearer {bearer_token}
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="yaml" %}
 
 #### curl command to cancel a job
 
@@ -376,7 +376,7 @@ Authorization: Bearer {bearer_token}
 Accept: application/fhir+json
 Prefer: respond-async
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="yaml" %}
 
 #### curl command to check the job status
 
@@ -452,7 +452,7 @@ GET /api/v2/attribution_status
 Authorization: Bearer {bearer_token}
 Accept: application/json
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="yaml" %}
 
 #### curl command to check attribution status
 

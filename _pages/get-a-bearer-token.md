@@ -77,7 +77,7 @@ In this example, the authorization in the request header is replaced with `--use
 
 This command uses curl’s built-in ability to Base-64 encode your credentials, request, and receive your token in a single step.
 
-{% include copy_snippet.html code=Snippet4 language="yaml" can_copy=true %}
+{% include copy_snippet.html code=Snippet4 language="shell" can_copy=true %}
 
 <div class="usa-alert usa-alert--warning usa-alert--no-icon">
     <div class="usa-alert__body">

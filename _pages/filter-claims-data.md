@@ -106,7 +106,7 @@ Authorization: Bearer {bearer_token}
 Accept: application/fhir+json
 Prefer: respond-async
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="yaml" %}
 
 #### Example curl command using _since with /Patient
 
@@ -172,7 +172,7 @@ Authorization: Bearer {bearer_token}
 Accept: application/fhir+json
 Prefer: respond-async
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="yaml" %}
 
 <h3 class="font-ui-sm">Example curl commands using `runout`</h3>
 
