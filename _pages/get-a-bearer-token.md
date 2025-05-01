@@ -38,9 +38,9 @@ curl -d "" -X POST "https://sandbox.bcda.cms.gov/auth/token" \
 
 {% capture Snippet5 %}{% raw %}
 {
-"access_token": "eyJhbGciOiJSUzUxMiIsInR...", 
-"expires_in": "1200",
-"token_type":"bearer"
+  "access_token": "eyJhbGciOiJSUzUxMiIsInR...",
+  "expires_in": "1200",
+  "token_type": "bearer"
 }
 {% endraw %}{% endcapture %}
 
@@ -94,7 +94,7 @@ If your request succeeds, you’ll receive a 200 response with your bearer token
 
 “Expires_in” counts down the seconds remaining before the token expires, which is 20 minutes after it is generated. “Token_type: Bearer” is a fixed value.
 
-{% include copy_snippet.html code=Snippet5 language="yaml" %}
+{% include copy_snippet.html code=Snippet5 language="json" %}
 
 ### 3. Set your bearer token in your request headers
 

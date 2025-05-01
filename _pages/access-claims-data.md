@@ -398,40 +398,40 @@ This example shows 1 historical job with a “Completed” status. Since this wa
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 {
-    "entry":[
-        {
-            "resource":{
-                "executionPeriod":{
-                    "end":"2021-08-14T00:07:48+00:00",
-                    "start":"2021-08-13T00:07:48+00:00"
-                },
-                "identifier":[
-                    {
-                        "system":"http://bcda.cms.gov/api/v2/jobs",
-                        "use":"official",
-                        "value":"1"
-                    }
-                ],
-                "input":[
-                    {
-                        "type":{
-                            "text":"BULK FHIR Export"
-                        },
-                        "valueString":"GET https://bcda.test.gov/this-is-a-test"
-                    }
-                ],
-                "intent":"order",
-                "resourceType":"Task",
-                "status":"completed"
-            }
-        }
-    ],
-    "resourceType":"Bundle",
-    "total":1,
-    "type":"searchset"
+  "entry": [
+    {
+      "resource": {
+        "executionPeriod": {
+          "end": "2021-08-14T00:07:48+00:00",
+          "start": "2021-08-13T00:07:48+00:00"
+        },
+        "identifier": [
+          {
+            "system": "http://bcda.cms.gov/api/v2/jobs",
+            "use": "official",
+            "value": "1"
+          }
+        ],
+        "input": [
+          {
+            "type": {
+              "text": "BULK FHIR Export"
+            },
+            "valueString": "GET https://bcda.test.gov/this-is-a-test"
+          }
+        ],
+        "intent": "order",
+        "resourceType": "Task",
+        "status": "completed"
+      }
+    }
+  ],
+  "resourceType": "Bundle",
+  "total": 1,
+  "type": "searchset"
 }
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="json" %}
 
 ### Request attribution status
 
@@ -469,19 +469,19 @@ If BCDA has never ingested an attribution or runout file for your organization, 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 {
-    “Ingestion_dates”: [
-        {
-            “type”: “last_attribution_update”,
-            “timestamp”: “2020-12-22 22:31:40.397916+00”
-        },
-        {
-            “type”: “last_runout_update”,
-            “timestamp”: “2020-12-22 22:31:40.397916+00”
-        }
-    ]
+  "Ingestion_dates": [
+    {
+      "type": "last_attribution_update",
+      "timestamp": "2020-12-22 22:31:40.397916+00"
+    },
+    {
+      "type": "last_runout_update",
+      "timestamp": "2020-12-22 22:31:40.397916+00"
+    }
+  ]
 }
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="json" %}
 
 ### Check API status
 
@@ -499,7 +499,7 @@ GET /api/v2/metadata
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
-curl https://sandbox.bcda.cms.gov/api/v2/metadata
+curl "https://sandbox.bcda.cms.gov/api/v2/metadata"
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
@@ -594,4 +594,4 @@ The response will contain a FHIR Capability Statement resource in JSON format. T
   "status": "active"
 }
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="json" %}
