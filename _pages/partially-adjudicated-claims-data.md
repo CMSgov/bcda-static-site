@@ -4,7 +4,6 @@ page_title: "Guide to Partially Adjudicated Claims Data"
 seo_title: ""
 description: ""
 in-page-nav: true
-in-page-nav-levels: "h3"
 ---
 
 # {{ page.page_title }}

@@ -61,7 +61,7 @@ You will need a [bearer token]({{ '/get-a-bearer-token.html' | relative_url }}) 
     </div>
 </div>
 
-Make a GET request to the /Group or /Patient endpoint to start a data export job. The examples below are sandbox curl requests to /Group. Follow along in your terminal or using a tool like Postman.
+Make a `GET` request to the /Group or /Patient endpoint to start a data export job. The examples below are sandbox curl requests to /Group. Follow along in your terminal or using a tool like Postman.
 
 #### Request all resource types 
 
@@ -169,7 +169,7 @@ Retry-After: <delay-seconds>
 
 ### 3. Check job status
 
-Make a GET request to check the status using the job ID from step 2. You may need another bearer token if it’s been over 20 minutes since it was generated.
+Make a `GET` request to check the status using the job ID from step 2. You may need another bearer token if it’s been over 20 minutes since it was generated.
 
 #### Request to check the job status
 
@@ -193,7 +193,7 @@ Accept: application/fhir+json
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}" \
-    -H "accept: application/fhir+json" \
+    -H "Accept: application/fhir+json" \
     -H "Authorization: Bearer {bearer_token}"
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
@@ -259,7 +259,7 @@ There is a separate URL for each resource type requested. The example below requ
 
 ### 4. Download the data
 
-Make a GET request to download your data using the URL(s) from step 3. 
+Make a `GET` request to download your data using the URL(s) from step 3. 
 
 If you're downloading from more than 1 URL, make multiple download requests concurrently to save time. Large files may take significantly longer to download. 
 
@@ -302,6 +302,12 @@ By default, you’ll receive the requested data as FHIR resources in NDJSON form
 2. [Patient](https://bcda.cms.gov/assets/data/Patient.ndjson)
 3. [Coverage](https://bcda.cms.gov/assets/data/Coverage.ndjson)
 
+<div class="usa-alert usa-alert--info usa-alert--slim">
+    <div class="usa-alert__body">
+        <p class="usa-alert__text">Test data from the sandbox contains only negative Patient IDs.</p>
+    </div>
+</div>
+
 ## Other BCDA endpoints 
 
 ### Cancel a job
@@ -329,7 +335,7 @@ Authorization: Bearer {bearer_token}
  <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 curl -X DELETE "https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}" \
-    -H "accept: application/fhir+json" \
+    -H "Accept: application/fhir+json" \
     -H "Authorization: Bearer {bearer_token}" \
     -i
 {% endraw %}{% endcapture %}
@@ -383,7 +389,7 @@ Prefer: respond-async
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/jobs" \
-    -H "accept: application/fhir+json" \
+    -H "Accept: application/fhir+json" \
     -H "Prefer: respond-async" \
     -H "Authorization: Bearer {bearer_token}"
 {% endraw %}{% endcapture %}
@@ -459,7 +465,7 @@ Accept: application/json
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/attribution_status" \
-    -H "accept: application/json" \
+    -H "Accept: application/json" \
     -H "Authorization: Bearer {bearer_token}"
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}

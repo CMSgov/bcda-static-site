@@ -23,7 +23,7 @@ show-side-nav: false
   <div class="tablet:grid-col tablet:order-1 padding-top-2">
     <h2>We're here to help</h2>
     <p>
-        Join the <a href="https://groups.google.com/g/bc-api" target="_blank" rel="noopener">Google Group</a> or email <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hss.gov</a> to ask questions and get help. When troubleshooting API requests, please include:
+        Join the <a href="https://groups.google.com/g/bc-api" target="_blank" rel="noopener">Google Group</a> or email <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hhs.gov</a> to ask questions and get help. When troubleshooting API requests, please include:
     </p>
     <ul>
         <li>whether this is is a sandbox or production API request</li>
@@ -110,13 +110,9 @@ show-side-nav: false
 
 {% capture a6AccordionContent %}
 <p>
-    BCDA and CCLF files both offer access to Medicare Parts A, B, and D claims data. However, there are some key differences:
-    <ul>
-        <li><b>Update timing:</b> CCLF files update monthly, while BCDA updates adjudicated claims weekly and partially adjudicated claims daily.</li>
-        <li><B>Format:</b> CCLF files use 12 flat files, while BCDA provides a snapshot of enrollees’ claims database across 3 resource types. Additionally, BCDA uses the <a href="https://hl7.org/fhir/uv/bulkdata/" target="blank" rel="noopener">Bulk Fast Healthcare Interoperability Resources (FHIR)</a> format, as required by CMS.</li>
-    </ul>
-</p>
-<p>Each data source has unique advantages. You can use both for a more accurate and wider variety of data. <a href="{{ '//comparison-bcda-cclf-files.html' | relative_url }}">Review all the differences between BCDA and CCLF files.</a></p>
+    CCLF files are automatically available monthly using 12 flat files, and can be downloaded weekly upon request. BCDA updates adjudicated claims weekly using 3 NDJSON files and partially adjudicated claims data daily using 2 additional files.</p>
+    
+    <p>Additionally, BCDA is an API that uses the <a href="https://hl7.org/fhir/uv/bulkdata/" target="blank" rel="noopener">Bulk Fast Healthcare Interoperability Resources (FHIR)</a> format, as required by CMS. <a href="{{ '/comparison-bcda-cclf-files.html' | relative_url }}">Learn more about the differences.</a></p>
 {% endcapture %}
 
 {% capture a7AccordionContent %}
@@ -139,9 +135,12 @@ show-side-nav: false
 <p>
     BCDA V1 (<a href="https://hl7.org/fhir/STU3/" target="blank" rel="noopener">STU3</a>) and V2 (<a href="https://hl7.org/fhir/R4/" target="blank" rel="noopener">R4</a>) differ primarily in their FHIR specification. Version 1 is based on the Blue Button 2.0 Implementation Guide, while version 2 is based on the CARIN CDPDE Implementation Guide.
 </p>
-<p>There are minor differences in the mapping and values of certain data elements.</p>
-<p><a href="{{ '/difference-between-v1-v2.html' | relative_url }}">Review the full summary of changes.{% include sprite.html icon="arrow_forward" class="text-middle" %}</a></p>
+<p>There are minor differences in the mapping and values of certain data elements. <a href="{{ '/difference-between-v1-v2.html' | relative_url }}">Review the full summary of changes.{% include sprite.html icon="arrow_forward" class="text-middle" %}</a></p>
 
+{% endcapture %}
+
+{% capture a11AccordionContent %}
+<p>Terminated and discontinued organizations lose access to the API, including runouts data, the same day their participation in the model ends.</p>
 {% endcapture %}
 
 <!-- FAQ section -->
@@ -155,11 +154,18 @@ show-side-nav: false
     accordionContent=a1AccordionContent
 %}
 
-{% include accordion.html
-    id="a6"
-    expanded=false
-    heading="What's the difference between BCDA and CCLF files?"
-    accordionContent=a6AccordionContent
+{% include accordion.html 
+    id="a11" 
+    expanded=false 
+    heading="When do terminated and discontinued model entities lose API access?" 
+    accordionContent=a11AccordionContent     
+%}
+
+{% include accordion.html 
+    id="a6" 
+    expanded=false 
+    heading="What's the difference between BCDA and CCLF files?" 
+    accordionContent=a6AccordionContent     
 %}
 
 {% include accordion.html
