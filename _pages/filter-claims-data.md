@@ -132,9 +132,10 @@ curl -X GET "https://api.bcda.cms.gov/api/v2/Group/all/\$export?_type=Patient&_s
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
-## The `runout` identifier
+<!-- Using \ with runout becuase this should not be formatted as code text -->
+## The \`runout` identifier
 
-The `runout` identifier lets you request runouts data for enrollees attributed to your model entity the previous year, but not the current year. Claims data returned will have a service date no later than December 31 of the previous year.
+The \`runout` identifier lets you request runouts data for enrollees attributed to your model entity the previous year, but not the current year. Claims data returned will have a service date no later than December 31 of the previous year.
 
 The examples below are GET requests made to the /Group endpoint. 
 
