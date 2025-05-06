@@ -78,7 +78,7 @@ show-side-nav: false
             <div class="tablet:margin-left-2">
               <h3 class="margin-y-1">Provide value-based care</h3>
               <p>
-                Identify suspicious activity from providers or suppliers through access to mass data.
+                Get a holistic overview of your enrollees' health histories for more effective and high-quality care. 
               </p>
             </div>
         </div>

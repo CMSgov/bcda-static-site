@@ -85,7 +85,7 @@ Authorization: Bearer {bearer_token}
 Accept: application/fhir+json
 Prefer: respond-async
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="yaml" %}
 
 <div class="usa-alert usa-alert--warning usa-alert--no-icon">
     <div class="usa-alert__body">
@@ -186,7 +186,7 @@ GET https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}
 Authorization: Bearer {bearer_token}
 Accept: application/fhir+json
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="yaml" %}
 
 #### curl command to check the job status
 
@@ -280,7 +280,7 @@ Request compressed data files with the optional `Accept-Encoding: gzip` header i
 Authorization: Bearer {bearer_token}
 Accept-Encoding: gzip
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="yaml" %}
 
 #### curl command to download the data
 
@@ -328,7 +328,7 @@ DELETE /api/v2/jobs/{job_id}
 {% capture curlSnippet %}{% raw %}
 Authorization: Bearer {bearer_token}
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="yaml" %}
 
 #### curl command to cancel a job
 
@@ -382,7 +382,7 @@ Authorization: Bearer {bearer_token}
 Accept: application/fhir+json
 Prefer: respond-async
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="yaml" %}
 
 #### curl command to check the job status
 
@@ -437,7 +437,7 @@ This example shows 1 historical job with a “Completed” status. Since this wa
   "type": "searchset"
 }
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="json" %}
 
 ### Request attribution status
 
@@ -458,7 +458,7 @@ GET /api/v2/attribution_status
 Authorization: Bearer {bearer_token}
 Accept: application/json
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="yaml" %}
 
 #### curl command to check attribution status
 
@@ -487,7 +487,7 @@ If BCDA has never ingested an attribution or runout file for your organization, 
   ]
 }
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="json" %}
 
 ### Check API status
 
@@ -505,7 +505,7 @@ GET /api/v2/metadata
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
-curl https://sandbox.bcda.cms.gov/api/v2/metadata
+curl "https://sandbox.bcda.cms.gov/api/v2/metadata"
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
@@ -600,4 +600,4 @@ The response will contain a FHIR Capability Statement resource in JSON format. T
   "status": "active"
 }
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="json" %}

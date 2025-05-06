@@ -8,7 +8,7 @@ show-side-nav: false
 
 <div class="usa-alert usa-alert--warning usa-alert--slim">
   <div class="usa-alert__body">
-    <p class="usa-alert__text maxw-desktop-lg" style="text-wrap: fill">
+    <p class="usa-alert__text maxw-desktop-lg">
       Please cover or label <a href="{{ '/support.html#how-do-i-redact-phi-and-pii-when-sharing-information' | relative_url }}">Personally Identifiable Information (PII)</a> as "REDACTED" in the Google Group and via email.
     </p>
   </div>
@@ -144,15 +144,14 @@ show-side-nav: false
 {% endcapture %}
 
 <!-- FAQ section -->
-<div class="grid-col-8">
 
 <h3 class="margin-bottom-2">About the API</h3>
 
-{% include accordion.html 
-    id="a1" 
-    expanded=true 
-    heading="Who is eligible to use Beneficiary Claims Data API (BCDA)?" 
-    accordionContent=a1AccordionContent     
+{% include accordion.html
+    id="a1"
+    expanded=true
+    heading="Who is eligible to use Beneficiary Claims Data API (BCDA)?"
+    accordionContent=a1AccordionContent
 %}
 
 {% include accordion.html 
@@ -169,65 +168,63 @@ show-side-nav: false
     accordionContent=a6AccordionContent     
 %}
 
-{% include accordion.html 
-    id="a10" 
-    expanded=false 
-    heading="What’s the difference between BCDA V1 and V2?" 
-    accordionContent=a10AccordionContent     
+{% include accordion.html
+    id="a10"
+    expanded=false
+    heading="What’s the difference between BCDA V1 and V2?"
+    accordionContent=a10AccordionContent
 %}
 
 <h3 class="margin-bottom-2">Compliance and restrictions</h3>
 
-{% include accordion.html 
-    id="a2" 
-    expanded=true 
-    heading="How do I redact PHI and PII when sharing information?" 
-    accordionContent=a2AccordionContent     
+{% include accordion.html
+    id="a2"
+    expanded=true
+    heading="How do I redact PHI and PII when sharing information?"
+    accordionContent=a2AccordionContent
 %}
 
-{% include accordion.html 
-    id="a9" 
-    expanded=false 
-    heading="Can I use 3rd party web-based REST clients or tools?" 
-    accordionContent=a9AccordionContent     
+{% include accordion.html
+    id="a9"
+    expanded=false
+    heading="Can I use 3rd party web-based REST clients or tools?"
+    accordionContent=a9AccordionContent
 %}
 
 <h3 class="margin-bottom-2">BCDA data</h3>
 
-{% include accordion.html 
-    id="a3" 
-    expanded=false 
-    heading="How long does it take BCDA to receive a claim after it is submitted?" 
-    accordionContent=a3AccordionContent     
+{% include accordion.html
+    id="a3"
+    expanded=false
+    heading="How long does it take BCDA to receive a claim after it is submitted?"
+    accordionContent=a3AccordionContent
 %}
 
-{% include accordion.html 
-    id="a4" 
-    expanded=false 
-    heading="Where does the data come from?" 
-    accordionContent=a4AccordionContent     
+{% include accordion.html
+    id="a4"
+    expanded=false
+    heading="Where does the data come from?"
+    accordionContent=a4AccordionContent
 %}
 
-{% include accordion.html 
-    id="a5" 
-    expanded=false 
-    heading="How often is data refreshed?" 
-    accordionContent=a5AccordionContent     
+{% include accordion.html
+    id="a5"
+    expanded=false
+    heading="How often is data refreshed?"
+    accordionContent=a5AccordionContent
 %}
 <h3 class="margin-bottom-2">Troubleshooting</h3>
 
-{% include accordion.html 
-    id="a8" 
-    expanded=false 
-    heading="Why do I get connection timeout issues with my production credentials?" 
-    accordionContent=a8AccordionContent     
+{% include accordion.html
+    id="a8"
+    expanded=false
+    heading="Why do I get connection timeout issues with my production credentials?"
+    accordionContent=a8AccordionContent
 %}
 
-{% include accordion.html 
-    id="a7" 
-    expanded=false 
-    heading="Why am I getting a 429 error response?" 
-    accordionContent=a7AccordionContent     
+{% include accordion.html
+    id="a7"
+    expanded=false
+    heading="Why am I getting a 429 error response?"
+    accordionContent=a7AccordionContent
 %}
-
-</div>

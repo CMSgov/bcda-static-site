@@ -77,7 +77,7 @@ In this example, the authorization in the request header is replaced with `--use
 
 This command uses curl’s built-in ability to Base-64 encode your credentials, request, and receive your token in a single step.
 
-{% include copy_snippet.html code=Snippet4 language="yaml" can_copy=true %}
+{% include copy_snippet.html code=Snippet4 language="shell" can_copy=true %}
 
 <div class="usa-alert usa-alert--warning usa-alert--no-icon">
     <div class="usa-alert__body">
@@ -94,7 +94,7 @@ If your request succeeds, you’ll receive a 200 response with your bearer token
 
 “Expires_in” counts down the seconds remaining before the token expires, which is 20 minutes after it is generated. “Token_type: Bearer” is a fixed value.
 
-{% include copy_snippet.html code=Snippet5 language="yaml" %}
+{% include copy_snippet.html code=Snippet5 language="json" %}
 
 ### 3. Set your bearer token in your request headers
 
