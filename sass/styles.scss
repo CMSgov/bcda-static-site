@@ -16,6 +16,16 @@ main h6 {
   scroll-margin-top: 6.25rem;
 }
 
+.stretched-link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
 .ds-c-dialog__heading {
   margin-top: 0;
 }

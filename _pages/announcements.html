@@ -1,0 +1,30 @@
+---
+layout: default
+page_title: "Announcements"
+seo_title: "Announcements | BCDA"
+description: "Some announcements"
+show-side-nav: false
+---
+
+<h1>{{ page.page_title }}</h1>
+<div class="grid-row">
+  <div class="desktop:grid-col-8 grid-col-12">
+    <div class="padding-top-4">
+      {% for post in site.announcements %}
+      <article class="padding-y-5 border-top position-relative">
+        <h2 class="font-sans-lg">
+          <a href="{{ post.url | relative_url }}" class="stretched-link text-no-underline" style="color: black;">{{ post.page_title }}</a>
+        </h2>
+        <p class="margin-top-105">{{ post.published_date | date_to_string: "ordinal", "US" }}</p>
+        <p>{{ post.custom_excerpt }}</p>
+        <div class="margin-top-4">
+          <div class="usa-button usa-button--outline">
+            <span>Read announcement</span>
+             {% include sprite.html icon="arrow_forward" size="2" %}
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</div>

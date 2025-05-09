@@ -63,8 +63,12 @@ include:
    - assets/uswds/img/usa-icons/launch--white.svg
    - assets/uswds/img/usa-icons/remove.svg
    - assets/uswds/img/usa-icons/warning.svg
-
+   
 collections:
   pages:
     output: true
     permalink: /:title:output_ext
+  announcements:
+     output: true
+  features:
+    output: true
