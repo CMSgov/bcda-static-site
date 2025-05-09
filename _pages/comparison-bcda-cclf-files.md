@@ -29,17 +29,17 @@ BCDA also uses the <a href="https://hl7.org/fhir/uv/bulkdata/" target="blank" re
     </thead>
     <tbody>
         <tr>
-            <th>Access method</th>
+            <th scope="row">Access method</th>
             <td data-label="BCDA">Programmatically using API requests</td>
             <td data-label="CCLF">Manually using portals or programmatically using API requests or Command Line Interface</td>
         </tr>
         <tr>
-            <th>Claims data format</th>
+            <th scope="row">Claims data format</th>
             <td data-label="BCDA">Interoperable and machine-readable, using FHIR R4 or STU3 format.</td>
             <td data-label="CCLF">Human-readable, using <a href="https://www.cms.gov/files/document/cclf-information-packet.pdf" target="blank" rel="noopener noreferrer">fixed-width tabular files.</a></td>
         </tr>
         <tr>
-            <th>Claims data source</th>
+            <th scope="row">Claims data source</th>
             <td data-label="BCDA">
                 <ul>
                     <li>Adjudicated claims: Chronic Conditions Warehouse (CCW)</li>
@@ -49,7 +49,7 @@ BCDA also uses the <a href="https://hl7.org/fhir/uv/bulkdata/" target="blank" re
             <td data-label="CCLF">Adjudicated claims: Integrated Data Repository (IDR)</td>
         </tr>
         <tr>
-            <th>CMS models supported</th>
+            <th scope="row">CMS models supported</th>
             <td data-label="BCDA">
                 <ul>
                     <li>Medicare Shared Savings Program (SSP)</li>
@@ -68,7 +68,7 @@ BCDA also uses the <a href="https://hl7.org/fhir/uv/bulkdata/" target="blank" re
             </td>
         </tr>
         <tr>
-            <th>Data fields</th>
+            <th scope="row">Data fields</th>
             <td data-label="BCDA">
                 <ul>
                     <li>ExplanationOfBenefit.Status supports 2 values ("active" or "canceled").</li> 
@@ -83,7 +83,7 @@ BCDA also uses the <a href="https://hl7.org/fhir/uv/bulkdata/" target="blank" re
             </td>
         </tr>
         <tr>
-            <th>Historical data provided on<br> newly attributed enrollees</th>
+            <th scope="row">Historical data provided on<br> newly attributed enrollees</th>
             <td data-label="BCDA">
                 <ul>
                     <li>SSP: all historical data available as far back as 2014</li>
@@ -99,7 +99,7 @@ BCDA also uses the <a href="https://hl7.org/fhir/uv/bulkdata/" target="blank" re
             </td>
         </tr>
         <tr>
-            <th>Update frequency</th>
+            <th scope="row">Update frequency</th>
             <td data-label="BCDA">
                 <ul>
                     <li>Adjudicated claims: weekly</li>
