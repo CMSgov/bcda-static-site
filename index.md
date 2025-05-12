@@ -8,10 +8,10 @@ show-side-nav: false
   <div class="usa-section--dark bg-primary bg-primary-gradient">
     <div class="grid-container padding-y-8">
       <h1 class="hero-title font-body-3xl measure-1 margin-bottom-0 line-height-sans-2 text-semibold text-balance">
-          Improve Care Coordination with Medicare Claims Data
+        Improve Care Coordination with Medicare Claims Data
       </h1>
       <p class="hero-paragraph line-height-sans-4 measure-5">
-      Beneficiary Claims Data Application Programming Interface (BCDA) gives eligible model entities access to their attributed enrollees’ Medicare Parts A, B, and D claims data, including data from any care received outside their organization.
+        Beneficiary Claims Data Application Programming Interface (BCDA) gives eligible model entities access to their attributed enrollees’ Medicare Parts A, B, and D claims data, including data from any care received outside their organization.
       </p>
       <div class="grid-row grid-gap margin-top-2">
         <div class="tablet:grid-col-auto margin-top-2">
@@ -21,7 +21,11 @@ show-side-nav: false
           </a>
         </div>
         <div class="tablet:grid-col-auto margin-top-2">
-          <a href="https://github.com/CMSgov/bcda-app" target="_blank" rel="noopener" class="hero-button usa-button usa-button--inverse usa-button--outline width-full">
+          <a
+            href="https://github.com/CMSgov/bcda-app"
+            target="_blank"
+            rel="noopener"
+            class="hero-button usa-button usa-button--inverse usa-button--outline width-full">
             Code repo
             {% include sprite.html icon="github" size="3" %}
           </a>
@@ -29,16 +33,23 @@ show-side-nav: false
       </div>
     </div>
   </div>
-  
+
   <div class="minw-15 padding-y-6 padding-x-3 grid-container">
     <div class="grid-row grid-gap-4 desktop:grid-gap-6 padding-y-7">
       <div class="tablet:grid-col display-flex flex-align-center tablet:flex-justify-center">
-        <img class="width-auto height-full" src="{{ '/assets/img/support-home.svg' | relative_url }}" alt="Illustration of 3 people helping each other climb to the top of increasingly taller platforms" />
+        <img
+          class="width-auto height-full"
+          src="{{ '/assets/img/support-home.svg' | relative_url }}"
+          alt="Illustration of 3 people helping each other climb to the top of increasingly taller platforms" />
       </div>
       <div class="tablet:grid-col padding-top-4 tablet:padding-top-0 display-flex flex-align-center">
         <div>
           <h2>Eligible model entities</h2>
-          <p>BCDA supports organizations participating in the following <a href="https://www.cms.gov/priorities/innovation/about/alternative-payment-models" target="_blank" rel="noopener">Alternative Payment Models</a>:</p>
+          <p>BCDA supports organizations participating in the following
+            <a
+              href="https://www.cms.gov/priorities/innovation/about/alternative-payment-models"
+              target="_blank"
+              rel="noopener">Alternative Payment Models</a>:</p>
           <ul>
             <li><a href="https://www.cms.gov/medicare/payment/fee-for-service-providers/shared-savings-program-ssp-acos" target="_blank" rel="noopener">Medicare Shared Savings Program (SSP)</a></li>
             <li><a href="https://www.cms.gov/priorities/innovation/innovation-models/kidney-care-choices-kcc-model" target="_blank" rel="noopener">Kidney Care Choices (KCC) Model</a></li>
@@ -47,7 +58,8 @@ show-side-nav: false
         </div>
       </div>
     </div>
-    <!--  -->
+    <!--
+    -->
     <div class="padding-y-7">
       <h2>Use cases for BCDA</h2>
       <div class="usa-graphic-list__row grid-row tablet:grid-gap-6 padding-y-2">
@@ -55,10 +67,10 @@ show-side-nav: false
           <div>{% include sprite.html icon="insights" size="8" %}</div>
           <div class="tablet:margin-left-2">
             <h3 class="margin-y-1">
-              Boost data insights 
+              Boost data insights
             </h3>
             <p>
-             Leverage claims data for quantitative insights into your enrollee populations. 
+              Leverage claims data for quantitative insights into your enrollee populations.
             </p>
           </div>
         </div>
@@ -69,34 +81,43 @@ show-side-nav: false
               Get claims data faster
             </h3>
             <p>
-              Model entities eligible for <a href="{{ '/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a> have early access to claims as soon as 2-4 days after Medicare submission.
+              Model entities eligible for
+              <a href="{{ '/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a>
+              have early access to claims as soon as 2-4 days after Medicare submission.
             </p>
           </div>
         </div>
-         <div class="tablet:grid-col-6 padding-y-3 tablet:display-flex">
-            <div>{% include sprite.html icon="medical_services" size="7" %}</div>
-            <div class="tablet:margin-left-2">
-              <h3 class="margin-y-1">Provide value-based care</h3>
-              <p>
-                Get a holistic overview of your enrollees' health histories for more effective and high-quality care. 
-              </p>
-            </div>
+        <div class="tablet:grid-col-6 padding-y-3 tablet:display-flex">
+          <div>{% include sprite.html icon="medical_services" size="7" %}</div>
+          <div class="tablet:margin-left-2">
+            <h3 class="margin-y-1">Provide value-based care</h3>
+            <p>
+              Get a holistic overview of your enrollees' health histories for more effective and high-quality care.
+            </p>
+          </div>
         </div>
         <div class="tablet:grid-col-6 padding-y-3 tablet:display-flex">
           <div>{% include sprite.html icon="identification" size="7" %}</div>
           <div class="tablet:margin-left-2">
             <h3 class="margin-y-1">Receive standardized claims data</h3>
             <p>
-              Get claims data that follows the <a href="https://hl7.org/fhir/R4/overview.html">HL7 Healthcare Interoperability Standard</a> required by Centers for Medicare & Medicaid Services (CMS).
+              Get claims data that follows the
+              <a href="https://hl7.org/fhir/R4/overview.html">HL7 Healthcare Interoperability Standard</a>
+              required by Centers for Medicare & Medicaid Services (CMS).
             </p>
           </div>
         </div>
       </div>
     </div>
-    <!--  -->
+    <!--
+    -->
     <div class="grid-row grid-gap-4 desktop:grid-gap-6 padding-y-7">
       <div class="tablet:order-last tablet:grid-col display-flex flex-align-center tablet:flex-justify-center">
-        <img class="width-auto height-full" style="object-fit: contain;" src="{{ '/assets/img/understanding-the-data.svg' | relative_url }}" alt="Illustration of two people collaborating using a laptop and discussing data, charts, and communication." />
+        <img
+          class="width-auto height-full"
+          style="object-fit: contain;"
+          src="{{ '/assets/img/understanding-the-data.svg' | relative_url }}"
+          alt="Illustration of two people collaborating using a laptop and discussing data, charts, and communication." />
       </div>
       <div class="tablet:grid-col padding-top-4 tablet:padding-top-0 display-flex flex-align-center">
         <div>
@@ -107,9 +128,69 @@ show-side-nav: false
             <li>diagnosis codes</li>
             <li>dates and times of service</li>
           </ul>
-          <p><a href="{{ '/bcda-data.html' | relative_url }}" class="usa-button usa-button--unstyled">Learn about the data {% include sprite.html icon="arrow_forward" %}</a></p>
+          <p>
+            <a href="{{ '/bcda-data.html' | relative_url }}" class="usa-button usa-button--unstyled">Learn about the data {% include sprite.html icon="arrow_forward" %}</a>
+          </p>
         </div>
       </div>
     </div>
+  </div>
+
+  <div>
+     <div class="grid-row">
+        <div class="bg-primary" style="width:50%;">
+          <div style="max-width: calc(75rem / 2);" class="margin-left-auto padding-left-3 padding-right-6">
+            <div class="padding-y-8 text-white">
+              <div class="border-bottom border-white margin-bottom-4">
+                <h2 class="margin-bottom-2">Featured</h2>
+              </div>
+              <div>
+                <h3>HTTP Query Parameters</h3>
+                <div>
+                  <p>Query parameters make it faster and easier to find claims data. The _since  and _until parameters filter for data from specific dates and ranges. </p>
+                  <ul>
+                    <li>Use _since or _until separately to pull data last updated since, or until, a specified date.</li>
+                    <li>Use both parameters to pull data last updated within a specified date range.</li>
+                  </ul>
+                  <div class="margin-top-5">
+                    <a href="#" class="usa-button usa-button--outline usa-button--inverse">
+                      How to filter claims data
+                      {% include sprite.html icon="arrow_forward" size="3" %}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-10" style="width:50%;">
+          <div style="max-width: calc(75rem / 2);" class="margin-right-auto padding-right-3 padding-left-6">
+            <div class="padding-y-8">
+              <div class="border-bottom border-black margin-bottom-4">
+                <h2 class="margin-bottom-2">Announcements</h2>
+              </div>
+              <div>
+                <h3>What's new on AB2D.cms.gov</h3>
+                <div>
+                  <p>We've updated our site with new content, design, and navigation. The new site makes it faster and easier to:</p>
+                  <ul>
+                    <li>Find documentation</li>
+                    <li>Access sandbox data</li>
+                    <li>Understand the steps for production access</li>
+                    <li>Learn about business use cases for AB2D data</li>
+                    <li>Explore Medicare Parts A and B data</li>
+                  </ul>
+                  <div class="margin-top-5">
+                    <a href="#" class="usa-button usa-button--outline">
+                      View highlights
+                      {% include sprite.html icon="arrow_forward" size="3" %}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+     </div>
   </div>
 </main>
