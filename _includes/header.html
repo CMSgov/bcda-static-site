@@ -4,7 +4,7 @@
     <div class="usa-nav-container">
       <div class="usa-navbar">
         <div class="usa-logo">
-          <a href="{{ '/index.html' | relative_url }}" title="BCDA" data-tealium="navigation" class="display-flex flex-align-center height-6 maxw-card-lg" style="gap: 0.5rem;">
+          <a href="{{ '/index.html' | relative_url }}" title="BCDA" data-tealium="main-nav" class="display-flex flex-align-center height-6 maxw-card-lg" style="gap: 0.5rem;">
             <img src="{{ '/assets/img/logo-bcda.svg' | relative_url }}" alt="BCDA logo" class="width-6 height-6" style="object-fit:contain;" />
             <span class="font-sans-md text-bold text-black text-balance line-height-sans-2">Beneficiary Claims Data API</span>
           </a>
@@ -21,7 +21,7 @@
               <a
                 href="{{ item.url | relative_url }}"
                 class="usa-nav-link {% if page.permalink == item.url %}{{ 'usa-current' }}{% endif %}"
-                data-tealium="navigation"
+                data-tealium="main-nav"
                 ><span>{{ item.text }}</span>
               </a>
             </li>
@@ -32,7 +32,7 @@
            <a 
               href="{{ '/api-documentation.html' | relative_url }}" 
               class="usa-button" 
-              data-tealium="navigation"
+              data-tealium="main-nav"
               >Get Started
             </a>
         </div>

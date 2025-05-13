@@ -5,7 +5,7 @@
     <li class="usa-sidenav__item">
       <a href="{{ item.url | relative_url }}"
         class="{% if page.url == item.url %}{{ 'usa-current' }}{% endif %}"
-        data-tealium="navigation"
+        data-tealium="left-rail"
       >
         {%- if item.icon -%}
           {%- include sprite.html icon=item.icon size="3" class="margin-right-05 text-middle" -%}
@@ -17,14 +17,14 @@
         <li class="usa-sidenav__item">
           <a href="{{ child.url | relative_url }}"
             class="{% if page.url == child.url %}{{ 'usa-current' }}{% endif %}"
-            data-tealium="navigation"
+            data-tealium="left-rail"
           >{{ child.name }}</a>
           <ul class="usa-sidenav__sublist">
             {% for grandchild in child.children %}
             <li class="usa-sidenav__item">
               <a href="{{ grandchild.url | relative_url }}"
                 class="{% if page.url == grandchild.url %}{{ 'usa-current' }}{% endif %}"
-                data-tealium="navigation"
+                data-tealium="left-rail"
               >{{ grandchild.name }}</a>
             </li>
             {% endfor %}
@@ -35,7 +35,7 @@
     </li>
     {% endfor %}
     <li class="usa-sidenav__item">
-      <a href="" class="usa-nav-link" data-tealium="navigation">
+      <a href="" class="usa-nav-link" data-tealium="left-rail">
         <span>    
           {% include sprite.html icon="github" size="3" class="margin-right-05 text-middle" %}
           GitHub repo
