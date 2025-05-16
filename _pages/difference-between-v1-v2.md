@@ -24,179 +24,184 @@ show-side-nav: false
 </p>
 <!-- start ol for tables -->
 <ol>
-    <li class="text-bold">ExplanationOfBenefit (EOB)</li>
-    <!-- table 1 -->
-    <table class="usa-table usa-table--borderless usa-table--stacked">
-        <caption class="usa-sr-only">Changes to ExplanationOfBenefit (EOB)</caption>
-        <thead>
-            <tr>
-                <th scope="col">Change type</th>
-                <th scope="col">Description</th>
-                <th scope="col">Examples</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    Consolidated/removed elements
-                </td>
-                <td>
-                    Some elements were consolidated and/or removed. For instance, in STU3 there were 2 elements (Eob.Organization and Eob.Provider) that could represent the party responsible for the claim. In R4, this has been consolidated into 1 element (Eob.provider).
-                </td>
-                 <td>
-                    <ul>
-                        <li>Eob.provider</li>
-                        <li>Eob.hospitalization</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Added constraints
-                </td>
-                <td>
-                    Fifteen fields were changed from optional to mandatory. Changing the optionality in this context generally has no impact on users consuming this data. A few minor constraints were added or modified (e.g., value set bindings and reference targets).
-                </td>
-                 <td>
-                    <ul>
-                        <li>Eob.use</li>
-                        <li>Eob.patient</li>
-                        <li>Eob.referral</li>
-                        <li>Eob.outcome</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    New elements
-                </td>
-                <td>
-                    Approximately 35 elements were added to the EOB resource type. About 65% of these are child elements of the .addItem property, which isn’t supplied by BCDA. Of the remaining 35%, few are populated by BCDA.
-                </td>
-                 <td>
-                    <ul>
-                        <li>Eob.priority</li>
-                        <li>Eob.preAuthRef</li>
-                        <li>Eob.diagnosis.onAdmission</li>
-                        <li>Eob.formCode</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Renamed elements
-                </td>
-                <td>
-                    Four elements were renamed. For users converting to V2, it’s likely that existing parsing or handling logic needs to be adjusted.
-                </td>
-                 <td>
-                    <ul>
-                        <li>Eob.information → Eob.SupportingInfo</li>
-                        <li>Eob.careTeamLinkId → Eob.careTeamSequence</li>
-                        <li>Eob.diagnosisLinkId → Eob.diagnosisSequence</li>
-                        <li>Eob.service → Eob.productOrService</li>
-                    </ul>
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <li>
-        <p class="text-bold">Patient</p>
-        <p>The Patient resource type is normative with a maturity level of 5, so there are  minimal changes.</p>
+        <h3 class="font-sans-md">ExplanationOfBenefit (EOB)</h3>
+        <!-- table 1 -->
+        <table class="usa-table usa-table--borderless usa-table--stacked">
+            <caption class="usa-sr-only">Changes to ExplanationOfBenefit (EOB)</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Change type</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Consolidated/removed elements
+                    </td>
+                    <td>
+                        Some elements were consolidated and/or removed. For instance, in STU3 there were 2 elements (Eob.Organization and Eob.Provider) that could represent the party responsible for the claim. In R4, this has been consolidated into 1 element (Eob.provider).
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Eob.provider</li>
+                            <li>Eob.hospitalization</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Added constraints
+                    </td>
+                    <td>
+                        Fifteen fields were changed from optional to mandatory. Changing the optionality in this context generally has no impact on users consuming this data. A few minor constraints were added or modified (e.g., value set bindings and reference targets).
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Eob.use</li>
+                            <li>Eob.patient</li>
+                            <li>Eob.referral</li>
+                            <li>Eob.outcome</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        New elements
+                    </td>
+                    <td>
+                        Approximately 35 elements were added to the EOB resource type. About 65% of these are child elements of the .addItem property, which isn’t supplied by BCDA. Of the remaining 35%, few are populated by BCDA.
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Eob.priority</li>
+                            <li>Eob.preAuthRef</li>
+                            <li>Eob.diagnosis.onAdmission</li>
+                            <li>Eob.formCode</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Renamed elements
+                    </td>
+                    <td>
+                        Four elements were renamed. For users converting to V2, it’s likely that existing parsing or handling logic needs to be adjusted.
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Eob.information → Eob.SupportingInfo</li>
+                            <li>Eob.careTeamLinkId → Eob.careTeamSequence</li>
+                            <li>Eob.diagnosisLinkId → Eob.diagnosisSequence</li>
+                            <li>Eob.service → Eob.productOrService</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </li>
-    <!-- table 2 -->
-    <table class="usa-table usa-table--borderless usa-table--stacked">
-        <thead>
-            <tr>
-                <th scope="col">Change type</th>
-                <th scope="col">Description</th>
-                <th scope="col">Examples</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    Consolidated/removed elements
-                </td>
-                <td>
-                    Only 1 element was removed (Patient.animal), which has no effect on BCDA.                
-                </td>
-                 <td>
-                    <ul>
-                        <li>Patient.animal</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Constraints
-                </td>
-                <td>
-                    A handful of fields are bound to different value sets. Other minor changes were made  to the default value and reference target.
-                </td>
-                 <td>
-                    <ul>
-                        <li>Patient.active</li>
-                        <li>Patient.gender</li>
-                        <li>Patient.generalPractitioner</li>
-                    </ul>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <li class="text-bold">Coverage</li>
-    <!-- table 3 -->
-    <table class="usa-table usa-table--borderless usa-table--stacked">
-        <thead>
-            <tr>
-                <th scope="col">Change type</th>
-                <th scope="col">Description</th>
-                <th scope="col">Examples</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    New elements
-                </td>
-                <td>
-                    Six elements were added to the Coverage resource type. Most of these relate to costToBeneficiary and won’t be supplied in BCDA.                
-                </td>
-                 <td>
-                    <ul>
-                        <li>Coverage.class.name</li>
-                        <li>Coverage.costToBeneficiary</li>
-                        <li>Coverage.costToBeneficiary.type</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Consolidated/removed elements
-                </td>
-                <td>
-                    The Coverage.grouping element was removed. The equivalent element in R4 is Coverage.class. This element is provided in the API, so any user converting from V1 to V2 needs to make minor changes to their parsing or handling logic.
-                </td>
-                 <td>
-                    <ul>
-                        <li>Coverage.grouping</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Added constraints
-                </td>
-                <td>
-                    A few changes were made to certain mandatory elements. Generally this has little to no impact on users.
-                </td>
-                 <td>
-                    <ul>
-                        <li>Coverage.beneficiary</li>
-                        <li>Coverage.payor</li>
-                    </ul>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <li>
+        <h3 class="font-sans-md">Patient</h3>
+        <p>The Patient resource type is normative with a maturity level of 5, so there are  minimal changes.</p>
+    
+        <table class="usa-table usa-table--borderless usa-table--stacked">
+            <thead>
+                <tr>
+                    <th scope="col">Change type</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Consolidated/removed elements
+                    </td>
+                    <td>
+                        Only 1 element was removed (Patient.animal), which has no effect on BCDA.                
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Patient.animal</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Constraints
+                    </td>
+                    <td>
+                        A handful of fields are bound to different value sets. Other minor changes were made  to the default value and reference target.
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Patient.active</li>
+                            <li>Patient.gender</li>
+                            <li>Patient.generalPractitioner</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </li>
+    
+    <li>
+        <h3 class="font-sans-md">Coverage</h3>
+        <!-- table 3 -->
+        <table class="usa-table usa-table--borderless usa-table--stacked">
+            <thead>
+                <tr>
+                    <th scope="col">Change type</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        New elements
+                    </td>
+                    <td>
+                        Six elements were added to the Coverage resource type. Most of these relate to costToBeneficiary and won’t be supplied in BCDA.                
+                    </td>
+                     <td>
+                        <ul>
+                            <li>Coverage.class.name</li>
+                            <li>Coverage.costToBeneficiary</li>
+                            <li>Coverage.costToBeneficiary.type</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Consolidated/removed elements
+                    </td>
+                    <td>
+                        The Coverage.grouping element was removed. The equivalent element in R4 is Coverage.class. This element is provided in the API, so any user converting from V1 to V2 needs to make minor changes to their parsing or handling logic.
+                    </td>
+                     <td>
+                        <ul>
+                            <li>Coverage.grouping</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Added constraints
+                    </td>
+                    <td>
+                        A few changes were made to certain mandatory elements. Generally this has little to no impact on users.
+                    </td>
+                     <td>
+                        <ul>
+                            <li>Coverage.beneficiary</li>
+                            <li>Coverage.payor</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </li>
 </ol>

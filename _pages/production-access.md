@@ -26,21 +26,21 @@ show-side-nav: false
         </li>
         <li>
             <strong>REACH ACOs and KCEs or KCF practices in the Kidney Care Choices Model:</strong> The following roles can manage credentials from <a href="https://4innovation.cms.gov/secure/api-credentials/bcda" target="blank" rel="noopener">4innovation (4i)</a>:
+            <ul>
+                <li>Executive Contact </li>
+                <li>Entity Primary Contact </li>
+                <li>Entity Secondary Contact </li>
+                <li>DUA Requestor </li>
+                <li>DUA Custodian</li>
+            </ul>
+            <p>Your registered contact can <a href="https://www.cms.gov/data-research/cms-information-technology/cms-identity-management/help-desk-support" target="blank" rel="noopener">contact the help desk</a> to assign these roles.</p>
         </li>
-        <ul>
-            <li>Executive Contact </li>
-            <li>Entity Primary Contact </li>
-            <li>Entity Secondary Contact </li>
-            <li>DUA Requestor </li>
-            <li>DUA Custodian</li>
-        </ul>
       </ul>
-      <p>Your registered contact can <a href="https://www.cms.gov/data-research/cms-information-technology/cms-identity-management/help-desk-support" target="blank" rel="noopener">contact the help desk</a> to assign these roles.</p>
   </li>
   <li class="usa-process-list__item">
     <h2 class="usa-process-list__heading margin-y-2">Obtain production credentials</h2>
     <ol>
-        <li>Visit the <em>API Credentials</em> page in your model-specific system. </li>
+        <li>Visit the <em>API Credentials</em> page in your model-specific system.</li>
         <li>Choose the <em>BCDA Credentials</em> tab, then select <em>Create New API Credentials</em>.</li>
         <li>Add a public, static IP address for every system, including vendors, that will use the API (up to 8). It may take up to an hour for the allow list to update.</li>
     </ol>

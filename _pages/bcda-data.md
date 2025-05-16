@@ -102,10 +102,9 @@ Download sample data files, which share similar content and structure to product
 Claims data is organized by resource types, which are requested at the /Patient and /Group [endpoints]({{ '/api-documentation.html' | relative_url }}#endpoints). Version 2 has [minor changes]({{ '/difference-between-v1-v2.html' | relative_url }}) in resource types from V1.
 
 <dl>
-<div id="explanationofbenefit">
-  <dt class="font-sans-md text-bold">
+  <dt class="font-sans-md text-bold" id="explanationofbenefit">
     ExplanationOfBenefit (EOB)
-  </dt> </div>
+  </dt>
   <dd class="margin-left-0 margin-bottom-4"> 
     <p> Similar to CCLF files 1-7, <a href="https://hl7.org/fhir/R4/explanationofbenefit.html" target="blank" rel="noopener noreferrer">ExplanationOfBenefit</a> stores details for episodes of care, including where and when the service was performed, diagnosis codes, provider, and cost of care.</p>
   </dd> 

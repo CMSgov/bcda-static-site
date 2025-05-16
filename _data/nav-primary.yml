@@ -1,5 +1,10 @@
 - text: About
-  url: /about.html
+  children: 
+    - text: About BCDA
+      url: /about.html
+    
+    - text: Announcements
+      url: /announcements.html
 
 - text: API Documentation
   url: /api-documentation.html
