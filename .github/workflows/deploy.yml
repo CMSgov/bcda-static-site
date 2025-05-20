@@ -50,8 +50,7 @@ jobs:
           # This is redundant but keeping for posterity
           JEKYLL_ENV: "production"
         run: |
-          docker build -t jekyll-site .
-          docker run --rm -v "$PWD:/srv/jekyll" jekyll-site --baseurl ${{ inputs.deploy_path && format('/{0}', inputs.deploy_path) || ''}}
+          bundle exec jekyll build --baseurl ${{ inputs.deploy_path && format('/{0}', inputs.deploy_path) || ''}}
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
