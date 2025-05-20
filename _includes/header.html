@@ -17,15 +17,32 @@
         </button>
         <ul class="usa-nav__primary usa-accordion">
           {% for item in site.data.nav-primary %}
-            <li class="usa-nav__primary-item">
-              <a
-                href="{{ item.url | relative_url }}"
-                class="usa-nav-link {% if page.permalink == item.url %}{{ 'usa-current' }}{% endif %}"
-                data-tealium="main-nav"
-                ><span>{{ item.text }}</span>
-              </a>
-            </li>
-            {% endfor %}
+            {% if item.children %}
+              <li class="usa-nav__primary-item">
+                <button type="button" class="usa-accordion__button usa-nav__link usa-current" aria-expanded="false" aria-controls="basic-nav-section-one">
+                  <span>{{- item.text -}}</span>
+                </button>
+                <ul id="basic-nav-section-one" class="usa-nav__submenu" hidden>    
+                  {% for child in item.children %}
+                    <li class="usa-nav__submenu-item">
+                      <a href="{{- child.url | relative_url -}}">
+                        <span>{{- child.text -}}</span>
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </li>
+            {% else %}
+              <li class="usa-nav__primary-item">
+                <a
+                  href="{{- item.url | relative_url -}}"
+                  class="usa-nav-link {% if page.permalink == item.url %}{{ 'usa-current' }}{% endif %}"
+                  data-tealium="navigation"
+                ><span>{{- item.text -}}</span>
+                </a>
+              </li>
+            {% endif %}
+          {% endfor %}
         </ul>
 
         <div class="padding-left-1">
