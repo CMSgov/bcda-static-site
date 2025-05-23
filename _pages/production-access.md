@@ -28,10 +28,10 @@ show-side-nav: false
       </p>
       <ul>
         <li>
-            <strong>ACOs in the Medicare Shared Savings Program:</strong> Credential delegates can manage credentials from the <a href="https://acoms.cms.gov/api-key-mgmt/bcda" target="_blank" rel="noopener noreferrer">ACO Management System (ACO-MS)</a>.
+            <strong>ACOs in the Medicare Shared Savings Program:</strong> Only users with the Credential Delegate role can manage credentials from the <a href="https://acoms.cms.gov/api-key-mgmt/bcda" target="_blank" rel="noopener noreferrer">ACO Management System (ACO-MS)</a>.
         </li>
         <li>
-            <strong>REACH ACOs and KCEs or KCF practices in the Kidney Care Choices Model:</strong> The following roles can manage credentials from <a href="https://4innovation.cms.gov/secure/api-credentials/bcda" target="_blank" rel="noopener noreferrer">4innovation (4i)</a>:
+            <strong>REACH ACOs and KCEs or KCF practices in the Kidney Care Choices Model:</strong> Users with any of the following roles can manage credentials from <a href="https://4innovation.cms.gov/secure/api-credentials/bcda" target="_blank" rel="noopener noreferrer">4innovation (4i)</a>:
             <ul>
                 <li>Executive Contact </li>
                 <li>Entity Primary Contact </li>
