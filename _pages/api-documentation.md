@@ -28,7 +28,7 @@ Beneficiary Claims Data API (BCDA) uses [Fast Healthcare Interoperability Resour
   <li class="usa-process-list__item docs-final-item">
     <p class="usa-process-list__heading">Get production access</p>
     <p>
-      <a href="{{ '/index#eligible-model-entities.html' | relative_url }}">Eligible model entities</a> must have <a href="{{ '/production-access.html' | relative_url }}">production credentials</a> to access their enrollees’ claims data. 
+      <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">Eligible model entities</a> must have <a href="{{ '/production-access.html' | relative_url }}">production credentials</a> to access their enrollees’ claims data. 
     </p>
   </li>
 </ol>
@@ -65,7 +65,7 @@ Request information about previous job requests, including the job ID, creation 
 
 If you can’t remember the job ID after starting a job, use this endpoint to retrieve the ID. Each entry in the resource bundle is in the [FHIR Task](https://www.hl7.org/fhir/task.html) format.
 
-### /Attribution_Status
+### /Attribution
 
 Request a datetime and timestamp for when your enrollee list or runout files were last updated. 
 
