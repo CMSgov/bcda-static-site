@@ -54,8 +54,8 @@ Authorization: Bearer {bearer_token}
 ### 1. Get your organization's credentials
 
 BCDA protects its token endpoint with Basic Auth. Your credentials will be formatted as a client ID and client secret.
-- If you’re trying to access the **sandbox environment:** Use a sample client ID and secret from the [sandbox credentials section]({{ '/get-a-bearer-token.html' | relative_url }}#sandbox-credentials).
-- If you’re trying to access the **production environment:** Use the client ID and secret issued by your model-specific system during [production access]({{ '/production-access.html' | relative_url }}).
+- **Sandbox environment**: Use a sample client ID and secret from the [sandbox credentials section]({{ '/get-a-bearer-token.html' | relative_url }}#sandbox-credentials).
+- **Production environment**: Use the client ID and secret issued by your model-specific system during [production access]({{ '/production-access.html' | relative_url }}).
 
 ### 2. Request a bearer token
 
@@ -81,7 +81,7 @@ The header has “Authorization: Basic” followed by the credentials. Credentia
 
 In this example, the authorization in the request header is replaced with `--user {client ID}:{client secret}` 
 
-This command uses curl’s built-in ability to Base-64 encode your credentials, request, and receive your token in a single step.
+This command uses curl’s built-in ability to Base-64 encode your credential to request and receive your token in a single step.
 
 {% include copy_snippet.html code=Snippet4 language="shell" can_copy=true %}
 
@@ -96,7 +96,7 @@ This command uses curl’s built-in ability to Base-64 encode your credentials, 
 
 #### Response example: successful request
 
-If your request succeeds, you’ll receive a 200 response with your bearer token in the response body. It’ll be the full text string that follows “access_token”. The token string below has been abbreviated for readability.
+If your request succeeds, you’ll receive a 200 response with your bearer token in the response body. It’ll be the full text string that follows "access_token." The token string below has been abbreviated for readability.
 
 “Expires_in” counts down the seconds remaining before the token expires, which is 20 minutes after it is generated. “Token_type: Bearer” is a fixed value.
 
@@ -116,7 +116,7 @@ Sandbox credentials allow anyone to access test claims data. These credentials w
 
 Sample data sets vary in size and data complexity, ranging from 50 to 30,000 synthetic enrollees, to best match the needs of your model entity.  
 
-### Adjudicated claims data sets - 5 simple sizes
+### Adjudicated claims data sets – 5 simple sizes
 Use the data sets to test retrieving and downloading data files into your internal ingestion processes. However, the test data may not reflect an accurate distribution of disease and demographic information.
 
 #### Extra-small model entity (50 synthetic enrollees)
