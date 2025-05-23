@@ -11,8 +11,8 @@ in-page-nav-levels: "h2"
 
 Beneficiary Claims Data API (BCDA) uses 2 parameters to filter or specify the resources returned: 
 
-- _type: limits your request to 1 or more specific resource types
-- _since: applies a date boundary to your request
+- **_type**: limits your request to 1 or more specific resource types
+- **_since**: applies a date boundary to your request
 
 Use parameters in the sandbox or production environment to speed up download times and reduce file size. 
 
@@ -22,27 +22,25 @@ The _type parameter lets you specify which resource types you’d like returned.
 
 You’ll need to use commas when specifying multiple resource types. The examples below are curl requests to /Group using _type. 
 
+<h3 class="font-ui-sm">Example request for 1 resource type</h3>
+
+{% capture curlSnippet %}{% raw %}
+GET /api/v2/Group/all/$export?_type=Patient
+{% endraw %}{% endcapture %}
+{% include copy_snippet.html code=curlSnippet language="shell" %}
+
+
 <h3 class="font-ui-sm">Example request for 2 resource types</h3>
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 GET /api/v2/Group/all/$export?_type=ExplanationOfBenefit,Patient
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
-<h3 class="font-ui-sm">[REACH ACOs only] Example request for 2 resource types</h3>
+<h3 class="font-ui-sm">Example request for 2 resource types (REACH ACOs only)</h3>
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 GET /api/v2/Group/all/$export?_type=Claim,ClaimResponse 
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
-
-<h3 class="font-ui-sm">Example request for 1 resource type</h3>
-
-<!-- snippet -->
-{% capture curlSnippet %}{% raw %}
-GET /api/v2/Group/all/$export?_type=Patient
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 

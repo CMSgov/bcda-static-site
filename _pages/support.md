@@ -26,7 +26,7 @@ show-side-nav: false
         Join the <a href="https://groups.google.com/g/bc-api" target="_blank" rel="noopener noreferrer">Google Group</a> or email <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hhs.gov</a> to ask questions and get help. When troubleshooting API requests, please include:
     </p>
     <ul>
-        <li>whether this is is a sandbox or production API request</li>
+        <li>whether this is a sandbox or production API request</li>
         <li>your organization’s 5 character entity ID or sandbox data set</li>
         <li>the API request that's resulting in the problem </li>
         <li>any response and additional messaging from the API</li>
@@ -36,8 +36,6 @@ show-side-nav: false
 </div>
 
 ## Frequently asked questions
-
-<div class="padding-top-4"></div>
 
 <!-- FAQ content only-->
 {% capture a1AccordionContent %}
@@ -79,10 +77,12 @@ show-side-nav: false
     Example of a redacted response:
 </p>
 {% capture curlSnippet %}{% raw %}
-"taxpayerIdentificationNumber": "REDACTED",
-"nationalProviderIdentifier": "REDACTED"
+{
+    "taxpayerIdentificationNumber": "REDACTED",
+    "nationalProviderIdentifier": "REDACTED"
+}
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="json" %}
 {% endcapture %}
 
 {% capture a3AccordionContent %}
