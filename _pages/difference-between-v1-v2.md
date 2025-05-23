@@ -1,10 +1,9 @@
 ---
-layout: default
+layout: api-docs
 page_title: "What’s the difference between BCDA V1 and V2?"
 seo_title: ""
 description: ""
 in-page-nav: true
-show-side-nav: false
 ---
 
 # {{ page.page_title }}
