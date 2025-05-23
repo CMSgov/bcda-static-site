@@ -72,7 +72,7 @@ show-side-nav: false
       </li>
         <li class="usa-process-list__item about-final-item">
           <h4 class="usa-process-list__heading">BCDA shares adjudicated claims data </h4>
-          <p class="usa-intro font-ui-md text-bold text-italic text-base margin-top-1">14 days after submission typically</p>
+          <p class="usa-intro font-ui-md text-bold text-italic text-base margin-top-1">Typically 14 days after submission</p>
           <p>
             BCDA updates adjudicated claims data weekly from the <a href="https://www2.ccwdata.org/web/guest/home" target="_blank" rel="noopener noreferrer">Chronic Conditions Data Warehouse (CCW)</a>.
           </p>
