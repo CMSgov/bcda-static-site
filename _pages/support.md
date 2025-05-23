@@ -1,5 +1,5 @@
 ---
-layout: api-docs
+layout: default
 page_title: "Support"
 seo_title: ""
 description: ""
@@ -122,7 +122,7 @@ show-side-nav: false
 
 {% capture a8AccordionContent %}
 <p>
-    BCDA requires that all production requests come from a registered IP address. Make sure the IP address(es) you’re using to request data have been added to the allow list in your model-specific system. Visit <a href="{{ '/production-access.html' | relative_url }}">Production Access</a> for more details.
+    BCDA requires that all production requests come from a registered IP address. Make sure the IP address(es) you’re using to request data have been added to the Allow List in your model-specific system. Visit <a href="{{ '/production-access.html' | relative_url }}">Production Access</a> for more details.
 </p>
 {% endcapture %}
 

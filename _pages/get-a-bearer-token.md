@@ -67,7 +67,7 @@ Start a request in your terminal window or using a tool like Postman.
 
 <div class="usa-alert usa-alert--warning usa-alert--slim">
     <div class="usa-alert__body">
-        <p class="usa-alert__text">Bearer tokens expire after 20 minutes</p>
+        <p class="usa-alert__text">Bearer tokens expire 20 minutes after they are generated.</p>
     </div>
 </div>
 

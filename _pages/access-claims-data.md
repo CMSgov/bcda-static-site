@@ -87,9 +87,9 @@ Prefer: respond-async
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="yaml" %}
 
-<div class="usa-alert usa-alert--warning usa-alert--no-icon">
+<div class="usa-alert usa-alert--warning usa-alert--slim">
     <div class="usa-alert__body">
-        <p class="usa-alert__text">Tokens expire 20 minutes after they are generated. </p>
+        <p class="usa-alert__text">Bearer tokens expire 20 minutes after they are generated.</p>
     </div>
 </div>
 
@@ -255,7 +255,7 @@ There is a separate URL for each resource type requested. The example below requ
   "JobID": 42
 }
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="json" %}
 
 ### 4. Download the data
 
@@ -298,15 +298,17 @@ If some of the data can’t be exported due to errors, details can be found at t
 
 By default, you’ll receive the requested data as FHIR resources in NDJSON format. Each resource will appear as a separate, labeled file. 
 
-1. [ExplanationOfBenefit](https://bcda.cms.gov/assets/data/ExplanationOfBenefit.ndjson)
-2. [Patient](https://bcda.cms.gov/assets/data/Patient.ndjson)
-3. [Coverage](https://bcda.cms.gov/assets/data/Coverage.ndjson)
-
 <div class="usa-alert usa-alert--info usa-alert--slim">
     <div class="usa-alert__body">
         <p class="usa-alert__text">Test data from the sandbox contains only negative Patient IDs.</p>
     </div>
 </div>
+
+<ol>
+  <li><a href="{{ '/assets/downloads/ExplanationOfBenefit.ndjson' | relative_url }}">ExplanationOfBenefit.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+  <li><a href="{{ '/assets/downloads/Patient.ndjson' | relative_url }}">Patient.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+  <li><a href="{{ '/assets/downloads/Coverage.ndjson' | relative_url }}">Coverage.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+</ol>
 
 ## Other BCDA endpoints 
 

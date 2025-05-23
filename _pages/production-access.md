@@ -12,13 +12,19 @@ show-side-nav: false
 
 [Eligible organizations]({{ '/index.html#eligible-model-entities' | relative_url }}) must get credentials from their model-specific systems to access enrollee claims data. 
 
-**Before accessing the production environment, download test claims data in the sandbox environment and follow the steps in [API Documentation]({{ '/api-documentation.html' | relative_url }}).**
+<div class="usa-alert usa-alert--warning usa-alert--no-icon">
+  <div class="usa-alert__body">
+    <p class="usa-alert__text">Before accessing the production environment, download test claims data in the sandbox environment and follow the steps under <a href="{{ '/api-documentation.html#getting-started' | relative_url }}">Getting Started</a>.</p>
+  </div>
+</div>
+
+
 
 <ol class="usa-process-list margin-top-4 production-access-process-list">
   <li class="usa-process-list__item">
     <h2 class="usa-process-list__heading margin-y-2">Authorize your model entity</h2>
       <p>
-        Production credentials authorize your organization’s access to the API. Create and manage credentials by logging into your model-specific system:
+        Production credentials authorize your organization’s access to the API. Create and manage credentials by logging in to your model-specific system:
       </p>
       <ul>
         <li>
@@ -42,7 +48,7 @@ show-side-nav: false
     <ol>
         <li>Visit the <em>API Credentials</em> page in your model-specific system.</li>
         <li>Choose the <em>BCDA Credentials</em> tab, then select <em>Create New API Credentials</em>.</li>
-        <li>Add a public, static IP address for every system, including vendors, that will use the API (up to 8). It may take up to an hour for the allow list to update.</li>
+        <li>Add a public, static IP address for every system, including vendors, that will use the API (up to 8). It may take up to an hour for the Allow List to update.</li>
     </ol>
     <h3 class="font-ui-sm">Rotate (renew) credentials every 90 days</h3>
     <p class="margin-top-05">Visit <em>BCDA Credentials</em> and select the rotate icon in the <em>Actions</em> column.</p>
