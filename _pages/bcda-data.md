@@ -49,7 +49,7 @@ The Data Dictionary maps the different data fields and locations between BCDA an
     <img src="{{ '/assets/img/book.svg' | relative_url }}" alt="book illustration">
   </div>
   <div class="grid-col-fill tablet:grid-col-9">
-        <p>Download the <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}">BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a> to learn about:</p>
+        <p>Download the <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}">BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> to learn about:</p>
     <ul>
         <li>claim field names and descriptions</li>
         <li>new data field locations</li>
@@ -72,7 +72,7 @@ REACH ACOs can access claims that aren’t fully processed or approved yet. **Th
             <a href="{{ 'partially-adjudicated-claims-data.html' | relative_url }}">Guide to Partially Adjudicated Claims Data</a>
         </li>
         <li>
-            <a href="{{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">Data Dictionary for Partially Adjudicated Claims Data {% include sprite.html icon="file_download" class="text-middle" %}</a>
+            <a href="{{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">Data Dictionary for Partially Adjudicated Claims Data {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>
         </li>
     </ul>
   </div>
@@ -88,11 +88,11 @@ Download sample data files, which share similar content and structure to product
   </div>
   <div class="grid-col-fill tablet:grid-col-9">
     <ul>
-        <li><a href="https://hl7.org/fhir/R4/explanationofbenefit.html" target="blank" rel="noopener">ExplanationOfBenefit {% include sprite.html icon="file_download" class="text-middle"%}</a></li>
-        <li><a href="https://hl7.org/fhir/R4/patient.html" target="blank" rel="noopener">Patient{% include sprite.html icon="file_download" class="text-middle"%}</a></li>
-        <li><a href="https://hl7.org/fhir/R4/coverage.html" target="blank" rel="noopener">Coverage{% include sprite.html icon="file_download" class="text-middle"%}</a></li>
-        <li><a href="https://hl7.org/fhir/R4/claim.html" target="blank" rel="noopener">Claim (partially adjudicated claims data){% include sprite.html icon="file_download" class="text-middle"%}</a></li>
-        <li><a href="https://hl7.org/fhir/R4/claimresponse.html" target="blank" rel="noopener">ClaimResponse (partially adjudicated claims data){% include sprite.html icon="file_download" class="text-middle"%}</a></li>
+        <li><a href="{{ '/assets/downloads/ExplanationOfBenefit.ndjson' | relative_url }}" target="blank" rel="noopener">ExplanationOfBenefit.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+        <li><a href="{{ '/assets/downloads/Patient.ndjson' | relative_url }}" target="blank" rel="noopener">Patient.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+        <li><a href="{{ '/assets/downloads/Coverage.ndjson' | relative_url }}" target="blank" rel="noopener">Coverage.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+        <li><a href="{{ '/assets/downloads/Claim.ndjson' | relative_url }}" target="blank" rel="noopener">Claim.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> (partially adjudicated claims data) </li>
+        <li><a href="{{ '/assets/downloads/ClaimResponse.ndjson' | relative_url }}" target="blank" rel="noopener">ClaimResponse.ndjson  {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> (partially adjudicated claims data)</li>
     </ul>
   </div>
 </div>
@@ -101,7 +101,17 @@ Download sample data files, which share similar content and structure to product
 
 Claims data is organized by resource types, which are requested at the /Patient and /Group [endpoints]({{ '/api-documentation.html' | relative_url }}#endpoints). Version 2 has [minor changes]({{ '/difference-between-v1-v2.html' | relative_url }}) in resource types from V1.
 
-<dl>
+<div class="usa-alert usa-alert--info margin-top-4">
+  <div class="usa-alert__body">
+    <h4 class="usa-alert__heading">Confidentiality and medical data sharing</h4>
+    <p class="usa-alert__text">
+      In accordance with applicable law, including HIPAA and 42 CFR Part 2, substance use disorder records are confidential. BCDA also does not share data on enrollees who have opted out of data sharing.
+    </p>
+  </div>
+</div>
+
+
+<dl class="margin-top-4">
   <dt class="font-sans-md text-bold" id="explanationofbenefit">
     ExplanationOfBenefit (EOB)
   </dt>
@@ -141,12 +151,3 @@ Claims data is organized by resource types, which are requested at the /Patient 
     <p>Available for partially adjudicated claims only, <a href="https://hl7.org/fhir/R4/claimresponse.html" target="blank" rel="noopener noreferrer">ClaimResponse</a> stores details about the adjudication status and processing results for a claim, predetermination, or preauthorization.</p>
   </dd>
 </dl>
-
-<div class="usa-alert usa-alert--info">
-  <div class="usa-alert__body">
-    <h4 class="usa-alert__heading">Confidentiality and medical data sharing</h4>
-    <p class="usa-alert__text">
-      In accordance with applicable law, including HIPAA and 42 CFR Part 2, substance use disorder records are confidential. BCDA also does not share data on enrollees who have opted out of data sharing.
-    </p>
-  </div>
-</div>
