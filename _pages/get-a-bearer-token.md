@@ -65,6 +65,12 @@ Start a request in your terminal window or using a tool like Postman.
 
 {% include copy_snippet.html code=Snippet2 language="yaml" %}
 
+<div class="usa-alert usa-alert--warning usa-alert--slim">
+    <div class="usa-alert__body">
+        <p class="usa-alert__text">Bearer tokens expire after 20 minutes</p>
+    </div>
+</div>
+
 #### Request header
 
 The header has “Authorization: Basic” followed by the credentials. Credentials (clientID:secret) are joined by a colon, then encoded in Base64 format.
@@ -185,7 +191,7 @@ c637024fa21adda5a756a2753cf7eb9bd62292e7897fb965a5c7aeeed23e1728ddc9ec6863f09f15
 
 ### Partially adjudicated claims data sets 
 
-Anyone can access [partially adjudicated claims data]({{ '/partially-adjudicated-claims-data.html' | relative_url }}) in the sandbox. Only REACH ACOs can access enrollees' partially adjudicated claims data during production. 
+Anyone can access [partially adjudicated claims data]({{ '/partially-adjudicated-claims-data.html' | relative_url }}) in the sandbox. Only REACH ACOs can access enrollees' partially adjudicated claims data in production. 
 
 #### Extra-small REACH ACO (110 synthetic enrollees)
 
