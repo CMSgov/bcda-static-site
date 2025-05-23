@@ -41,7 +41,7 @@ The sandbox and production environments follow similar instructions. They suppor
     <div class="usa-alert__body">
         <h4 class="usa-alert__heading">    BCDA recommends using V2 of the API</h4>
         <p class="usa-alert__text">
-            This is the latest version which follows the <a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener">FHIR R4 specification</a>. REACH ACOs must use V2 for <a href="{{ '/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a>.
+            This is the latest version which follows the <a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener noreferrer">FHIR R4 specification</a>. REACH ACOs must use V2 for <a href="{{ '/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a>.
         </p>
     </div>
 </div>
@@ -97,7 +97,7 @@ Prefer: respond-async
 
 <ul>
     <li>Combine your GET request for resources with the request header.</li>
-    <li>The dollar sign ($) before "export" in the URL indicates the endpoint is an <a href="https://hl7.org/fhir/R4/operations.html" target="blank" rel="noopener">operation</a>, rather than a CRUD interaction. </li>
+    <li>The dollar sign ($) before "export" in the URL indicates the endpoint is an <a href="https://hl7.org/fhir/R4/operations.html" target="_blank" rel="noopener noreferrer">operation</a>, rather than a CRUD interaction. </li>
     <li>PowerShell users will need to replace backslash characters (\) with backticks (`) to properly escape the $export operation.</li>
 </ul>
 

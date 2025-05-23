@@ -15,7 +15,7 @@ Model entities can use either or both source(s) for data insights. It’s import
 
 CCLF files are automatically available monthly using 12 flat files, and can be downloaded weekly upon request. BCDA updates adjudicated claims weekly using 3 NDJSON files and partially adjudicated claims data daily using 2 additional NDJSON files.
 
-BCDA also uses the <a href="https://hl7.org/fhir/uv/bulkdata/" target="blank" rel="noopener noreferrer">Bulk Fast Healthcare Interoperability Resources (FHIR)</a> format as required by Medicare. This results in differences during data mapping.
+BCDA also uses the <a href="https://hl7.org/fhir/uv/bulkdata/" target="_blank" rel="noopener noreferrer">Bulk Fast Healthcare Interoperability Resources (FHIR)</a> format as required by Medicare. This results in differences during data mapping.
 
 ## Summary of differences
 
@@ -36,7 +36,7 @@ BCDA also uses the <a href="https://hl7.org/fhir/uv/bulkdata/" target="blank" re
         <tr>
             <th scope="row">Claims data format</th>
             <td data-label="BCDA">Interoperable and machine-readable, using FHIR R4 or STU3 format.</td>
-            <td data-label="CCLF">Human-readable, using <a href="https://www.cms.gov/files/document/cclf-information-packet.pdf" target="blank" rel="noopener noreferrer">fixed-width tabular files.</a></td>
+            <td data-label="CCLF">Human-readable, using <a href="https://www.cms.gov/files/document/cclf-information-packet.pdf" target="_blank" rel="noopener noreferrer">fixed-width tabular files.</a></td>
         </tr>
         <tr>
             <th scope="row">Claims data source</th>

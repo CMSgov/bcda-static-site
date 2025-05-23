@@ -22,10 +22,10 @@ show-side-nav: false
       </p>
       <ul>
         <li>
-            <strong>ACOs in the Medicare Shared Savings Program:</strong> Credential delegates can manage credentials from the <a href="https://acoms.cms.gov/api-key-mgmt/bcda" target="_blank" rel="noopener">ACO Management System (ACO-MS)</a>.
+            <strong>ACOs in the Medicare Shared Savings Program:</strong> Credential delegates can manage credentials from the <a href="https://acoms.cms.gov/api-key-mgmt/bcda" target="_blank" rel="noopener noreferrer">ACO Management System (ACO-MS)</a>.
         </li>
         <li>
-            <strong>REACH ACOs and KCEs or KCF practices in the Kidney Care Choices Model:</strong> The following roles can manage credentials from <a href="https://4innovation.cms.gov/secure/api-credentials/bcda" target="blank" rel="noopener">4innovation (4i)</a>:
+            <strong>REACH ACOs and KCEs or KCF practices in the Kidney Care Choices Model:</strong> The following roles can manage credentials from <a href="https://4innovation.cms.gov/secure/api-credentials/bcda" target="_blank" rel="noopener noreferrer">4innovation (4i)</a>:
             <ul>
                 <li>Executive Contact </li>
                 <li>Entity Primary Contact </li>
@@ -33,7 +33,7 @@ show-side-nav: false
                 <li>DUA Requestor </li>
                 <li>DUA Custodian</li>
             </ul>
-            <p>Your registered contact can <a href="https://www.cms.gov/data-research/cms-information-technology/cms-identity-management/help-desk-support" target="blank" rel="noopener">contact the help desk</a> to assign these roles.</p>
+            <p>Your registered contact can <a href="https://www.cms.gov/data-research/cms-information-technology/cms-identity-management/help-desk-support" target="_blank" rel="noopener noreferrer">contact the help desk</a> to assign these roles.</p>
         </li>
       </ul>
   </li>
@@ -47,7 +47,7 @@ show-side-nav: false
     <h3 class="font-ui-sm">Rotate (renew) credentials every 90 days</h3>
     <p class="margin-top-05">Visit <em>BCDA Credentials</em> and select the rotate icon in the <em>Actions</em> column.</p>
     <h3 class="font-ui-sm">Revoke (deactivate) credentials if compromised</h3>
-    <p class="margin-top-05">Visit <em>BCDA Credentials</em> and select the delete icon in the <em>Actions</em> column. Email <a href="mailto:bcapi@cms.hhs.gov" target="blank" rel="noopener">bcapi@cms.hhs.gov</a> to review recent activity.</p>
+    <p class="margin-top-05">Visit <em>BCDA Credentials</em> and select the delete icon in the <em>Actions</em> column. Email <a href="mailto:bcapi@cms.hhs.gov" target="_blank" rel="noopener noreferrer">bcapi@cms.hhs.gov</a> to review recent activity.</p>
   </li>
   <li class="usa-process-list__item production-access-final-item">
     <h2 class="usa-process-list__heading margin-y-2">Access production claims data</h2>
@@ -55,7 +55,7 @@ show-side-nav: false
         The sandbox and production environments support the same workflow, endpoints, and resource types. Follow similar steps as you did in the sandbox to <a href="{{ '/get-a-bearer-token.html' | relative_url }}">get a bearer token</a> and <a href="{{ '/access-claims-data.html' | relative_url }}">retrieve claims data</a>.
       </p>
       <p>
-        Visit <a href="{{ '/support.html' | relative_url }}">Support</a> or <a href="https://groups.google.com/forum/#!forum/bc-api" target="blank" rel="noopener">join the Google Group</a> if you have questions. Do not share <a href="{{ '/support.html#how-do-i-redact-phi-and-pii-when-sharing-information' | relative_url }}">Personally Identifiable Information (PII)</a> like tokens, credentials, or claims data. 
+        Visit <a href="{{ '/support.html' | relative_url }}">Support</a> or <a href="https://groups.google.com/forum/#!forum/bc-api" target="_blank" rel="noopener noreferrer">join the Google Group</a> if you have questions. Do not share <a href="{{ '/support.html#how-do-i-redact-phi-and-pii-when-sharing-information' | relative_url }}">Personally Identifiable Information (PII)</a> like tokens, credentials, or claims data. 
       </p>
   </li>
 </ol>

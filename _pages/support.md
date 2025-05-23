@@ -23,7 +23,7 @@ show-side-nav: false
   <div class="tablet:grid-col tablet:order-1 padding-top-2">
     <h2>We're here to help</h2>
     <p>
-        Join the <a href="https://groups.google.com/g/bc-api" target="_blank" rel="noopener">Google Group</a> or email <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hhs.gov</a> to ask questions and get help. When troubleshooting API requests, please include:
+        Join the <a href="https://groups.google.com/g/bc-api" target="_blank" rel="noopener noreferrer">Google Group</a> or email <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hhs.gov</a> to ask questions and get help. When troubleshooting API requests, please include:
     </p>
     <ul>
         <li>whether this is is a sandbox or production API request</li>
@@ -31,7 +31,7 @@ show-side-nav: false
         <li>the API request that's resulting in the problem </li>
         <li>any response and additional messaging from the API</li>
     </ul> 
-    <a href="https://groups.google.com/g/bc-api" target="_blank" rel="noopener" class="usa-button margin-top-2">Join the Google Group</a>
+    <a href="https://groups.google.com/g/bc-api" target="_blank" rel="noopener noreferrer" class="usa-button margin-top-2">Join the Google Group</a>
   </div>
 </div>
 
@@ -90,12 +90,12 @@ show-side-nav: false
     It typically takes 2-4 days after submission to receive <a href="{{ '/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a> and up to 14 days for adjudicated claims data. Even after adjudication, claims may go through additional processing. BCDA provides the latest updates available for each claim.
 </p>
 <p>
-    According to Section 6404 of the Affordable Care Act, Medicare Fee-for-Service claims must be submitted within 12 months (1 calendar year) of the date of service. <a href="https://www2.ccwdata.org/documents/10280/19002256/medicare-claims-maturity.pdf" target="blank" rel="noopener">Learn about claims submission and approval time frames.</a></p>
+    According to Section 6404 of the Affordable Care Act, Medicare Fee-for-Service claims must be submitted within 12 months (1 calendar year) of the date of service. <a href="https://www2.ccwdata.org/documents/10280/19002256/medicare-claims-maturity.pdf" target="_blank" rel="noopener noreferrer">Learn about claims submission and approval time frames.</a></p>
 {% endcapture %}
 
 {% capture a4AccordionContent %}
 <p>
-    Adjudicated claims data is loaded from the <a href="https://www2.ccwdata.org/web/guest/home/" target="blank" rel="noopener">Chronic Conditions Data Warehouse (CCW)</a>. Partially adjudicated claims data is loaded from the Fiscal Intermediary Standard System (FISS) and Multi-Carrier System (MCS).
+    Adjudicated claims data is loaded from the <a href="https://www2.ccwdata.org/web/guest/home/" target="_blank" rel="noopener noreferrer">Chronic Conditions Data Warehouse (CCW)</a>. Partially adjudicated claims data is loaded from the Fiscal Intermediary Standard System (FISS) and Multi-Carrier System (MCS).
 </p>
 {% endcapture %}
 
@@ -104,15 +104,14 @@ show-side-nav: false
     Adjudicated claims data (ExplanationOfBenefit, Patient, Coverage) is updated weekly and partially adjudicated claims data (Claim, ClaimResponse) is updated daily.
 </p>
 <p>
-    You can export data as often as you like, depending on your needs and how often the data is refreshed. We don’t recommend exporting data more than once a week for adjudicated claims and once a day for partially adjudicated claims. Use the <a href="{{ '/filter-claims-data.html' | relative_url }}#the-since-parameter">_since parameter</a> when running jobs to avoid downloading duplicate data.
+    You can export data as often as you like, depending on your needs and how often the data is refreshed. We don’t recommend exporting data more than once a week for adjudicated claims and once a day for partially adjudicated claims. Use the <a href="{{ '/filter-claims-data.html#the-_since-parameter' | relative_url }}">_since parameter</a> when running jobs to avoid downloading duplicate data.
 </p>
 {% endcapture %}
 
 {% capture a6AccordionContent %}
-<p>
-    CCLF files are automatically available monthly using 12 flat files, and can be downloaded weekly upon request. BCDA updates adjudicated claims weekly using 3 NDJSON files and partially adjudicated claims data daily using 2 additional files.</p>
+<p>CCLF files are automatically available monthly using 12 flat files, and can be downloaded weekly upon request. BCDA updates adjudicated claims weekly using 3 NDJSON files and partially adjudicated claims data daily using 2 additional files.</p>
     
-    <p>Additionally, BCDA is an API that uses the <a href="https://hl7.org/fhir/uv/bulkdata/" target="blank" rel="noopener">Bulk Fast Healthcare Interoperability Resources (FHIR)</a> format, as required by CMS. <a href="{{ '/comparison-bcda-cclf-files.html' | relative_url }}">Learn more about the differences.</a></p>
+<p>Additionally, BCDA is an API that uses the <a href="https://hl7.org/fhir/uv/bulkdata/" target="_blank" rel="noopener noreferrer">Bulk Fast Healthcare Interoperability Resources (FHIR)</a> format, as required by CMS. <a href="{{ '/comparison-bcda-cclf-files.html' | relative_url }}">Learn more about the differences.</a></p>
 {% endcapture %}
 
 {% capture a7AccordionContent %}
@@ -133,7 +132,7 @@ show-side-nav: false
 
 {% capture a10AccordionContent %}
 <p>
-    BCDA V1 (<a href="https://hl7.org/fhir/STU3/" target="blank" rel="noopener">STU3</a>) and V2 (<a href="https://hl7.org/fhir/R4/" target="blank" rel="noopener">R4</a>) differ primarily in their FHIR specification. Version 1 is based on the Blue Button 2.0 Implementation Guide, while version 2 is based on the CARIN CDPDE Implementation Guide.
+    BCDA V1 (<a href="https://hl7.org/fhir/STU3/" target="_blank" rel="noopener noreferrer">STU3</a>) and V2 (<a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener noreferrer">R4</a>) differ primarily in their FHIR specification. Version 1 is based on the Blue Button 2.0 Implementation Guide, while version 2 is based on the CARIN CDPDE Implementation Guide.
 </p>
 <p>There are minor differences in the mapping and values of certain data elements. <a href="{{ '/difference-between-v1-v2.html' | relative_url }}">Review the full summary of changes.{% include sprite.html icon="arrow_forward" class="text-middle" %}</a></p>
 

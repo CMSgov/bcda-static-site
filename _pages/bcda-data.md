@@ -88,11 +88,11 @@ Download sample data files, which share similar content and structure to product
   </div>
   <div class="grid-col-fill tablet:grid-col-9">
     <ul>
-        <li><a href="{{ '/assets/downloads/ExplanationOfBenefit.ndjson' | relative_url }}" target="blank" rel="noopener">ExplanationOfBenefit.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
-        <li><a href="{{ '/assets/downloads/Patient.ndjson' | relative_url }}" target="blank" rel="noopener">Patient.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
-        <li><a href="{{ '/assets/downloads/Coverage.ndjson' | relative_url }}" target="blank" rel="noopener">Coverage.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
-        <li><a href="{{ '/assets/downloads/Claim.ndjson' | relative_url }}" target="blank" rel="noopener">Claim.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> (partially adjudicated claims data) </li>
-        <li><a href="{{ '/assets/downloads/ClaimResponse.ndjson' | relative_url }}" target="blank" rel="noopener">ClaimResponse.ndjson  {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> (partially adjudicated claims data)</li>
+        <li><a href="{{ '/assets/downloads/ExplanationOfBenefit.ndjson' | relative_url }}">ExplanationOfBenefit.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+        <li><a href="{{ '/assets/downloads/Patient.ndjson' | relative_url }}">Patient.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+        <li><a href="{{ '/assets/downloads/Coverage.ndjson' | relative_url }}">Coverage.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+        <li><a href="{{ '/assets/downloads/Claim.ndjson' | relative_url }}">Claim.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> (partially adjudicated claims data) </li>
+        <li><a href="{{ '/assets/downloads/ClaimResponse.ndjson' | relative_url }}">ClaimResponse.ndjson  {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> (partially adjudicated claims data)</li>
     </ul>
   </div>
 </div>
@@ -116,7 +116,7 @@ Claims data is organized by resource types, which are requested at the /Patient 
     ExplanationOfBenefit (EOB)
   </dt>
   <dd class="margin-left-0 margin-bottom-4"> 
-    <p> Similar to CCLF files 1-7, <a href="https://hl7.org/fhir/R4/explanationofbenefit.html" target="blank" rel="noopener noreferrer">ExplanationOfBenefit</a> stores details for episodes of care, including where and when the service was performed, diagnosis codes, provider, and cost of care.</p>
+    <p> Similar to CCLF files 1-7, <a href="https://hl7.org/fhir/R4/explanationofbenefit.html" target="_blank" rel="noopener noreferrer">ExplanationOfBenefit</a> stores details for episodes of care, including where and when the service was performed, diagnosis codes, provider, and cost of care.</p>
   </dd> 
   
   <div id="patient">
@@ -124,7 +124,7 @@ Claims data is organized by resource types, which are requested at the /Patient 
   Patient
   </dt></div>
   <dd class="margin-left-0 margin-bottom-4">
-    <p>Similar to CCLF files 8 and 9, <a href="https://hl7.org/fhir/R4/patient.html" target="blank" rel="noopener noreferrer">Patient</a> stores enrollees' demographic details and updates to their patient identifiers.</p>
+    <p>Similar to CCLF files 8 and 9, <a href="https://hl7.org/fhir/R4/patient.html" target="_blank" rel="noopener noreferrer">Patient</a> stores enrollees' demographic details and updates to their patient identifiers.</p>
   </dd>
 
 <div id="coverage">
@@ -132,7 +132,7 @@ Claims data is organized by resource types, which are requested at the /Patient 
   Coverage
   </dt> </div>
   <dd class="margin-left-0 margin-bottom-4">
-    <p><a href="https://hl7.org/fhir/R4/coverage.html" target="blank" rel="noopener noreferrer">Coverage</a> stores enrollees' insurance coverage details, including dual coverage.</p>
+    <p><a href="https://hl7.org/fhir/R4/coverage.html" target="_blank" rel="noopener noreferrer">Coverage</a> stores enrollees' insurance coverage details, including dual coverage.</p>
   </dd>
 
 <div id="claim">
@@ -140,7 +140,7 @@ Claims data is organized by resource types, which are requested at the /Patient 
     Claim
   </dt> </div>
   <dd class="margin-left-0 margin-bottom-4">
-    <p>Available for partially adjudicated claims only, <a href="https://hl7.org/fhir/R4/claim.html" target="blank" rel="noopener noreferrer">Claim</a> stores financial and clinical details on professional and institutional claims. This is typically used for treatment payment planning and reimbursement. </p> 
+    <p>Available for partially adjudicated claims only, <a href="https://hl7.org/fhir/R4/claim.html" target="_blank" rel="noopener noreferrer">Claim</a> stores financial and clinical details on professional and institutional claims. This is typically used for treatment payment planning and reimbursement. </p> 
   </dd>
 
 <div id="claimresponse">
@@ -148,6 +148,6 @@ Claims data is organized by resource types, which are requested at the /Patient 
    ClaimResponse
   </dt> </div>
   <dd class="margin-left-0 margin-bottom-4">
-    <p>Available for partially adjudicated claims only, <a href="https://hl7.org/fhir/R4/claimresponse.html" target="blank" rel="noopener noreferrer">ClaimResponse</a> stores details about the adjudication status and processing results for a claim, predetermination, or preauthorization.</p>
+    <p>Available for partially adjudicated claims only, <a href="https://hl7.org/fhir/R4/claimresponse.html" target="_blank" rel="noopener noreferrer">ClaimResponse</a> stores details about the adjudication status and processing results for a claim, predetermination, or preauthorization.</p>
   </dd>
 </dl>

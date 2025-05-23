@@ -133,15 +133,15 @@ BCDA receives partially adjudicated claims data after it’s submitted to Medica
 {% endcapture %}
 
 {% capture a7AccordionContent %}
-Every Claim has only 1 ClaimResponse. Version numbers aren’t currently provided. <a href="https://groups.google.com/forum/#!forum/bc-api" target="blank" rel="noopener">Contact us</a> if you’d like us to explore versioning in the future.
+Every Claim has only 1 ClaimResponse. Version numbers aren’t currently provided. <a href="https://groups.google.com/forum/#!forum/bc-api" target="_blank" rel="noopener noreferrer">Contact us</a> if you’d like us to explore versioning in the future.
 {% endcapture %}
 
 {% capture a8AccordionContent %}
-No, these 2 fields are not currently available. Join our<a href="https://groups.google.com/forum/#!forum/bc-api" target="blank" rel="noopener"> Google Group</a> if you have feedback to improve the availability of data elements. 
+No, these 2 fields are not currently available. Join our<a href="https://groups.google.com/forum/#!forum/bc-api" target="_blank" rel="noopener noreferrer"> Google Group</a> if you have feedback to improve the availability of data elements. 
 {% endcapture %}
 
 {% capture a9AccordionContent %}
-BCDA is continuously working to source and add new data fields. <a href="https://groups.google.com/forum/#!forum/bc-api" target="blank" rel="noopener">Contact us</a> if there are any fields you’d like added.
+BCDA is continuously working to source and add new data fields. <a href="https://groups.google.com/forum/#!forum/bc-api" target="_blank" rel="noopener noreferrer">Contact us</a> if there are any fields you’d like added.
 {% endcapture %}
 
 <!-- Insert accordions -->
