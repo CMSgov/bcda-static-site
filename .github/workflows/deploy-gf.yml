@@ -2,7 +2,7 @@ name: 'Deploy Static Site'
 
 on:
   push:
-    branches: [main, carl/BCDA-9031-gf-migrate-workflows] # autodeploy on push to main
+    branches: [main] # autodeploy on push to main
   workflow_dispatch:
     inputs:
       target_environment:
@@ -96,31 +96,31 @@ jobs:
         run: |
           DISTRIBUTION_ID=`aws cloudfront list-distributions --query "DistributionList.Items[].{Id:Id, OriginId: Origins.Items[0].Id}[?OriginId=='$TARGET_BUCKET'].Id" --output text`
           aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*'
-      # - uses: slackapi/slack-github-action@v2.0.0
-      #   name: Slack Success
-      #   if: ${{ success() }}
-      #   with:
-      #     method: chat.postMessage
-      #     token: ${{ secrets.SLACK_BOT_TOKEN }}
-      #     # Sends to bcda-deploy
-      #     payload: |
-      #       channel: "C03S23MJFJS"
-      #       attachments:
-      #         - color: good
-      #           text: "SUCCESS: Deploy Static Site to ${{ env.TARGET_ENV }}.  <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|${{ github.run_id }}>"
-      #           mrkdown_in:
-      #             - text
-      # - uses: slackapi/slack-github-action@v2.0.0
-      #   name: Slack failure
-      #   if: ${{ failure() }}
-      #   with:
-      #     method: chat.postMessage
-      #     token: ${{ secrets.SLACK_BOT_TOKEN }}
-      #     # Sends to bcda-alerts
-      #     payload: |
-      #       channel: "C034CFU945C"
-      #       attachments:
-      #         - color: danger
-      #           text: "FAILURE: Deploy Static Site to ${{ env.TARGET_ENV }}.  <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|${{ github.run_id }}>"
-      #           mrkdown_in:
-      #             - text
+      - uses: slackapi/slack-github-action@v2.0.0
+        name: Slack Success
+        if: ${{ success() }}
+        with:
+          method: chat.postMessage
+          token: ${{ secrets.SLACK_BOT_TOKEN }}
+          # Sends to bcda-deploy
+          payload: |
+            channel: "C03S23MJFJS"
+            attachments:
+              - color: good
+                text: "SUCCESS: Deploy Static Site to ${{ env.TARGET_ENV }}.  <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|${{ github.run_id }}>"
+                mrkdown_in:
+                  - text
+      - uses: slackapi/slack-github-action@v2.0.0
+        name: Slack failure
+        if: ${{ failure() }}
+        with:
+          method: chat.postMessage
+          token: ${{ secrets.SLACK_BOT_TOKEN }}
+          # Sends to bcda-alerts
+          payload: |
+            channel: "C034CFU945C"
+            attachments:
+              - color: danger
+                text: "FAILURE: Deploy Static Site to ${{ env.TARGET_ENV }}.  <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|${{ github.run_id }}>"
+                mrkdown_in:
+                  - text
