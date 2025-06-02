@@ -89,6 +89,7 @@ jobs:
             -Dsonar.projectVersion=${{ github.ref_name == 'main' && github.sha || 'branch' }}
             -Dsonar.exclusions=ops/**,scripts/**,node_modules/**
             -Dsonar.qualitygate.wait=true
+            -Dsonar.ci.autoconfig.disabled=true
       - name: Sync _site with s3
         run: aws s3 sync _site/ s3://$TARGET_BUCKET/ $(["${{ inputs.target_environment }}" == 'prod'] && echo "--delete")
       - name: Invalidate Cloudfront cache
