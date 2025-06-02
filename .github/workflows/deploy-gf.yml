@@ -39,6 +39,7 @@ env:
 jobs:
   deploy_static_site:
     name: Deploy Static Site
+    environment: ${{ inputs.target_environment == 'prod' && 'prod' || 'stage' }}
     permissions:
       contents: read
       id-token: write
@@ -70,7 +71,7 @@ jobs:
           params: |
             SONAR_HOST_URL=/sonarqube/url
             SONAR_TOKEN=/sonarqube/token
-            TARGET_BUCKET=/bcda/${{ env.RELEASE_VERSION }}/static_site
+            TARGET_BUCKET=/bcda/${{ env.TARGET_ENV }}/static_site
       - name: Run quality gate scan
         if: ${{ env.TARGET_ENV == 'stage' }}
         uses: sonarsource/sonarqube-scan-action@master
@@ -87,7 +88,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: ${{ vars.AWS_REGION }}
-          role-to-assume: arn:aws:iam::${{ secrets.ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-${{ env.JEKYLL_ENV }}-github-actions
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-${{ env.JEKYLL_ENV }}-github-actions
       - name: Sync _site with s3
         run: aws s3 sync _site/ s3://$TARGET_BUCKET/ $(["${{ inputs.target_environment }}" == 'prod'] && echo "--delete")
       - name: Invalidate Cloudfront cache
