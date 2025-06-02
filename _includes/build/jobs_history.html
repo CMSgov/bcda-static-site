@@ -1,12 +1,12 @@
 <h3>Step 1: Obtain an Access Token</h3>
-	
+
 <p>
 	See <a href="#authorization" class="in-text__link">Authentication and Authorization</a> above.
 </p>
 
 <h3>Step 2: Send a Request to the Jobs Endpoint</h3>
 
-<h4>Requests to retrieve data on all past jobs</h4>  
+<h4>Requests to retrieve data on all past jobs</h4>
 <pre><code>GET /api/v2/jobs</code></pre>
 
 <h4>Request Headers</h4>
@@ -76,7 +76,7 @@ Prefer: respond-async</code></pre>
 </p>
 
 <p>
-    For example, if your organization had jobs Archived in the BCDA system, you could make a filtered request for those as follows: <code>GET /api/v2/Jobs?_status=Archived</code>. You would receive a list of jobs with the status “Completed”. All of these jobs were Archived in the BCDA system. If your organization also had jobs with the end state of Expired or Completed in the BCDA system, they would also hold the status of Completed. But, they would not be returned in your request for Archived jobs.
+    For example, if your organization had jobs Archived in the BCDA system, you could make a filtered request for those as follows: <code>GET /api/v2/jobs?_status=Archived</code>. You would receive a list of jobs with the status “Completed”. All of these jobs were Archived in the BCDA system. If your organization also had jobs with the end state of Expired or Completed in the BCDA system, they would also hold the status of Completed. But, they would not be returned in your request for Archived jobs.
 </p>
 
 <p>
