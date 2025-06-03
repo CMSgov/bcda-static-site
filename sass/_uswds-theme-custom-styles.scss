@@ -662,3 +662,14 @@ $external-href: '[href^="https"]:not([href*="bcda.cms.gov"]):not([href*="github.
     border-left: .5rem solid rgba(0, 0, 0, 0);
   }
 }
+
+// The following classes are added due to this issue: https: //github.com/uswds/uswds/issues/6486
+.usa-table--borderless thead th,
+.usa-table--borderless thead td {
+  border-bottom: 0px
+}
+
+.usa-table--borderless tbody tr:first-of-type th,
+.usa-table--borderless tbody tr:first-of-type td {
+  border-top: 2px solid #1b1b1b;
+}
