@@ -1,0 +1,126 @@
+name: 'Deploy Static Site'
+
+on:
+  push:
+    branches: [main] # autodeploy on push to main
+  workflow_dispatch:
+    inputs:
+      target_environment:
+        description: Deploy where?
+        required: false
+        default: 'stage'
+        type: choice
+        options:
+          - stage
+          - prod
+      static_repo_ref:
+        description: Which branch or tag?
+        required: true
+        default: main
+        type: string
+  workflow_call:
+    inputs:
+      target_environment:
+        description: Deploy where?
+        required: false
+        default: stage
+        type: string
+      static_repo_ref:
+        description: Which branch or tag?
+        required: true
+        default: main
+        type: string
+
+env:
+  TARGET_ENV: ${{ inputs.target_environment || 'stage' }}
+  RELEASE_VERSION: ${{ inputs.static_repo_ref || 'main' }}
+  JEKYLL_ENV: ${{ inputs.target_environment == 'prod' && 'prod' || 'dev' }}
+
+jobs:
+  deploy_static_site:
+    name: Deploy Static Site
+    environment: ${{ inputs.target_environment == 'prod' && 'prod' || 'stage' }}
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          repository: 'CMSgov/bcda-static-site'
+          ref: ${{ env.RELEASE_VERSION }}
+      - name: Set Version
+        run: |
+          echo "version: ${{ env.RELEASE_VERSION }}" >> _version_config.yml
+      - name: Add dirs
+        run: |
+          mkdir -p _site && mkdir -p .jekyll-cache
+          chmod -R 777 _site
+          chmod -R 777 .jekyll-cache
+      - name: Build Image
+        run: docker build . -f Dockerfiles/Dockerfile.static_site -t static_site
+      - name: Build Site
+        run: |
+          docker run -e JEKYLL_ENV=${{ env.JEKYLL_ENV }} -v ./_site:/bcda-site-static/_site -v ./.jekyll-cache:/bcda-site-static/.jekyll-cache --rm static_site
+      - name: Set AWS creds
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: ${{ vars.AWS_REGION }}
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-${{ env.JEKYLL_ENV }}-github-actions
+      - name: Set env vars from AWS params
+        uses: cmsgov/ab2d-bcda-dpc-platform/actions/aws-params-env-action@main
+        env:
+          AWS_REGION: ${{ vars.AWS_REGION }}
+        with:
+          params: |
+            SONAR_HOST_URL=/sonarqube/url
+            SONAR_TOKEN=/sonarqube/token
+            TARGET_BUCKET=/bcda/${{ env.TARGET_ENV }}/static_site
+      - name: Run quality gate scan
+        if: ${{ env.TARGET_ENV == 'stage' }}
+        uses: sonarsource/sonarqube-scan-action@master
+        with:
+          args:
+            -Dsonar.projectKey=bcda-aco-static-site
+            -Dsonar.sources=.
+            -Dsonar.working.directory=./sonar_workspace
+            -Dsonar.branch.name=${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
+            -Dsonar.projectVersion=${{ github.ref_name == 'main' && github.sha || 'branch' }}
+            -Dsonar.exclusions=ops/**,scripts/**,node_modules/**
+            -Dsonar.qualitygate.wait=true
+            -Dsonar.ci.autoconfig.disabled=true
+      - name: Sync _site with s3
+        run: aws s3 sync _site/ s3://$TARGET_BUCKET/ $(["${{ inputs.target_environment }}" == 'prod'] && echo "--delete")
+      - name: Invalidate Cloudfront cache
+        run: |
+          DISTRIBUTION_ID=`aws cloudfront list-distributions --query "DistributionList.Items[].{Id:Id, OriginId: Origins.Items[0].Id}[?OriginId=='$TARGET_BUCKET'].Id" --output text`
+          aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*'
+      - uses: slackapi/slack-github-action@v2.0.0
+        name: Slack Success
+        if: ${{ success() }}
+        with:
+          method: chat.postMessage
+          token: ${{ secrets.SLACK_BOT_TOKEN }}
+          # Sends to bcda-deploy
+          payload: |
+            channel: "C03S23MJFJS"
+            attachments:
+              - color: good
+                text: "SUCCESS: Deploy Static Site to ${{ env.TARGET_ENV }}.  <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|${{ github.run_id }}>"
+                mrkdown_in:
+                  - text
+      - uses: slackapi/slack-github-action@v2.0.0
+        name: Slack failure
+        if: ${{ failure() }}
+        with:
+          method: chat.postMessage
+          token: ${{ secrets.SLACK_BOT_TOKEN }}
+          # Sends to bcda-alerts
+          payload: |
+            channel: "C034CFU945C"
+            attachments:
+              - color: danger
+                text: "FAILURE: Deploy Static Site to ${{ env.TARGET_ENV }}.  <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|${{ github.run_id }}>"
+                mrkdown_in:
+                  - text
