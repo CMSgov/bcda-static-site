@@ -39,9 +39,9 @@ The sandbox and production environments follow similar instructions. They suppor
 
 <div class="usa-alert usa-alert--info">
     <div class="usa-alert__body">
-        <h4 class="usa-alert__heading">    BCDA recommends using V2 of the API</h4>
+        <h2 class="usa-alert__heading">    BCDA recommends using V2 of the API</h2>
         <p class="usa-alert__text">
-            This is the latest version which follows the <a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener">FHIR R4 specification</a>. REACH ACOs must use V2 for <a href="{{ '/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a>.
+            This is the latest version which follows the <a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener noreferrer">FHIR R4 specification</a>. REACH ACOs must use V2 for <a href="{{ '/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a>.
         </p>
     </div>
 </div>
@@ -87,9 +87,9 @@ Prefer: respond-async
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="yaml" %}
 
-<div class="usa-alert usa-alert--warning usa-alert--no-icon">
+<div class="usa-alert usa-alert--warning usa-alert--slim">
     <div class="usa-alert__body">
-        <p class="usa-alert__text">Tokens expire 20 minutes after they are generated. </p>
+        <p class="usa-alert__text">Bearer tokens expire 20 minutes after they are generated.</p>
     </div>
 </div>
 
@@ -97,7 +97,7 @@ Prefer: respond-async
 
 <ul>
     <li>Combine your GET request for resources with the request header.</li>
-    <li>The dollar sign ($) before "export" in the URL indicates the endpoint is an <a href="https://hl7.org/fhir/R4/operations.html" target="blank" rel="noopener">operation</a>, rather than a CRUD interaction. </li>
+    <li>The dollar sign ($) before "export" in the URL indicates the endpoint is an <a href="https://hl7.org/fhir/R4/operations.html" target="_blank" rel="noopener noreferrer">operation</a>, rather than a CRUD interaction. </li>
     <li>PowerShell users will need to replace backslash characters (\) with backticks (`) to properly escape the $export operation.</li>
 </ul>
 
@@ -151,7 +151,7 @@ Content-Location: https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}
 A 429 response indicates “Too Many Requests.” This can occur due to 2 reasons:
 
 1. Making too many HTTP requests within a period of time
-2. Trying to recreate jobs already marked as "In-Progress.” For reference, you can view both existing and past jobs using the [/Jobs endpoint]({{ '/access-claims-data.html' | relative_url }}#request-job-history). 
+2. Trying to recreate jobs already marked as "In-Progress.” For reference, you can view both existing and past jobs using the [/jobs endpoint]({{ '/access-claims-data.html' | relative_url }}#request-job-history). 
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -222,7 +222,7 @@ X-Progress: In Progress, 80%
 
 You’ll receive a 200 OK response with the output URL(s) needed to download the data. In the example URLs below, 42 indicates the job ID. 
 
-There is a separate URL for each resource type requested. The example below requested all resource types for adjudicated claims data.
+There is a separate URL for each resource type requested. The following example shows a request for all resource types for adjudicated claims data.
 
 <div class="usa-alert usa-alert--warning usa-alert--no-icon">
     <div class="usa-alert__body">
@@ -255,7 +255,7 @@ There is a separate URL for each resource type requested. The example below requ
   "JobID": 42
 }
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="json" %}
 
 ### 4. Download the data
 
@@ -298,15 +298,17 @@ If some of the data can’t be exported due to errors, details can be found at t
 
 By default, you’ll receive the requested data as FHIR resources in NDJSON format. Each resource will appear as a separate, labeled file. 
 
-1. [ExplanationOfBenefit](https://bcda.cms.gov/assets/data/ExplanationOfBenefit.ndjson)
-2. [Patient](https://bcda.cms.gov/assets/data/Patient.ndjson)
-3. [Coverage](https://bcda.cms.gov/assets/data/Coverage.ndjson)
-
 <div class="usa-alert usa-alert--info usa-alert--slim">
     <div class="usa-alert__body">
         <p class="usa-alert__text">Test data from the sandbox contains only negative Patient IDs.</p>
     </div>
 </div>
+
+<ol>
+  <li><a href="{{ '/assets/downloads/ExplanationOfBenefit.ndjson' | relative_url }}">ExplanationOfBenefit.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+  <li><a href="{{ '/assets/downloads/Patient.ndjson' | relative_url }}">Patient.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+  <li><a href="{{ '/assets/downloads/Coverage.ndjson' | relative_url }}">Coverage.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+</ol>
 
 ## Other BCDA endpoints 
 
@@ -370,7 +372,7 @@ The example below is a filtered request for all past archived jobs. If any are f
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
-GET /api/v2/Jobs?_status=Archived
+GET /api/v2/jobs?_status=Archived
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 

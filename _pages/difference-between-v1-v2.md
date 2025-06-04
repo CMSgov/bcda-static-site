@@ -1,26 +1,25 @@
 ---
-layout: default
+layout: api-docs
 page_title: "What’s the difference between BCDA V1 and V2?"
 seo_title: ""
 description: ""
 in-page-nav: true
-show-side-nav: false
 ---
 
 # {{ page.page_title }}
 
 <p>
-    BCDA V1 (<a href="https://hl7.org/fhir/STU3/" target="blank" rel="noopener">STU3</a>) and V2 (<a href="https://hl7.org/fhir/R4/" target="blank" rel="noopener">R4</a>) differ primarily in their FHIR specification. Version 1 is based on the Blue Button 2.0 Implementation Guide, while version 2 is based on the CARIN CDPDE Implementation Guide.
+    BCDA V1 (<a href="https://hl7.org/fhir/STU3/" target="_blank" rel="noopener noreferrer">STU3</a>) and V2 (<a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener noreferrer">R4</a>) differ primarily in their FHIR specification. Version 1 is based on the Blue Button 2.0 Implementation Guide, while version 2 is based on the <a href="https://www.hl7.org/fhir/us/carin-bb/StructureDefinition-C4BB-ExplanationOfBenefit.html" target="_blank" rel="noopener noreferrer">CARIN CDPDE Implementation Guide</a>.
 </p>
 <p>There are minor differences in the mapping and values of certain data elements. Slicing/discriminator rules can be different, and some value sets will be bound to CARIN or HL7 value sets instead of BlueButton:
         <ul>
-            <li>Example 1: Patient.identifier.type in V2 is bound to the <a href="http://www.hl7.org/fhir/us/carin-bb/ValueSet-C4BBPatientIdentifierType.html" target="blank" rel="noopener">C4BB Patient Identifier type value set</a>.</li>
-            <li>Example 2: EOB.Type is bound to the <a href="http://www.hl7.org/fhir/us/carin-bb/ValueSet-C4BBPayeeType.html" target="blank" rel="noopener">C4BB Payee Type value set</a> and the associated value will be one of the codes in that value set.</li>
+            <li>Example 1: Patient.identifier.type in V2 is bound to the <a href="http://www.hl7.org/fhir/us/carin-bb/ValueSet-C4BBPatientIdentifierType.html" target="_blank" rel="noopener noreferrer">C4BB Patient Identifier type value set</a>.</li>
+            <li>Example 2: EOB.Type is bound to the <a href="http://www.hl7.org/fhir/us/carin-bb/ValueSet-C4BBPayeeType.html" target="_blank" rel="noopener noreferrer">C4BB Payee Type value set</a> and the associated value will be one of the codes in that value set.</li>
         </ul>
 </p>
 <h2>Summary of changes</h2>
 <p>
-    Reference the R3 Diff in the <a href="http://www.hl7.org/fhir/explanationofbenefit.html#resource" target="blank" rel="noopener">FHIR ExplanationofBenefit</a> for more details.
+    Reference the R3 Diff in the <a href="http://www.hl7.org/fhir/explanationofbenefit.html#resource" target="_blank" rel="noopener noreferrer">FHIR ExplanationofBenefit</a> for more details.
 </p>
 <!-- start ol for tables -->
 <ol>

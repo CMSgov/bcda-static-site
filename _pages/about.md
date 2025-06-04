@@ -55,24 +55,24 @@ show-side-nav: false
 
   <ol class="usa-process-list margin-top-2 about-process-list">
       <li class="usa-process-list__item about-connector">
-          <h4 class="usa-process-list__heading">Medicare enrollee receives care</h4>
+          <h3 class="usa-process-list__heading">Medicare enrollee receives care</h3>
       </li>
       <li class="usa-process-list__item">
-          <h4 class="usa-process-list__heading">Provider submits Medicare claim</h4>
+          <h3 class="usa-process-list__heading">Provider submits Medicare claim</h3>
       </li>
       <li class="usa-process-list__item">
-          <h4 class="usa-process-list__heading">BCDA shares partially adjudicated claims data </h4>
+          <h3 class="usa-process-list__heading">BCDA shares partially adjudicated claims data </h3>
           <p class="usa-intro font-ui-md text-bold text-italic text-base margin-top-1">2-4 days after submission</p>
           <p>
             Partially adjudicated claims haven’t been fully processed and approved yet. BCDA updates this data daily from the Fiscal Intermediary Standard System (FISS) and Multi-Carrier System (MCS). 
           </p>
       </li>
       <li class="usa-process-list__item">
-          <h4 class="usa-process-list__heading">Medicare approves the claims</h4>
+          <h3 class="usa-process-list__heading">Medicare approves the claims</h3>
       </li>
         <li class="usa-process-list__item about-final-item">
-          <h4 class="usa-process-list__heading">BCDA shares adjudicated claims data </h4>
-          <p class="usa-intro font-ui-md text-bold text-italic text-base margin-top-1">14 days after submission typically</p>
+          <h3 class="usa-process-list__heading">BCDA shares adjudicated claims data </h3>
+          <p class="usa-intro font-ui-md text-bold text-italic text-base margin-top-1">Typically 14 days after submission</p>
           <p>
             BCDA updates adjudicated claims data weekly from the <a href="https://www2.ccwdata.org/web/guest/home" target="_blank" rel="noopener noreferrer">Chronic Conditions Data Warehouse (CCW)</a>.
           </p>
@@ -85,7 +85,7 @@ show-side-nav: false
     <li class="usa-card tablet:grid-col-6 desktop:grid-col-4">
       <div class="usa-card__container">
         <div class="usa-card__header">
-          <h4 class="usa-card__heading">Claims Data to Part D Sponsors</h4>
+          <h3 class="usa-card__heading">Claims Data to Part D Sponsors</h3>
         </div>
         <div class="usa-card__media usa-card__media--inset">
           <div class="usa-card__img text-center">
@@ -109,7 +109,7 @@ show-side-nav: false
       <li class="usa-card tablet:grid-col-6 desktop:grid-col-4">
       <div class="usa-card__container">
         <div class="usa-card__header">
-          <h4 class="usa-card__heading">Blue Button 2.0</h4>
+          <h3 class="usa-card__heading">Blue Button 2.0</h3>
         </div>
         <div class="usa-card__media usa-card__media--inset">
           <div class="usa-card__img text-center">
@@ -133,7 +133,7 @@ show-side-nav: false
       <li class="usa-card tablet:grid-col-6 desktop:grid-col-4">
       <div class="usa-card__container">
         <div class="usa-card__header">
-          <h4 class="usa-card__heading">Data at the Point of Care</h4>
+          <h3 class="usa-card__heading">Data at the Point of Care</h3>
         </div>
         <div class="usa-card__media usa-card__media--inset">
           <div class="usa-card__img text-center">

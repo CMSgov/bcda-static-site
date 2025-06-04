@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: api-docs
 page_title: "Sitemap"
 seo_title: ""
 description: ""
@@ -19,7 +19,7 @@ show-side-nav: false
         <a href="{{ '/api-documentation.html' | relative_url }}">API Documentation</a>
         <ul>
             <li>
-                <a href="{{ '/get-a-bearer-token.html.html' | relative_url }}">Get a Bearer Token</a>
+                <a href="{{ '/get-a-bearer-token.html' | relative_url }}">Get a Bearer Token</a>
             </li>
             <li>
                 <a href="{{ '/access-claims-data.html' | relative_url }}">How to Access Claims Data</a>

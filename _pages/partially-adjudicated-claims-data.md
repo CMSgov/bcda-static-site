@@ -38,7 +38,11 @@ Claim and ClaimResponse only provide access to Parts A and B Fee-for-Service cla
 
 ### Example 1: Improve transition of care
 
-REACH ACOs can check if post-discharge processes are in place for an attributed enrollee shortly after a hospital discharge. 
+<div class="usa-alert usa-alert--info usa-alert--no-icon">
+  <div class="usa-alert__body">
+    <p class="usa-alert__text">REACH ACOs can check if post-discharge processes are in place for an attributed enrollee shortly after a hospital discharge.</p>
+  </div>
+</div>
 
 On May 1, 2022, Mrs. Gonzales is doing better after a bout of pneumonia and is released home from the hospital. The hospital submits a claim for her stay to Medicare on May 3, 2022. 
 
@@ -53,7 +57,12 @@ REACH ACOs can also flag and identify patients who have a high risk of readmissi
 
 ### Example 2: Identify opportunities for intervention
 
-REACH ACOs can monitor outpatient events for follow-up care and track patterns that often indicate future utilization. The data can be used to target case management and deliver clinically appropriate follow-up care.  
+<div class="usa-alert usa-alert--info usa-alert--no-icon">
+  <div class="usa-alert__body">
+    <p class="usa-alert__text">REACH ACOs can monitor outpatient events for follow-up care and track patterns that often indicate future utilization. The data can be used to target case management and deliver clinically appropriate follow-up care.</p>
+  </div>
+</div>
+
 
 On September 6, 2022, Mr. Fritz underwent a duplex scan to evaluate for carotid artery stenosis. The cardiology clinic submits a claim for this procedure to Medicare on September 8, 2022. 
 
@@ -67,7 +76,11 @@ REACH ACOs can also track performance on cases where the care may be of limited 
 
 ### Example 3: Enhance care coordination
 
-REACH ACOs can learn more about their patients’ health histories, build their clinical profile, and improve care coordination. 
+<div class="usa-alert usa-alert--info usa-alert--no-icon">
+  <div class="usa-alert__body">
+    <p class="usa-alert__text">REACH ACOs can learn more about their patients’ health histories, build their clinical profile, and improve care coordination.</p>
+  </div>
+</div>
 
 Ms. Thompson began treatment for breast cancer on March 8, 2023. She is experiencing nausea and dehydration as a result of chemotherapy. While visiting family on March 14, she drove to an emergency room (ER) 50 miles from home. She was treated with IV fluids and nausea medication.  
 
@@ -133,15 +146,15 @@ BCDA receives partially adjudicated claims data after it’s submitted to Medica
 {% endcapture %}
 
 {% capture a7AccordionContent %}
-Every Claim has only 1 ClaimResponse. Version numbers aren’t currently provided. <a href="https://groups.google.com/forum/#!forum/bc-api" target="blank" rel="noopener">Contact us</a> if you’d like us to explore versioning in the future.
+Every Claim has only 1 ClaimResponse. Version numbers aren’t currently provided. <a href="https://groups.google.com/forum/#!forum/bc-api" target="_blank" rel="noopener noreferrer">Contact us</a> if you’d like us to explore versioning in the future.
 {% endcapture %}
 
 {% capture a8AccordionContent %}
-No, these 2 fields are not currently available. Join our<a href="https://groups.google.com/forum/#!forum/bc-api" target="blank" rel="noopener"> Google Group</a> if you have feedback to improve the availability of data elements. 
+No, these 2 fields are not currently available. Join our<a href="https://groups.google.com/forum/#!forum/bc-api" target="_blank" rel="noopener noreferrer"> Google Group</a> if you have feedback to improve the availability of data elements. 
 {% endcapture %}
 
 {% capture a9AccordionContent %}
-BCDA is continuously working to source and add new data fields. <a href="https://groups.google.com/forum/#!forum/bc-api" target="blank" rel="noopener">Contact us</a> if there are any fields you’d like added.
+BCDA is continuously working to source and add new data fields. Message us in our <a href="https://groups.google.com/forum/#!forum/bc-api" target="_blank" rel="noopener noreferrer">Google Group</a> if there are any fields you’d like added.
 {% endcapture %}
 
 <!-- Insert accordions -->
