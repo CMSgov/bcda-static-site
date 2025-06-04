@@ -37,7 +37,7 @@ Beneficiary Claims Data API (BCDA) uses <a href="https://hl7.org/fhir/uv/bulkdat
 
 Endpoints request data by [resource type]({{ '/bcda-data.html' | relative_url }}#resource-types). Data is returned for enrollees attributed to your organization, but you can't make requests for individual patient data. 
 
-### /Metadata
+### /metadata
 
 Request the [FHIR CapabilityStatement](https://hl7.org/fhir/R4/capabilitystatement.html) for basic information on the API, like its version and whether it’s currently active. This does not require authorization. 
 
@@ -59,13 +59,13 @@ Using the _since parameter with /Patient will return resources updated after the
 
 Newly attributed enrollees are those who’ve been assigned to your model entity since your last attribution date. If you don’t apply _since, BCDA will return data as early as 2014.
 
-### /Jobs
+### /jobs
 
 Request information about previous job requests, including the job ID, creation time, completion time, and original job request. 
 
 If you can’t remember the job ID after starting a job, use this endpoint to retrieve the ID. Each entry in the resource bundle is in the <a href="https://www.hl7.org/fhir/task.html" target="_blank" rel="noopener noreferrer">FHIR Task</a> format.
 
-### /Attribution
+### /attribution_status
 
 Request a datetime and timestamp for when your enrollee list or runout files were last updated. 
 

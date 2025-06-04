@@ -151,7 +151,7 @@ Content-Location: https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}
 A 429 response indicates “Too Many Requests.” This can occur due to 2 reasons:
 
 1. Making too many HTTP requests within a period of time
-2. Trying to recreate jobs already marked as "In-Progress.” For reference, you can view both existing and past jobs using the [/Jobs endpoint]({{ '/access-claims-data.html' | relative_url }}#request-job-history). 
+2. Trying to recreate jobs already marked as "In-Progress.” For reference, you can view both existing and past jobs using the [/jobs endpoint]({{ '/access-claims-data.html' | relative_url }}#request-job-history). 
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -372,7 +372,7 @@ The example below is a filtered request for all past archived jobs. If any are f
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
-GET /api/v2/Jobs?_status=Archived
+GET /api/v2/jobs?_status=Archived
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
