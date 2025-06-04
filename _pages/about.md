@@ -85,7 +85,7 @@ show-side-nav: false
     <li class="usa-card tablet:grid-col-6 desktop:grid-col-4">
       <div class="usa-card__container">
         <div class="usa-card__header">
-          <h4 class="usa-card__heading">Claims Data to Part D Sponsors</h4>
+          <h3 class="usa-card__heading">Claims Data to Part D Sponsors</h3>
         </div>
         <div class="usa-card__media usa-card__media--inset">
           <div class="usa-card__img text-center">
@@ -109,7 +109,7 @@ show-side-nav: false
       <li class="usa-card tablet:grid-col-6 desktop:grid-col-4">
       <div class="usa-card__container">
         <div class="usa-card__header">
-          <h4 class="usa-card__heading">Blue Button 2.0</h4>
+          <h3 class="usa-card__heading">Blue Button 2.0</h3>
         </div>
         <div class="usa-card__media usa-card__media--inset">
           <div class="usa-card__img text-center">
@@ -133,7 +133,7 @@ show-side-nav: false
       <li class="usa-card tablet:grid-col-6 desktop:grid-col-4">
       <div class="usa-card__container">
         <div class="usa-card__header">
-          <h4 class="usa-card__heading">Data at the Point of Care</h4>
+          <h3 class="usa-card__heading">Data at the Point of Care</h3>
         </div>
         <div class="usa-card__media usa-card__media--inset">
           <div class="usa-card__img text-center">
