@@ -24,10 +24,7 @@ Start a request in your terminal window or using a tool like Postman.
 
 #### Request to retrieve a token
 
-{% capture Snippet2 %}{% raw %}
-POST /auth/token
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=Snippet2 language="shell" %}
+{% include copy_snippet.html code="POST /auth/token" language="shell" %}
 
 <div class="usa-alert usa-alert--warning usa-alert--slim">
     <div class="usa-alert__body">
@@ -86,10 +83,7 @@ If your request succeeds, you’ll receive a 200 response with your bearer token
 
 Include your bearer token in the authorization header when requesting data in the sandbox and production environments. “Bearer” must be included in the header with a capital B and followed by a space.
 
-{% capture Snippet6 %}{% raw %}
-Authorization: Bearer {bearer_token}
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=Snippet6 language="yaml" %}
+{% include copy_snippet.html code="Authorization: Bearer {bearer_token}" language="yaml" %}
 
 Now you can begin [accessing claims data]({{ '/access-claims-data.html' | relative_url }}). The production and sandbox environments support the same workflow, endpoints, and resource types.  
 
@@ -106,33 +100,21 @@ Use the data sets to test retrieving and downloading data files into your intern
 
 Client ID:
 
-{% capture Snippet7 %}{% raw %}
-2462c96b-6427-4efb-aed7-118e20c2e997
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=Snippet7 language="yaml" can_copy=true %}
+{% include copy_snippet.html code="2462c96b-6427-4efb-aed7-118e20c2e997" language="yaml" can_copy=true %}
 
 Client secret:
 
-{% capture Snippet8 %}{% raw %}
-e5bf53ec3a4304ab43c00155cfe1f01a00a6f6003ad07d323b3b6bce9ad4ae5b137ef4e8509d881b
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=Snippet8 language="yaml" can_copy=true %}
+{% include copy_snippet.html code="e5bf53ec3a4304ab43c00155cfe1f01a00a6f6003ad07d323b3b6bce9ad4ae5b137ef4e8509d881b" language="yaml" can_copy=true %}
 
 #### Extra-large model entity (30,000 synthetic enrollees)
 
 Client ID:
 
-{% capture Snippet9 %}{% raw %}
-aa2d6b93-bbe7-4d1b-8cc5-9a5172fae3a6
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=Snippet9 language="yaml" can_copy=true %}
+{% include copy_snippet.html code="aa2d6b93-bbe7-4d1b-8cc5-9a5172fae3a6" language="yaml" can_copy=true %}
 
 Client secret:
 
-{% capture Snippet10 %}{% raw %}
-97755772b3fb7b3fa2f58c5c3aaaffbc7e346639ff8da371a81adf79889c8fbd4c40398cd39d211d
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=Snippet10 language="yaml" can_copy=true %}
+{% include copy_snippet.html code="97755772b3fb7b3fa2f58c5c3aaaffbc7e346639ff8da371a81adf79889c8fbd4c40398cd39d211d" language="yaml" can_copy=true %}
 
 ### Adjudicated claims data sets – 2 advanced sizes
 
@@ -144,33 +126,21 @@ The small data set helps you understand the format of BCDA data. The large data 
 
 Client ID:
 
-{% capture Snippet11 %}{% raw %}
-e75679c2-1b58-4cf5-8664-d3706de8caf5
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=Snippet11 language="yaml" can_copy=true %}
+{% include copy_snippet.html code="e75679c2-1b58-4cf5-8664-d3706de8caf5" language="yaml" can_copy=true %}
 
 Client secret:
 
-{% capture Snippet12 %}{% raw %}
-67570807508212a220cc364d4406b9bd560276142d46257f76ba28dd9a0ff969e0c26db21c9d925c
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=Snippet12 language="yaml" can_copy=true %}
+{% include copy_snippet.html code="67570807508212a220cc364d4406b9bd560276142d46257f76ba28dd9a0ff969e0c26db21c9d925c" language="yaml" can_copy=true %}
 
 #### Large advanced model entity (10,000 synthetic enrollees)
 
 Client ID:
 
-{% capture Snippet13 %}{% raw %}
-0a0c75f0-da95-4198-9c0f-666b41e21017
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=Snippet13 language="yaml" can_copy=true %}
+{% include copy_snippet.html code="0a0c75f0-da95-4198-9c0f-666b41e21017" language="yaml" can_copy=true %}
 
 Client secret:
 
-{% capture Snippet14 %}{% raw %}
-c637024fa21adda5a756a2753cf7eb9bd62292e7897fb965a5c7aeeed23e1728ddc9ec6863f09f15
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=Snippet14 language="yaml" can_copy=true %}
+{% include copy_snippet.html code="c637024fa21adda5a756a2753cf7eb9bd62292e7897fb965a5c7aeeed23e1728ddc9ec6863f09f15" language="yaml" can_copy=true %}
 
 ### Partially adjudicated claims data sets 
 
@@ -180,30 +150,18 @@ Anyone can access [partially adjudicated claims data]({{ '/partially-adjudicated
 
 Client ID:
 
-{% capture Snippet15 %}{% raw %}
-7e57394f-eddb-46c7-a87b-a23f14ded95d
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=Snippet15 language="yaml" can_copy=true %}
+{% include copy_snippet.html code="7e57394f-eddb-46c7-a87b-a23f14ded95d" language="yaml" can_copy=true %}
 
 Client secret:
 
-{% capture Snippet16 %}{% raw %}
-3ab22e7faaf69fa2d572831ffc1db12252c6d569d3e1b54aecf56e075ba054c20fee83b2e013c9c3
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=Snippet16 language="yaml" can_copy=true %}
+{% include copy_snippet.html code="3ab22e7faaf69fa2d572831ffc1db12252c6d569d3e1b54aecf56e075ba054c20fee83b2e013c9c3" language="yaml" can_copy=true %}
 
 #### Large REACH ACO (11,000 synthetic enrollees)
 
 Client ID:
 
-{% capture Snippet17 %}{% raw %}
-2121efbd-98d2-4323-84db-974c8864abc7
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=Snippet17 language="yaml" can_copy=true %}
+{% include copy_snippet.html code="2121efbd-98d2-4323-84db-974c8864abc7" language="yaml" can_copy=true %}
 
 Client secret:
 
-{% capture Snippet18 %}{% raw %}
-ee1b0609f024a758bf1770ec16f809330d2ba8bb4e9004a7868c0258accfd69ced5b6448188abb7b
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=Snippet18 language="yaml" can_copy=true %}
+{% include copy_snippet.html code="ee1b0609f024a758bf1770ec16f809330d2ba8bb4e9004a7868c0258accfd69ced5b6448188abb7b" language="yaml" can_copy=true %}
