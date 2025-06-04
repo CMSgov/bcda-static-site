@@ -103,7 +103,7 @@ Claims data is organized by resource types, which are requested at the /Patient 
 
 <div class="usa-alert usa-alert--info margin-top-4">
   <div class="usa-alert__body">
-    <h4 class="usa-alert__heading">Confidentiality and medical data sharing</h4>
+    <h3 class="usa-alert__heading">Confidentiality and medical data sharing</h3>
     <p class="usa-alert__text">
       In accordance with applicable law, including HIPAA and 42 CFR Part 2, substance use disorder records are confidential. BCDA also does not share data on enrollees who have opted out of data sharing.
     </p>
