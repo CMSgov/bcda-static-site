@@ -154,7 +154,7 @@ No, these 2 fields are not currently available. Join our<a href="https://groups.
 {% endcapture %}
 
 {% capture a9AccordionContent %}
-BCDA is continuously working to source and add new data fields. <a href="https://groups.google.com/forum/#!forum/bc-api" target="_blank" rel="noopener noreferrer">Contact us</a> if there are any fields you’d like added.
+BCDA is continuously working to source and add new data fields. Message us in our <a href="https://groups.google.com/forum/#!forum/bc-api" target="_blank" rel="noopener noreferrer">Google Group</a> if there are any fields you’d like added.
 {% endcapture %}
 
 <!-- Insert accordions -->

@@ -1,20 +1,21 @@
 ---
-layout: default
+layout: api-docs
 page_title: "Support"
 seo_title: ""
 description: ""
 show-side-nav: false
+in-page-nav: true
 ---
+
+# {{ page.page_title }}
 
 <div class="usa-alert usa-alert--warning usa-alert--slim">
   <div class="usa-alert__body">
     <p class="usa-alert__text maxw-desktop-lg">
-      Please cover or label <a href="{{ '/support.html#how-do-i-redact-phi-and-pii-when-sharing-information' | relative_url }}">Personally Identifiable Information (PII)</a> as "REDACTED" in the Google Group and via email.
+      Please cover or label <a href="#a2">Personally Identifiable Information (PII)</a> as "REDACTED" in the Google Group or email communication.
     </p>
   </div>
 </div>
-
-# {{ page.page_title }}
 
 <div class="grid-row grid-gap-4 desktop:grid-gap-6 padding-y-4 flex-align-center">
   <div class="tablet:grid-col tablet:order-2">
@@ -23,7 +24,7 @@ show-side-nav: false
   <div class="tablet:grid-col tablet:order-1 padding-top-2">
     <h2>We're here to help</h2>
     <p>
-        Join the <a href="https://groups.google.com/g/bc-api" target="_blank" rel="noopener noreferrer">Google Group</a> or email <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hhs.gov</a> to ask questions and get help. When troubleshooting API requests, please include:
+        You can contact us by joining the <a href="https://groups.google.com/g/bc-api" target="_blank" rel="noopener noreferrer">Google Group</a> or email <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hhs.gov</a> to ask questions and get help. When troubleshooting API requests, please include:
     </p>
     <ul>
         <li>whether this is a sandbox or production API request</li>
@@ -134,7 +135,7 @@ show-side-nav: false
 <p>
     BCDA V1 (<a href="https://hl7.org/fhir/STU3/" target="_blank" rel="noopener noreferrer">STU3</a>) and V2 (<a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener noreferrer">R4</a>) differ primarily in their FHIR specification. Version 1 is based on the Blue Button 2.0 Implementation Guide, while version 2 is based on the CARIN CDPDE Implementation Guide.
 </p>
-<p>There are minor differences in the mapping and values of certain data elements. <a href="{{ '/difference-between-v1-v2.html' | relative_url }}">Review the full summary of changes.{% include sprite.html icon="arrow_forward" class="text-middle" %}</a></p>
+<p>There are minor differences in the mapping and values of certain data elements. <a href="{{ '/difference-between-v1-v2.html' | relative_url }}"></a></p>
 
 {% endcapture %}
 

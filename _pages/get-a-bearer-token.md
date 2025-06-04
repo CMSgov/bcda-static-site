@@ -12,45 +12,6 @@ Bearer tokens, also known as access tokens or JSON web tokens, authorize use of 
 
 ## Instructions
 
-<!-- Code snippets for instructions section BEGIN -->
-{% capture Snippet1 %}{% raw %}
-Example Client ID (Extra-Small Model Entities):
-2462c96b-6427-4efb-aed7-118e20c2e997
-
-Example Client Secret (Extra-Small Model Entities):
-e5bf53ec3a4304ab43c00155cfe1f01a00a6f6003ad07d323b3b6bce9ad4ae5b137ef4e8509d881b
-{% endraw %}{% endcapture %}
-
-{% capture Snippet2 %}{% raw %}
-POST /auth/token
-{% endraw %}{% endcapture %}
-
-{% capture Snippet3 %}{% raw %}
-Authorization: Basic {base64_encoded_credentials}
-Accept: application/json
-{% endraw %}{% endcapture %}
-
-{% capture Snippet4 %}{% raw %}
-curl -d "" -X POST "https://sandbox.bcda.cms.gov/auth/token" \
-	--user {client ID}:{client secret} \
-	-H "Accept: application/json"
-{% endraw %}{% endcapture %}
-
-{% capture Snippet5 %}{% raw %}
-{
-  "access_token": "eyJhbGciOiJSUzUxMiIsInR...",
-  "expires_in": "1200",
-  "token_type": "bearer"
-}
-{% endraw %}{% endcapture %}
-
-{% capture Snippet6 %}{% raw %}
-Authorization: Bearer {bearer_token}
-{% endraw %}{% endcapture %}
-
-<!-- Code snippets for instructions section END -->
-
-
 ### 1. Get your organization's credentials
 
 BCDA protects its token endpoint with Basic Auth. Your credentials will be formatted as a client ID and client secret.
@@ -63,7 +24,10 @@ Start a request in your terminal window or using a tool like Postman.
 
 #### Request to retrieve a token
 
-{% include copy_snippet.html code=Snippet2 language="yaml" %}
+{% capture Snippet2 %}{% raw %}
+POST /auth/token
+{% endraw %}{% endcapture %}
+{% include copy_snippet.html code=Snippet2 language="shell" %}
 
 <div class="usa-alert usa-alert--warning usa-alert--slim">
     <div class="usa-alert__body">
@@ -75,6 +39,10 @@ Start a request in your terminal window or using a tool like Postman.
 
 The header has “Authorization: Basic” followed by the credentials. Credentials (clientID:secret) are joined by a colon, then encoded in Base64 format.
 
+{% capture Snippet3 %}{% raw %}
+Authorization: Basic {base64_encoded_credentials}
+Accept: application/json
+{% endraw %}{% endcapture %}
 {% include copy_snippet.html code=Snippet3 language="yaml" %}
 
 #### Example curl command to request a bearer token
@@ -83,6 +51,11 @@ In this example, the authorization in the request header is replaced with `--use
 
 This command uses curl’s built-in ability to Base-64 encode your credential to request and receive your token in a single step.
 
+{% capture Snippet4 %}{% raw %}
+curl -d "" -X POST "https://sandbox.bcda.cms.gov/auth/token" \
+	--user {client ID}:{client secret} \
+	-H "Accept: application/json"
+{% endraw %}{% endcapture %}
 {% include copy_snippet.html code=Snippet4 language="shell" can_copy=true %}
 
 <div class="usa-alert usa-alert--warning usa-alert--no-icon">
@@ -100,12 +73,22 @@ If your request succeeds, you’ll receive a 200 response with your bearer token
 
 “Expires_in” counts down the seconds remaining before the token expires, which is 20 minutes after it is generated. “Token_type: Bearer” is a fixed value.
 
+{% capture Snippet5 %}{% raw %}
+{
+  "access_token": "eyJhbGciOiJSUzUxMiIsInR...",
+  "expires_in": "1200",
+  "token_type": "bearer"
+}
+{% endraw %}{% endcapture %}
 {% include copy_snippet.html code=Snippet5 language="json" %}
 
 ### 3. Set your bearer token in your request headers
 
 Include your bearer token in the authorization header when requesting data in the sandbox and production environments. “Bearer” must be included in the header with a capital B and followed by a space.
 
+{% capture Snippet6 %}{% raw %}
+Authorization: Bearer {bearer_token}
+{% endraw %}{% endcapture %}
 {% include copy_snippet.html code=Snippet6 language="yaml" %}
 
 Now you can begin [accessing claims data]({{ '/access-claims-data.html' | relative_url }}). The production and sandbox environments support the same workflow, endpoints, and resource types.  

@@ -222,7 +222,7 @@ X-Progress: In Progress, 80%
 
 You’ll receive a 200 OK response with the output URL(s) needed to download the data. In the example URLs below, 42 indicates the job ID. 
 
-There is a separate URL for each resource type requested. The example below requested all resource types for adjudicated claims data.
+There is a separate URL for each resource type requested. The following example shows a request for all resource types for adjudicated claims data.
 
 <div class="usa-alert usa-alert--warning usa-alert--no-icon">
     <div class="usa-alert__body">

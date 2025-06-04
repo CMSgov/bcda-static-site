@@ -9,7 +9,7 @@ in-page-nav: true
 # {{ page.page_title }}
 
 <p>
-    BCDA V1 (<a href="https://hl7.org/fhir/STU3/" target="_blank" rel="noopener noreferrer">STU3</a>) and V2 (<a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener noreferrer">R4</a>) differ primarily in their FHIR specification. Version 1 is based on the Blue Button 2.0 Implementation Guide, while version 2 is based on the CARIN CDPDE Implementation Guide.
+    BCDA V1 (<a href="https://hl7.org/fhir/STU3/" target="_blank" rel="noopener noreferrer">STU3</a>) and V2 (<a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener noreferrer">R4</a>) differ primarily in their FHIR specification. Version 1 is based on the Blue Button 2.0 Implementation Guide, while version 2 is based on the <a href="https://www.hl7.org/fhir/us/carin-bb/StructureDefinition-C4BB-ExplanationOfBenefit.html" target="_blank" rel="noopener noreferrer">CARIN CDPDE Implementation Guide</a>.
 </p>
 <p>There are minor differences in the mapping and values of certain data elements. Slicing/discriminator rules can be different, and some value sets will be bound to CARIN or HL7 value sets instead of BlueButton:
         <ul>
