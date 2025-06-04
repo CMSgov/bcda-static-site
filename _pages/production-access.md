@@ -2,7 +2,7 @@
 layout: api-docs
 page_title: "Production Access"
 seo_title: ""
-description: ""
+description: "Learn how to obtain BCDA production credentials and access the production environment for Medicare enrollee claims data."
 in-page-nav: true
 in-page-nav-levels: "h2"
 show-side-nav: false

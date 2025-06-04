@@ -2,7 +2,7 @@
 layout: api-docs
 page_title: "How to Get a Bearer Token"
 seo_title: ""
-description: ""
+description: "Get a bearer token to authenticate requests to BCDA for secure access to Medicare enrollee claims data."
 in-page-nav: true
 ---
 

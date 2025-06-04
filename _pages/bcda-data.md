@@ -2,7 +2,7 @@
 layout: api-docs
 page_title: "BCDA Data"
 seo_title: ""
-description: ""
+description: "Explore BCDA’s Medicare Parts A, B, and D data, including the Data Dictionary, sample files, resource types, and partially adjudicated claims data."
 in-page-nav: true
 ---
 

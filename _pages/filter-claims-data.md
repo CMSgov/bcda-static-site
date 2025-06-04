@@ -2,7 +2,7 @@
 layout: api-docs
 page_title: "How to Filter Claims Data "
 seo_title: ""
-description: ""
+description: "Use parameters to filter Medicare claims data returned."
 in-page-nav: true
 in-page-nav-levels: "h2"
 ---

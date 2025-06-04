@@ -2,7 +2,7 @@
 layout: api-docs
 page_title: "What’s the difference between BCDA V1 and V2?"
 seo_title: ""
-description: ""
+description: "Overview of the differences between BCDA V1 and V2 and a summary of specific API changes."
 in-page-nav: true
 ---
 

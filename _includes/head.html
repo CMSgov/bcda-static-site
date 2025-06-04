@@ -4,15 +4,17 @@
     <meta name="description" content="{{ page.description }}">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>
-        {% if page.seo_title and page.seo_title != '' %}
-        {{ page.seo_title }}
-        {% elsif page.page_title and page.page_title != '' %}
-        {{ page.page_title }}
-        {% else %}
-        {{ site.title }}
-        {% endif %}
-    </title>
+
+    {% assign seo_title = site.title %}
+    {% if page.url != '/' %}
+    {% if page.seo_title and page.seo_title != '' %}
+    {% assign seo_title = page.seo_title | append: ' | ' | append: site.title %}
+    {% else %}
+    {% assign seo_title = page.page_title | append: ' | ' | append: site.title %}
+    {% endif %}
+    {% endif %}
+
+    <title>{{ seo_title }}</title>
     <link rel="icon" type="image/png" href="{{ '/assets/img/logo-bcda.svg' | relative_url }}">
     <link rel="sitemap" href="{{ '/sitemap.xml' | relative_url }}">
 

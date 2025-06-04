@@ -2,7 +2,7 @@
 layout: api-docs
 page_title: "Comparison of BCDA and CCLF Files"
 seo_title: ""
-description: ""
+description: "BCDA files have a different format than CCLF, and offer partially adjudicated claims data which updates more frequently."
 in-page-nav: true
 ---
 # {{ page.page_title }}

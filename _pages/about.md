@@ -2,7 +2,7 @@
 layout: default
 page_title: "About BCDA"
 seo_title: ""
-description: ""
+description: "Learn about BCDA claims data. Organizations participating in Alternative Payment Models use BCDA to aid in care coordination and risk prediction."
 show-side-nav: false
 ---
 

@@ -2,7 +2,7 @@
 layout: api-docs
 page_title: "API Documentation"
 seo_title: ""
-description: ""
+description: "Review BCDA documentation, including detailed information on endpoints, FHIR resources, and instructions on how to access claims data."
 in-page-nav: true
 ---
 
