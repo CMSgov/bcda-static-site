@@ -47,13 +47,13 @@ Accept: application/json
 
 #### Example curl command to request a bearer token
 
-In this example, the authorization in the request header is replaced with `--user {client ID}:{client secret}` 
+In this example, the authorization in the request header is replaced with `--user {client_id}:{client_secret}` 
 
 This command uses curl’s built-in ability to Base-64 encode your credential to request and receive your token in a single step.
 
 {% capture Snippet4 %}{% raw %}
 curl -d "" -X POST "https://sandbox.bcda.cms.gov/auth/token" \
-	--user {client ID}:{client secret} \
+	--user {client_id}:{client_secret} \
 	-H "Accept: application/json"
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=Snippet4 language="shell" can_copy=true %}
