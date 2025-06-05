@@ -1,18 +1,19 @@
 ---
 layout: announcement
 page_title: "What’s new on BCDA.cms.gov"
+description: "We’re excited to announce the launch of a new BCDA.cms.gov based on your feedback, user research, and testing."
 show-side-nav: false
 in-page-nav: true
 published_date: 2025-05-07
-custom_excerpt: "We’re excited to announce the launch of a new BCDA.cms.gov. Based on feedback, user research, and testing, the new site."
+custom_excerpt: "We’re excited to announce the launch of a new BCDA.cms.gov based on your feedback, user research, and testing."
 ---
 
 We’re excited to announce the launch of a new BCDA.cms.gov. Based on feedback, user research, and testing, the new site:
 
-Makes it easier to find documentation and access claims data
-Clearly outlines the process to obtain production access
-Provides helpful context on use cases for eligible health care organizations
-Highlights tips and troubleshooting 
+- Makes it easier to find documentation and access claims data
+- Clearly outlines the process to obtain production access
+- Provides helpful context on use cases for eligible health care organizations
+- Highlights tips and troubleshooting 
 
 ## How do I use the new BCDA website?
 
@@ -50,4 +51,4 @@ Review answers to common questions, join our Google Group, and contact the BCDA 
 [Visit Support]({{ '/support.html' | relative_url }})
 
 <br>
-Questions or feedback about the site? Join our Google Group or contact our team at [bcapi@cms.hhs.gov](mailto:bcapi@cms.hhs.gov)
+Questions or feedback about the site? Join our <a href="https://groups.google.com/g/bc-api" target="_blank" rel="noopener noreferrer">Google Group</a> or contact our team at [bcapi@cms.hhs.gov](mailto:bcapi@cms.hhs.gov)
