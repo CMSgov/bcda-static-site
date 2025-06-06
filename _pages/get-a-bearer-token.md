@@ -100,21 +100,21 @@ Use the data sets to test retrieving and downloading data files into your intern
 
 Client ID:
 
-{% include copy_snippet.html code="2462c96b-6427-4efb-aed7-118e20c2e997" language="yaml" can_copy=true %}
+{% include copy_snippet.html code=site.data.credentials.sandbox.extra_small.client_id language="yaml" can_copy=true %}
 
 Client secret:
 
-{% include copy_snippet.html code="e5bf53ec3a4304ab43c00155cfe1f01a00a6f6003ad07d323b3b6bce9ad4ae5b137ef4e8509d881b" language="yaml" can_copy=true %}
+{% include copy_snippet.html code=site.data.credentials.sandbox.extra_small.client_secret language="yaml" can_copy=true %}
 
 #### Extra-large model entity (30,000 synthetic enrollees)
 
 Client ID:
 
-{% include copy_snippet.html code="aa2d6b93-bbe7-4d1b-8cc5-9a5172fae3a6" language="yaml" can_copy=true %}
+{% include copy_snippet.html code=site.data.credentials.sandbox.extra_large.client_id language="yaml" can_copy=true %}
 
 Client secret:
 
-{% include copy_snippet.html code="97755772b3fb7b3fa2f58c5c3aaaffbc7e346639ff8da371a81adf79889c8fbd4c40398cd39d211d" language="yaml" can_copy=true %}
+{% include copy_snippet.html code=site.data.credentials.sandbox.extra_large.client_secret language="yaml" can_copy=true %}
 
 ### Adjudicated claims data sets – 2 advanced sizes
 
@@ -126,21 +126,21 @@ The small data set helps you understand the format of BCDA data. The large data 
 
 Client ID:
 
-{% include copy_snippet.html code="e75679c2-1b58-4cf5-8664-d3706de8caf5" language="yaml" can_copy=true %}
+{% include copy_snippet.html code=site.data.credentials.adv.small.client_id language="yaml" can_copy=true %}
 
 Client secret:
 
-{% include copy_snippet.html code="67570807508212a220cc364d4406b9bd560276142d46257f76ba28dd9a0ff969e0c26db21c9d925c" language="yaml" can_copy=true %}
+{% include copy_snippet.html code=site.data.credentials.adv.small.client_secret language="yaml" can_copy=true %}
 
 #### Large advanced model entity (10,000 synthetic enrollees)
 
 Client ID:
 
-{% include copy_snippet.html code="0a0c75f0-da95-4198-9c0f-666b41e21017" language="yaml" can_copy=true %}
+{% include copy_snippet.html code=site.data.credentials.adv.large.client_id language="yaml" can_copy=true %}
 
 Client secret:
 
-{% include copy_snippet.html code="c637024fa21adda5a756a2753cf7eb9bd62292e7897fb965a5c7aeeed23e1728ddc9ec6863f09f15" language="yaml" can_copy=true %}
+{% include copy_snippet.html code=site.data.credentials.adv.large.client_secret language="yaml" can_copy=true %}
 
 ### Partially adjudicated claims data sets 
 
@@ -150,18 +150,18 @@ Anyone can access [partially adjudicated claims data]({{ '/partially-adjudicated
 
 Client ID:
 
-{% include copy_snippet.html code="7e57394f-eddb-46c7-a87b-a23f14ded95d" language="yaml" can_copy=true %}
+{% include copy_snippet.html code=site.data.credentials.enhancement.small.client_id language="yaml" can_copy=true %}
 
 Client secret:
 
-{% include copy_snippet.html code="3ab22e7faaf69fa2d572831ffc1db12252c6d569d3e1b54aecf56e075ba054c20fee83b2e013c9c3" language="yaml" can_copy=true %}
+{% include copy_snippet.html code=site.data.credentials.enhancement.small.client_secret language="yaml" can_copy=true %}
 
 #### Large REACH ACO (11,000 synthetic enrollees)
 
 Client ID:
 
-{% include copy_snippet.html code="2121efbd-98d2-4323-84db-974c8864abc7" language="yaml" can_copy=true %}
+{% include copy_snippet.html code=site.data.credentials.enhancement.large.client_id language="yaml" can_copy=true %}
 
 Client secret:
 
-{% include copy_snippet.html code="ee1b0609f024a758bf1770ec16f809330d2ba8bb4e9004a7868c0258accfd69ced5b6448188abb7b" language="yaml" can_copy=true %}
+{% include copy_snippet.html code=site.data.credentials.enhancement.large.client_secret language="yaml" can_copy=true %}
