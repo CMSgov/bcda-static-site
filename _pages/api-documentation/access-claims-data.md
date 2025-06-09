@@ -4,6 +4,19 @@ page_title: "How to Access Claims Data"
 seo_title: ""
 description: "Learn how to access Medicare enrollees' Parts A, B, and D claims data in the BCDA production environment for performance tracking and risk analysis."
 in-page-nav: true
+sidebar-links: 
+  - name: API Documentation
+    url: /api-documentation.html
+    
+    children:
+      - name: How to Get a Bearer Token
+        url: /api-documentation/get-a-bearer-token.html
+        
+      - name: How to Access Claims Data
+        url: /api-documentation/access-claims-data.html
+
+      - name: How to Filter Claims Data
+        url: /api-documentation/filter-claims-data.html
 ---
 
 # {{ page.page_title }}

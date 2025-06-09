@@ -1,19 +1,41 @@
-- text: About
+- name: About
   children: 
-    - text: About BCDA
+    - name: About BCDA
       url: /about.html
     
-    - text: Announcements
+    - name: Announcements
       url: /announcements.html
 
-- text: API Documentation
-  url: /api-documentation.html
-  
-- text: BCDA Data
-  url: /bcda-data.html
+- name: API Documentation
+  children:
+    - name: Overview
+      url: /api-documentation.html
 
-- text: Production Access
+    - name: How to Get a Bearer Token
+      url: /api-documentation/get-a-bearer-token.html
+      
+    - name: How to Access Claims Data
+      url: /api-documentation/access-claims-data.html
+
+    - name: How to Filter Claims Data
+      url: /api-documentation/filter-claims-data.html
+  
+- name: BCDA Data 
+  children:
+    - name: Overview
+      url: /bcda-data.html
+
+    - name: Guide to Partially Adjudicated Claims Data
+      url: /bcda-data/partially-adjudicated-claims-data.html
+
+    - name: Comparison of BCDA and CCLF
+      url: /bcda-data/comparison-bcda-cclf-files.html
+
+    - name: Difference Between V1 and V2
+      url: /bcda-data/difference-between-v1-v2.html
+
+- name: Production Access
   url: /production-access.html
 
-- text: Support
+- name: Support
   url: /support.html

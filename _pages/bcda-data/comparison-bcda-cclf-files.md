@@ -4,7 +4,21 @@ page_title: "Comparison of BCDA and CCLF Files"
 seo_title: ""
 description: "BCDA files have a different format than CCLF, and offer partially adjudicated claims data which updates more frequently."
 in-page-nav: true
+sidebar-links: 
+  - name: BCDA Data
+    url: /bcda-data.html
+    
+    children:
+      - name: Guide to Partially Adjudicated Claims Data
+        url: /bcda-data/partially-adjudicated-claims-data.html
+
+      - name: Comparison of BCDA and CCLF
+        url: /bcda-data/comparison-bcda-cclf-files.html
+
+      - name: Difference Between V1 and V2
+        url: /bcda-data/difference-between-v1-v2.html
 ---
+
 # {{ page.page_title }}
 
 While Beneficiary Claims Data API (BCDA) and Claim and Claim Line Feed (CCLF) files both offer Medicare Parts A, B, and D claims data, there are some differences including their formatting and the frequency with which they make data available.
