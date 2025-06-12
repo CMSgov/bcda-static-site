@@ -33,7 +33,7 @@ In total, this typically takes up to 10 days after the episode of care. The data
 
 Visit the resources below to learn more: 
 
-- [Access partially adjudicated claims data in the BCDA Sandbox]({{ '/get-a-bearer-token.html#partially-adjudicated-claims-data-sets' | relative_url }})
+- [Access partially adjudicated claims data in the BCDA Sandbox]({{ '/api-documentation/get-a-bearer-token.html#partially-adjudicated-claims-data-sets' | relative_url }})
 - [Fee-for-Service (FFS) Claims Processing](https://4innovation.cms.gov/secure/knowledge-management/ view/341)
 - [Services covered by Medicare Parts A and B](https://www.medicare.gov/what-medicare-covers)
 - [Reporting and Data Sharing Overview](https://4innovation.cms.gov/secure/knowledge-management/view/491)
@@ -123,7 +123,7 @@ Adjudication is Medicare’s process of reviewing and approving claims. It invol
     No, REACH ACOs don’t need to update their credentials since V2 supports the same functionality as V1 in both the sandbox and production environments. 
 </p>
 <p>
-    All V2 endpoints will work as described in the existing BCDA documentation. <a href="{{ '/difference-between-v1-v2.html' | relative_url }}">Learn more about the differences between V1 and V2</a>.
+    All V2 endpoints will work as described in the existing BCDA documentation. <a href="{{ '/bcda-data/difference-between-v1-v2.html' | relative_url }}">Learn more about the differences between V1 and V2</a>.
 </p>
 {% endcapture %}
 

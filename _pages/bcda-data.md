@@ -55,7 +55,7 @@ Beneficiary Claims Data API (BCDA) updates partially adjudicated claims data dai
 
 ## Data Dictionary
 
-The Data Dictionary maps the different data fields and locations between BCDA and Claim and Claim Line Feed (CCLF) files. [Explore all the differences between the data sources]({{ '/comparison-bcda-cclf-files.html' | relative_url }}).
+The Data Dictionary maps the different data fields and locations between BCDA and Claim and Claim Line Feed (CCLF) files. [Explore all the differences between the data sources]({{ '/bcda-data/comparison-bcda-cclf-files.html' | relative_url }}).
 
 <div class="grid-row grid-gap margin-y-4 flex-align-center">
   <div class="grid-col-2 tablet:grid-col-3 text-center">
@@ -112,7 +112,7 @@ Download sample data files, which share similar content and structure to product
 
 ## Resource types
 
-Claims data is organized by resource types, which are requested at the /Patient and /Group [endpoints]({{ '/api-documentation.html' | relative_url }}#endpoints). Version 2 has [minor changes]({{ '/difference-between-v1-v2.html' | relative_url }}) in resource types from V1.
+Claims data is organized by resource types, which are requested at the /Patient and /Group [endpoints]({{ '/api-documentation.html' | relative_url }}#endpoints). Version 2 has [minor changes]({{ '/bcda-data/difference-between-v1-v2.html' | relative_url }}) in resource types from V1.
 
 <div class="usa-alert usa-alert--info margin-top-4">
   <div class="usa-alert__body">

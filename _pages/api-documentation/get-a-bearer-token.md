@@ -21,14 +21,14 @@ sidebar-links:
 
 # {{ page.page_title }}
 
-Bearer tokens, also known as access tokens or JSON web tokens, authorize use of the Beneficiary Claims Data API (BCDA) endpoints. You will need a bearer token to [access claims data]({{ '/access-claims-data.html' | relative_url }}) in the sandbox and production environments.
+Bearer tokens, also known as access tokens or JSON web tokens, authorize use of the Beneficiary Claims Data API (BCDA) endpoints. You will need a bearer token to [access claims data]({{ '/api-documentation/access-claims-data.html' | relative_url }}) in the sandbox and production environments.
 
 ## Instructions
 
 ### 1. Get your organization's credentials
 
 BCDA protects its token endpoint with Basic Auth. Your credentials will be formatted as a client ID and client secret.
-- **Sandbox environment**: Use a sample client ID and secret from the [sandbox credentials section]({{ '/get-a-bearer-token.html' | relative_url }}#sandbox-credentials).
+- **Sandbox environment**: Use a sample client ID and secret from the [sandbox credentials section]({{ '/api-documentation/get-a-bearer-token.html' | relative_url }}#sandbox-credentials).
 - **Production environment**: Use the client ID and secret issued by your model-specific system during [production access]({{ '/production-access.html' | relative_url }}).
 
 ### 2. Request a bearer token
@@ -98,7 +98,7 @@ Include your bearer token in the authorization header when requesting data in th
 
 {% include copy_snippet.html code="Authorization: Bearer {bearer_token}" language="yaml" %}
 
-Now you can begin [accessing claims data]({{ '/access-claims-data.html' | relative_url }}). The production and sandbox environments support the same workflow, endpoints, and resource types.  
+Now you can begin [accessing claims data]({{ '/api-documentation/access-claims-data.html' | relative_url }}). The production and sandbox environments support the same workflow, endpoints, and resource types.  
 
 ## Sandbox credentials
 
@@ -157,7 +157,7 @@ Client secret:
 
 ### Partially adjudicated claims data sets 
 
-Anyone can access [partially adjudicated claims data]({{ '/partially-adjudicated-claims-data.html' | relative_url }}) in the sandbox. Only REACH ACOs can access enrollees' partially adjudicated claims data in production. 
+Anyone can access [partially adjudicated claims data]({{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}) in the sandbox. Only REACH ACOs can access enrollees' partially adjudicated claims data in production. 
 
 #### Extra-small REACH ACO (110 synthetic enrollees)
 

@@ -54,7 +54,7 @@ The sandbox and production environments follow similar instructions. They suppor
     <div class="usa-alert__body">
         <h2 class="usa-alert__heading">    BCDA recommends using V2 of the API</h2>
         <p class="usa-alert__text">
-            This is the latest version which follows the <a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener noreferrer">FHIR R4 specification</a>. REACH ACOs must use V2 for <a href="{{ '/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a>.
+            This is the latest version which follows the <a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener noreferrer">FHIR R4 specification</a>. REACH ACOs must use V2 for <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a>.
         </p>
     </div>
 </div>
@@ -63,7 +63,7 @@ The sandbox and production environments follow similar instructions. They suppor
 
 ### 1. Get a bearer token 
 
-You will need a [bearer token]({{ '/get-a-bearer-token.html' | relative_url }}) to call the API. The process requires credentials, which are formatted as a client ID and client secret. 
+You will need a [bearer token]({{ '/api-documentation/get-a-bearer-token.html' | relative_url }}) to call the API. The process requires credentials, which are formatted as a client ID and client secret. 
 
 ### 2. Start a job 
 
@@ -86,7 +86,7 @@ GET /api/v2/Group/all/$export
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
-Use the [_type parameter]({{ '/filter-claims-data.html' | relative_url }}) to specify which resource types you’d like returned. 
+Use the [_type parameter]({{ '/api-documentation/filter-claims-data.html' | relative_url }}) to specify which resource types you’d like returned. 
 
 #### Request header
 
@@ -164,7 +164,7 @@ Content-Location: https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}
 A 429 response indicates “Too Many Requests.” This can occur due to 2 reasons:
 
 1. Making too many HTTP requests within a period of time
-2. Trying to recreate jobs already marked as "In-Progress.” For reference, you can view both existing and past jobs using the [/jobs endpoint]({{ '/access-claims-data.html' | relative_url }}#request-job-history). 
+2. Trying to recreate jobs already marked as "In-Progress.” For reference, you can view both existing and past jobs using the [/jobs endpoint]({{ '/api-documentation/access-claims-data.html' | relative_url }}#request-job-history). 
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}

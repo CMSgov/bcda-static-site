@@ -13,7 +13,7 @@ show-side-nav: false
   <div class="tablet:grid-col tablet:order-1" >
     <h1>{{ page.page_title }}</h1>
     <p>
-        Beneficiary Claims Data API (BCDA) was released in February 2019 to share Medicare Parts A, B, and D data, including from <a href="{{ '/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims</a>.
+        Beneficiary Claims Data API (BCDA) was released in February 2019 to share Medicare Parts A, B, and D data, including from <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims</a>.
     </p>
     <p>
         BCDA allows <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">eligible model entities</a> to track performance metrics, identify high-risk patients sooner, and improve transition of care.

@@ -58,7 +58,7 @@ show-side-nav: false
   <li class="usa-process-list__item production-access-final-item">
     <h2 class="usa-process-list__heading margin-y-2">Access production claims data</h2>
       <p>
-        The sandbox and production environments support the same workflow, endpoints, and resource types. Follow similar steps as you did in the sandbox to <a href="{{ '/get-a-bearer-token.html' | relative_url }}">get a bearer token</a> and <a href="{{ '/access-claims-data.html' | relative_url }}">retrieve claims data</a>.
+        The sandbox and production environments support the same workflow, endpoints, and resource types. Follow similar steps as you did in the sandbox to <a href="{{ '/api-documentation/get-a-bearer-token.html' | relative_url }}">get a bearer token</a> and <a href="{{ '/api-documentation/access-claims-data.html' | relative_url }}">retrieve claims data</a>.
       </p>
       <p>
         Visit <a href="{{ '/support.html' | relative_url }}">Support</a> or <a href="https://groups.google.com/forum/#!forum/bc-api" target="_blank" rel="noopener noreferrer">join the Google Group</a> if you have questions. Do not share <a href="{{ '/support.html#how-do-i-redact-phi-and-pii-when-sharing-information' | relative_url }}">Personally Identifiable Information (PII)</a> like tokens, credentials, or claims data. 

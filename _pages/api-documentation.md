@@ -35,7 +35,7 @@ Beneficiary Claims Data API (BCDA) uses <a href="https://hl7.org/fhir/uv/bulkdat
   <li class="usa-process-list__item">
     <p class="usa-process-list__heading">Use the sandbox</p>
     <p>
-      The sandbox environment allows anyone to try the API and download test claims data. Learn how to <a href="{{ '/get-a-bearer-token.html' | relative_url }}">get a bearer token</a> and <a href="{{ '/access-claims-data.html' | relative_url }}">access the sandbox</a>.  
+      The sandbox environment allows anyone to try the API and download test claims data. Learn how to <a href="{{ '/api-documentation/get-a-bearer-token.html' | relative_url }}">get a bearer token</a> and <a href="{{ '/api-documentation/access-claims-data.html' | relative_url }}">access the sandbox</a>.  
     </p>
   </li>
   <li class="usa-process-list__item docs-final-item">
@@ -60,7 +60,7 @@ Use the [/Group endpoint](https://build.fhir.org/ig/HL7/bulk-data/export.html#en
 - **/Group/all**: returns data for all Medicare enrollees currently attributed to your model entity
 - **/Group/runout**: returns data for Medicare enrollees attributed to your model entity during the previous year, but not the current year. The data will have a service date no later than December 31 of the previous year.
 
-Using the [_since parameter]({{ '/filter-claims-data.html#the-_since-parameter' | relative_url }}) with /Group will return resources updated after the date provided for existing enrollees and all resources for newly attributed enrollees. 
+Using the [_since parameter]({{ '/api-documentation/filter-claims-data.html#the-_since-parameter' | relative_url }}) with /Group will return resources updated after the date provided for existing enrollees and all resources for newly attributed enrollees. 
 
 This lets you retrieve all new claims data with a single request. If you don’t apply _since, BCDA will return data as early as 2014.
 
@@ -92,7 +92,7 @@ Use parameters during job requests to filter or specify the resources returned:
 
 - **The _since parameter**: Apply a date boundary to your requests. Instead of receiving the full record of historical data, filter for resources last updated after a specified date. 
 
-[Explore how to filter claims data.]({{ '/filter-claims-data.html' | relative_url }})
+[Explore how to filter claims data.]({{ '/api-documentation/filter-claims-data.html' | relative_url }})
 
 ## Additional resources
 
