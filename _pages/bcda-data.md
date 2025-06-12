@@ -82,7 +82,7 @@ REACH ACOs can access claims that aren’t fully processed or approved yet. **Th
   <div class="grid-col-fill tablet:grid-col-9">
     <ul>
         <li>
-            <a href="{{ 'partially-adjudicated-claims-data.html' | relative_url }}">Guide to Partially Adjudicated Claims Data</a>
+            <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}">Guide to Partially Adjudicated Claims Data</a>
         </li>
         <li>
             <a href="{{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">Data Dictionary for Partially Adjudicated Claims Data {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>
