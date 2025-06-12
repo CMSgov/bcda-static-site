@@ -51,23 +51,24 @@ exclude:
   - feed.xml
 
 include:
-   - assets/uswds/img/usa-icons/add.svg
-   - assets/uswds/img/usa-icons/check_circle.svg
-   - assets/uswds/img/usa-icons/close.svg
-   - assets/uswds/img/usa-icons/error.svg
-   - assets/uswds/img/usa-icons/error--white.svg
-   - assets/uswds/img/usa-icons/expand_more.svg
-   - assets/uswds/img/usa-icons/expand_less.svg
-   - assets/uswds/img/usa-icons/info.svg
-   - assets/uswds/img/usa-icons/launch.svg
-   - assets/uswds/img/usa-icons/launch--white.svg
-   - assets/uswds/img/usa-icons/remove.svg
-   - assets/uswds/img/usa-icons/warning.svg
+  - assets/uswds/img/usa-icons/add.svg
+  - assets/uswds/img/usa-icons/check_circle.svg
+  - assets/uswds/img/usa-icons/close.svg
+  - assets/uswds/img/usa-icons/error.svg
+  - assets/uswds/img/usa-icons/error--white.svg
+  - assets/uswds/img/usa-icons/expand_more.svg
+  - assets/uswds/img/usa-icons/expand_less.svg
+  - assets/uswds/img/usa-icons/info.svg
+  - assets/uswds/img/usa-icons/launch.svg
+  - assets/uswds/img/usa-icons/launch--white.svg
+  - assets/uswds/img/usa-icons/remove.svg
+  - assets/uswds/img/usa-icons/warning.svg
    
 collections:
   pages:
     output: true
-    permalink: /:title:output_ext
+    categories: true
+    permalink: /:path:output_ext
   announcements:
      output: true
   features:

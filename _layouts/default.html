@@ -7,14 +7,18 @@ layout: base
     {% if page.show-side-nav != false %}
     <div
       class="display-none position-sticky tablet:display-block tablet:grid-col-auto overflow-y-auto overflow-x-hidden padding-top-5 desktop:padding-top-7 padding-bottom-6 tablet:padding-right-3 padding-left-05 margin-left-neg-05"
-      style="top: 4rem; height: calc(100vh - 4.5rem);">
+      style="top: 4rem; height: calc(100vh - 4.5rem);"
+    >
       <div class="width-card-lg">
         {% include api-docs-side-nav.html %}
       </div>
     </div>
     {% endif %}
 
-    <main id="main-content" class="grid-col-fill">
+    <main
+      id="main-content"
+      class="grid-col-fill"
+    >
       {{ content }}
     </main>
   </div>

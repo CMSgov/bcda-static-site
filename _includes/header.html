@@ -4,19 +4,29 @@
     <div class="usa-nav-container">
       <div class="usa-navbar">
         <div class="usa-logo">
-          <a href="{{ '/index.html' | relative_url }}" title="BCDA" data-tealium="main-nav"
-            class="display-flex flex-align-center height-6 maxw-card-lg" style="gap: 0.5rem;">
-            <img src="{{ '/assets/img/logo-bcda.svg' | relative_url }}" alt="BCDA logo" class="width-6 height-6"
+          <a href="{{ '/index.html' | relative_url }}"
+            title="BCDA"
+            data-tealium="main-nav"
+            class="display-flex flex-align-center height-6 maxw-card-lg"
+            style="gap: 0.5rem;">
+            <img src="{{ '/assets/img/logo-bcda.svg' | relative_url }}"
+              alt="BCDA logo"
+              class="width-6 height-6"
               style="object-fit:contain;" />
             <span class="font-sans-md text-bold text-black text-balance line-height-sans-2">Beneficiary Claims Data
               API</span>
           </a>
         </div>
-        <button type="button" class="usa-menu-btn">Menu</button>
+        <button type="button"
+          class="usa-menu-btn">Menu</button>
       </div>
-      <nav aria-label="Primary navigation" class="usa-nav">
-        <button type="button" class="usa-nav__close">
-          <img src="{{ '/assets/uswds/img/usa-icons/close.svg' | relative_url }}" role="img" alt="Close" />
+      <nav aria-label="Primary navigation"
+        class="usa-nav">
+        <button type="button"
+          class="usa-nav__close">
+          <img src="{{ '/assets/uswds/img/usa-icons/close.svg' | relative_url }}"
+            role="img"
+            alt="Close" />
         </button>
         <ul class="usa-nav__primary usa-accordion">
           {% for item in site.data.nav-primary %}
@@ -33,15 +43,18 @@
           <li class="usa-nav__primary-item">
             <button type="button"
               class="usa-accordion__button usa-nav__link {% if is_child_active %}{{ 'usa-current' }}{% endif %}"
-              aria-expanded="false" aria-controls="basic-nav-section-one">
-              <span>{{- item.text -}}</span>
+              aria-expanded="false"
+              aria-controls="basic-nav-section-{{forloop.index}}">
+              <span>{{- item.name -}}</span>
             </button>
-            <ul id="basic-nav-section-one" class="usa-nav__submenu" hidden>
+            <ul id="basic-nav-section-{{forloop.index}}"
+              class="usa-nav__submenu"
+              hidden>
               {% for child in item.children %}
               <li class="usa-nav__submenu-item">
                 <a class="{% if page.url == child.url %}{{ 'usa-current' }}{% endif %}"
                   href="{{- child.url | relative_url -}}">
-                  <span>{{- child.text -}}</span>
+                  <span>{{- child.name -}}</span>
                 </a>
               </li>
               {% endfor %}
@@ -51,7 +64,7 @@
           <li class="usa-nav__primary-item">
             <a href="{{- item.url | relative_url -}}"
               class="usa-nav-link {% if page.url == item.url %}{{ 'usa-current' }}{% endif %}"
-              data-tealium="navigation"><span>{{- item.text -}}</span>
+              data-tealium="navigation"><span>{{- item.name -}}</span>
             </a>
           </li>
           {% endif %}
@@ -59,7 +72,9 @@
         </ul>
 
         <div class="padding-left-1">
-          <a href="{{ '/api-documentation.html' | relative_url }}" class="usa-button" data-tealium="main-nav">Get
+          <a href="{{ '/api-documentation.html' | relative_url }}"
+            class="usa-button"
+            data-tealium="main-nav">Get
             Started
           </a>
         </div>
