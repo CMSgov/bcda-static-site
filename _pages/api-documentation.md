@@ -52,10 +52,10 @@ Endpoints request data by [resource type]({{ '/bcda-data.html' | relative_url }}
 
 ### /metadata
 
-Request the [FHIR CapabilityStatement](https://hl7.org/fhir/R4/capabilitystatement.html) for basic information on the API, like its version and whether it’s currently active. This does not require authorization. 
+Request the  <a href="https://hl7.org/fhir/R4/capabilitystatement.html" target="_blank" rel="noopener noreferrer">FHIR CapabilityStatement</a> for basic information on the API, like its version and whether it’s currently active. This does not require authorization. 
 
 ### /Group
-Use the [/Group endpoint](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---group-of-patients) to request the ExplanationOfBenefit, Patient, and Coverage resource types. For partially adjudicated claims, this includes Claim and ClaimResponse. Provide the `all` or `runout` identifier to indicate whose data you’d like returned: 
+Use the  <a href="https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---group-of-patients" target="_blank" rel="noopener noreferrer">/Group endpoint</a> to request the ExplanationOfBenefit, Patient, and Coverage resource types. For partially adjudicated claims, this includes Claim and ClaimResponse. Provide the `all` or `runout` identifier to indicate whose data you’d like returned: 
 
 - **/Group/all**: returns data for all Medicare enrollees currently attributed to your model entity
 - **/Group/runout**: returns data for Medicare enrollees attributed to your model entity during the previous year, but not the current year. The data will have a service date no later than December 31 of the previous year.
@@ -92,15 +92,15 @@ Use parameters during job requests to filter or specify the resources returned:
 
 - **The _since parameter**: Apply a date boundary to your requests. Instead of receiving the full record of historical data, filter for resources last updated after a specified date. 
 
-[Explore how to filter claims data.]({{ '/api-documentation/filter-claims-data.html' | relative_url }})
+[Explore how to filter claims data]({{ '/api-documentation/filter-claims-data.html' | relative_url }})
 
 ## Additional resources
 
 BCDA provides Medicare claims data using the NDJSON format.
 
 - <a href="https://www.hl7.org/fhir/" target="_blank" rel="noopener noreferrer">FHIR/HL7</a>
-- <a href="http://build.fhir.org/ig/HL7/VhDir/bulk-data.html" target="_blank" rel="noopener noreferrer">Bulk FHIR specification</a>
-- <a href="https://bluebutton.cms.gov/assets/ig/index.html" target="_blank" rel="noopener noreferrer">Blue Button Implementation Guide</a>
+- <a href="https://build.fhir.org/ig/HL7/VhDir/bulk-data.html" target="_blank" rel="noopener noreferrer">Bulk FHIR specification</a>
+- <a href="https://www.hl7.org/fhir/us/carin-bb/" target="_blank" rel="noopener noreferrer">CARIN Blue Button Implementation Guide</a>
 - Intro to the <a href="https://www.json.org/json-en.html" target="_blank" rel="noopener noreferrer">JSON Format</a> and <a href="https://github.com/ndjson/ndjson-spec/" target="_blank" rel="noopener noreferrer">NDJSON</a>
 - <a href="https://jsonlint.com/" target="_blank" rel="noopener noreferrer">JSON format viewer/validator</a> (raw text/JSON format converter)
 - <a href="https://hl7.org/fhir/R4/validation.html" target="_blank" rel="noopener noreferrer">Intro to valid FHIR formats</a>

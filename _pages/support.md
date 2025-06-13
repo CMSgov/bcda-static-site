@@ -133,7 +133,7 @@ in-page-nav: true
 
 {% capture a10AccordionContent %}
 <p>
-    BCDA V1 (<a href="https://hl7.org/fhir/STU3/" target="_blank" rel="noopener noreferrer">STU3</a>) and V2 (<a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener noreferrer">R4</a>) differ primarily in their FHIR specification. Version 1 is based on the Blue Button 2.0 Implementation Guide, while version 2 is based on the CARIN CDPDE Implementation Guide.
+    BCDA V1 (<a href="https://hl7.org/fhir/STU3/" target="_blank" rel="noopener noreferrer">STU3</a>) and V2 (<a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener noreferrer">R4</a>) differ primarily in their FHIR specification. Version 1 is based on the Blue Button 2.0 Implementation Guide, while version 2 is based on the <a href="https://www.hl7.org/fhir/us/carin-bb/" target="_blank" rel="noopener noreferrer">CARIN Blue Button Implementation Guide</a>.
 </p>
 <p>There are minor differences in the mapping and values of certain data elements. <a href="{{ '/bcda-data/difference-between-v1-v2.html' | relative_url }}">Review the full summary of changes.</a></p>
 
