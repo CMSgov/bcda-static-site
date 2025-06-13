@@ -374,14 +374,14 @@ GET /api/v2/jobs
 
 Supply the _status parameter to filter for jobs with a specific end state. BCDA jobs have 9 possible end states: Completed, Archived, Expired, Failed, FailedExpired, In Progress, Pending, Cancelled, and CancelledExpired. 
 
-However, the _status parameter only supports 4 possible values. These are how the job end states map to the supported values you’ll receive in your response:
+These are how the job end states map to the 4 supported values you can receive in the response body:
 
-- Archived, Expired, Completed → Completed
-- FailedExpired, Failed → Failed
-- Pending, In Progress → In Progress
-- CancelledExpired, Cancelled → Cancelled
+- `Archived`, `Expired`, `Completed` → `completed`
+- `FailedExpired`, `Failed` → `failed`
+- `Pending`, `In Progress` → `in-progress`
+- `CancelledExpired`, `Cancelled` → `cancelled`
 
-The example below is a filtered request for all past archived jobs. If any are found, the response will list the status as “Completed." Even so, the filter will only return archived jobs; it will exclude expired and completed jobs. 
+The example below is a filtered request for all past archived jobs. If any are found, the response will list the status as `completed`. Even so, the filter will only return archived jobs; it will exclude expired and completed jobs. 
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -490,7 +490,7 @@ If BCDA has never ingested an attribution or runout file for your organization, 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 {
-  "Ingestion_dates": [
+  "ingestion_dates": [
     {
       "type": "last_attribution_update",
       "timestamp": "2020-12-22 22:31:40.397916+00"
