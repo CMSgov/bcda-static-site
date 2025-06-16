@@ -428,7 +428,7 @@ This example shows 1 historical job with a “Completed” status. Since this wa
         },
         "identifier": [
           {
-            "system": "http://bcda.cms.gov/api/v2/jobs",
+            "system": "https://bcda.cms.gov/api/v2/jobs",
             "use": "official",
             "value": "1"
           }
@@ -543,7 +543,7 @@ The response will contain a FHIR Capability Statement resource in JSON format. T
   },
   "instantiates": [
     "https://prod.bfd.cms.gov/v2/fhir/metadata",
-    "http://hl7.org/fhir/uv/bulkdata/CapabilityStatement/bulk-data"
+    "https://hl7.org/fhir/uv/bulkdata/CapabilityStatement/bulk-data"
   ],
   "kind": "instance",
   "publisher": "Centers for Medicare & Medicaid Services",
@@ -563,7 +563,7 @@ The response will contain a FHIR Capability Statement resource in JSON format. T
         {
           "operation": [
             {
-              "definition": "http://hl7.org/fhir/uv/bulkdata/OperationDefinition/patient-export",
+              "definition": "https://hl7.org/fhir/uv/bulkdata/OperationDefinition/patient-export",
               "name": "patient-export"
             }
           ],
@@ -572,7 +572,7 @@ The response will contain a FHIR Capability Statement resource in JSON format. T
         {
           "operation": [
             {
-              "definition": "http://hl7.org/fhir/uv/bulkdata/OperationDefinition/group-export",
+              "definition": "https://hl7.org/fhir/uv/bulkdata/OperationDefinition/group-export",
               "name": "group-export"
             }
           ],
@@ -589,7 +589,7 @@ The response will contain a FHIR Capability Statement resource in JSON format. T
                 "valueUri": "https://sandbox.bcda.cms.gov/auth/token"
               }
             ],
-            "url": "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris"
+            "url": "https://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris"
           }
         ],
         "service": [
@@ -598,7 +598,7 @@ The response will contain a FHIR Capability Statement resource in JSON format. T
               {
                 "code": "OAuth",
                 "display": "OAuth",
-                "system": "http://terminology.hl7.org/CodeSystem/restful-security-service"
+                "system": "https://terminology.hl7.org/CodeSystem/restful-security-service"
               }
             ],
             "text": "OAuth"

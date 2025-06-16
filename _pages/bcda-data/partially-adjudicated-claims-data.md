@@ -34,16 +34,16 @@ In total, this typically takes up to 10 days after the episode of care. The data
 Visit the resources below to learn more: 
 
 - [Access partially adjudicated claims data in the BCDA Sandbox]({{ '/api-documentation/get-a-bearer-token.html#partially-adjudicated-claims-data-sets' | relative_url }})
-- [Fee-for-Service (FFS) Claims Processing](https://4innovation.cms.gov/secure/knowledge-management/ view/341)
-- [Services covered by Medicare Parts A and B](https://www.medicare.gov/what-medicare-covers)
-- [Reporting and Data Sharing Overview](https://4innovation.cms.gov/secure/knowledge-management/view/491)
+- <a href="https://www.medicare.gov/what-medicare-covers" target="_blank" rel="noopener noreferrer">Services covered by Medicare Parts A and B</a>
+- <a href="https://4innovation.cms.gov/secure/knowledge-management/view/341" target="_blank" rel="noopener noreferrer">Fee-for-Service (FFS) Claims Processing</a>
+- <a href="https://4innovation.cms.gov/secure/knowledge-management/view/491" target="_blank" rel="noopener noreferrer">Reporting and Data Sharing Overview</a>
 
 ## Resource types  
 
 Partially adjudicated claims data is accessed using 2 additional resource types: 
 
-- **[Claim](https://www.hl7.org/fhir/claim.html)** – Information about the professional and institutional claims that providers submit for payment (including the services that enrollees receive)
-- **[ClaimResponse](https://www.hl7.org/fhir/claimresponse.html)** – Information about a claim’s adjudication status and processing results
+- **<a href="https://www.hl7.org/fhir/claim.html" target="_blank" rel="noopener noreferrer">Claim</a>** – Information about the professional and institutional claims that providers submit for payment (including the services that enrollees receive)
+- **<a href="https://www.hl7.org/fhir/claimresponse.html" target="_blank" rel="noopener noreferrer">ClaimResponse</a>** – Information about a claim’s adjudication status and processing results
 
 Claim and ClaimResponse only provide access to Parts A and B Fee-for-Service claims data. They don’t include Part D (drug coverage) and Durable Medical Equipment (DME) claims. Review the [Partially Adjudicated Claims Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}]({{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}) for a complete list and description of the data fields. 
 

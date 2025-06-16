@@ -26,13 +26,13 @@ sidebar-links:
 </p>
 <p>There are minor differences in the mapping and values of certain data elements. Slicing/discriminator rules can be different, and some value sets will be bound to CARIN or HL7 value sets instead of BlueButton:
         <ul>
-            <li>Example 1: Patient.identifier.type in V2 is bound to the <a href="http://www.hl7.org/fhir/us/carin-bb/ValueSet-C4BBPatientIdentifierType.html" target="_blank" rel="noopener noreferrer">C4BB Patient Identifier type value set</a>.</li>
-            <li>Example 2: EOB.Type is bound to the <a href="http://www.hl7.org/fhir/us/carin-bb/ValueSet-C4BBPayeeType.html" target="_blank" rel="noopener noreferrer">C4BB Payee Type value set</a> and the associated value will be one of the codes in that value set.</li>
+            <li>Example 1: Patient.identifier.type in V2 is bound to the <a href="https://www.hl7.org/fhir/us/carin-bb/ValueSet-C4BBPatientIdentifierType.html" target="_blank" rel="noopener noreferrer">C4BB Patient Identifier type value set</a>.</li>
+            <li>Example 2: EOB.Type is bound to the <a href="https://www.hl7.org/fhir/us/carin-bb/ValueSet-C4BBPayeeType.html" target="_blank" rel="noopener noreferrer">C4BB Payee Type value set</a> and the associated value will be one of the codes in that value set.</li>
         </ul>
 </p>
 <h2>Summary of changes</h2>
 <p>
-    Reference the R3 Diff in the <a href="http://www.hl7.org/fhir/explanationofbenefit.html#resource" target="_blank" rel="noopener noreferrer">FHIR ExplanationofBenefit</a> for more details.
+    Reference the R3 Diff in the <a href="https://www.hl7.org/fhir/explanationofbenefit.html#resource" target="_blank" rel="noopener noreferrer">FHIR ExplanationofBenefit</a> for more details.
 </p>
 <!-- start ol for tables -->
 <ol>
