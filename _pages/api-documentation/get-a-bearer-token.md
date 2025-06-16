@@ -106,7 +106,7 @@ Sandbox credentials allow anyone to access test claims data. These credentials w
 
 Sample data sets vary in size and data complexity, ranging from 50 to 30,000 synthetic enrollees, to best match the needs of your model entity.  
 
-### Adjudicated claims data sets – 5 simple sizes
+### Adjudicated claims data sets – 2 simple sizes
 Use the data sets to test retrieving and downloading data files into your internal ingestion processes. However, the test data may not reflect an accurate distribution of disease and demographic information.
 
 #### Extra-small model entity (50 synthetic enrollees)
