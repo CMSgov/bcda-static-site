@@ -11,13 +11,13 @@ sidebar-links:
     children:
 
       - name: How to Get a Bearer Token
-        url: /get-a-bearer-token.html
+        url: /api-documentation/get-a-bearer-token.html
         
       - name: How to Access Claims Data
-        url: /access-claims-data.html
+        url: /api-documentation/access-claims-data.html
 
       - name: How to Filter Claims Data
-        url: /filter-claims-data.html
+        url: /api-documentation/filter-claims-data.html
 ---
 
 # {{ page.page_title }}
