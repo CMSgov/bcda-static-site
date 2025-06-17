@@ -12,7 +12,7 @@ in-page-nav: true
 <div class="usa-alert usa-alert--warning usa-alert--slim">
   <div class="usa-alert__body">
     <p class="usa-alert__text maxw-desktop-lg">
-      Please cover or label <a href="#a2">Personally Identifiable Information (PII)</a> as "REDACTED" in the Google Group or email communication.
+      Please cover or label <a href="#compliance-and-restrictions">Personally Identifiable Information (PII)</a> as "REDACTED" in the Google Group or email communication.
     </p>
   </div>
 </div>

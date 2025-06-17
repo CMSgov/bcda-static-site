@@ -8,17 +8,15 @@ in-page-nav-levels: "h2"
 show-side-nav: false
 ---
 
-# {{ page.page_title }}
+<h1>{{ page.page_title }}</h1>
 
-[Eligible organizations]({{ '/index.html#eligible-model-entities' | relative_url }}) must get credentials from their model-specific systems to access enrollee claims data. 
+<a href="{{ '/index.html#eligible-model-entities' | relative_url }}">Eligible organizations</a> must get credentials from their model-specific systems to access enrollee claims data. 
 
 <div class="usa-alert usa-alert--warning usa-alert--no-icon">
   <div class="usa-alert__body">
     <p class="usa-alert__text">Before accessing the production environment, download test claims data in the sandbox environment and follow the steps under <a href="{{ '/api-documentation.html#getting-started' | relative_url }}">Getting Started</a>.</p>
   </div>
 </div>
-
-
 
 <ol class="usa-process-list margin-top-4 production-access-process-list">
   <li class="usa-process-list__item">
@@ -61,7 +59,7 @@ show-side-nav: false
         The sandbox and production environments support the same workflow, endpoints, and resource types. Follow similar steps as you did in the sandbox to <a href="{{ '/api-documentation/get-a-bearer-token.html' | relative_url }}">get a bearer token</a> and <a href="{{ '/api-documentation/access-claims-data.html' | relative_url }}">retrieve claims data</a>.
       </p>
       <p>
-        Visit <a href="{{ '/support.html' | relative_url }}">Support</a> or <a href="https://groups.google.com/forum/#!forum/bc-api" target="_blank" rel="noopener noreferrer">join the Google Group</a> if you have questions. Do not share <a href="{{ '/support.html#how-do-i-redact-phi-and-pii-when-sharing-information' | relative_url }}">Personally Identifiable Information (PII)</a> like tokens, credentials, or claims data. 
+        Visit <a href="{{ '/support.html' | relative_url }}">Support</a> or <a href="https://groups.google.com/forum/#!forum/bc-api" target="_blank" rel="noopener noreferrer">join the Google Group</a> if you have questions. Do not share <a href="{{ '/support.html#compliance-and-restrictions' | relative_url }}">Personally Identifiable Information (PII)</a> like tokens, credentials, or claims data. 
       </p>
   </li>
 </ol>
