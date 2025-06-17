@@ -58,15 +58,15 @@ Beneficiary Claims Data API (BCDA) updates partially adjudicated claims data dai
 The Data Dictionary maps the different data fields and locations between BCDA and Claim and Claim Line Feed (CCLF) files. [Explore all the differences between the data sources]({{ '/bcda-data/comparison-bcda-cclf-files.html' | relative_url }}).
 
 <div class="grid-row grid-gap margin-y-4 flex-align-center">
-  <div class="grid-col-2 tablet:grid-col-3 text-center">
+  <div class="grid-col-12 mobile-lg:grid-col-auto">
     <img src="{{ '/assets/img/book.svg' | relative_url }}" alt="book illustration">
   </div>
   <div class="grid-col-fill tablet:grid-col-9">
-        <p>Download the <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}">BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> to learn about:</p>
+      <p>Download the <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}">BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> to learn about:</p>
     <ul>
-        <li>claim field names and descriptions</li>
-        <li>new data field locations</li>
-        <li>data types and format</li>
+      <li>claim field names and descriptions</li>
+      <li>new data field locations</li>
+      <li>data types and format</li>
     </ul>
   </div>
 </div>
@@ -75,8 +75,8 @@ The Data Dictionary maps the different data fields and locations between BCDA an
 
 REACH ACOs can access claims that aren’t fully processed or approved yet. **This reduces the time to access Parts A and B claims data to 2-4 days after submission.**
 
-<div class="grid-row grid-gap margin-y-4">
-  <div class="grid-col-2 tablet:grid-col-3 text-center">
+<div class="grid-row grid-gap margin-y-4 flex-align-center">
+  <div class="grid-col-12 mobile-lg:grid-col-auto">
     <img src="{{ '/assets/img/medical-history.svg' | relative_url }}" alt="medical history folder illustration">
   </div>
   <div class="grid-col-fill tablet:grid-col-9">
@@ -96,7 +96,7 @@ REACH ACOs can access claims that aren’t fully processed or approved yet. **Th
 Download sample data files, which share similar content and structure to production data. [Try the sandbox environment]({{ '/api-documentation.html' | relative_url }}) to access test data from the API.
 
 <div class="grid-row grid-gap margin-y-4 flex-align-center">
-  <div class="grid-col-2 tablet:grid-col-3 text-center">
+  <div class="grid-col-12 mobile-lg:grid-col-auto">
     <img src="{{ '/assets/img/paper.svg' | relative_url }}" alt="paper illustration">
   </div>
   <div class="grid-col-fill tablet:grid-col-9">
