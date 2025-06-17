@@ -673,3 +673,7 @@ $external-href: '[href^="https"]:not([href*="bcda.cms.gov"]):not([href*="github.
 .usa-table--borderless tbody tr:first-of-type td {
   border-top: 2px solid #1b1b1b;
 }
+
+.usa-button {
+  line-height:1.3;
+}
