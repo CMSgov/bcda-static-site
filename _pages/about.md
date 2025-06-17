@@ -39,7 +39,7 @@ show-side-nav: false
     <tr>
       <th scope="row">Medicare Part B claims data</th>
       <td>
-        Various doctors' services, outpatient care, medical supplies, and preventive services
+        Doctors' services, outpatient care, medical supplies, and preventive services
       </td>
     </tr>
     <tr>

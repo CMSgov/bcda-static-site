@@ -41,7 +41,7 @@ Beneficiary Claims Data API (BCDA) updates partially adjudicated claims data dai
     <tr>
       <th scope="row">Medicare Part B claims data</th>
       <td>
-        Various doctors' services, outpatient care, preventive services, and durable medical equipment (DME)
+        Doctors' services, outpatient care, preventive services, and durable medical equipment (DME)
       </td>
     </tr>
     <tr>
