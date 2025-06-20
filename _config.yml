@@ -70,6 +70,6 @@ collections:
     categories: true
     permalink: /:path:output_ext
   announcements:
-     output: true
+      output: true
   features:
     output: true

@@ -10,5 +10,6 @@ layout: api-docs
 </a>
 
 <h1 class="margin-top-3">{{ page.page_title }}</h1>
+<p class="margin-top-105 text-base">{{ page.published_date | date_to_string: "ordinal", "US" }}</p>
 
 <div class="usa-prose margin-top-5">{{ content }}</div>
