@@ -27,9 +27,9 @@ Model entities can use either or both source(s) for data insights. It’s import
 
 ## What are the differences?
 
-CCLF files are automatically available monthly using 12 flat files, and can be downloaded weekly upon request. BCDA updates adjudicated claims weekly using 3 NDJSON files and partially adjudicated claims data daily using 2 additional NDJSON files.
+CCLF files are automatically available monthly (using 12 flat files) and can be downloaded weekly upon request. BCDA updates adjudicated claims weekly (using 3 NDJSON files) and partially adjudicated claims data daily (using 2 additional NDJSON files).
 
-BCDA also uses the <a href="https://hl7.org/fhir/uv/bulkdata/" target="_blank" rel="noopener noreferrer">Bulk Fast Healthcare Interoperability Resources (FHIR)</a> format as required by Medicare. This results in differences during data mapping.
+BCDA uses the <a href="https://www.cms.gov/priorities/key-initiatives/burden-reduction/interoperability/implementation-guides-and-standards/standards-and-igs-index-and-resources" target="_blank" rel="noopener noreferrer">CMS recommended Bulk FHIR Standards</a>. This results in differences during data mapping.
 
 ## Summary of differences
 
@@ -138,12 +138,12 @@ BCDA also uses the <a href="https://hl7.org/fhir/uv/bulkdata/" target="_blank" r
 
 **CCLF files get data from the Integrated Data Repository (IDR) monthly**. The files are automatically generated monthly to match the cadence of required financial reports. However, weekly extracts are also available upon request.
 
-**BCDA gets adjudicated claims data from CCW weekly**. The data is available every weekend. Partially adjudicated claims data from FISS and MCS is available daily. BCDA combines CCW data with IDR’s alignment data (e.g., suppression assumption, data sharing preferences included) to create claims extracts similar to those in CCLF files.
+**BCDA gets adjudicated claims data from CCW weekly**. The data is updated every weekend. Partially adjudicated claims data from FISS and MCS is available daily. BCDA combines CCW data with IDR’s alignment data (e.g., suppression assumption, data sharing preferences included) to create claims extracts similar to those in CCLF files.
 
 Since CCW and IDR refresh their data at different rates, there are sometimes minor data discrepancies. Additionally, while they use the same source system, IDR and CCW modify their data elements differently. For example, IDR has expanded data elements for enterprise functioning, while CCW has data structures and fields better suited for research. 
 
 ## Which data source is right for me?
-Each data source has unique advantages. BCDA is an API, which allows you to automate data requests and streamline workflows for more efficient, secure processes. This lets you act quickly when proactive interventions or changes to your enrollees’ care plans are needed. Additionally, the FHIR format makes it easier to bring large amounts of data into existing data models. 
+Each data source has unique advantages. BCDA is an API, which allows you to automate data requests and streamline workflows for more efficient, secure processes. This lets you act quickly when proactive interventions or changes to your enrollees’ care plans are needed. Additionally, the FHIR format makes it easier to bring large amounts of data into existing data models and combine them with EHRs and other sources of clinical data. 
 
 CCLF files are more widely accessible. They're available to more model entities and its files can be downloaded directly from your model-specific portal.
 
