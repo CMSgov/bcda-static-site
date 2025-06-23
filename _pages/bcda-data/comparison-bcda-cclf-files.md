@@ -111,7 +111,7 @@ BCDA uses the <a href="https://www.cms.gov/priorities/key-initiatives/burden-red
       </tbody>
       <tbody>
         <tr>
-          <th scope="rowgroup" colspan="2">Historical data provided on<br> newly attributed enrollees</th>
+          <th scope="rowgroup" colspan="2">Historical data provided on newly attributed enrollees</th>
         </tr>
         <tr>
             <td style="vertical-align: baseline; padding: 1rem;">
