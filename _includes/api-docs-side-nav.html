@@ -1,6 +1,6 @@
 <nav aria-label="Side navigation">
   <ul class="usa-sidenav">
-    {% for item in page.sidebar-links %}
+    {% for item in site.data.api-docs-nav  %}
 
     <li class="usa-sidenav__item">
       <a
@@ -39,8 +39,11 @@
     {% endfor %}
     <li class="usa-sidenav__item">
       <a
-        href=""
+        href="https://github.com/CMSgov/bcda-app"
+        target="_blank"
+        rel="noopener noreferrer"
         class="usa-nav-link"
+        style="display: block !important;" {% comment %} display block is needed here because USWDS adds display: inline to external links {% endcomment %}
         data-tealium="left-rail"
       >
         <span>

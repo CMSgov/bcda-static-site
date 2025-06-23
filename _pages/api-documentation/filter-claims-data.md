@@ -5,19 +5,6 @@ seo_title: ""
 description: "Use parameters to filter Medicare claims data returned."
 in-page-nav: true
 in-page-nav-levels: "h2"
-sidebar-links: 
-  - name: API Documentation
-    url: /api-documentation.html
-    children:
-
-      - name: How to Get a Bearer Token
-        url: /api-documentation/get-a-bearer-token.html
-        
-      - name: How to Access Claims Data
-        url: /api-documentation/access-claims-data.html
-
-      - name: How to Filter Claims Data
-        url: /api-documentation/filter-claims-data.html
 ---
 
 # {{ page.page_title }}

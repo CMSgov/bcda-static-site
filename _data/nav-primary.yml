@@ -8,7 +8,7 @@
 
 - name: API Documentation
   children:
-    - name: Overview
+    - name: Get Started
       url: /api-documentation.html
 
     - name: How to Get a Bearer Token
@@ -22,7 +22,7 @@
   
 - name: BCDA Data 
   children:
-    - name: Overview
+    - name: BCDA Data
       url: /bcda-data.html
 
     - name: Guide to Partially Adjudicated Claims Data

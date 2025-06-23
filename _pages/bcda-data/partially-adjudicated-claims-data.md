@@ -4,19 +4,6 @@ page_title: "Guide to Partially Adjudicated Claims Data"
 seo_title: ""
 description: "Get early access to enrollee claims data as soon as 2-4 days after Medicare submission with BCDA partially adjudicated claims data."
 in-page-nav: true
-sidebar-links: 
-  - name: BCDA Data
-    url: /bcda-data.html
-    
-    children:
-      - name: Guide to Partially Adjudicated Claims Data
-        url: /bcda-data/partially-adjudicated-claims-data.html
-
-      - name: Comparison of BCDA and CCLF
-        url: /bcda-data/comparison-bcda-cclf-files.html
-
-      - name: Difference Between V1 and V2
-        url: /bcda-data/difference-between-v1-v2.html
 ---
 
 # {{ page.page_title }}
