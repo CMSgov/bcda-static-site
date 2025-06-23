@@ -9,7 +9,13 @@ layout: api-docs
   <span class="padding-left-05">Back to announcements</span>
 </a>
 
-<h1 class="margin-top-3">{{ page.page_title }}</h1>
-<p class="margin-top-105 text-base">{{ page.published_date | date_to_string: "ordinal", "US" }}</p>
+<div>
+  <h1 class="margin-top-3">{{ page.page_title }}</h1>
+  <p class="margin-top-105 text-base">{{ page.published_date | date_to_string: "ordinal", "US" }}</p>
+</div>
+
+{% if page.lead_paragraph %}
+<p class="usa-intro">{{page.lead_paragraph}}</p>
+{% endif %}
 
 <div class="usa-prose margin-top-5">{{ content }}</div>
