@@ -12,10 +12,14 @@ on:
         required: false
         type: string
 
+env:
+  TARGET_ENV: 'stage'
+  # RELEASE_VERSION: ${{ inputs.static_repo_ref || 'main' }}
+
 jobs:
   deploy-dev:
-    runs-on: self-hosted
-    if: ${{ !startsWith(github.actor, 'bot-') }}
+    runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
+    if: github.actor != 'dependabot[bot]'
 
     steps:
       - name: Checkout
@@ -56,17 +60,35 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: ${{ vars.AWS_REGION }}
-          role-to-assume: arn:aws:iam::${{ secrets.ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-dev-github-actions
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-dev-github-actions
+      
+      - name: Set env vars from AWS params
+        uses: cmsgov/ab2d-bcda-dpc-platform/actions/aws-params-env-action@main
+        env:
+          AWS_REGION: ${{ vars.AWS_REGION }}
+        with:
+          params: |
+            TARGET_BUCKET=/bcda/dev/static_site
+
+      # - name: Run quality gate scan
+      #   if: ${{ env.TARGET_ENV == 'stage' }}
+      #   uses: sonarsource/sonarqube-scan-action@master
+      #   with:
+      #     args:
+      #       -Dsonar.projectKey=bcda-aco-static-site
+      #       -Dsonar.sources=.
+      #       -Dsonar.working.directory=./sonar_workspace
+      #       -Dsonar.branch.name=${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
+      #       -Dsonar.projectVersion=${{ github.ref_name == 'main' && github.sha || 'branch' }}
+      #       -Dsonar.exclusions=ops/**,scripts/**,node_modules/**
+      #       -Dsonar.qualitygate.wait=true
+      #       -Dsonar.ci.autoconfig.disabled=true
 
       - name: Copy site to Dev Bucket
         run: |
-          aws s3 sync _site/ s3://stage.bcda.cms.gov/${{ inputs.deploy_path }}/ --delete
+          aws s3 sync _site/ s3://$TARGET_BUCKET/${{ inputs.deploy_path }}/ --delete
       
-      - name: Get CloudFront Distribution ID
+      - name: Invalidate Cloudfront cache
         run: |
-          DISTRIBUTION_ID=$(aws cloudfront list-distributions --query "DistributionList.Items[?Origins.Items[0].DomainName=='stage.bcda.cms.gov.s3.us-east-1.amazonaws.com'].Id" --output text)
-          echo "DISTRIBUTION_ID=$DISTRIBUTION_ID" >> $GITHUB_ENV
-      
-      - name: Invalidate Dev Distribution
-        run: |
+          DISTRIBUTION_ID=`aws cloudfront list-distributions --query "DistributionList.Items[].{Id:Id, OriginId: Origins.Items[0].Id}[?OriginId=='$TARGET_BUCKET'].Id" --output text`
           aws cloudfront create-invalidation --distribution-id "$DISTRIBUTION_ID" --paths "/*"
