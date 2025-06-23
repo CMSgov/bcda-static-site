@@ -66,10 +66,7 @@ BCDA uses the <a href="https://www.cms.gov/priorities/key-initiatives/burden-red
       </tbody>
       <tbody>
         <tr>
-          <th>CMS models supported</th>
-          <th>
-            <span class="usa-sr-only">CMS models supported</span>
-          </th>
+          <th scope="rowgroup" colspan="2">CMS models supported</th>
         </tr>
         <tr>
             <td style="vertical-align: baseline; padding: 1rem;">
