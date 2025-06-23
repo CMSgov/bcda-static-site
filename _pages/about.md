@@ -7,49 +7,19 @@ show-side-nav: false
 ---
 
 <div class="grid-row grid-gap-4 flex-align-center">
-  <div class="tablet:grid-col-5 tablet:order-2 margin-y-2">
+  <div class="tablet:grid-col-5 tablet:order-2 margin-top-10 padding-y-1">
     <img src="{{ '/assets/img/data-consult.svg' | relative_url }}" alt="data consult illustration" class="padding-x-4"/>
   </div>
   <div class="tablet:grid-col tablet:order-1" >
     <h1>{{ page.page_title }}</h1>
     <p>
-        Beneficiary Claims Data API (BCDA) was released in February 2019 to share Medicare Parts A, B, and D data, including from <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims</a>.
+        Beneficiary Claims Data API (BCDA) was released in February 2019 to share Medicare claims data with Accountable Care Organizations (ACOs) and other <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">eligible model entities</a>. 
     </p>
     <p>
-        BCDA allows <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">eligible model entities</a> to track performance metrics, identify high-risk patients sooner, and improve transition of care.
+        Similar to CCLF, BCDA offers Medicare Parts A, B, and D data, but with some key differences in formatting and update frequency. <a href="{{ '/bcda-data/comparison-bcda-cclf-files.html' | relative_url }}">Read more about using one or both data sources</a>, or map data between sources using the <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}">Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>.
     </p>
   </div>
 </div>
-
-<table class="usa-table usa-table--borderless usa-table--stacked">
-  <caption class="usa-sr-only">Definitions of Part A, Part B, and Part D claims data</caption>
-  <thead>
-    <tr>
-      <th scope="col">Data type</th>
-      <th scope="col">Definition</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Medicare Part A claims data</th>
-      <td>
-        Inpatient hospital stays, care in skilled nursing facilities, and hospice care
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Medicare Part B claims data</th>
-      <td>
-        Doctors' services, outpatient care, medical supplies, and preventive services
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Medicare Part D claims data</th>
-      <td>
-        Prescription drugs prescribed by healthcare providers          
-      </td>
-    </tr>
-  </tbody>
-</table>
 
 ## Claims data process
 
@@ -98,7 +68,7 @@ show-side-nav: false
         </div>
         <div class="usa-card__body">
           <p>
-            The AB2D API provides stand-alone Prescription Drug Plan sponsors with claims data to enhance the use of medications and improve the long term health of enrollees.
+            The AB2D API provides stand-alone Prescription Drug Plan sponsors with claims data to enhance the use of medication and improve the long term health of enrollees.
           </p>
         </div>
         <div class="usa-card__footer">

@@ -21,37 +21,7 @@ sidebar-links:
 
 # {{ page.page_title }}
 
-Beneficiary Claims Data API (BCDA) updates partially adjudicated claims data daily and adjudicated claims data weekly. Data includes:
-
-<table class="usa-table usa-table--borderless usa-table--stacked margin-bottom-4">
-  <caption class="usa-sr-only">Definitions of Part A, B, and D claims data</caption>
-  <thead>
-    <tr>
-      <th scope="col">Data type</th>
-      <th scope="col">Definition</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Medicare Part A claims data</th>
-      <td>
-        Inpatient hospital stays, care in skilled nursing facilities, and hospice care
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Medicare Part B claims data</th>
-      <td>
-        Doctors' services, outpatient care, preventive services, and durable medical equipment (DME)
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Medicare Part D claims data</th>
-      <td>
-         Prescription drugs prescribed by healthcare providers
-      </td>
-    </tr>
-  </tbody>
-</table>
+Beneficiary Claims Data API (BCDA) uses <a href="https://hl7.org/fhir/uv/bulkdata/" target="_blank" rel="noopener noreferrer">Bulk Fast Healthcare Interoperability Resources (FHIR)</a> to share claims data.
 
 ## Data Dictionary
 
@@ -109,6 +79,40 @@ Download sample data files, which share similar content and structure to product
     </ul>
   </div>
 </div>
+
+## Data overview
+
+Beneficiary Claims Data API (BCDA) updates partially adjudicated claims data daily and adjudicated claims data weekly. Data includes:
+
+<table class="usa-table usa-table--borderless usa-table--stacked margin-bottom-4">
+  <caption class="usa-sr-only">Definitions of Part A, B, and D claims data</caption>
+  <thead>
+    <tr>
+      <th scope="col">Data type</th>
+      <th scope="col">Definition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Medicare Part A claims data</th>
+      <td>
+        Inpatient hospital stays, care in skilled nursing facilities, and hospice care
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Medicare Part B claims data</th>
+      <td>
+        Doctors' services, outpatient care, preventive services, and durable medical equipment (DME)
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Medicare Part D claims data</th>
+      <td>
+         Prescription drugs prescribed by healthcare providers
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ## Resource types
 
