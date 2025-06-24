@@ -77,7 +77,7 @@ Use the [_type parameter]({{ '/api-documentation/filter-claims-data.html' | rela
 
 #### Request header
 
-The header must contain your bearer token. You may receive a 401 response if your credentials are invalid or expired. 
+The header must contain your bearer token. You may receive a 401 response if your credentials are invalid or expired. “Bearer” must be included in the header with a capital B and followed by a space.
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}

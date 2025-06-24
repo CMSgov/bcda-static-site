@@ -16,31 +16,31 @@ Bearer tokens, also known as access tokens or JSON web tokens, authorize use of 
 
 BCDA protects its token endpoint with Basic Auth. Your credentials will be formatted as a client ID and client secret.
 - **Sandbox environment**: Use a sample client ID and secret from the [sandbox credentials section]({{ '/api-documentation/get-a-bearer-token.html' | relative_url }}#sandbox-credentials).
-- **Production environment**: Use the client ID and secret issued by your model-specific system during [production access]({{ '/production-access.html' | relative_url }}).
+- **Production environment**: Use the client ID and secret issued by your model-specific system during [production access]({{ '/production-access.html' | relative_url }}). Credentials must be rotated (renewed) every 90 days. 
 
 ### 2. Request a bearer token
 
-Start a request in your terminal window or using a tool like Postman.
+<div class="usa-alert usa-alert--warning usa-alert--slim">
+    <div class="usa-alert__body">
+        <p class="usa-alert__text">Bearer tokens <a href="">expire</a> 20 minutes after they are generated.</p>
+    </div>
+</div>
+
+Start a request for a bearer token in your terminal window or using a tool such as Postman. For the examples below, you may use the credentials for the extra-small model entity in BCDA's sandbox environment:
+
+#### Sample Credentials
+
+Example Client ID (Extra-Small Model Entities):
+
+{% include copy_snippet.html code=site.data.credentials.sandbox.extra_small.client_id language="yaml" can_copy=true %}
+
+Example Client Secret (Extra-Small Model Entities):
+
+{% include copy_snippet.html code=site.data.credentials.sandbox.extra_small.client_secret language="yaml" can_copy=true %}
 
 #### Request to retrieve a token
 
 {% include copy_snippet.html code="POST /auth/token" language="shell" %}
-
-<div class="usa-alert usa-alert--warning usa-alert--slim">
-    <div class="usa-alert__body">
-        <p class="usa-alert__text">Bearer tokens expire 20 minutes after they are generated.</p>
-    </div>
-</div>
-
-#### Request header
-
-The header has “Authorization: Basic” followed by the credentials. Credentials (clientID:secret) are joined by a colon, then encoded in Base64 format.
-
-{% capture Snippet3 %}{% raw %}
-Authorization: Basic {base64_encoded_credentials}
-Accept: application/json
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=Snippet3 language="yaml" %}
 
 #### Example curl command to request a bearer token
 
@@ -79,17 +79,11 @@ If your request succeeds, you’ll receive a 200 response with your bearer token
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=Snippet5 language="json" %}
 
-### 3. Set your bearer token in your request headers
-
-Include your bearer token in the authorization header when requesting data in the sandbox and production environments. “Bearer” must be included in the header with a capital B and followed by a space.
-
-{% include copy_snippet.html code="Authorization: Bearer {bearer_token}" language="yaml" %}
-
-Now you can begin [accessing claims data]({{ '/api-documentation/access-claims-data.html' | relative_url }}). The production and sandbox environments support the same workflow, endpoints, and resource types.  
+Now you can begin [acessing claims data]({{ '/api-documentation/access-claims-data.html' | relative_url }}). The sandbox and production environments support the same workflow, endpoints, parameters, and resource types. 
 
 ## Sandbox credentials
 
-Sandbox credentials allow anyone to access test claims data. These credentials will not work in the production environment. 
+Sandbox credentials allow anyone to access synthetic test claims data. These credentials will not work in the production environment. 
 
 Sample data sets vary in size and data complexity, ranging from 50 to 30,000 synthetic enrollees, to best match the needs of your model entity.  
 
@@ -165,3 +159,31 @@ Client ID:
 Client secret:
 
 {% include copy_snippet.html code=site.data.credentials.enhancement.large.client_secret language="yaml" can_copy=true %}
+
+## Troubleshooting
+
+<dl class="margin-top-4">
+  <dt class="font-sans-md text-bold" id="URL">
+    Remember to use the correct URL for your environment. 
+  </dt>
+  <dd class="margin-left-0 margin-bottom-4"> 
+    <p>Use sandbox.bcda.cms.gov to access the sandbox or api.bcda.cms.gov to access the production environment.</p>
+  </dd> 
+
+  <dt class="font-sans-md text-bold" id="URL">
+    Ensure that your production credentials are not expired.
+  </dt>
+  <dd class="margin-left-0 margin-bottom-4"> 
+    <p>Credentials must be rotated (renewed) every 90 days. <a href="">Learn more about credentials and production access</a>.</p>
+  </dd> 
+
+<dt class="font-sans-md text-bold" id="URL">
+    Ensure that your bearer token is not expired. Bearer tokens expire after 20 minutes. 
+  </dt>
+  <dd class="margin-left-0 margin-bottom-4"> 
+    <ul>
+        <li>In progress and queued jobs will not be interrupted when the bearer token expires.</li>
+        <li>You do <strong>not</strong> need to start a new job if your bearer token expires and your job was completed in the last 24 hours. You can get a new bearer token and use it to download files from the previous job. Files are archived 24 hours after the job completes.</li>
+    </ul>
+  </dd>   
+</dl>
