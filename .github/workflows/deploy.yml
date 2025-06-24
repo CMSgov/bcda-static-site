@@ -68,7 +68,7 @@ jobs:
           AWS_REGION: ${{ vars.AWS_REGION }}
         with:
           params: |
-            TARGET_BUCKET=/bcda/dev/static_site
+            TARGET_BUCKET=/bcda/stage/static_site
 
       # - name: Run quality gate scan
       #   if: ${{ env.TARGET_ENV == 'stage' }}
