@@ -22,20 +22,8 @@ jobs:
     if: github.actor != 'dependabot[bot]'
 
     steps:
-      - name: Debug
-        run: |
-          which ruby
-          ruby -v
-          which gem
-          echo $PATH
-
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Install project dependencies
-        run: |
-          sudo dnf -y install ruby3.2 ruby3.2-devel openssl-devel amazon-rpm-config gcc-c++ openssl
-          source /etc/profile.d/bundler.sh 
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
