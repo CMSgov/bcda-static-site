@@ -56,49 +56,52 @@ show-side-nav: false
 <h2 class="margin-top-8">Access partially adjudicated claims data with BCDA</h2>
 
 <table class="usa-table usa-table--borderless usa-table--stacked margin-bottom-4">
-  <caption class="usa-sr-only">Definitions of Part A, B, and D claims data</caption>
+  <caption class="usa-sr-only">Partially versus fully adjudcated claims data</caption>
   <thead>
     <tr>
-      <th scope="col"></th>
       <th scope="col">Partially adjudcated claims</th>
       <th scope="col">Fully adjudicated claims</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">Update frequency</th>
-      <td>
-        Daily
+    <tr scope="row">
+      <td data-label="Partially adjudcated claims">
+        Update daily
       </td>
-      <td>
-        Weekly
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Resource types</th>
-      <td>
-        Claim, ClaimResponse
-      </td>
-      <td>
-        ExplanationOfBenefit, Patient, Coverage
+      <td data-label="Fully adjudcated claims">
+        Update weekly
       </td>
     </tr>
-    <tr>
-      <th scope="row">Eligible organizations</th>
-      <td>
-          <a href="https://www.cms.gov/priorities/innovation/innovation-models/aco-reach" target="_blank" rel="noopener noreferrer">ACO REACH</a> participants only
+    <tr scope="row">
+      <td data-label="Partially adjudcated claims">
+          Available to <a href="https://www.cms.gov/priorities/innovation/innovation-models/aco-reach" target="_blank" rel="noopener noreferrer">ACO REACH</a> participants only
       </td>
-      <td>
-          All <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">eligible model entities</a>
+      <td data-label="Fully adjudcated claims">
+          Available to all <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">eligible model entities</a>
       </td>
     </tr>
-        <tr>
-      <th scope="row">Data Dictonary</th>
-      <td>
-         Partially adjudicated claims Data Dictionary
+    <tr scope="row">
+      <td data-label="Partially adjudcated claims">
+        Requires V2
       </td>
-      <td>
-        <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}"> BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>.
+      <td data-label="Fully adjudcated claims">
+        Available with V1 or V2
+      </td>
+    </tr>
+    <tr scope="row">
+      <td data-label="Partially adjudcated claims">
+        Contain Claim and ClaimResponse resource types
+      </td>
+      <td data-label="Fully adjudcated claims">
+        Contain all resource types
+      </td>
+    </tr>
+    <tr scope="row">
+      <td data-label="Partially adjudcated claims">
+         <a href="{{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}">Partially Adjudicated Claims Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a>
+      </td>
+      <td data-label="Fully adjudcated claims">
+        <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}"> BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>
       </td>
     </tr>
   </tbody>
