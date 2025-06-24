@@ -14,7 +14,7 @@ on:
 
 jobs:
   promote:
-    runs-on: self-hosted
+    runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
     steps:
 
       - name: Configure AWS Credentials

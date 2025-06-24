@@ -18,17 +18,16 @@ env:
 
 jobs:
   deploy-dev:
-    runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
     if: github.actor != 'dependabot[bot]'
+    environment: 'stage'
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Install project dependencies
-        run: |
-          sudo dnf -y install ruby3.2 ruby3.2-devel openssl-devel amazon-rpm-config gcc-c++ openssl
-          source /etc/profile.d/bundler.sh 
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -69,7 +68,7 @@ jobs:
           AWS_REGION: ${{ vars.AWS_REGION }}
         with:
           params: |
-            TARGET_BUCKET=/bcda/dev/static_site
+            TARGET_BUCKET=/bcda/stage/static_site
 
       # - name: Run quality gate scan
       #   if: ${{ env.TARGET_ENV == 'stage' }}
