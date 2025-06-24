@@ -4,10 +4,8 @@ page_title: "Normal data availability resumed for 2025 claims"
 show-side-nav: false
 in-page-nav: true
 published_date: 2024-11-18
-
-description: "We’re excited to announce the launch of a new BCDA.cms.gov based on your feedback, user research, and testing."
-custom_excerpt: "We’re excited to announce the launch of a new BCDA.cms.gov based on your feedback, user research, and testing."
-lead_paragraph: "We’re excited to announce the launch of a new BCDA.cms.gov based on your feedback, user research, and testing."
+description: "BCDA posts updated information about managing credentials in 4i and ACO-MS."
+lead_paragraph: "New information about managing your credentials in 4i and ACO-MS."
 ---
 
 The BCDA team has updated our guidance for model entities managing their BCDA credentials in 4i and ACO-MS. Review manage your BCDA Credentials for model-specific instructions. 

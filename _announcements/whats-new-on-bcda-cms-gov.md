@@ -1,12 +1,12 @@
 ---
 layout: announcement
 page_title: "What’s new on BCDA.cms.gov"
-description: "We're excited to announce the launch of a new BCDA.cms.gov based on your feedback, user research, and testing."
+description: "The new BCDA site makes it easier and faster to find documentation, learn how to get production credentials, explore use cases, and get tips and troubleshooting."
 show-side-nav: false
 in-page-nav: true
 published_date: 2025-05-07
-custom_excerpt: "We're excited to announce the launch of a new BCDA.cms.gov based on your feedback, user research, and testing."
-lead_paragraph: "We're excited to announce the launch of a new BCDA.cms.gov based on your feedback, user research, and testing."
+lead_paragraph: "Announcing the new BCDA.cms.gov: an easier way to learn about and get started with Beneficiary Claims Data API (BCDA)."
+
 ---
 
 We're excited to announce the launch of a new BCDA.cms.gov. Based on feedback, user research, and testing, the new site:

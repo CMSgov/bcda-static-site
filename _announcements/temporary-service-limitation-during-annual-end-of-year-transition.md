@@ -1,14 +1,14 @@
 ---
 layout: announcement
 page_title: "Temporary service limitation during annual end-of-year transition"
-description: "We’re excited to announce the launch of a new BCDA.cms.gov based on your feedback, user research, and testing."
 show-side-nav: false
 in-page-nav: true
 published_date: 2024-12-03
-custom_excerpt: "We’re excited to announce the launch of a new BCDA.cms.gov based on your feedback, user research, and testing."
+description: "BCDA unavailable between Jan 1, 2025 and Feb 13, 2025 due to end-of-year transition."
+lead_paragraph: "Some data unavailable between Jan 1, 2025 and February 13, 2025 during end-of-year maintenance."
 ---
 
-Current or new claims data will be unavailable between January 1, 2025 and <date> due to yearly maintenance. 
+Current or new claims data will be unavailable between January 1, 2025 and February 13, 2025 due to yearly maintenance. 
 
 This limitation occurs while CMS updates attribution for the new performance year (PY 2025). 
 
@@ -18,7 +18,7 @@ Data will be available again after BCDA receives each organization’s attributi
 
 - You will only be able to request runout data from BCDA from PY 2024. Use the `runout` identifier with the `/Group` endpoint to return data for enrollees attributed to your organization in PY 2024. 
   - Claims with a service date in 2025 will be excluded. The claims returned will have a service date no later than December 31, 2024. 
-  - You can use the _since parameter with the runout identifier to limit data to updates occurring since your last runout request.
+  - You can use the [_since parameter]({{ "/api-documentation/filter-claims-data.html#the-_since-parameter" | relative_path}}) with the runout identifier to limit data to updates occurring since your last runout request.
   - Review our documentation and example requests for runout data. 
 - You won’t be able to make requests to the `/Group/all` or `/Patient` endpoints. These requests will result in an OperationOutcome error.
 

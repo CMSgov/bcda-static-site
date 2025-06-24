@@ -1,11 +1,11 @@
 ---
 layout: announcement
 page_title: "Normal data availability resumed for 2025 claims"
-description: "We’re excited to announce the launch of a new BCDA.cms.gov based on your feedback, user research, and testing."
 show-side-nav: false
 in-page-nav: true
 published_date: 2025-02-13
-custom_excerpt: "We’re excited to announce the launch of a new BCDA.cms.gov based on your feedback, user research, and testing."
+description: "Normal BCDA operations resume after end-of-year transition."
+lead_paragraph: "Access to all PY 2025 data restored."
 ---
 
 Now that annual maintenance is complete, you’ll have access to all PY 2025 data using the `/Group/all` and `/Patient` endpoints. 
