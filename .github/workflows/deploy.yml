@@ -18,8 +18,12 @@ env:
 
 jobs:
   deploy-dev:
-    runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
     if: github.actor != 'dependabot[bot]'
+    environment: 'stage'
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
 
     steps:
       - name: Checkout
