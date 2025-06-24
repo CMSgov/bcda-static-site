@@ -38,6 +38,7 @@ jobs:
      
       - name: Install jekyll and bundler
         run: |
+          source /etc/profile.d/bundler.sh 
           gem install bundler
           bundle install
   
