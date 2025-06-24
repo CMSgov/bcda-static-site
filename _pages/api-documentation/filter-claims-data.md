@@ -44,6 +44,17 @@ GET /api/v2/Group/all/$export?_type=Claim,ClaimResponse
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
+<h3 class="font-ui-sm">Example curl command using _type</h3>
+
+{% capture curlSnippet %}{% raw %}
+curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=ExplanationOfBenefit,Patient" \
+    -H "Accept: application/fhir+json" \
+    -H "Prefer: respond-async" \
+    -H "Authorization: Bearer {bearer_token}" \
+    -i
+{% endraw %}{% endcapture %}
+{% include copy_snippet.html code=curlSnippet language="shell" %}
+
 ## The _since parameter
 
 The _since parameter lets you filter for claims data last updated after a specified date. Dates must be in the [FHIR standard instant format](https://www.hl7.org/fhir/datatypes.html#instant) (YYYY-MM-DDThh:mm:sss+zz:zz). 
