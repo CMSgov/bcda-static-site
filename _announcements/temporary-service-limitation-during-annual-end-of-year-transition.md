@@ -6,6 +6,7 @@ in-page-nav: true
 published_date: 2024-12-03
 description: "BCDA unavailable between Jan 1, 2025 and Feb 13, 2025 due to end-of-year transition."
 lead_paragraph: "Some data unavailable between Jan 1, 2025 and February 13, 2025 during end-of-year maintenance."
+custom_excerpt: "Some data unavailable between Jan 1, 2025 and February 13, 2025 during end-of-year maintenance."
 ---
 
 Current or new claims data will be unavailable between January 1, 2025 and February 13, 2025 due to yearly maintenance. 
@@ -43,4 +44,4 @@ Normal functionality will be restored to individual entities as soon as their da
 
 We’ll post an update here and in the Google Group when the limitation ends for each supported model. Thanks for your patience!
 
-Post or send any questions in the <a href="https://groups.google.com/g/bc-api" target="_blank" rel="nofollow noreferrer">Google Group</a> or contact [bcapi@cms.hhs.gov](mailto:bcapi@cms.hhs.gov).
+Post or send any questions to the <a href="https://groups.google.com/g/bc-api" target="_blank" rel="nofollow noreferrer">Google Group</a> or contact [bcapi@cms.hhs.gov](mailto:bcapi@cms.hhs.gov).

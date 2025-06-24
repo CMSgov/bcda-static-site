@@ -5,8 +5,8 @@ description: "The new BCDA site makes it easier and faster to find documentation
 show-side-nav: false
 in-page-nav: true
 published_date: 2025-05-07
-lead_paragraph: "Announcing the new BCDA.cms.gov: an easier way to learn about and get started with Beneficiary Claims Data API (BCDA)."
-
+lead_paragraph: "The new BCDA.cms.gov offers an easier way to get started with Beneficiary Claims Data API (BCDA). "
+custom_excerpt: "The new BCDA.cms.gov offers an easier way to get started with Beneficiary Claims Data API (BCDA). "
 ---
 
 We're excited to announce the launch of a new BCDA.cms.gov. Based on feedback, user research, and testing, the new site:
