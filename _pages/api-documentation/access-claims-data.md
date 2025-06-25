@@ -36,7 +36,6 @@ The sandbox and production environments follow similar instructions. They suppor
   </tbody>
 </table>
 
-
 <div class="usa-alert usa-alert--info">
     <div class="usa-alert__body">
         <p class="usa-alert__heading text-bold">BCDA recommends using V2 of the API</p>
@@ -52,61 +51,44 @@ The sandbox and production environments follow similar instructions. They suppor
 
 You will need a [bearer token]({{ '/api-documentation/get-a-bearer-token.html' | relative_url }}) to call the API. The process requires credentials, which are formatted as a client ID and client secret. 
 
+<!-- Bearer tokens [expire]({{ '/api-documentation/get-a-bearer-token.html#troubleshooting' | relative_url }}) 20 minutes after they are generated. In progress and queued jobs will not be interrupted when the bearer token expires.
+ -->
 ### 2. Start a job 
+
+Make a GET request to the /Group or /Patient endpoint to start a data export job. Follow along in your terminal or using a tool like Postman.
 
 <div class="usa-alert usa-alert--warning usa-alert--no-icon">
     <div class="usa-alert__body">
-        <p class="usa-alert__text text-bold">Remember to use the correct URL for your environment</p>
-        <p class="usa-alert__text">Use sandbox.bcda.cms.gov to access the sandbox or api.bcda.cms.gov to access the production environment.</p>
+      <p class="usa-alert__text text-bold">Bearer tokens <a href="{{ '/api-documentation/get-a-bearer-token.html#troubleshooting' | relative_url }}">expire</a> after 20 minutes.</p>
+      <p class="usa-alert__text">You will need to get a new bearer token if it’s been over 20 minutes since it was generated. This will not interrupt in progress or queued jobs.</p>
     </div>
 </div>
 
-Make a `GET` request to the /Group or /Patient endpoint to start a data export job. The examples below are sandbox curl requests to /Group. Follow along in your terminal or using a tool like Postman.
 
-#### Request all resource types 
+#### Request all resource types
 
-By default, the GET request returns all available [resource types]({{ '/bcda-data.html#resource-types' | relative_url }}). 
+By default, the GET request returns all available [resource types]({{ '/bcda-data.html#resource-types' | relative_url }}). Use the [_type parameter]({{ '/api-documentation/filter-claims-data.html#the-type-parameter' | relative_url }}) to specify which resource types you’d like returned, or [learn more about how to filter claims data.]({{ '/api-documentation/filter-claims-data.html' | relative_url }})
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 GET /api/v2/Group/all/$export
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
-Use the [_type parameter]({{ '/api-documentation/filter-claims-data.html' | relative_url }}) to specify which resource types you’d like returned. 
-
-#### Request header
-
-The header must contain your bearer token. You may receive a 401 response if your credentials are invalid or expired. “Bearer” must be included in the header with a capital B and followed by a space.
-
-<!-- snippet -->
-{% capture curlSnippet %}{% raw %}
-Authorization: Bearer {bearer_token}
-Accept: application/fhir+json
-Prefer: respond-async
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="yaml" %}
-
-<div class="usa-alert usa-alert--warning usa-alert--slim">
-    <div class="usa-alert__body">
-        <p class="usa-alert__text">Bearer tokens expire 20 minutes after they are generated.</p>
-    </div>
-</div>
-
 #### Example curl commands to start a job 
 
-<ul>
-    <li>Combine your GET request for resources with the request header.</li>
-    <li>The dollar sign ($) before "export" in the URL indicates the endpoint is an <a href="https://hl7.org/fhir/R4/operations.html" target="_blank" rel="noopener noreferrer">operation</a>, rather than a CRUD interaction. </li>
-    <li>PowerShell users will need to replace backslash characters (\) with backticks (`) to properly escape the $export operation.</li>
-</ul>
+The examples below are sandbox curl requests to /Group. If you are using the production envrionment instead of the sandbox, remember to use the production URL: api.bcda.cms.gov.
+
+- The dollar sign `$` before export in the URL indicates the endpoint is an [operation](https://hl7.org/fhir/R4/operations.html), rather than a CRUD interaction.
+- PowerShell users will need to replace backslash characters `\` with backticks <code>`</code> to properly escape the `$export` operation.
+- `-i` can be used to see the job ID.
 
 <!-- snippet x3 -->
 {% capture curlSnippet %}{% raw %}
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export" \
     -H "Accept: application/fhir+json" \
     -H "Prefer: respond-async" \
-    -H "Authorization: Bearer {bearer_token}"
+    -H "Authorization: Bearer {bearer_token}" \
+    -i
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
@@ -114,7 +96,8 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export" \
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=ExplanationOfBenefit,Patient" \
     -H "Accept: application/fhir+json" \
     -H "Prefer: respond-async" \
-    -H "Authorization: Bearer {bearer_token}"
+    -H "Authorization: Bearer {bearer_token}" \
+    -i
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
@@ -122,23 +105,16 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=Explan
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=Patient" \
     -H "Accept: application/fhir+json" \
     -H "Prefer: respond-async" \
-    -H "Authorization: Bearer {bearer_token}"
+    -H "Authorization: Bearer {bearer_token}" \
+    -i
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
 #### Response example: successful request
 
-A 202 response with a Content-Location header indicates a successful request.
+A `202 Accepted` response with a Content-Location header indicates a successful request. 
 
-<!-- Snippet -->
-{% capture curlSnippet %}{% raw %}
-202 Accepted
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
-
-#### Response header example
-
-You’ll need the job ID in the Content-Location header to check your job status. 
+Next, you’ll need the job ID in the Content-Location header to check your job status. 
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -148,47 +124,27 @@ Content-Location: https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}
 
 #### Response example: too many requests
 
-A 429 response indicates “Too Many Requests.” This can occur due to 2 reasons:
+A `429 Too Many Requests` response can occur due to 2 reasons:
 
 1. Making too many HTTP requests within a period of time
 2. Trying to recreate jobs already marked as "In-Progress.” For reference, you can view both existing and past jobs using the [/jobs endpoint]({{ '/api-documentation/access-claims-data.html' | relative_url }}#request-job-history). 
 
-<!-- snippet -->
-{% capture curlSnippet %}{% raw %}
-429 Too Many Requests
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
-
-Wait until the period of time specified in the “Retry-After” header passes before making any more requests. This makes sure your client can adapt without manual intervention, even if the rate-limiting parameters change.
-
-<!-- snippet -->
-{% capture curlSnippet %}{% raw %}
-Retry-After: <delay-seconds>
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+Wait until the period of time specified in the `Retry-After: <delay-seconds>` header passes before making any more requests. This makes sure your client can adapt without manual intervention, even if the rate-limiting parameters change.
 
 ### 3. Check job status
 
-Make a `GET` request to check the status using the job ID from step 2. You may need another bearer token if it’s been over 20 minutes since it was generated.
+Make a GET request to check the status using the job ID from step 2. 
+
+You will need to [get a new bearer token]({{ '/api-documentation/get-a-bearer-token.html#troubleshooting' | relative_url }}) if it’s been over 20 minutes since it was generated. This will not interrupt in progress or queued jobs. 
 
 #### Request to check the job status
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 GET https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
-#### Request header
-
-<!-- snippet -->
-{% capture curlSnippet %}{% raw %}
-Authorization: Bearer {bearer_token}
-Accept: application/fhir+json
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="yaml" %}
-
-#### curl command to check the job status
+#### Example curl command to check the job status
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -200,13 +156,7 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}" \
 
 #### Response example: incomplete job
 
-A 202 response indicates your job is still processing. The status will change to 200 OK when the export is complete and the data is ready for download.
-
-<!-- snippet -->
-{% capture curlSnippet %}{% raw %}
-202 Accepted
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+A `202 Accepted` response indicates your job is still processing. The status will change to `200 OK` when the export is complete and the data is ready for download.
 
 #### Response header example: incomplete job
 
@@ -220,16 +170,9 @@ X-Progress: In Progress, 80%
 
 #### Response example: completed job
 
-You’ll receive a 200 OK response with the output URL(s) needed to download the data. In the example URLs below, 42 indicates the job ID. 
+You’ll receive a `200 OK` response with the output URL(s) needed to download the data. In the example URLs below, 42 indicates the job ID. 
 
 There is a separate URL for each resource type requested. The following example shows a request for all resource types for adjudicated claims data.
-
-<div class="usa-alert usa-alert--warning usa-alert--no-icon">
-    <div class="usa-alert__body">
-        <p class="usa-alert__text text-bold">Files expire after 24 hours</p>
-        <p class="usa-alert__text">You will have 24 hours after a job completes to download the data. Otherwise, the file(s) will expire and you will need to restart the job.</p>
-    </div>
-</div>
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -259,9 +202,18 @@ There is a separate URL for each resource type requested. The following example 
 
 ### 4. Download the data
 
-Make a `GET` request to download your data using the URL(s) from step 3. 
+Make a GET request to download your data using the URL(s) from step 3. 
+
+You will need to [get a new bearer token]({{ '/api-documentation/get-a-bearer-token.html#troubleshooting' | relative_url }}) if it’s been over 20 minutes since it was generated. This will not interrupt in progress or queued jobs. 
 
 If you're downloading from more than 1 URL, make multiple download requests concurrently to save time. Large files may take significantly longer to download. 
+
+<div class="usa-alert usa-alert--warning usa-alert--no-icon">
+    <div class="usa-alert__body">
+        <p class="usa-alert__text text-bold">Files expire after 24 hours</p>
+        <p class="usa-alert__text">You will have 24 hours after a job completes to download the data. Otherwise, the files will expire and you will need to restart the job.</p>
+    </div>
+</div>
 
 #### Request to download the data
 
@@ -271,18 +223,8 @@ GET https://sandbox.bcda.cms.gov/data/{job_id}/{file_name}
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
-#### Request header: compressed data files
-
+#### Example curl command to download the data
 Request compressed data files with the optional `Accept-Encoding: gzip` header in your requests for faster download times. Afterward, decompress (unzip) the files into NDJSON format. 
-
-<!-- snippet -->
-{% capture curlSnippet %}{% raw %}
-Authorization: Bearer {bearer_token}
-Accept-Encoding: gzip
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="yaml" %}
-
-#### curl command to download the data
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -298,7 +240,7 @@ If some of the data can’t be exported due to errors, details can be found at t
 
 By default, you’ll receive the requested data as FHIR resources in NDJSON format. Each resource will appear as a separate, labeled file. 
 
-<div class="usa-alert usa-alert--info usa-alert--slim">
+<div class="usa-alert usa-alert--info usa-alert--slim usa-alert--no-icon">
     <div class="usa-alert__body">
         <p class="usa-alert__text">Test data from the sandbox contains only negative Patient IDs.</p>
     </div>
