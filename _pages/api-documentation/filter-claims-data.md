@@ -72,7 +72,7 @@ The _since parameter lets you filter for claims data last updated after a specif
 
 We recommend new model entities run an unfiltered request for all historical data before using _since subsequently for incremental exports of new data. You can use the transactionTime from your most recent job as the specified date.
 
-The _since parameter can be used with /Group or /Patient, but each endpoint will return data for newly attributed enrollees differently:
+The _since parameter can be used with /Group or /Patient, but each endpoint will return data for newly attributed enrollees differently.
 
 ### Using _since with /Patient 
 
@@ -131,9 +131,9 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=Patien
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
 
-## The `runout` identifier
+## The \`runout` identifier
 
-The `runout` identifier lets you request runouts data for enrollees attributed to your model entity the previous year, but not the current year. Claims data returned will have a service date no later than December 31 of the previous year.
+The \`runout` identifier lets you request runouts data for enrollees attributed to your model entity the previous year, but not the current year. Claims data returned will have a service date no later than December 31 of the previous year.
 
 The examples below are GET requests made to the /Group endpoint. 
 
