@@ -2,7 +2,7 @@
 layout: api-docs
 page_title: "BCDA Data"
 seo_title: ""
-description: "Explore BCDA’s Medicare Parts A, B, and D data, including the Data Dictionary, sample files, resource types, and partially adjudicated claims data."
+description: "Explore BCDA's Medicare Parts A, B, and D data, including the Data Dictionary, sample files, resource types, and partially adjudicated claims data."
 in-page-nav: true
 sidebar-links: 
   - name: BCDA Data
@@ -73,7 +73,7 @@ The Data Dictionary maps the different data fields and locations between BCDA an
 
 ## Partially adjudicated claims data
 
-REACH ACOs can access claims that aren’t fully processed or approved yet. **This reduces the time to access Parts A and B claims data to 2-4 days after submission.**
+REACH ACOs can access claims that aren't fully processed or approved yet. **This reduces the time to access Parts A and B claims data to 2-4 days after submission.**
 
 <div class="grid-row grid-gap margin-y-4 flex-align-center">
   <div class="grid-col-12 mobile-lg:grid-col-auto">

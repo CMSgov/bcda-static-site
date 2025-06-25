@@ -28,7 +28,7 @@ in-page-nav: true
     </p>
     <ul>
         <li>whether this is a sandbox or production API request</li>
-        <li>your organization’s 5 character entity ID or sandbox data set</li>
+        <li>your organization's 5 character entity ID or sandbox data set</li>
         <li>the API request that's resulting in the problem </li>
         <li>any response and additional messaging from the API</li>
     </ul> 
@@ -105,7 +105,7 @@ in-page-nav: true
     Adjudicated claims data (ExplanationOfBenefit, Patient, Coverage) is updated weekly and partially adjudicated claims data (Claim, ClaimResponse) is updated daily.
 </p>
 <p>
-    You can export data as often as you like, depending on your needs and how often the data is refreshed. We don’t recommend exporting data more than once a week for adjudicated claims and once a day for partially adjudicated claims. Use the <a href="{{ '/api-documentation/filter-claims-data.html#the-_since-parameter' | relative_url }}">_since parameter</a> when running jobs to avoid downloading duplicate data.
+    You can export data as often as you like, depending on your needs and how often the data is refreshed. We don't recommend exporting data more than once a week for adjudicated claims and once a day for partially adjudicated claims. Use the <a href="{{ '/api-documentation/filter-claims-data.html#the-_since-parameter' | relative_url }}">_since parameter</a> when running jobs to avoid downloading duplicate data.
 </p>
 {% endcapture %}
 
@@ -123,7 +123,7 @@ in-page-nav: true
 
 {% capture a8AccordionContent %}
 <p>
-    BCDA requires that all production requests come from a registered IP address. Make sure the IP address(es) you’re using to request data have been added to the Allow List in your model-specific system. Visit <a href="{{ '/production-access.html' | relative_url }}">Production Access</a> for more details.
+    BCDA requires that all production requests come from a registered IP address. Make sure the IP address(es) you're using to request data have been added to the Allow List in your model-specific system. Visit <a href="{{ '/production-access.html' | relative_url }}">Production Access</a> for more details.
 </p>
 {% endcapture %}
 
@@ -171,7 +171,7 @@ in-page-nav: true
 {% include accordion.html
     id="a10"
     expanded=false
-    heading="What’s the difference between BCDA V1 and V2?"
+    heading="What's the difference between BCDA V1 and V2?"
     accordionContent=a10AccordionContent
 %}
 

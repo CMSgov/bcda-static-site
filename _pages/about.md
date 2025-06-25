@@ -64,7 +64,7 @@ show-side-nav: false
           <h3 class="usa-process-list__heading">BCDA shares partially adjudicated claims data </h3>
           <p class="usa-intro font-ui-md text-bold text-italic text-base margin-top-1">2-4 days after submission</p>
           <p>
-            Partially adjudicated claims haven’t been fully processed and approved yet. BCDA updates this data daily from the Fiscal Intermediary Standard System (FISS) and Multi-Carrier System (MCS). 
+            Partially adjudicated claims haven't been fully processed and approved yet. BCDA updates this data daily from the Fiscal Intermediary Standard System (FISS) and Multi-Carrier System (MCS). 
           </p>
       </li>
       <li class="usa-process-list__item">
