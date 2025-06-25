@@ -22,7 +22,7 @@ BCDA protects its token endpoint with Basic Auth. Your credentials will be forma
 
 <div class="usa-alert usa-alert--warning usa-alert--slim">
     <div class="usa-alert__body">
-        <p class="usa-alert__text">Bearer tokens <a href="">expire</a> 20 minutes after they are generated.</p>
+        <p class="usa-alert__text">Bearer tokens <a href="{{ '/api-documentation/get-a-bearer-token.html#troubleshooting' | relative_url }}">expire</a> 20 minutes after they are generated.</p>
     </div>
 </div>
 
@@ -163,21 +163,7 @@ Client secret:
 ## Troubleshooting
 
 <dl class="margin-top-4">
-  <dt class="font-sans-md text-bold" id="URL">
-    Remember to use the correct URL for your environment. 
-  </dt>
-  <dd class="margin-left-0 margin-bottom-4"> 
-    <p>Use sandbox.bcda.cms.gov to access the sandbox or api.bcda.cms.gov to access the production environment.</p>
-  </dd> 
-
-  <dt class="font-sans-md text-bold" id="URL">
-    Ensure that your production credentials are not expired.
-  </dt>
-  <dd class="margin-left-0 margin-bottom-4"> 
-    <p>Credentials must be rotated (renewed) every 90 days. <a href="">Learn more about credentials and production access</a>.</p>
-  </dd> 
-
-<dt class="font-sans-md text-bold" id="URL">
+  <dt class="font-sans-md text-bold">
     Ensure that your bearer token is not expired. Bearer tokens expire after 20 minutes. 
   </dt>
   <dd class="margin-left-0 margin-bottom-4"> 
@@ -185,5 +171,19 @@ Client secret:
         <li>In progress and queued jobs will not be interrupted when the bearer token expires.</li>
         <li>You do <strong>not</strong> need to start a new job if your bearer token expires and your job was completed in the last 24 hours. You can get a new bearer token and use it to download files from the previous job. Files are archived 24 hours after the job completes.</li>
     </ul>
+  </dd>
+
+  <dt class="font-sans-md text-bold">
+    Ensure that your production credentials are not expired.
+  </dt>
+  <dd class="margin-left-0 margin-bottom-4"> 
+    <p>Credentials must be rotated (renewed) every 90 days. <a href="">Learn more about credentials and production access</a>.</p>
+  </dd> 
+
+  <dt class="font-sans-md text-bold">
+    Remember to use the correct URL for your environment. 
+  </dt>
+  <dd class="margin-left-0 margin-bottom-4"> 
+    <p>Use sandbox.bcda.cms.gov to access the sandbox or api.bcda.cms.gov to access the production environment.</p>
   </dd>   
 </dl>
