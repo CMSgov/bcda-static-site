@@ -55,7 +55,7 @@ curl -d "" -X POST "https://sandbox.bcda.cms.gov/auth/token" \
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=Snippet4 language="shell" can_copy=true %}
 
-<div class="usa-alert usa-alert--warning usa-alert--no-icon">
+<div class="usa-alert usa-alert--info usa-alert--no-icon">
     <div class="usa-alert__body">
         <p class="usa-alert__text text-bold">Remember to use the correct URL for your environment</p>
         <p class="usa-alert__text">
@@ -169,7 +169,7 @@ Client secret:
   <dd class="margin-left-0 margin-bottom-4"> 
     <ul>
         <li>Bearer tokens expire after 20 minutes.</li>
-        <li>In progress and queued jobs will not be interrupted when the bearer token expires.</li>
+        <li>Jobs will not be interrupted when the bearer token expires. In progress and queued jobs will continue to run.</li>
         <li>You do <strong>not</strong> need to start a new job if your bearer token expires and your job was completed in the last 24 hours. You can download these files using a new bearer token. After 24 hours, the files will expire and you will need to restart the job. </li>
     </ul>
   </dd>
