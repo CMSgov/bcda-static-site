@@ -53,7 +53,7 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=Explan
     -H "Authorization: Bearer {bearer_token}" \
     -i
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+{% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
 ## The _since parameter
 
@@ -94,7 +94,7 @@ This command combines the GET request and request header. The dollar sign ($) be
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
-curl -X GET "https://api.bcda.cms.gov/api/v2/Patient/\$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00" \
+curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Patient/\$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00" \
     -H "Accept: application/fhir+json" \
     -H "Prefer: respond-async" \
     -H "Authorization: Bearer {bearer_token}"
@@ -123,7 +123,7 @@ GET /api/v2/Group/all/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
-curl -X GET "https://api.bcda.cms.gov/api/v2/Group/all/\$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00" \
+curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00" \
     -H "Accept: application/fhir+json" \
     -H "Prefer: respond-async" \
     -H "Authorization: Bearer {bearer_token}"
@@ -147,7 +147,7 @@ GET /api/v2/Group/runout/$export?_type=Patient
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
-curl -X GET "https://api.bcda.cms.gov/api/v2/Group/runout/\$export?_type=Patient" \
+curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/runout/\$export?_type=Patient" \
     -H "accept: application/fhir+json" \
     -H "Prefer: respond-async" \
     -H "Authorization: Bearer {bearer_token}"
@@ -164,7 +164,7 @@ GET /api/v2/Group/runout/$export?_type=ExplanationOfBenefit,Patient
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
-curl -X GET "https://api.bcda.cms.gov/api/v2/Group/runout/\$export?_type=ExplanationOfBenefit,Patient" \
+curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/runout/\$export?_type=ExplanationOfBenefit,Patient" \
     -H "accept: application/fhir+json" \
     -H "Prefer: respond-async" \
     -H "Authorization: Bearer {bearer_token}"
@@ -181,7 +181,7 @@ GET /api/v2/Group/runout/$export
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
-curl -X GET "https://api.bcda.cms.gov/api/v2/Group/runout/\$export" \
+curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/runout/\$export" \
     -H "accept: application/fhir+json" \
     -H "Prefer: respond-async" \
     -H "Authorization: Bearer {bearer_token}"
