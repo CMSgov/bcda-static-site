@@ -164,12 +164,13 @@ Client secret:
 
 <dl class="margin-top-4">
   <dt class="font-sans-md text-bold">
-    Ensure that your bearer token is not expired. Bearer tokens expire after 20 minutes. 
+    Ensure that your bearer token is not expired.
   </dt>
   <dd class="margin-left-0 margin-bottom-4"> 
     <ul>
+        <li>Bearer tokens expire after 20 minutes.</li>
         <li>In progress and queued jobs will not be interrupted when the bearer token expires.</li>
-        <li>You do <strong>not</strong> need to start a new job if your bearer token expires and your job was completed in the last 24 hours. You can get a new bearer token and use it to download files from the previous job. Files are archived 24 hours after the job completes.</li>
+        <li>You do <strong>not</strong> need to start a new job if your bearer token expires and your job was completed in the last 24 hours. You can download these files using a new bearer token. After 24 hours, the files will expire and you will need to restart the job. </li>
     </ul>
   </dd>
 
