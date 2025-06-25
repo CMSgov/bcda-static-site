@@ -38,21 +38,17 @@ Example Client Secret (Extra-Small Model Entities):
 
 {% include copy_snippet.html code=site.data.credentials.sandbox.extra_small.client_secret language="yaml" can_copy=true %}
 
-#### Request to retrieve a token
-
-{% include copy_snippet.html code="POST /auth/token" language="shell" %}
-
 #### Example curl command to request a bearer token
 
-In this example, the authorization in the request header is replaced with `--user {client_id}:{client_secret}` 
+In this example, the authorization in the request header is replaced with the sample credentials. The format is `--user {client_id}:{client_secret}`.
 
 This command uses curl’s built-in ability to Base-64 encode your credential to request and receive your token in a single step.
 
-{% capture Snippet4 %}{% raw %}
+{% capture Snippet4 %}
 curl -d "" -X POST "https://sandbox.bcda.cms.gov/auth/token" \
-	--user {client_id}:{client_secret} \
+	--user {{site.data.credentials.sandbox.extra_small.client_id}}:{{site.data.credentials.sandbox.extra_small.client_secret}} \
 	-H "Accept: application/json"
-{% endraw %}{% endcapture %}
+{% endcapture %}
 {% include copy_snippet.html code=Snippet4 language="shell" can_copy=true %}
 
 <div class="usa-alert usa-alert--info usa-alert--no-icon">
@@ -78,6 +74,8 @@ If your request succeeds, you’ll receive a 200 response with your bearer token
 }
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=Snippet5 language="json" %}
+
+### 3. Use your bearer token to access claims data
 
 Now you can begin [acessing claims data]({{ '/api-documentation/access-claims-data.html' | relative_url }}). The sandbox and production environments support the same workflow, endpoints, parameters, and resource types. 
 
@@ -162,29 +160,16 @@ Client secret:
 
 ## Troubleshooting
 
-<dl class="margin-top-4">
-  <dt class="font-sans-md text-bold">
-    Ensure that your bearer token is not expired.
-  </dt>
-  <dd class="margin-left-0 margin-bottom-4"> 
-    <ul>
-        <li>Bearer tokens expire after 20 minutes.</li>
-        <li>Jobs will not be interrupted when the bearer token expires. In progress and queued jobs will continue to run.</li>
-        <li>You do <strong>not</strong> need to start a new job if your bearer token expires and your job was completed in the last 24 hours. You can download these files using a new bearer token. After 24 hours, the files will expire and you will need to restart the job. </li>
-    </ul>
-  </dd>
+### Ensure that your bearer token is not expired.
 
-  <dt class="font-sans-md text-bold">
-    Ensure that your production credentials are not expired.
-  </dt>
-  <dd class="margin-left-0 margin-bottom-4"> 
-    <p>Credentials must be rotated (renewed) every 90 days. <a href="">Learn more about credentials and production access</a>.</p>
-  </dd> 
+- Bearer tokens expire after 20 minutes.
+- Jobs will not be interrupted when the bearer token expires. In progress and queued jobs will continue to run.
+- You do *not* need to start a new job if your bearer token expires and your job was completed in the last 24 hours. You can download these files using a new bearer token. After 24 hours, the files will expire and you will need to restart the job. 
 
-  <dt class="font-sans-md text-bold">
-    Remember to use the correct URL for your environment. 
-  </dt>
-  <dd class="margin-left-0 margin-bottom-4"> 
-    <p>Use sandbox.bcda.cms.gov to access the sandbox or api.bcda.cms.gov to access the production environment.</p>
-  </dd>   
-</dl>
+### Ensure that your production credentials are not expired.
+
+Credentials must be rotated (renewed) every 90 days. <a href="">Learn more about credentials and production access
+
+### Remember to use the correct URL for your environment. 
+
+Use sandbox.bcda.cms.gov to access the sandbox or api.bcda.cms.gov to access the production environment.
