@@ -8,7 +8,59 @@ in-page-nav: true
 
 # {{ page.page_title }}
 
-Model entities participating in the Accountable Care Organization Realizing Equity, Access, and Community Health (ACO REACH) Model can access partially adjudicated claims data with V2 of the API.
+BCDA provides both partially and fully adjudicated claims data. The key differences between these data types are outlines below:
+
+<table class="usa-table usa-table--borderless usa-table--stacked margin-bottom-4">
+  <caption class="usa-sr-only">Partially versus fully adjudcated claims data</caption>
+  <thead>
+    <tr>
+      <th scope="col">Partially adjudcated claims</th>
+      <th scope="col">Fully adjudicated claims</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr scope="row">
+      <td data-label="Partially adjudcated claims">
+        Update daily
+      </td>
+      <td data-label="Fully adjudcated claims">
+        Update weekly
+      </td>
+    </tr>
+    <tr scope="row">
+      <td data-label="Partially adjudcated claims">
+          Available to <a href="https://www.cms.gov/priorities/innovation/innovation-models/aco-reach" target="_blank" rel="noopener noreferrer">ACO REACH</a> participants only
+      </td>
+      <td data-label="Fully adjudcated claims">
+          Available to all <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">eligible model entities</a>
+      </td>
+    </tr>
+    <tr scope="row">
+      <td data-label="Partially adjudcated claims">
+        Requires V2
+      </td>
+      <td data-label="Fully adjudcated claims">
+        Available with V1 or V2
+      </td>
+    </tr>
+    <tr scope="row">
+      <td data-label="Partially adjudcated claims">
+        Contain Claim and ClaimResponse resource types
+      </td>
+      <td data-label="Fully adjudcated claims">
+        Contain all resource types
+      </td>
+    </tr>
+    <tr scope="row">
+      <td data-label="Partially adjudcated claims">
+         <a href="{{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}">Partially Adjudicated Claims Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a>
+      </td>
+      <td data-label="Fully adjudcated claims">
+        <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}"> BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ## What is partially adjudicated claims data?
 
@@ -38,11 +90,7 @@ Claim and ClaimResponse only provide access to Parts A and B Fee-for-Service cla
 
 ### Example 1: Improve transition of care
 
-<div class="usa-alert usa-alert--info usa-alert--no-icon">
-  <div class="usa-alert__body">
-    <p class="usa-alert__text">REACH ACOs can check if post-discharge processes are in place for an attributed enrollee shortly after a hospital discharge.</p>
-  </div>
-</div>
+<p class="usa-intro font-ui-md text-italic text-base">REACH ACOs can check if post-discharge processes are in place for an attributed enrollee shortly after a hospital discharge.</p>
 
 On May 1, 2022, Mrs. Gonzales is doing better after a bout of pneumonia and is released home from the hospital. The hospital submits a claim for her stay to Medicare on May 3, 2022. 
 
@@ -57,12 +105,7 @@ REACH ACOs can also flag and identify patients who have a high risk of readmissi
 
 ### Example 2: Identify opportunities for intervention
 
-<div class="usa-alert usa-alert--info usa-alert--no-icon">
-  <div class="usa-alert__body">
-    <p class="usa-alert__text">REACH ACOs can monitor outpatient events for follow-up care and track patterns that often indicate future utilization. The data can be used to target case management and deliver clinically appropriate follow-up care.</p>
-  </div>
-</div>
-
+<p class="usa-intro font-ui-md text-italic text-base">REACH ACOs can monitor outpatient events for follow-up care and track patterns that often indicate future utilization. The data can be used to target case management and deliver clinically appropriate follow-up care.</p>
 
 On September 6, 2022, Mr. Fritz underwent a duplex scan to evaluate for carotid artery stenosis. The cardiology clinic submits a claim for this procedure to Medicare on September 8, 2022. 
 
@@ -76,11 +119,7 @@ REACH ACOs can also track performance on cases where the care may be of limited 
 
 ### Example 3: Enhance care coordination
 
-<div class="usa-alert usa-alert--info usa-alert--no-icon">
-  <div class="usa-alert__body">
-    <p class="usa-alert__text">REACH ACOs can learn more about their patients' health histories, build their clinical profile, and improve care coordination.</p>
-  </div>
-</div>
+<p class="usa-intro font-ui-md text-italic text-base">REACH ACOs can learn more about their patients’ health histories, build their clinical profile, and improve care coordination.</p>
 
 Ms. Thompson began treatment for breast cancer on March 8, 2023. She is experiencing nausea and dehydration as a result of chemotherapy. While visiting family on March 14, she drove to an emergency room (ER) 50 miles from home. She was treated with IV fluids and nausea medication.  
 
