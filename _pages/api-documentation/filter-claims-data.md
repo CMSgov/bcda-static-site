@@ -44,6 +44,17 @@ GET /api/v2/Group/all/$export?_type=Claim,ClaimResponse
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
+<h3 class="font-ui-sm">Example curl command using _type</h3>
+
+{% capture curlSnippet %}{% raw %}
+curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=ExplanationOfBenefit,Patient" \
+    -H "Accept: application/fhir+json" \
+    -H "Prefer: respond-async" \
+    -H "Authorization: Bearer {bearer_token}" \
+    -i
+{% endraw %}{% endcapture %}
+{% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
+
 ## The _since parameter
 
 The _since parameter lets you filter for claims data last updated after a specified date. Dates must be in the [FHIR standard instant format](https://www.hl7.org/fhir/datatypes.html#instant) (YYYY-MM-DDThh:mm:sss+zz:zz). 
@@ -61,7 +72,7 @@ The _since parameter lets you filter for claims data last updated after a specif
 
 We recommend new model entities run an unfiltered request for all historical data before using _since subsequently for incremental exports of new data. You can use the transactionTime from your most recent job as the specified date.
 
-The _since parameter can be used with /Group or /Patient, but each endpoint will return data for newly attributed enrollees differently:
+The _since parameter can be used with /Group or /Patient, but each endpoint will return data for newly attributed enrollees differently.
 
 ### Using _since with /Patient 
 
@@ -75,6 +86,20 @@ Newly attributed enrollees are those who've been assigned to your model entity s
 GET /api/v2/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
+
+#### Example curl command using _since with /Patient
+
+This command combines the GET request and request header. The dollar sign ($) before "export" in the URL indicates the endpoint is an action, not a resource.
+
+
+<!-- snippet -->
+{% capture curlSnippet %}{% raw %}
+curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Patient/\$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00" \
+    -H "Accept: application/fhir+json" \
+    -H "Prefer: respond-async" \
+    -H "Authorization: Bearer {bearer_token}"
+{% endraw %}{% endcapture %}
+{% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
 ### Using _since with /Group 
 
@@ -94,63 +119,23 @@ GET /api/v2/Group/all/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
-#### Request header
-
-Your header must contain your bearer token. 
-
-<!-- snippet -->
-{% capture curlSnippet %}{% raw %}
-Authorization: Bearer {bearer_token}
-Accept: application/fhir+json
-Prefer: respond-async
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="yaml" %}
-
-#### Example curl command using _since with /Patient
-
-This command combines the GET request and request header. The dollar sign ($) before "export" in the URL indicates the endpoint is an action, not a resource.
-
-<!-- snippet -->
-{% capture curlSnippet %}{% raw %}
-curl -X GET "https://api.bcda.cms.gov/api/v2/Patient/\$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00" \
-    -H "Accept: application/fhir+json" \
-    -H "Prefer: respond-async" \
-    -H "Authorization: Bearer {bearer_token}"
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
-
 #### Example curl command using _since with /Group
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
-curl -X GET "https://api.bcda.cms.gov/api/v2/Group/all/\$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00" \
+curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00" \
     -H "Accept: application/fhir+json" \
     -H "Prefer: respond-async" \
     -H "Authorization: Bearer {bearer_token}"
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
-## The `runout` identifier
 
-The `runout` identifier lets you request runouts data for enrollees attributed to your model entity the previous year, but not the current year. Claims data returned will have a service date no later than December 31 of the previous year.
+## The \`runout` identifier
+
+The \`runout` identifier lets you request runouts data for enrollees attributed to your model entity the previous year, but not the current year. Claims data returned will have a service date no later than December 31 of the previous year.
 
 The examples below are GET requests made to the /Group endpoint. 
-
-<h3 class="font-ui-sm">Request for all resources using `runout`</h3>
-
-<!-- snippet -->
-{% capture curlSnippet %}{% raw %}
-GET /api/v2/Group/runout/$export
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
-
-<h3 class="font-ui-sm">Example request for 2 resource types using `runout`</h3>
-
-<!-- snippet -->
-{% capture curlSnippet %}{% raw %}
-GET /api/v2/Group/runout/$export?_type=ExplanationOfBenefit,Patient
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
 
 <h3 class="font-ui-sm">Example request for 1 resource type using `runout`</h3>
 
@@ -160,41 +145,43 @@ GET /api/v2/Group/runout/$export?_type=Patient
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
-<h3 class="font-ui-sm">Request header</h3>
-
-Your header must contain your bearer token. 
-
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
-Authorization: Bearer {bearer_token}
-Accept: application/fhir+json
-Prefer: respond-async
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="yaml" %}
-
-<h3 class="font-ui-sm">Example curl commands using `runout`</h3>
-
-<!-- snippet -->
-{% capture curlSnippet %}{% raw %}
-curl -X GET "https://api.bcda.cms.gov/api/v2/Group/runout/\$export" \
+curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/runout/\$export?_type=Patient" \
     -H "accept: application/fhir+json" \
     -H "Prefer: respond-async" \
     -H "Authorization: Bearer {bearer_token}"
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
+<h3 class="font-ui-sm">Example request for 2 resource types using `runout`</h3>
+
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
-curl -X GET "https://api.bcda.cms.gov/api/v2/Group/runout/\$export?_type=ExplanationOfBenefit,Patient" \
+GET /api/v2/Group/runout/$export?_type=ExplanationOfBenefit,Patient
+{% endraw %}{% endcapture %}
+{% include copy_snippet.html code=curlSnippet language="shell" %}
+
+<!-- snippet -->
+{% capture curlSnippet %}{% raw %}
+curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/runout/\$export?_type=ExplanationOfBenefit,Patient" \
     -H "accept: application/fhir+json" \
     -H "Prefer: respond-async" \
     -H "Authorization: Bearer {bearer_token}"
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
+<h3 class="font-ui-sm">Request for all resources using `runout`</h3>
+
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
-curl -X GET "https://api.bcda.cms.gov/api/v2/Group/runout/\$export?_type=Patient" \
+GET /api/v2/Group/runout/$export
+{% endraw %}{% endcapture %}
+{% include copy_snippet.html code=curlSnippet language="shell" %}
+
+<!-- snippet -->
+{% capture curlSnippet %}{% raw %}
+curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/runout/\$export" \
     -H "accept: application/fhir+json" \
     -H "Prefer: respond-async" \
     -H "Authorization: Bearer {bearer_token}"
