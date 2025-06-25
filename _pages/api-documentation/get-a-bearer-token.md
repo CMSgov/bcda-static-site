@@ -42,7 +42,7 @@ Example Client Secret (Extra-Small Model Entities):
 
 In this example, the authorization in the request header is replaced with the sample credentials. The format is `--user {client_id}:{client_secret}`.
 
-This command uses curl’s built-in ability to Base-64 encode your credential to request and receive your token in a single step.
+This command uses curl's built-in ability to Base-64 encode your credential to request and receive your token in a single step.
 
 {% capture Snippet4 %}
 curl -d "" -X POST "https://sandbox.bcda.cms.gov/auth/token" \
@@ -62,7 +62,7 @@ curl -d "" -X POST "https://sandbox.bcda.cms.gov/auth/token" \
 
 #### Response example: successful request
 
-If your request succeeds, you’ll receive a 200 response with your bearer token in the response body. It’ll be the full text string that follows "access_token." The token string below has been abbreviated for readability.
+If your request succeeds, you'll receive a 200 response with your bearer token in the response body. It'll be the full text string that follows "access_token." The token string below has been abbreviated for readability.
 
 “Expires_in” counts down the seconds remaining before the token expires, which is 20 minutes after it is generated. “Token_type: Bearer” is a fixed value.
 

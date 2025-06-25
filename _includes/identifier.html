@@ -67,12 +67,19 @@
         </li>
         {% endfor %}
         <li class="usa-identifier__required-links-item">
-          <a
-            class="usa-identifier__required-link usa-link"
+          <button
+            class="usa-identifier__required-link usa-link usa-button--unstyled"
             data-privacy-policy="modal-trigger-footer"
             onclick="utag.gdpr.showConsentPreferences()"
           >
-            Privacy Settings</a>
+            Privacy Settings</button>
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <a
+            href="{{ '/sitemap' | relative_url }}"
+            data-tealium="identifier"
+            class="usa-identifier__required-link usa-link"
+          >Sitemap</a>
         </li>
       </ul>
     </div>

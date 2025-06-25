@@ -170,7 +170,7 @@ X-Progress: In Progress, 80%
 
 #### Response example: completed job
 
-You’ll receive a `200 OK` response with the output URL(s) needed to download the data. In the example URLs below, 42 indicates the job ID. 
+You'll receive a `200 OK` response with the output URL(s) needed to download the data. In the example URLs below, 42 indicates the job ID. 
 
 There is a separate URL for each resource type requested. The following example shows a request for all resource types for adjudicated claims data.
 
@@ -234,11 +234,11 @@ curl -X GET "https://sandbox.bcda.cms.gov/data/{job_id}/{file_name}" \
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
-If some of the data can’t be exported due to errors, details can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR OperationOutcome resources.
+If some of the data can't be exported due to errors, details can be found at the URLs in the error field. The errors are provided in an NDJSON file as FHIR OperationOutcome resources.
 
 #### Response example
 
-By default, you’ll receive the requested data as FHIR resources in NDJSON format. Each resource will appear as a separate, labeled file. 
+By default, you'll receive the requested data as FHIR resources in NDJSON format. Each resource will appear as a separate, labeled file. 
 
 <div class="usa-alert usa-alert--info usa-alert--slim usa-alert--no-icon">
     <div class="usa-alert__body">
@@ -287,11 +287,11 @@ curl -X DELETE "https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}" \
 
 ### Request job history
 
-Retrieve details on your organization’s historical requests, including the start and end datetime, unique ID, original valueString request, and status. 
+Retrieve details on your organization's historical requests, including the start and end datetime, unique ID, original valueString request, and status. 
 
 #### Request to retrieve all past jobs
 
-If your organization has no jobs to return, you’ll receive a 404 ERROR response.
+If your organization has no jobs to return, you'll receive a 404 ERROR response.
 
  <!-- snippet -->
  {% capture curlSnippet %}{% raw %}
@@ -415,7 +415,7 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/attribution_status" \
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
 #### Response example
-If BCDA has never ingested an attribution or runout file for your organization, you’ll receive a 404 NOT FOUND response.
+If BCDA has never ingested an attribution or runout file for your organization, you'll receive a 404 NOT FOUND response.
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 {

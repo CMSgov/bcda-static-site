@@ -18,9 +18,9 @@ Use parameters in the sandbox or production environment to speed up download tim
 
 ## The _type parameter 
 
-The _type parameter lets you specify which resource types you’d like returned. Otherwise, making a GET request to start a job with the /Group or /Patient endpoint will return all resource types.
+The _type parameter lets you specify which resource types you'd like returned. Otherwise, making a GET request to start a job with the /Group or /Patient endpoint will return all resource types.
 
-You’ll need to use commas when specifying multiple resource types. The examples below are curl requests to /Group using _type. 
+You'll need to use commas when specifying multiple resource types. The examples below are curl requests to /Group using _type. 
 
 <h3 class="font-ui-sm">Example request for 1 resource type</h3>
 
@@ -55,7 +55,7 @@ The _since parameter lets you filter for claims data last updated after a specif
     <div class="usa-alert__body">
                 <p class="usa-alert__text text-bold">Requesting data from before 02/12/2020</p>
         <p class="usa-alert__text">Due to data source limitations, claims before 02/12/2020 are marked with the arbitrary lastUpdated date of 01/01/2020. </p>
-        <p>If you specify a date between 01/01/2020 and 02/11/2020 for _since, you’ll receive all historical data for your enrollees. Data requests from February 12, 2020 onwards are marked with accurate dates.</p>
+        <p>If you specify a date between 01/01/2020 and 02/11/2020 for _since, you'll receive all historical data for your enrollees. Data requests from February 12, 2020 onwards are marked with accurate dates.</p>
     </div>
 </div>
 
@@ -67,7 +67,7 @@ The _since parameter can be used with /Group or /Patient, but each endpoint will
 
 Using _since with /Patient will return resources updated after the date provided for existing and newly attributed enrollees. 
 
-Newly attributed enrollees are those who’ve been assigned to your model entity since your last attribution date. If you don’t apply _since, BCDA will return data as early as 2014. 
+Newly attributed enrollees are those who've been assigned to your model entity since your last attribution date. If you don't apply _since, BCDA will return data as early as 2014. 
 
 #### Example request using _since with /Patient
 <!-- snippet -->
@@ -80,7 +80,7 @@ GET /api/v2/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00
 
 Using _since with /Group will return resources updated after the date provided for existing enrollees and all resources for newly attributed enrollees. 
 
-This lets you retrieve all new claims data with a single request. If you don’t apply _since, BCDA will return data as early as 2014. 
+This lets you retrieve all new claims data with a single request. If you don't apply _since, BCDA will return data as early as 2014. 
 
 #### Example request using _since with /Group
 
