@@ -25,7 +25,7 @@ jobs:
     if: ${{ inputs.deploy }}
     name: Deploy to Staging
     needs: tag_repo
-    uses: ./.github/workflows/deploy-gf.yml
+    uses: ./.github/workflows/deploy.yml
     with:
       target_environment: staging
       static_repo_ref: ${{ needs.tag_repo.outputs.tag }}
