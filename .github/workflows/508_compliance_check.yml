@@ -1,6 +1,9 @@
 name: 508 Compliance Check
 
 on:
+  pull_request:
+    paths:
+      - .github/workflows/508_compliance_check.yml
   schedule:
     - cron: 17 8 * * 1
   workflow_dispatch:
