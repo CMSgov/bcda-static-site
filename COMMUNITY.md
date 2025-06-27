@@ -10,7 +10,7 @@ Roles to include, but not limited to: Project Owner, Technical Lead, Developers/
 
 | Role   | Name    | Affiliation    |
 | :----- | :------ | :------------- |
-| {role} | {names} | {affiliations} |
+| Product Manager | Karley Thurston | OEDA, Data & Analytics Strategy Group |
 
 <!-- TODO: A CODEOWNERS.md file is available in .github to define individuals responsible for specific parts of the codebase. Provide a reference to this file if used:
 
@@ -23,23 +23,15 @@ See [Community Guidelines](#bcda-static-site-open-source-community-guidelines) o
 
 The members of bcda-static-site community are responsible for guiding its development, ensuring quality standards, and fostering a collaborative environment. They play a vital role in making decisions about code contributions, handling releases, and ensuring the project meets its goals and objectives. Below is a list of the key members and their specific roles and responsibilities. We are eagerly seeking individuals who are interested in joining the community and helping shape and support these roles.
 
-### Maintainers:
+### Maintainers List
+[@thurstkd](https://github.com/thurstkd)
+- [@bcda-admins](https://github.com/orgs/CMSgov/teams/bcda-admins)
 
--
+### Approvers List
+- [@bcda-devs](https://github.com/orgs/CMSgov/teams/bcda-devs)
 
-<!-- TODO: List the individuals who are the maintainers. What groups/domains are maintainers a part of? Does your project have domains/areas that are maintained by specific people? List @USERNAMES directly, or any @ALIASES for groups/teams. -->
-
-### Approvers:
-
--
-
-<!-- TODO: Who are the project approvers? List out @USERNAMES where possible so they can be tagged in issues/PRs directly. -->
-
-### Reviewers:
-
--
-
-<!-- TODO: Who are the project reviewers? List out @USERNAMES where possible so they can be tagged in issues/PRs directly. -->
+### Reviewers List
+- [CMSgov org](https://github.com/orgs/CMSgov/people)
 
 | Roles      | Responsibilities                               | Requirements                                                                      | Defined by                                                |
 | ---------- | :--------------------------------------------- | :-------------------------------------------------------------------------------- | :-------------------------------------------------------- |
