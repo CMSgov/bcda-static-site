@@ -1,6 +1,9 @@
 name: 508 Compliance Check
 
 on:
+  pull_request:
+    paths:
+      - .github/workflows/508_compliance_check.yml
   schedule:
     - cron: 17 8 * * 1
   workflow_dispatch:
@@ -17,7 +20,7 @@ on:
 jobs:
   compliance_check:
     name: Compliance Check
-    runs-on: self-hosted
+    runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
     steps:
       - name: Set Target Base
         id: target-base
