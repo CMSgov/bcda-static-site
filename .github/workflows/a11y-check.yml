@@ -27,7 +27,7 @@ jobs:
           fi
 
       - name: Run pa11y
-        run: npx pa11y-ci --config pa11yci.ci.json --sitemap https://d3obyxkdm48edr.cloudfront.net/${{ env.DEPLOY_PATH }}/sitemap.xml --sitemap-exclude "/*.pdf"  --sitemap-find https://bcda.cms.gov/ --sitemap-replace https://d3obyxkdm48edr.cloudfront.net/ --json > pa11y-results.json || echo "EXIT_CODE=$?" >> $GITHUB_ENV
+        run: npx pa11y-ci --config pa11yci.ci.json --sitemap https://stage.bcda.cms.gov/${{ env.DEPLOY_PATH }}/sitemap.xml --sitemap-exclude "/*.pdf"  --sitemap-find https://bcda.cms.gov/ --sitemap-replace https://stage.bcda.cms.gov/ --json > pa11y-results.json || echo "EXIT_CODE=$?" >> $GITHUB_ENV
 
       - name: Save Report to Action Summary
         uses: actions/github-script@v7
