@@ -26,7 +26,7 @@ BCDA protects its token endpoint with Basic Auth. Your credentials will be forma
     </div>
 </div>
 
-Start a request for a bearer token in your terminal window or using a tool such as Postman. For the examples below, you may use the credentials for the extra-small model entity in BCDA's sandbox environment:
+Start a request for a bearer token in your terminal window or using a tool such as Postman. The following example uses the credentials of the extra-small model entity in BCDA's sandbox environment:
 
 #### Sample Credentials
 
@@ -40,7 +40,7 @@ Example Client Secret (Extra-Small Model Entities):
 
 #### Example curl command to request a bearer token
 
-In this example, the authorization in the request header is replaced with the sample credentials. The format is `--user {client_id}:{client_secret}`.
+The header has `Authorization: Basic` followed by credentials `{client_id}:{client_secret}`. Credentials are joined by a colon, then encoded in Base64 format. In this example, the authorization in the request header is replaced with the sample credentials.
 
 This command uses curl's built-in ability to Base-64 encode your credential to request and receive your token in a single step.
 

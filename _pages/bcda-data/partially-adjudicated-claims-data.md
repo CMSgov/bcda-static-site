@@ -45,14 +45,6 @@ BCDA provides both partially and fully adjudicated claims data. The key differen
     </tr>
     <tr scope="row">
       <td data-label="Partially adjudcated claims">
-        Contain Claim and ClaimResponse resource types
-      </td>
-      <td data-label="Fully adjudcated claims">
-        Contain all resource types
-      </td>
-    </tr>
-    <tr scope="row">
-      <td data-label="Partially adjudcated claims">
          <a href="{{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}">Partially Adjudicated Claims Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a>
       </td>
       <td data-label="Fully adjudcated claims">
