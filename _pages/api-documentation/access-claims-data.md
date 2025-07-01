@@ -39,7 +39,7 @@ The sandbox and production environments follow similar instructions. They suppor
 
 <div class="usa-alert usa-alert--info">
     <div class="usa-alert__body">
-        <h2 class="usa-alert__heading">    BCDA recommends using V2 of the API</h2>
+        <p class="usa-alert__heading text-bold">BCDA recommends using V2 of the API</p>
         <p class="usa-alert__text">
             This is the latest version which follows the <a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener noreferrer">FHIR R4 specification</a>. REACH ACOs must use V2 for <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a>.
         </p>
@@ -77,7 +77,7 @@ Use the [_type parameter]({{ '/api-documentation/filter-claims-data.html' | rela
 
 #### Request header
 
-The header must contain your bearer token. You may receive a 401 response if your credentials are invalid or expired. 
+The header must contain your bearer token. You may receive a 401 response if your credentials are invalid or expired. “Bearer” must be included in the header with a capital B and followed by a space.
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
