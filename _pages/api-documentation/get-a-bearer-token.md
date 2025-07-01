@@ -77,7 +77,7 @@ If your request succeeds, you'll receive a 200 response with your bearer token i
 
 ### 3. Use your bearer token to access claims data
 
-Now you can begin [acessing claims data]({{ '/api-documentation/access-claims-data.html' | relative_url }}). The sandbox and production environments support the same workflow, endpoints, parameters, and resource types. 
+Now you can begin [accessing claims data]({{ '/api-documentation/access-claims-data.html' | relative_url }}). The sandbox and production environments support the same workflow, endpoints, parameters, and resource types. 
 
 ## Sandbox credentials
 
