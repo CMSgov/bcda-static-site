@@ -89,7 +89,7 @@ Prefer: respond-async
 
 <div class="usa-alert usa-alert--warning usa-alert--slim">
     <div class="usa-alert__body">
-        <p class="usa-alert__text">Bearer tokens expire 20 minutes after they are generated.</p>
+        <p class="usa-alert__text">Bearer tokens <a href="{{ '/api-documentation/get-a-bearer-token.html#troubleshooting' | relative_url }}">expire</a> 20 minutes after they are generated.</p>
     </div>
 </div>
 
