@@ -29,6 +29,7 @@ GET /api/v2/Group/all/$export?_type=Patient
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
+
 <h3 class="font-ui-sm">Example request for 2 resource types</h3>
 
 {% capture curlSnippet %}{% raw %}
@@ -80,7 +81,6 @@ Using _since with /Patient will return resources updated after the date provided
 Newly attributed enrollees are those who've been assigned to your model entity since your last attribution date. If you don't apply _since, BCDA will return data as early as 2014. 
 
 #### Example request using _since with /Patient
-
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 GET /api/v2/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00
@@ -90,6 +90,7 @@ GET /api/v2/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00
 #### Example curl command using _since with /Patient
 
 This command combines the GET request and request header. The dollar sign ($) before "export" in the URL indicates the endpoint is an action, not a resource.
+
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -128,6 +129,7 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=Patien
     -H "Authorization: Bearer {bearer_token}"
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
+
 
 ## The \`runout` identifier
 
