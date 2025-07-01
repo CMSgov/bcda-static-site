@@ -38,9 +38,19 @@ Example Client Secret (Extra-Small Model Entities):
 
 {% include copy_snippet.html code=site.data.credentials.sandbox.extra_small.client_secret language="yaml" can_copy=true %}
 
+#### Request header
+
+The header has `Authorization: Basic` followed by the credentials. Credentials (`clientID:secret`) are joined by a colon, then encoded in Base64 format.
+
+{% capture Snippet3 %}{% raw %}
+Authorization: Basic {base64_encoded_credentials}
+Accept: application/json
+{% endraw %}{% endcapture %}
+{% include copy_snippet.html code=Snippet3 language="yaml" %}
+
 #### Example curl command to request a bearer token
 
-The header has `Authorization: Basic` followed by credentials `{client_id}:{client_secret}`. Credentials are joined by a colon, then encoded in Base64 format. In this example, the authorization in the request header is replaced with the sample credentials.
+In this example, the authorization in the request header is replaced with `--user {client_id}:{client_secret}`. 
 
 This command uses curl's built-in ability to Base-64 encode your credential to request and receive your token in a single step.
 
@@ -75,9 +85,13 @@ If your request succeeds, you'll receive a 200 response with your bearer token i
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=Snippet5 language="json" %}
 
-### 3. Use your bearer token to access claims data
+### 3. Set your bearer token in your request headers
 
-Now you can begin [accessing claims data]({{ '/api-documentation/access-claims-data.html' | relative_url }}). The sandbox and production environments support the same workflow, endpoints, parameters, and resource types. 
+Include your bearer token in the authorization header when requesting data in the sandbox and production environments. “Bearer” must be included in the header with a capital B and followed by a space.
+
+{% include copy_snippet.html code="Authorization: Bearer {bearer_token}" language="yaml" %}
+
+Now you can begin [accessing claims data]({{ '/api-documentation/access-claims-data.html' | relative_url }}). The production and sandbox environments support the same workflow, endpoints, and resource types.  
 
 ## Sandbox credentials
 
