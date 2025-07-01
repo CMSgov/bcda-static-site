@@ -42,15 +42,10 @@ in-page-nav: true
 {% capture a1AccordionContent %}
 <p>
     BCDA supports organizations (entities) participating in the following CMS <a href="https://www.cms.gov/priorities/innovation/about/alternative-payment-models">Alternative Payment Models</a>:
-    <ul>
-        <li><a href="https://www.cms.gov/medicare/payment/fee-for-service-providers/shared-savings-program-ssp-acos"
-            target="_blank" rel="noopener noreferrer">Medicare Shared Savings Program (SSP)</a></li>
-        <li><a href="https://www.cms.gov/priorities/innovation/innovation-models/kidney-care-choices-kcc-model"
-            target="_blank" rel="noopener noreferrer">Kidney Care Choices (KCC) Model</a></li>
-        <li><a href="https://www.cms.gov/priorities/innovation/innovation-models/aco-reach" target="_blank"
-            rel="noopener noreferrer">Accountable Care Organizations Realizing Equity, Access, and Community Health
-            (ACO REACH)
-            Model</a></li>
+        <ul>
+            <li>Medicare Shared Savings Program (SSP)</li>
+            <li>Kidney Care Choices (KCC) Model</li>
+            <li>Accountable Care Organizations Realizing Equity, Access, and Community Health (ACO REACH) Model</li>
         </ul>
     Only REACH ACOs can access <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a>. 
 </p>
@@ -93,7 +88,7 @@ in-page-nav: true
 
 {% capture a3AccordionContent %}
 <p>
-    It typically takes 2-4 days after submission to receive <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a> and up to 14 days for adjudicated claims data. Even after adjudication, claims may go through additional processing. BCDA provides the latest updates available for each claim. <a href="{{ '/about.html#claims-data-process' | relative_url }}">See a timeline of the claims data process</a>.
+    It typically takes 2-4 days after submission to receive <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a> and up to 14 days for adjudicated claims data. Even after adjudication, claims may go through additional processing. BCDA provides the latest updates available for each claim.
 </p>
 <p>
     According to Section 6404 of the Affordable Care Act, Medicare Fee-for-Service claims must be submitted within 12 months (1 calendar year) of the date of service. <a href="https://www2.ccwdata.org/documents/10280/19002256/medicare-claims-maturity.pdf" target="_blank" rel="noopener noreferrer">Learn about claims submission and approval time frames.</a></p>
@@ -196,7 +191,7 @@ in-page-nav: true
     accordionContent=a9AccordionContent
 %}
 
-<h3 class="margin-bottom-2">Claims processing timeline</h3>
+<h3 class="margin-bottom-2">BCDA data</h3>
 
 {% include accordion.html
     id="a3"

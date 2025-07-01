@@ -6,110 +6,80 @@ description: "Learn about BCDA claims data. Organizations participating in Alter
 show-side-nav: false
 ---
 
-<div class="grid-row grid-gap-4 desktop:grid-gap-6 padding-y-7">
-  <div class="tablet:order-last tablet:grid-col display-flex flex-align-center tablet:flex-justify-center">
-        <img class="width-auto height-full" style="object-fit: contain;"
-        src="{{ '/assets/img/data-consult.svg' | relative_url }}" 
-        alt="data consult illustration"/>
+<div class="grid-row grid-gap-4 flex-align-center">
+  <div class="tablet:grid-col-5 tablet:order-2 margin-y-2">
+    <img src="{{ '/assets/img/data-consult.svg' | relative_url }}" alt="data consult illustration" class="padding-x-4"/>
   </div>
-  <div class="tablet:grid-col-auto padding-top-4 tablet:padding-top-0 display-flex flex-align-center">
-    <div>
-      <h1>{{ page.page_title }}</h1>
-      <p>
-        Beneficiary Claims Data API (BCDA) was released in February 2019 to share Medicare claims data with Accountable Care Organizations (ACOs) and other <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">eligible model entities</a>. 
-      </p>
-      <p>
-        Similar to <a href="https://www.cms.gov/files/document/cclf-information-packet.pdf" target="blank" rel="noopener noreferrer">CCLF</a>, BCDA offers Medicare Parts A, B, and D data, but with some key differences in formatting and update frequency. <a href="{{ '/bcda-data/comparison-bcda-cclf-files.html' | relative_url }}">Read more about using one or both data sources</a>, or map data between sources using the <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}">Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>.
-      </p>
-    </div>
+  <div class="tablet:grid-col tablet:order-1" >
+    <h1>{{ page.page_title }}</h1>
+    <p>
+        Beneficiary Claims Data API (BCDA) was released in February 2019 to share Medicare Parts A, B, and D data, including from <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims</a>.
+    </p>
+    <p>
+        BCDA allows <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">eligible model entities</a> to track performance metrics, identify high-risk patients sooner, and improve transition of care.
+    </p>
   </div>
 </div>
 
-## Claims data process
-
-<ol class="usa-process-list margin-top-2 about-process-list">
-    <li class="usa-process-list__item about-connector">
-        <h3 class="usa-process-list__heading">Medicare enrollee receives care</h3>
-    </li>
-    <li class="usa-process-list__item">
-        <h3 class="usa-process-list__heading">Provider submits Medicare claim</h3>
-    </li>
-    <li class="usa-process-list__item">
-        <h3 class="usa-process-list__heading">BCDA shares partially adjudicated claims data </h3>
-        <p class="usa-intro font-ui-md text-bold text-italic text-base margin-top-1">2-4 days after submission</p>
-        <p>
-          Partially adjudicated claims haven’t been fully processed and approved yet. BCDA updates this data daily from the Fiscal Intermediary Standard System (FISS) and Multi-Carrier System (MCS). 
-        </p>
-    </li>
-    <li class="usa-process-list__item">
-        <h3 class="usa-process-list__heading">Medicare approves the claims</h3>
-    </li>
-      <li class="usa-process-list__item about-final-item">
-        <h3 class="usa-process-list__heading">BCDA shares adjudicated claims data </h3>
-        <p class="usa-intro font-ui-md text-bold text-italic text-base margin-top-1">Typically 14 days after submission</p>
-        <p>
-          BCDA updates adjudicated claims data weekly from the <a href="https://www2.ccwdata.org/web/guest/home" target="_blank" rel="noopener noreferrer">Chronic Conditions Data Warehouse (CCW)</a>.
-        </p>
-    </li> 
-</ol>
-
-<h2 class="margin-top-8">Access partially adjudicated claims data with BCDA</h2>
-
-<table class="usa-table usa-table--borderless usa-table--stacked margin-bottom-4">
-  <caption class="usa-sr-only">Partially versus fully adjudcated claims data</caption>
+<table class="usa-table usa-table--borderless usa-table--stacked">
+  <caption class="usa-sr-only">Definitions of Part A, Part B, and Part D claims data</caption>
   <thead>
     <tr>
-      <th scope="col">Partially adjudcated claims</th>
-      <th scope="col">Fully adjudicated claims</th>
+      <th scope="col">Data type</th>
+      <th scope="col">Definition</th>
     </tr>
   </thead>
   <tbody>
-    <tr scope="row">
-      <td data-label="Partially adjudcated claims">
-        Update daily
-      </td>
-      <td data-label="Fully adjudcated claims">
-        Update weekly
+    <tr>
+      <th scope="row">Medicare Part A claims data</th>
+      <td>
+        Inpatient hospital stays, care in skilled nursing facilities, and hospice care
       </td>
     </tr>
-    <tr scope="row">
-      <td data-label="Partially adjudcated claims">
-          Available to <a href="https://www.cms.gov/priorities/innovation/innovation-models/aco-reach" target="_blank" rel="noopener noreferrer">ACO REACH</a> participants only
-      </td>
-      <td data-label="Fully adjudcated claims">
-          Available to all <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">eligible model entities</a>
+    <tr>
+      <th scope="row">Medicare Part B claims data</th>
+      <td>
+        Doctors' services, outpatient care, medical supplies, and preventive services
       </td>
     </tr>
-    <tr scope="row">
-      <td data-label="Partially adjudcated claims">
-        Requires V2
-      </td>
-      <td data-label="Fully adjudcated claims">
-        Available with V1 or V2
-      </td>
-    </tr>
-    <tr scope="row">
-      <td data-label="Partially adjudcated claims">
-        Contain Claim and ClaimResponse resource types
-      </td>
-      <td data-label="Fully adjudcated claims">
-        Contain all resource types
-      </td>
-    </tr>
-    <tr scope="row">
-      <td data-label="Partially adjudcated claims">
-         <a href="{{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}">Partially Adjudicated Claims Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a>
-      </td>
-      <td data-label="Fully adjudcated claims">
-        <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}"> BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>
+    <tr>
+      <th scope="row">Medicare Part D claims data</th>
+      <td>
+        Prescription drugs prescribed by healthcare providers          
       </td>
     </tr>
   </tbody>
 </table>
 
-Read <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}">the guide to partially adjudicated claims and their use cases</a> to learn more.
+## Claims data process
 
-<h2 class="margin-top-10 padding-top-2">What are the other CMS claims-based FHIR APIs?</h2>
+  <ol class="usa-process-list margin-top-2 about-process-list">
+      <li class="usa-process-list__item about-connector">
+          <h3 class="usa-process-list__heading">Medicare enrollee receives care</h3>
+      </li>
+      <li class="usa-process-list__item">
+          <h3 class="usa-process-list__heading">Provider submits Medicare claim</h3>
+      </li>
+      <li class="usa-process-list__item">
+          <h3 class="usa-process-list__heading">BCDA shares partially adjudicated claims data </h3>
+          <p class="usa-intro font-ui-md text-bold text-italic text-base margin-top-1">2-4 days after submission</p>
+          <p>
+            Partially adjudicated claims haven't been fully processed and approved yet. BCDA updates this data daily from the Fiscal Intermediary Standard System (FISS) and Multi-Carrier System (MCS). 
+          </p>
+      </li>
+      <li class="usa-process-list__item">
+          <h3 class="usa-process-list__heading">Medicare approves the claims</h3>
+      </li>
+        <li class="usa-process-list__item about-final-item">
+          <h3 class="usa-process-list__heading">BCDA shares adjudicated claims data </h3>
+          <p class="usa-intro font-ui-md text-bold text-italic text-base margin-top-1">Typically 14 days after submission</p>
+          <p>
+            BCDA updates adjudicated claims data weekly from the <a href="https://www2.ccwdata.org/web/guest/home" target="_blank" rel="noopener noreferrer">Chronic Conditions Data Warehouse (CCW)</a>.
+          </p>
+      </li> 
+  </ol>
+
+## What are the other CMS claims-based FHIR APIs?
 
 <ul class="usa-card-group flex-justify-center padding-y-4">
     <li class="usa-card tablet:grid-col-6 desktop:grid-col-4">
@@ -128,7 +98,7 @@ Read <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_
         </div>
         <div class="usa-card__body">
           <p>
-            The AB2D API provides stand-alone Prescription Drug Plan sponsors with claims data to enhance the use of medication and improve the long term health of enrollees.
+            The AB2D API provides stand-alone Prescription Drug Plan sponsors with claims data to enhance the use of medications and improve the long term health of enrollees.
           </p>
         </div>
         <div class="usa-card__footer">
