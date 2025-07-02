@@ -11,43 +11,43 @@ in-page-nav: true
 BCDA provides both partially and fully adjudicated claims data. The key differences between these data types are outlines below:
 
 <table class="usa-table usa-table--borderless usa-table--stacked margin-bottom-4">
-  <caption class="usa-sr-only">Partially versus fully adjudcated claims data</caption>
+  <caption class="usa-sr-only">Partially versus fully adjudicated claims data</caption>
   <thead>
     <tr>
-      <th scope="col">Partially adjudcated claims</th>
+      <th scope="col">Partially adjudicated claims</th>
       <th scope="col">Fully adjudicated claims</th>
     </tr>
   </thead>
   <tbody>
     <tr scope="row">
-      <td data-label="Partially adjudcated claims">
+      <td data-label="Partially adjudicated claims">
         Update daily
       </td>
-      <td data-label="Fully adjudcated claims">
+      <td data-label="Fully adjudicated claims">
         Update weekly
       </td>
     </tr>
     <tr scope="row">
-      <td data-label="Partially adjudcated claims">
+      <td data-label="Partially adjudicated claims">
           Available to <a href="https://www.cms.gov/priorities/innovation/innovation-models/aco-reach" target="_blank" rel="noopener noreferrer">ACO REACH</a> participants only
       </td>
-      <td data-label="Fully adjudcated claims">
+      <td data-label="Fully adjudicated claims">
           Available to all <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">eligible model entities</a>
       </td>
     </tr>
     <tr scope="row">
-      <td data-label="Partially adjudcated claims">
+      <td data-label="Partially adjudicated claims">
         Requires V2
       </td>
-      <td data-label="Fully adjudcated claims">
+      <td data-label="Fully adjudicated claims">
         Available with V1 or V2
       </td>
     </tr>
     <tr scope="row">
-      <td data-label="Partially adjudcated claims">
+      <td data-label="Partially adjudicated claims">
          <a href="{{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}">Partially Adjudicated Claims Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a>
       </td>
-      <td data-label="Fully adjudcated claims">
+      <td data-label="Fully adjudicated claims">
         <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}"> BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>
       </td>
     </tr>
