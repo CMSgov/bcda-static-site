@@ -40,7 +40,7 @@ Example Client Secret (Extra-Small Model Entities):
 
 #### Request header
 
-The header has `Authorization: Basic` followed by the credentials. Credentials (`clientID:secret`) are joined by a colon, then encoded in Base64 format.
+The header has `Authorization: Basic` followed by the credentials. Credentials (`client_id:client_secret`) are joined by a colon, then encoded in Base64 format.
 
 {% capture Snippet3 %}{% raw %}
 Authorization: Basic {base64_encoded_credentials}
