@@ -19,7 +19,7 @@ show-side-nav: false
         Beneficiary Claims Data API (BCDA) was released in February 2019 to share Medicare claims data with Accountable Care Organizations (ACOs) and other <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">eligible model entities</a>. 
       </p>
       <p>
-        Similar to <a href="https://www.cms.gov/files/document/cclf-information-packet.pdf" target="blank" rel="noopener noreferrer">CCLF</a>, BCDA offers Medicare Parts A, B, and D data, but with some key differences in formatting and update frequency. <a href="{{ '/bcda-data/comparison-bcda-cclf-files.html' | relative_url }}">Read more about using one or both data sources</a>, or map data between sources using the <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}">Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>.
+        Similar to <a href="https://www.cms.gov/files/document/cclf-information-packet.pdf" target="blank" rel="noopener noreferrer">Claim and Claim Line Feed (CCLF) files</a>, BCDA offers Medicare Parts A, B, and D data, but with some key differences in formatting and update frequency. <a href="{{ '/bcda-data/comparison-bcda-cclf-files.html' | relative_url }}">Read more about using one or both data sources</a>, or map data between sources using the <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}">Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>.
       </p>
     </div>
   </div>
@@ -56,51 +56,43 @@ show-side-nav: false
 <h2 class="margin-top-8">Access partially adjudicated claims data with BCDA</h2>
 
 <table class="usa-table usa-table--borderless usa-table--stacked margin-bottom-4">
-  <caption class="usa-sr-only">Partially versus fully adjudcated claims data</caption>
+  <caption class="usa-sr-only">Partially versus fully adjudicated claims data</caption>
   <thead>
     <tr>
-      <th scope="col">Partially adjudcated claims</th>
+      <th scope="col">Partially adjudicated claims</th>
       <th scope="col">Fully adjudicated claims</th>
     </tr>
   </thead>
   <tbody>
     <tr scope="row">
-      <td data-label="Partially adjudcated claims">
+      <td data-label="Partially adjudicated claims">
         Update daily
       </td>
-      <td data-label="Fully adjudcated claims">
+      <td data-label="Fully adjudicated claims">
         Update weekly
       </td>
     </tr>
     <tr scope="row">
-      <td data-label="Partially adjudcated claims">
+      <td data-label="Partially adjudicated claims">
           Available to <a href="https://www.cms.gov/priorities/innovation/innovation-models/aco-reach" target="_blank" rel="noopener noreferrer">ACO REACH</a> participants only
       </td>
-      <td data-label="Fully adjudcated claims">
+      <td data-label="Fully adjudicated claims">
           Available to all <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">eligible model entities</a>
       </td>
     </tr>
     <tr scope="row">
-      <td data-label="Partially adjudcated claims">
+      <td data-label="Partially adjudicated claims">
         Requires V2
       </td>
-      <td data-label="Fully adjudcated claims">
+      <td data-label="Fully adjudicated claims">
         Available with V1 or V2
       </td>
     </tr>
     <tr scope="row">
-      <td data-label="Partially adjudcated claims">
-        Contain Claim and ClaimResponse resource types
-      </td>
-      <td data-label="Fully adjudcated claims">
-        Contain all resource types
-      </td>
-    </tr>
-    <tr scope="row">
-      <td data-label="Partially adjudcated claims">
+      <td data-label="Partially adjudicated claims">
          <a href="{{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}">Partially Adjudicated Claims Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a>
       </td>
-      <td data-label="Fully adjudcated claims">
+      <td data-label="Fully adjudicated claims">
         <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}"> BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>
       </td>
     </tr>

@@ -21,7 +21,37 @@ sidebar-links:
 
 # {{ page.page_title }}
 
-Beneficiary Claims Data API (BCDA) uses <a href="https://hl7.org/fhir/uv/bulkdata/" target="_blank" rel="noopener noreferrer">Bulk Fast Healthcare Interoperability Resources (FHIR)</a> to share claims data.
+Beneficiary Claims Data API (BCDA) updates partially adjudicated claims data daily and adjudicated claims data weekly. Data includes:
+
+<table class="usa-table usa-table--borderless usa-table--stacked margin-bottom-4">
+  <caption class="usa-sr-only">Definitions of Part A, B, and D claims data</caption>
+  <thead>
+    <tr>
+      <th scope="col">Data type</th>
+      <th scope="col">Definition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Medicare Part A claims data</th>
+      <td>
+        Inpatient hospital stays, care in skilled nursing facilities, and hospice care
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Medicare Part B claims data</th>
+      <td>
+        Doctors' services, outpatient care, preventive services, and durable medical equipment (DME)
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Medicare Part D claims data</th>
+      <td>
+         Prescription drugs prescribed by healthcare providers
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ## Data Dictionary
 
@@ -80,47 +110,13 @@ Download sample data files, which share similar content and structure to product
   </div>
 </div>
 
-## Data overview
-
-Beneficiary Claims Data API (BCDA) updates partially adjudicated claims data daily and adjudicated claims data weekly. Data includes:
-
-<table class="usa-table usa-table--borderless usa-table--stacked margin-bottom-4">
-  <caption class="usa-sr-only">Definitions of Part A, B, and D claims data</caption>
-  <thead>
-    <tr>
-      <th scope="col">Data type</th>
-      <th scope="col">Definition</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Medicare Part A claims data</th>
-      <td>
-        Inpatient hospital stays, care in skilled nursing facilities, and hospice care
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Medicare Part B claims data</th>
-      <td>
-        Doctors' services, outpatient care, preventive services, and durable medical equipment (DME)
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Medicare Part D claims data</th>
-      <td>
-         Prescription drugs prescribed by healthcare providers
-      </td>
-    </tr>
-  </tbody>
-</table>
-
 ## Resource types
 
 Claims data is organized by resource types, which are requested at the /Patient and /Group [endpoints]({{ '/api-documentation.html' | relative_url }}#endpoints). Version 2 has [minor changes]({{ '/bcda-data/difference-between-v1-v2.html' | relative_url }}) in resource types from V1.
 
-<div class="usa-alert usa-alert--info usa-alert--no-icon margin-top-4">
+<div class="usa-alert usa-alert--info margin-top-4">
   <div class="usa-alert__body">
-    <p class="usa-alert__heading text-bold">Confidentiality and medical data sharing</p>
+    <h3 class="usa-alert__heading">Confidentiality and medical data sharing</h3>
     <p class="usa-alert__text">
       In accordance with applicable law, including HIPAA and 42 CFR Part 2, substance use disorder records are confidential. BCDA also does not share data on enrollees who have opted out of data sharing.
     </p>
@@ -133,7 +129,7 @@ Claims data is organized by resource types, which are requested at the /Patient 
     ExplanationOfBenefit (EOB)
   </dt>
   <dd class="margin-left-0 margin-bottom-4"> 
-    <p>Similar to CCLF files 1-7, <a href="https://hl7.org/fhir/R4/explanationofbenefit.html" target="_blank" rel="noopener noreferrer">ExplanationOfBenefit</a> stores details for episodes of care, including where and when the service was performed, diagnosis codes, provider, and cost of care. <em>Updated weekly.</em></p>
+    <p> Similar to CCLF files 1-7, <a href="https://hl7.org/fhir/R4/explanationofbenefit.html" target="_blank" rel="noopener noreferrer">ExplanationOfBenefit</a> stores details for episodes of care, including where and when the service was performed, diagnosis codes, provider, and cost of care.</p>
   </dd> 
   
   <div id="patient">
@@ -141,7 +137,7 @@ Claims data is organized by resource types, which are requested at the /Patient 
   Patient
   </dt></div>
   <dd class="margin-left-0 margin-bottom-4">
-    <p>Similar to CCLF files 8 and 9, <a href="https://hl7.org/fhir/R4/patient.html" target="_blank" rel="noopener noreferrer">Patient</a> stores enrollees' demographic details and updates to their patient identifiers. <em>Updated weekly.</em></p>
+    <p>Similar to CCLF files 8 and 9, <a href="https://hl7.org/fhir/R4/patient.html" target="_blank" rel="noopener noreferrer">Patient</a> stores enrollees' demographic details and updates to their patient identifiers.</p>
   </dd>
 
 <div id="coverage">
@@ -149,7 +145,7 @@ Claims data is organized by resource types, which are requested at the /Patient 
   Coverage
   </dt> </div>
   <dd class="margin-left-0 margin-bottom-4">
-    <p><a href="https://hl7.org/fhir/R4/coverage.html" target="_blank" rel="noopener noreferrer">Coverage</a> stores enrollees' insurance coverage details, including dual coverage. <em>Updated weekly.</em></p>
+    <p><a href="https://hl7.org/fhir/R4/coverage.html" target="_blank" rel="noopener noreferrer">Coverage</a> stores enrollees' insurance coverage details, including dual coverage.</p>
   </dd>
 
 <div id="claim">
@@ -157,7 +153,7 @@ Claims data is organized by resource types, which are requested at the /Patient 
     Claim
   </dt> </div>
   <dd class="margin-left-0 margin-bottom-4">
-    <p>Available for partially adjudicated claims only, <a href="https://hl7.org/fhir/R4/claim.html" target="_blank" rel="noopener noreferrer">Claim</a> stores financial and clinical details on professional and institutional claims. This is typically used for treatment payment planning and reimbursement. <em>Updated daily.</em></p> 
+    <p>Available for partially adjudicated claims only, <a href="https://hl7.org/fhir/R4/claim.html" target="_blank" rel="noopener noreferrer">Claim</a> stores financial and clinical details on professional and institutional claims. This is typically used for treatment payment planning and reimbursement. </p> 
   </dd>
 
 <div id="claimresponse">
@@ -165,6 +161,6 @@ Claims data is organized by resource types, which are requested at the /Patient 
    ClaimResponse
   </dt> </div>
   <dd class="margin-left-0 margin-bottom-4">
-    <p>Available for partially adjudicated claims only, <a href="https://hl7.org/fhir/R4/claimresponse.html" target="_blank" rel="noopener noreferrer">ClaimResponse</a> stores details about the adjudication status and processing results for a claim, predetermination, or preauthorization. <em>Updated daily.</em></p>
+    <p>Available for partially adjudicated claims only, <a href="https://hl7.org/fhir/R4/claimresponse.html" target="_blank" rel="noopener noreferrer">ClaimResponse</a> stores details about the adjudication status and processing results for a claim, predetermination, or preauthorization.</p>
   </dd>
 </dl>
