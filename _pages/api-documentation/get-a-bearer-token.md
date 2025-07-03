@@ -30,11 +30,11 @@ Start a request for a bearer token in your terminal window or using a tool such 
 
 #### Sample Credentials
 
-Example Client ID (Extra-Small Model Entities):
+Example client ID (Extra-Small Model Entities):
 
 {% include copy_snippet.html code=site.data.credentials.sandbox.extra_small.client_id language="yaml" can_copy=true %}
 
-Example Client Secret (Extra-Small Model Entities):
+Example client secret (Extra-Small Model Entities):
 
 {% include copy_snippet.html code=site.data.credentials.sandbox.extra_small.client_secret language="yaml" can_copy=true %}
 
