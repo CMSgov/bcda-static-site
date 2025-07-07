@@ -182,31 +182,3 @@ main h6 {
 //   text-decoration: none;
 //   margin-left: auto;
 // }
-
-
-#touchpoints-form {
-  form {
-    max-width: none;
-  }
-
-  .touchpoints-form-body {
-    padding: 1rem 2rem;
-    border: 2px solid #d9e8f6;
-    border-radius: 0.25rem;
-    margin: 2rem 0;
-  }
-
-  label {
-    margin-top: 0;
-    font-weight: bold;
-  }
-
-  button {
-    text-transform: capitalize;
-    margin-top: 1rem;
-
-    &:first-of-type {
-      margin-left: 0;
-    }
-  }
-}
