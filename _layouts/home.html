@@ -4,10 +4,10 @@ layout: default
 <main id="main" class="ds-l-container ds-base">
   <div class="ds-l-row">
     <div class="ds-l-col--4 ds-u-margin-left--right ds-u-display--none ds-u-sm-display--block">
-      <nav aria-label="Page" class="subnav">
+      <nav aria-label="secondary" class="subnav">
         <ul class="ds-c-list ds-c-list--bare" id="mainNav">
           {% for item in page.sections %}
-            <li><a href="#{{ item | slugify }}" aria-label="{{ item }} section, current page" class="ds-u-display--block {{ page.subnav-link-gradient }}" aria-label="{{ item }} section, current page">{{ item }}</a></li>
+            <li><a href="#{{ item | slugify }}" class="ds-u-display--block {{ page.subnav-link-gradient }}">{{ item }}</a></li>
           {% endfor %}
         </ul>
       </nav>
