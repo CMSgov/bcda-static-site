@@ -104,3 +104,5 @@ BCDA provides Medicare claims data using the NDJSON format.
 - Intro to the <a href="https://www.json.org/json-en.html" target="_blank" rel="noopener noreferrer">JSON Format</a> and <a href="https://github.com/ndjson/ndjson-spec/" target="_blank" rel="noopener noreferrer">NDJSON</a>
 - <a href="https://jsonlint.com/" target="_blank" rel="noopener noreferrer">JSON format viewer/validator</a> (raw text/JSON format converter)
 - <a href="https://hl7.org/fhir/R4/validation.html" target="_blank" rel="noopener noreferrer">How to validate FHIR data</a>
+
+{% include feedback-form.html url="c81fcf62" %}
