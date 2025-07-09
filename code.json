@@ -1,0 +1,77 @@
+{
+  "name": "bcda-static-site",
+  "description": "Informational site for the CMS Beneficiary Claims Data API (BCDA)",
+  "longDescription": "A static Jekyll site for the Beneficiary Claims Data API (BCDA) which contains an overview of the API, how to connect to production and sandbox environments, and other documentation for the API.",
+  "status": "Production",
+  "permissions": {
+    "licenses": [
+      {
+        "name": "None",
+        "URL": "."
+      }
+    ],
+    "usageType": "openSource",
+    "exemptionText": ""
+  },
+  "organization": "Centers for Medicare & Medicaid Services",
+  "repositoryURL": "https://github.com/CMSgov/bcda-static-site",
+  "projectURL": "https://bcda.cms.gov",
+  "repositoryHost": "github.com/CMSgov",
+  "repositoryVisibility": "public",
+  "vcs": "git",
+  "laborHours": 0,
+  "reuseFrequency": {
+    "forks": 1
+  },
+  "platforms": [
+    "web"
+  ],
+  "categories": [
+    "healthcare"
+  ],
+  "softwareType": "standalone/web",
+  "languages": [
+    "HTML",
+    "SCSS",
+    "JavaScript",
+    "Shell",
+    "Python",
+    "Ruby"
+  ],
+  "maintenance": "contract",
+  "contractNumber": "47QTCA18D008M:75FCMC23F0009",
+  "date": {
+    "created": "2019-07-18T16:03:39Z",
+    "lastModified": "2025-06-03T18:11:54Z",
+    "metaDataLastUpdated": "2025-06-25T19:52:18.071Z"
+  },
+  "tags": [
+    "BCDA",
+    "website",
+    "beneficiary claims data"
+  ],
+  "contact": {
+    "email": "bcapi@cms.hhs.gov",
+    "name": "BCDA Team"
+  },
+  "feedbackMechanisms": [
+    "https://github.com/CMSgov/bcda-static-site/issues"
+  ],
+  "localisation": false,
+  "repositoryType": "website",
+  "userInput": true,
+  "fismaLevel": "Moderate",
+  "group": "CMS/OEDA/DASG",
+  "projects": [
+    "Beneficary Claims Data API (BCDA)"
+  ],
+  "systems": [],
+  "upstream": "https://github.com/CMSgov/bcda-static-site/network/dependencies",
+  "subsetInHealthcare": [
+    "Medicare"
+  ],
+  "userType": [
+    "Providers"
+  ],
+  "maturityModelTier": 3
+}
