@@ -603,3 +603,5 @@ The response will contain a FHIR Capability Statement resource in JSON format. T
 }
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="json" %}
+
+{% include feedback-form.html url="f179685c" %}
