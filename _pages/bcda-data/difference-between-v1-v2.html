@@ -4,6 +4,8 @@ page_title: "What's the difference between BCDA V1 and V2?"
 seo_title: ""
 description: "Overview of the differences between BCDA V1 and V2 and a summary of specific API changes."
 in-page-nav: true
+feedback_id: "45e50860"
+
 ---
 <h1>{{ page.page_title }}</h1>
 
@@ -21,7 +23,9 @@ in-page-nav: true
     href="https://www.hl7.org/fhir/us/carin-bb/"
     target="_blank"
     rel="noopener noreferrer"
-  >CARIN Blue Button Implementation Guide</a>. Additionally, <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims</a> are only available with V2.
+  >CARIN Blue Button Implementation Guide</a>. Additionally, <a
+    href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}"
+  >partially adjudicated claims</a> are only available with V2.
 </p>
 <p>There are minor differences in the mapping and values of certain data elements. Slicing/discriminator rules can be
   different, and some value sets will be bound to CARIN or HL7 value sets instead of BlueButton:
@@ -184,5 +188,3 @@ in-page-nav: true
 
   </li>
 </ul>
-
-{% include feedback-form.html url="45e50860" %}

@@ -4,6 +4,7 @@ page_title: "How to Access Claims Data"
 seo_title: ""
 description: "Learn how to access Medicare enrollees' Parts A, B, and D claims data in the BCDA production environment for performance tracking and risk analysis."
 in-page-nav: true
+feedback_id: "f179685c"
 ---
 
 # {{ page.page_title }}
@@ -603,5 +604,3 @@ The response will contain a FHIR Capability Statement resource in JSON format. T
 }
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="json" %}
-
-{% include feedback-form.html url="f179685c" %}

@@ -4,6 +4,7 @@ page_title: "How to Get a Bearer Token"
 seo_title: ""
 description: "Get a bearer token to authenticate requests to BCDA for secure access to Medicare enrollee claims data."
 in-page-nav: true
+feedback_id: "ea9de8b3"
 ---
 
 # {{ page.page_title }}
@@ -187,5 +188,3 @@ Credentials must be rotated (renewed) every 90 days. <a href="">Learn more about
 ### Remember to use the correct URL for your environment. 
 
 Use sandbox.bcda.cms.gov to access the sandbox or api.bcda.cms.gov to access the production environment.
-
-{% include feedback-form.html url="ea9de8b3" %}

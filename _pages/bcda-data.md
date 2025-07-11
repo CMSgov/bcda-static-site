@@ -17,6 +17,7 @@ sidebar-links:
 
       - name: Difference Between V1 and V2
         url: /bcda-data/difference-between-v1-v2.html
+feedback_id: "0595c13c"
 ---
 
 # {{ page.page_title }}
@@ -169,4 +170,3 @@ Claims data is organized by resource types, which are requested at the /Patient 
   </dd>
 </dl>
 
-{% include feedback-form.html url="0595c13c" %}

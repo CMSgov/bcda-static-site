@@ -5,6 +5,7 @@ seo_title: ""
 description: "Browse frequently asked questions, join our Google Group, and contact the BCDA team for help troubleshooting the Medicare claims API."
 show-side-nav: false
 in-page-nav: true
+feedback_id: "e9112e33"
 ---
 
 # {{ page.page_title }}
@@ -234,4 +235,3 @@ in-page-nav: true
     accordionContent=a7AccordionContent
 %}
 
-{% include feedback-form.html url="e9112e33" %}

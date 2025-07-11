@@ -4,6 +4,7 @@ page_title: "About BCDA"
 seo_title: ""
 description: "Learn about BCDA claims data. Organizations participating in Alternative Payment Models use BCDA to aid in care coordination and risk prediction."
 show-side-nav: false
+feedback_id: "7d0c54c6"
 ---
 
 <div class="grid-row grid-gap-4 desktop:grid-gap-6 padding-y-7">
@@ -178,4 +179,4 @@ Read <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_
   </li>
 </ul>
 
-{% include feedback-form.html url="7d0c54c6" %}
+{% include feedback-form.html id=page.feedback_id %}
