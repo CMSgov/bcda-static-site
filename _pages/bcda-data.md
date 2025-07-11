@@ -17,6 +17,7 @@ sidebar-links:
 
       - name: Difference Between V1 and V2
         url: /bcda-data/difference-between-v1-v2.html
+feedback_id: "0595c13c"
 ---
 
 # {{ page.page_title }}
@@ -168,3 +169,4 @@ Claims data is organized by resource types, which are requested at the /Patient 
     <p>Available for partially adjudicated claims only, <a href="https://hl7.org/fhir/R4/claimresponse.html" target="_blank" rel="noopener noreferrer">ClaimResponse</a> stores details about the adjudication status and processing results for a claim, predetermination, or preauthorization. <em>Updated daily.</em></p>
   </dd>
 </dl>
+

@@ -4,6 +4,7 @@ page_title: "Guide to Partially Adjudicated Claims Data"
 seo_title: ""
 description: "Get early access to enrollee claims data as soon as 2-4 days after Medicare submission with BCDA partially adjudicated claims data."
 in-page-nav: true
+feedback_id: "355f6ea6"
 ---
 
 # {{ page.page_title }}

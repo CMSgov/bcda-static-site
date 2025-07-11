@@ -4,6 +4,7 @@ page_title: "Announcements"
 seo_title: ""
 description: "Get updates, release information, and other important news from the BCDA team."
 show-side-nav: false
+feedback_id: "3fc5bb9c"
 ---
 
 {% assign posts = site.announcements | sort: 'published_date' | reverse %}
@@ -38,3 +39,5 @@ show-side-nav: false
     </div>
   </div>
 </div>
+
+{% include feedback-form.html id=page.feedback_id %}
