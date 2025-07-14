@@ -18,7 +18,7 @@ sections:
   - Sample BCDA FHIR Data Points
 ---
 
-## What is FHIR?
+# What is FHIR?
 FHIR (Fast Healthcare Interoperability Resources) is a specification for exchanging healthcare data electronically. BCDA sends data acquired through the Beneficiary FHIR Data Server (BFD) API, which is structured using the FHIR standard, making it more available, discoverable, and understandable. The FHIR standard is developed by HL7, a group dedicated to creating standardized ways of sharing and structuring health care data.
 
 In FHIR, standardized data is structured on a basic building block called a "Resource." All "exchangeable" data is defined as a resource, and a resource is made up of data that systems or computers can easily understand (as well as a part that is more readable by humans).
