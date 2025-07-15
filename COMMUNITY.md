@@ -24,11 +24,11 @@ See [Community Guidelines](#bcda-static-site-open-source-community-guidelines) o
 The members of bcda-static-site community are responsible for guiding its development, ensuring quality standards, and fostering a collaborative environment. They play a vital role in making decisions about code contributions, handling releases, and ensuring the project meets its goals and objectives. Below is a list of the key members and their specific roles and responsibilities. We are eagerly seeking individuals who are interested in joining the community and helping shape and support these roles.
 
 ### Maintainers List
-[@thurstkd](https://github.com/thurstkd)
+- [@thurstkd](https://github.com/thurstkd) <!-- CMS Product Manager -->
 - [@bcda-admins](https://github.com/orgs/CMSgov/teams/bcda-admins)
 
 ### Approvers List
-- [@bcda-devs](https://github.com/orgs/CMSgov/teams/bcda-devs)
+- [@bcda-team](https://github.com/orgs/CMSgov/teams/bcda-team)
 
 ### Reviewers List
 - [CMSgov org](https://github.com/orgs/CMSgov/people)
