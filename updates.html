@@ -3,23 +3,23 @@ id: updates
 title: Updates
 layout: default
 ---
-<div class="ds-base ds-l-container">
-  <div role="region" aria-label="page-title" class="ds-l-row ds-u-fill--primary-darker">
-    <h1 class="ds-l-col--12 ds-u-text-align--right ds-u-font-size--display ds-u-color--white ds-u-margin--0 ds-u-font-weight--normal">
-      Updates
-    </h1>
-  </div>
-  <div role="region" aria-label="page-intro" class="ds-u-padding-y--2">
-    <h2 class="ds-u-text-align--left ds-u-font-size--h1 ds-u-font-weight--normal ">
-      Keep up with the BCDA community
-    </h2>
-    {% include updates/intro.html %}
-  </div>
-  <main id="main" class="ds-u-padding-y--2">
+<main id="main" class="ds-base ds-l-container">
+  <div class="ds-u-padding-y--2">
+    <div class="ds-l-row ds-u-fill--primary-darker">
+      <h1 class="ds-l-col--12 ds-u-text-align--right ds-u-font-size--display ds-u-color--white ds-u-margin--0 ds-u-font-weight--normal">
+        Updates
+      </h1>
+    </div>
+    <div class="ds-u-padding-y--2">
+      <h2 class="ds-u-text-align--left ds-u-font-size--h1 ds-u-font-weight--normal ">
+        Keep up with the BCDA community
+      </h2>
+      {% include updates/intro.html %}
+    </div>
     {% for item in site.updates reversed %}
       {{ item.content }}
     {% endfor %}
     {% include updates/links.html %}
     {% include updates/bottom.html %}
-  </main>
-</div>
+  </div>
+</main>
