@@ -3,11 +3,11 @@ id: build
 title: Building Your Application
 layout: default
 ---
-<div class="ds-base ds-l-container">
-  <div role="region" aria-label="page-title" class="ds-l-row ds-u-fill--primary-darker">
-    <div class="ds-l-col--12 ds-u-text-align--right ds-u-font-size--display ds-u-color--white">
+<main id="main" class="ds-base ds-l-container">
+  <div class="ds-l-row ds-u-fill--primary-darker">
+    <h1 class="ds-l-col--12 ds-u-text-align--right ds-u-font-size--display ds-u-color--white ds-u-margin--0 ds-u-font-weight--normal">
       Building Your Application
-    </div>
+    </h2>
     <div class="ds-l-col--12 ds-u-text-align--right ds-u-font-size--h1 ds-u-color--white">
       Using BCDA in Production
     </div>
@@ -15,7 +15,7 @@ layout: default
 
   <div class="ds-l-row ds-u-padding-top--2">
     <!-- Table of Contents -->
-    <aside class="ds-u-margin-bottom--4 ds-u-md-margin-bottom--0 ds-l-md-col--4 ds-l-lg-col--3">
+    <nav class="ds-u-margin-bottom--4 ds-u-md-margin-bottom--0 ds-l-md-col--4 ds-l-lg-col--3" aria-label="secondary">
       <ul class="ds-c-vertical-nav sidenav">
         <li class="ds-c-vertical-nav__item">
           <a class="ds-c-vertical-nav__label ds-c-vertical-nav__label" href="#bcda-user-guide">
@@ -129,47 +129,47 @@ layout: default
           </ul>
         </li>
       </ul>
-    </aside>
+    </nav>
     <!-- Table of Contents END -->
 
-    <main id="main" class="ds-l-md-col--8 ds-l-lg-col--9">
+    <div class="ds-l-md-col--8 ds-l-lg-col--9">
       <div class="guide-content">
         <div id="bcda-user-guide">
-          <h1>
+        <h2 class="ds-u-font-size--h1">
             BCDA User Guide Documentation
-          </h1>
+          </h2>
           <div class="ds-u-font-size--base">
             {% include build/bcda_user_guide.html %}
           </div>
         </div>
 
         <div id="request-metadata">
-          <h1>
+        <h2 class="ds-u-font-size--h1">
             Request Metadata
-          </h1>
+          </h2>
           <div class="ds-u-font-size--base">
             {% include build/request_metadata.html %}
           </div>
         </div>
         <div id="authorization">
-          <h1>
+        <h2 class="ds-u-font-size--h1">
             Authorization and Authentication
-          </h1>
+          </h2>
           <div class="ds-u-font-size--base">
             {% include build/authorization.html %}
           </div>
           <div id="bcda-credentials">
-            <h2>
+            <h3>
               Manage your BCDA Credentials
-            </h2>
+            </h3>
             <div class="ds-u-font-size--base">
               {% include build/bcda_credentials.html %}
             </div>
           </div>
           <div id="access-token">
-            <h2>
+            <h3>
               Obtain your Access Token
-            </h2>
+            </h3>
             <div class="ds-u-font-size--base">
               {% include build/access_token.html %}
             </div>
@@ -177,43 +177,43 @@ layout: default
         </div>
       </div>
       <div id="requesting-data" class="guide-content">
-        <h1>
+        <h2 class="ds-u-font-size--h1">
           Requesting Data
-        </h1>
+        </h2>
         <div class="ds-u-font-size--base">
           {% include build/requesting_data.html %}
         </div>
         
         <div id="requesting-all-three">
-          <h2>
+          <h3>
             Request All Three Resource Types
-          </h2>
+          </h3>
           <div class="ds-u-font-size--base">
             {% include build/requesting_data_all_three.html %}
           </div>
         
         <div id="cancelling-jobs">
-          <h2>
+          <h3>
             Cancelling a Job
-          </h2>
+          </h3>
           <div class="ds-u-font-size--base">
             {% include build/cancelling_jobs.html %}
           </div>
         </div>
 
         <div id="jobs-history">
-          <h2>
+          <h3>
             Request Jobs History
-          </h2>
+          </h3>
           <div class="ds-u-font-size--base">
             {% include build/jobs_history.html %}
           </div>
         </div>
 
         <div id="attribution-status">
-          <h2>
+          <h3>
             Request Attribution Status
-          </h2>
+          </h3>
           <div class="ds-u-font-size--base">
             {% include build/attribution_status.html %}
           </div>
@@ -221,32 +221,32 @@ layout: default
       </div>
 
       <div id="requesting-filtered-data" class="guide-content">
-        <h1>
+        <h2 class="ds-u-font-size--h1">
           Requesting Filtered Data
-        </h1>
+        </h2>
         <div class="ds-u-font-size--base ">
           {% include build/requesting_filtered_data.html %}
         </div>
         <div id="requesting-since-with-Patient">
-          <h2>
+          <h3>
             Requesting using _since with the /Patient endpoint
-          </h2>
+          </h3>
           <div class="ds-u-font-size--base">
             {% include build/requesting_filtered_data_since_Patient.html %}
           </div>
         </div>
         <div id="requesting-since-with-Group">
-          <h2>
+          <h3>
             Requesting using _since with the /Group endpoint
-          </h2>
+          </h3>
           <div class="ds-u-font-size--base">
             {% include build/requesting_filtered_data_since_Group.html %}
           </div>
         </div>
         <div id="requesting-data-runouts">
-          <h2>
+          <h3>
             Request runouts data with /Group and `runout`
-          </h2>
+          </h3>
           <div class="ds-u-font-size--base">
             Use /Group/runout at the beginning of a new Performance Year (PY) to retrieve runouts data for the the previous PY. Runouts data includes claims data for Medicare enrollees who were attributed to your model entity the previous year but not the current year. These claims will have a service date no later than December 31 of the previous year.
           </div>
@@ -257,26 +257,26 @@ layout: default
       </div>
 
       <div id="bulk-best-practices" class="guide-content">
-        <h1>
+        <h2 class="ds-u-font-size--h1">
           Best Practices
-        </h1>
+        </h2>
         <div id="handling-429-error">
-          <h2>
+          <h3>
             Handling 429 status codes
-          </h2>
+          </h3>
           <div class="ds-u-font-size--base">
             {% include build/best_practices_429.html %}
           </div>
         </div>
         <div id="speeding-up-downloads">
-          <h2>
+          <h3>
             Speeding up downloads
-          </h2>
+          </h3>
           <div class="ds-u-font-size--base">
             {% include build/best_practices_download_speed.html %}
           </div>
         </div>
       </div>
-    </main>
+    </div>
   </div>
-</div>
+</main>
