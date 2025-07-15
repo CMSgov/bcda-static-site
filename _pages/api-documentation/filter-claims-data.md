@@ -19,7 +19,7 @@ Use parameters in the sandbox or production environment to speed up download tim
 
 ## The _type parameter 
 
-The _type parameter lets you specify which resource types you'd like returned. Otherwise, making a GET request to start a job with the /Group or /Patient endpoint will return all resource types.
+The _type parameter lets you specify which resource types you'd like returned. Otherwise, making a `GET` request to start a job with the /Group or /Patient endpoint will return all resource types.
 
 You'll need to use commas when specifying multiple resource types. The examples below are curl requests to /Group using _type. 
 
@@ -57,7 +57,7 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=Explan
 
 ## The _since parameter
 
-The _since parameter lets you filter for claims data last updated after a specified date. Dates must be in the [FHIR standard instant format](https://www.hl7.org/fhir/datatypes.html#instant) (YYYY-MM-DDThh:mm:sss+zz:zz). 
+The _since parameter lets you filter for claims data last updated after a specified date. Dates must be in the [FHIR standard instant format](https://www.hl7.org/fhir/datatypes.html#instant)`(YYYY-MM-DDThh:mm:sss+zz:zz`. 
 
 - Sample date: February 20, 2020 12:00 PM EST
 - Formatted sample: 2020-02-20T12:00:00.000-05:00
@@ -90,14 +90,15 @@ GET /api/v2/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00
 
 #### Example curl command using _since with /Patient
 
-This command combines the GET request and request header. The dollar sign ($) before "export" in the URL indicates the endpoint is an action, not a resource.
+This command combines the `GET` request and request header. The dollar sign `$` before `export` in the URL indicates the endpoint is an action, not a resource.
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Patient/\$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00" \
     -H "Accept: application/fhir+json" \
     -H "Prefer: respond-async" \
-    -H "Authorization: Bearer {bearer_token}"
+    -H "Authorization: Bearer {bearer_token}" \
+    -i
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
@@ -126,7 +127,8 @@ GET /api/v2/Group/all/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00" \
     -H "Accept: application/fhir+json" \
     -H "Prefer: respond-async" \
-    -H "Authorization: Bearer {bearer_token}"
+    -H "Authorization: Bearer {bearer_token}" \
+    -i
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
@@ -134,7 +136,7 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=Patien
 
 The \`runout` identifier lets you request runouts data for enrollees attributed to your model entity the previous year, but not the current year. Claims data returned will have a service date no later than December 31 of the previous year.
 
-The examples below are GET requests made to the /Group endpoint. 
+The examples below are `GET` requests made to the /Group endpoint. 
 
 <h3 class="font-ui-sm">Example request for 1 resource type using `runout`</h3>
 
@@ -149,7 +151,8 @@ GET /api/v2/Group/runout/$export?_type=Patient
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/runout/\$export?_type=Patient" \
     -H "accept: application/fhir+json" \
     -H "Prefer: respond-async" \
-    -H "Authorization: Bearer {bearer_token}"
+    -H "Authorization: Bearer {bearer_token}" \
+    -i
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
@@ -166,7 +169,8 @@ GET /api/v2/Group/runout/$export?_type=ExplanationOfBenefit,Patient
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/runout/\$export?_type=ExplanationOfBenefit,Patient" \
     -H "accept: application/fhir+json" \
     -H "Prefer: respond-async" \
-    -H "Authorization: Bearer {bearer_token}"
+    -H "Authorization: Bearer {bearer_token}" \
+    -i
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
@@ -183,6 +187,7 @@ GET /api/v2/Group/runout/$export
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/runout/\$export" \
     -H "accept: application/fhir+json" \
     -H "Prefer: respond-async" \
-    -H "Authorization: Bearer {bearer_token}"
+    -H "Authorization: Bearer {bearer_token}" \
+    -i
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
