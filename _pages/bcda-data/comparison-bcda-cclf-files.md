@@ -4,6 +4,7 @@ page_title: "Comparison of BCDA and CCLF Files"
 seo_title: ""
 description: "BCDA files have a different format than CCLF, and offer partially adjudicated claims data which updates more frequently."
 in-page-nav: true
+feedback_id: "71c49b0f"
 ---
 
 # {{ page.page_title }}
@@ -174,3 +175,4 @@ Yes, using both data sources provides many benefits:
 - **Ensure data accuracy:** Compare and cross-reference both sources to access a wider variety of historical data and identify any discrepancies. 
 - **Understand utilization patterns, health outcomes, and cost trends:** Combine CCLF files' enrollment data (e.g., start and end dates, coverage type, demographic details) with BCDA data. This can support population health management, risk stratification, and targeted intervention strategies.
 - **Evaluate care coordination and payment processes:** Combine BCDA's insurance coverage details with CCLF files' payment data. This can evaluate the coordination of benefits between Medicare and other insurers, assess the financial impact on all parties, and identify primary or secondary payers.
+
