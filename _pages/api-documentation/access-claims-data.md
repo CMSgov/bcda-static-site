@@ -106,7 +106,8 @@ Prefer: respond-async
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export" \
     -H "Accept: application/fhir+json" \
     -H "Prefer: respond-async" \
-    -H "Authorization: Bearer {bearer_token}"
+    -H "Authorization: Bearer {bearer_token}" \
+    -i
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
@@ -114,7 +115,8 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export" \
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=ExplanationOfBenefit,Patient" \
     -H "Accept: application/fhir+json" \
     -H "Prefer: respond-async" \
-    -H "Authorization: Bearer {bearer_token}"
+    -H "Authorization: Bearer {bearer_token}" \
+    -i
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
@@ -122,7 +124,8 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=Explan
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=Patient" \
     -H "Accept: application/fhir+json" \
     -H "Prefer: respond-async" \
-    -H "Authorization: Bearer {bearer_token}"
+    -H "Authorization: Bearer {bearer_token}" \
+    -i
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
