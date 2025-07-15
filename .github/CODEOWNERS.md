@@ -5,10 +5,9 @@
 - [@bcda-admins](https://github.com/orgs/CMSgov/teams/bcda-admins)
 - [@bcda-devs](https://github.com/orgs/CMSgov/teams/bcda-devs)
 
-
+<!--
 ## Repo Domains
 
-<!--
 The Repo Domains section of your CODEOWNERS.md file helps manage code review responsibilities efficiently. Each domain represents a different aspect of the repository, such as documentation, frontend, backend, DevOps, testing, etc. In this section, list each domain and assign the appropriate GitHub usernames or teams responsible for that domain. This ensures that pull requests (PRs) are reviewed by the right experts, maintaining high code quality and relevance.
 
 For example:
@@ -29,6 +28,3 @@ To set up GitHub teams:
 - When filling out the Repo Domains section in your CODEOWNERS.md file, use the team handles instead of or alongside individual usernames. This way, when a contributor opens a PR affecting a specific domain, they can simply tag the team, and every member of that team will be notified.
 
 -->
-
-/docs/ {Git usernames of documentation owners}  
-/frontend/ {Git usernames of frontend owners}
