@@ -137,7 +137,7 @@ Read <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_
           <div class="usa-card__img text-center">
             <img
               src="{{ '/assets/img/logo-bluebutton.svg' | relative_url }}"
-              alt="AB2D logo"
+              alt="Blue button 2.0 logo"
               class="maxw-15 margin-x-auto"
             />
           </div>
