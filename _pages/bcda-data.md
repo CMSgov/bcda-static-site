@@ -33,7 +33,7 @@ The Data Dictionary maps the different data fields and locations between BCDA an
     <img src="{{ '/assets/img/book.svg' | relative_url }}" alt="book illustration">
   </div>
   <div class="grid-col-fill tablet:grid-col-9">
-      <p>Download the <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}">BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> to learn about:</p>
+      <p>Download the <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> to learn about:</p>
     <ul>
       <li>claim field names and descriptions</li>
       <li>new data field locations</li>
@@ -72,11 +72,11 @@ Download sample data files, which share similar content and structure to product
   </div>
   <div class="grid-col-fill tablet:grid-col-9">
     <ul>
-        <li><a href="{{ '/assets/downloads/ExplanationOfBenefit.ndjson' | relative_url }}">ExplanationOfBenefit.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
-        <li><a href="{{ '/assets/downloads/Patient.ndjson' | relative_url }}">Patient.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
-        <li><a href="{{ '/assets/downloads/Coverage.ndjson' | relative_url }}">Coverage.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
-        <li><a href="{{ '/assets/downloads/Claim.ndjson' | relative_url }}">Claim.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> (partially adjudicated claims data) </li>
-        <li><a href="{{ '/assets/downloads/ClaimResponse.ndjson' | relative_url }}">ClaimResponse.ndjson  {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> (partially adjudicated claims data)</li>
+        <li><a href="{{ '/assets/downloads/ExplanationOfBenefit.ndjson' | relative_url }}" data-tealium="download">ExplanationOfBenefit.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+        <li><a href="{{ '/assets/downloads/Patient.ndjson' | relative_url }}" data-tealium="download">Patient.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+        <li><a href="{{ '/assets/downloads/Coverage.ndjson' | relative_url }}" data-tealium="download">Coverage.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+        <li><a href="{{ '/assets/downloads/Claim.ndjson' | relative_url }}" data-tealium="download">Claim.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> (partially adjudicated claims data) </li>
+        <li><a href="{{ '/assets/downloads/ClaimResponse.ndjson' | relative_url }}" data-tealium="download">ClaimResponse.ndjson  {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> (partially adjudicated claims data)</li>
     </ul>
   </div>
 </div>

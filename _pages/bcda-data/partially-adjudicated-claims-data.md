@@ -46,10 +46,10 @@ BCDA provides both partially and fully adjudicated claims data. The key differen
     </tr>
     <tr scope="row">
       <td data-label="Partially adjudicated claims">
-         <a href="{{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}">Partially Adjudicated Claims Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a>
+         <a href="{{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">Partially Adjudicated Claims Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a>
       </td>
       <td data-label="Fully adjudicated claims">
-        <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}"> BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>
+        <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download"> BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>
       </td>
     </tr>
   </tbody>
@@ -77,7 +77,7 @@ Partially adjudicated claims data is accessed using 2 additional resource types:
 - **<a href="https://www.hl7.org/fhir/claim.html" target="_blank" rel="noopener noreferrer">Claim</a>** – Information about the professional and institutional claims that providers submit for payment (including the services that enrollees receive)
 - **<a href="https://www.hl7.org/fhir/claimresponse.html" target="_blank" rel="noopener noreferrer">ClaimResponse</a>** – Information about a claim’s adjudication status and processing results
 
-Claim and ClaimResponse only provide access to Parts A and B Fee-for-Service claims data. They don’t include Part D (drug coverage) and Durable Medical Equipment (DME) claims. Review the [Partially Adjudicated Claims Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}]({{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}) for a complete list and description of the data fields. 
+Claim and ClaimResponse only provide access to Parts A and B Fee-for-Service claims data. They don’t include Part D (drug coverage) and Durable Medical Equipment (DME) claims. Review the <a href="{{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">Partially Adjudicated Claims Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a> for a complete list and description of the data fields. 
 
 ## Use cases 
 
