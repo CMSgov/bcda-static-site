@@ -20,6 +20,7 @@ jobs:
     uses: CMSgov/dpc-app/.github/workflows/tag_release.yml@main
     with:
       repo_ref: ${{ inputs.repo_ref }}
+      runner: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
     secrets: inherit
   deploy:
     if: ${{ inputs.deploy }}
@@ -27,6 +28,6 @@ jobs:
     needs: tag_repo
     uses: ./.github/workflows/deploy.yml
     with:
-      target_environment: staging
+      target_environment: stage
       static_repo_ref: ${{ needs.tag_repo.outputs.tag }}
     secrets: inherit
