@@ -133,7 +133,7 @@ Claims data is organized by resource types, which are requested at the /Patient 
     ExplanationOfBenefit (EOB)
   </dt>
   <dd class="margin-left-0 margin-bottom-4"> 
-    <p>Similar to CCLF files 1-7, <a href="https://hl7.org/fhir/R4/explanationofbenefit.html" target="_blank" rel="noopener noreferrer">ExplanationOfBenefit</a> stores details for episodes of care, including where and when the service was performed, diagnosis codes, provider, and cost of care. <em>Updated weekly.</em></p>
+    <p>Similar to CCLF files 1-7, <a href="https://hl7.org/fhir/R4/explanationofbenefit.html" target="_blank" rel="noopener noreferrer">ExplanationOfBenefit</a> stores details for episodes of care, including where and when the service was performed, diagnosis codes, provider, and cost of care. <i>Updated weekly.</i></p>
   </dd> 
   
   <div id="patient">
@@ -141,7 +141,7 @@ Claims data is organized by resource types, which are requested at the /Patient 
   Patient
   </dt></div>
   <dd class="margin-left-0 margin-bottom-4">
-    <p>Similar to CCLF files 8 and 9, <a href="https://hl7.org/fhir/R4/patient.html" target="_blank" rel="noopener noreferrer">Patient</a> stores enrollees' demographic details and updates to their patient identifiers. <em>Updated weekly.</em></p>
+    <p>Similar to CCLF files 8 and 9, <a href="https://hl7.org/fhir/R4/patient.html" target="_blank" rel="noopener noreferrer">Patient</a> stores enrollees' demographic details and updates to their patient identifiers. <i>Updated weekly.</i></p>
   </dd>
 
 <div id="coverage">
@@ -149,7 +149,7 @@ Claims data is organized by resource types, which are requested at the /Patient 
   Coverage
   </dt> </div>
   <dd class="margin-left-0 margin-bottom-4">
-    <p><a href="https://hl7.org/fhir/R4/coverage.html" target="_blank" rel="noopener noreferrer">Coverage</a> stores enrollees' insurance coverage details, including dual coverage. <em>Updated weekly.</em></p>
+    <p><a href="https://hl7.org/fhir/R4/coverage.html" target="_blank" rel="noopener noreferrer">Coverage</a> stores enrollees' insurance coverage details, including dual coverage. <i>Updated weekly.</i></p>
   </dd>
 
 <div id="claim">
@@ -157,7 +157,7 @@ Claims data is organized by resource types, which are requested at the /Patient 
     Claim
   </dt> </div>
   <dd class="margin-left-0 margin-bottom-4">
-    <p>Available for partially adjudicated claims only, <a href="https://hl7.org/fhir/R4/claim.html" target="_blank" rel="noopener noreferrer">Claim</a> stores financial and clinical details on professional and institutional claims. This is typically used for treatment payment planning and reimbursement. <em>Updated daily.</em></p> 
+    <p>Available for partially adjudicated claims only, <a href="https://hl7.org/fhir/R4/claim.html" target="_blank" rel="noopener noreferrer">Claim</a> stores financial and clinical details on professional and institutional claims. This is typically used for treatment payment planning and reimbursement. <i>Updated daily.</i></p> 
   </dd>
 
 <div id="claimresponse">
@@ -165,6 +165,6 @@ Claims data is organized by resource types, which are requested at the /Patient 
    ClaimResponse
   </dt> </div>
   <dd class="margin-left-0 margin-bottom-4">
-    <p>Available for partially adjudicated claims only, <a href="https://hl7.org/fhir/R4/claimresponse.html" target="_blank" rel="noopener noreferrer">ClaimResponse</a> stores details about the adjudication status and processing results for a claim, predetermination, or preauthorization. <em>Updated daily.</em></p>
+    <p>Available for partially adjudicated claims only, <a href="https://hl7.org/fhir/R4/claimresponse.html" target="_blank" rel="noopener noreferrer">ClaimResponse</a> stores details about the adjudication status and processing results for a claim, predetermination, or preauthorization. <i>Updated daily.</i></p>
   </dd>
 </dl>
