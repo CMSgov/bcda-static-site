@@ -8,7 +8,7 @@ in-page-nav: true
 
 # {{ page.page_title }}
 
-BCDA provides both partially and fully adjudicated claims data. The key differences between these data types are outlines below:
+BCDA provides both partially and fully adjudicated claims data. The key differences between these data types are outlined below:
 
 <table class="usa-table usa-table--borderless usa-table--stacked margin-bottom-4">
   <caption class="usa-sr-only">Partially versus fully adjudicated claims data</caption>
