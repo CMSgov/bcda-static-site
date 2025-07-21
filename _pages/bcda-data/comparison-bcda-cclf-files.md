@@ -20,63 +20,89 @@ BCDA uses the <a href="https://www.cms.gov/priorities/key-initiatives/burden-red
 
 ## Summary of differences
 
-<table class="usa-table usa-table--stacked usa-table--borderless">
+<table class="usa-table usa-table--stacked usa-table--borderless margin-bottom-0">
     <thead>
         <tr>
-            <!-- <th scope="col"></th> -->
-            <th scope="col" width="50%">BCDA</th>
-            <th scope="col" width="50%">CCLF</th>
+            <th scope="col">BCDA</th>
+            <th scope="col">CCLF</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-          <th scope="rowgroup" colspan="2">Access method</th>
+            <th scope="colgroup" colspan="2">Access method</th>
         </tr>
         <tr>
-            <td style="vertical-align: baseline; padding: 1rem;">Programmatically using API requests</td>
-            <td style="vertical-align: baseline; padding: 1rem;">Manually using portals or programmatically using API requests or Command Line Interface</td>
+            <td style="vertical-align: baseline; padding: 1rem; width:50%; border-bottom:0;" headers="bcda-head am-head">Programmatically using API requests</td>
+            <td style="vertical-align: baseline; padding: 1rem; width:50%; border-bottom:0;" headers="cclf-head am-head">Manually using portals or programmatically using API requests or Command Line Interface</td>
         </tr>
-      </tbody>
-      <tbody>
+    </tbody>
+</table>
+
+<table class="usa-table usa-table--stacked usa-table--borderless margin-y-0">
+    <thead class="usa-sr-only">
         <tr>
-          <th scope="rowgroup" colspan="2">Claims data format</th>
+            <th scope="col">BCDA</th>
+            <th scope="col">CCLF</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="colgroup" colspan="2">Claims data format</th>
         </tr>
         <tr>
-            <td style="vertical-align: baseline; padding: 1rem;">Interoperable and machine-readable, using FHIR R4 or STU3 format.</td>
-            <td style="vertical-align: baseline; padding: 1rem;">Human-readable, using <a href="https://www.cms.gov/files/document/cclf-information-packet.pdf" target="_blank" rel="noopener noreferrer">fixed-width tabular files.</a></td>
+            <td style="vertical-align: baseline; padding: 1rem; width:50%; border-bottom:0;">Interoperable and machine-readable, using FHIR R4 or STU3 format.</td>
+            <td style="vertical-align: baseline; padding: 1rem; width:50%; border-bottom:0;">Human-readable, using <a href="https://www.cms.gov/files/document/cclf-information-packet.pdf" target="_blank" rel="noopener noreferrer">fixed-width tabular files.</a></td>
         </tr>
-      </tbody>
-      <tbody>
+    </tbody>
+</table>
+
+<table class="usa-table usa-table--stacked usa-table--borderless margin-y-0">
+    <thead class="usa-sr-only">
         <tr>
-          <th scope="rowgroup" colspan="2">Claims data source</th>
+            <th scope="col">BCDA</th>
+            <th scope="col">CCLF</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="colgroup" colspan="2">Claims data source</th>
         </tr>
         <tr>
-            <td style="vertical-align: baseline; padding: 1rem;">
-              <ul style="margin: 0; padding-left: 1rem;">
-                  <li>Adjudicated claims: Chronic Conditions Warehouse (CCW)</li>
-                  <li>Partially adjudicated claims: Fiscal Intermediary Standard System (FISS) and Multi-Carrier System (MCS)</li>
-              </ul>
+            <td style="vertical-align: baseline; padding: 1rem; width:50%; border-bottom:0;">
+                <ul style="margin: 0; padding-left: 1rem;">
+                    <li>Adjudicated claims: Chronic Conditions Warehouse (CCW)</li>
+                    <li>Partially adjudicated claims: Fiscal Intermediary Standard System (FISS) and Multi-Carrier System (MCS)</li>
+                </ul>
             </td>
-            <td style="vertical-align: baseline; padding: 1rem;">
-              <ul style="margin: 0; padding-left: 1rem;">
-                <li>Adjudicated claims: Integrated Data Repository (IDR)</li>
-              </ul>
+            <td style="vertical-align: baseline; padding: 1rem; width:50%; border-bottom:0;">
+                <ul style="margin: 0; padding-left: 1rem;">
+                    <li>Adjudicated claims: Integrated Data Repository (IDR)</li>
+                </ul>
             </td>
         </tr>
-      </tbody>
-      <tbody>
+    </tbody>
+</table>
+
+<table class="usa-table usa-table--stacked usa-table--borderless margin-y-0">
+    <thead class="usa-sr-only">
         <tr>
-          <th scope="rowgroup" colspan="2">CMS models supported</th>
+            <th scope="col">BCDA</th>
+            <th scope="col">CCLF</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="colgroup" colspan="2">CMS models supported</th>
         </tr>
         <tr>
-            <td style="vertical-align: baseline; padding: 1rem;">
+            <td style="vertical-align: baseline; padding: 1rem; width:50%; border-bottom:0;">
                 <ul style="margin: 0; padding-left: 1rem;">
                     <li>Medicare Shared Savings Program (SSP)</li>
                     <li>Accountable Care Organizations Realizing Equity, Access, and Community Health (ACO REACH)</li>
                     <li>Kidney Care Choices (KCC)</li>
                 </ul>
             </td>
-            <td style="vertical-align: baseline; padding: 1rem;">
+            <td style="vertical-align: baseline; padding: 1rem; width:50%; border-bottom:0;">
                 <ul style="margin: 0; padding-left: 1rem;">
                     <li>Medicare Shared Savings Program (SSP)</li>
                     <li>Accountable Care Organizations Realizing Equity, Access, and Community Health (ACO REACH)</li>
@@ -86,72 +112,98 @@ BCDA uses the <a href="https://www.cms.gov/priorities/key-initiatives/burden-red
                 </ul>
             </td>
         </tr>
-      </tbody>
-      <tbody>
+    </tbody>
+</table>
+
+<table class="usa-table usa-table--stacked usa-table--borderless margin-y-0">
+    <thead class="usa-sr-only">
         <tr>
-          <th scope="rowgroup" colspan="2">Data fields</th>
+            <th scope="col">BCDA</th>
+            <th scope="col">CCLF</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="colgroup" colspan="2">Data fields</th>
         </tr>
         <tr>
-            <td style="vertical-align: baseline; padding: 1rem;">
+            <td style="vertical-align: baseline; padding: 1rem; width:50%; border-bottom:0;">
                 <ul style="margin: 0; padding-left: 1rem;">
-                    <li>ExplanationOfBenefit.Status supports 2 values ("active" or "canceled").</li> 
+                    <li>ExplanationOfBenefit.Status supports 2 values ("active" or "canceled").</li>
                     <li>There are some FHIR-format metadata fields which don't exist in CCLF files*.</li>
                 </ul>
             </td>
-            <td style="vertical-align: baseline; padding: 1rem;">
+            <td style="vertical-align: baseline; padding: 1rem; width:50%; border-bottom:0;">
                 <ul style="margin: 0; padding-left: 1rem;">
                     <li>CLM_ADJSMT_TYPE_CD supports 3 numeric values (0=original, 1=cancellation, or 2=adjustment). </li>
-                    <li>There are internal identifiers (e.g., claims processing, payment, auditing) which don't exist in BCDA data*.</li>
+                    <li>There are internal identifiers (e.g., claims processing, payment, auditing) which don't exist in BCDA data.<sup><a href="#fn1">*</a></sup></li>
                 </ul>
             </td>
         </tr>
-      </tbody>
-      <tbody>
+    </tbody>
+</table>
+
+<table class="usa-table usa-table--stacked usa-table--borderless margin-y-0">
+    <thead class="usa-sr-only">
         <tr>
-          <th scope="rowgroup" colspan="2">Historical data provided on newly attributed enrollees</th>
+            <th scope="col">BCDA</th>
+            <th scope="col">CCLF</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="colgroup" colspan="2">Historical data provided on newly attributed enrollees</th>
         </tr>
         <tr>
-            <td style="vertical-align: baseline; padding: 1rem;">
+            <td style="vertical-align: baseline; padding: 1rem; width:50%; border-bottom:0;">
                 <ul style="margin: 0; padding-left: 1rem;">
                     <li>SSP: all historical data available as far back as 2014</li>
                     <li>KCC: 24 months of historical data from the start of the current performance year</li>
                     <li>ACO REACH: 36 months of historical data from the start of the current performance year</li>
                 </ul>
             </td>
-            <td style="vertical-align: baseline; padding: 1rem;">
+            <td style="vertical-align: baseline; padding: 1rem; width:50%; border-bottom:0;">
                 <ul style="margin: 0; padding-left: 1rem;">
                     <li>SSP: 36 months prior to agreement start date</li>
                     <li>KCC and ACO REACH: 36 months of historical data from the start of the current performance year</li>
                 </ul>
             </td>
         </tr>
-      </tbody>
-      <tbody>
+    </tbody>
+</table>
+
+<table class="usa-table usa-table--stacked usa-table--borderless margin-y-0">
+    <thead class="usa-sr-only">
         <tr>
-          <th scope="rowgroup" colspan="2">Update frequency</th>
+            <th scope="col">BCDA</th>
+            <th scope="col">CCLF</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="colgroup" colspan="2">Update frequency</th>
         </tr>
         <tr>
-            <td style="vertical-align: baseline; padding: 1rem;">
+            <td style="vertical-align: baseline; padding: 1rem; width:50%; border-bottom:0;">
                 <ul style="margin: 0; padding-left: 1rem;">
                     <li>Adjudicated claims: weekly</li>
                     <li>Partially adjudicated claims: daily</li>
                 </ul>
             </td>
-            <td style="vertical-align: baseline; padding: 1rem;">
-              <ul style="margin: 0; padding-left: 1rem;">
-                  <li>Adjudicated claims: monthly</li>
-                  <li>Adjudicated claim extracts: weekly**</li>
-              </ul>
+            <td style="vertical-align: baseline; padding: 1rem; width:50%; border-bottom:0;">
+                <ul style="margin: 0; padding-left: 1rem;">
+                    <li>Adjudicated claims: monthly</li>
+                    <li>Adjudicated claim extracts: weekly<sup><a href="#fn2">**</a></sup></li>
+                </ul>
             </td>
         </tr>
     </tbody>
-    <caption style="caption-side: bottom;">
-      <ul>
-        <li>* <a href="{{ '/assets/downloads/unmapped-fields-between-cclf-and-bcda.xlsx' | relative_url }}">Review all unmapped data fields between BCDA and CCLF files {% include sprite.html icon="file_download" class="text-middle" %}</a></li>
-        <li>** CCLF Files include weekly (one-time) extracts upon request.</li>
-      </ul>
-    </caption>
 </table>
+
+<ul>
+  <li id="fn1" style="scroll-margin-top: 6.25rem;"><a href="{{ '/assets/downloads/unmapped-fields-between-cclf-and-bcda.xlsx' | relative_url }}" data-tealium="download">Review all unmapped data fields between BCDA and CCLF files {% include sprite.html icon="file_download" class="text-middle" %}</a></li>
+  <li id="fn2" style="scroll-margin-top: 6.25rem;">CCLF Files include weekly (one-time) extracts upon request.</li>
+</ul>
 
 
 ## What are the differences between the data sources?
