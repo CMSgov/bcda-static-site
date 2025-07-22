@@ -5,7 +5,7 @@ on:
 
 jobs:
   a11y-check:
-    runs-on: ubuntu-latest
+    runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
 
     steps:
       - name: Checkout repository
@@ -27,7 +27,7 @@ jobs:
           fi
 
       - name: Run pa11y
-        run: npx pa11y-ci --config pa11yci.ci.json --sitemap https://stage.bcda.cms.gov/${{ env.DEPLOY_PATH }}/sitemap.xml --sitemap-exclude "/*.pdf"  --sitemap-find https://bcda.cms.gov/ --sitemap-replace https://stage.bcda.cms.gov/ --json > pa11y-results.json || echo "EXIT_CODE=$?" >> $GITHUB_ENV
+        run: npx pa11y-ci --config pa11yci.ci.json --sitemap https://stage.bcda.cms.gov/${{ env.DEPLOY_PATH }}/sitemap.xml --sitemap-exclude "/*.pdf" --sitemap-find https://bcda.cms.gov/ --sitemap-replace https://stage.bcda.cms.gov/ --json > pa11y-results.json || echo "EXIT_CODE=$?" >> $GITHUB_ENV
 
       - name: Save Report to Action Summary
         uses: actions/github-script@v7
@@ -49,15 +49,15 @@ jobs:
 
             core.summary.addRaw(body).write();
 
-      - name: Post to Slack
-        uses: slackapi/slack-github-action@v2.0.0
-        with:
-          method: chat.postMessage
-          token: ${{ secrets.SLACK_BOT_TOKEN }}
-          # Sends to bcda-deploy
-          payload: |
-            channel: "C03S23MJFJS"
-            attachments:
-              - text: "Pa11y Results (/${{env.DEPLOY_PATH}}): <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Pa11y Action Summary>"
-                mrkdown_in:
-                  - text
+      # - name: Post to Slack
+      #   uses: slackapi/slack-github-action@v2.0.0
+      #   with:
+      #     method: chat.postMessage
+      #     token: ${{ secrets.SLACK_BOT_TOKEN }}
+      #     # Sends to bcda-deploy
+      #     payload: |
+      #       channel: "C03S23MJFJS"
+      #       attachments:
+      #         - text: "Pa11y Results (/${{env.DEPLOY_PATH}}): <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Pa11y Action Summary>"
+      #           mrkdown_in:
+      #             - text
