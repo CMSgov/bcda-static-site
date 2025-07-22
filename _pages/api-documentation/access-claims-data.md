@@ -4,6 +4,7 @@ page_title: "How to Access Claims Data"
 seo_title: ""
 description: "Learn how to access Medicare enrollees' Parts A, B, and D claims data in the BCDA production environment for performance tracking and risk analysis."
 in-page-nav: true
+feedback_id: "f179685c"
 ---
 
 # {{ page.page_title }}
@@ -54,10 +55,9 @@ You will need a [bearer token]({{ '/api-documentation/get-a-bearer-token.html' |
 
 ### 2. Start a job 
 
-<div class="usa-alert usa-alert--warning usa-alert--no-icon">
+<div class="usa-alert usa-alert--warning usa-alert--slim">
     <div class="usa-alert__body">
-        <p class="usa-alert__text text-bold">Remember to use the correct URL for your environment</p>
-        <p class="usa-alert__text">Use sandbox.bcda.cms.gov to access the sandbox or api.bcda.cms.gov to access the production environment.</p>
+        <p class="usa-alert__text">Bearer tokens <a href="{{ '/api-documentation/get-a-bearer-token.html#troubleshooting' | relative_url }}">expire</a> 20 minutes after they are generated.</p>
     </div>
 </div>
 
@@ -65,7 +65,7 @@ Make a `GET` request to the /Group or /Patient endpoint to start a data export j
 
 #### Request all resource types 
 
-By default, the GET request returns all available [resource types]({{ '/bcda-data.html#resource-types' | relative_url }}). 
+By default, the `GET` request returns all available [resource types]({{ '/bcda-data.html#resource-types' | relative_url }}). 
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -77,7 +77,7 @@ Use the [_type parameter]({{ '/api-documentation/filter-claims-data.html' | rela
 
 #### Request header
 
-The header must contain your bearer token. You may receive a 401 response if your credentials are invalid or expired. “Bearer” must be included in the header with a capital B and followed by a space.
+The header must contain your bearer token. You may receive a `401` response if your credentials are invalid or expired. `Bearer ` must be included in the header with a capital B and followed by a space.
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -87,19 +87,18 @@ Prefer: respond-async
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="yaml" %}
 
-<div class="usa-alert usa-alert--warning usa-alert--slim">
-    <div class="usa-alert__body">
-        <p class="usa-alert__text">Bearer tokens <a href="{{ '/api-documentation/get-a-bearer-token.html#troubleshooting' | relative_url }}">expire</a> 20 minutes after they are generated.</p>
-    </div>
-</div>
-
 #### Example curl commands to start a job 
 
-<ul>
-    <li>Combine your GET request for resources with the request header.</li>
-    <li>The dollar sign ($) before "export" in the URL indicates the endpoint is an <a href="https://hl7.org/fhir/R4/operations.html" target="_blank" rel="noopener noreferrer">operation</a>, rather than a CRUD interaction. </li>
-    <li>PowerShell users will need to replace backslash characters (\) with backticks (`) to properly escape the $export operation.</li>
-</ul>
+- Combine your  `GET` request for resources with the request header.</li>
+- The dollar sign `$` before `export` in the URL indicates the endpoint is an <a href="https://hl7.org/fhir/R4/operations.html" target="_blank" rel="noopener noreferrer">operation</a>, rather than a CRUD interaction.
+- PowerShell users will need to replace backslash characters `\` with backticks  ( \` ) to properly escape the `$export` operation.
+
+<div class="usa-alert usa-alert--info usa-alert--no-icon">
+    <div class="usa-alert__body">
+        <p class="usa-alert__text text-bold">Remember to use the correct URL for your environment</p>
+        <p class="usa-alert__text">Use sandbox.bcda.cms.gov to access the sandbox or api.bcda.cms.gov to access the production environment.</p>
+    </div>
+</div>
 
 <!-- snippet x3 -->
 {% capture curlSnippet %}{% raw %}
@@ -131,13 +130,7 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=Patien
 
 #### Response example: successful request
 
-A 202 response with a Content-Location header indicates a successful request.
-
-<!-- Snippet -->
-{% capture curlSnippet %}{% raw %}
-202 Accepted
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+A `202 Accepted` response with a Content-Location header indicates a successful request.
 
 #### Response header example
 
@@ -151,24 +144,12 @@ Content-Location: https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}
 
 #### Response example: too many requests
 
-A 429 response indicates “Too Many Requests.” This can occur due to 2 reasons:
+A `429 Too Many Requests` response can occur due to 2 reasons:
 
 1. Making too many HTTP requests within a period of time
 2. Trying to recreate jobs already marked as "In-Progress.” For reference, you can view both existing and past jobs using the [/jobs endpoint]({{ '/api-documentation/access-claims-data.html' | relative_url }}#request-job-history). 
 
-<!-- snippet -->
-{% capture curlSnippet %}{% raw %}
-429 Too Many Requests
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
-
-Wait until the period of time specified in the “Retry-After” header passes before making any more requests. This makes sure your client can adapt without manual intervention, even if the rate-limiting parameters change.
-
-<!-- snippet -->
-{% capture curlSnippet %}{% raw %}
-Retry-After: <delay-seconds>
-{% endraw %}{% endcapture %}
-{% include copy_snippet.html code=curlSnippet language="shell" %}
+Wait until the period of time specified in the `Retry-After: <delay-seconds>` header passes before making any more requests. This makes sure your client can adapt without manual intervention, even if the rate-limiting parameters change.
 
 ### 3. Check job status
 
@@ -197,13 +178,14 @@ Accept: application/fhir+json
 {% capture curlSnippet %}{% raw %}
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}" \
     -H "Accept: application/fhir+json" \
-    -H "Authorization: Bearer {bearer_token}"
+    -H "Authorization: Bearer {bearer_token}" \
+    -i
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
 #### Response example: incomplete job
 
-A 202 response indicates your job is still processing. The status will change to 200 OK when the export is complete and the data is ready for download.
+A `202` response indicates your job is still processing. The status will change to `200 OK` when the export is complete and the data is ready for download.
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -223,7 +205,7 @@ X-Progress: In Progress, 80%
 
 #### Response example: completed job
 
-You'll receive a 200 OK response with the output URL(s) needed to download the data. In the example URLs below, 42 indicates the job ID. 
+You'll receive a `200 OK` response with the output URL(s) needed to download the data. In the example URLs below, `42` indicates the job ID. 
 
 There is a separate URL for each resource type requested. The following example shows a request for all resource types for adjudicated claims data.
 
@@ -308,16 +290,16 @@ By default, you'll receive the requested data as FHIR resources in NDJSON format
 </div>
 
 <ol>
-  <li><a href="{{ '/assets/downloads/ExplanationOfBenefit.ndjson' | relative_url }}">ExplanationOfBenefit.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
-  <li><a href="{{ '/assets/downloads/Patient.ndjson' | relative_url }}">Patient.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
-  <li><a href="{{ '/assets/downloads/Coverage.ndjson' | relative_url }}">Coverage.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+  <li><a href="{{ '/assets/downloads/ExplanationOfBenefit.ndjson' | relative_url }}" data-tealium="download">ExplanationOfBenefit.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+  <li><a href="{{ '/assets/downloads/Patient.ndjson' | relative_url }}" data-tealium="download">Patient.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+  <li><a href="{{ '/assets/downloads/Coverage.ndjson' | relative_url }}" data-tealium="download">Coverage.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
 </ol>
 
 ## Other BCDA endpoints 
 
 ### Cancel a job
 
-Cancel any active job. If the request is successful, you'll receive a 202 response.
+Cancel any active job. If the request is successful, you'll receive a `202` response.
 
 #### Request to cancel a job
  
@@ -341,8 +323,7 @@ Authorization: Bearer {bearer_token}
 {% capture curlSnippet %}{% raw %}
 curl -X DELETE "https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}" \
     -H "Accept: application/fhir+json" \
-    -H "Authorization: Bearer {bearer_token}" \
-    -i
+    -H "Authorization: Bearer {bearer_token}"
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
@@ -352,7 +333,7 @@ Retrieve details on your organization's historical requests, including the start
 
 #### Request to retrieve all past jobs
 
-If your organization has no jobs to return, you'll receive a 404 ERROR response.
+If your organization has no jobs to return, you'll receive a `404 ERROR` response.
 
  <!-- snippet -->
  {% capture curlSnippet %}{% raw %}
@@ -396,7 +377,8 @@ Prefer: respond-async
 curl -X GET "https://sandbox.bcda.cms.gov/api/v2/jobs" \
     -H "Accept: application/fhir+json" \
     -H "Prefer: respond-async" \
-    -H "Authorization: Bearer {bearer_token}"
+    -H "Authorization: Bearer {bearer_token}" \
+    -i
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
@@ -404,7 +386,7 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/jobs" \
 
 The response will contain a bundle of resources for each historical job. Each resource section in the response represents a single past job request.  
 
-This example shows 1 historical job with a “Completed” status. Since this was an unfiltered request, the job could either be archived, expired, or completed.
+This example shows 1 historical job with a `completed` status. Since this was an unfiltered request, the job could either be archived, expired, or completed.
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -476,7 +458,7 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/attribution_status" \
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
 #### Response example
-If BCDA has never ingested an attribution or runout file for your organization, you'll receive a 404 NOT FOUND response.
+If BCDA has never ingested an attribution or runout file for your organization, you'll receive a `404 not found` response.
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 {

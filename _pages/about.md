@@ -4,22 +4,23 @@ page_title: "About BCDA"
 seo_title: ""
 description: "Learn about BCDA claims data. Organizations participating in Alternative Payment Models use BCDA to aid in care coordination and risk prediction."
 show-side-nav: false
+feedback_id: "7d0c54c6"
 ---
 
 <div class="grid-row grid-gap-4 desktop:grid-gap-6 padding-y-7">
-  <div class="tablet:order-last tablet:grid-col display-flex flex-align-center tablet:flex-justify-center">
+  <div class="desktop:order-last desktop:grid-col display-flex flex-align-center desktop:flex-justify-center">
         <img class="width-auto height-full" style="object-fit: contain;"
         src="{{ '/assets/img/data-consult.svg' | relative_url }}" 
         alt="data consult illustration"/>
   </div>
-  <div class="tablet:grid-col-auto padding-top-4 tablet:padding-top-0 display-flex flex-align-center">
+  <div class="desktop:grid-col-auto padding-top-4 desktop:padding-top-0 display-flex flex-align-center">
     <div>
       <h1>{{ page.page_title }}</h1>
       <p>
         Beneficiary Claims Data API (BCDA) was released in February 2019 to share Medicare claims data with Accountable Care Organizations (ACOs) and other <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">eligible model entities</a>. 
       </p>
       <p>
-        Similar to <a href="https://www.cms.gov/files/document/cclf-information-packet.pdf" target="blank" rel="noopener noreferrer">Claim and Claim Line Feed (CCLF) files</a>, BCDA offers Medicare Parts A, B, and D data, but with some key differences in formatting and update frequency. <a href="{{ '/bcda-data/comparison-bcda-cclf-files.html' | relative_url }}">Read more about using one or both data sources</a>, or map data between sources using the <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}">Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>.
+        Similar to <a href="https://www.cms.gov/files/document/cclf-information-packet.pdf" target="blank" rel="noopener noreferrer">Claim and Claim Line Feed (CCLF) files</a>, BCDA offers Medicare Parts A, B, and D data, but with some key differences in formatting and update frequency. <a href="{{ '/bcda-data/comparison-bcda-cclf-files.html' | relative_url }}">Read more about using one or both data sources</a>, or map data between sources using the <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>.
       </p>
     </div>
   </div>
@@ -90,10 +91,10 @@ show-side-nav: false
     </tr>
     <tr scope="row">
       <td data-label="Partially adjudicated claims">
-         <a href="{{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}">Partially Adjudicated Claims Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a>
+         <a href="{{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">Partially Adjudicated Claims Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a>
       </td>
       <td data-label="Fully adjudicated claims">
-        <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}"> BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>
+        <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download"> BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>
       </td>
     </tr>
   </tbody>
@@ -177,3 +178,5 @@ Read <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_
       </div>
   </li>
 </ul>
+
+{% include feedback-form.html id=page.feedback_id %}

@@ -7,7 +7,7 @@
           <a
             href="{{ '/index.html' | relative_url }}"
             title="BCDA"
-            data-tealium="main-nav"
+            data-tealium="main_nav"
             class="display-flex flex-align-center height-6 maxw-card-lg"
             style="gap: 0.5rem;"
           >
@@ -71,6 +71,7 @@
                 <a
                   class="{% if page.url == child.url %}{{ 'usa-current' }}{% endif %}"
                   href="{{- child.url | relative_url -}}"
+                  data-tealium="main_nav"
                 >
                   <span>{{- child.name -}}</span>
                 </a>
@@ -83,7 +84,7 @@
             <a
               href="{{- item.url | relative_url -}}"
               class="usa-nav-link {% if page.url == item.url %}{{ 'usa-current' }}{% endif %}"
-              data-tealium="navigation"
+              data-tealium="main_nav"
             ><span>{{- item.name -}}</span>
             </a>
           </li>
@@ -95,10 +96,8 @@
           <a
             href="{{ '/api-documentation.html' | relative_url }}"
             class="usa-button margin-x-0 width-full desktop:width-auto"
-            data-tealium="main-nav"
-          >Get
-            Started
-          </a>
+            data-tealium="main_nav"
+          >Get Started</a>
         </div>
       </nav>
     </div>
