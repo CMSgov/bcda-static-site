@@ -30,7 +30,7 @@ The Data Dictionary maps the different data fields and locations between BCDA an
 
 <div class="grid-row grid-gap margin-y-4 flex-align-center">
   <div class="grid-col-12 mobile-lg:grid-col-auto">
-    <img src="{{ '/assets/img/book.svg' | relative_url }}" alt="book illustration">
+    <img src="{{ '/assets/img/book.svg' | relative_url }}" alt="">
   </div>
   <div class="grid-col-fill tablet:grid-col-9">
       <p>Download the <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> to learn about:</p>
@@ -48,7 +48,7 @@ REACH ACOs can access claims that aren't fully processed or approved yet. **This
 
 <div class="grid-row grid-gap margin-y-4 flex-align-center">
   <div class="grid-col-12 mobile-lg:grid-col-auto">
-    <img src="{{ '/assets/img/medical-history.svg' | relative_url }}" alt="medical history folder illustration">
+    <img src="{{ '/assets/img/medical-history.svg' | relative_url }}" alt="">
   </div>
   <div class="grid-col-fill tablet:grid-col-9">
     <ul>
@@ -68,7 +68,7 @@ Download sample data files, which share similar content and structure to product
 
 <div class="grid-row grid-gap margin-y-4 flex-align-center">
   <div class="grid-col-12 mobile-lg:grid-col-auto">
-    <img src="{{ '/assets/img/paper.svg' | relative_url }}" alt="paper illustration">
+    <img src="{{ '/assets/img/paper.svg' | relative_url }}" alt="">
   </div>
   <div class="grid-col-fill tablet:grid-col-9">
     <ul>

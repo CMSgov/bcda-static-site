@@ -9,9 +9,10 @@ feedback_id: "7d0c54c6"
 
 <div class="grid-row grid-gap-4 desktop:grid-gap-6 padding-y-7">
   <div class="desktop:order-last desktop:grid-col display-flex flex-align-center desktop:flex-justify-center">
-        <img class="width-auto height-full" style="object-fit: contain;"
-        src="{{ '/assets/img/data-consult.svg' | relative_url }}" 
-        alt="data consult illustration"/>
+    <img class="width-auto height-full" style="object-fit: contain;"
+      src="{{ '/assets/img/data-consult.svg' | relative_url }}" 
+      alt=""
+    />
   </div>
   <div class="desktop:grid-col-auto padding-top-4 desktop:padding-top-0 display-flex flex-align-center">
     <div>
