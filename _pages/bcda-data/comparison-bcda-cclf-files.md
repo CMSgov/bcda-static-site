@@ -32,8 +32,8 @@ BCDA uses the <a href="https://www.cms.gov/priorities/key-initiatives/burden-red
             <th scope="colgroup" colspan="2">Access method</th>
         </tr>
         <tr>
-            <td style="vertical-align: baseline; padding: 1rem; width:50%; border-bottom:0;" headers="bcda-head am-head">Programmatically using API requests</td>
-            <td style="vertical-align: baseline; padding: 1rem; width:50%; border-bottom:0;" headers="cclf-head am-head">Manually using portals or programmatically using API requests or Command Line Interface</td>
+            <td style="vertical-align: baseline; padding: 1rem; width:50%; border-bottom:0;">Programmatically using API requests</td>
+            <td style="vertical-align: baseline; padding: 1rem; width:50%; border-bottom:0;">Manually using portals or programmatically using API requests or Command Line Interface</td>
         </tr>
     </tbody>
 </table>
