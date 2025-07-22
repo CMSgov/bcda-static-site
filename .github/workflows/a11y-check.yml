@@ -5,7 +5,7 @@ on:
 
 jobs:
   a11y-check:
-    runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
