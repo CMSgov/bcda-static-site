@@ -20,7 +20,7 @@ feedback_id: "e9112e33"
 
 <div class="grid-row grid-gap-4 desktop:grid-gap-6 padding-y-4 flex-align-center">
   <div class="tablet:grid-col tablet:order-2">
-    <img src="{{ '/assets/img/experts.svg' | relative_url }}" alt="customer support illustration" />
+    <img src="{{ '/assets/img/experts.svg' | relative_url }}" alt="" />
   </div>
   <div class="tablet:grid-col tablet:order-1 padding-top-2">
     <h2>We're here to help</h2>
@@ -129,7 +129,7 @@ feedback_id: "e9112e33"
 
 {% capture a8AccordionContent %}
 <p>
-    BCDA requires that all production requests come from a registered IP address. Make sure the IP address(es) you're using to request data have been added to the Allow List in your model-specific system. Visit <a href="{{ '/production-access.html' | relative_url }}">Production Access</a> for more details.
+    BCDA requires that all production requests come from a registered IP address. Make sure the IP addresses you're using to request data have been added to the Allow List in your model-specific system. Visit <a href="{{ '/production-access.html' | relative_url }}">Production Access</a> for more details.
 </p>
 {% endcapture %}
 
