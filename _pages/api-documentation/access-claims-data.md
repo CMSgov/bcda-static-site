@@ -31,8 +31,8 @@ The sandbox and production environments follow similar instructions. They suppor
       <td>Contains real Medicare enrollee data</td>
     </tr>
     <tr>
-      <td>sandbox.bcda.cms.gov</td>
-      <td>api.bcda.cms.gov</td>
+      <td><code>sandbox.bcda.cms.gov</code></td>
+      <td><code>api.bcda.cms.gov</code></td>
     </tr>
   </tbody>
 </table>
@@ -53,13 +53,13 @@ The sandbox and production environments follow similar instructions. They suppor
 
 You will need a [bearer token]({{ '/api-documentation/get-a-bearer-token.html' | relative_url }}) to call the API. The process requires credentials, which are formatted as a client ID and client secret. 
 
-### 2. Start a job 
-
 <div class="usa-alert usa-alert--warning usa-alert--slim">
     <div class="usa-alert__body">
-        <p class="usa-alert__text">Bearer tokens <a href="{{ '/api-documentation/get-a-bearer-token.html#troubleshooting' | relative_url }}">expire</a> 20 minutes after they are generated.</p>
+        <p class="usa-alert__text">Jobs will not be interrupted when the bearer token <a href="{{ '/api-documentation/get-a-bearer-token.html#troubleshooting' | relative_url }}">expires</a>. In progress and queued jobs will continue to run.</p>
     </div>
 </div>
+
+### 2. Start a job 
 
 Make a `GET` request to the /Group or /Patient endpoint to start a data export job. The examples below are sandbox curl requests to /Group. Follow along in your terminal or using a tool like Postman.
 
@@ -96,7 +96,7 @@ Prefer: respond-async
 <div class="usa-alert usa-alert--info usa-alert--no-icon">
     <div class="usa-alert__body">
         <p class="usa-alert__text text-bold">Remember to use the correct URL for your environment</p>
-        <p class="usa-alert__text">Use sandbox.bcda.cms.gov to access the sandbox or api.bcda.cms.gov to access the production environment.</p>
+        <p class="usa-alert__text">Use <code>sandbox.bcda.cms.gov</code> to access the sandbox or <code>api.bcda.cms.gov</code> to access the production environment.</p>
     </div>
 </div>
 
@@ -209,13 +209,6 @@ You'll receive a `200 OK` response with the output URL(s) needed to download the
 
 There is a separate URL for each resource type requested. The following example shows a request for all resource types for adjudicated claims data.
 
-<div class="usa-alert usa-alert--warning usa-alert--no-icon">
-    <div class="usa-alert__body">
-        <p class="usa-alert__text text-bold">Files expire after 24 hours</p>
-        <p class="usa-alert__text">You will have 24 hours after a job completes to download the data. Otherwise, the file(s) will expire and you will need to restart the job.</p>
-    </div>
-</div>
-
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 {
@@ -247,6 +240,13 @@ There is a separate URL for each resource type requested. The following example 
 Make a `GET` request to download your data using the URL(s) from step 3. 
 
 If you're downloading from more than 1 URL, make multiple download requests concurrently to save time. Large files may take significantly longer to download. 
+
+<div class="usa-alert usa-alert--info usa-alert--no-icon">
+    <div class="usa-alert__body">
+        <p class="usa-alert__text text-bold">Files expire after 24 hours</p>
+        <p class="usa-alert__text">You can download these files using a new bearer token. After 24 hours, the files will expire and you will need to restart the job.</p>
+    </div>
+</div>
 
 #### Request to download the data
 
@@ -283,7 +283,7 @@ If some of the data can't be exported due to errors, details can be found at the
 
 By default, you'll receive the requested data as FHIR resources in NDJSON format. Each resource will appear as a separate, labeled file. 
 
-<div class="usa-alert usa-alert--info usa-alert--slim">
+<div class="usa-alert usa-alert--info usa-alert--no-icon usa-alert--slim">
     <div class="usa-alert__body">
         <p class="usa-alert__text">Test data from the sandbox contains only negative Patient IDs.</p>
     </div>

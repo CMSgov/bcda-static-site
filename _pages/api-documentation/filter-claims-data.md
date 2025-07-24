@@ -10,7 +10,7 @@ feedback_id: "40a078ea"
 
 # {{ page.page_title }}
 
-Beneficiary Claims Data API (BCDA) uses 2 parameters to filter or specify the resources returned: 
+BCDA uses 2 parameters to filter or specify the resources returned: 
 
 - **_type**: limits your request to 1 or more specific resource types
 - **_since**: applies a date boundary to your request
@@ -60,7 +60,7 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=Explan
 The _since parameter lets you filter for claims data last updated after a specified date. Dates must be in the [FHIR standard instant format](https://www.hl7.org/fhir/datatypes.html#instant)`(YYYY-MM-DDThh:mm:sss+zz:zz`. 
 
 - Sample date: February 20, 2020 12:00 PM EST
-- Formatted sample: 2020-02-20T12:00:00.000-05:00
+- Formatted sample: `2020-02-20T12:00:00.000-05:00`
 
 <div class="usa-alert usa-alert--warning usa-alert--no-icon">
     <div class="usa-alert__body">

@@ -66,7 +66,7 @@ curl -d "" -X POST "https://sandbox.bcda.cms.gov/auth/token" \
     <div class="usa-alert__body">
         <p class="usa-alert__text text-bold">Remember to use the correct URL for your environment</p>
         <p class="usa-alert__text">
-            Use sandbox.bcda.cms.gov to access the sandbox or api.bcda.cms.gov to access the production environment.
+            Use <code>sandbox.bcda.cms.gov</code> to access the sandbox or <code>api.bcda.cms.gov</code> to access the production environment.
         </p>
     </div>
 </div>
@@ -187,4 +187,4 @@ Credentials must be rotated (renewed) every 90 days. <a href="">Learn more about
 
 ### Remember to use the correct URL for your environment. 
 
-Use sandbox.bcda.cms.gov to access the sandbox or api.bcda.cms.gov to access the production environment.
+Use <code>sandbox.bcda.cms.gov</code> to access the sandbox or <code><code>api.bcda.cms.gov</code></code> to access the production environment.
