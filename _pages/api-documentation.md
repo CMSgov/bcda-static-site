@@ -93,7 +93,7 @@ Use parameters during job requests to filter or specify the resources returned:
 
 - **The _since parameter**: Apply a date boundary to your requests. Instead of receiving the full record of historical data, filter for resources last updated after a specified date. 
 
-[Explore how to filter claims data {% include sprite.html icon="arrow_forward" %}]({{ '/api-documentation/filter-claims-data.html' | relative_url }})
+<a href="{{ '/api-documentation/filter-claims-data.html' | relative_url }}">Explore how to filter claims data</a>
 
 ## Additional resources
 
