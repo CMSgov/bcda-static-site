@@ -15,6 +15,6 @@
     "@uswds/uswds": "github:uswds/uswds#8c76cc25cb9fde6dbfafe7cd735eee37f2a716f8",
     "concurrently": "^9.1.2",
     "gulp": "^5.0.0",
-    "pa11y-ci": "^3.1.0"
+    "pa11y-ci": "^4.0.0"
   }
 }
