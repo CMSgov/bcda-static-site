@@ -5,24 +5,26 @@
 <div class="bg-base-lightest border-1px border-base-lighter margin-y-2 position-relative">
   <div class="grid-row">
     <div class="tablet:grid-col-fill">
-      <!-- TODO: Can we pass the language var to avoid these conditionals -->
-      {%- if include.language == "json" -%}
-      {%- highlight json %}{{ code }}{% endhighlight -%}
-      {%- elsif include.language == "html" -%}
-      {%- highlight html %}{{ code }}{% endhighlight -%}
-      {%- elsif include.language == "css" -%}
-      {%- highlight css %}{{ code }}{% endhighlight -%}
-      {%- elsif include.language == "javascript" -%}
-      {%- highlight javascript %}{{ code }}{% endhighlight -%}
-      {%- elsif include.language == "markdown" -%}
-      {%- highlight markdown %}{{ code }}{% endhighlight -%}
-      {%- elsif include.language == "shell" -%}
-      {%- highlight shell %}{{ code }}{% endhighlight -%}
-      {%- elsif include.language == "yaml" -%}
-      {%- highlight yaml %}{{ code }}{% endhighlight -%}
-      {%- else -%}
-      {%- highlight plaintext %}{{ code }}{% endhighlight -%}
-      {%- endif -%}
+      <div class="padding-left-2 padding-y-3 {% if can_copy %}padding-right-15{% else %}padding-right-2{% endif %}" tabindex="0" style="overflow-x: auto;">
+        <!-- TODO: Can we pass the language var to avoid these conditionals -->
+        {%- if include.language == "json" -%}
+        {%- highlight json %}{{ code }}{% endhighlight -%}
+        {%- elsif include.language == "html" -%}
+        {%- highlight html %}{{ code }}{% endhighlight -%}
+        {%- elsif include.language == "css" -%}
+        {%- highlight css %}{{ code }}{% endhighlight -%}
+        {%- elsif include.language == "javascript" -%}
+        {%- highlight javascript %}{{ code }}{% endhighlight -%}
+        {%- elsif include.language == "markdown" -%}
+        {%- highlight markdown %}{{ code }}{% endhighlight -%}
+        {%- elsif include.language == "shell" -%}
+        {%- highlight shell %}{{ code }}{% endhighlight -%}
+        {%- elsif include.language == "yaml" -%}
+        {%- highlight yaml %}{{ code }}{% endhighlight -%}
+        {%- else -%}
+        {%- highlight plaintext %}{{ code }}{% endhighlight -%}
+        {%- endif -%}
+      </div>
     </div>
     {% if can_copy == true %}
     <textarea
@@ -30,6 +32,7 @@
       id="code{{ nanosecond }}"
       readonly
       aria-hidden="true"
+      tabindex="-1"
     >
         {{- code | xml_escape -}}
     </textarea>
@@ -38,7 +41,6 @@
         data-tealium="copy_button"
         class="usa-button usa-button--outline margin-0 bg-base-lightest hover:bg-base-lightest active:bg-base-lightest"
         id="copybutton{{ nanosecond }}"
-        data-canCopy="true"
       >Copy <span class="usa-sr-only">to clipboard</span></button>
     </div>
     {% endif %}
