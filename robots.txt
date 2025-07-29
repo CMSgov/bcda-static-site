@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bcda.cms.gov/sitemap.xml
