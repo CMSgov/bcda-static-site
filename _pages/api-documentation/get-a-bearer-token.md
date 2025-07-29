@@ -183,8 +183,8 @@ Client secret:
 
 ### Ensure that your production credentials are not expired.
 
-Credentials must be rotated (renewed) every 90 days. <a href="">Learn more about credentials and production access
+Credentials must be rotated (renewed) every 90 days. <a href="{{ '/production-access.html' | relative_url }}">Learn more about credentials and production access.</a>
 
 ### Remember to use the correct URL for your environment. 
 
-Use <code>sandbox.bcda.cms.gov</code> to access the sandbox or <code><code>api.bcda.cms.gov</code></code> to access the production environment.
+Use <code>sandbox.bcda.cms.gov</code> to access the sandbox or <code>api.bcda.cms.gov</code> to access the production environment.
