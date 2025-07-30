@@ -89,7 +89,7 @@ Prefer: respond-async
 
 #### Example curl commands to start a job 
 
-- Combine your  `GET` request for resources with the request header.</li>
+- Combine your  `GET` request for resources with the request header.
 - The dollar sign `$` before `export` in the URL indicates the endpoint is an <a href="https://hl7.org/fhir/R4/operations.html" target="_blank" rel="noopener noreferrer">operation</a>, rather than a CRUD interaction.
 - PowerShell users will need to replace backslash characters `\` with backticks  ( \` ) to properly escape the `$export` operation.
 
@@ -281,7 +281,7 @@ If some of the data can't be exported due to errors, details can be found at the
 
 #### Response example
 
-By default, you'll receive the requested data as FHIR resources in NDJSON format. Each resource will appear as a separate, labeled file. 
+By default, you'll receive the requested data as FHIR resources in NDJSON format. Each resource type will appear as a separate, labeled file. 
 
 <div class="usa-alert usa-alert--info usa-alert--no-icon usa-alert--slim">
     <div class="usa-alert__body">
