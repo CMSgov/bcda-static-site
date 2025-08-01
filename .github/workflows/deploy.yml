@@ -12,13 +12,10 @@ on:
         required: false
         type: string
 
-env:
-  # RELEASE_VERSION: ${{ inputs.static_repo_ref || 'main' }}
-
 jobs:
   deploy-dev:
     if: github.actor != 'dependabot[bot]'
-    environment: 'stage'
+    # environment: 'stage'
     permissions:
       contents: read
       id-token: write
