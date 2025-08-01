@@ -1,15 +1,35 @@
 name: "Broken Link Check"
 
 on:
-  workflow_call
+  schedule:
+  - cron: 0 0 * * 0 # every Sunday at midnight
+  workflow_dispatch:
+  workflow_call:
+     inputs:
+      deploy_path:
+        required: false
+        type: string
 
 jobs:
   broken-link-check:
     runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
 
     steps:
-      - name: "Checkout code"
-        uses: actions/checkout@v4
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: ${{ vars.AWS_REGION }}
+          role-to-assume: arn:aws:iam::${{ secrets.PROD_ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-prod-github-actions
+
+      - name: Fetch Production AWS Parameters
+        uses: cmsgov/cdap/actions/aws-params-env-action@main
+        with:
+          params: |
+            TARGET_BUCKET=/bcda/prod/static_site
+
+      - name: Download Dev Bucket
+        run: |
+          aws s3 sync s3://${TARGET_BUCKET}/${{ inputs.deploy_path && format('/{0}', inputs.deploy_path) || ''}} .
 
       - name: "Check for broken links"
         uses: lycheeverse/lychee-action@v2
@@ -17,4 +37,4 @@ jobs:
         with:
           jobSummary: true
           fail: true
-          args: --no-progress --accept '200..=299, 401, 403, 405' ~/_[pages,layouts,includes]/**.[md,html]
+          args: --no-progress --accept '200..=299, 401, 403, 405' './**/*.html'

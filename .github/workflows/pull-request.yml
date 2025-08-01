@@ -26,5 +26,9 @@ jobs:
     uses: ./.github/workflows/a11y-check.yml
     secrets: inherit
 
-  # broken-link-check:
-  #   uses: ./.github/workflows/broken-link-check.yml
+  broken-link-check:
+    needs: deploy
+    with:
+      deploy_path: ${{ github.event.number }}
+    uses: ./.github/workflows/broken-link-check.yml
+    secrets: inherit

@@ -23,9 +23,15 @@ jobs:
           aws-region: ${{ vars.AWS_REGION }}
           role-to-assume: arn:aws:iam::${{ secrets.TEST_ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-dev-github-actions
 
+      - name: Fetch Non-Production AWS Parameters
+        uses: cmsgov/cdap/actions/aws-params-env-action@main
+        with:
+          params: |
+            TARGET_BUCKET=/bcda/stage/static_site
+
       - name: Download Dev Bucket
         run: |
-          aws s3 sync s3://stage.bcda.cms.gov/${{ inputs.deploy_path }}/ ./temp-site/
+          aws s3 sync s3://${TARGET_BUCKET}/${{ inputs.deploy_path }}/ ./temp-site/
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -33,45 +39,17 @@ jobs:
           aws-region: ${{ vars.AWS_REGION }}
           role-to-assume: arn:aws:iam::${{ secrets.PROD_ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-prod-github-actions
 
-      - name: Get CloudFront Distribution ID
-        run: |
-          DISTRIBUTION_ID=$(aws cloudfront list-distributions --query "DistributionList.Items[?Origins.Items[0].DomainName=='bcda.cms.gov.s3.us-east-1.amazonaws.com'].Id" --output text)
-          echo "DISTRIBUTION_ID=$DISTRIBUTION_ID" >> $GITHUB_ENV
+      - name: Fetch Production AWS Parameters
+        uses: cmsgov/cdap/actions/aws-params-env-action@main
+        with:
+          params: |
+            TARGET_BUCKET=/bcda/prod/static_site
 
       - name: Copy site to Prod Bucket
         run: |
-          aws s3 sync ./temp-site/ s3://bcda.cms.gov/
+          aws s3 sync ./temp-site/ s3://${TARGET_BUCKET}/ --delete
 
       - name: Invalidate Prod Distribution
         run: |
+          DISTRIBUTION_ID=`aws cloudfront list-distributions --query "DistributionList.Items[].{Id:Id, OriginId: Origins.Items[0].Id}[?OriginId=='$TARGET_BUCKET'].Id" --output text`
           aws cloudfront create-invalidation --distribution-id "$DISTRIBUTION_ID" --paths "/*"
-
-      - name: Slack Success
-        uses: slackapi/slack-github-action@v2.0.0
-        if: ${{ success() }}
-        with:
-          method: chat.postMessage
-          token: ${{ secrets.SLACK_BOT_TOKEN }}
-          # Sends to bcda-deploy
-          payload: |
-            channel: "C03S23MJFJS"
-            attachments:
-              - color: good
-                text: "SUCCESS: Deploy Static Site to ${{ env.TARGET_ENV }}.  <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|${{ github.run_id }}>"
-                mrkdown_in:
-                  - text
-
-      - name: Slack Failure
-        uses: slackapi/slack-github-action@v2.0.0
-        if: ${{ failure() }}
-        with:
-          method: chat.postMessage
-          token: ${{ secrets.SLACK_BOT_TOKEN }}
-          # Sends to bcda-alerts
-          payload: |
-            channel: "C034CFU945C"
-            attachments:
-              - color: danger
-                text: "FAILURE: Deploy Static Site to ${{ env.TARGET_ENV }}.  <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|${{ github.run_id }}>"
-                mrkdown_in:
-                  - text
