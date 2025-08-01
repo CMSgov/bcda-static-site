@@ -35,6 +35,7 @@ webrick:
     Pragma: no-cache
 
 exclude:
+  - sass/*
   - assets/uswds/img/favicons
   - assets/uswds/img/material-icons
   - assets/uswds/img/material-icons-deprecated
@@ -49,6 +50,14 @@ exclude:
   - README.md
   - Dockerfile
   - feed.xml
+  - CODE_OF_CONDUCT.md
+  - code.json
+  - COMMUNITY.md
+  - CONTRIBUTING.md
+  - CONTRIBUTING.md
+  - GOVERNANCE.md
+  - LICENSE.md
+  - SECURITY.md
 
 include:
   - assets/uswds/img/usa-icons/add.svg
