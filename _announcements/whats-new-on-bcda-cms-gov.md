@@ -4,7 +4,7 @@ page_title: "What's new on BCDA.cms.gov"
 description: "We're excited to announce the launch of a new BCDA.cms.gov based on your feedback, user research, and testing."
 show-side-nav: false
 in-page-nav: true
-published_date: 2025-05-07
+published_date: 2025-08-04
 custom_excerpt: "We're excited to announce the launch of a new BCDA.cms.gov based on your feedback, user research, and testing."
 ---
 
