@@ -15,7 +15,7 @@ on:
 jobs:
   deploy-dev:
     if: github.actor != 'dependabot[bot]'
-    # environment: 'stage'
+    environment: 'stage'
     permissions:
       contents: read
       id-token: write
