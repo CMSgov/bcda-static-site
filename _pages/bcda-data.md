@@ -95,19 +95,19 @@ Beneficiary Claims Data API (BCDA) updates partially adjudicated claims data dai
   </thead>
   <tbody>
     <tr>
-      <th scope="col">Medicare Part A claims data</th>
+      <th scope="row">Medicare Part A claims data</th>
       <td>
         Inpatient hospital stays, care in skilled nursing facilities, and hospice care
       </td>
     </tr>
     <tr>
-      <th scope="col">Medicare Part B claims data</th>
+      <th scope="row">Medicare Part B claims data</th>
       <td>
         Doctors' services, outpatient care, preventive services, and durable medical equipment (DME)
       </td>
     </tr>
     <tr>
-      <th scope="col">Medicare Part D claims data</th>
+      <th scope="row">Medicare Part D claims data</th>
       <td>
          Prescription drugs prescribed by healthcare providers
       </td>
