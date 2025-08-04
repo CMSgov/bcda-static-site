@@ -28,6 +28,10 @@
 
   <title>{{ seo_title }}</title>
   <link
+    rel="canonical"
+    href="{{ page.url | absolute_url }}"
+  />
+  <link
     rel="icon"
     type="image/png"
     href="{{ '/assets/img/logo-bcda.svg' | relative_url }}"
