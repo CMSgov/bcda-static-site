@@ -14,7 +14,7 @@ on:
 
 jobs:
   promote:
-    environment: 'prod'
+    # environment: 'prod'
     permissions:
       contents: read
       id-token: write
@@ -25,7 +25,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: ${{ vars.AWS_REGION }}
-          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-dev-github-actions
+          role-to-assume: arn:aws:iam::${{ secrets.STAGE_AWS_ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-dev-github-actions
 
       - name: Fetch Non-Production AWS Parameters
         uses: cmsgov/cdap/actions/aws-params-env-action@main
@@ -41,7 +41,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: ${{ vars.AWS_REGION }}
-          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-prod-github-actions
+          role-to-assume: arn:aws:iam::${{ secrets.PROD_AWS_ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-prod-github-actions
 
       - name: Fetch Production AWS Parameters
         uses: cmsgov/cdap/actions/aws-params-env-action@main
