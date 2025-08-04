@@ -56,7 +56,7 @@ exclude:
   - CONTRIBUTING.md
   - CONTRIBUTING.md
   - GOVERNANCE.md
-  - LICENSE.md
+  - LICENSE
   - SECURITY.md
 
 include:
