@@ -15,6 +15,9 @@ on:
 jobs:
   promote:
     environment: 'prod'
+    permissions:
+      contents: read
+      id-token: write
     runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
     
     steps:
