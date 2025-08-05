@@ -96,13 +96,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const mainNavEls = document.querySelectorAll('[data-tealium="main_nav"]');
   const identifierEls = document.querySelectorAll('[data-tealium="identifier"]');
   const leftRailEls = document.querySelectorAll('[data-tealium="left_rail"]');
+  const footerEls = document.querySelectorAll('[data-tealium="footer"]');
   const tocEls = document.querySelectorAll('[data-tealium="toc"] a');
 
   [
     ...mainNavEls,
     ...identifierEls,
     ...leftRailEls,
-    ...tocEls
+    ...tocEls,
+    ...footerEls
   ].forEach((navigationEl) => {
     navigationEl.addEventListener('click', (event) => {
 
