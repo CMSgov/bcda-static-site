@@ -69,18 +69,23 @@
   <!--DataLayer (utag_data) Snippet
     Within <head> of document at the highest possible point.-->
   <script type="text/javascript">
-    var utag_data = {}
+    var utag_data = {
+      "content_language": "en",
+      "logged_in": false,
+      "page_type": false,
+      "page_name": "{{ seo_title }}",
+      "site_environment": "test",
+    }
   </script>
 
   <!-- Within <head> of document below DataLayer snippet .
     The utag.sync.js script should run as early as possible -->
-
-  <script src="https://tealium-tags.cms.gov/cms-bcda/prod/utag.sync.js"></script>
+  <script src="https://tealium-tags.cms.gov/cms-bcda/dev/utag.sync.js"></script>
 
   <!-- Loading utag.js script asynchronously -->
   <script type="text/javascript">
       (function (a, b, c, d) {
-        a = 'https://tealium-tags.cms.gov/cms-bcda/prod/utag.js'; b = document; c = 'script'; d = b.createElement(c); d.src = a; d.type = 'text/java' + c; d.async = true; a = b.getElementsByTagName(c)[0]; a.parentNode.insertBefore(d, a);
+        a = 'https://tealium-tags.cms.gov/cms-bcda/dev/utag.js'; b = document; c = 'script'; d = b.createElement(c); d.src = a; d.type = 'text/java' + c; d.async = true; a = b.getElementsByTagName(c)[0]; a.parentNode.insertBefore(d, a);
       })();
   </script>
 
