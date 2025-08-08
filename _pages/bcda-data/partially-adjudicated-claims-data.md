@@ -57,6 +57,57 @@ BCDA provides both partially and fully adjudicated claims data. The key differen
 
 ## What is partially adjudicated claims data?
 
+  <div class="margin-y-4">
+    <img src="{{ '/assets/img/diagram.svg' | relative_url }}" alt="" class="width-full">
+    <span class="usa-sr-only">Claims processing flow diagram that shows the timelines and systems invovled in processing both partially and adjudicated claims data</span>
+  </div>
+
+  <div class="minw-15 grid-container">
+    <div class="grid-row grid-gap-4">
+      <div class="tablet:grid-col padding-top-4 tablet:padding-top-0">
+        <h2>{% include sprite.html icon="check_circle_outline" size="6" class="text-green" %}</h2>
+        <h3 class="margin-top-0">Partially adjudicated claims data includes:</h3>
+          <p>2 FHIR resources</p>
+            <ol>
+              <li>Claim</li>
+              <li>ClaimResponse</li>
+            </ol>
+          <p>Data</p>
+            <ul>
+              <li>Part A</li>
+              <li>Part B (excluding Durable Medical Equipment)</li>
+            </ul>
+      </div>
+      <div class="tablet:grid-col padding-top-4 tablet:padding-top-0">
+        <div>
+        <h2>{% include sprite.html icon="check_circle" size="6" class="text-green" %}</h2>
+        <h3 class="margin-top-0">Fully adjudicated claims data includes:</h3>
+          <p>3 FHIR resources</p>
+            <ol>
+              <li>Patient</li>
+              <li>Coverage</li>
+              <li>Explanation of Benefit (EoB)</li>
+            </ol>
+          <p>Data</p>
+            <ul>
+              <li>Part A</li>
+              <li>Part B</li>
+              <li>Part D</li>
+              <li>Historical Claims Data</li>
+              <li>Deductibles</li>
+              <li>Lifetime Coverage</li>
+              <li>Enrollment</li>
+              <li>Beneficiary Eligibility</li>
+              <li>Deductibles</li>
+              <li>Enrollment</li>
+              <li>Historical Claims Data</li>
+              <li>Lifetime Coverage</li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
 ### A faster way to access claims data
 
 Partially adjudicated claims are not fully paid or processed by Medicare yet when they are received by Beneficiary Claims Data API (BCDA). This reduces the time to access data to just 2-4 days after claims submission. 
