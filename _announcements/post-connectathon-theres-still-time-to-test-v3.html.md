@@ -19,4 +19,4 @@ If you weren't able to join you can visit the [HL7 Confluence](https://confluenc
 
 ## Want to provide input on the next version of BCDA?
 
-The `/demo` endpoints will remain available in BCDA’s sandbox while we collect feedback and refine the upcoming BCDA V3. If you're interested in trying out these new endpoints and sharing feedback, follow the test scenarios in the recording of the BCDA Connectathon track.
+The `/demo` endpoints will remain available in BCDA’s sandbox while we collect feedback and refine the upcoming BCDA V3. If you're interested in trying out these new endpoints and sharing feedback, follow the test scenarios in [the recording of the BCDA Connectathon track](https://vimeo.com/1107118819/59373df25c).
