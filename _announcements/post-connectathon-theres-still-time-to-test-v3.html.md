@@ -15,7 +15,7 @@ On July 16, the BCDA team shared a preview of BCDA Version 3 with Connectathon p
 - A new _typeFilter parameter
 - The updated representation of partially adjudicated claims using the ExplanationOfBenefit resource
 
-If you weren't able to join you can visit the [HL7 Confluence](https://confluence.hl7.org/spaces/FHIR/pages/324971281/CMS+2025+-+07+FHIR+Connectathon+6) site to access the BCDA presentation [slides](https://confluence.hl7.org/download/attachments/345083176/2025BCDA_hl7_highlights.pdf?version=1&modificationDate=1752768789792&api=v2) and [recording](https://vimeo.com/1104565738/0573e89197).
+If you weren't able to join you can visit the [HL7 Confluence](https://confluence.hl7.org/spaces/FHIR/pages/324971281/CMS+2025+-+07+FHIR+Connectathon+6) site to access the presentation [slides](https://confluence.hl7.org/download/attachments/345083176/2025BCDA_hl7_highlights.pdf?version=1&modificationDate=1752768789792&api=v2) and [recording](https://vimeo.com/1104565738/0573e89197) of the BCDA track highlights.
 
 ## Want to provide input on the next version of BCDA?
 
