@@ -8,7 +8,7 @@ published_date: 2025-08-05
 custom_excerpt: "In June 2025, CMS HL7 FHIR Connectathon participants gave feedback on Version 3 in the BCDA sandbox. The demo endpoints are still open for testing."
 ---
 
-On June 16, the BCDA team shared a preview of BCDA Version 3 with Connectathon participants. Using the demonstration sandbox environment, testers gave feedback on:
+On July 16, the BCDA team shared a preview of BCDA Version 3 with Connectathon participants. Using the demonstration sandbox environment, testers gave feedback on:
 
 - BCDA’s alignment with selected implementation guides
 - V3’s more conformant approach to publishing CMS-specific terminology
