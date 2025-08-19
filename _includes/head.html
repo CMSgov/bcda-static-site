@@ -69,7 +69,13 @@
   <!--DataLayer (utag_data) Snippet
     Within <head> of document at the highest possible point.-->
   <script type="text/javascript">
-    var utag_data = {}
+    var utag_data = {
+      "content_language": "en",
+      "logged_in": false,
+      "page_type": false,
+      "page_name": "{{ seo_title }}",
+      "site_environment": "test",
+    }
   </script>
 
   <!-- Within <head> of document below DataLayer snippet .

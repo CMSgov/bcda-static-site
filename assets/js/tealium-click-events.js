@@ -1,5 +1,6 @@
 // Wait for USWDS js to finish
 document.addEventListener('DOMContentLoaded', function () {
+  const n_a = "not applicable"
 
   const links = document.querySelectorAll('a');
   links.forEach((linkEl) => {
@@ -17,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
             "event_name": "internal_link_clicked",
             "link_type": "link_other",
             "link_url": target.href,
-            "parent_component_heading": "",
-            "parent_component_type": "",
+            "parent_component_heading": n_a,
+            "parent_component_type": n_a,
             "text": target.innerText,
           });
         } else {
@@ -28,8 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
             "text": target.innerText,
             "link_type": "link_external",
             "link_url": target.href,
-            "parent_component_heading": "",
-            "parent_component_type": "",
+            "parent_component_heading": n_a,
+            "parent_component_type": n_a,
           });
         }
       });
@@ -45,12 +46,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
       utag.link({
         "event_name": "button_engagement",
-        "button_style": "",
+        "button_style": n_a,
         "button_type": "button",
         "link_type": "link_other",
-        "link_url": "",
-        "parent_component_heading": "",
-        "parent_component_type": "",
+        "link_url": n_a,
+        "parent_component_heading": n_a,
+        "parent_component_type": n_a,
         "text": target.innerText,
       });
     });
@@ -66,8 +67,8 @@ document.addEventListener('DOMContentLoaded', function () {
         utag.link({
           "event_name": "accordion_opened",
           "heading": target.innerText,
-          "parent_component_heading": "",
-          "parent_component_type": "",
+          "parent_component_heading": n_a,
+          "parent_component_type": n_a,
         });
       }
     });
@@ -83,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
         "event_name": "file_download",
         "file_name": target.pathname.split('/').pop(),
         "file_extension": target.href.split('.').pop(),
-        "file_postDate": "",
+        "file_postDate": n_a,
         "link_type": "link_download",
         "link_url": target.href,
         "text": target.innerText,
@@ -111,9 +112,29 @@ document.addEventListener('DOMContentLoaded', function () {
       const target = event.currentTarget;
       const navigation_type = target.getAttribute('data-tealium') || "right_rail"
 
+      let heading = n_a
+
+      if (navigation_type === "right_rail") {
+        heading = "On this page"
+      } else if (navigation_type === "left_rail") {
+        const closest = navigationEl.closest('.usa-sidenav > .usa-sidenav__item').querySelector('a')
+
+        // Only track "parent" element as heading, ignore if clicked element was the "parent"        
+        if (closest !== navigationEl) {
+          heading = closest.innerText
+        }
+      } else if (navigation_type === "main_nav") {
+        const closest = navigationEl.closest('.usa-nav__primary .usa-nav__primary-item').querySelector('button')
+
+        // Only track "parent" element as heading, ignore if clicked element was the "parent"
+        if (closest !== navigationEl) {
+          heading = closest.innerText
+        }
+      }
+
       utag.link({
         "event_name": "navigation_clicked",
-        "heading": "",
+        "heading": heading,
         "link_type": "link_other",
         "link_url": target.href,
         "navigation_type": navigation_type,
