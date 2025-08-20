@@ -10,6 +10,10 @@ feedback_id: "355f6ea6"
 
 <h1>{{ page.page_title }}</h1>
 
+<p>Partially adjudicated claims are not claims that are not yet fully paid or processed by Medicare. 
+  BCDA receives this data 2-4 days after submission, with ongoing adjustments continuing to update 
+  every 2-4 days during processing.</p>
+
 <p>BCDA provides both partially and fully adjudicated claims data. The key differences between these data types are
   outlined below:</p>
 
@@ -69,7 +73,7 @@ feedback_id: "355f6ea6"
   </tbody>
 </table>
 
-<h2>What is partially adjudicated claims data?</h2>
+<h2>A faster way to access claims data</h2>
 
 <figure class="width-full margin-y-4 margin-x-0">
   <img
@@ -85,10 +89,19 @@ feedback_id: "355f6ea6"
   <h3 class="margin-top-1">Partially adjudicated claims data includes:</h3>
   <ul>
     <li>
-      <b>2 FHIR resources</b>
+      <b>2 FHIR resource types</b>
       <ol>
-        <li>Claim</li>
-        <li>ClaimResponse</li>
+  <li><a
+        href="https://www.hl7.org/fhir/claim.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Claim</a> – Information about the professional and institutional claims that providers submit for payment
+    (including the services that enrollees receive)</li>
+  <li><a
+        href="https://www.hl7.org/fhir/claimresponse.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >ClaimResponse</a> – Information about a claim's adjudication status and processing results</li>
       </ol>
     </li>
     <li>
@@ -105,11 +118,22 @@ feedback_id: "355f6ea6"
   <h3 class="margin-top-1">Fully adjudicated claims data includes:</h3>
   <ul>
     <li>
-      <b>3 FHIR resources</b>
+      <b>3 FHIR resource types</b>
       <ol>
-        <li>Patient</li>
-        <li>Coverage</li>
-        <li>Explanation of Benefit (EoB)</li>
+        <li><a 
+          href="https://hl7.org/fhir/R4/patient.html" 
+          target="_blank" 
+          rel="noopener noreferrer">Patient</a> -- Enrollees' demographic details and updates to their patient identifiers.</li>
+        <li><a 
+          href="https://hl7.org/fhir/R4/coverage.html" 
+          target="_blank" 
+          rel="noopener noreferrer">
+          Coverage</a> -- Enrollees' insurance coverage details, including dual coverage.</li>
+        <li><a 
+          href="https://hl7.org/fhir/R4/explanationofbenefit.html" 
+          target="_blank" 
+          rel="noopener noreferrer">
+          ExplanationOfBenefit</a> – Details for episodes of care, including where and when the service was performed, diagnosis codes, provider, and cost of care.</li>
       </ol>
     </li>
     <li>
@@ -132,61 +156,11 @@ feedback_id: "355f6ea6"
   </ul>
 </div>
 
-<h2>A faster way to access claims data</h2>
+<h2>Get started with partially adjudicated claims data</h2>
 
-<p>Partially adjudicated claims are not fully paid or processed by Medicare yet when they are received by Beneficiary
-  Claims Data API (BCDA). This reduces the time to access data to just 2-4 days after claims submission. </p>
+<p>Access partially adjudicated claims data in the <a href="{{ '/api-documentation/get-a-bearer-token.html#partially-adjudicated-claims-data-sets' | relative_url }}">BCDA Sandbox</a>.</p>
 
-<p>In total, this typically takes up to 10 days after the episode of care. The data is subject to change with
-  adjustments expected every 2-4 days during processing.</p>
-
-<p>Visit the resources below to learn more:</p>
-
-<ul>
-  <li><a
-      href="{{ '/api-documentation/get-a-bearer-token.html#partially-adjudicated-claims-data-sets' | relative_url }}">Access
-      partially adjudicated claims data in the BCDA Sandbox</a></li>
-  <li><a
-      href="https://www.medicare.gov/what-medicare-covers"
-      target="_blank"
-      rel="noopener noreferrer"
-    >Services covered by Medicare Parts A and B</a></li>
-  <li><a
-      href="https://4innovation.cms.gov/secure/knowledge-management/view/341"
-      target="_blank"
-      rel="noopener noreferrer"
-    >Fee-for-Service (FFS) Claims Processing</a> (requires 4i access)</li>
-  <li><a
-      href="https://4innovation.cms.gov/secure/knowledge-management/view/491"
-      target="_blank"
-      rel="noopener noreferrer"
-    >Reporting and Data Sharing Overview</a> (requires 4i access)</li>
-</ul>
-
-<h2>Resource types</h2>
-
-<p>Partially adjudicated claims data is accessed using 2 additional resource types: </p>
-
-<ul>
-  <li><b><a
-        href="https://www.hl7.org/fhir/claim.html"
-        target="_blank"
-        rel="noopener noreferrer"
-      >Claim</a></b> – Information about the professional and institutional claims that providers submit for payment
-    (including the services that enrollees receive)</li>
-  <li><b><a
-        href="https://www.hl7.org/fhir/claimresponse.html"
-        target="_blank"
-        rel="noopener noreferrer"
-      >ClaimResponse</a></b> – Information about a claim's adjudication status and processing results</li>
-</ul>
-
-<p>Claim and ClaimResponse only provide access to Parts A and B Fee-for-Service claims data. They don't include Part D
-  (drug coverage) and Durable Medical Equipment (DME) claims. Review the <a
-    href="{{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}"
-    data-tealium="download"
-  >Partially Adjudicated Claims Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a>
-  for a complete list and description of the data fields. </p>
+<p>Review the <a href="{{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">Partially Adjudicated Claims Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a>for a complete list and description of the data fields.</p>
 
 <h2>Use cases</h2>
 
@@ -266,7 +240,28 @@ feedback_id: "355f6ea6"
 <p>In the past, it would take weeks to know whether patients received care outside the network. Partially adjudicated
   claims data allows REACH ACOs to more quickly identify and investigate out-of-network care. </p>
 
-<h3>Common questions</h3>
+
+<h2>Additional resources</h2>
+
+<ul>
+  <li><a
+      href="https://www.medicare.gov/what-medicare-covers"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Services covered by Medicare Parts A and B</a></li>
+  <li><a
+      href="https://4innovation.cms.gov/secure/knowledge-management/view/341"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Fee-for-Service (FFS) Claims Processing</a> (requires 4i access)</li>
+  <li><a
+      href="https://4innovation.cms.gov/secure/knowledge-management/view/491"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Reporting and Data Sharing Overview</a> (requires 4i access)</li>
+</ul>
+
+<h2>Common questions</h2>
 
 <!-- Accordion content -->
 {% capture a0AccordionContent %}
