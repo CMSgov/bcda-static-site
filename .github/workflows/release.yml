@@ -7,6 +7,6 @@ on:
 jobs:
   deploy:
     with:
-      deploy_path: "uswds-redesign"
+      deploy_path: "main"
     uses: ./.github/workflows/promote.yml
     secrets: inherit
