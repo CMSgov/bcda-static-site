@@ -189,6 +189,23 @@ Or, to build the Jekyll site without watching for changes, run:
 npm run jekyll:build
 ```
 
+## Docker
+
+As an alternative to installing the application locally, you can also build and run it in docker.
+
+To build and develop locally, you can also make use of defaults set within docker compose and the dockerfile, with optional --watch flag to rebuild the site automatically upon file changes:
+
+```sh
+docker compose up --watch
+```
+
+For a ci-ready build, you can build the image with node and ruby versions set from version files with:
+
+```sh
+docker run --rm -it -p 4000:4000 $(docker build -q --build-arg NODE_VERSION=$( cat .nvmrc | tr -cd '0-9.' ) --build-arg RUBY_VERSION=$( cat .ruby-version | tr -cd '0-9.' ) .)
+```
+
+
 ## Local accessibility testing
 
 The `.pa11yci` config file defines [Axe](https://github.com/dequelabs/axe-core) and [HTML_CodeSniffer](https://squizlabs.github.io/HTML_CodeSniffer/) accessibilty tests for WCAG 2 Level AA conformance that should be run during local development:
