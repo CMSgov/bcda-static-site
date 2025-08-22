@@ -21,7 +21,7 @@ RUN --mount=type=bind,source=package.json,target=package.json \
     npm run assets:build
 
 
-FROM ruby:3.2.6 AS ruby-build
+FROM ruby:${RUBY_VERSION} AS ruby-build
 
 # throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
@@ -52,5 +52,5 @@ USER node
 
 EXPOSE 4000
 
-ENTRYPOINT [ "npx" ]
-CMD [ "serve", "-l", "4000" ]
+ENTRYPOINT [ "npx", "serve" ]
+CMD [ "-l", "4000" ]
