@@ -5,7 +5,7 @@ on:
     inputs:
       deploy_path:
         description: "S3 directory deployment location"
-        default: "uswds-redesign"
+        default: "main"
   workflow_call:
     inputs:
       deploy_path:

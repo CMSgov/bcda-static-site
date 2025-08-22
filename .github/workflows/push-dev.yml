@@ -3,7 +3,7 @@ name: push to dev
 on:
   push:
     branches:
-      - uswds-redesign
+      - main
 
 concurrency:
   group: ${{ github.workflow }}-${{  github.ref }}
@@ -12,7 +12,7 @@ concurrency:
 jobs:
   deploy:
     with:
-      deploy_path: "uswds-redesign"
+      deploy_path: "main"
     uses: ./.github/workflows/deploy.yml
     secrets: inherit
 
