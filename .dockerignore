@@ -2,5 +2,6 @@
 .gitignore
 **/_site
 **/.jekyll-cache
+**/.sass-cache
 **/.unlighthouse
 **/node_modules
