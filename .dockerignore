@@ -1,5 +1,5 @@
 .github
 .gitignore
+**/_site
 **/.jekyll-cache
 **/node_modules
-jekyll/_site

@@ -109,25 +109,25 @@ node_modules
 # sprite, icons using `img src=""` must be explicitly included.
 #
 # Ignore unnecessary icon directories
-jekyll/assets/uswds/img/favicons
-jekyll/assets/uswds/img/material-icons
-jekyll/assets/uswds/img/material-icons-deprecated
-jekyll/assets/uswds/img/usa-icons/*
-jekyll/assets/uswds/img/usa-icons-bg/*
-jekyll/assets/uswds/img/uswds-icons/*
+src/assets/uswds/img/favicons
+src/assets/uswds/img/material-icons
+src/assets/uswds/img/material-icons-deprecated
+src/assets/uswds/img/usa-icons/*
+src/assets/uswds/img/usa-icons-bg/*
+src/assets/uswds/img/uswds-icons/*
 #
 # Track required icons:
-jekyll/assets/uswds/img/usa-icons/close.svg
-jekyll/assets/uswds/img/usa-icons/expand_more.svg
-jekyll/assets/uswds/img/usa-icons/expand_less.svg
-jekyll/assets/uswds/img/usa-icons/add.svg
-jekyll/assets/uswds/img/usa-icons/check_circle.svg
-jekyll/assets/uswds/img/usa-icons/error.svg
-jekyll/assets/uswds/img/usa-icons/error--white.svg
-jekyll/assets/uswds/img/usa-icons/info.svg
-jekyll/assets/uswds/img/usa-icons/launch.svg
-jekyll/assets/uswds/img/usa-icons/launch--white.svg
-jekyll/assets/uswds/img/usa-icons/remove.svg
-jekyll/assets/uswds/img/usa-icons/warning.svg
+src/assets/uswds/img/usa-icons/close.svg
+src/assets/uswds/img/usa-icons/expand_more.svg
+src/assets/uswds/img/usa-icons/expand_less.svg
+src/assets/uswds/img/usa-icons/add.svg
+src/assets/uswds/img/usa-icons/check_circle.svg
+src/assets/uswds/img/usa-icons/error.svg
+src/assets/uswds/img/usa-icons/error--white.svg
+src/assets/uswds/img/usa-icons/info.svg
+src/assets/uswds/img/usa-icons/launch.svg
+src/assets/uswds/img/usa-icons/launch--white.svg
+src/assets/uswds/img/usa-icons/remove.svg
+src/assets/uswds/img/usa-icons/warning.svg
 
 .unlighthouse

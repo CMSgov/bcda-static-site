@@ -9,7 +9,7 @@ services:
     develop:
       watch:
         - action: rebuild
-          path: jekyll
+          path: src
         - action: rebuild
           path: Gemfile
         - action: rebuild
