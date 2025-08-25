@@ -3,7 +3,6 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-      target: prod
     ports:
       - 4000:4000
     develop:

@@ -43,7 +43,7 @@ RUN --mount=type=bind,source=Gemfile,target=Gemfile \
 
 
 # -------------------------------------------------------------------------------------------------
-FROM node:${NODE_VERSION}-alpine AS prod
+FROM node:${NODE_VERSION}-alpine
 
 WORKDIR /usr/app/_site
 
