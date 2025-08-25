@@ -9,5 +9,11 @@ services:
     develop:
       watch:
         - action: rebuild
-          path: .
+          path: jekyll
+        - action: rebuild
+          path: Gemfile
+        - action: rebuild
+          path: package.json
+        - action: rebuild
+          path: gulpfile.js
           

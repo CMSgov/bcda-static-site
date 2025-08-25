@@ -11,8 +11,8 @@ RUN --mount=type=bind,source=package.json,target=package.json \
     --mount=type=cache,target=/root/.npm \
     npm ci --omit=dev
 
-COPY ./assets ./assets
-COPY ./sass ./sass
+COPY ./jekyll/assets ./jekyll/assets
+COPY ./jekyll/sass ./jekyll/sass
 
 RUN --mount=type=bind,source=package.json,target=package.json \
     --mount=type=bind,source=package-lock.json,target=package-lock.json \
@@ -32,12 +32,12 @@ RUN --mount=type=bind,source=Gemfile,target=Gemfile \
     --mount=type=bind,source=Gemfile.lock,target=Gemfile.lock \
     bundle install
 
-COPY --from=node-build /usr/src/app/assets /usr/src/app/assets
-COPY . .
+COPY ./jekyll ./jekyll
+COPY --from=node-build /usr/src/app/jekyll/assets /usr/src/app/jekyll/assets
 
-RUN JEKYLL_ENV=production bundle exec jekyll build
-
-CMD ["jekyll", "-v"]
+RUN --mount=type=bind,source=Gemfile,target=Gemfile \
+    --mount=type=bind,source=Gemfile.lock,target=Gemfile.lock \
+    JEKYLL_ENV=production bundle exec jekyll build --source ./jekyll
 
 
 FROM node:${NODE_VERSION}-alpine AS prod

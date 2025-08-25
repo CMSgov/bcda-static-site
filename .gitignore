@@ -73,8 +73,8 @@ build/
 
 ### Jekyll ###
 _site/
-.sass-cache/
 .jekyll-cache
+sass-cache/
 
 ### .DS_Store in "src/main" ###
 ### This is needed due to this .gitignore entry: "!**/src/main/**" ###
