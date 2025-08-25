@@ -49,7 +49,7 @@ WORKDIR /usr/app/_site
 
 RUN npm install serve
 
-COPY --from=ruby-build /usr/app /usr/app
+COPY --from=ruby-build /usr/app/_site /usr/app/_site
 
 USER node
 
