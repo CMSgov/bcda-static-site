@@ -2,6 +2,7 @@ ARG NODE_VERSION=24.6
 ARG RUBY_VERSION=3.2.6
 
 
+# -------------------------------------------------------------------------------------------------
 FROM node:${NODE_VERSION}-alpine AS node-build
 
 WORKDIR /usr/app
@@ -21,6 +22,7 @@ RUN --mount=type=bind,source=package.json,target=package.json \
     npm run assets:build
 
 
+# -------------------------------------------------------------------------------------------------
 FROM ruby:${RUBY_VERSION} AS ruby-build
 
 # throw errors if Gemfile has been modified since Gemfile.lock
@@ -40,6 +42,7 @@ RUN --mount=type=bind,source=Gemfile,target=Gemfile \
     JEKYLL_ENV=production bundle exec jekyll build --source ./src
 
 
+# -------------------------------------------------------------------------------------------------
 FROM node:${NODE_VERSION}-alpine AS prod
 
 WORKDIR /usr/app/_site
