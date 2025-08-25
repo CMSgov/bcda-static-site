@@ -117,17 +117,17 @@ src/assets/uswds/img/usa-icons-bg/*
 src/assets/uswds/img/uswds-icons/*
 #
 # Track required icons:
-src/assets/uswds/img/usa-icons/close.svg
-src/assets/uswds/img/usa-icons/expand_more.svg
-src/assets/uswds/img/usa-icons/expand_less.svg
-src/assets/uswds/img/usa-icons/add.svg
-src/assets/uswds/img/usa-icons/check_circle.svg
-src/assets/uswds/img/usa-icons/error.svg
-src/assets/uswds/img/usa-icons/error--white.svg
-src/assets/uswds/img/usa-icons/info.svg
-src/assets/uswds/img/usa-icons/launch.svg
-src/assets/uswds/img/usa-icons/launch--white.svg
-src/assets/uswds/img/usa-icons/remove.svg
-src/assets/uswds/img/usa-icons/warning.svg
+!src/assets/uswds/img/usa-icons/close.svg
+!src/assets/uswds/img/usa-icons/expand_more.svg
+!src/assets/uswds/img/usa-icons/expand_less.svg
+!src/assets/uswds/img/usa-icons/add.svg
+!src/assets/uswds/img/usa-icons/check_circle.svg
+!src/assets/uswds/img/usa-icons/error.svg
+!src/assets/uswds/img/usa-icons/error--white.svg
+!src/assets/uswds/img/usa-icons/info.svg
+!src/assets/uswds/img/usa-icons/launch.svg
+!src/assets/uswds/img/usa-icons/launch--white.svg
+!src/assets/uswds/img/usa-icons/remove.svg
+!src/assets/uswds/img/usa-icons/warning.svg
 
 .unlighthouse
