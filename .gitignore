@@ -109,25 +109,25 @@ node_modules
 # sprite, icons using `img src=""` must be explicitly included.
 #
 # Ignore unnecessary icon directories
-assets/uswds/img/favicons
-assets/uswds/img/material-icons
-assets/uswds/img/material-icons-deprecated
-assets/uswds/img/usa-icons/*
-assets/uswds/img/usa-icons-bg/*
-assets/uswds/img/uswds-icons/*
+jekyll/assets/uswds/img/favicons
+jekyll/assets/uswds/img/material-icons
+jekyll/assets/uswds/img/material-icons-deprecated
+jekyll/assets/uswds/img/usa-icons/*
+jekyll/assets/uswds/img/usa-icons-bg/*
+jekyll/assets/uswds/img/uswds-icons/*
 #
 # Track required icons:
-!assets/uswds/img/usa-icons/close.svg
-!assets/uswds/img/usa-icons/expand_more.svg
-!assets/uswds/img/usa-icons/expand_less.svg
-!assets/uswds/img/usa-icons/add.svg
-!assets/uswds/img/usa-icons/check_circle.svg
-!assets/uswds/img/usa-icons/error.svg
-!assets/uswds/img/usa-icons/error--white.svg
-!assets/uswds/img/usa-icons/info.svg
-!assets/uswds/img/usa-icons/launch.svg
-!assets/uswds/img/usa-icons/launch--white.svg
-!assets/uswds/img/usa-icons/remove.svg
-!assets/uswds/img/usa-icons/warning.svg
+jekyll/assets/uswds/img/usa-icons/close.svg
+jekyll/assets/uswds/img/usa-icons/expand_more.svg
+jekyll/assets/uswds/img/usa-icons/expand_less.svg
+jekyll/assets/uswds/img/usa-icons/add.svg
+jekyll/assets/uswds/img/usa-icons/check_circle.svg
+jekyll/assets/uswds/img/usa-icons/error.svg
+jekyll/assets/uswds/img/usa-icons/error--white.svg
+jekyll/assets/uswds/img/usa-icons/info.svg
+jekyll/assets/uswds/img/usa-icons/launch.svg
+jekyll/assets/uswds/img/usa-icons/launch--white.svg
+jekyll/assets/uswds/img/usa-icons/remove.svg
+jekyll/assets/uswds/img/usa-icons/warning.svg
 
 .unlighthouse
