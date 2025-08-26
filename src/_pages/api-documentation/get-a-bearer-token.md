@@ -75,7 +75,7 @@ curl -d "" -X POST "https://sandbox.bcda.cms.gov/auth/token" \
 
 If your request succeeds, you'll receive a 200 response with your bearer token in the response body. It'll be the full text string that follows "access_token." The token string below has been abbreviated for readability.
 
-“Expires_in” counts down the seconds remaining before the token expires, which is 20 minutes after it is generated. “Token_type: Bearer” is a fixed value.
+“expires_in” counts down the seconds remaining before the token expires, which is 20 minutes after it is generated. “token_type: bearer” is a fixed value.
 
 {% capture Snippet5 %}{% raw %}
 {
