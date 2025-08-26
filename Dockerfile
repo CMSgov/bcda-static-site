@@ -7,6 +7,7 @@ FROM node:${NODE_VERSION}-alpine AS node-build
 
 WORKDIR /usr/app
 
+# install node dependencies
 RUN --mount=type=bind,source=package.json,target=package.json \
     --mount=type=bind,source=package-lock.json,target=package-lock.json \
     --mount=type=cache,target=/root/.npm \
@@ -15,6 +16,7 @@ RUN --mount=type=bind,source=package.json,target=package.json \
 COPY ./src/assets ./src/assets
 COPY ./src/sass ./src/sass
 
+# compile assets
 RUN --mount=type=bind,source=package.json,target=package.json \
     --mount=type=bind,source=package-lock.json,target=package-lock.json \
     --mount=type=bind,source=gulpfile.js,target=gulpfile.js \
@@ -30,13 +32,16 @@ RUN bundle config --global frozen 1
 
 WORKDIR /usr/app
 
+# install gems
 RUN --mount=type=bind,source=Gemfile,target=Gemfile \
     --mount=type=bind,source=Gemfile.lock,target=Gemfile.lock \
     bundle install
 
+# copy and source code and overwrite assets with compiled assets from previous stage
 COPY ./src ./src
 COPY --from=node-build /usr/app/src/assets /usr/app/src/assets
 
+# build site
 RUN --mount=type=bind,source=Gemfile,target=Gemfile \
     --mount=type=bind,source=Gemfile.lock,target=Gemfile.lock \
     JEKYLL_ENV=production bundle exec jekyll build --source ./src
@@ -49,6 +54,7 @@ WORKDIR /usr/app/_site
 
 RUN npm install serve
 
+# copy only compiled static site from previous stage and serve
 COPY --from=ruby-build /usr/app/_site /usr/app/_site
 
 USER node
