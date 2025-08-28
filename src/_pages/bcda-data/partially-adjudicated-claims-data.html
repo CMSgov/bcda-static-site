@@ -86,9 +86,31 @@ feedback_id: "355f6ea6"
     alt="Partially adjudicated claims processing flow diagram."
     class="width-full"
   >
-  <figcaption class="usa-sr-only">Claims originate at the provider,
-    travel through various CMS systems, passing through the Beneficiary FHIR Data Server, and ending at BCDA. CCLF is
-    also shown as an upstream branch on a CMS system called the Common Working File</figcaption>
+  <figcaption class="usa-sr-only">
+    <ol>
+      <li>A Medicare enrollee receives care and provider submits a claim</li>
+      <li>CMS validates and aggregates the claim and shares data with the following:</li>
+      <li>Shared Systems Software</li>
+      <li>
+        Common Working File
+        <ul>
+          <li>Integrated Data Repository
+            <ul>
+              <li>Claim and Claim Line Feed (CCLF)</li>
+            </ul>
+          </li>
+          <li>Replicated Data Access API</li>
+        </ul>
+      </li>
+      <li>Chronic Conditions Warehouse</li>
+      <li>Beneficiary FHIR Data Server
+        <ul>
+          <li>After 2-4 days, BCDA shares partially adjudicated claims data</li>
+          <li>After 8-14 days, BCDA shares fully adjudicated claims data
+        </ul>
+      </li>
+    </ol>
+  </figcaption>
 </figure>
 
 <div>
