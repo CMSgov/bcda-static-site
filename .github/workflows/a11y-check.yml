@@ -21,7 +21,7 @@ jobs:
       - name: Set Deployment Path
         run: |
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            echo "BASE_PATH=feature/${{ github.event.number }}/' " >> $GITHUB_ENV
+            echo "BASE_PATH=feature/${{ github.event.number }}/ " >> $GITHUB_ENV
           else
             echo "BASE_PATH='' " >> $GITHUB_ENV
           fi
