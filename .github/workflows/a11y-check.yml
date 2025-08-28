@@ -21,13 +21,13 @@ jobs:
       - name: Set Deployment Path
         run: |
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            echo "DEPLOY_PATH=${{ github.event.number }}" >> $GITHUB_ENV
+            echo "BASE_PATH=feature/${{ github.event.number }}/' " >> $GITHUB_ENV
           else
-            echo "DEPLOY_PATH=${{ github.ref_name }}" >> $GITHUB_ENV
+            echo "BASE_PATH='' " >> $GITHUB_ENV
           fi
 
       - name: Run pa11y
-        run: npx pa11y-ci --config pa11yci.ci.json --sitemap https://stage.bcda.cms.gov/${{ env.DEPLOY_PATH }}/sitemap.xml --sitemap-exclude "/*.pdf" --sitemap-find https://bcda.cms.gov/ --sitemap-replace https://stage.bcda.cms.gov/ --json > pa11y-results.json || echo "EXIT_CODE=$?" >> $GITHUB_ENV
+        run: npx pa11y-ci --config pa11yci.ci.json --sitemap https://stage.bcda.cms.gov/${{ env.BASE_PATH }}sitemap.xml --sitemap-exclude "/*.pdf" --sitemap-find https://bcda.cms.gov/ --sitemap-replace https://stage.bcda.cms.gov/ --json > pa11y-results.json || echo "EXIT_CODE=$?" >> $GITHUB_ENV
 
       - name: Save Report to Action Summary
         uses: actions/github-script@v7
@@ -58,6 +58,6 @@ jobs:
       #     payload: |
       #       channel: "C03S23MJFJS"
       #       attachments:
-      #         - text: "Pa11y Results (/${{env.DEPLOY_PATH}}): <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Pa11y Action Summary>"
+      #         - text: "Pa11y Results (/${{env.BASE_PATH}}): <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Pa11y Action Summary>"
       #           mrkdown_in:
       #             - text

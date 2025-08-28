@@ -11,7 +11,7 @@ jobs:
   deploy:
     if: ${{ !startsWith(github.actor, 'bot-') }}
     with:
-      deploy_path: ${{ github.event.number }}
+      feature_path: ${{ github.event.number }}
     uses: ./.github/workflows/deploy.yml
     secrets: inherit
 
@@ -29,6 +29,7 @@ jobs:
   broken-link-check:
     needs: deploy
     with:
-      deploy_path: ${{ github.event.number }}
+      env: staging
+      feature_path: ${{ github.event.number }}
     uses: ./.github/workflows/broken-link-check.yml
     secrets: inherit

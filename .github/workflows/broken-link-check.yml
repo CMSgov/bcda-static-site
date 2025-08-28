@@ -4,11 +4,30 @@ on:
   schedule:
   - cron: 0 0 * * 0 # every Sunday at midnight
   workflow_dispatch:
-  workflow_call:
-     inputs:
-      deploy_path:
+    inputs:
+      env:
+        description: "The environment to test: staging or prod"
+        required: true
+        type: choice
+        options:
+          - staging
+          - prod
+      feature_path:
+        description: "Feature path to test (e.g. 123 -> feature/123/); if omitted, tests base url"
         required: false
         type: string
+  workflow_call:
+     inputs:
+      env:
+        description: "The environment to test: staging or prod"
+        required: true
+        type: string
+      feature_path:
+        description: "Feature path to test (e.g. 123 -> feature/123/); if omitted, tests base url"
+        required: false
+        type: string
+env:
+  BASE_PATH: ${{ inputs.feature_path && format('feature/{0}/', inputs.feature_path) || '' }}
 
 jobs:
   broken-link-check:
@@ -19,28 +38,28 @@ jobs:
 
     steps:
       - name: Configure AWS Credentials
-        if: ${{ inputs.deploy_path == '' }}
+        if: ${{ inputs.env == 'prod' }}
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: ${{ vars.AWS_REGION }}
           role-to-assume: arn:aws:iam::${{ secrets.PROD_AWS_ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-prod-github-actions
 
       - name: Fetch Production AWS Parameters
-        if: ${{ inputs.deploy_path == '' }}
+        if: ${{ inputs.env == 'prod' }}
         uses: cmsgov/cdap/actions/aws-params-env-action@main
         with:
           params: |
             TARGET_BUCKET=/bcda/prod/static_site
 
       - name: Configure AWS Credentials
-        if: ${{ inputs.deploy_path != '' }}
+        if: ${{ inputs.env != 'prod' }}
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: ${{ vars.AWS_REGION }}
           role-to-assume: arn:aws:iam::${{ secrets.STAGE_AWS_ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-dev-github-actions
 
       - name: Fetch Production AWS Parameters
-        if: ${{ inputs.deploy_path != '' }}
+        if: ${{ inputs.env != 'prod' }}
         uses: cmsgov/cdap/actions/aws-params-env-action@main
         with:
           params: |
@@ -48,7 +67,7 @@ jobs:
 
       - name: Download Dev Bucket
         run: |
-          aws s3 sync s3://${TARGET_BUCKET}/${{ inputs.deploy_path && format('/{0}', inputs.deploy_path) || ''}} .
+          aws s3 sync s3://${TARGET_BUCKET}/${{ env.BASE_PATH }} .
 
       - name: "Check for broken links"
         uses: lycheeverse/lychee-action@v2
