@@ -1,6 +1,6 @@
 ---
 layout: api-docs
-page_title: "Guide to Partially Adjudicated Claims Data"
+page_title: "Partially Adjudicated Claims Data"
 seo_title: ""
 description: "Get early access to enrollee claims data as soon as 2-4 days after Medicare submission with BCDA partially
 adjudicated claims data."
@@ -10,13 +10,16 @@ feedback_id: "355f6ea6"
 
 <h1>{{ page.page_title }}</h1>
 
-<p>Partially adjudicated claims are not claims that are not yet fully paid or processed by Medicare.
-  BCDA receives this data 2-4 days after submission, with ongoing adjustments continuing to update
-  every 2-4 days during processing.</p>
+<h2>A faster way to access claims data</h2>
 
-<p>BCDA provides both partially and fully adjudicated claims data. The key differences between these data types are
-  outlined below:</p>
+<p>Medicare claims processing (adjudication) can take weeks. Through partially adjudicated claims, ACO REACH
+  participants
+  (REACH ACOs) receive patient data only 2-4 days after providers submit claims to Medicare. This helps them provide
+  patients with more effective interventions, transitions, and coordination of care.</p>
 
+<p>Fully adjudicated claims offer the same rich insights, with some small differences including a longer frequency.</p>
+
+<h3>Comparison: partially and fully adjudicated claims</h3>
 <table class="usa-table usa-table--borderless usa-table--stacked margin-bottom-4">
   <caption class="usa-sr-only">Partially versus fully adjudicated claims data</caption>
   <thead>
@@ -73,18 +76,18 @@ feedback_id: "355f6ea6"
   </tbody>
 </table>
 
-<h2>Diagram: data availability throughout adjudication</h2>
+<h3>Diagram: data availability throughout adjudication</h3>
 
 <p>Partially adjudicated claims pass through many steps, systems, and validations before being shared by BCDA.</p>
 
 <figure class="width-full margin-y-4 margin-x-0">
   <img
     src="{{ '/assets/img/diagram.svg' | relative_url }}"
-    alt="Claims processing flow diagram."
+    alt="Partially adjudicated claims processing flow diagram."
     class="width-full"
   >
-  <figcaption class="usa-sr-only">A claims processing diagram that shows the claim originating at the provider,
-    traveling through various CMS systems, passing through the Beneficiary FHIR Data Server, and ending at BCDA. CCLF is
+  <figcaption class="usa-sr-only">Claims originate at the provider,
+    travel through various CMS systems, passing through the Beneficiary FHIR Data Server, and ending at BCDA. CCLF is
     also shown as an upstream branch on a CMS system called the Common Working File</figcaption>
 </figure>
 
@@ -99,13 +102,13 @@ feedback_id: "355f6ea6"
             href="https://www.hl7.org/fhir/claim.html"
             target="_blank"
             rel="noopener noreferrer"
-          >Claim</a> – Information about the professional and institutional claims that providers submit for payment
+          >Claim</a> - Information about the professional and institutional claims that providers submit for payment
           (including the services that enrollees receive)</li>
         <li><a
             href="https://www.hl7.org/fhir/claimresponse.html"
             target="_blank"
             rel="noopener noreferrer"
-          >ClaimResponse</a> – Information about a claim's adjudication status and processing results</li>
+          >ClaimResponse</a> - Information about a claim's adjudication status and processing results</li>
       </ol>
     </li>
     <li>
@@ -128,19 +131,19 @@ feedback_id: "355f6ea6"
             href="https://hl7.org/fhir/R4/patient.html"
             target="_blank"
             rel="noopener noreferrer"
-          >Patient</a> -- Enrollees' demographic details and updates to their patient identifiers.</li>
+          >Patient</a> - Enrollees' demographic details and updates to their patient identifiers.</li>
         <li><a
             href="https://hl7.org/fhir/R4/coverage.html"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Coverage</a> -- Enrollees' insurance coverage details, including dual coverage.</li>
+            Coverage</a> - Enrollees' insurance coverage details, including dual coverage.</li>
         <li><a
             href="https://hl7.org/fhir/R4/explanationofbenefit.html"
             target="_blank"
             rel="noopener noreferrer"
           >
-            ExplanationOfBenefit</a> – Details for episodes of care, including where and when the service was performed,
+            ExplanationOfBenefit</a> - Details for episodes of care, including where and when the service was performed,
           diagnosis codes, provider, and cost of care.</li>
       </ol>
     </li>

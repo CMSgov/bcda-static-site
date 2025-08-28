@@ -15,7 +15,7 @@
   url: /bcda-data.html
   
   children:
-    - name: Guide to Partially Adjudicated Claims Data
+    - name: Partially Adjudicated Claims Data
       url: /bcda-data/partially-adjudicated-claims-data.html
 
     - name: Comparison of BCDA and CCLF
