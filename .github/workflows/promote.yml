@@ -25,7 +25,7 @@ jobs:
           params: |
             TARGET_BUCKET=/bcda/stage/static_site
 
-      - name: Download Dev Bucket
+      - name: Download Site from Staging Bucket
         run: |
           aws s3 sync s3://${TARGET_BUCKET}/ ./temp-site/ --exclude 'feature/*'
 
@@ -41,7 +41,7 @@ jobs:
           params: |
             TARGET_BUCKET=/bcda/prod/static_site
 
-      - name: Copy site to Prod Bucket
+      - name: Copy Site to Prod Bucket
         run: |
           aws s3 sync ./temp-site/ s3://${TARGET_BUCKET}/ --delete
 
