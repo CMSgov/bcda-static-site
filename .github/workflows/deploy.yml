@@ -37,8 +37,9 @@ jobs:
           node-version-file: '.nvmrc'
           # node-version: 20 ## Using a .nvmrc file to stay in sync with the repo
      
-      - name: Install jekyll and bundler
+      - name: Install ruby, jekyll, and bundler
         run: |
+          rbenv install
           gem install bundler
           bundle install
   
