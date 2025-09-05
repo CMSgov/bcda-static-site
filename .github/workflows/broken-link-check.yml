@@ -25,10 +25,9 @@ on:
         required: true
         type: string
 
-
 jobs:
   broken-link-check-prod:
-    if: ${{ inputs.env == 'prod' }}
+    if: ${{ (inputs.env == 'prod' && github.event_name == 'workflow_dispatch') ||  github.event_name == 'schedule'  }}
     permissions:
       id-token: write
     runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
@@ -61,7 +60,7 @@ jobs:
           args: --base https://bcda.cms.gov --no-progress --accept '200..=299, 401, 403, 405, 429' './**/*.html'
 
   broken-link-check-dev:
-    if: ${{ github.event_name == 'workflow_call' && inputs.env != 'prod' }}
+    if: ${{ inputs.env == 'staging' && (github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_call')  }}
     permissions:
       id-token: write
     runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
