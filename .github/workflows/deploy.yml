@@ -56,7 +56,7 @@ jobs:
           # This is redundant but keeping for posterity
           JEKYLL_ENV: "production"
         run: |
-          bundle exec jekyll build --source ./src --baseurl ${{ env.BASE_PATH }}
+          bundle exec jekyll build --source ./src ${{ env.BASE_PATH && format('--baseurl {0}', env.BASE_PATH) || '' }}
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
