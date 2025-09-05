@@ -11,8 +11,6 @@ concurrency:
 
 jobs:
   deploy:
-    with:
-      deploy_path: "main"
     uses: ./.github/workflows/deploy.yml
     secrets: inherit
 

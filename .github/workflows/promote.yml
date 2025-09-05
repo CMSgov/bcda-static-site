@@ -2,15 +2,7 @@ name: "promote"
 
 on:
   workflow_dispatch:
-    inputs:
-      deploy_path:
-        description: "S3 directory deployment location (e.g. s3://s3_bucket/deploy_path/)"
-        default: "main"
   workflow_call:
-    inputs:
-      deploy_path:
-        required: false
-        type: string
 
 jobs:
   promote:
@@ -33,9 +25,9 @@ jobs:
           params: |
             TARGET_BUCKET=/bcda/stage/static_site
 
-      - name: Download Dev Bucket
+      - name: Download Site from Staging Bucket
         run: |
-          aws s3 sync s3://${TARGET_BUCKET}/${{ inputs.deploy_path }}/ ./temp-site/
+          aws s3 sync s3://${TARGET_BUCKET}/ ./temp-site/ --exclude 'feature/*'
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -49,7 +41,7 @@ jobs:
           params: |
             TARGET_BUCKET=/bcda/prod/static_site
 
-      - name: Copy site to Prod Bucket
+      - name: Copy Site to Prod Bucket
         run: |
           aws s3 sync ./temp-site/ s3://${TARGET_BUCKET}/ --delete
 
