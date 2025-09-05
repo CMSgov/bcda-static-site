@@ -26,11 +26,11 @@ on:
         type: string
 
 jobs:
-  debug:
-    runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
+  # debug:
+  #   runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
 
-    steps: 
-      - run: echo "event=${{ toJson(github.event) }} env=${{inputs.env}} path=${{inputs.feature_path}}"
+  #   steps: 
+  #     - run: echo "event=${{ toJson(github.event) }} env=${{inputs.env}} path=${{inputs.feature_path}}"
 
 
   broken-link-check-prod:
@@ -67,7 +67,7 @@ jobs:
           args: --base https://bcda.cms.gov --no-progress --accept '200..=299, 401, 403, 405, 429' './**/*.html'
 
   broken-link-check-dev:
-    if: ${{ inputs.env == 'staging' && (github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_call')  }}
+    if: ${{ (inputs.env == 'staging' && github.event_name == 'workflow_dispatch') || (inputs.env == 'staging' && github.event_name == 'pull_request')  }}
     permissions:
       id-token: write
     runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
