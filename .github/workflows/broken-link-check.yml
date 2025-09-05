@@ -26,6 +26,13 @@ on:
         type: string
 
 jobs:
+  debug:
+    runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
+
+    steps: 
+      - run: echo "event=${{github.event_name}} env=${{inputs.env}} path=${{inputs.feature_path}}"
+
+
   broken-link-check-prod:
     if: ${{ (inputs.env == 'prod' && github.event_name == 'workflow_dispatch') ||  github.event_name == 'schedule'  }}
     permissions:
