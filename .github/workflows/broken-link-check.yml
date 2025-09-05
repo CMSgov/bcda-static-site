@@ -30,7 +30,7 @@ jobs:
     runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
 
     steps: 
-      - run: echo "event=${{github.event}} env=${{inputs.env}} path=${{inputs.feature_path}}"
+      - run: echo "event=${{ toJson(github.event) }} env=${{inputs.env}} path=${{inputs.feature_path}}"
 
 
   broken-link-check-prod:
