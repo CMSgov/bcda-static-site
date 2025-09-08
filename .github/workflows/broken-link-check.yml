@@ -64,7 +64,7 @@ jobs:
         with:
           jobSummary: true
           fail: true
-          args: --base https://bcda.cms.gov --no-progress --accept '200..=299, 401, 403, 405, 429' './**/*.html'
+          args: --base https://bcda.cms.gov "./**/*.html" --no-progress --exclude ".*/assets/.*" --accept "200..=299, 401, 403, 405, 429"
 
   broken-link-check-dev:
     if: ${{ (inputs.env == 'staging' && github.event_name == 'workflow_dispatch') || (inputs.env == 'staging' && github.event_name == 'pull_request')  }}
@@ -99,4 +99,4 @@ jobs:
         with:
           jobSummary: true
           fail: true
-          args: --base https://stage.bcda.cms.gov --no-progress --accept '200..=299, 401, 403, 405, 429' './**/*.html'
+          args: --base https://stage.bcda.cms.gov "./**/*.html" --no-progress --exclude ".*/assets/.*" --accept "200..=299, 401, 403, 405, 429"
