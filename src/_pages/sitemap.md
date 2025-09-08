@@ -17,7 +17,7 @@ show-side-nav: false
   - [How to Access Claims Data]({{'/api-documentation/access-claims-data.html' | relative_url}})
   - [How to Filter Claims Data]({{'/api-documentation/filter-claims-data.html' | relative_url}})
 - [BCDA Data]({{'/bcda-data.html' | relative_url}})
-  - [Guide to Partially Adjudicated Claims Data]({{'/bcda-data/partially-adjudicated-claims-data.html' | relative_url}})
+  - [Partially Adjudicated Claims Data]({{'/bcda-data/partially-adjudicated-claims-data.html' | relative_url}})
   - [Comparison of BCDA and CCLF]({{'/bcda-data/comparison-bcda-cclf-files.html' | relative_url}})
   - [What's the difference between BCDA V1 and V2?]({{'/bcda-data/difference-between-v1-v2.html' | relative_url}})
 - [Production access]({{'/production-access.html' | relative_url}})
