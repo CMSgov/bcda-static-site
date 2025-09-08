@@ -13,8 +13,3 @@ jobs:
   deploy:
     uses: ./.github/workflows/deploy.yml
     secrets: inherit
-
-  a11y-check:
-    needs: deploy
-    uses: ./.github/workflows/a11y-check.yml
-    secrets: inherit

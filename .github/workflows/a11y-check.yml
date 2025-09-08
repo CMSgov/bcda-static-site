@@ -1,7 +1,14 @@
 name: "Accessibility Check"
 
 on:
-  workflow_call
+  workflow_call:
+    inputs: 
+      feature_path:
+        required: true
+        type: string
+
+env:
+  BASE_PATH: ${{ inputs.feature_path && format('feature/{0}/', inputs.feature_path) || '' }}
 
 jobs:
   a11y-check:
@@ -17,14 +24,6 @@ jobs:
           cache: 'npm'
           node-version-file: '.nvmrc'
           # node-version: 20 ## Using a .nvmrc file to stay in sync with the repo
-
-      - name: Set Deployment Path
-        run: |
-          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            echo "BASE_PATH=feature/${{ github.event.number }}/ " >> $GITHUB_ENV
-          else
-            echo "BASE_PATH='' " >> $GITHUB_ENV
-          fi
 
       - name: Run pa11y
         run: npx pa11y-ci --config pa11yci.ci.json --sitemap ${{ format('https://stage.bcda.cms.gov/{0}sitemap.xml', env.BASE_PATH) }} --sitemap-exclude "/*.pdf" --sitemap-find https://bcda.cms.gov/ --sitemap-replace https://stage.bcda.cms.gov/ --json > pa11y-results.json || echo "EXIT_CODE=$?" >> $GITHUB_ENV
