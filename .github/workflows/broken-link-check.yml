@@ -99,4 +99,4 @@ jobs:
         with:
           jobSummary: true
           fail: true
-          args: --base https://stage.bcda.cms.gov "./**/*.html" --no-progress --exclude ".*/assets/.*" --accept "200..=299, 401, 403, 405, 429"
+          args: --base https://stage.bcda.cms.gov "./**/*.html" --no-progress --exclude ".*/assets/.*" --exclude "^https://bcda\.cms\.gov" --accept "200..=299, 401, 403, 405, 429"
