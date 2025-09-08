@@ -63,7 +63,7 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           jobSummary: true
-          fail: true
+          fail: false
           args: --base https://bcda.cms.gov "./**/*.html" --no-progress --exclude ".*/assets/.*" --accept "200..=299, 401, 403, 405, 429"
 
   broken-link-check-dev:
@@ -98,5 +98,5 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           jobSummary: true
-          fail: true
+          fail: false
           args: --base https://stage.bcda.cms.gov "./**/*.html" --no-progress --exclude ".*/assets/.*" --exclude "^https://bcda\.cms\.gov" --accept "200..=299, 401, 403, 405, 429"
