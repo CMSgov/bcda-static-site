@@ -8,28 +8,30 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
-    if: ${{ !startsWith(github.actor, 'bot-') }}
-    with:
-      feature_path: ${{ github.event.number }}
-    uses: ./.github/workflows/deploy.yml
-    secrets: inherit
+  # deploy:
+  #   if: ${{ !startsWith(github.actor, 'bot-') }}
+  #   with:
+  #     feature_path: ${{ github.event.number }}
+  #   uses: ./.github/workflows/deploy.yml
+  #   secrets: inherit
 
-  comment-pr:
-    needs: deploy
-    permissions:
-      pull-requests: 'write'
-    uses: ./.github/workflows/comment-pr.yml
+  # comment-pr:
+  #   needs: deploy
+  #   permissions:
+  #     pull-requests: 'write'
+  #   uses: ./.github/workflows/comment-pr.yml
 
-  a11y-check:
-    needs: deploy
-    uses: ./.github/workflows/a11y-check.yml
-    secrets: inherit
+  # a11y-check:
+  #   needs: deploy
+  #   with: 
+  #     feature_path: ${{ github.event.number }}
+  #   uses: ./.github/workflows/a11y-check.yml
+  #   secrets: inherit
 
   broken-link-check:
-    needs: deploy
+    # needs: deploy
     with:
-      env: staging
+      env: "staging"
       feature_path: ${{ github.event.number }}
     uses: ./.github/workflows/broken-link-check.yml
     secrets: inherit

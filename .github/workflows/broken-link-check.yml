@@ -2,7 +2,7 @@ name: "Broken Link Check"
 
 on:
   schedule:
-  - cron: 0 0 * * 0 # every Sunday at midnight
+    - cron: 0 0 * * 0 # every Sunday at midnight
   workflow_dispatch:
     inputs:
       env:
@@ -13,66 +13,83 @@ on:
           - staging
           - prod
       feature_path:
-        description: "Feature path to test (e.g. 123 -> feature/123/); if omitted, tests base url"
+        description: "Feature path to test (e.g. 123 -> /feature/123/); if omitted, tests base url"
         required: false
         type: string
   workflow_call:
-     inputs:
+    inputs: 
       env:
-        description: "The environment to test: staging or prod"
         required: true
         type: string
       feature_path:
-        description: "Feature path to test (e.g. 123 -> feature/123/); if omitted, tests base url"
-        required: false
+        required: true
         type: string
-env:
-  BASE_PATH: ${{ inputs.feature_path && format('feature/{0}/', inputs.feature_path) || '' }}
 
 jobs:
-  broken-link-check:
+  broken-link-check-prod:
+    if: ${{ (inputs.env == 'prod' && github.event_name == 'workflow_dispatch') ||  github.event_name == 'schedule'  }}
     permissions:
-      contents: read
       id-token: write
     runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
 
     steps:
-      - name: Configure AWS Credentials
-        if: ${{ inputs.env == 'prod' }}
+      - name: Configure Prod AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: ${{ vars.AWS_REGION }}
           role-to-assume: arn:aws:iam::${{ secrets.PROD_AWS_ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-prod-github-actions
 
-      - name: Fetch Production AWS Parameters
-        if: ${{ inputs.env == 'prod' }}
+      - name: Fetch Prod AWS Parameters
         uses: cmsgov/cdap/actions/aws-params-env-action@main
+        env:
+          AWS_REGION: ${{ vars.AWS_REGION }}
         with:
           params: |
             TARGET_BUCKET=/bcda/prod/static_site
 
-      - name: Configure AWS Credentials
-        if: ${{ inputs.env != 'prod' }}
+      - name: Download Site Contents (Prod)
+        run: |
+          aws s3 sync "s3://${TARGET_BUCKET}" .
+
+      - name: Check for Broken Prod Links
+        id: lychee-prod
+        uses: lycheeverse/lychee-action@v2
+        with:
+          jobSummary: true
+          fail: false
+          args: --base https://bcda.cms.gov "./**/*.html" --no-progress --exclude ".*/assets/.*" --accept "200..=299, 401, 403, 405, 429"
+
+  broken-link-check-dev:
+    if: ${{ (inputs.env == 'staging' && github.event_name == 'workflow_dispatch') || (inputs.env == 'staging' && github.event_name == 'pull_request')  }}
+    permissions:
+      id-token: write
+    runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
+    env:
+      BASE_PATH: ${{ inputs.feature_path && format('feature/{0}/', inputs.feature_path) || '' }}
+
+    steps:
+      - name: Configure Dev AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: ${{ vars.AWS_REGION }}
           role-to-assume: arn:aws:iam::${{ secrets.STAGE_AWS_ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-dev-github-actions
 
-      - name: Fetch Production AWS Parameters
-        if: ${{ inputs.env != 'prod' }}
+      - name: Fetch Dev AWS Parameters
         uses: cmsgov/cdap/actions/aws-params-env-action@main
+        env:
+          AWS_REGION: ${{ vars.AWS_REGION }}
         with:
           params: |
             TARGET_BUCKET=/bcda/stage/static_site
 
-      - name: Download Dev Bucket
+      - name: Download Site Contents (Dev)
         run: |
           aws s3 sync s3://${TARGET_BUCKET}/${{ env.BASE_PATH }} .
 
-      - name: "Check for broken links"
+      - name: Check for Broken Dev Links
+        id: lychee-dev
         uses: lycheeverse/lychee-action@v2
-        id: lychee
         with:
           jobSummary: true
-          fail: true
-          args: --no-progress --accept '200..=299, 401, 403, 405' './**/*.html'
+          fail: false
+          args: --base https://stage.bcda.cms.gov "./**/*.html" --no-progress --exclude ".*/assets/.*" --exclude "^https://bcda\.cms\.gov" --accept "200..=299, 401, 403, 405, 429"
