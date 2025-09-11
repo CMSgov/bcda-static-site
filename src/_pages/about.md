@@ -50,7 +50,7 @@ feedback_id: "7d0c54c6"
         <h3 class="usa-process-list__heading">BCDA shares adjudicated claims data </h3>
         <p class="usa-intro font-ui-md text-bold text-italic text-base margin-top-1">Typically 14 days after submission</p>
         <p>
-          BCDA updates adjudicated claims data weekly from the <a href="https://www2.ccwdata.org/web/guest/home" target="_blank" rel="noopener noreferrer">Chronic Conditions Data Warehouse (CCW)</a>.
+          BCDA receives updated adjudicated claims data from the <a href="https://www2.ccwdata.org/web/guest/home" target="_blank" rel="noopener noreferrer">Chronic Conditions Data Warehouse (CCW)</a> every weekend. In the event of a delay, we'll make an announcement in the <a href="https://groups.google.com/g/bc-api" target="_blank" rel="noopener noreferrer">BCDA Google Group</a> with updates on when the data will be refreshed.
         </p>
     </li> 
 </ol>
