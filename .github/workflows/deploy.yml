@@ -36,13 +36,13 @@ jobs:
           cache: 'npm'
           node-version-file: '.nvmrc'
           # node-version: 20 ## Using a .nvmrc file to stay in sync with the repo
-     
+
       - name: Install ruby, jekyll, and bundler
         run: |
           rbenv install
           gem install bundler
           bundle install
-  
+
       - name: Install npm dependencies
         run: |
           npm ci
@@ -63,7 +63,7 @@ jobs:
         with:
           aws-region: ${{ vars.AWS_REGION }}
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-dev-github-actions
-      
+
       - name: Set env vars from AWS params
         uses: cmsgov/cdap/actions/aws-params-env-action@main
         env:
@@ -72,32 +72,18 @@ jobs:
           params: |
             TARGET_BUCKET=/bcda/stage/static_site
 
-      # - name: Run quality gate scan
-      #   if: ${{ env.TARGET_ENV == 'stage' }}
-      #   uses: sonarsource/sonarqube-scan-action@master
-      #   with:
-      #     args:
-      #       -Dsonar.projectKey=bcda-aco-static-site
-      #       -Dsonar.sources=.
-      #       -Dsonar.working.directory=./sonar_workspace
-      #       -Dsonar.branch.name=${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
-      #       -Dsonar.projectVersion=${{ github.ref_name == 'main' && github.sha || 'branch' }}
-      #       -Dsonar.exclusions=ops/**,scripts/**,node_modules/**
-      #       -Dsonar.qualitygate.wait=true
-      #       -Dsonar.ci.autoconfig.disabled=true
-
       - name: Deploy the site to root url/directory
         if: ${{ !env.BASE_PATH }}
         # This $TARGET_BUCKET comes from a previous step, cmsgov/cdap/actions/aws-params-env-action@main
         run: |
-          aws s3 sync _site/ s3://$TARGET_BUCKET/ --delete --exclude 'feature/*'
+          aws s3 sync _site/ s3://$TARGET_BUCKET/ --delete --exclude 'feature/*' --metadata-directive REPLACE --metadata "lifecycle-transition=ia"
 
       - name: Deploy the site to feature url/directory
         if: ${{ env.BASE_PATH }}
         # This $TARGET_BUCKET comes from a previous step, cmsgov/cdap/actions/aws-params-env-action@main
         run: |
-          aws s3 sync _site/ s3://$TARGET_BUCKET/${{ env.BASE_PATH }} --delete
-      
+          aws s3 sync _site/ s3://$TARGET_BUCKET/${{ env.BASE_PATH }} --delete --metadata-directive REPLACE --metadata "lifecycle-transition=ia"
+
       - name: Invalidate Cloudfront cache
         run: |
           DISTRIBUTION_ID=`aws cloudfront list-distributions --query "DistributionList.Items[].{Id:Id, OriginId: Origins.Items[0].Id}[?OriginId=='$TARGET_BUCKET'].Id" --output text`
