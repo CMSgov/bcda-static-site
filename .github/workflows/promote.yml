@@ -11,7 +11,7 @@ jobs:
       contents: read
       id-token: write
     runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
-    
+
     steps:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -43,7 +43,7 @@ jobs:
 
       - name: Copy Site to Prod Bucket
         run: |
-          aws s3 sync ./temp-site/ s3://${TARGET_BUCKET}/ --delete
+          aws s3 sync ./temp-site/ s3://${TARGET_BUCKET}/ --delete --metadata-directive REPLACE --metadata "lifecycle-transition=ia"
 
       - name: Invalidate Prod Distribution
         run: |
