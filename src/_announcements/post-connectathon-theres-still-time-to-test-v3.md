@@ -1,6 +1,6 @@
 ---
 layout: announcement
-page_title: "Post Connectathon, there’s still time to test V3"
+page_title: "Post Connectathon, there’s still time to test v3"
 description: "After successful testing during the 2025 CMS HL7 FHIR Connectathon, a demo of Version 3 is still open to try."
 show-side-nav: false
 in-page-nav: true
@@ -11,7 +11,7 @@ custom_excerpt: "In June 2025, CMS HL7 FHIR Connectathon participants gave feedb
 On July 16, the BCDA team shared a preview of BCDA Version 3 with Connectathon participants. Using the demonstration sandbox environment, testers gave feedback on:
 
 - BCDA’s alignment with selected implementation guides
-- V3’s more conformant approach to publishing CMS-specific terminology
+- v3’s more conformant approach to publishing CMS-specific terminology
 - A new _typeFilter parameter
 - The updated representation of partially adjudicated claims using the ExplanationOfBenefit resource
 
@@ -19,4 +19,4 @@ If you weren't able to join you can visit the [HL7 Confluence](https://confluenc
 
 ## Want to provide input on the next version of BCDA?
 
-The `/demo` endpoints will remain available in BCDA’s sandbox while we collect feedback and refine the upcoming BCDA V3. If you're interested in trying out these new endpoints and sharing feedback, follow the test scenarios in [the recording of the BCDA Connectathon track](https://vimeo.com/1107118819/59373df25c).
+The `/demo` endpoints will remain available in BCDA’s sandbox while we collect feedback and refine the upcoming BCDA v3. If you're interested in trying out these new endpoints and sharing feedback, follow the test scenarios in [the recording of the BCDA Connectathon track](https://vimeo.com/1107118819/59373df25c).
