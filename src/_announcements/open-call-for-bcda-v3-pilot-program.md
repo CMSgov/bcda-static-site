@@ -4,7 +4,7 @@ page_title: "Open call for BCDA v3 pilot program"
 description: "BCDA is inviting existing users to join the Version 3 (v3) pilot. This is a chance to get started with v3 before its rollout, and give feedback to help shape the API."
 show-side-nav: false
 in-page-nav: true
-published_date: 2025-10-01
+published_date: 2025-09-17
 custom_excerpt: "Be an early adopter. Help shape Beneficiary Claims Data API."
 ---
 
