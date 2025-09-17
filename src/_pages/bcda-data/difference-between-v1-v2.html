@@ -1,8 +1,8 @@
 ---
 layout: api-docs
-page_title: "What's the difference between BCDA V1 and V2?"
+page_title: "What's the difference between BCDA v1 and v2?"
 seo_title: ""
-description: "Overview of the differences between BCDA V1 and V2 and a summary of specific API changes."
+description: "Overview of the differences between BCDA v1 and v2 and a summary of specific API changes."
 in-page-nav: true
 feedback_id: "45e50860"
 
@@ -10,11 +10,11 @@ feedback_id: "45e50860"
 <h1>{{ page.page_title }}</h1>
 
 <p>
-  Beneficiary Claims Data API (BCDA) V1 (<a
+  Beneficiary Claims Data API (BCDA) v1 (<a
     href="https://hl7.org/fhir/STU3/"
     target="_blank"
     rel="noopener noreferrer"
-  >STU3</a>) and V2 (<a
+  >STU3</a>) and v2 (<a
     href="https://hl7.org/fhir/R4/"
     target="_blank"
     rel="noopener noreferrer"
@@ -25,12 +25,12 @@ feedback_id: "45e50860"
     rel="noopener noreferrer"
   >CARIN Blue Button Implementation Guide</a>. Additionally, <a
     href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}"
-  >partially adjudicated claims</a> are only available with V2.
+  >partially adjudicated claims</a> are only available with v2.
 </p>
 <p>There are minor differences in the mapping and values of certain data elements. Slicing/discriminator rules can be
   different, and some value sets will be bound to CARIN or HL7 value sets instead of BlueButton:
 <ul>
-  <li>Example 1: Patient.identifier.type in V2 is bound to the <a
+  <li>Example 1: Patient.identifier.type in v2 is bound to the <a
       href="https://www.hl7.org/fhir/us/carin-bb/ValueSet-C4BBPatientIdentifierType.html"
       target="_blank"
       rel="noopener noreferrer"
@@ -100,7 +100,7 @@ feedback_id: "45e50860"
 
       <li class="margin-top-2">
         <h4>Renamed elements </h4>
-        <p>Four elements were renamed. For users converting to V2, it's likely that existing parsing or handling logic
+        <p>Four elements were renamed. For users converting to v2, it's likely that existing parsing or handling logic
           needs to be adjusted.</p>
 
         <h5>Examples</h5>
@@ -151,7 +151,7 @@ feedback_id: "45e50860"
       <li class="margin-top-3">
         <h4>Consolidated/removed elements</h4>
         <p>The Coverage.grouping element was removed. The equivalent element in R4 is Coverage.class. This element is
-          provided in the API, so any user converting from V1 to V2 needs to make minor changes to their parsing or
+          provided in the API, so any user converting from v1 to v2 needs to make minor changes to their parsing or
           handling logic.</p>
 
         <h5>Example</h5>
