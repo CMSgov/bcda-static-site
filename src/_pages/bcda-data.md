@@ -15,7 +15,7 @@ sidebar-links:
       - name: Comparison of BCDA and CCLF
         url: /bcda-data/comparison-bcda-cclf-files.html
 
-      - name: Difference Between V1 and V2
+      - name: Difference Between v1 and v2
         url: /bcda-data/difference-between-v1-v2.html
 feedback_id: "0595c13c"
 ---
@@ -117,7 +117,7 @@ Beneficiary Claims Data API (BCDA) updates partially adjudicated claims data dai
 
 ## Resource types
 
-Claims data is organized by resource types, which are requested at the /Patient and /Group [endpoints]({{ '/api-documentation.html' | relative_url }}#endpoints). Version 2 has [minor changes]({{ '/bcda-data/difference-between-v1-v2.html' | relative_url }}) in resource types from V1.
+Claims data is organized by resource types, which are requested at the /Patient and /Group [endpoints]({{ '/api-documentation.html' | relative_url }}#endpoints). Version 2 has [minor changes]({{ '/bcda-data/difference-between-v1-v2.html' | relative_url }}) in resource types from v1.
 
 <div class="usa-alert usa-alert--info usa-alert--no-icon margin-top-4">
   <div class="usa-alert__body">
