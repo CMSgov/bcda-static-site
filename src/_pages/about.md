@@ -84,10 +84,10 @@ feedback_id: "7d0c54c6"
     </tr>
     <tr scope="row">
       <td data-label="Partially adjudicated claims">
-        Requires V2
+        Requires v2
       </td>
       <td data-label="Fully adjudicated claims">
-        Available with V1 or V2
+        Available with v1 or v2
       </td>
     </tr>
     <tr scope="row">
