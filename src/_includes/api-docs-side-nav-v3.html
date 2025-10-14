@@ -8,10 +8,14 @@
         class="{% if page.url == item.url %}{{ 'usa-current' }}{% endif %}"
         data-tealium="left_rail"
       >
-        {%- if item.icon -%}
-        {%- include sprite.html icon=item.icon size="3" class="margin-right-05 text-middle" -%}
-        {%- endif -%}
         {{- item.name -}}
+        {%- if item.new -%}
+        {%- include new-tag.html -%}
+        {%- endif -%}
+
+        {%- if item.updated -%}
+        {%- include updated-tag.html -%}
+        {%- endif -%}
       </a>
       <ul class="usa-sidenav__sublist">
         {% for child in item.children %}
@@ -20,7 +24,17 @@
             href="{{ child.url | relative_url }}"
             class="{% if page.url == child.url %}{{ 'usa-current' }}{% endif %}"
             data-tealium="left_rail"
-          >{{ child.name }}</a>
+            
+          >
+            {{ child.name }}
+            {%- if child.new -%}
+            {%- include new-tag.html -%}
+            {%- endif -%}
+
+            {%- if child.updated -%}
+            {%- include updated-tag.html -%}
+            {%- endif -%}
+          </a>
           <ul class="usa-sidenav__sublist">
             {% for grandchild in child.children %}
             <li class="usa-sidenav__item">
@@ -28,7 +42,16 @@
                 href="{{ grandchild.url | relative_url }}"
                 class="{% if page.url == grandchild.url %}{{ 'usa-current' }}{% endif %}"
                 data-tealium="left_rail"
-              >{{ grandchild.name }}</a>
+              >
+                {{ grandchild.name }}
+                {%- if grandchild.new -%}
+                {%- include new-tag.html -%}
+                {%- endif -%}
+
+                {%- if grandchild.updated -%}
+                {%- include updated-tag.html -%}
+                {%- endif -%}
+              </a>
             </li>
             {% endfor %}
           </ul>

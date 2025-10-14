@@ -15,8 +15,16 @@ sidebar-links:
       - name: Comparison of BCDA and CCLF
         url: /v3/bcda-data/comparison-bcda-cclf-files.html
 
+      - name: v3 Migration Guide
+        url: /v3/bcda-data/v3-migration-guide.html
+
       - name: Difference Between Versions
         url: /v3/bcda-data/difference-between-versions.html
+
+        children:
+        - name: v3 Fact Sheet
+          url: /v3/bcda-data/v3-fact-sheet.html
+
 feedback_id: ""
 ---
 
