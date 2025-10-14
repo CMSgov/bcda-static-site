@@ -1,0 +1,55 @@
+<div class="position-sticky top-0 bg-white shadow-1 z-500">
+  <div class="usa-overlay"></div>
+  <header class="usa-header usa-header--basic">
+    <div class="usa-nav-container">
+      <div class="usa-navbar">
+        <div class="usa-logo">
+          <a
+            href="{{ '/v3/welcome-v3-pilot.html' | relative_url }}"
+            title="BCDA"
+            data-tealium="main_nav"
+            class="display-flex flex-align-center height-6 maxw-card-lg"
+            style="gap: 0.5rem;"
+          >
+            <img
+              src="{{ '/assets/img/logo-bcda.svg' | relative_url }}"
+              alt=""
+              class="width-6 height-6"
+              style="object-fit:contain;"
+            />
+            <span class="font-sans-md text-bold text-black text-balance line-height-sans-2">BCDA v3 Pilot</span>
+          </a>
+        </div>
+        <button
+          type="button"
+          class="usa-menu-btn"
+        >Menu</button>
+      </div>
+      <nav
+        aria-label="Primary navigation"
+        class="usa-nav"
+      >
+        <button
+          type="button"
+          class="usa-nav__close"
+        >
+          <img
+            src="{{ '/assets/uswds/img/usa-icons/close.svg' | relative_url }}"
+            alt="Close"
+          />
+        </button>
+        <ul class="usa-nav__primary usa-accordion">
+          <li class="usa-nav__primary-item">
+            <a
+              href="/index.html"
+              type="button"
+              class="usa-nav-link"
+            >
+              {% include sprite.html icon="arrow_back" size="3" %} Return to the BCDA site
+          </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>

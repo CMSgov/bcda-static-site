@@ -1,0 +1,31 @@
+- name: Welcome to the v3 Pilot
+  url: /v3/welcome-v3-pilot.html
+
+- name: API Documentation
+  url: /v3/api-documentation.html
+  
+  children:
+    - name: How to Get a Bearer Token
+      url: /v3/api-documentation/get-a-bearer-token.html
+      
+    - name: How to Access Claims Data
+      url: /v3/api-documentation/access-claims-data.html
+
+    - name: How to Filter Claims Data
+      url: /v3/api-documentation/filter-claims-data.html
+
+- name: BCDA Data
+  url: /v3/bcda-data.html
+  
+  children:
+    - name: Partially Adjudicated Claims Data
+      url: /v3/bcda-data/partially-adjudicated-claims-data.html
+
+    - name: Comparison of BCDA and CCLF
+      url: /v3/bcda-data/comparison-bcda-cclf-files.html
+
+    - name: v3 Migration Guide
+      url: /v3/bcda-data/v3-migration-guide.html
+
+    - name: Difference Between Versions
+      url: /v3/bcda-data/difference-between-versions.html

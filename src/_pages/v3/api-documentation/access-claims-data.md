@@ -4,7 +4,7 @@ page_title: "How to Access Claims Data"
 seo_title: ""
 description: "Learn how to access Medicare enrollees' Parts A, B, and D claims data in the BCDA production environment for performance tracking and risk analysis."
 in-page-nav: true
-feedback_id: "f179685c"
+feedback_id: ""
 ---
 
 # {{ page.page_title }}
