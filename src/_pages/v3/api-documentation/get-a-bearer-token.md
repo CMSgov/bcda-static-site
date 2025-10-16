@@ -9,21 +9,21 @@ feedback_id: ""
 
 # {{ page.page_title }}
 
-Bearer tokens, also known as access tokens or JSON web tokens, authorize use of the Beneficiary Claims Data API (BCDA) endpoints. You will need a bearer token to [access claims data]({{ '/api-documentation/access-claims-data.html' | relative_url }}) in the sandbox and production environments.
+Bearer tokens, also known as access tokens or JSON web tokens, authorize use of the Beneficiary Claims Data API (BCDA) endpoints. You will need a bearer token to [access claims data]({{ '/v3/api-documentation/access-claims-data.html' | relative_url }}) in the sandbox and production environments.
 
 ## Instructions
 
 ### 1. Get your organization's credentials
 
 BCDA protects its token endpoint with Basic Auth. Your credentials will be formatted as a client ID and client secret.
-- **Sandbox environment**: Use a sample client ID and secret from the [sandbox credentials section]({{ '/api-documentation/get-a-bearer-token.html' | relative_url }}#sandbox-credentials).
-- **Production environment**: Use the client ID and secret issued by your model-specific system during [production access]({{ '/production-access.html' | relative_url }}). Credentials must be rotated (renewed) every 90 days. 
+- **Sandbox environment**: Use a sample client ID and secret from the [sandbox credentials section]({{ '/v3/api-documentation/get-a-bearer-token.html' | relative_url }}#sandbox-credentials).
+- **Production environment**: Use the client ID and secret issued by your model-specific system during production access. Credentials must be rotated (renewed) every 90 days. 
 
 ### 2. Request a bearer token
 
 <div class="usa-alert usa-alert--warning usa-alert--slim">
     <div class="usa-alert__body">
-        <p class="usa-alert__text">Bearer tokens <a href="{{ '/api-documentation/get-a-bearer-token.html#troubleshooting' | relative_url }}">expire</a> 20 minutes after they are generated.</p>
+        <p class="usa-alert__text">Bearer tokens <a href="{{ '/v3/api-documentation/get-a-bearer-token.html#troubleshooting' | relative_url }}">expire</a> 20 minutes after they are generated.</p>
     </div>
 </div>
 
@@ -92,7 +92,7 @@ Include your bearer token in the authorization header when requesting data in th
 
 {% include copy_snippet.html code="Authorization: Bearer {bearer_token}" language="yaml" %}
 
-Now you can begin [accessing claims data]({{ '/api-documentation/access-claims-data.html' | relative_url }}). The production and sandbox environments support the same workflow, endpoints, and resource types.  
+Now you can begin [accessing claims data]({{ '/v3/api-documentation/access-claims-data.html' | relative_url }}). The production and sandbox environments support the same workflow, endpoints, and resource types.  
 
 ## Sandbox credentials
 
@@ -151,7 +151,7 @@ Client secret:
 
 ### Partially adjudicated claims data sets 
 
-Anyone can access [partially adjudicated claims data]({{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}) in the sandbox. Only REACH ACOs can access enrollees' partially adjudicated claims data in production. 
+Anyone can access [partially adjudicated claims data]({{ '/v3/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}) in the sandbox. Only REACH ACOs can access enrollees' partially adjudicated claims data in production. 
 
 #### Extra-small REACH ACO (110 synthetic enrollees)
 
@@ -183,7 +183,7 @@ Client secret:
 
 ### Ensure that your production credentials are not expired.
 
-Credentials must be rotated (renewed) every 90 days. <a href="{{ '/production-access.html' | relative_url }}">Learn more about credentials and production access.</a>
+Credentials must be rotated (renewed) every 90 days. Visit the Production Access page to learn more about credentialing. 
 
 ### Remember to use the correct URL for your environment. 
 

@@ -30,26 +30,26 @@ Beneficiary Claims Data API (BCDA) uses <a href="https://hl7.org/fhir/uv/bulkdat
   <li class="usa-process-list__item">
     <p class="usa-process-list__heading">Learn about BCDA</p>
     <p>
-      Explore the documentation, <a href="{{ '/bcda-data.html#data-dictionary' | relative_url }}">Data Dictionary</a>, and <a href="{{ '/bcda-data.html#sample-files' | relative_url }}">sample files</a>.
+      Explore the documentation, <a href="{{ '/v3/bcda-data.html#data-dictionary' | relative_url }}">Data Dictionary</a>, and <a href="{{ '/v3/bcda-data.html#sample-files' | relative_url }}">sample files</a>.
     </p>
   </li>
   <li class="usa-process-list__item">
     <p class="usa-process-list__heading">Use the sandbox</p>
     <p>
-      The sandbox environment allows anyone to try the API and download test claims data. Learn how to <a href="{{ '/api-documentation/get-a-bearer-token.html' | relative_url }}">get a bearer token</a> and <a href="{{ '/api-documentation/access-claims-data.html' | relative_url }}">access the sandbox</a>.  
+      The sandbox environment allows anyone to try the API and download test claims data. Learn how to <a href="{{ '/v3/api-documentation/get-a-bearer-token.html' | relative_url }}">get a bearer token</a> and <a href="{{ '/v3/api-documentation/access-claims-data.html' | relative_url }}">access the sandbox</a>.  
     </p>
   </li>
   <li class="usa-process-list__item docs-final-item">
     <p class="usa-process-list__heading">Get production access</p>
     <p>
-      <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">Eligible model entities</a> must have <a href="{{ '/production-access.html' | relative_url }}">production credentials</a> to access their enrollees' claims data. 
+      Eligible model entities must have production credentials to access their enrollees' claims data. 
     </p>
   </li>
 </ol>
 
 ## Endpoints
 
-Endpoints request data by [resource type]({{ '/bcda-data.html' | relative_url }}#resource-types). Data is returned for enrollees attributed to your organization, but you can't make requests for individual patient data. 
+Endpoints request data by [resource type]({{ '/v3/bcda-data.html' | relative_url }}#resource-types). Data is returned for enrollees attributed to your organization, but you can't make requests for individual patient data. 
 
 ### /metadata
 
@@ -61,7 +61,7 @@ Use the  <a href="https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint--
 - **/Group/all**: returns data for all Medicare enrollees currently attributed to your model entity
 - **/Group/runout**: returns data for Medicare enrollees attributed to your model entity during the previous year, but not the current year. The data will have a service date no later than December 31 of the previous year.
 
-Using the [_since parameter]({{ '/api-documentation/filter-claims-data.html#the-_since-parameter' | relative_url }}) with /Group will return resources updated after the date provided for existing enrollees and all resources for newly attributed enrollees. 
+Using the [_since parameter]({{ '/v3/api-documentation/filter-claims-data.html#the-_since-parameter' | relative_url }}) with /Group will return resources updated after the date provided for existing enrollees and all resources for newly attributed enrollees. 
 
 This lets you retrieve all new claims data with a single request. If you don't apply _since, BCDA will return data as early as 2014.
 
@@ -93,7 +93,7 @@ Use parameters during job requests to filter or specify the resources returned:
 
 - **The _since parameter**: Apply a date boundary to your requests. Instead of receiving the full record of historical data, filter for resources last updated after a specified date. 
 
-<a href="{{ '/api-documentation/filter-claims-data.html' | relative_url }}">Explore how to filter claims data</a>
+<a href="{{ '/v3/api-documentation/filter-claims-data.html' | relative_url }}">Explore how to filter claims data</a>
 
 ## Additional resources
 

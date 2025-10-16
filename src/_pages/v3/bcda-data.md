@@ -34,7 +34,7 @@ Beneficiary Claims Data API (BCDA) uses <a href="https://hl7.org/fhir/uv/bulkdat
 
 ## Data Dictionary
 
-The Data Dictionary maps the different data fields and locations between BCDA and Claim and Claim Line Feed (CCLF) files. [Explore all the differences between the data sources]({{ '/bcda-data/comparison-bcda-cclf-files.html' | relative_url }}).
+The Data Dictionary maps the different data fields and locations between BCDA and Claim and Claim Line Feed (CCLF) files. [Explore all the differences between the data sources]({{ '/v3/bcda-data/comparison-bcda-cclf-files.html' | relative_url }}).
 
 <div class="grid-row grid-gap margin-y-4 flex-align-center">
   <div class="grid-col-12 mobile-lg:grid-col-auto">
@@ -61,7 +61,7 @@ REACH ACOs can access claims that aren't fully processed or approved yet. **This
   <div class="grid-col-fill tablet:grid-col-9">
     <ul>
         <li>
-            <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}">Partially Adjudicated Claims Data</a>
+            <a href="{{ '/v3/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}">Partially Adjudicated Claims Data</a>
         </li>
         <li>
             <a href="{{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">Data Dictionary for Partially Adjudicated Claims Data {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>
@@ -72,7 +72,7 @@ REACH ACOs can access claims that aren't fully processed or approved yet. **This
 
 ## Sample files
 
-Download sample data files, which share similar content and structure to production data. [Try the sandbox environment]({{ '/api-documentation.html' | relative_url }}) to access test data from the API.
+Download sample data files, which share similar content and structure to production data. [Try the sandbox environment]({{ '/v3/api-documentation.html' | relative_url }}) to access test data from the API.
 
 <div class="grid-row grid-gap margin-y-4 flex-align-center">
   <div class="grid-col-12 mobile-lg:grid-col-auto">
@@ -125,7 +125,7 @@ Beneficiary Claims Data API (BCDA) updates partially adjudicated claims data dai
 
 ## Resource types
 
-Claims data is organized by resource types, which are requested at the /Patient and /Group [endpoints]({{ '/api-documentation.html' | relative_url }}#endpoints). Version 2 has [minor changes]({{ '/bcda-data/difference-between-v1-v2.html' | relative_url }}) in resource types from v1.
+Claims data is organized by resource types, which are requested at the /Patient and /Group [endpoints]({{ '/v3/api-documentation.html' | relative_url }}#endpoints). Version 2 has [minor changes]({{ '/v3/bcda-data/difference-between-v1-v2.html' | relative_url }}) in resource types from v1.
 
 <div class="usa-alert usa-alert--info usa-alert--no-icon margin-top-4">
   <div class="usa-alert__body">

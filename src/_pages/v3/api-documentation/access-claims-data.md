@@ -24,7 +24,7 @@ The sandbox and production environments follow similar instructions. They suppor
   <tbody>
     <tr>
       <td>Available to everyone via test credentials</td>
-      <td>Must <a href="{{ '/production-access.html' | relative_url }}">complete the steps</a> for production credentials</td>
+      <td>Must complete the steps for production credentials</td>
     </tr>
     <tr>
       <td>Contains test claims data</td>
@@ -42,7 +42,7 @@ The sandbox and production environments follow similar instructions. They suppor
     <div class="usa-alert__body">
         <p class="usa-alert__heading text-bold">BCDA recommends using v2 of the API</p>
         <p class="usa-alert__text">
-            This is the latest version which follows the <a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener noreferrer">FHIR R4 specification</a>. REACH ACOs must use v2 for <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a>.
+            This is the latest version which follows the <a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener noreferrer">FHIR R4 specification</a>. REACH ACOs must use v2 for <a href="{{ '/v3/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a>.
         </p>
     </div>
 </div>
@@ -51,11 +51,11 @@ The sandbox and production environments follow similar instructions. They suppor
 
 ### 1. Get a bearer token 
 
-You will need a [bearer token]({{ '/api-documentation/get-a-bearer-token.html' | relative_url }}) to call the API. The process requires credentials, which are formatted as a client ID and client secret. 
+You will need a [bearer token]({{ '/v3/api-documentation/get-a-bearer-token.html' | relative_url }}) to call the API. The process requires credentials, which are formatted as a client ID and client secret. 
 
 <div class="usa-alert usa-alert--warning usa-alert--slim">
     <div class="usa-alert__body">
-        <p class="usa-alert__text">Jobs will not be interrupted when the bearer token <a href="{{ '/api-documentation/get-a-bearer-token.html#troubleshooting' | relative_url }}">expires</a>. In progress and queued jobs will continue to run.</p>
+        <p class="usa-alert__text">Jobs will not be interrupted when the bearer token <a href="{{ '/v3/api-documentation/get-a-bearer-token.html#troubleshooting' | relative_url }}">expires</a>. In progress and queued jobs will continue to run.</p>
     </div>
 </div>
 
@@ -65,7 +65,7 @@ Make a `GET` request to the /Group or /Patient endpoint to start a data export j
 
 #### Request all resource types 
 
-By default, the `GET` request returns all available [resource types]({{ '/bcda-data.html#resource-types' | relative_url }}). 
+By default, the `GET` request returns all available [resource types]({{ '/v3/bcda-data.html#resource-types' | relative_url }}). 
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
@@ -73,7 +73,7 @@ GET /api/v2/Group/all/$export
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
-Use the [_type parameter]({{ '/api-documentation/filter-claims-data.html' | relative_url }}) to specify which resource types you'd like returned. 
+Use the [_type parameter]({{ '/v3/api-documentation/filter-claims-data.html' | relative_url }}) to specify which resource types you'd like returned. 
 
 #### Request header
 
@@ -147,7 +147,7 @@ Content-Location: https://sandbox.bcda.cms.gov/api/v2/jobs/{job_id}
 A `429 Too Many Requests` response can occur due to 2 reasons:
 
 1. Making too many HTTP requests within a period of time
-2. Trying to recreate jobs already marked as "In-Progress.” For reference, you can view both existing and past jobs using the [/jobs endpoint]({{ '/api-documentation/access-claims-data.html' | relative_url }}#request-job-history). 
+2. Trying to recreate jobs already marked as "In-Progress.” For reference, you can view both existing and past jobs using the [/jobs endpoint]({{ '/v3/api-documentation/access-claims-data.html' | relative_url }}#request-job-history). 
 
 Wait until the period of time specified in the `Retry-After: <delay-seconds>` header passes before making any more requests. This makes sure your client can adapt without manual intervention, even if the rate-limiting parameters change.
 
