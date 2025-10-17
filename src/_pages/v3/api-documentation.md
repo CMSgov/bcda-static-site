@@ -17,6 +17,9 @@ sidebar-links:
 
       - name: How to Filter Claims Data
         url: /v3/api-documentation/filter-claims-data.html
+
+      - name: v3 Migration Guide
+        url: /v3/bcda-data/v3-migration-guide.html
 feedback_id: ""
 ---
 

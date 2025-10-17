@@ -1,5 +1,5 @@
 ---
-layout: api-docs-v3
+layout: api-docs
 page_title: "How to Access Claims Data"
 seo_title: ""
 description: "Learn how to access Medicare enrollees' Parts A, B, and D claims data in the BCDA production environment for performance tracking and risk analysis."
