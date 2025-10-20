@@ -38,6 +38,71 @@
             alt="Close"
           />
         </button>
+        <ul class="usa-nav__primary usa-accordion tablet:display-none">
+          {% for item in site.data.api-docs-nav-v3 %}
+          {% if item.children %}
+
+          {% assign is_child_active = false %}
+          {% for child in item.children %}
+          {% if child.url == page.url %}
+          {% assign is_child_active = true %}
+      
+          {% endif %}
+          {% endfor %}
+
+          <li class="usa-nav__primary-item">
+            <button
+              type="button"
+              class="usa-accordion__button usa-nav__link {% if is_child_active %}{{ 'usa-current' }}{% endif %}"
+              aria-expanded="false"
+              aria-controls="basic-nav-section-{{forloop.index}}"
+            >
+              <span>
+                {{- item.name -}} 
+                  {%- if item.new -%}
+                  {%- include new-tag.html -%}
+                  {%- endif -%}
+              </span>
+            </button>
+            <ul
+              id="basic-nav-section-{{forloop.index}}"
+              class="usa-nav__submenu"
+              hidden
+            >
+              {% for child in item.children %}
+              <li class="usa-nav__submenu-item">
+                <a
+                  class="{% if page.url == child.url %}{{ 'usa-current' }}{% endif %}"
+                  href="{{- child.url | relative_url -}}"
+                  data-tealium="main_nav"
+                >
+                  <span>
+                    {{- child.name -}}
+                      {%- if child.new -%}
+                      {%- include new-tag.html -%}
+                      {%- endif -%}
+
+                      {%- if child.updated -%}
+                      {%- include updated-tag.html -%}
+                      {%- endif -%}
+                  </span>
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </li>
+          {% else %}
+          <li class="usa-nav__primary-item">
+            <a
+              href="{{- item.url | relative_url -}}"
+              class="usa-nav-link {% if page.url == item.url %}{{ 'usa-current' }}{% endif %}"
+              data-tealium="main_nav"
+            ><span>{{- item.name -}}</span>
+            </a>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
         <ul class="usa-nav__primary usa-accordion">
           <li class="usa-nav__primary-item">
             <a
@@ -45,7 +110,7 @@
               type="button"
               class="usa-nav-link"
             >
-              {% include sprite.html icon="arrow_back" size="3" %} Return to the BCDA site
+              {% include sprite.html icon="arrow_back" size="3" %} Return to the full BCDA site
           </a>
           </li>
         </ul>
