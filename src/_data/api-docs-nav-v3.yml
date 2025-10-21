@@ -1,6 +1,11 @@
-- name: Welcome to the v3 Pilot
-  url: /v3/welcome-v3-pilot.html
+- name: Welcome to the Pilot
+  url: /v3/welcome-pilot.html
   new: true
+
+  children:
+  - name: Introducing BCDA v3
+    url: /v3/introducing-v3.html
+    new: true
 
 - name: API Documentation 
   url: /v3/api-documentation.html
@@ -16,8 +21,8 @@
       url: /v3/api-documentation/filter-claims-data.html
       updated: true
       
-    - name: v3 Migration Guide
-      url: /v3/bcda-data/v3-migration-guide.html
+    - name: How to Migrate to v3
+      url: /v3/api-documentation/how-to-migrate-v3.html
       new: true
 
 - name: BCDA Data
@@ -31,12 +36,3 @@
     - name: Comparison of BCDA and CCLF
       url: /v3/bcda-data/comparison-bcda-cclf-files.html
       updated: true
-
-    - name: Difference Between Versions
-      url: /v3/bcda-data/difference-between-versions.html
-
-      children:
-      - name: v3 Fact Sheet
-        url: /v3/bcda-data/v3-fact-sheet.html
-        new: true
-

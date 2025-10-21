@@ -1,19 +1,16 @@
 ---
 layout: api-docs-v3
-page_title: "Welcome to the v3 Pilot"
+page_title: "How to Migrate to BCDA v3"
 seo_title: ""
-description: "Welcome to the v3 pilot."
-show-side-nav: true
+description: "How to Migrate to BCDA v3"
+in-page-nav: true
+in-page-nav-levels: "h2"
 feedback_id: ""
 ---
 
- <img src="{{ '/assets/img/data-analysis.svg' | relative_url }}" alt="" class="width-full" style="object-fit: contain;">
-
 # {{ page.page_title }}
 
-This site contains draft documentation for v3 of BCDA, including both new and existing technical documentation. You may see some changes to these pages throughout the pilot as we hear your feedback and make updates. 
-
-If you have any questions or feedback, email us at bcapi@cms.hhs.gov, or chat with us at the next office hours session. Thank you for your participation!
+Content TBD
 
 <div class="usa-summary-box maxw-tablet" role="region">
   <div class="usa-summary-box__body">
@@ -50,10 +47,4 @@ If you have any questions or feedback, email us at bcapi@cms.hhs.gov, or chat wi
     </div>
   </div>
 </div>
-
-## Quick Links
-
-- Placeholder
-- Placeholder
-- Placeholder
 
