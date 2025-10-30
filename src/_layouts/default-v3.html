@@ -3,7 +3,7 @@ layout: base-v3
 ---
 
 <div class="grid-container">
-  <div class="usa-alert usa-alert--warning margin-top-3">
+  <div class="usa-alert usa-alert--warning">
     <div class="usa-alert__body">
       <p class="usa-alert__heading text-bold">You are viewing v3 documentation for pilot users only.</p>
       <p class="usa-alert__text">
@@ -16,15 +16,19 @@ layout: base-v3
     {% if page.show-side-nav != false %}
     <div
       class="display-none position-sticky tablet:display-block tablet:grid-col-auto overflow-y-auto overflow-x-hidden padding-top-5 desktop:padding-top-7 padding-bottom-6 tablet:padding-right-3 padding-left-05 margin-left-neg-05"
-      style="top: 4rem; height: calc(100vh - 4.5rem);">
+      style="top: 4rem; height: calc(100vh - 4.5rem);"
+    >
       <div class="width-card-lg bg-white">
         {% include api-docs-side-nav-v3.html %}
       </div>
     </div>
     {% endif %}
 
-    <main id="main-content" class="grid-col-fill">
-      {{ content }}
+    <main
+      id="main-content"
+      class="grid-col-fill"
+    >
+      {{- content -}}
     </main>
   </div>
 </div>
