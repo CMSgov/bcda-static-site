@@ -5,7 +5,7 @@
       <div class="usa-navbar">
         <div class="usa-logo">
           <a
-            href="{{ '/v3/welcome-v3-pilot.html' | relative_url }}"
+            href="{{ '/v3/welcome-pilot.html' | relative_url }}"
             title="BCDA"
             data-tealium="main_nav"
             class="display-flex flex-align-center height-6 maxw-card-lg"
@@ -46,7 +46,7 @@
           {% for child in item.children %}
           {% if child.url == page.url %}
           {% assign is_child_active = true %}
-      
+
           {% endif %}
           {% endfor %}
 
@@ -58,10 +58,10 @@
               aria-controls="basic-nav-section-{{forloop.index}}"
             >
               <span>
-                {{- item.name -}} 
-                  {%- if item.new -%}
-                  {%- include new-tag.html -%}
-                  {%- endif -%}
+                {{- item.name -}}
+                {%- if item.new -%}
+                {%- include new-tag.html -%}
+                {%- endif -%}
               </span>
             </button>
             <ul
@@ -78,13 +78,13 @@
                 >
                   <span>
                     {{- child.name -}}
-                      {%- if child.new -%}
-                      {%- include new-tag.html -%}
-                      {%- endif -%}
+                    {%- if child.new -%}
+                    {%- include new-tag.html -%}
+                    {%- endif -%}
 
-                      {%- if child.updated -%}
-                      {%- include updated-tag.html -%}
-                      {%- endif -%}
+                    {%- if child.updated -%}
+                    {%- include updated-tag.html -%}
+                    {%- endif -%}
                   </span>
                 </a>
               </li>
@@ -111,7 +111,7 @@
               class="usa-nav-link"
             >
               {% include sprite.html icon="arrow_back" size="3" %} Return to the full BCDA site
-          </a>
+            </a>
           </li>
         </ul>
       </nav>
