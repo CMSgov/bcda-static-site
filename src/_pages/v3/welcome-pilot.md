@@ -7,8 +7,6 @@ show-side-nav: true
 feedback_id: ""
 ---
 
-<img src="{{ '/assets/img/data-analysis.svg' | relative_url }}" alt="" class="width-full" style="object-fit: contain;">
-
 # {{ page.page_title }}
 
 The Beneficiary Claims Data API (BCDA) team is excited to kick off our version 3 (v3) pilot program. As a participant you’ll be one of the first to interact with v3. You’ll share feedback that can shape the future of BCDA and get personalized support.   
