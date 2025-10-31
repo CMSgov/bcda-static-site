@@ -37,10 +37,10 @@ BCDA v3 will be located at the same domain as v1 and v2, but will have a new v3 
 Point your app to **v3** instead of **v2** to connect to the new endpoint, complete the steps to export the data, check the job status, read the JSON manifest, and download the files.
 
 - v2 Patient $export operation: 
-	{% include copy_snippet.html code="https://api.bcda.cms.gov/api/v2/Group/all/$export" language="bash" %}
+	{% include copy_snippet.html code="GET /api/v2/Group/all/$export" language="shell" %}
 
 - v3 Patient $export operation: 
-	{% include copy_snippet.html code="https://api.bcda.cms.gov/api/v3/Group/all/$export" language="bash" %}
+	{% include copy_snippet.html code="GET /api/v3/Group/all/$export" language="shell" %}
 
 The /auth and /data URLs will remain the same between versions. You won't need to make any changes to how you request a token or download files.
 
@@ -68,20 +68,20 @@ If you have access to partially adjudicated claims, you’ll need to use the new
 In BCDA v2 you exported claims based on adjudication level using the `_type` parameter, and passing the appropriate resource types (`Claim`, `ClaimResponse` for partially adjudicated claims and `ExplanationOfBenefit` for fully adjudicated claims) as the parameter value:
 
 - v2 $export for only partially adjudicated claims:
-  {% include copy_snippet.html code="https://api.bcda.cms.gov/api/v2/Patient/$export?_type=Claim,ClaimResponse" language="bash" %}
+  {% include copy_snippet.html code="GET /api/v2/Patient/$export?_type=Claim,ClaimResponse" language="shell" %}
 
 - v2 $export for only fully adjudicated claims:
-	{% include copy_snippet.html code="https://api.bcda.cms.gov/api/v2/Patient/$export?_type=ExplanationOfBenefit" language="bash" %}
+	{% include copy_snippet.html code="GET /api/v2/Patient/$export?_type=ExplanationOfBenefit" language="shell" %}
 
 #### Changes with BCDA v3
 
 In BCDA v3, you can export claims based on adjudication level using the `_typeFilter` parameter to limit your job request to include only EOB resources where the meta.tag property matches the desired adjudication status. In the following examples, we further limit the request to exclude Coverage and Patient resources by using the `_type` parameter with `ExplanationOfBenefit`.
 
 - v3 $export for only partially adjudicated claims
-	{% include copy_snippet.html code="https://api.bcda.cms.gov/api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit?_tag=PartiallyAdjudicated" language="bash" %}
+	{% include copy_snippet.html code="GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit?_tag=PartiallyAdjudicated" language="shell" %}
 
 - v3 $export for only fully adjudicated claims
-	{% include copy_snippet.html code="https://api.bcda.cms.gov/api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit?_tag=Adjudicated " language="bash" %}
+	{% include copy_snippet.html code="GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit?_tag=Adjudicated " language="shell" %}
 
 Without using the `_typeFilter` parameter, REACH ACOs using v3 will receive both partially adjudicated and fully adjudicated claims in the export by default. 
 
@@ -95,19 +95,23 @@ Make the following changes to migrate to v3 if you’ve mapped any bluebutton ex
 
 #### Changes to Extension URLs
 
-- v2 URL:
-	{% include copy_snippet.html code="https://bluebutton.cms.gov/resources/variables/nch_near_line_rec_ident_cd/" language="bash" %}
+- v2 URL: 
+	
+	[https://bluebutton.cms.gov/resources/variables/nch_near_line_rec_ident_cd/](https://bluebutton.cms.gov/resources/variables/nch_near_line_rec_ident_cd/)
 
-- v3 URL:
-	{% include copy_snippet.html code="https://bluebutton.cms.gov/fhir/StructureDefinition/CLM-NRLN-RIC-CD" language="bash" %}
+- v3 URL: 
+	
+	[https://bluebutton.cms.gov/fhir/StructureDefinition/CLM-NRLN-RIC-CD](https://bluebutton.cms.gov/fhir/StructureDefinition/CLM-NRLN-RIC-CD)
 
 #### Changes to CodeSystem URLs
 
-- v2 URL:
-	{% include copy_snippet.html code="https://bluebutton.cms.gov/resources/variables/nch_near_line_rec_ident_cd/" language="bash" %}
+- v2 URL: 
+	
+	[https://bluebutton.cms.gov/resources/variables/nch_near_line_rec_ident_cd/](https://bluebutton.cms.gov/resources/variables/nch_near_line_rec_ident_cd/)
 
-- v3 URL:
-	{% include copy_snippet.html code="https://bluebutton.cms.gov/fhir/CodeSystem/CLM-NRLN-RIC-CD" language="bash" %}
+- v3 URL: 
+	
+	[https://bluebutton.cms.gov/fhir/CodeSystem/CLM-NRLN-RIC-CD](https://bluebutton.cms.gov/fhir/CodeSystem/CLM-NRLN-RIC-CD)
 
 If your BCDA client is using any of the v2 URLs, you’ll need to update your code to look for the v3 version.
 
