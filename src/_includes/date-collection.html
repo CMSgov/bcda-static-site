@@ -1,0 +1,21 @@
+{% assign date = include.date %}
+{% assign title = include.title %}
+{% assign content = include.content %}
+
+<li class="usa-collection__item">
+  <div class="usa-collection__calendar-date">
+    <span
+      class="usa-collection__calendar-date-month"
+      style="text-transform: uppercase;"
+    >{{- date | date: "%b" -}}</span>
+    <span class="usa-collection__calendar-date-day">{{- date | date: "%-d" -}}</span>
+  </div>
+  <div class="usa-collection__body">
+    <h3 class="usa-collection__heading padding-left-105">
+      {{- title -}}
+    </h3>
+    <div class="usa-collection__description margin-top-2">
+      {{- content | markdownify -}}
+    </div>
+  </div>
+</li>

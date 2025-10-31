@@ -33,73 +33,75 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 
 ## Pilot program schedule
 
-<table class="usa-table usa-table--borderless usa-table--stacked margin-bottom-4">
-  <caption class="usa-sr-only">Pilot program schedule</caption>
-  <thead>
-    <tr>
-      <th scope="col">Date</th>
-      <th scope="col">Agenda</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td scope="row">Kickoff: October 30, 2025 | 3:30 - 4:30 pm ET</td>
-      <td>
-        <ul>
-            <li>BCDA v3 overview</li>
-            <li>Scheduling and logistics</li>
-            <li>Introduce test scenario #1: Make your first v3 requests with the BCDA sandbox</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td scope="row">#1: November 13, 2025 | 3:30 - 4:30 pm ET</td>
-      <td>
-        <ul>
-            <li>Answer questions and give support for test scenario #1</li>
-            <li>Gather feedback</li>
-            <li>Introduce test scenario #2</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td scope="row">#2: December 4, 2025 | 2:00 - 3:00 pm ET</td>
-      <td>
-        <ul>
-            <li>Answer questions and give support for test scenario #2</li>
-            <li>Gather feedback</li>
-            <li>Introduce test scenario #3</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td scope="row">#3: December 11, 2025 | 3:30 - 4:30 pm ET</td>
-      <td>
-        <ul>
-            <li>Answer questions and give support for test scenario #3</li>
-            <li>Gather feedback</li>
-            <li>Introduce test scenario #4</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td scope="row"># 4: January 8, 2026 | 3:30 - 4:30 pm ET</td>
-      <td>
-        <ul>
-            <li>Answer questions and give support for test scenario #4</li>
-            <li>Gather feedback</li>
-            <li>Introduce test scenario #5</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td scope="row">#5: January 22, 2026 | 3:30 - 4:30 pm ET</td>
-      <td>
-        <ul>
-            <li>Answer questions and give support for test scenario #5</li>
-            <li>Gather summary feedback for pilot </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<ul class="usa-collection">
+{% capture date1 %}
+- BCDA v3 overview
+- Scheduling and logistics
+- Introduce test scenario #1: Make your first v3 requests with the BCDA sandbox
+{% endcapture %}
+
+{% include date-collection.html
+    date="October 30, 2025"
+    title="October 30, 2025 | 3:30 - 4:30 pm ET"
+    content=date1
+%}
+
+{% capture date2 %}
+- Answer questions and give support for test scenario #1
+- Gather feedback
+- Introduce test scenario #2
+{% endcapture %}
+
+{% include date-collection.html
+    date="November 13, 2025"
+    title="November 13, 2025 | 3:30 - 4:30 pm ET"
+    content=date2
+%}
+
+{% capture date3 %}
+- Answer questions and give support for test scenario #2
+- Gather feedback
+- Introduce test scenario #3
+{% endcapture %}
+
+{% include date-collection.html
+    date="December 4, 2025"
+    title="December 4, 2025 | 2:00 - 3:00 pm ET"
+    content=date3
+%}
+
+{% capture date4 %}
+- Answer questions and give support for test scenario #3
+- Gather feedback
+- Introduce test scenario #4
+{% endcapture %}
+
+{% include date-collection.html
+    date="December 11, 2025"
+    title="December 11, 2025 | 3:30 - 4:30 pm ET"
+    content=date4
+%}
+
+{% capture date5 %}
+- Answer questions and give support for test scenario #4
+- Gather feedback
+- Introduce test scenario #5
+{% endcapture %}
+
+{% include date-collection.html
+    date="January 8, 2026"
+    title="January 8, 2026 | 3:30 - 4:30 pm ET"
+    content=date5
+%}
+
+{% capture date6 %}
+- Answer questions and give support for test scenario #5
+- Gather summary feedback for pilot
+{% endcapture %}
+
+{% include date-collection.html
+    date="January 22, 2026"
+    title="January 22, 2026 | 3:30 - 4:30 pm ET"
+    content=date6
+%}
+</ul>
