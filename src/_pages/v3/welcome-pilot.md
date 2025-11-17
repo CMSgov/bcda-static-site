@@ -13,7 +13,7 @@ The Beneficiary Claims Data API (BCDA) team is excited to kick off our version 3
 
 ## How does the pilot work?
 
-1. We’ll start with a scheduled kick-off call
+1. We’ll start with a scheduled kick-off call.
 2. Every 2 weeks you’ll complete 1 of 5 total test scenarios. 
 3. You’ll join scheduled office hours to share feedback and ask questions about each test scenario. 
 4. We’ll record and share office hours sessions for reference. Those who can’t attend will complete a short survey to share their feedback on the test scenario.
@@ -27,11 +27,11 @@ The pilot starts with a kick-off call. Before then (or throughout the pilot) you
 - Explore [Introducing BCDA v3]({{ '/v3/introducing-v3.html' | relative_url }}) <span class="usa-tag margin-x-1 bg-accent-warm">New</span>
 - Review [How to Migrate to v3]({{ '/v3/api-documentation/how-to-migrate-v3.html' | relative_url }}) <span class="usa-tag margin-x-1 bg-accent-warm">New</span>
 
-If you’re missing an invite to the kick off or office hours, or have general questions, contact <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hhs.gov</a>.
+Need help? Contact us at  <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hhs.gov</a> if you’re missing invites to the kick-off or office hours, or if you have general questions.
 
 We look forward to joining you in what we hope will be a fun and enlightening program.
 
-## Pilot program schedule
+## Early access program schedule
 
 <ul class="usa-collection">
 {% capture date1 %}

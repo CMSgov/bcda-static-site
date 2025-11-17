@@ -10,12 +10,20 @@ feedback_id: ""
 
 # {{ page.page_title }}
 
+Migration overview
+This guide helps you migrate from BCDA v1/v2 to version 3 (v3). Key changes include:
+
+- New endpoint URL structure
+- Unified ExplanationOfBenefit resource for all claims
+- Updated extension and code system URLs
+- Different resource IDs requiring new matching strategies
+
 ## BCDA v3 overview
 
 BCDA version 3 (v3) introduces access to more timely and accurate Medicare claims data, and additional benefits to BCDA users including:
 
-- Reduced discrepancies between partially and fully adjudicated Medicare claims data. This is accomplished by moving to a single source of claims data, the CMS Integrated Data Repository (IDR).
-- Improved alignment with sources such as Claim and Claim Line Feed (CCLF) files through more standard claim and patient identifiers. 
+- Reduced discrepancies between partially and fully adjudicated Medicare claims data. This is accomplished by moving to a single source of claims data, the CMS Integrated Data Repository (IDR)
+- Improved alignment with sources such as Claim and Claim Line Feed (CCLF) files through more standard claim and patient identifiers
 
 ### Changes to BCDA in v3
 
@@ -56,8 +64,6 @@ V3 uses a different resource to access partially adjudicated claims: 
 - v3: `ExplanationOfBenefit` resource 
 
 Using only the `ExplanationOfBenefit` resource allows you to easily compare a claim at different stages in the adjudication process without needing to map between different resource types.
-
-Review the v3 Data Dictionary for a complete list of element definitions and CCLF mappings.
 
 ### Exporting claims based on adjudication status
 
