@@ -20,10 +20,10 @@ This guide helps you migrate from BCDA v1/v2 to version 3 (v3). Key changes incl
 
 ## BCDA v3 overview
 
-BCDA version 3 (v3) introduces access to more timely and accurate Medicare claims data, and additional benefits to BCDA users including:
+BCDA v3 introduces access to more timely and accurate Medicare claims data, and additional benefits to BCDA users including:
 
-- Reduced discrepancies between partially and fully adjudicated Medicare claims data. This is accomplished by moving to a single source of claims data, the CMS Integrated Data Repository (IDR)
-- Improved alignment with sources such as Claim and Claim Line Feed (CCLF) files through more standard claim and patient identifiers
+- More consistent claims data by using a single data source of data, the CMS Integrationed Data Repository
+- Improved alignment with sources such as the Claim and Claim Line Feed (CCLF) files through more standard claim and patient identifiers. 
 
 ### Changes to BCDA in v3
 
@@ -56,7 +56,7 @@ The /auth and /data URLs will remain the same between versions. You won't need t
 
 In BCDA v2, fully adjudicated claims were represented by the `ExplanationOfBenefit` FHIR resource while partially adjudicated claims were represented by the `Claim` and `ClaimResponse` resources. BCDA v3 will represent **ALL** claims (fully adjudicated and partially adjudicated) using the `ExplanationOfBenefit` resource. All EOB resources in v3 will have a `meta.tag` element indicating either `Adjudicated` or `PartiallyAdjudicated`.
 
-### Mapping Partially Adjudicated Claims data in v2 vs v3
+### Mapping partially adjudicated claims data in v2 vs v3
 
 V3 uses a different resource to access partially adjudicated claims: 
 

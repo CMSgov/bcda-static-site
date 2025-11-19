@@ -1,17 +1,17 @@
 ---
 layout: api-docs-v3
-page_title: "Welcome to the BCDA v3 Pilot"
+page_title: "Welcome to the BCDA v3 Early Access Program"
 seo_title: ""
-description: "Welcome to the BCDA v3 Pilot."
+description: "Welcome to the BCDA v3 Early Access Program."
 show-side-nav: true
 feedback_id: ""
 ---
 
 # {{ page.page_title }}
 
-The Beneficiary Claims Data API (BCDA) team is excited to kick off our version 3 (v3) pilot program. As a participant you’ll be one of the first to interact with v3. You’ll share feedback that can shape the future of BCDA and get personalized support.   
+The Beneficiary Claims Data API (BCDA) team is excited to kick off our version 3 (v3) early access program. As an early adopter you’ll be one of the first to interact with v3. You’ll share feedback that can shape the future of BCDA and get personalized support.   
 
-## How does the pilot work?
+## How does the early access program work?
 
 1. We’ll start with a scheduled kick-off call.
 2. Every 2 weeks you’ll complete 1 of 5 total test scenarios. 
@@ -20,14 +20,14 @@ The Beneficiary Claims Data API (BCDA) team is excited to kick off our version 3
 
 ## How do I get started?
 
-The pilot starts with a kick-off call. Before then (or throughout the pilot) you can:
+The early access program starts with a kick-off call. Before the kick off call (or throughout early access) you can:
 
 - Learn about BCDA
 - Review API documentation 
 - Explore [Introducing BCDA v3]({{ '/v3/introducing-v3.html' | relative_url }}) <span class="usa-tag margin-x-1 bg-accent-warm">New</span>
 - Review [How to Migrate to v3]({{ '/v3/api-documentation/how-to-migrate-v3.html' | relative_url }}) <span class="usa-tag margin-x-1 bg-accent-warm">New</span>
 
-Need help? Contact us at  <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hhs.gov</a> if you’re missing invites to the kick-off or office hours, or if you have general questions.
+Need help? Contact us at <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hhs.gov</a> if you’re missing invites to the kick-off or office hours, or if you have general questions.
 
 We look forward to joining you in what we hope will be a fun and enlightening program.
 
@@ -96,7 +96,7 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 
 {% capture date6 %}
 - Answer questions and give support for test scenario #5
-- Gather summary feedback for pilot
+- Gather summary feedback on the early access program
 {% endcapture %}
 
 {% include date-collection.html

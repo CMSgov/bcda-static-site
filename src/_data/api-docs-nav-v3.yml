@@ -1,5 +1,5 @@
-- name: Welcome to the Pilot
-  url: /v3/welcome-pilot.html
+- name: Welcome to the Early Access Program
+  url: /v3/welcome-v3.html
   new: true
 
   children:
@@ -7,32 +7,6 @@
     url: /v3/introducing-v3.html
     new: true
 
-- name: API Documentation 
-  url: /v3/api-documentation.html
-  
-  children:
-    - name: How to Get a Bearer Token
-      url: /v3/api-documentation/get-a-bearer-token.html
-      
-    - name: How to Access Claims Data
-      url: /v3/api-documentation/access-claims-data.html
-
-    - name: How to Filter Claims Data
-      url: /v3/api-documentation/filter-claims-data.html
-      updated: true
-      
-    - name: How to Migrate to v3
-      url: /v3/api-documentation/how-to-migrate-v3.html
-      new: true
-
-- name: BCDA Data
-  url: /v3/bcda-data.html
-  
-  children:
-    - name: Partially Adjudicated Claims Data
-      url: /v3/bcda-data/partially-adjudicated-claims-data.html
-      updated: true
-
-    - name: Comparison of BCDA and CCLF
-      url: /v3/bcda-data/comparison-bcda-cclf-files.html
-      updated: true
+  - name: How to Migrate to BCDA v3
+    url: /v3/api-documentation/how-to-migrate-v3.html
+    new: true

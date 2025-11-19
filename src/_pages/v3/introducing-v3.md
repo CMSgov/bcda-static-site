@@ -4,13 +4,12 @@ page_title: "Introducing BCDA v3"
 seo_title: ""
 description: "Introducing BCDA v3"
 in-page-nav: true
-in-page-nav-levels: "h2"
 feedback_id: ""
 ---
 
 # {{ page.page_title }}
 
-In version 3 (v3), BCDA is introducing a more timely, efficient, and granular approach to accessing BCDA data. These improvements, which benefit BCDA users, include:
+BCDA version 3 (v3) delivers faster, more reliable access to Medicare claims data with significant improvements for users. These improvements include:
 
 - Moving to a single source of Medicare claims data, the CMS Integrated Data Repository (IDR) 
 - Better alignment with other sources such as Claim and Claim Line Feed (CCLF) files
@@ -22,16 +21,17 @@ In version 3 (v3), BCDA is introducing a more timely, efficient, and granular ap
 Version 3 offers more timely updates to patient, coverage, and adjudicated claims data. In addition, it:
 
 - Reduces the number of days between the time a claim is fully adjudicated and when it’s made available 
-- Increases the frequency of adjudicated data from once per week to 4 or 5 times per week
+- Increases the frequency of updates to patient and coverage information from once per week to 6 times per week
+- Increases the frequency of updates to fully adjudicated Part D claims data from once per week to 4 5 times per week
 
 ### Easier claims tracking 
 
 BCDA v3 makes it easier to track claims through the adjudication process.
 
-- Both adjudicated and partially adjudicated claims are now derived from the same source system
-- Both types are represented by a single ExplanationOfBenefit FHIR resource
+- Both adjudicated and partially adjudicated claims are now sourced for a single source system, the IDR
+- Both claims now use the same ExplanationOfBenefit FHIR resource
 
-Version 3 enables enhanced tracking by using the claim control number and identifying adjudication status with additional metadata.
+Version 3 enhances tracking by using the claim control number and a simple metadata tag to indicate the adjudication status of the claim.
 
 ### Enhanced filtering capabilities
 
@@ -47,13 +47,27 @@ V3 standardizes and enhances extensions while providing improved conformance wit
 
 ## Problems solved in v3
 
-In earlier versions of BCDA, claims data was sourced from the Chronic Conditions Warehouse (CCW). CCW was originally intended for research and condition-specific tracking. BCDA v2 sourced partially adjudicated claims data from the Replicated Data Access (RDA) API. With v3, the CMS Integrated Data Repository (IDR) replaces both CCW and RDA API as data sources. This data is less expensive for CMS to host and maintain, easier to manage, and more timely. BCDA's switch to sourcing data from IDR in addresses following known issues and limitations of BCDA v2:
+In earlier versions of BCDA, claims data was sourced from the Chronic Conditions Warehouse (CCW). BCDA v2 sourced partially adjudicated claims data from the Replicated Data Access (RDA) API. With v3, the CMS Integrated Data Repository (IDR) replaces both CCW and RDA API. BCDA's switch to sourcing data from IDR in addresses following known issues and limitations of BCDA v2:
 
-- Mismatched data between BCDA resources  and CCLF files is reduced by sharing the IDR as an upstream data provider
-- BCDA missing data for newly attributed enrollees due to a known issue with CCW
-- BCDA missing data for enrollees assigned more than one CCW identifier (BENE_ID)
-- Difficulty linking between partially adjudicated and fully adjudicated claims due to different FHIR resource representation and claim identifiers
+- Reduces mismatched data between BCDA resources and CCLF files
+- Resolves missing data for newly attributed enrollees 
+- Fixes issues for enrollees assigned more than one BENE_ID
+- Simplifies linking between partially and fully adjudicated claims
+- Uses consistent claim identifiers across all phases of adjudication
 
-### More v3 resources
+## What this means for your organization
 
-Explore the v3 migration guide and documentation for hands-on information about implementing and troubleshooting BCDA v3. 
+- Reduced development time: Unified data structure simplifies integration
+- Improved data quality: Single source eliminates inconsistencies
+- Better user experience: Faster, more frequent updates
+- Enhanced compliance: Better alignment with FHIR standards
+
+### Ready to get started?
+
+#### Next Steps:
+
+- Review the [How to Migrate to v3]({{ '/v3/api-documentation/how-to-migrate-v3.html' | relative_url }}) for step-by-step implementation instructions
+- Access the [v3 documentation](https://github.com/CMSgov/beneficiary-fhir-data/wiki/V2-%E2%80%90-V3-Migration-Guide-(Draft)) to view the technical specifications and API details
+- Participate in the Office Hours to get personalized support
+
+Questions? Contact our team at <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hhs.gov</a> for assistance with your v3 transition.
