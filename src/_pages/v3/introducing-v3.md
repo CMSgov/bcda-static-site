@@ -22,7 +22,7 @@ Version 3 offers more timely updates to patient, coverage, and adjudicated claim
 
 - Reduces the number of days between the time a claim is fully adjudicated and when it’s made available 
 - Increases the frequency of updates to patient and coverage information from once per week to 6 times per week
-- Increases the frequency of updates to fully adjudicated Part D claims data from once per week to 4 5 times per week
+- Increases the frequency of updates to fully adjudicated Part D claims data from once per week to 5 times per week
 
 ### Easier claims tracking 
 
@@ -39,7 +39,7 @@ The new [\_typeFilter query parameter](https://hl7.org/fhir/uv/bulkdata/STU2/exp
 
 ### Simplified, reliable data mapping capabilities 
 
-Data from BCDA will be more closely aligned with data available in CCLF files. Additionally the BCDA Data Dictionary will be automatically derived from upstream data. sources.
+Data from BCDA will be more closely aligned with data available in CCLF files. Additionally the BCDA Data Dictionary will be automatically derived from upstream data sources.
 
 ### Improved conformance with select FHIR Implementation Guides
 
