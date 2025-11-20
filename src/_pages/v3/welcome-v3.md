@@ -1,17 +1,17 @@
 ---
 layout: api-docs-v3
-page_title: "Welcome to the BCDA v3 Early Access Program"
+page_title: "Welcome to the BCDA v3 Early Adopter Program"
 seo_title: ""
-description: "Welcome to the BCDA v3 Early Access Program."
+description: "Welcome to the BCDA v3 Early Adopter Program."
 show-side-nav: true
 feedback_id: ""
 ---
 
 # {{ page.page_title }}
 
-The Beneficiary Claims Data API (BCDA) team is excited to kick off our version 3 (v3) early access program. As an early adopter you’ll be one of the first to interact with v3. You’ll share feedback that can shape the future of BCDA and get personalized support.   
+The Beneficiary Claims Data API (BCDA) team is excited to kick off our version 3 (v3) Early Adopter Program. As an early adopter you’ll be one of the first to interact with v3. You’ll share feedback that can shape the future of BCDA and get personalized support.   
 
-## How does the early access program work?
+## How does the Early Adopter Program work?
 
 1. We’ll start with a scheduled kick-off call.
 2. Every 2 weeks you’ll complete 1 of 5 total test scenarios. 
@@ -20,7 +20,7 @@ The Beneficiary Claims Data API (BCDA) team is excited to kick off our version 3
 
 ## How do I get started?
 
-The early access program starts with a kick-off call. Before the kick off call (or throughout early access) you can:
+The Early Adopter Program starts with a kick-off call. Before the kick off call (or throughout the program) you can:
 
 - Learn about BCDA
 - Review API documentation 
@@ -31,7 +31,7 @@ Need help? Contact us at <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hhs.gov</a
 
 We look forward to joining you in what we hope will be a fun and enlightening program.
 
-## Early access program schedule
+## Early Adopter Program schedule
 
 <ul class="usa-collection">
 {% capture date1 %}
@@ -96,7 +96,7 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 
 {% capture date6 %}
 - Answer questions and give support for test scenario #5
-- Gather summary feedback on the early access program
+- Gather summary feedback on the early adopter program
 {% endcapture %}
 
 {% include date-collection.html

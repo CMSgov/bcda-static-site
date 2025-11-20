@@ -1,14 +1,14 @@
 ---
 layout: api-docs-v3
-page_title: "How to Migrate to BCDA v3"
+page_title: "How to Migrate to v3"
 seo_title: ""
-description: "How to Migrate to BCDA v3"
+description: "How to Migrate to v3"
 in-page-nav: true
 in-page-nav-levels: "h2"
 feedback_id: ""
 ---
 
-# {{ page.page_title }}
+# {{ page.page_title }} <span class="usa-tag usa-tag--big margin-x-1 bg-accent-warm text-middle">New</span>
 
 Migration overview
 This guide helps you migrate from BCDA v1/v2 to version 3 (v3). Key changes include:

@@ -7,7 +7,7 @@ in-page-nav: true
 feedback_id: ""
 ---
 
-# {{ page.page_title }}
+# {{ page.page_title }} <span class="usa-tag usa-tag--big margin-x-1 bg-accent-warm text-middle">New</span>
 
 BCDA version 3 (v3) delivers faster, more reliable access to Medicare claims data with significant improvements for users. These improvements include:
 
