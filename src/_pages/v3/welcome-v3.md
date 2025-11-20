@@ -27,7 +27,7 @@ The Early Adopter Program starts with a kick-off call. Before the kick off call 
 - Explore [Introducing BCDA v3]({{ '/v3/introducing-v3.html' | relative_url }}) <span class="usa-tag margin-x-1 bg-accent-warm">New</span>
 - Review [How to Migrate to v3]({{ '/v3/api-documentation/how-to-migrate-v3.html' | relative_url }}) <span class="usa-tag margin-x-1 bg-accent-warm">New</span>
 
-Need help? Contact us at <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hhs.gov</a> if you’re missing invites to the kick-off or office hours, or if you have general questions.
+Need help? Contact us at <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hhs.gov</a>.
 
 We look forward to joining you in what we hope will be a fun and enlightening program.
 
