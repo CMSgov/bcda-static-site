@@ -31,9 +31,9 @@ Need help? Contact us at <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hhs.gov</a
 
 We look forward to joining you in what we hope will be a fun and enlightening program.
 
-## Early Adopter Program schedule
+<!-- ## Early Adopter Program schedule -->
 
-<ul class="usa-collection">
+<!-- <ul class="usa-collection">
 {% capture date1 %}
 - BCDA v3 overview
 - Scheduling and logistics
@@ -104,4 +104,4 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
     title="January 22, 2026 | 3:30 - 4:30 pm ET"
     content=date6
 %}
-</ul>
+</ul> -->
