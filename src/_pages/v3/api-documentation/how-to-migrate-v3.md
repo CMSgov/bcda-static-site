@@ -4,13 +4,13 @@ page_title: "How to Migrate to v3"
 seo_title: ""
 description: "How to Migrate to v3"
 in-page-nav: true
-in-page-nav-levels: "h2"
 feedback_id: "8a4c0b7b"
 ---
 
 # {{ page.page_title }} <span class="usa-tag usa-tag--big margin-x-1 bg-accent-warm text-middle">New</span>
 
-Migration overview
+## Migration overview
+
 This guide helps you migrate from BCDA v1/v2 to version 3 (v3). Key changes include:
 
 - New endpoint URL structure
@@ -20,9 +20,9 @@ This guide helps you migrate from BCDA v1/v2 to version 3 (v3). Key changes incl
 
 ## BCDA v3 overview
 
-BCDA v3 introduces access to more timely and accurate Medicare claims data, and additional benefits to BCDA users including:
+BCDA v3 introduces access to more timely and accurate Medicare claims data and additional benefits to BCDA users including:
 
-- More consistent claims data by using a single data source of data, the CMS Integrationed Data Repository
+- More consistent claims data by using a single data source of data, the CMS Integrated Data Repository
 - Improved alignment with sources such as the Claim and Claim Line Feed (CCLF) files through more standard claim and patient identifiers. 
 
 ### Changes to BCDA in v3
@@ -34,13 +34,13 @@ If you are currently using BCDA v1 or BCDA v2, there are changes to the API and 
 - There will be new Extension and Code System URLs to reference
 - Resource IDs are different between versions
 
-<sup>1</sup>Medical claims that have been submitted but not fully processed and paid by Medicare
+<p class="font-ui-xs text-italic"> <sup>1</sup>Medical claims that have been submitted but not fully processed and paid by Medicare.</p>
 
 ## Requesting data from new v3 endpoints
 
-*Point your app to v3 instead of v2*
+### Point your app to v3 instead of v2
 
-BCDA v3 will be located at the same domain as v1 and v2, but will have a new v3 $export and new metadata endpoints. BCDA v3 will still support the [Bulk Data FHIR Implementation Guide](https://github.com/HL7/bulk-data). If you are currently connected to BCDA v1 or v2 endpoints, you can migrate to BCDA v3 by making the following changes.
+BCDA v3 will be located at the same domain as v1 and v2, but will have a new v3 $export and new metadata endpoints. BCDA v3 will still support the [Bulk Data FHIR Implementation Guide](https://hl7.org/fhir/uv/bulkdata/STU2/). If you are currently connected to BCDA v1 or v2 endpoints, you can migrate to BCDA v3 by making the following changes.
 
 Point your app to **v3** instead of **v2** to connect to the new endpoint, complete the steps to export the data, check the job status, read the JSON manifest, and download the files.
 
@@ -84,10 +84,10 @@ In BCDA v2 you exported claims based on adjudication level using the `_type` par
 In BCDA v3, you can export claims based on adjudication level using the `_typeFilter` parameter to limit your job request to include only EOB resources where the meta.tag property matches the desired adjudication status. In the following examples, we further limit the request to exclude Coverage and Patient resources by using the `_type` parameter with `ExplanationOfBenefit`.
 
 - v3 $export for only partially adjudicated claims
-	{% include copy_snippet.html code="GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit?_tag=PartiallyAdjudicated" language="shell" %}
+	{% include copy_snippet.html code="GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit%3F_tag%3DPartiallyAdjudicated" language="shell" %}
 
 - v3 $export for only fully adjudicated claims
-	{% include copy_snippet.html code="GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit?_tag=Adjudicated " language="shell" %}
+	{% include copy_snippet.html code="GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit%3F_tag%3DAdjudicated " language="shell" %}
 
 Without using the `_typeFilter` parameter, REACH ACOs using v3 will receive both partially adjudicated and fully adjudicated claims in the export by default. 
 
@@ -101,29 +101,56 @@ Make the following changes to migrate to v3 if you’ve mapped any bluebutton ex
 
 #### Changes to Extension URLs
 
-- v2 URL: 
-	
-	[https://bluebutton.cms.gov/resources/variables/nch_near_line_rec_ident_cd/](https://bluebutton.cms.gov/resources/variables/nch_near_line_rec_ident_cd/)
-
-- v3 URL: 
-	
-	[https://bluebutton.cms.gov/fhir/StructureDefinition/CLM-NRLN-RIC-CD](https://bluebutton.cms.gov/fhir/StructureDefinition/CLM-NRLN-RIC-CD)
+<table class="usa-table usa-table--borderless usa-table--stacked margin-bottom-4">
+  <caption class="usa-sr-only">Changes to Extension URLs between v2 and v3</caption>
+  <tbody>
+    <tr>
+      <th scope="row">v2 URL</th>
+      <td>
+        {% include copy_snippet.html code="https://bluebutton.cms.gov/resources/variables/nch_near_line_rec_ident_cd/" language="ruby" can_copy=true %}
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">v3 URL</th>
+      <td>
+        {% include copy_snippet.html code="https://bluebutton.cms.gov/fhir/StructureDefinition/CLM-NRLN-RIC-CD" language="ruby" can_copy=true %}
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 #### Changes to CodeSystem URLs
 
-- v2 URL: 
-	
-	[https://bluebutton.cms.gov/resources/variables/nch_near_line_rec_ident_cd/](https://bluebutton.cms.gov/resources/variables/nch_near_line_rec_ident_cd/)
-
-- v3 URL: 
-	
-	[https://bluebutton.cms.gov/fhir/CodeSystem/CLM-NRLN-RIC-CD](https://bluebutton.cms.gov/fhir/CodeSystem/CLM-NRLN-RIC-CD)
+<table class="usa-table usa-table--borderless usa-table--stacked margin-bottom-4">
+  <caption class="usa-sr-only">Changes to CodeSystem URLs between v2 and v3</caption>
+  <tbody>
+    <tr>
+      <th scope="row">v2 URL</th>
+      <td>
+        {% include copy_snippet.html code="https://bluebutton.cms.gov/resources/variables/nch_near_line_rec_ident_cd/" language="ruby" can_copy=true %}
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">v3 URL</th>
+      <td>
+        {% include copy_snippet.html code="https://bluebutton.cms.gov/fhir/CodeSystem/CLM-NRLN-RIC-CD" language="ruby" can_copy=true %}
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 If your BCDA client is using any of the v2 URLs, you’ll need to update your code to look for the v3 version.
 
 ## Different resource IDs between versions
 
-In BCDA v3, the FHIR ID (`Patient.id`, `ExplanationOfBenefit.id`, `Coverage.id`) for a given resource will not match the v2 FHIR resource ID. Do not attempt to use the FHIR IDs to match resources between versions. 
+<div class="usa-alert usa-alert--warning">
+  <div class="usa-alert__body">
+      <p class="usa-alert__heading text-bold">Do not use FHIR IDs to match resources between versions.</p>
+      <p class="usa-alert__text">To match <a href="{{ '/v3/api-documentation/how-to-migrate-v3.html#matching-beneficiaries-between-v2-and-v3-2' | relative_url }}">beneficiaries</a>, use MBI and demographics data. To match <a href="{{ 'v3/api-documentation/how-to-migrate-v3.html#matching-claims-between-v2-and-v3-2' | relative_url }}">claims</a>, use claim control number.</p>
+  </div>
+</div>
+
+In BCDA v3, the FHIR ID (`Patient.id`, `ExplanationOfBenefit.id`, `Coverage.id`) for a given resource will not match the v2 FHIR resource ID.
 
 **Example:**
 
@@ -135,9 +162,9 @@ Instead of matching on `Patient.id`, use the relevant CMS identifier (MBI), alon
 
 Because the v2 and v3 Patient IDs will not match, in order to match a v3 patient to a patient you already have in your database, the best way is to use the MBI and demographics. The MBI and demographics should match between versions of BCDA. 
 
-To find the MBI in the FHIR Patient resource, look at the `Patient.identifiers` element for an identifier where the `Identifier.system` is `http://hl7.org/fhir/sid/us-mbi`. The `identifier.value` will be the MBI.
+To find the MBI in the FHIR Patient resource, look at the `Patient.identifier` element for an identifier where the `identifier.system` is `http://hl7.org/fhir/sid/us-mbi`. The `identifier.value` will be the MBI.
 
-Example v3 `Patient.identifiers` element:
+Example v3 `Patient.identifier` element:
 
 {% capture curlSnippet %}{% raw %}
 {
@@ -164,9 +191,9 @@ Example v3 `Patient.identifiers` element:
 
 It is always good practice to have some kind of validation based on patient demographics, like supplementing the MBI exact match with some subset of name, date of birth, and gender matching.
 
-Once you have matched an existing `Patient`, or created a new one, it is ok to store the BCDA v3 `Patient.id`. It is possible for two different MBIs to reference the same beneficiary, and therefore the same BCDA v3 `Patient`. If that happens, you will see multiple `Patient.identifiers` where the system is `http://hl7.org/fhir/sid/us-mbi`. This is rare, but you should be prepared for it to happen.
+Once you have matched an existing `Patient`, or created a new one, it is ok to store the BCDA v3 `Patient.id`. It is possible for two different MBIs to reference the same beneficiary, and therefore the same BCDA v3 `Patient`. If that happens, you will see multiple `Patient.identifier` where the system is `http://hl7.org/fhir/sid/us-mbi`. This is rare, but you should be prepared for it to happen.
 
-Example of v3 `Patient.identifiers` with two MBIs:
+Example of v3 `Patient.identifier` with two MBIs:
 
 {% capture curlSnippet %}{% raw %}
 {

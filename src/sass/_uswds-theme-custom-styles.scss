@@ -672,3 +672,18 @@ $external-href: '[href^="https"]:not([href*="bcda.cms.gov"]):not([href*="github.
 .usa-button {
   line-height:1.3;
 }
+
+// Formatting for copy snippets within tables
+.usa-table {
+  .highlight {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  pre, code {
+    white-space: pre-wrap; 
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    max-width: 100%;
+  }
+}
