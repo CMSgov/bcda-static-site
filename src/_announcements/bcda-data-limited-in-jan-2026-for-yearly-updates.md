@@ -22,7 +22,7 @@ To request runout data for enrollees attributed to your organization in PY 2025:
 
 * Use the `runout` identifier with the /Group endpoint. 
 * Claims with a service date in 2026 will be excluded. Data returned will have a service date no later than December 31, 2025. 
-* Use the[\_since parameter](https://bcda.cms.gov/api-documentation/filter-claims-data.html#the-since-parameter) with the `runout` identifier to return data updated since your last runout request. [Review our documentation on the runout identifier](https://bcda.cms.gov/api-documentation/filter-claims-data.html#the-runout-identifier-2). 
+* Use the [\_since parameter](https://bcda.cms.gov/api-documentation/filter-claims-data.html#the-since-parameter) with the `runout` identifier to return data updated since your last runout request. [Review our documentation on the runout identifier](https://bcda.cms.gov/api-documentation/filter-claims-data.html#the-runout-identifier-2). 
 
 ## How will I know when data is available again?
 
