@@ -4,7 +4,7 @@ page_title: "BCDA data limited in Jan 2026 for yearly updates"
 description: "Requests for current or new BCDA claims data are paused in January 2026 for yearly updates."
 show-side-nav: false
 in-page-nav: true
-lead_paragraph: "Requests for current or new BCDA claims data are paused in January 2026 for yearly updates."
+lead_paragraph: "Claims with 2026 service dates will be unavailable throughout January 2026."
 published_date: 2025-12-03
 ---
 
@@ -14,13 +14,13 @@ PY 2026 starts Jan 1, 2026 and ends Dec 31, 2026. 
 
 ## What data will be unavailable in Jan 2026?
 
-Claims data with a service date in 2026 will be unavailable. Requests to `/Group/all` and `/Patient` endpoints will be disabled while we wait for updated attribution info for your model entity.
+Requests to `/Group/all` and `/Patient` endpoints will be disabled while we wait for updated attribution info for your model entity.
 
 ## How should I request PY 2025 runout data?
 
 To request runout data for enrollees attributed to your organization in PY 2025:
 
-* Use the `runout` identifier with the /Group endpoint. 
+* Use the `runout` identifier with the `/Group` endpoint. 
 * Claims with a service date in 2026 will be excluded. Data returned will have a service date no later than December 31, 2025. 
 * Use the [\_since parameter](/api-documentation/filter-claims-data.html#the-since-parameter) with the `runout` identifier to return data updated since your last runout request. [Review our documentation on the runout identifier](/api-documentation/filter-claims-data.html#the-runout-identifier-2). 
 
@@ -54,4 +54,4 @@ We’ll notify you in the [BCDA Google Group](https://groups.google.com/g/bc-api
 
 ## Need help?
 
-Keep an eye on the [Google Group conversation](https://groups.google.com/g/bc-api) to ask questions and read updates about BCDA data availability. If you can’t find what you need, send an email to [bcapi@cms.hhs.gov](mailto:bcapi@cms.hhs.gov). 
+Keep an eye on the [Google Group conversation](https://groups.google.com/g/bc-api/c/0v78i8P1sKo) to ask questions and read updates about BCDA data availability. If you can’t find what you need, send an email to [bcapi@cms.hhs.gov](mailto:bcapi@cms.hhs.gov). 
