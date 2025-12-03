@@ -22,7 +22,7 @@ This guide helps you migrate from BCDA v1/v2 to version 3 (v3). Key changes incl
 
 BCDA v3 introduces access to more timely and accurate Medicare claims data and additional benefits to BCDA users including:
 
-- More consistent claims data by using a single data source of data, the CMS Integrated Data Repository
+- More consistent claims data by using a single data source of data, the CMS Integrated Data Repository.
 - Improved alignment with sources such as the Claim and Claim Line Feed (CCLF) files through more standard claim and patient identifiers. 
 
 ### Changes to BCDA in v3

@@ -43,7 +43,7 @@ Data from BCDA will be more closely aligned with data available in CCLF files. A
 
 ### Improved conformance with select FHIR Implementation Guides
 
-V3 standardizes and enhances extensions while providing improved conformance with FHIR standards. BCDA v3 continues to follow the [Bulk Data Access IG (STU 2)](https://hl7.org/fhir/uv/bulkdata/STU2/) and BCDA v3's FHIR resources conform with [CARIN Blue Button IG version 2.1.0](https://hl7.org/fhir/us/carin-bb/STU2.1/). Additionally, BCDA v3 retires [Blue Button Resources](http://bluebutton.cms.gov/resources/) to represent extensions and CodeSystems. Instead these will be represented using `StructureDefinition` and `CodeSystem` resources.
+V3 standardizes and enhances extensions while providing improved conformance with FHIR standards. BCDA v3 continues to follow the [Bulk Data Access IG (STU 2)](https://hl7.org/fhir/uv/bulkdata/STU2/) and BCDA v3's FHIR resources conform with [CARIN Blue Button IG version 2.1.0](https://hl7.org/fhir/us/carin-bb/STU2.1/). Additionally, BCDA v3 retires [Blue Button Resources](https://bluebutton.cms.gov/resources/) to represent extensions and CodeSystems. Instead these will be represented using `StructureDefinition` and `CodeSystem` resources.
 
 ## Problems solved in v3
 
@@ -67,7 +67,7 @@ In earlier versions of BCDA, claims data was sourced from the Chronic Conditions
 #### Next Steps:
 
 - Review the [How to Migrate to v3]({{ '/v3/api-documentation/how-to-migrate-v3.html' | relative_url }}) for step-by-step implementation instructions
-- Access the [v3 documentation](https://github.com/CMSgov/beneficiary-fhir-data/wiki/V2-%E2%80%90-V3-Migration-Guide-(Draft)) to view the technical specifications and API details
+- Access BCDA's [API documentation]({{ '/api-documentation.html' | relative_url }}) to view the technical specifications and API details
 - Participate in the Office Hours to get personalized support
 
 Questions? Contact our team at <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hhs.gov</a> for assistance with your v3 transition. 
