@@ -1,7 +1,7 @@
 ---
 layout: announcement
 page_title: "BCDA data limited in Jan 2026 for yearly updates"
-description: "Requests for current or new BCDA claims data are paused in January 2026 for yearly updates."
+description: "Claims with 2026 service dates will be unavailable throughout January 2026."
 show-side-nav: false
 in-page-nav: true
 lead_paragraph: "Claims with 2026 service dates will be unavailable throughout January 2026."
