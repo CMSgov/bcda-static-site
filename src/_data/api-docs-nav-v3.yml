@@ -1,0 +1,11 @@
+- name: Welcome to the Early Adopter Program
+  url: /v3/welcome-v3.html
+
+  children:
+  - name: Introducing BCDA v3
+    url: /v3/introducing-v3.html
+    new: true
+
+  - name: How to Migrate to v3
+    url: /v3/api-documentation/how-to-migrate-v3.html
+    new: true

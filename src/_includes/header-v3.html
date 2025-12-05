@@ -1,0 +1,120 @@
+<div class="position-sticky top-0 bg-white shadow-1 z-500">
+  <div class="usa-overlay"></div>
+  <header class="usa-header usa-header--basic">
+    <div class="usa-nav-container">
+      <div class="usa-navbar">
+        <div class="usa-logo">
+          <a
+            href="{{ '/v3/welcome-v3.html' | relative_url }}"
+            title="BCDA"
+            data-tealium="main_nav"
+            class="display-flex flex-align-center height-6 maxw-card-lg"
+            style="gap: 0.5rem;"
+          >
+            <img
+              src="{{ '/assets/img/logo-bcda.svg' | relative_url }}"
+              alt=""
+              class="width-6 height-6"
+              style="object-fit:contain;"
+            />
+            <span class="font-sans-md text-bold text-black text-balance line-height-sans-2">BCDA v3 Early Adopter Program</span>
+          </a>
+        </div>
+        <button
+          type="button"
+          class="usa-menu-btn"
+        >Menu</button>
+      </div>
+      <nav
+        aria-label="Primary navigation"
+        class="usa-nav"
+      >
+        <button
+          type="button"
+          class="usa-nav__close"
+        >
+          <img
+            src="{{ '/assets/uswds/img/usa-icons/close.svg' | relative_url }}"
+            alt="Close"
+          />
+        </button>
+        <ul class="usa-nav__primary usa-accordion tablet:display-none">
+          {% for item in site.data.api-docs-nav-v3 %}
+          {% if item.children %}
+
+          {% assign is_child_active = false %}
+          {% for child in item.children %}
+          {% if child.url == page.url %}
+          {% assign is_child_active = true %}
+
+          {% endif %}
+          {% endfor %}
+
+          <li class="usa-nav__primary-item">
+            <button
+              type="button"
+              class="usa-accordion__button usa-nav__link {% if is_child_active %}{{ 'usa-current' }}{% endif %}"
+              aria-expanded="false"
+              aria-controls="basic-nav-section-{{forloop.index}}"
+            >
+              <span>
+                {{- item.name -}}
+                {%- if item.new -%}
+                {%- include new-tag.html -%}
+                {%- endif -%}
+              </span>
+            </button>
+            <ul
+              id="basic-nav-section-{{forloop.index}}"
+              class="usa-nav__submenu"
+              hidden
+            >
+              {% for child in item.children %}
+              <li class="usa-nav__submenu-item">
+                <a
+                  class="{% if page.url == child.url %}{{ 'usa-current' }}{% endif %}"
+                  href="{{- child.url | relative_url -}}"
+                  data-tealium="main_nav"
+                >
+                  <span>
+                    {{- child.name -}}
+                    {%- if child.new -%}
+                    {%- include new-tag.html -%}
+                    {%- endif -%}
+
+                    {%- if child.updated -%}
+                    {%- include updated-tag.html -%}
+                    {%- endif -%}
+                  </span>
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </li>
+          {% else %}
+          <li class="usa-nav__primary-item">
+            <a
+              href="{{- item.url | relative_url -}}"
+              class="usa-nav-link {% if page.url == item.url %}{{ 'usa-current' }}{% endif %}"
+              data-tealium="main_nav"
+            ><span>{{- item.name -}}</span>
+            </a>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+        <ul class="usa-nav__primary usa-accordion">
+          <li class="usa-nav__primary-item">
+            <a
+              href="/index.html"
+              type="button"
+              class="usa-nav-link"
+            >
+              {% include sprite.html icon="arrow_back" size="3" %} Return to the full BCDA site
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>

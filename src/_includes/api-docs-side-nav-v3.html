@@ -1,0 +1,64 @@
+<nav aria-label="Side navigation">
+  <ul class="usa-sidenav">
+    {% for item in site.data.api-docs-nav-v3  %}
+
+    <li class="usa-sidenav__item">
+      <a
+        href="{{ item.url | relative_url }}"
+        class="{% if page.url == item.url %}{{ 'usa-current' }}{% endif %}"
+        data-tealium="left_rail"
+      >
+        {{- item.name -}}
+        {%- if item.new -%}
+        {%- include new-tag.html -%}
+        {%- endif -%}
+
+        {%- if item.updated -%}
+        {%- include updated-tag.html -%}
+        {%- endif -%}
+      </a>
+      <ul class="usa-sidenav__sublist">
+        {% for child in item.children %}
+        <li class="usa-sidenav__item">
+          <a
+            href="{{ child.url | relative_url }}"
+            class="{% if page.url == child.url %}{{ 'usa-current' }}{% endif %}"
+            data-tealium="left_rail"
+            
+          >
+            {{ child.name }}
+            {%- if child.new -%}
+            {%- include new-tag.html -%}
+            {%- endif -%}
+
+            {%- if child.updated -%}
+            {%- include updated-tag.html -%}
+            {%- endif -%}
+          </a>
+          <ul class="usa-sidenav__sublist">
+            {% for grandchild in child.children %}
+            <li class="usa-sidenav__item">
+              <a
+                href="{{ grandchild.url | relative_url }}"
+                class="{% if page.url == grandchild.url %}{{ 'usa-current' }}{% endif %}"
+                data-tealium="left_rail"
+              >
+                {{ grandchild.name }}
+                {%- if grandchild.new -%}
+                {%- include new-tag.html -%}
+                {%- endif -%}
+
+                {%- if grandchild.updated -%}
+                {%- include updated-tag.html -%}
+                {%- endif -%}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </li>
+        {% endfor %}
+      </ul>
+    </li>
+    {% endfor %}
+  </ul>
+</nav>
