@@ -31,9 +31,9 @@ Need help? Contact us at <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hhs.gov</a
 
 We look forward to joining you in what we hope will be a fun and enlightening program.
 
-<!-- ## Early Adopter Program schedule -->
+## Early Adopter Program schedule 
 
-<!-- <ul class="usa-collection">
+<ul class="usa-collection">
 {% capture date1 %}
 - BCDA v3 overview
 - Scheduling and logistics
@@ -41,8 +41,8 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 {% endcapture %}
 
 {% include date-collection.html
-    date="October 30, 2025"
-    title="October 30, 2025 | 3:30 - 4:30 pm ET"
+    date="January 8, 2026"
+    title="January 8, 2026 | 2:00 - 3:00 pm ET"
     content=date1
 %}
 
@@ -53,8 +53,8 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 {% endcapture %}
 
 {% include date-collection.html
-    date="November 13, 2025"
-    title="November 13, 2025 | 3:30 - 4:30 pm ET"
+    date="January 22, 2026"
+    title="January 22, 2026 | 2:00 - 3:00 pm ET"
     content=date2
 %}
 
@@ -65,8 +65,8 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 {% endcapture %}
 
 {% include date-collection.html
-    date="December 4, 2025"
-    title="December 4, 2025 | 2:00 - 3:00 pm ET"
+    date="February 5, 2026"
+    title="February 5, 2026 | 2:00 - 3:00 pm ET"
     content=date3
 %}
 
@@ -77,8 +77,8 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 {% endcapture %}
 
 {% include date-collection.html
-    date="December 11, 2025"
-    title="December 11, 2025 | 3:30 - 4:30 pm ET"
+    date="February 19, 2026, 2025"
+    title="February 19, 2026 | 2:00 - 3:00 pm ET"
     content=date4
 %}
 
@@ -89,8 +89,8 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 {% endcapture %}
 
 {% include date-collection.html
-    date="January 8, 2026"
-    title="January 8, 2026 | 3:30 - 4:30 pm ET"
+    date="March 5, 2026"
+    title="March 5, 2026 | 2:00 - 3:00 pm ET"
     content=date5
 %}
 
@@ -100,8 +100,8 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 {% endcapture %}
 
 {% include date-collection.html
-    date="January 22, 2026"
-    title="January 22, 2026 | 3:30 - 4:30 pm ET"
+    date="March 19, 2026"
+    title="March 19, 2026 | 2:00 - 3:00 pm ET"
     content=date6
 %}
-</ul> -->
+</ul>
