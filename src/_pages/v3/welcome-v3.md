@@ -81,7 +81,7 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 
 {% include date-collection.html
     title="Test Scenario #3: Comparing BCDA v3 Data to v2 and CCLF"
-    date="February 19, 2026, 2025"
+    date="February 19, 2026"
     subtitle="February 19, 2026 | 2:00 - 3:00 pm ET"
     content=date4
 %}
