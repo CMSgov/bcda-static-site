@@ -1,5 +1,6 @@
 {% assign date = include.date %}
 {% assign title = include.title %}
+{% assign subtitle = include.subtitle %}
 {% assign content = include.content %}
 
 <li class="usa-collection__item">
@@ -14,6 +15,9 @@
     <h3 class="usa-collection__heading padding-left-105">
       {{- title -}}
     </h3>
+    <h4 class="padding-left-105 text-italic">
+      {{- subtitle -}}
+    </h4>
     <div class="usa-collection__description margin-top-2">
       {{- content | markdownify -}}
     </div>

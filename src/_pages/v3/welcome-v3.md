@@ -14,9 +14,9 @@ The Beneficiary Claims Data API (BCDA) team is excited to kick off our version 3
 ## How does the Early Adopter Program work?
 
 1. We’ll start with a scheduled kick-off call.
-2. Every 2 weeks you’ll complete 1 of 5 total test scenarios. 
-3. You’ll join scheduled office hours to share feedback and ask questions about each test scenario. 
-4. We’ll record and share office hours sessions for reference. Those who can’t attend will complete a short survey to share their feedback on the test scenario.
+2. Every 2 weeks you’ll complete 1 of 5 total Test Scenarios. 
+3. You’ll join scheduled office hours to share feedback and ask questions about each Test Scenario. 
+4. We’ll record and share office hours sessions for reference. Those who can’t attend will complete a short survey to share their feedback on the Test Scenario.
 
 ## How do I get started?
 
@@ -37,71 +37,77 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 {% capture date1 %}
 - BCDA v3 overview
 - Scheduling and logistics
-- Introduce test scenario #1: Make your first v3 requests with the BCDA sandbox
+- Introduce Test Scenario #1
 {% endcapture %}
 
 {% include date-collection.html
+    title="Kickoff"
     date="January 8, 2026"
-    title="January 8, 2026 | 2:00 - 3:00 pm ET"
+    subtitle="January 8, 2026 | 2:00 - 3:00 pm ET"
     content=date1
 %}
 
 {% capture date2 %}
-- Answer questions and give support for test scenario #1
+- Answer questions and give support for Test Scenario #1
 - Gather feedback
-- Introduce test scenario #2
+- Introduce Test Scenario #2
 {% endcapture %}
 
 {% include date-collection.html
+    title="Test Scenario #1: Make your first v3 requests"
     date="January 22, 2026"
-    title="January 22, 2026 | 2:00 - 3:00 pm ET"
+    subtitle="January 22, 2026 | 2:00 - 3:00 pm ET"
     content=date2
 %}
 
 {% capture date3 %}
-- Answer questions and give support for test scenario #2
+- Answer questions and give support for Test Scenario #2
 - Gather feedback
-- Introduce test scenario #3
+- Introduce Test Scenario #3
 {% endcapture %}
 
 {% include date-collection.html
+    title=" Test Scenario #2: Accessing Runout Data"
     date="February 5, 2026"
-    title="February 5, 2026 | 2:00 - 3:00 pm ET"
+    subtitle="February 5, 2026 | 2:00 - 3:00 pm ET"
     content=date3
 %}
 
 {% capture date4 %}
-- Answer questions and give support for test scenario #3
+- Answer questions and give support for Test Scenario #3
 - Gather feedback
-- Introduce test scenario #4
+- Introduce Test Scenario #4
 {% endcapture %}
 
 {% include date-collection.html
+    title="Test Scenario #3: Comparing BCDA v3 Data to v2 and CCLF"
     date="February 19, 2026, 2025"
-    title="February 19, 2026 | 2:00 - 3:00 pm ET"
+    subtitle="February 19, 2026 | 2:00 - 3:00 pm ET"
     content=date4
 %}
 
 {% capture date5 %}
-- Answer questions and give support for test scenario #4
+- Answer questions and give support for Test Scenario #4
 - Gather feedback
-- Introduce test scenario #5
+- Introduce Test Scenario #5
 {% endcapture %}
 
 {% include date-collection.html
+    title="Test Scenario #4: Using the _typeFilter Parameter"
     date="March 5, 2026"
-    title="March 5, 2026 | 2:00 - 3:00 pm ET"
+    subtitle="March 5, 2026 | 2:00 - 3:00 pm ET"
     content=date5
 %}
 
 {% capture date6 %}
-- Answer questions and give support for test scenario #5
-- Gather summary feedback on the early adopter program
+- Answer questions and give support for Test Scenario #5
+- Gather summary feedback on the Early Adopter Program
 {% endcapture %}
 
 {% include date-collection.html
+    title="Test Scenario #5: Tracking Claims through Adjudication"
     date="March 19, 2026"
-    title="March 19, 2026 | 2:00 - 3:00 pm ET"
+    subtitle="March 19, 2026 | 2:00 - 3:00 pm ET"
     content=date6
 %}
 </ul>
