@@ -7,5 +7,9 @@
     new: true
 
   - name: How to Migrate to v3
-    url: /v3/api-documentation/how-to-migrate-v3.html
+    url: /v3/how-to-migrate-v3.html
     new: true
+
+  - name: How to Filter Claims Data
+    url: /v3/filter-claims-data-v3.html
+    updated: true
