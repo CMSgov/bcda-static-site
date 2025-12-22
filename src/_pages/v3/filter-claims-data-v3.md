@@ -16,9 +16,9 @@ feedback_id: "72cee024"
   aria-labelledby="summary-box-key-information"
 >
   <div class="usa-summary-box__body">
-    <h4 class="usa-summary-box__heading font-ui-md" id="summary-box-key-information">
+    <p class="usa-summary-box__heading font-ui-md text-bold" id="summary-box-key-information">
       What's new in v3?
-    </h4>
+    </p>
     <div class="usa-summary-box__text">
         <ul>
             <li><a href="#the-typefilter-parameter">The _typeFilter parameter</a></li>
