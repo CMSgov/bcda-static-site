@@ -25,6 +25,6 @@ Find additional details about this session in the [Bulk FHIR Implementation with
 
 ## Don’t miss CMS Blue Button
 
-[Blue Button 2.0 (BB2.0)](https://bluebutton.cms.gov/), another API within the CMS family, will host its own track. Review the [Blue Button track agenda](https://confluence.hl7.org/spaces/FHIR/pages/324975125/2025+-+07+Blue+Button+2.0).
+[Blue Button](https://bluebutton.cms.gov/), another API within the CMS family, will host its own track. Review the [Blue Button track agenda](https://confluence.hl7.org/spaces/FHIR/pages/324975125/2025+-+07+Blue+Button+2.0).
 
 We hope to see you there!

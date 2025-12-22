@@ -133,24 +133,24 @@ Read <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_
       <li class="usa-card tablet:grid-col-6 desktop:grid-col-4">
       <div class="usa-card__container">
         <div class="usa-card__header">
-          <h3 class="usa-card__heading">Blue Button 2.0</h3>
+          <h3 class="usa-card__heading">Blue Button</h3>
         </div>
         <div class="usa-card__media usa-card__media--inset">
           <div class="usa-card__img text-center">
             <img
               src="{{ '/assets/img/logo-bluebutton.svg' | relative_url }}"
-              alt="Blue button 2.0 logo"
+              alt="Blue button logo"
               class="maxw-15 margin-x-auto"
             />
           </div>
         </div>
         <div class="usa-card__body">
           <p>
-            The Blue Button 2.0 (BB2.0) API enables enrollees to connect their Medicare claims data to the applications, services, and research programs they trust.
+            The Blue Button API enables enrollees to connect their Medicare claims data to the applications, services, and research programs they trust.
           </p>
         </div>
         <div class="usa-card__footer">
-          <a href="https://bluebutton.cms.gov/" target="_blank" rel="noopener noreferrer" class="usa-button">Visit BB2.0</a>
+          <a href="https://bluebutton.cms.gov/" target="_blank" rel="noopener noreferrer" class="usa-button">Visit Blue Button</a>
         </div>
       </div>
   </li>
