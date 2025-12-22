@@ -1,0 +1,37 @@
+---
+layout: base-v3
+---
+<div class="usa-alert usa-alert--warning margin-top-0">
+  <div
+    class="usa-alert__body grid-container"
+    style="max-width: 73rem;"
+  >
+    <p class="usa-alert__heading text-bold">You are viewing v3 documentation for Early Adopters only.</p>
+    <p class="usa-alert__text">
+      Not a v3 Early Adopter? <a href="{{ 'index.html' | relative_url }}">Return to the v1/v2 documentation</a>.
+    </p>
+  </div>
+</div>
+
+<div class="grid-container">
+
+  <div class="grid-row flex-align-start">
+    {% if page.show-side-nav != false %}
+    <div
+      class="display-none position-sticky tablet:display-block tablet:grid-col-auto overflow-y-auto overflow-x-hidden padding-top-5 desktop:padding-top-7 padding-bottom-6 tablet:padding-right-3 padding-left-05 margin-left-neg-05"
+      style="top: 4rem; height: calc(100vh - 4.5rem);"
+    >
+      <div class="width-card-lg bg-white">
+        {% include api-docs-side-nav-v3.html %}
+      </div>
+    </div>
+    {% endif %}
+
+    <main
+      id="main-content"
+      class="grid-col-fill"
+    >
+      {{- content -}}
+    </main>
+  </div>
+</div>

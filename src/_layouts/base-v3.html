@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+{% include head.html %}
+
+<body id="page-top">
+
+  <a class="usa-skipnav z-top" href="#main-content">Skip to main content</a>
+  {% include banner.html %}
+
+  <div class="position-relative">
+    {% include header-v3.html %}
+    {{ content }}
+  </div>
+
+  <div class="margin-top-8">{% include identifier.html %}</div>
+
+  <script src="{{ '/assets/uswds/js/uswds.min.js' | relative_url }}"></script>
+
+  <script src="{{ '/assets/js/tealium-click-events.js' | relative_url }}"></script>
+
+</body>
+
+</html>
