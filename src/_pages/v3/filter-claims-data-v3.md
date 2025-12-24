@@ -36,7 +36,7 @@ Use parameters in the sandbox or production environment to speed up download tim
 
 ## The _since parameter
 
-The _since parameter lets you filter for claims data last updated after a specified date. Dates must be in the [FHIR standard instant format](https://www.hl7.org/fhir/datatypes.html#instant)`(YYYY-MM-DDThh:mm:sss+zz:zz`. 
+The _since parameter lets you filter for claims data last updated after a specified date. Dates must be in the [FHIR standard instant format](https://www.hl7.org/fhir/datatypes.html#instant): `(YYYY-MM-DDThh:mm:sss+zz:zz`. 
 
 - Sample date: February 20, 2020 12:00 PM EST
 - Formatted sample: `2020-02-20T12:00:00.000-05:00`
@@ -194,9 +194,11 @@ In BCDA v3, the ExplanationOfBenefit Resource represents both partially adjudica
 
 The \`runout` identifier lets you request runouts data for enrollees attributed to your model entity the previous year, but not the current year. Claims data returned will have a service date no later than December 31 of the previous year.
 
+### Using the `runout` identifier
+
 The examples below are `GET` requests made to the /Group endpoint. 
 
-<h3 class="font-ui-sm">Example request for 1 resource type using `runout`</h3>
+#### Example request for 1 resource type using `runout`
 
 {% capture curlSnippet %}{% raw %}
 GET /api/v3/Group/runout/$export?_type=Patient
@@ -212,7 +214,7 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v3/Group/runout/\$export?_type=Pat
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
-<h3 class="font-ui-sm">Example request for 2 resource types using `runout`</h3>
+#### Example request for 2 resource types using `runout` 
 
 {% capture curlSnippet %}{% raw %}
 GET /api/v3/Group/runout/$export?_type=ExplanationOfBenefit,Patient
@@ -228,7 +230,7 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v3/Group/runout/\$export?_type=Exp
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
-<h3 class="font-ui-sm">Request for all resources using `runout`</h3>
+#### Request for all resources using `runout`
 
 {% capture curlSnippet %}{% raw %}
 GET /api/v3/Group/runout/$export
