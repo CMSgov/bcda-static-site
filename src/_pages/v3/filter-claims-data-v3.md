@@ -4,7 +4,6 @@ page_title: "How to Filter Claims Data"
 seo_title: ""
 description: "How to Filter Claims Data"
 in-page-nav: true
-in-page-nav-levels: "h2"
 feedback_id: "72cee024"
 ---
 
@@ -118,21 +117,21 @@ The _type parameter lets you specify which resource types you'd like returned. O
 
 You'll need to use commas when specifying multiple resource types. The examples below are curl requests to /Group using _type. 
 
-<h3 class="font-ui-sm">Example request for 1 resource type</h3>
+#### Example request for 1 resource type
 
 {% capture curlSnippet %}{% raw %}
 GET /api/v3/Group/all/$export?_type=Patient
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
-<h3 class="font-ui-sm">Example request for 2 resource types</h3>
+#### Example request for 2 resource types
 
 {% capture curlSnippet %}{% raw %}
 GET /api/v3/Group/all/$export?_type=ExplanationOfBenefit,Patient
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
-<h3 class="font-ui-sm">Example curl command using _type</h3>
+#### Example curl command using _type
 
 {% capture curlSnippet %}{% raw %}
 curl -X GET "https://sandbox.bcda.cms.gov/api/v3/Group/all/\$export?_type=ExplanationOfBenefit,Patient" \
@@ -173,7 +172,6 @@ GET /api/v3/Group/all/$export?_typeFilter=ExplanationOfBenefit?_tag=PartiallyAdj
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
 #### Example curl command using _typeFilter
-
 
 {% capture curlSnippet %}{% raw %}
 curl -X GET "https://sandbox.bcda.cms.gov/api/v32/Group/all/\$export?_typeFilter=ExplanationOfBenefit%3F_tag%3DPartiallyAdjudicated" \
