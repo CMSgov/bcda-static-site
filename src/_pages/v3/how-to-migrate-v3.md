@@ -4,6 +4,7 @@ page_title: "How to Migrate to v3"
 seo_title: ""
 description: "How to Migrate to v3"
 in-page-nav: true
+in-page-nav-levels: "h2"
 feedback_id: "8a4c0b7b"
 ---
 
