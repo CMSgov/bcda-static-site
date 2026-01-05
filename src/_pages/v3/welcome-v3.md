@@ -16,7 +16,7 @@ The Beneficiary Claims Data API (BCDA) team is excited to kick off our version 3
 1. We’ll start with a scheduled kick-off call.
 2. Every 2 weeks you’ll complete 1 of 5 total Test Scenarios. 
 3. You’ll join scheduled office hours to share feedback and ask questions about each Test Scenario. 
-4. We’ll record and share office hours sessions for reference. Those who can’t attend will complete a short survey to share their feedback on the Test Scenario.
+4. We’ll share the presentations from office hours for your reference. Those who can’t attend will complete a short survey to share their feedback on the Test Scenario.
 
 ## How do I get started?
 
