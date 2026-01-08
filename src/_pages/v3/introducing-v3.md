@@ -39,7 +39,7 @@ The new [\_typeFilter query parameter](https://hl7.org/fhir/uv/bulkdata/STU2/exp
 
 ### Simplified, reliable data mapping capabilities 
 
-Data from BCDA will be more closely aligned with data available in CCLF files. Additionally the BCDA Data Dictionary will be automatically derived from upstream data sources.
+Data from BCDA will be more closely aligned with data available in CCLF files. Additionally the <a href="{{ '/assets/downloads/BCDA_v3_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">BCDA v3 Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> will be automatically derived from upstream data sources.
 
 ### Improved conformance with select FHIR Implementation Guides
 
