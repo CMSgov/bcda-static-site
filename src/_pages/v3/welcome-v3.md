@@ -68,8 +68,8 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 
 {% include date-collection.html
     title=" Test Scenario #2: Accessing Runout Data"
-    date="February 5, 2026"
-    subtitle="February 5, 2026 | 2:00 - 3:00 pm ET"
+    date="February 19, 2026"
+    subtitle="February 19, 2026 | 2:00 - 3:00 pm ET"
     content=date3
 %}
 
@@ -81,8 +81,8 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 
 {% include date-collection.html
     title="Test Scenario #3: Comparing BCDA v3 Data to v2 and CCLF"
-    date="February 19, 2026"
-    subtitle="February 19, 2026 | 2:00 - 3:00 pm ET"
+    date="March 5, 2026"
+    subtitle="March 5, 2026 | 2:00 - 3:00 pm ET"
     content=date4
 %}
 
@@ -94,8 +94,8 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 
 {% include date-collection.html
     title="Test Scenario #4: Using the _typeFilter Parameter"
-    date="March 5, 2026"
-    subtitle="March 5, 2026 | 2:00 - 3:00 pm ET"
+    date="March 19, 2026"
+    subtitle="March 19, 2026 | 2:00 - 3:00 pm ET"
     content=date5
 %}
 
@@ -106,8 +106,8 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 
 {% include date-collection.html
     title="Test Scenario #5: Tracking Claims through Adjudication"
-    date="March 19, 2026"
-    subtitle="March 19, 2026 | 2:00 - 3:00 pm ET"
+    date="April 2, 2026"
+    subtitle="April 2, 2026 | 2:00 - 3:00 pm ET"
     content=date6
 %}
 </ul>
