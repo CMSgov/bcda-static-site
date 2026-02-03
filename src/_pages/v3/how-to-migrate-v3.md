@@ -83,11 +83,11 @@ In v2, BCDA differentiates "partially adjudicated" from "fully adjudicated" clai
 
 #### Changes with v3
 
-In v3, we've extended the API with the `_typeFilter` parameter to filter export data more granularly. There are two ways to migrate from v2 if you are currently using the `_type` parameter to filter by adjudication status.
+In v3, we've extended the API with the [`_typeFilter` parameter]({{ '/v3/filter-claims-data-v3.html#the-typefilter-parameter' | relative_url }}) to filter export data more granularly. There are two ways to migrate from v2 if you are currently using the `_type` parameter to filter by adjudication status.
 
 ##### Option 1 - Use the Final Action status code
 
-Use the final action status code tags to filter claims from the results of your v3 job requests based on claim processing status..
+Use the final action status code tags to filter claims from the results of your v3 job requests based on claim processing status.
 
 To exclude data for final action claims (claims that had been fully processed by Medicare), use the `_typeFilter` parameter to only include EOB resources with the `NotFinalAction` tag:
 
