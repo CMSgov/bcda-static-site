@@ -4,7 +4,6 @@ page_title: "How to Migrate to v3"
 seo_title: ""
 description: "How to Migrate to v3"
 in-page-nav: true
-in-page-nav-levels: "h2"
 feedback_id: "8a4c0b7b"
 ---
 
@@ -41,7 +40,7 @@ If you are currently using BCDA v1 or BCDA v2, there are changes to the API and 
 
 ### Point your app to v3 instead of v2
 
-BCDA v3 will be located at the same domain as v1 and v2, but will have a new v3 $export and new metadata endpoints. BCDA v3 will still support the [Bulk Data FHIR Implementation Guide](https://hl7.org/fhir/uv/bulkdata/STU2/). If you are currently connected to BCDA v1 or v2 endpoints, you can migrate to BCDA v3 by making the following changes.
+BCDA v3 will be located at the same domain as v1 and v2. However, it will have new endpoints for metadata requests and the Group and Patient $export operations. BCDA v3 will still support the [Bulk Data FHIR Implementation Guide](https://hl7.org/fhir/uv/bulkdata/STU2/). If you are currently connected to BCDA v1 or v2 endpoints, you can migrate to BCDA v3 by making the following changes.
 
 Point your app to **v3** instead of **v2** to connect to the new endpoint, complete the steps to export the data, check the job status, read the JSON manifest, and download the files.
 
@@ -55,7 +54,7 @@ The /auth and /data URLs will remain the same between versions. You won't need t
 
 ## Changes to partially adjudicated claims representation
 
-In BCDA v2, fully adjudicated claims were represented by the `ExplanationOfBenefit` FHIR resource while partially adjudicated claims were represented by the `Claim` and `ClaimResponse` resources. BCDA v3 will represent **ALL** claims (fully adjudicated and partially adjudicated) using the `ExplanationOfBenefit` resource. All EOB resources in v3 will have a `meta.tag` element indicating either `Adjudicated` or `PartiallyAdjudicated`.
+In BCDA v2, fully adjudicated claims were represented by the `ExplanationOfBenefit` FHIR resource while partially adjudicated claims were represented by the `Claim` and `ClaimResponse` resources. BCDA v3 will represent **ALL** claims (fully adjudicated and partially adjudicated) using the `ExplanationOfBenefit` resource.
 
 ### Mapping partially adjudicated claims data in v2 vs v3
 
@@ -66,35 +65,65 @@ V3 uses a different resource to access partially adjudicated claims: 
 
 Using only the `ExplanationOfBenefit` resource allows you to easily compare a claim at different stages in the adjudication process without needing to map between different resource types.
 
-### Exporting claims based on adjudication status
+### Exporting claims based on adjudication status with v3
 
-If you have access to partially adjudicated claims, you’ll need to use the new, `_typeFilter` parameter to filter exported claims based on adjudication status in BCDA v3. 
+If you make requests for Claim and/or ClaimResponse resources using the _type parameter in v2, you'll need to update those requests in v3.
 
-#### How it worked in BCDA v2
+#### How it worked in v2
 
-In BCDA v2 you exported claims based on adjudication level using the `_type` parameter, and passing the appropriate resource types (`Claim`, `ClaimResponse` for partially adjudicated claims and `ExplanationOfBenefit` for fully adjudicated claims) as the parameter value:
+In BCDA v2 you exported claims based on adjudication status using the `_type` parameter, and passing the appropriate resource types (`Claim`, `ClaimResponse` for partially adjudicated claims and `ExplanationOfBenefit` for fully adjudicated claims) as the parameter value:
 
 - v2 $export for only partially adjudicated claims:
   {% include copy_snippet.html code="GET /api/v2/Patient/$export?_type=Claim,ClaimResponse" language="shell" %}
 
 - v2 $export for only fully adjudicated claims:
-	{% include copy_snippet.html code="GET /api/v2/Patient/$export?_type=ExplanationOfBenefit" language="shell" %}
+  {% include copy_snippet.html code="GET /api/v2/Patient/$export?_type=ExplanationOfBenefit" language="shell" %}
 
-#### Changes with BCDA v3
+In v2, BCDA differentiates "partially adjudicated" from "fully adjudicated" claims based on the data source rather than the claim status. BCDA's partially adjudicated data (Claim and ClaimResponse resources) are populated with data from the Medicare Shared Systems which often includes data for claims that had been fully processed and paid.
 
-In BCDA v3, you can export claims based on adjudication level using the `_typeFilter` parameter to limit your job request to include only EOB resources where the meta.tag property matches the desired adjudication status. In the following examples, we further limit the request to exclude Coverage and Patient resources by using the `_type` parameter with `ExplanationOfBenefit`.
+#### Changes with v3
 
-- v3 $export for only partially adjudicated claims
-	{% include copy_snippet.html code="GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit%3F_tag%3DPartiallyAdjudicated" language="shell" %}
+In v3, we've extended the API with the [`_typeFilter` parameter]({{ '/v3/filter-claims-data-v3.html#the-typefilter-parameter' | relative_url }}) to filter export data more granularly. There are two ways to migrate from v2 if you are currently using the `_type` parameter to filter by adjudication status.
 
-- v3 $export for only fully adjudicated claims
-	{% include copy_snippet.html code="GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit%3F_tag%3DAdjudicated " language="shell" %}
+##### Option 1 - Use the Final Action status code
 
-Without using the `_typeFilter` parameter, REACH ACOs using v3 will receive both partially adjudicated and fully adjudicated claims in the export by default. 
+Use the final action status code tags to filter claims from the results of your v3 job requests based on claim processing status.
+
+To exclude data for final action claims (claims that had been fully processed by Medicare), use the `_typeFilter` parameter to only include EOB resources with the `NotFinalAction` tag:
+
+- v3 $export EOB resources of non-final action claims only
+  {% include copy_snippet.html code="GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FFinal-Action%7CNotFinalAction
+" language="shell" %}
+
+To only include data for final action claims, use the `_typeFilter` parameter to include only EOB resources with the `FinalAction` tag:
+
+- v3 $export EOB resources of final action claims only
+  {% include copy_snippet.html code="GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FFinal-Action%7CFinalAction" language="shell" %}
+
+##### Option 2 - Use the System Type code
+
+If you want the results of your v3 job requests to closely match the behavior of v2's partially adjudicated enhancement, use the system type code tags.
+
+To only include data for claims previously represented with Claim and ClaimResponse resources in v2, use the  `_typeFilter` parameter to only include EOB resources with the `SharedSystem` tag:
+
+- v3 $export EOB resources of claims from the Medicare Shared Systems only
+   {% include copy_snippet.html code="GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CSharedSystem" language="shell" %}
+
+To only include data for claims previously represented with ExplanationOfBeneft resources in v2, use the `_typeFilter` parameter to include only EOB resources with the `NationalClaimsHistory` tag:
+
+- v3 $export EOB resources of claims from National Claims History only
+   {% include copy_snippet.html code="GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CSharedSystem" language="shell" %}
+
+##### Omitting _typeFilter
+
+In v3, without using the `_typeFilter` parameter, REACH ACOs and IOTA participants will receive both partially and fully adjudicated claims in the export.
+
+- v3 $export EOB resources of both final and non-final action claims from both National Claims History and Medicare Shared Systems
+   {% include copy_snippet.html code="GET /api/v3/Patient/$export?_type=ExplanationOfBenefit" language="shell" %}
 
 ## New extension and code system URLs
 
-BCDA v3 utilizes the `StructureDefinition` and `CodeSystem` FHIR resources. This is the standard way to represent these URLs, and will make it easier for implementers to access the metadata going forward. You can access the metadata for each Extension and CodeSystem by hitting the URL, which will return a `StructureDefinition` or `CodeSystem` FHIR resource.
+BCDA v3 uses the StructureDefinition and CodeSystem FHIR resources. This is the standard way to represent code system URLs. It makes it easier to access the metadata. You can access the metadata for each Extension and CodeSystem by hitting the URL. This will return a StructureDefinition or CodeSystem FHIR resource.
 
 ### URLs changing between v2 and v3
 

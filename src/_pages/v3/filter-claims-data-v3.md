@@ -164,29 +164,23 @@ Currently, _typeFilter only supports queries using the meta.tag element of Expla
 
 The request below will return:
 - All Patient and Coverage resources
-- ExplanationOfBenefit resources of only partially adjudicated claims only
+- ExplanationOfBenefit resources of final action claims only
 
 {% capture curlSnippet %}{% raw %}
-GET /api/v3/Group/all/$export?_typeFilter=ExplanationOfBenefit?_tag=PartiallyAdjudicated
+GET /api/v3/Group/all/$export?_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FFinal-Action%7CNotFinalAction
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
 #### Example curl command using _typeFilter
 
 {% capture curlSnippet %}{% raw %}
-curl -X GET "https://sandbox.bcda.cms.gov/api/v32/Group/all/\$export?_typeFilter=ExplanationOfBenefit%3F_tag%3DPartiallyAdjudicated" \
+curl -X GET "https://sandbox.bcda.cms.gov/api/v32/Group/all/\$export?_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FFinal-Action%7CNotFinalAction" \
     -H "Accept: application/fhir+json" \
     -H "Prefer: respond-async" \
     -H "Authorization: Bearer {bearer_token}" \
     -i
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
-
-### Filtering claims by adjudication status using _typeFilter
-
-By default, any unfiltered request made to either BCDA v2 or v3 by a REACH ACO will include both partially adjudicated and fully adjudicated claims data.
-
-In BCDA v3, the ExplanationOfBenefit Resource represents both partially adjudicated and fully adjudicated claims data. You can differentiate adjudication status by using the _tag property for the values "Adjudicated" or "PartiallyAdjudicated".
 
 ## The \`runout` identifier
 
