@@ -1,0 +1,310 @@
+---
+layout: api-docs-v3
+page_title: "Partially Adjudicated Claims Data in v3"
+seo_title: ""
+description: "Get real-time access to enrollee data with BCDA partially adjudicated claims data."
+in-page-nav: true
+feedback_id: "355f6ea6"
+---
+
+<h1>{{ page.page_title }}</h1>
+
+<h2>A faster way to access claims data</h2>
+
+<p>Medicare claims processing (adjudication) can take weeks. Through partially adjudicated claims, ACO REACH
+  participants
+  (REACH ACOs) receive patient data only 2-4 days after providers submit claims to Medicare. This helps them provide
+  patients with more effective interventions, transitions, and coordination of care.</p>
+
+<p>Fully adjudicated claims offer the same rich insights, with some small differences including a longer frequency.</p>
+
+<h3>Comparison: partially and fully adjudicated claims</h3>
+<table class="usa-table usa-table--borderless usa-table--stacked margin-bottom-4">
+  <caption class="usa-sr-only">Partially versus fully adjudicated claims data</caption>
+  <thead>
+    <tr>
+      <th scope="col">Partially adjudicated claims</th>
+      <th scope="col">Fully adjudicated claims</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr scope="row">
+      <td data-label="Partially adjudicated claims">
+        Update daily
+      </td>
+      <td data-label="Fully adjudicated claims">
+        Update weekly
+      </td>
+    </tr>
+    <tr scope="row">
+      <td data-label="Partially adjudicated claims">
+        Available to <a
+          href="https://www.cms.gov/priorities/innovation/innovation-models/aco-reach"
+          target="_blank"
+          rel="noopener noreferrer"
+        >ACO REACH</a> and <a
+          href="https://www.cms.gov/priorities/innovation/innovation-models/iota"
+          target="_blank"
+          rel="noopener noreferrer"
+        >IOTA</a> participants only
+      </td>
+      <td data-label="Fully adjudicated claims">
+        Available to all <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">eligible model
+          entities</a>
+      </td>
+    </tr>
+    <tr scope="row">
+      <td data-label="Partially adjudicated claims">
+        Requires BCDA v2 or v3
+      </td>
+      <td data-label="Fully adjudicated claims">
+        Available in all BCDA versions
+      </td>
+    </tr>
+    <tr scope="row">
+      <td data-label="Partially adjudicated claims">
+        Sourced from Medicare Shared Systems
+      </td>
+      <td data-label="Fully adjudicated claims">
+        Sourced from National Claims History (NCH)
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- <h3>Data availability throughout Medicare claims processing</h3>
+
+<p>Claims pass through many steps, systems, and validations before being shared by BCDA.</p>
+
+<figure class="width-full margin-y-4 margin-x-0">
+  <img
+    src="{{ '/assets/img/adjudication-data-flow.svg' | relative_url }}"
+    alt="Partially adjudicated claims processing flow diagram."
+    class="width-full"
+  >
+  <figcaption class="usa-sr-only">
+    <ol>
+      <li>A Medicare enrollee receives care and provider submits a claim</li>
+      <li>CMS validates and aggregates the claim and shares data with the following:</li>
+      <li>Shared Systems Software</li>
+      <li>
+        Common Working File
+        <ul>
+          <li>Integrated Data Repository
+            <ul>
+              <li>Claim and Claim Line Feed (CCLF)</li>
+            </ul>
+          </li>
+          <li>Replicated Data Access API</li>
+        </ul>
+      </li>
+      <li>Chronic Conditions Warehouse</li>
+      <li>Beneficiary FHIR Data Server
+        <ul>
+          <li>After 2-4 days, BCDA shares partially adjudicated claims data</li>
+          <li>After 8-14 days, BCDA shares fully adjudicated claims data
+        </ul>
+      </li>
+    </ol>
+  </figcaption>
+</figure> -->
+
+<div>
+  <div class="display-flex flex-align-center"> 
+    <h3>What's in partially adjudicated claims data?</h3>
+    {%- include updated-tag.html -%} 
+  </div>
+
+  <ul>
+    <li>
+      <p>In BCDA v3, partially adjudicated claims data;</p>
+      <ul>
+        <li>
+          Are represented with 1 FHIR resource type:
+          <ul>
+            <li><a
+            href="https://hl7.org/fhir/R4/explanationofbenefit.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            >ExplanationOfBenefit (EOB)</a> - Information about the professional and institutional claims that providers submit for payment and information about a claim's adjudication status and processing results</li>
+          </ul>
+          <li>Contain Part A and Part B data from the current performance year and historical claims data from the previous 2 or more performance years, depending on your organization’s Alternative Payment Model.</li>
+      </ul>
+    </li>
+    <li>
+      <p>In BCDA v2, partially adjudicated claims data;</p>
+      <ul>
+        <li>Are represented with 2 FHIR resource types:</li>
+        <ul>
+          <li>
+            <a
+              href="https://hl7.org/fhir/R4/claim.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Claim</a> - Information about the professional and institutional claims that providers submit for payment (including the services that enrollees receive)</li>
+          <li><a
+            href="https://hl7.org/fhir/R4/claimresponse.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            >ClaimResponse</a> - Information about a claim's adjudication status and processing results</li>
+        </ul>
+        <li>Contain Part A and Part B data (excluding Durable Medical Equipment) with updates from the past 60 days</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="margin-top-3">
+  <h3 class="margin-top-1">What's in fully adjudicated claims data?</h3>
+  <p>
+    <p>In all versions of BCDA, adjudicated claims data:</p>
+    <ul>
+      <li>Are represented with 3 FHIR resource types</li>
+      <ul>
+        <li><a
+            href="https://hl7.org/fhir/R4/patient.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Patient</a> - Enrollees' demographic details and updates to their patient identifiers.</li>
+        <li><a
+            href="https://hl7.org/fhir/R4/coverage.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Coverage</a> - Enrollees' insurance coverage details, including dual coverage.</li>
+        <li><a
+            href="https://hl7.org/fhir/R4/explanationofbenefit.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ExplanationOfBenefit</a> - Details for episodes of care, including where and when the service was performed,
+          diagnosis codes, provider, and cost of care.</li>
+      </ul>
+      <li>Contain Part A, Part B, and Part D data from the current performance year and historical claims data from the previous 2 or more performance years, depending on your organization's Alternative Payment Model</li>
+    </ul>
+  </p>
+</div>
+
+<div class="display-flex flex-align-center"> 
+  <h3>How do I know when a claim has been fully processed?</h3>
+  {%- include new-tag.html -%} 
+</div>
+
+<p>All EOBs contain the <a href="https://hl7.org/fhir/R4/explanationofbenefit-definitions.html#ExplanationOfBenefit.outcome" target="_blank" rel="noopener noreferrer">ExplanationOfBenefit.outcome</a> element which will indicate if the claim is still processing. If you wish to include only EOBs that have been fully processed and paid in your job requests, see our guidance on <a href="{{ '/v3/filter-claims-data-v3.html#the-typefilter-parameter' | relative_url }}">filtering claims by final action status using _typeFilter</a>.</p>
+
+<h4>De-duplicating claims and identifying duplicates</h4>
+
+<p>To de-duplicate an enrollee's claims, the `CLM-CNTL-NUM` identifier `ExplanationOfBenefit.identifier.where('system'='https://bluebutton.cms.gov/fhir/CodeSystem/CLM-CNTL-NUM')` can be used to identify which claims are the same within a claim type. Additionally, if a claim receives a new claim control number, the previous claim control number will be available in ExplanationOfBenefit.related, and can be used to de-duplicate claims even if the claim control number has changed.</p>
+
+<p>There may be some instances in which a claim can't be de-duplicated via `CLM-CNTL-NUM`. Review the <a href="https://github.com/CMSgov/beneficiary-fhir-data/wiki/v2-%E2%80%90-v3-Migration-Guide#deduplicating-claims-and-identifying-duplicates" target="_blank" rel="noopener noreferrer">Beneficiary FHIR Data server (BFD) guide</a> for further strategies on deduplicating claims.</p>
+
+<h2>Get started with partially adjudicated claims data</h2>
+
+<p>Access partially adjudicated claims data in the <a
+    href="{{ '/api-documentation/get-a-bearer-token.html#partially-adjudicated-claims-data-sets' | relative_url }}"
+  >BCDA Sandbox</a>.</p>
+
+<p>Review the <a
+    href="{{ '/assets/downloads/BCDA_v3_Data_Dictionary.xlsx' | relative_url }}"
+    data-tealium="download"
+  >Data Dictionary {% include sprite.html icon="file_download" class="text-middle"
+    %}</a>for a complete list and description of the data fields.</p>
+
+<h2>Use cases</h2>
+
+<h3>Example 1: Improve transition of care</h3>
+
+<p class="usa-intro font-ui-md text-italic text-base">REACH ACOs can check if post-discharge processes are in place for
+  an attributed enrollee shortly after a hospital discharge. Benefits include reduced readmissions and healthcare costs.
+</p>
+
+<p>On May 1, 2022, Mrs. Gonzales is doing better after a bout of pneumonia and is released home from the hospital. The
+  hospital submits a claim for her stay to Medicare on May 3, 2022. </p>
+
+<ol>
+  <li>BCDA receives partially adjudicated claims data that reflects this update. This is identified by a Document
+    Control Number (DCN) within a few days.</li>
+  <li>A REACH ACO sets up a dashboard to track newly identified discharges. After receiving an automated
+    care-coordination alert for Mrs. Gonzales, they're able to follow up on her post-discharge care in a timely manner.
+  </li>
+  <li>Using supplemental data, the REACH ACO adds filters to the dashboard for parameters of interest like whether the
+    discharging hospital is in-network.</li>
+  <li>BCDA will reflect any status changes to the claim, for example if Mrs. Gonzales' claim is returned to the provider
+    or adjusted.</li>
+  <li>These changes may involve updates to key variables used for care coordination, like diagnosis codes. The claims
+    data will indicate the final status once a claim finishes adjudication and is submitted for payment.</li>
+  <li>BCDA's adjudicated data will pick up this claim after several additional processing steps. This is typically up to
+    14 days after submission.</li>
+</ol>
+
+<p>REACH ACOs can also flag and identify patients who have a high risk of readmission based on factors like past
+  diagnosis. Early access to claims data can help reduce readmissions and healthcare costs. </p>
+
+<h3>Example 2: Identify opportunities for intervention</h3>
+
+<p class="usa-intro font-ui-md text-italic text-base">REACH ACOs can monitor outpatient events for follow-up care and track patterns that often indicate future utilization. The data can be used to target case management and deliver clinically appropriate follow-up care. Additionally it can help reduce the volume of unnecessary procedures.</p>
+
+<p>On September 6, 2022, Mr. Fritz underwent a duplex scan to evaluate for carotid artery stenosis. The cardiology
+  clinic submits a claim for this procedure to Medicare on September 8, 2022. </p>
+
+<ol>
+  <li>BCDA receives partially adjudicated claims data that reflects this update. This is identified by an Internal
+    Control Number (ICN) in a few days.</li>
+  <li>A REACH ACO creates a dashboard to track procedures that merit review. Mr. Fritz's service is flagged because it
+    signals the surgeon may be planning a carotid endarterectomy procedure.</li>
+  <li>However, if Mr. Fritz does not have neurological symptoms, this procedure may not be a recommended course of
+    action. The REACH ACO is able to activate protocols to alert Mr. Fritz's primary care provider for intervention.
+  </li>
+  <li>As with example 1, BCDA will reflect any status changes to the claim.</li>
+  <li>Similarly, BCDA's adjudicated data will pick up this claim.</li>
+</ol>
+
+<p>REACH ACOs can also track performance on cases where the care may be of limited value. For example, if Mr. Fritz does
+  not have neurologic symptoms, then this kind of scan has been indicated to be more harmful than beneficial. This
+  information could be used by the REACH ACO to reduce the volume of unnecessary procedures. </p>
+
+<h3>Example 3: Enhance care coordination</h3>
+
+<p class="usa-intro font-ui-md text-italic text-base">REACH ACOs can learn more about their patients' health histories,
+  build their clinical profiles, and improve care coordination.</p>
+
+<p>Ms. Thompson began treatment for breast cancer on March 8, 2023. She is experiencing nausea and dehydration as a
+  result of chemotherapy. While visiting family on March 14, she drove to an emergency room (ER) 50 miles from home. She
+  was treated with IV fluids and nausea medication. </p>
+
+<ol>
+  <li>BCDA receives partially adjudicated claims data that reflects this update. This is identified by an Internal
+    Control Number (ICN) in a few days.</li>
+  <li>This emergency room visit may provide useful insights into Ms. Thompson's health history and chemotherapy journey.
+    If Ms. Thompson is experiencing symptoms, her plan of treatment may need to be adjusted moving forward.</li>
+  <li>REACH ACOs can track procedures and services, including those from a different system, to get a holistic view of
+    patients' health histories. They can then follow up with the patient and/or provider to improve care
+    coordination.</li>
+</ol>
+
+<p>REACH ACOs can also monitor the rate of emergency services used by patients undergoing active cancer treatment and
+  following transplantation. </p>
+
+<p>In the past, it would take weeks to know whether patients received care outside the network. Partially adjudicated
+  claims data allows REACH ACOs to more quickly identify and investigate out-of-network care. </p>
+
+
+<h2>Additional resources</h2>
+
+<ul>
+  <li><a
+      href="https://www.medicare.gov/what-medicare-covers"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Services covered by Medicare Parts A and B</a></li>
+  <li><a
+      href="https://4innovation.cms.gov/secure/knowledge-management/view/341"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Fee-for-Service (FFS) Claims Processing</a> (requires 4i access)</li>
+  <li><a
+      href="https://4innovation.cms.gov/secure/knowledge-management/view/491"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Reporting and Data Sharing Overview</a> (requires 4i access)</li>
+</ul>
