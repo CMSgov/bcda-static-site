@@ -13,3 +13,7 @@
   - name: How to Filter Claims Data
     url: /v3/filter-claims-data-v3.html
     updated: true
+
+  - name: Partially Adjudicated Claims Data
+    url: /v3/partially-adjudicated-claims-data-v3
+    updated: true
