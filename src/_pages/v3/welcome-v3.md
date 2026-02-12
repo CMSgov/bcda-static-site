@@ -80,7 +80,7 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 {% endcapture %}
 
 {% include date-collection.html
-    title="Test Scenario #3: Comparing BCDA v3 Data to v2 and CCLF"
+    title="Test Scenario #3: Using the _typeFilter Parameter (Topic Updated)"
     date="March 5, 2026"
     subtitle="March 5, 2026 | 2:00 - 3:00 pm ET"
     content=date4
@@ -93,7 +93,7 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 {% endcapture %}
 
 {% include date-collection.html
-    title="Test Scenario #4: Using the _typeFilter Parameter"
+    title="Test Scenario #4: Comparing BCDA v3 Data to v2 and CCLF (Topic Updated)"
     date="March 19, 2026"
     subtitle="March 19, 2026 | 2:00 - 3:00 pm ET"
     content=date5
