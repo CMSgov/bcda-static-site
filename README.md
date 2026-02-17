@@ -257,7 +257,7 @@ include:
 
 See USWDS [settings documentation](https://designsystem.digital.gov/documentation/settings/)
 
-There are three key files in the `./_uswds_sass` dierctory:
+There are three key files in the `./_uswds_sass` directory:
 
 - `_uswds-theme-custom-styles.scss`
 - `_uswds-theme.scss`
