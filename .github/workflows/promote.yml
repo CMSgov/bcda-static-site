@@ -23,7 +23,7 @@ jobs:
         uses: cmsgov/cdap/actions/aws-params-env-action@main
         with:
           params: |
-            TARGET_BUCKET=/bcda/stage/static_site
+            TARGET_BUCKET=/bcda/stage/nonsensitive/static_site
 
       - name: Download Site from Staging Bucket
         run: |
@@ -39,7 +39,7 @@ jobs:
         uses: cmsgov/cdap/actions/aws-params-env-action@main
         with:
           params: |
-            TARGET_BUCKET=/bcda/prod/static_site
+            TARGET_BUCKET=/bcda/prod/nonsensitive/static_site
 
       - name: Copy Site to Prod Bucket
         run: |
