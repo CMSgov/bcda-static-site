@@ -45,7 +45,7 @@ jobs:
           AWS_REGION: ${{ vars.AWS_REGION }}
         with:
           params: |
-            TARGET_BUCKET=/bcda/stage/static_site
+            TARGET_BUCKET=/bcda/stage/nonsensitive/static_site
 
       - name: Deploy the site to root url/directory
         if: ${{ !env.BASE_PATH }}

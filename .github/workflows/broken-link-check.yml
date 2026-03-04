@@ -45,7 +45,7 @@ jobs:
           AWS_REGION: ${{ vars.AWS_REGION }}
         with:
           params: |
-            TARGET_BUCKET=/bcda/prod/static_site
+            TARGET_BUCKET=/bcda/prod/nonsensitive/static_site
 
       - name: Download Site Contents (Prod)
         run: |
@@ -80,7 +80,7 @@ jobs:
           AWS_REGION: ${{ vars.AWS_REGION }}
         with:
           params: |
-            TARGET_BUCKET=/bcda/stage/static_site
+            TARGET_BUCKET=/bcda/stage/nonsensitive/static_site
 
       - name: Download Site Contents (Dev)
         run: |
