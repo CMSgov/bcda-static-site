@@ -61,7 +61,7 @@ In earlier versions of BCDA, claims data was sourced from the Chronic Conditions
   <img
     src="{{ '/assets/img/comparison-claims-flow.svg' | relative_url }}"
     alt="Partially adjudicated claims processing flow diagram."
-    class="width-full padding-x-8"
+    class="width-full desktop:padding-x-15 padding-x-8"
     
   >
   <figcaption class="usa-sr-only">
