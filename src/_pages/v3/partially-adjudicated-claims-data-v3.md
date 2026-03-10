@@ -147,7 +147,7 @@ Review the <a href="{{ '/assets/downloads/BCDA_v3_Data_Dictionary.xlsx' | relati
   an attributed enrollee shortly after a hospital discharge. Benefits include reduced readmissions and healthcare costs.
 </p>
 
-On May 1, 2022, Mrs. Gonzales is doing better after a bout of pneumonia and is released home from the hospital. The hospital submits a claim for her stay to Medicare on May 3, 2022. </p>
+On May 1, 2022, Mrs. Gonzales is doing better after a bout of pneumonia and is released home from the hospital. The hospital submits a claim for her stay to Medicare on May 3, 2022.
 
 1. BCDA receives partially adjudicated claims data that reflects this update. This is identified by a Document Control Number (DCN) within a few days.
 2. A REACH ACO sets up a dashboard to track newly identified discharges. After receiving an automated care-coordination alert for Mrs. Gonzales, they're able to follow up on her post-discharge care in a timely manner.
