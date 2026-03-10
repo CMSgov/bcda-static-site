@@ -55,6 +55,26 @@ In earlier versions of BCDA, claims data was sourced from the Chronic Conditions
 - Simplifies linking between partially and fully adjudicated claims
 - Uses consistent claim identifiers across all phases of adjudication
 
+## Comparison of Claims flows in v1/v2 versus v3
+
+<figure class="width-full margin-y-4 margin-x-0">
+  <img
+    src="{{ '/assets/img/comparison-claims-flow.svg' | relative_url }}"
+    alt="Partially adjudicated claims processing flow diagram."
+    class="width-full padding-x-8"
+    
+  >
+  <figcaption class="usa-sr-only">
+    <ol>
+      <li>CMS receives the claim and two separate flows appear for partially versus fully adjudicated claims.</li>
+      <li>In v1/v2, fully adjudicated claims route though CCW while partially adjudicated claims route through RDA.</li>
+      <li>In v3, all claims route though the IDR.</li>
+      <li>Next, all claims route through BFD. This is true of all versions and all types of claims.</li>
+      <li>Finally, all claims are available through BCDA.</li>
+    </ol>
+  </figcaption>
+</figure>
+
 ## What this means for your organization
 
 - Reduced development time: Unified data structure simplifies integration
