@@ -55,7 +55,7 @@ In earlier versions of BCDA, claims data was sourced from the Chronic Conditions
 - Simplifies linking between partially and fully adjudicated claims
 - Uses consistent claim identifiers across all phases of adjudication
 
-## Comparison of claims flows in v1/v2 versus v3
+### Comparison of claims flows in v1/v2 versus v3
 
 <figure class="width-full margin-y-4 margin-x-0">
   <img
