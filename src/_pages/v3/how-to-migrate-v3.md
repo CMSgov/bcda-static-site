@@ -37,7 +37,7 @@ If you are currently using BCDA v1 or BCDA v2, there are changes to the API and 
 
 <p class="font-ui-xs text-italic"> <sup>1</sup>Medical claims that have been submitted but not fully processed and paid by Medicare.</p>
 
-### Data Dictionary 
+### v3 Data Dictionary 
 
 <div class="grid-row grid-gap margin-y-4 flex-align-center">
   <div class="grid-col-12 mobile-lg:grid-col-auto">
