@@ -137,7 +137,7 @@ There may be some instances in which a claim can't be de-duplicated via `CLM-CNT
 
 Access partially adjudicated claims data in the <a href="{{ '/api-documentation/get-a-bearer-token.html#partially-adjudicated-claims-data-sets' | relative_url }}">BCDA Sandbox</a>.
 
-Review the <a href="{{ '/assets/downloads/BCDA_v3_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">Data Dictionary {% include sprite.html icon="file_download" class="text-middle"%}</a>for a complete list and description of the data fields.
+Review the <a href="{{ '/assets/downloads/BCDA_v3_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">Data Dictionary {% include sprite.html icon="file_download" class="text-middle"%}</a> for a complete list and description of the data fields.
 
 ## Use cases
 
