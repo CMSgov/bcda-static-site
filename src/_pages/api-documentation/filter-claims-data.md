@@ -1,8 +1,8 @@
 ---
 layout: api-docs
-page_title: "How to Filter Claims Data "
+page_title: "How to Filter Claims Data"
 seo_title: ""
-description: "Use parameters to filter Medicare claims data returned."
+description: "Use the _since and _type parameters to filter Medicare claims data requests, speeding up downloads and reducing file sizes in sandbox and production environments."
 in-page-nav: true
 in-page-nav-levels: "h2"
 feedback_id: "40a078ea"

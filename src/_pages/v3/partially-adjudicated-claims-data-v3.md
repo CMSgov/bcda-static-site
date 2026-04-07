@@ -2,7 +2,7 @@
 layout: api-docs-v3
 page_title: "Partially Adjudicated Claims Data"
 seo_title: ""
-description: "Get real-time access to enrollee data with BCDA partially adjudicated claims data."
+description: "Get faster access to Medicare enrollee data with BCDA partially adjudicated claims, now available as ExplanationOfBenefit resources in v3."
 in-page-nav: true
 feedback_id: "355f6ea6"
 ---
