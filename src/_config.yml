@@ -17,7 +17,7 @@ title: Beneficiary Claims Data API
 short_title: BCDA
 email: bc-api@googlegroups.com
 description: >- # this means to ignore newlines until "baseurl:"
-  BCDA offers timely Medicare enrollee data in FHIR format to improve healthcare costs, performance
+  BCDA offers timely Medicare claims data in FHIR format to ACOs and other participants in CMS Alternative Payment Models
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://bcda.cms.gov" # the base hostname & protocol for your site, e.g. http://example.com
 
