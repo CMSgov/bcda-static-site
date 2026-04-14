@@ -2,7 +2,7 @@
 layout: api-docs-v3
 page_title: "Welcome to the BCDA v3 Early Adopter Program"
 seo_title: ""
-description: "Welcome to the BCDA v3 Early Adopter Program."
+description: "Information about the BCDA v3 Early Adopter Program, including test scenarios and office hours schedule."
 show-side-nav: true
 feedback_id: ""
 ---

@@ -2,7 +2,7 @@
 layout: api-docs-v3
 page_title: "How to Migrate to v3"
 seo_title: ""
-description: "How to Migrate to v3"
+description: "A step-by-step guide for migrating from BCDA v2 to v3, covering endpoint changes, resource mapping, and new features."
 in-page-nav: true
 feedback_id: "8a4c0b7b"
 ---

@@ -2,7 +2,7 @@
 layout: api-docs-v3
 page_title: "Introducing BCDA v3"
 seo_title: ""
-description: "Introducing BCDA v3"
+description: "Explore the improvements in BCDA v3, including unified data sources, faster updates, and better FHIR conformance."
 in-page-nav: true
 feedback_id: "1dd96929"
 ---

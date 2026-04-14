@@ -2,7 +2,7 @@
 layout: api-docs-v3
 page_title: "How to Filter Claims Data"
 seo_title: ""
-description: "How to Filter Claims Data"
+description: "Learn how to filter Medicare claims data requests using the _since, _type, and _typeFilter parameters."
 in-page-nav: true
 feedback_id: "72cee024"
 ---
