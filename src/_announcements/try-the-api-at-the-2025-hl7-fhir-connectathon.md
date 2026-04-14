@@ -3,7 +3,7 @@ layout: announcement
 page_title: "Try the API at the 2025 HL7 FHIR Connectathon"
 show-side-nav: false
 in-page-nav: true
-published_date: 2025-07-9
+published_date: 2025-07-09
 description: "Join BCDA July 16 at the HL7 FHIR Connectathon."
 custom_excerpt: "Join BCDA July 16 at the HL7 FHIR Connectathon."
 ---

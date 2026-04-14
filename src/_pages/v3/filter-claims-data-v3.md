@@ -2,7 +2,7 @@
 layout: api-docs-v3
 page_title: "How to Filter Claims Data"
 seo_title: ""
-description: "How to Filter Claims Data"
+description: "Learn how to filter Medicare claims data requests using the _since, _type, and _typeFilter parameters."
 in-page-nav: true
 feedback_id: "72cee024"
 ---
@@ -35,7 +35,7 @@ Use parameters in the sandbox or production environment to speed up download tim
 
 ## The _since parameter
 
-The _since parameter lets you filter for claims data last updated after a specified date. Dates must be in the [FHIR standard instant format](https://www.hl7.org/fhir/datatypes.html#instant): `(YYYY-MM-DDThh:mm:sss+zz:zz`. 
+The _since parameter lets you filter for claims data last updated after a specified date. Dates must be in the [FHIR standard instant format](https://www.hl7.org/fhir/datatypes.html#instant): `YYYY-MM-DDThh:mm:ss.sss+zz:zz`. 
 
 - Sample date: February 20, 2020 12:00 PM EST
 - Formatted sample: `2020-02-20T12:00:00.000-05:00`
@@ -164,7 +164,7 @@ Currently, _typeFilter only supports queries using the meta.tag element of Expla
 
 The request below will return:
 - All Patient and Coverage resources
-- ExplanationOfBenefit resources of final action claims only
+- ExplanationOfBenefit resources of non-final action claims only
 
 {% capture curlSnippet %}{% raw %}
 GET /api/v3/Group/all/$export?_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FFinal-Action%7CNotFinalAction
@@ -174,7 +174,7 @@ GET /api/v3/Group/all/$export?_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A
 #### Example curl command using _typeFilter
 
 {% capture curlSnippet %}{% raw %}
-curl -X GET "https://sandbox.bcda.cms.gov/api/v32/Group/all/\$export?_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FFinal-Action%7CNotFinalAction" \
+curl -X GET "https://sandbox.bcda.cms.gov/api/v3/Group/all/\$export?_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FFinal-Action%7CNotFinalAction" \
     -H "Accept: application/fhir+json" \
     -H "Prefer: respond-async" \
     -H "Authorization: Bearer {bearer_token}" \

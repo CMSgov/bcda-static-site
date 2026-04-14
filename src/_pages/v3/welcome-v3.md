@@ -2,7 +2,7 @@
 layout: api-docs-v3
 page_title: "Welcome to the BCDA v3 Early Adopter Program"
 seo_title: ""
-description: "Welcome to the BCDA v3 Early Adopter Program."
+description: "Information about the BCDA v3 Early Adopter Program, including test scenarios and office hours schedule."
 show-side-nav: true
 feedback_id: ""
 ---
@@ -67,7 +67,7 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 {% endcapture %}
 
 {% include date-collection.html
-    title=" Test Scenario #2: Accessing Runout Data"
+    title="Test Scenario #2: Accessing Runout Data"
     date="February 19, 2026"
     subtitle="February 19, 2026 | 2:00 - 3:00 pm ET"
     content=date3

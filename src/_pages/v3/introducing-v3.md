@@ -2,7 +2,7 @@
 layout: api-docs-v3
 page_title: "Introducing BCDA v3"
 seo_title: ""
-description: "Introducing BCDA v3"
+description: "Explore the improvements in BCDA v3, including unified data sources, faster updates, and better FHIR conformance."
 in-page-nav: true
 feedback_id: "1dd96929"
 ---
@@ -28,7 +28,7 @@ Version 3 offers more timely updates to patient, coverage, and adjudicated claim
 
 BCDA v3 makes it easier to track claims through the adjudication process.
 
-- Both adjudicated and partially adjudicated claims are now sourced for a single source system, the IDR
+- Both adjudicated and partially adjudicated claims are now sourced from a single source system, the IDR
 - Both claims now use the same ExplanationOfBenefit FHIR resource
 
 Version 3 enhances tracking by using the claim control number and a simple metadata tag to indicate the adjudication status of the claim.
@@ -47,7 +47,7 @@ V3 standardizes and enhances extensions while providing improved conformance wit
 
 ## Problems solved in v3
 
-In earlier versions of BCDA, claims data was sourced from the Chronic Conditions Warehouse (CCW). BCDA v2 sourced partially adjudicated claims data from the Replicated Data Access (RDA) API. With v3, the CMS Integrated Data Repository (IDR) replaces both CCW and RDA API. BCDA's switch to sourcing data from IDR in addresses following known issues and limitations of BCDA v2:
+In earlier versions of BCDA, claims data was sourced from the Chronic Conditions Warehouse (CCW). BCDA v2 sourced partially adjudicated claims data from the Replicated Data Access (RDA) API. With v3, the CMS Integrated Data Repository (IDR) replaces both CCW and RDA API. BCDA's switch to sourcing data from IDR addresses the following known issues and limitations of BCDA v2:
 
 - Reduces mismatched data between BCDA resources and CCLF files
 - Resolves missing data for newly attributed enrollees 

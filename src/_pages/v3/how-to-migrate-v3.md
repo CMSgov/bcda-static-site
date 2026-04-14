@@ -2,7 +2,7 @@
 layout: api-docs-v3
 page_title: "How to Migrate to v3"
 seo_title: ""
-description: "How to Migrate to v3"
+description: "A step-by-step guide for migrating from BCDA v2 to v3, covering endpoint changes, resource mapping, and new features."
 in-page-nav: true
 feedback_id: "8a4c0b7b"
 ---
@@ -126,10 +126,10 @@ To only include data for claims previously represented with Claim and ClaimRespo
 - v3 $export EOB resources of claims from the Medicare Shared Systems only
    {% include copy_snippet.html code="GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CSharedSystem" language="shell" %}
 
-To only include data for claims previously represented with ExplanationOfBeneft resources in v2, use the `_typeFilter` parameter to include only EOB resources with the `NationalClaimsHistory` tag:
+To only include data for claims previously represented with ExplanationOfBenefit resources in v2, use the `_typeFilter` parameter to include only EOB resources with the `NationalClaimsHistory` tag:
 
 - v3 $export EOB resources of claims from National Claims History only
-   {% include copy_snippet.html code="GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CSharedSystem" language="shell" %}
+   {% include copy_snippet.html code="GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CNationalClaimsHistory" language="shell" %}
 
 ##### Omitting _typeFilter
 
