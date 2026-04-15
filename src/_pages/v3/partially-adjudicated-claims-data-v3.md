@@ -191,5 +191,5 @@ In the past, it would take weeks to know whether patients received care outside 
 ## Additional resources
 
 - <a href="https://www.medicare.gov/what-medicare-covers" target="_blank" rel="noopener noreferrer">Services covered by Medicare Parts A and B</a>
-- <a href="https://4innovation.cms.gov/secure/knowledge-management/view/341" target="_blank" rel="noopener noreferrer">Fee-for-Service (FFS) Claims Processing</a> (requires 4i access)
+- <a href="https://4innovation.cms.gov/secure/knowledge-management/view/341" target="_blank" rel="noopener noreferrer">Original Medicare (OM) Claims Processing</a> (requires 4i access)
 - <a href="https://4innovation.cms.gov/secure/knowledge-management/view/491" target="_blank" rel="noopener noreferrer">Reporting and Data Sharing Overview</a> (requires 4i access)
