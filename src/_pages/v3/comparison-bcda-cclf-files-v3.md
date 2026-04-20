@@ -193,7 +193,7 @@ The following diagram illustrates these differences while providing more detail 
 
 The BCDA v3 Data Dictionary contains a comprehensive list of all data fields available in BCDA v3 and includes a mapping to the equivalent or related CCLF file and element.
 
-For an exhaustive list of fields available only in BCDA v3, look for rows where the `cclfMapping` column is blank in the "Data Dictionary" worksheet in the [BCDA v3 Data Dictionary](https://github.com/CMSgov/bcda-static-site/blob/main/src/assets/downloads/BCDA_v3_Data_Dictionary.xlsx).
+<p>For an exhaustive list of fields available only in BCDA v3, look for rows where the <code class="language-plaintext highlighter-rouge">cclfMapping</code> column is blank in the "Data Dictionary" worksheet in the <a href="{{ '/assets/downloads/BCDA_v3_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">BCDA v3 Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>.</p>
 
 ## Which data fields in CCLF files are not available from BCDA v3?
 
