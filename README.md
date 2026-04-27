@@ -105,7 +105,7 @@ node -v
 npm -v
 ```
 
-Your node version should be at least `v20`.
+Your node version should be at least `v24`.
 
 ### Step 5: Install Jekyll and Bundler
 

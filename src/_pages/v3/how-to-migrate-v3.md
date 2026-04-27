@@ -2,7 +2,7 @@
 layout: api-docs-v3
 page_title: "How to Migrate to v3"
 seo_title: ""
-description: "How to Migrate to v3"
+description: "A step-by-step guide for migrating from BCDA v2 to v3, covering endpoint changes, resource mapping, and new features."
 in-page-nav: true
 feedback_id: "8a4c0b7b"
 ---
@@ -25,6 +25,7 @@ BCDA v3 introduces access to more timely and accurate Medicare claims data and a
 - More consistent claims data by using a single data source of data, the CMS Integrated Data Repository.
 - Improved alignment with sources such as the Claim and Claim Line Feed (CCLF) files through more standard claim and patient identifiers. 
 
+
 ### Changes to BCDA in v3
 
 If you are currently using BCDA v1 or BCDA v2, there are changes to the API and FHIR Resources you need to be aware of in v3:
@@ -35,6 +36,22 @@ If you are currently using BCDA v1 or BCDA v2, there are changes to the API and 
 - Resource IDs are different between versions
 
 <p class="font-ui-xs text-italic"> <sup>1</sup>Medical claims that have been submitted but not fully processed and paid by Medicare.</p>
+
+### v3 Data Dictionary 
+
+<div class="grid-row grid-gap margin-y-4 flex-align-center">
+  <div class="grid-col-12 mobile-lg:grid-col-auto">
+    <img src="{{ '/assets/img/book.svg' | relative_url }}" alt="">
+  </div>
+  <div class="grid-col-fill tablet:grid-col-9">
+      <p>Download the <a href="{{ '/assets/downloads/BCDA_v3_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">BCDA v3 Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> to learn about:</p>
+    <ul>
+      <li>updated information on resource type and claim field names</li>
+      <li>updated mappings between CCLF and BCDA data</li>
+      <li>new data available in v3</li>
+    </ul>
+  </div>
+</div>
 
 ## Requesting data from new v3 endpoints
 
@@ -109,10 +126,10 @@ To only include data for claims previously represented with Claim and ClaimRespo
 - v3 $export EOB resources of claims from the Medicare Shared Systems only
    {% include copy_snippet.html code="GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CSharedSystem" language="shell" %}
 
-To only include data for claims previously represented with ExplanationOfBeneft resources in v2, use the `_typeFilter` parameter to include only EOB resources with the `NationalClaimsHistory` tag:
+To only include data for claims previously represented with ExplanationOfBenefit resources in v2, use the `_typeFilter` parameter to include only EOB resources with the `NationalClaimsHistory` tag:
 
 - v3 $export EOB resources of claims from National Claims History only
-   {% include copy_snippet.html code="GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CSharedSystem" language="shell" %}
+   {% include copy_snippet.html code="GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CNationalClaimsHistory" language="shell" %}
 
 ##### Omitting _typeFilter
 

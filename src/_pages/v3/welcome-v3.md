@@ -2,7 +2,7 @@
 layout: api-docs-v3
 page_title: "Welcome to the BCDA v3 Early Adopter Program"
 seo_title: ""
-description: "Welcome to the BCDA v3 Early Adopter Program."
+description: "Information about the BCDA v3 Early Adopter Program, including test scenarios and office hours schedule."
 show-side-nav: true
 feedback_id: ""
 ---
@@ -14,7 +14,7 @@ The Beneficiary Claims Data API (BCDA) team is excited to kick off our version 3
 ## How does the Early Adopter Program work?
 
 1. We’ll start with a scheduled kick-off call.
-2. Every 2 weeks you’ll complete 1 of 5 total Test Scenarios. 
+2. Every few weeks you’ll complete 1 of 5 total Test Scenarios. 
 3. You’ll join scheduled office hours to share feedback and ask questions about each Test Scenario. 
 4. We’ll share the presentations from office hours for your reference. Those who can’t attend will complete a short survey to share their feedback on the Test Scenario.
 
@@ -25,7 +25,7 @@ The Early Adopter Program starts with a kick-off call. Before the kick off call 
 - Learn about BCDA
 - Review API documentation 
 - Explore [Introducing BCDA v3]({{ '/v3/introducing-v3.html' | relative_url }}) <span class="usa-tag margin-x-1 bg-accent-warm">New</span>
-- Review [How to Migrate to v3]({{ '/v3/api-documentation/how-to-migrate-v3.html' | relative_url }}) <span class="usa-tag margin-x-1 bg-accent-warm">New</span>
+- Review [How to Migrate to v3]({{ '/v3/how-to-migrate-v3.html' | relative_url }}) <span class="usa-tag margin-x-1 bg-accent-warm">New</span>
 
 Need help? Contact us at <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hhs.gov</a>.
 
@@ -67,7 +67,7 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 {% endcapture %}
 
 {% include date-collection.html
-    title=" Test Scenario #2: Accessing Runout Data"
+    title="Test Scenario #2: Accessing Runout Data"
     date="February 19, 2026"
     subtitle="February 19, 2026 | 2:00 - 3:00 pm ET"
     content=date3
@@ -81,8 +81,8 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 
 {% include date-collection.html
     title="Test Scenario #3: Using the _typeFilter Parameter (Topic Updated)"
-    date="March 5, 2026"
-    subtitle="March 5, 2026 | 2:00 - 3:00 pm ET"
+    date="March 19, 2026"
+    subtitle="March 19, 2026 | 2:00 - 3:00 pm ET"
     content=date4
 %}
 
@@ -93,9 +93,9 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 {% endcapture %}
 
 {% include date-collection.html
-    title="Test Scenario #4: Comparing BCDA v3 Data to v2 and CCLF (Topic Updated)"
-    date="March 19, 2026"
-    subtitle="March 19, 2026 | 2:00 - 3:00 pm ET"
+    title="Test Scenario #4"
+    date="April 16, 2026"
+    subtitle="April 16, 2026 | 2:00 - 3:00 pm ET"
     content=date5
 %}
 
@@ -105,9 +105,9 @@ We look forward to joining you in what we hope will be a fun and enlightening pr
 {% endcapture %}
 
 {% include date-collection.html
-    title="Test Scenario #5: Tracking Claims through Adjudication"
-    date="April 2, 2026"
-    subtitle="April 2, 2026 | 2:00 - 3:00 pm ET"
+    title="Test Scenario #5"
+    date="May 14, 2026"
+    subtitle="May 14, 2026 | 2:00 - 3:00 pm ET"
     content=date6
 %}
 </ul>

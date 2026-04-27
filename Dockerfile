@@ -1,65 +1,41 @@
-ARG NODE_VERSION=24.6
-ARG RUBY_VERSION=3.2.6
-
-
-# -------------------------------------------------------------------------------------------------
-FROM node:${NODE_VERSION}-alpine AS node-build
+FROM node:24-alpine AS node-build
 
 WORKDIR /usr/app
+COPY package.json package-lock.json ./
 
-# install node dependencies
-RUN --mount=type=bind,source=package.json,target=package.json \
-    --mount=type=bind,source=package-lock.json,target=package-lock.json \
-    --mount=type=cache,target=/root/.npm \
-    npm ci --omit=dev
+RUN --mount=type=cache,target=/root/.npm \
+  npm i --omit=dev
 
 COPY ./src/assets ./src/assets
 COPY ./src/sass ./src/sass
+COPY gulpfile.js ./
 
-# compile assets
-RUN --mount=type=bind,source=package.json,target=package.json \
-    --mount=type=bind,source=package-lock.json,target=package-lock.json \
-    --mount=type=bind,source=gulpfile.js,target=gulpfile.js \
-    --mount=type=cache,target=/root/.npm \
-    npm run assets:build
+RUN npm run assets:build
 
 
-# -------------------------------------------------------------------------------------------------
-FROM ruby:${RUBY_VERSION} AS ruby-build
+FROM ruby:3.2.6 AS ruby-build
+ARG BASE_PATH
 
-# throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
-
 WORKDIR /usr/app
+COPY Gemfile Gemfile.lock ./
 
-# install gems
-RUN --mount=type=bind,source=Gemfile,target=Gemfile \
-    --mount=type=bind,source=Gemfile.lock,target=Gemfile.lock \
-    bundle install
+RUN --mount=type=cache,target=/usr/local/bundle \
+  bundle install
 
-# copy and source code and overwrite assets with compiled assets from previous stage
+RUN bundle install
+
 COPY ./src ./src
 COPY --from=node-build /usr/app/src/assets /usr/app/src/assets
 
-# build site
-RUN --mount=type=bind,source=Gemfile,target=Gemfile \
-    --mount=type=bind,source=Gemfile.lock,target=Gemfile.lock \
-    JEKYLL_ENV=production bundle exec jekyll build --source ./src
+RUN bundle exec jekyll build --source ./src ${BASE_PATH:+--baseurl $BASE_PATH}
 
 
-# -------------------------------------------------------------------------------------------------
-FROM node:${NODE_VERSION}-alpine
+FROM scratch AS export
+COPY --from=ruby-build /usr/app/_site /
 
-WORKDIR /usr/app/_site
 
-RUN npm install serve
+FROM nginx:1.29.5-alpine
 
-# copy only compiled static site from previous stage and serve
-COPY --from=ruby-build /usr/app/_site /usr/app/_site
-
-USER node
-
-EXPOSE 4000
-
-ENTRYPOINT [ "npx", "serve" ]
-CMD [ "-l", "4000" ]
+COPY --from=ruby-build /usr/app/_site /usr/share/nginx/html
+EXPOSE 80

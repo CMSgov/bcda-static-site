@@ -1,6 +1,6 @@
 ---
 layout: announcement
-page_title: "Normal data availability resumed for 2025 claims"
+page_title: "Updated guidance on managing BCDA credentials"
 show-side-nav: false
 in-page-nav: true
 published_date: 2024-11-18
