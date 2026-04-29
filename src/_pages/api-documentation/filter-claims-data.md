@@ -1,8 +1,8 @@
 ---
 layout: api-docs
-page_title: "How to Filter Claims Data "
+page_title: "How to Filter Claims Data"
 seo_title: ""
-description: "Use parameters to filter Medicare claims data returned."
+description: "Use the _since and _type parameters to filter Medicare claims data requests, speeding up downloads and reducing file sizes in sandbox and production environments."
 in-page-nav: true
 in-page-nav-levels: "h2"
 feedback_id: "40a078ea"
@@ -57,7 +57,7 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v2/Group/all/\$export?_type=Explan
 
 ## The _since parameter
 
-The _since parameter lets you filter for claims data last updated after a specified date. Dates must be in the [FHIR standard instant format](https://www.hl7.org/fhir/datatypes.html#instant)`(YYYY-MM-DDThh:mm:sss+zz:zz`. 
+The _since parameter lets you filter for claims data last updated after a specified date. Dates must be in the [FHIR standard instant format](https://www.hl7.org/fhir/datatypes.html#instant): `YYYY-MM-DDThh:mm:ss.sss+zz:zz`. 
 
 - Sample date: February 20, 2020 12:00 PM EST
 - Formatted sample: `2020-02-20T12:00:00.000-05:00`
