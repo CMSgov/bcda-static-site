@@ -182,10 +182,14 @@ The following diagram illustrates these differences while providing more detail 
 <figure class="width-full margin-y-4 margin-x-0" style="border: 1px solid #f0f0f0; border-radius: 4px; overflow:hidden; padding: 12px;">
   <img
     src="{{ '/assets/img/bcda-vs-cclf.svg' | relative_url }}"
-    alt="Partially adjudicated claims processing flow diagram."
+    alt="Timeline of when claim data becomes available to users through BCDA and CCLF after providers submit a claim."
     class="width-full"
   >
   <figcaption class="usa-sr-only">
+    <ul>
+        <li>Through BCDA: a partially adjudicated claim is available 2 to 4 days after submission and continues to update every 2 to 4 days while CMS is processing. Once the claim is fully adjudicated, it is available through BCDA within 1 to 7 days.</li>
+        <li>Through CCLF: the fully adjudicated claim is available via CCLF Self-Service 1 to 7 days after adjudication and via the CCLF monthly feed 2 to 6 weeks after full adjudication.</li>
+    </ul>
   </figcaption>
 </figure>
 
