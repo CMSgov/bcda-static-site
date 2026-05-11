@@ -15,5 +15,9 @@
     updated: true
 
   - name: Partially Adjudicated Claims Data
-    url: /v3/partially-adjudicated-claims-data-v3
+    url: /v3/partially-adjudicated-claims-data-v3.html
+    updated: true
+
+  - name: Comparison of BCDA v3 and CCLF Files
+    url: /v3/comparison-bcda-cclf-files-v3.html
     updated: true
