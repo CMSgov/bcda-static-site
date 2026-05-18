@@ -7,27 +7,38 @@ show-side-nav: false
 feedback_id: "7d0c54c6"
 ---
 
-<div class="grid-row grid-gap-4 desktop:grid-gap-6 padding-y-7">
-  <div class="desktop:order-last desktop:grid-col display-flex flex-align-center desktop:flex-justify-center">
+<div class="grid-row grid-gap-4 desktop:grid-gap-6 padding-top-7">
+  <div class="desktop:order-last desktop:grid-col-4 display-flex flex-align-center desktop:flex-justify-center">
     <img class="width-auto height-full" style="object-fit: contain;"
       src="{{ '/assets/img/data-consult.svg' | relative_url }}" 
       alt=""
     />
   </div>
-  <div class="desktop:grid-col-auto padding-top-4 desktop:padding-top-0 display-flex flex-align-center">
+  <div class="desktop:grid-col-8 padding-top-4 desktop:padding-top-0 display-flex flex-align-center">
     <div>
       <h1>{{ page.page_title }}</h1>
+      <p class="usa-intro">Healthcare innovation to support value-based care</p>
+      <p class="usa-intro">Every claim submitted to Medicare contains parts of a bigger story. These insights can get lost as patients move through a complex healthcare system.</p>
       <p>
-        Beneficiary Claims Data API (BCDA) was released in February 2019 to share Medicare claims data with Accountable Care Organizations (ACOs) and other <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">eligible model entities</a>. 
-      </p>
-      <p>
-        Similar to <a href="https://www.cms.gov/files/document/cclf-information-packet.pdf" target="_blank" rel="noopener noreferrer">Claim and Claim Line Feed (CCLF) files</a>, BCDA offers Medicare Parts A, B, and D data, but with some key differences in formatting and update frequency. <a href="{{ '/bcda-data/comparison-bcda-cclf-files.html' | relative_url }}">Read more about using one or both data sources</a>, or map data between sources using the <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>.
+        Beneficiary Claims Data API (BCDA) helps <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">organizations</a> participating in <a href="https://www.cms.gov/priorities/innovation/about/alternative-payment-models" target="_blank" rel="noopener noreferrer">Alternative Payment Models</a> reach <a href="https://www.cms.gov/priorities/innovation/key-concepts/value-based-care" target="_blank" rel="noopener noreferrer">value-based care</a> incentives through accountable, integrated, and person-centered care. As an Application Programming Interface (API), BCDA helps organizations integrate Medicare claims data into their tracking, reporting, and performance systems. When providers learn about services their patients receive across the healthcare landscape, they provide more coordinated care.
       </p>
     </div>
   </div>
 </div>
 
-## Claims data process
+##  What’s in the data
+
+Similar to [Claim and Claim Line Feeds (CCLF)](https://www.cms.gov/files/document/cclf-information-packet.pdf), [BCDA data]({{ '/bcda-data' | relative_url }}) offers Medicare Parts A, B, and D data, but with key differences in file formatting and update frequency based partly on its foundation in [Fast Healthcare Interoperability Resources](https://hl7.org/fhir/) (FHIR). FHIR standardizes data delivery into more universal categories that are easier for different systems to absorb and understand.
+
+Learn more about [using CCLF and BCDA files]({{ '/bcda-data/comparison-bcda-cclf-files' | relative_url }}) and mapping data between them with the [Data Dictionary]({{ '/bcda-data#data-dictionary' | relative_url }}).
+
+## Continuing innovation: BCDA v3
+
+For 15 years, the [Center for Medicare and Medicaid Innovation (the Innovation Center)](https://www.cms.gov/priorities/innovation/about/cms-innovation-center-strategy-make-america-healthy-again) has worked to transform healthcare through programs that incentivize value-based care. BCDA introduced version 3 (v3) in 2026 to keep pace with the Innovation Center’s continuing work to transform the American health system.
+
+BCDA v3 consolidates data sources and FHIR conformance to help organizations reduce administrative friction, improve data quality, provide a better user experience, and more effectively realize the standardization benefits of FHIR interoperability.
+
+## How BCDA fits into the claims data process
 
 <ol class="usa-process-list margin-top-2 about-process-list">
     <li class="usa-process-list__item about-connector">
@@ -55,7 +66,13 @@ feedback_id: "7d0c54c6"
     </li> 
 </ol>
 
-<h2 class="margin-top-8">Access partially adjudicated claims data with BCDA</h2>
+## Keeping pace with future change and innovation
+
+BCDA continues to support CMS efforts to empower patients with access to their own data, encompass future payment models, and prevent fraud, waste, abuse as well as authorization-related claims issues.
+
+### Improving timeliness with access to claims during processing
+
+Normally, access to Parts A, B, and D data can be delayed during claims processing (adjudication). BCDA lets provider organizations see "partially-adjudicated" data before waiting for the process to complete.
 
 <table class="usa-table usa-table--borderless usa-table--stacked margin-bottom-4">
   <caption class="usa-sr-only">Partially versus fully adjudicated claims data</caption>
@@ -101,9 +118,19 @@ feedback_id: "7d0c54c6"
   </tbody>
 </table>
 
-Read <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}">the guide to partially adjudicated claims and their use cases</a> to learn more.
+Read the guide to [partially adjudicated claims]({{ '/bcda-data/partially-adjudicated-claims-data' | relative_url }}) and their use cases to learn more.
 
-<h2 class="margin-top-10 padding-top-2">What are the other CMS claims-based FHIR APIs?</h2>
+- Update frequency
+- Resource types
+- Eligible organizations
+- Data Dictionary
+
+## Keeping pace with future change and innovation
+
+BCDA continues to support CMS efforts to empower patients with access to their own data, encompass future payment models, and prevent fraud, waste, abuse as well as authorization-related claims issues.
+
+{: class="margin-top-10"}
+## What are the other CMS claims-based FHIR APIs?
 
 <ul class="usa-card-group flex-justify-center padding-y-4">
     <li class="usa-card tablet:grid-col-6 desktop:grid-col-4">
