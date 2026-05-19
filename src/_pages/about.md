@@ -118,7 +118,7 @@ Normally, access to Parts A, B, and D data can be delayed during claims processi
   </tbody>
 </table>
 
-Read the guide to [partially adjudicated claims]({{ '/bcda-data/partially-adjudicated-claims-data' | relative_url }}) and their use cases to learn more.
+Read the guide to [partially adjudicated claims]({{ '/bcda-data/partially-adjudicated-claims-data' | relative_url }}) and their use cases to learn more about:
 
 - Update frequency
 - Resource types
