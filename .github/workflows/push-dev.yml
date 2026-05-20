@@ -5,11 +5,17 @@ on:
     branches:
       - main
 
+permissions: {}
+
 concurrency:
   group: ${{ github.workflow }}-${{  github.ref }}
   cancel-in-progress: true
 
 jobs:
   deploy:
+    permissions:
+      contents: read
+      id-token: write
     uses: ./.github/workflows/deploy.yml
-    secrets: inherit
+    secrets:
+      AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}

@@ -3,6 +3,8 @@ name: "pull request"
 on:
   pull_request:
 
+permissions: {}
+
 concurrency:
   group: ${{ github.workflow }}-${{  github.event.number }}
   cancel-in-progress: true
@@ -10,28 +12,35 @@ concurrency:
 jobs:
   deploy:
     if: ${{ !startsWith(github.actor, 'bot-') }}
+    permissions:
+      contents: read
+      id-token: write
     with:
       feature_path: ${{ github.event.number }}
     uses: ./.github/workflows/deploy.yml
-    secrets: inherit
+    secrets:
+      AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
 
   comment-pr:
     needs: deploy
     permissions:
-      pull-requests: 'write'
+      pull-requests: write
     uses: ./.github/workflows/comment-pr.yml
 
   a11y-check:
     needs: deploy
-    with: 
+    permissions: {}
+    with:
       feature_path: ${{ github.event.number }}
     uses: ./.github/workflows/a11y-check.yml
-    secrets: inherit
 
   broken-link-check:
     needs: deploy
+    permissions:
+      id-token: write
     with:
       env: "staging"
       feature_path: ${{ github.event.number }}
     uses: ./.github/workflows/broken-link-check.yml
-    secrets: inherit
+    secrets:
+      STAGE_AWS_ACCOUNT_ID: ${{ secrets.STAGE_AWS_ACCOUNT_ID }}
