@@ -9,6 +9,21 @@ feedback_id: "1dd96929"
 
 # {{ page.page_title }} <span class="usa-tag usa-tag--big margin-x-1 bg-accent-warm text-middle">New</span>
 
+## Improve health outcomes
+
+- Earlier access to claims data, including partially adjudicated claims, supports timely follow-ups and interventions
+- Build a longitudinal picture of enrollee health with years of historical data, closely aligned with other CMS data sources
+
+## Track performance toward CMS quality measures
+
+- Detect unusual patterns and cost outliers earlier to help eliminate fraud, waste, and abuse  
+- Improve performance on CMS quality measures to impact shared savings
+
+## Standardize health data systems
+
+- Improved conformance with FHIR standards saves time and money on integrations with EHRs and off-the-shelf FHIR data clients  
+- Close alignment with CCLF files, including shared claim identifiers, makes it easier to transition from file-based to industry-standard interoperable formats
+
 BCDA version 3 (v3) delivers faster, more reliable access to Medicare claims data with significant improvements for users. These improvements include:
 
 - Moving to a single source of Medicare claims data, the CMS Integrated Data Repository (IDR) 
