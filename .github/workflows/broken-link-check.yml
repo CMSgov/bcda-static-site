@@ -17,13 +17,18 @@ on:
         required: false
         type: string
   workflow_call:
-    inputs: 
+    inputs:
       env:
         required: true
         type: string
       feature_path:
         required: true
         type: string
+    secrets:
+      STAGE_AWS_ACCOUNT_ID:
+        required: false
+      PROD_AWS_ACCOUNT_ID:
+        required: false
 
 jobs:
   broken-link-check-prod:
@@ -53,7 +58,7 @@ jobs:
 
       - name: Check for Broken Prod Links
         id: lychee-prod
-        uses: lycheeverse/lychee-action@v2
+        uses: lycheeverse/lychee-action@8646ba30535128ac92d33dfc9133794bfdd9b411 # v2.8.0
         with:
           jobSummary: true
           fail: false
@@ -84,11 +89,11 @@ jobs:
 
       - name: Download Site Contents (Dev)
         run: |
-          aws s3 sync s3://${TARGET_BUCKET}/${{ env.BASE_PATH }} .
+          aws s3 sync "s3://${TARGET_BUCKET}/${BASE_PATH}" .
 
       - name: Check for Broken Dev Links
         id: lychee-dev
-        uses: lycheeverse/lychee-action@v2
+        uses: lycheeverse/lychee-action@8646ba30535128ac92d33dfc9133794bfdd9b411 # v2.8.0
         with:
           jobSummary: true
           fail: false
