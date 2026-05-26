@@ -56,7 +56,7 @@ jobs:
         if: ${{ !env.BASE_PATH }}
         # This $TARGET_BUCKET comes from a previous step, cmsgov/cdap/actions/aws-params-env-action@main
         run: |
-          aws s3 sync _site/ s3://$TARGET_BUCKET/ --delete --exclude 'feature/*' --metadata-directive REPLACE --metadata "lifecycle-transition=ia"
+          aws s3 sync _site/ "s3://${TARGET_BUCKET}/" --delete --exclude 'feature/*' --metadata-directive REPLACE --metadata "lifecycle-transition=ia"
 
       - name: Deploy the site to feature url/directory
         if: ${{ env.BASE_PATH }}
