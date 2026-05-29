@@ -10,7 +10,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    runs-on: codebuild-bcda-static-site-prod-${{github.run_id}}-${{github.run_attempt}}
+    runs-on: codebuild-bcda-static-site-non-prod-${{github.run_id}}-${{github.run_attempt}}
 
     steps:
       - name: Configure AWS Credentials
