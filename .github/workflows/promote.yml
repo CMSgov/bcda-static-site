@@ -3,6 +3,11 @@ name: "promote"
 on:
   workflow_dispatch:
   workflow_call:
+    secrets:
+      STAGE_AWS_ACCOUNT_ID:
+        required: true
+      PROD_AWS_ACCOUNT_ID:
+        required: true
 
 jobs:
   promote:
@@ -43,7 +48,7 @@ jobs:
 
       - name: Copy Site to Prod Bucket
         run: |
-          aws s3 sync ./temp-site/ s3://${TARGET_BUCKET}/ --delete --metadata-directive REPLACE --metadata "lifecycle-transition=ia"
+          aws s3 sync ./temp-site/ "s3://${TARGET_BUCKET}/" --delete --metadata-directive REPLACE --metadata "lifecycle-transition=ia"
 
       - name: Invalidate Prod Distribution
         run: |

@@ -4,7 +4,14 @@ on:
   release:
     types: ['released']
 
+permissions: {}
+
 jobs:
   deploy:
+    permissions:
+      contents: read
+      id-token: write
     uses: ./.github/workflows/promote.yml
-    secrets: inherit
+    secrets:
+      STAGE_AWS_ACCOUNT_ID: ${{ secrets.STAGE_AWS_ACCOUNT_ID }}
+      PROD_AWS_ACCOUNT_ID: ${{ secrets.PROD_AWS_ACCOUNT_ID }}
