@@ -19,7 +19,7 @@ These fundamental changes improve data frequency, tracking, filtering, and mappi
 
 ## What this means for v1 and v2 implementations
 
-Existing users will migrate to v3 between July 1, 2026 and early 2027 (date TBA). The BCDA team will provide migration guides and hold in-person office hours for live support. 
+Existing users will migrate to v3 between July 1, 2026 and mid-2027 (date TBD). The BCDA team will provide migration guides and hold in-person office hours for live support. 
 
 ## Want to get started?
 
