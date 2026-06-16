@@ -1,4 +1,4 @@
-FROM node:24-alpine AS node-build
+FROM node:26-alpine AS node-build
 
 WORKDIR /usr/app
 COPY package.json package-lock.json ./
@@ -13,7 +13,7 @@ COPY gulpfile.js ./
 RUN npm run assets:build
 
 
-FROM ruby:3.2.6 AS ruby-build
+FROM ruby:4.0.5 AS ruby-build
 ARG BASE_PATH
 
 RUN bundle config --global frozen 1
@@ -35,7 +35,7 @@ FROM scratch AS export
 COPY --from=ruby-build /usr/app/_site /
 
 
-FROM nginx:1.29.5-alpine
+FROM nginx:1.31.1-alpine
 
 COPY --from=ruby-build /usr/app/_site /usr/share/nginx/html
 EXPOSE 80
