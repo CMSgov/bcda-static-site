@@ -98,34 +98,11 @@ Now you can begin [accessing claims data]({{ '/api-documentation/access-claims-d
 
 Sandbox credentials allow anyone to access synthetic test claims data. These credentials will not work in the production environment. 
 
-Sample data sets vary in size and data complexity, ranging from 50 to 30,000 synthetic enrollees, to best match the needs of your model entity.  
-
-### Adjudicated claims data sets – 2 simple sizes
-Use the data sets to test retrieving and downloading data files into your internal ingestion processes. However, the test data may not reflect an accurate distribution of disease and demographic information.
-
-#### Extra-small model entity (50 synthetic enrollees)
-
-Client ID:
-
-{% include copy_snippet.html code=site.data.credentials.sandbox.extra_small.client_id language="yaml" can_copy=true %}
-
-Client secret:
-
-{% include copy_snippet.html code=site.data.credentials.sandbox.extra_small.client_secret language="yaml" can_copy=true %}
-
-#### Extra-large model entity (30,000 synthetic enrollees)
-
-Client ID:
-
-{% include copy_snippet.html code=site.data.credentials.sandbox.extra_large.client_id language="yaml" can_copy=true %}
-
-Client secret:
-
-{% include copy_snippet.html code=site.data.credentials.sandbox.extra_large.client_secret language="yaml" can_copy=true %}
+Sample data sets vary in size and data complexity, ranging from 100 to 11,000 synthetic enrollees, to best match the needs of your model entity.  
 
 ### Adjudicated claims data sets – 2 advanced sizes
 
-Advanced data sets offer a more accurate representation with the bulk FHIR format and a realistic distribution of disease and demographic information. 
+Advanced data sets offer an accurate representation with the bulk FHIR format and a realistic distribution of disease and demographic information. 
 
 The small data set helps you understand the format of BCDA data. The large data set is better for in-depth exploration or early load testing of your systems.
 
