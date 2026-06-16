@@ -27,17 +27,17 @@ BCDA protects its token endpoint with Basic Auth. Your credentials will be forma
     </div>
 </div>
 
-Start a request for a bearer token in your terminal window or using a tool such as Postman. The following example uses the credentials of the extra-small model entity in BCDA's sandbox environment:
+Start a request for a bearer token in your terminal window or using a tool such as Postman. The following example uses the credentials of the Small Advanced Model Entity in BCDA's sandbox environment:
 
 #### Sample Credentials
 
-Example client ID (Extra-Small Model Entities):
+Example client ID (Small Advanced Model Entity):
 
-{% include copy_snippet.html code=site.data.credentials.sandbox.extra_small.client_id language="yaml" can_copy=true %}
+{% include copy_snippet.html code=site.data.credentials.adv.small.client_id language="yaml" can_copy=true %}
 
-Example client secret (Extra-Small Model Entities):
+Example client secret (Small Advanced Model Entity):
 
-{% include copy_snippet.html code=site.data.credentials.sandbox.extra_small.client_secret language="yaml" can_copy=true %}
+{% include copy_snippet.html code=site.data.credentials.adv.small.client_secret language="yaml" can_copy=true %}
 
 #### Request header
 
@@ -57,7 +57,7 @@ This command uses curl's built-in ability to Base-64 encode your credential to r
 
 {% capture Snippet4 %}
 curl -d "" -X POST "https://sandbox.bcda.cms.gov/auth/token" \
-	--user {{site.data.credentials.sandbox.extra_small.client_id}}:{{site.data.credentials.sandbox.extra_small.client_secret}} \
+	--user {{site.data.credentials.adv.small.client_id}}:{{site.data.credentials.adv.small.client_secret}} \
 	-H "Accept: application/json"
 {% endcapture %}
 {% include copy_snippet.html code=Snippet4 language="shell" can_copy=true %}
