@@ -35,7 +35,7 @@ Learn about enhancements to the API and get tips on how to plan your migration f
 {% include date-collection.html
     title="Planning your migration to v3"
     date="July 9, 2026"
-    subtitle="July 9, 2026 | 1:00 - 2:00 pm CT"
+    subtitle="July 9, 2026 | 2:00 - 3:00 pm ET"
     content=date1
 %}
 
@@ -48,7 +48,7 @@ Join us for a general overview about how to access and use Medicare claims data 
 {% include date-collection.html
     title="Getting started with BCDA"
     date="July 23, 2026"
-    subtitle="July 23, 2026 | 1:00 - 2:00 pm CT"
+    subtitle="July 23, 2026 | 2:00 - 3:00 pm ET"
     content=date2
 %}
 </ul>
