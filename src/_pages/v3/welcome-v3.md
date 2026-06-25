@@ -9,17 +9,17 @@ feedback_id: ""
 
 # {{ page.page_title }}
 
-This documentation is for **v1 and v2 users migrating to BCDA v3**. If you’re new to BCDA, our [standard BCDA documentation]({{ '/api-documentation/' | relative_url }}) may be the best place to get started. 
+This documentation is for **v1 and v2 users migrating to BCDA v3**. If you’re new to BCDA, our [standard BCDA documentation]({{ '/api-documentation' | relative_url }}) may be the best place to get started. 
 
 BCDA v3 became available July 1, 2026\. Access to v1 and 2 will be removed in mid-2027 (date to be determined). This documentation summarizes v3 changes and improvements while providing detailed steps to migrate.
 
 ## Topics
 
-- [Introducing BCDA v3]({{ '/v3/introducing-v3/' | relative_url }}) - Summary of v3 features and improvements   
-- [How to Migrate to v3]({{ '/v3/how-to-migrate-v3/' | relative_url }}) - New endpoints, claims representation, extensions, and mapping  
-- [How to Filter Claims Data]({{ '/v3/filter-claims-data-v3/' | relative_url }}) - Updated to include the [\_typefilter parameter]({{ '/v3/filter-claims-data-v3/#the-typefilter-parameter' | relative_url }})  
-- [Partially Adjudicated Claims Data]({{ '/v3/partially-adjudicated-claims-data-v3/' | relative_url }}) - Updated with FHIR resource consolidation  
-- [Comparison of BCDA v3 and CCLF Files]({{ '/v3/comparison-bcda-cclf-files-v3/' | relative_url }}) - Updated to cover mapping changes
+- [Introducing BCDA v3]({{ '/v3/introducing-v3' | relative_url }}) - Summary of v3 features and improvements   
+- [How to Migrate to v3]({{ '/v3/how-to-migrate-v3' | relative_url }}) - New endpoints, claims representation, extensions, and mapping  
+- [How to Filter Claims Data]({{ '/v3/filter-claims-data-v3' | relative_url }}) - Updated to include the [\_typefilter parameter]({{ '/v3/filter-claims-data-v3/#the-typefilter-parameter' | relative_url }})  
+- [Partially Adjudicated Claims Data]({{ '/v3/partially-adjudicated-claims-data-v3' | relative_url }}) - Updated with FHIR resource consolidation  
+- [Comparison of BCDA v3 and CCLF Files]({{ '/v3/comparison-bcda-cclf-files-v3' | relative_url }}) - Updated to cover mapping changes
 
 ## Join v3 office hours
 
