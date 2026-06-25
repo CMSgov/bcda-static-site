@@ -14,8 +14,8 @@ Centers for Medicare & Medicaid Services (CMS) is excited to announce version 3 
 
 With BCDA v3, model entities get patient claims data earlier, allowing them to identify issues and intervene sooner. v3 strengthens alignment with Fast Healthcare Interoperability Resources (FHIR) standards and other CMS data sources, reducing time and money spent on integrations and reconciliation. Driving these improvements are:
 
-* A new, single source of Medicare claims data   
-* Better alignment with sources such as Claim and Claim Line Feed (CCLF) files
+- A new, single source of Medicare claims data   
+- Better alignment with sources such as Claim and Claim Line Feed (CCLF) files
 
 These fundamental changes improve data frequency, tracking, filtering, mapping, and FHIR conformance.
 
@@ -23,8 +23,8 @@ These fundamental changes improve data frequency, tracking, filtering, mapping, 
 
 v3 offers timelier updates to patient and coverage data, meaning:
 
-* Shorter time between full processing (adjudication) and data availability   
-* Increased frequency of updates to patient and coverage information
+- Shorter time between full processing (adjudication) and data availability   
+- Increased frequency of updates to patient and coverage information
 
 ### Easier claims tracking
 
@@ -32,7 +32,7 @@ BCDA v3 makes it easier to track claims through the adjudication cycle. It uses 
 
 ### Enhanced filtering capabilities
 
-The new [_typeFilter query parameter](/v3/filter-claims-data-v3.html#the-typefilter-parameter) provides additional options for complex data workflows.
+The new [_typeFilter query parameter]({{ '/v3/filter-claims-data-v3.html#the-typefilter-parameter' | relative_url }}) provides additional options for complex data workflows.
 
 ### Improved conformance with select FHIR Implementation Guides
 
@@ -58,4 +58,4 @@ Through a unified data structure and consolidated data sources, BCDA v3 can redu
 
 ## What this means for current users
 
-The v1 and v2 endpoints will be disabled in 2027 on a date to be announced. Refer to the [v3 Migration Guide](/v3/how-to-migrate-v3.html) for steps and support on upgrading to v3. 
+The v1 and v2 endpoints will be disabled in 2027 on a date to be announced. Refer to the [v3 Migration Guide]({{ '/v3/how-to-migrate-v3/' | relative_url }}) for steps and support on upgrading to v3. 
