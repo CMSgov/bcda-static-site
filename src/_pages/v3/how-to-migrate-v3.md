@@ -18,7 +18,7 @@ This guide helps you migrate from BCDA v1/v2 to version 3 (v3). Key changes incl
 - Updated extension and code system URLs
 - Different resource IDs requiring new matching strategies
 
-More about v3 [More about v3]({{ '/v3/introducing-v3' | relative_url }})
+[More about v3]({{ '/v3/introducing-v3' | relative_url }})
 
 ### Changes to BCDA in v3
 
@@ -65,7 +65,7 @@ The /auth and /data URLs will remain the same between versions. You won't need t
 
 ## Changes to claims representation
 
-In BCDA v2, 3, claims data are still returned in FHIR R4 format, but there are changes to the Patient, Coverage, and ExplanationOfBenefit resources. These changes include:
+In BCDA v3, claims data are still returned in FHIR R4 format, but there are changes to the Patient, Coverage, and ExplanationOfBenefit resources. These changes include:
  - Better conformity with C4BB 2.1.0 profiles
  - New StructureDefenition and CodeSystem URLs for CMS-specific extensions and terminologies
  - New data elements
