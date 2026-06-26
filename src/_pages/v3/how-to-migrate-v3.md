@@ -11,7 +11,7 @@ feedback_id: "8a4c0b7b"
 
 ## Migration overview
 
-This guide helps you migrate from BCDA v1/v2 to version 3 (v3). Key changes include:
+This guide helps you migrate from BCDA v1/v2 to v3. Key changes include:
 
 - New endpoint URL structure
 - Unified ExplanationOfBenefit resource for all claims
@@ -107,11 +107,10 @@ We've extended the API with the [`_typeFilter` parameter]({{ '/v3/filter-claims-
 
 In v3, specify all System Type codes using the _typeFilter parameter.
 {% capture sampleRequest %}{% raw %}
-GET /api/v3/Patient/$export?
-  _type=
-    ExplanationOfBenefit
-  &_typeFilter=
-    ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CSharedSystem%2Chttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CNationalClaimsHistory%2Chttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CDDPS
+GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit?_tag=
+  https://bluebutton.cms.gov/fhir/CodeSystem/System-Type|SharedSystem,
+  https://bluebutton.cms.gov/fhir/CodeSystem/System-Type|NationalClaimsHistory,
+  https://bluebutton.cms.gov/fhir/CodeSystem/System-Type|DDPS
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=sampleRequest %}
 
@@ -197,7 +196,7 @@ If your BCDA client is using any of the v2 URLs, you’ll need to update your co
 <div class="usa-alert usa-alert--warning">
   <div class="usa-alert__body">
       <p class="usa-alert__heading text-bold">Do not use FHIR IDs to match resources between versions.</p>
-      <p class="usa-alert__text">To match <a href="{{ '/v3/api-documentation/how-to-migrate-v3.html#matching-beneficiaries-between-v2-and-v3-2' | relative_url }}">beneficiaries</a>, use MBI and demographics data. To match <a href="{{ 'v3/api-documentation/how-to-migrate-v3.html#matching-claims-between-v2-and-v3-2' | relative_url }}">claims</a>, use claim control number.</p>
+      <p class="usa-alert__text">To match <a href="{{ '/v3/api-documentation/how-to-migrate-v3.html#matching-beneficiaries-between-v2-and-v3-2' | relative_url }}">beneficiaries</a>, use MBI and demographics data. To match <a href="{{ 'v3/api-documentation/how-to-migrate-v3.html#matching-claims-between-v2-and-v3-2' | relative_url }}">claims</a>, use the claim control number.</p>
   </div>
 </div>
 
@@ -242,7 +241,7 @@ Example v3 `Patient.identifier` element:
 
 It is always good practice to have some kind of validation based on patient demographics, like supplementing the MBI exact match with some subset of name, date of birth, and gender matching.
 
-Once you have matched an existing `Patient`, or created a new one, it is ok to store the BCDA v3 `Patient.id`. It is possible for two different MBIs to reference the same beneficiary, and therefore the same BCDA v3 `Patient`. If that happens, you will see multiple `Patient.identifier` where the system is `http://hl7.org/fhir/sid/us-mbi`. This is rare, but you should be prepared for it to happen.
+Once you have matched an existing `Patient`, or created a new one, it is ok to store the BCDA v3 `Patient.id`. It is possible for two different MBIs to reference the same beneficiary, and therefore the same BCDA v3 `Patient`. If that happens, you will see multiple instances of `Patient.identifier` where the system is `http://hl7.org/fhir/sid/us-mbi`. This is rare, but you should be prepared for it to happen.
 
 Example of v3 `Patient.identifier` with two MBIs:
 
@@ -289,7 +288,7 @@ Example of v3 `Patient.identifier` with two MBIs:
 
 Because the v3 `ExplanationOfBenefit` FHIR ID will not match the v2 `ExplanationOfBenefit` or `Claim`/`ClaimResponse` FHIR IDs, in order to match a v3 claim to a claim you already have in your database, the best way is to use the claim control number.
 
-Because each version of a claim will have a unique claim ID, you should avoid using the unique claim ID to track a claim across versions, or even within a version across the adjudication journey. Instead, use the claim control number. It is the identifier where the system is [https://bluebutton.cms.gov/identifiers/CLM-CNTL-NUM](https://bluebutton.cms.gov/identifiers/CLM-CNTL-NUM).
+Because each version of a claim will have a unique claim ID, you should avoid using the unique claim ID to track a claim across versions, or even within a version across the adjudication journey. Instead, use the claim control number. It is the identifier where the `identifier.system` equals [https://bluebutton.cms.gov/identifiers/CLM-CNTL-NUM](https://bluebutton.cms.gov/identifiers/CLM-CNTL-NUM).
 
 Example `ExplanationOfBenefit.identifier` element:
 
