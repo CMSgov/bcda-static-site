@@ -36,9 +36,8 @@ Learn more about [using CCLF and BCDA files]({{ '/bcda-data/comparison-bcda-cclf
 
 For 15 years, the [Center for Medicare and Medicaid Innovation (the Innovation Center)](https://www.cms.gov/priorities/innovation/about/cms-innovation-center-strategy-make-america-healthy-again) has worked to transform healthcare through programs that incentivize value-based care. BCDA introduced version 3 (v3) in 2026 to keep pace with the Innovation Center’s continuing work to transform the American health system.
 
-BCDA v3 consolidates data sources and FHIR conformance to help organizations reduce administrative friction, improve data quality, provide a better user experience, and more effectively realize the standardization benefits of FHIR interoperability.
+[BCDA v3]({{ '/announcements/bcda-launches-v3' | relative_url }}) consolidates data sources and FHIR conformance to help organizations reduce administrative friction, improve data quality, provide a better user experience, and more effectively realize the standardization benefits of FHIR interoperability.
 
-[Introducing v3]({{ '/announcements/bcda-launches-v3' | relative_url }})
 
 ## How BCDA fits into the claims data process
 
