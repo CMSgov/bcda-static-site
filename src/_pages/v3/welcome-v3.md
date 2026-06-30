@@ -17,7 +17,7 @@ BCDA v3 became available July 1, 2026\. Access to v1 and 2 will be removed in mi
 
 - [Introducing BCDA v3]({{ '/v3/introducing-v3' | relative_url }}) - Summary of v3 features and improvements   
 - [How to Migrate to v3]({{ '/v3/how-to-migrate-v3' | relative_url }}) - New endpoints, claims representation, extensions, and mapping  
-- [How to Filter Claims Data]({{ '/v3/filter-claims-data-v3' | relative_url }}) - Updated to include the [\_typefilter parameter]({{ '/v3/filter-claims-data-v3/#the-typefilter-parameter' | relative_url }})  
+- [How to Filter Claims Data]({{ '/v3/filter-claims-data-v3' | relative_url }}) - Updated to include the [\_typeFilter parameter]({{ '/v3/filter-claims-data-v3/#the-typefilter-parameter' | relative_url }})  
 - [Partially Adjudicated Claims Data]({{ '/v3/partially-adjudicated-claims-data-v3' | relative_url }}) - Updated with FHIR resource consolidation  
 - [Comparison of BCDA v3 and CCLF Files]({{ '/v3/comparison-bcda-cclf-files-v3' | relative_url }}) - Updated to cover mapping changes
 
