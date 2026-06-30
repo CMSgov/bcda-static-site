@@ -1,8 +1,8 @@
 ---
 layout: api-docs-v3
 page_title: "BCDA v3 Documentation"
-seo_title: ""
-description: "Information about BCDA v3."
+seo_title: "Welcome to BCDA v3 | CMS Beneficiary Claims Data API"
+description: "Migrate to BCDA v3 now to experience timelier access, FHIR conformance, and improved outcomes."
 show-side-nav: true
 feedback_id: ""
 ---

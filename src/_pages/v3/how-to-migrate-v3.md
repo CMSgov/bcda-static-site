@@ -1,8 +1,8 @@
 ---
 layout: api-docs-v3
 page_title: "How to Migrate to v3"
-seo_title: ""
-description: "A step-by-step guide for migrating from BCDA v2 to v3, covering endpoint changes, resource mapping, and new features."
+seo_title: "How to Migrate to BCDA v3 | CMS Beneficiary Claims Data API"
+description: "Learn about new endpoints, FHIR resource consolidation, and updated URLs and IDs."
 in-page-nav: true
 feedback_id: "8a4c0b7b"
 ---
