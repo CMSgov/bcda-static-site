@@ -1,113 +1,62 @@
 ---
 layout: api-docs-v3
-page_title: "Welcome to the BCDA v3 Early Adopter Program"
-seo_title: ""
-description: "Information about the BCDA v3 Early Adopter Program, including test scenarios and office hours schedule."
+page_title: "BCDA v3 Documentation"
+seo_title: "Welcome to BCDA v3 | CMS Beneficiary Claims Data API"
+description: "Migrate to BCDA v3 now to experience timelier access, FHIR conformance, and improved outcomes."
 show-side-nav: true
 feedback_id: ""
 ---
 
 # {{ page.page_title }}
 
-The Beneficiary Claims Data API (BCDA) team is excited to kick off our version 3 (v3) Early Adopter Program. As an early adopter you’ll be one of the first to interact with v3. You’ll share feedback that can shape the future of BCDA and get personalized support.   
+This documentation is for **v1 and v2 users migrating to BCDA v3**. If you’re new to BCDA, our [standard BCDA documentation]({{ '/api-documentation' | relative_url }}) may be the best place to get started. 
 
-## How does the Early Adopter Program work?
+BCDA v3 became available July 1, 2026\. Access to v1 and 2 will be removed in mid-2027 (date to be determined). This documentation summarizes v3 changes and improvements while providing detailed steps to migrate.
 
-1. We’ll start with a scheduled kick-off call.
-2. Every few weeks you’ll complete 1 of 5 total Test Scenarios. 
-3. You’ll join scheduled office hours to share feedback and ask questions about each Test Scenario. 
-4. We’ll share the presentations from office hours for your reference. Those who can’t attend will complete a short survey to share their feedback on the Test Scenario.
+## Topics
 
-## How do I get started?
+- [Introducing BCDA v3]({{ '/v3/introducing-v3' | relative_url }}) - Summary of v3 features and improvements   
+- [How to Migrate to v3]({{ '/v3/how-to-migrate-v3' | relative_url }}) - New endpoints, claims representation, extensions, and mapping  
+- [How to Filter Claims Data]({{ '/v3/filter-claims-data-v3' | relative_url }}) - Updated to include the [\_typeFilter parameter]({{ '/v3/filter-claims-data-v3/#the-typefilter-parameter' | relative_url }})  
+- [Partially Adjudicated Claims Data]({{ '/v3/partially-adjudicated-claims-data-v3' | relative_url }}) - Updated with FHIR resource consolidation  
+- [Comparison of BCDA v3 and CCLF Files]({{ '/v3/comparison-bcda-cclf-files-v3' | relative_url }}) - Updated to cover mapping changes
 
-The Early Adopter Program starts with a kick-off call. Before the kick off call (or throughout the program) you can:
+## Join v3 office hours
 
-- Learn about BCDA
-- Review API documentation 
-- Explore [Introducing BCDA v3]({{ '/v3/introducing-v3.html' | relative_url }}) <span class="usa-tag margin-x-1 bg-accent-warm">New</span>
-- Review [How to Migrate to v3]({{ '/v3/how-to-migrate-v3.html' | relative_url }}) <span class="usa-tag margin-x-1 bg-accent-warm">New</span>
-
-Need help? Contact us at <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hhs.gov</a>.
-
-We look forward to joining you in what we hope will be a fun and enlightening program.
-
-## Early Adopter Program schedule 
+We’re offering regular office hours to help you during your v3 migration. At each event, a 20-minute presentation will be followed by time for open questions.
 
 <ul class="usa-collection">
 {% capture date1 %}
-- BCDA v3 overview
-- Scheduling and logistics
-- Introduce Test Scenario #1
+Learn about enhancements to the API and get tips on how to plan your migration from BCDA v1 or v2. 
+
+[Register now](https://events.gcc.teams.microsoft.com/event/b9936346-29a9-4522-9ec1-9d5b3111b75f@fbdcedc1-70a9-414b-bfa5-c3063fc3395e)
 {% endcapture %}
 
 {% include date-collection.html
-    title="Kickoff"
-    date="January 8, 2026"
-    subtitle="January 8, 2026 | 2:00 - 3:00 pm ET"
+    title="Planning your migration to v3"
+    date="July 9, 2026"
+    subtitle="July 9, 2026 | 2:00 - 3:00 pm ET"
     content=date1
 %}
 
 {% capture date2 %}
-- Answer questions and give support for Test Scenario #1
-- Gather feedback
-- Introduce Test Scenario #2
+Join us for a general overview about how to access and use Medicare claims data with BCDA.
+
+[Register now](https://events.gcc.teams.microsoft.com/event/3d64dee1-caac-46bd-9d7e-c6278cf0a51b@fbdcedc1-70a9-414b-bfa5-c3063fc3395e)
 {% endcapture %}
 
 {% include date-collection.html
-    title="Test Scenario #1: Make your first v3 requests"
-    date="January 22, 2026"
-    subtitle="January 22, 2026 | 2:00 - 3:00 pm ET"
+    title="Getting started with BCDA"
+    date="July 23, 2026"
+    subtitle="July 23, 2026 | 2:00 - 3:00 pm ET"
     content=date2
 %}
-
-{% capture date3 %}
-- Answer questions and give support for Test Scenario #2
-- Gather feedback
-- Introduce Test Scenario #3
-{% endcapture %}
-
-{% include date-collection.html
-    title="Test Scenario #2: Accessing Runout Data"
-    date="February 19, 2026"
-    subtitle="February 19, 2026 | 2:00 - 3:00 pm ET"
-    content=date3
-%}
-
-{% capture date4 %}
-- Answer questions and give support for Test Scenario #3
-- Gather feedback
-- Introduce Test Scenario #4
-{% endcapture %}
-
-{% include date-collection.html
-    title="Test Scenario #3: Using the _typeFilter Parameter (Topic Updated)"
-    date="March 19, 2026"
-    subtitle="March 19, 2026 | 2:00 - 3:00 pm ET"
-    content=date4
-%}
-
-{% capture date5 %}
-- Answer questions and give support for Test Scenario #4
-- Gather feedback
-- Introduce Test Scenario #5
-{% endcapture %}
-
-{% include date-collection.html
-    title="Test Scenario #4"
-    date="April 16, 2026"
-    subtitle="April 16, 2026 | 2:00 - 3:00 pm ET"
-    content=date5
-%}
-
-{% capture date6 %}
-- Answer questions and give support for Test Scenario #5
-- Gather summary feedback on the Early Adopter Program
-{% endcapture %}
-
-{% include date-collection.html
-    title="Test Scenario #5"
-    date="May 14, 2026"
-    subtitle="May 14, 2026 | 2:00 - 3:00 pm ET"
-    content=date6
-%}
 </ul>
+
+We may schedule future office hours depending on need and interest.
+
+## Join the BCDA Google Group
+
+The [BCDA Google Group](https://groups.google.com/g/bc-api) is the best place for support and discussion about v3 and BCDA in general. Look for [posts labeled "BCDAv3"](https://groups.google.com/g/bc-api?label=BCDAv3) for v3 announcements and community discussion.
+
+To get help directly contact [bcapi@cms.hhs.gov](mailto:bcapi@cms.hhs.gov).
