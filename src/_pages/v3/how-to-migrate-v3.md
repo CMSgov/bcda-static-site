@@ -40,9 +40,9 @@ If you are currently using BCDA v1 or BCDA v2, there are changes to the API and 
   <div class="grid-col-fill tablet:grid-col-9">
       <p>Download the <a href="{{ '/assets/downloads/BCDA_v3_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">BCDA v3 Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> to learn about:</p>
     <ul>
-      <li>updated information on resource type and claim field names</li>
-      <li>updated mappings between CCLF and BCDA data</li>
-      <li>new data available in v3</li>
+      <li>Updated information on resource type and claim field names</li>
+      <li>Updated mappings between CCLF and BCDA data</li>
+      <li>New data available in v3</li>
     </ul>
   </div>
 </div>
@@ -101,45 +101,57 @@ In v2, BCDA differentiates "partially adjudicated" from "fully adjudicated" clai
 
 #### How it works in v3
 
-We've extended the API with the [`_typeFilter` parameter]({{ '/v3/filter-claims-data-v3.html#the-typefilter-parameter' | relative_url }}) to filter export data more granularly. Because all claims in v3 are represented by the same resource type (`ExplanationOfBenefit`), use this parameter to specify the System Type _tag, recreating your v2 filtering logic.
+We've extended the API with the [`_typeFilter` parameter]({{ '/v3/filter-claims-data-v3.html#the-typefilter-parameter' | relative_url }}) to filter export data more granularly. Because all claims in v3 are represented by the same resource type (`ExplanationOfBenefit`), use this parameter to specify the System-Type _tag, recreating your v2 filtering logic.
+
+Remember when using the _typeFilter parameter:
+1. The _typeFilter parameter value must be URL-encoded
+2. The _tag subquery parameter requires a token in the form `system|code`
+
+{% capture sampleRequest %}{% raw %}
+GET /api/v3/Patient/$export
+  ?_type=
+    ExplanationOfBenefit
+  &_typeFilter=
+    ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CSharedSystem
+{% endraw %}{% endcapture %}
+{% include copy_snippet.html code=sampleRequest %}
 
 **If you didn’t use the _type parameter in v2 requests,** you received all claims. 
 
-In v3, specify all System Type codes using the _typeFilter parameter.
+In v3, specify all System-Type codes:
+- SharedSystem
+- NationalClaimsHistory
+- DDPS
+
 {% capture sampleRequest %}{% raw %}
-GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit?_tag=
-  https://bluebutton.cms.gov/fhir/CodeSystem/System-Type|SharedSystem,
-  https://bluebutton.cms.gov/fhir/CodeSystem/System-Type|NationalClaimsHistory,
-  https://bluebutton.cms.gov/fhir/CodeSystem/System-Type|DDPS
+GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CSharedSystem%2Chttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CNationalClaimsHistory%2Chttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CDDPS
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=sampleRequest %}
+{% include copy_snippet.html code=sampleRequest language="shell" %}
 
 **If you used the _type parameter for `_type=Claim,ClaimResponse` in v2 requests,** you received SharedSystem claims only.
 
-In v3, specify the SharedSystem System Type code using the _typeFilter parameter:
+In v3, specify the SharedSystem System-Type code:
 {% capture sampleRequest %}{% raw %}
-GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit?_tag=
-  https://bluebutton.cms.gov/fhir/CodeSystem/System-Type|SharedSystem
+GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CSharedSystem%2Chttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CNationalClaimsHistory%2Chttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CDDPS
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=sampleRequest %}
+{% include copy_snippet.html code=sampleRequest language="shell" %}
 
 **If you used the _type parameter for `_type=ExplanationOfBenefit` for v2 requests,** you received NationalClaimsHistory claims and DDPS claims.
 
-In v3, specify the NationalClaimsHistory and DDPS System Type codes using the _typeFilter parameter:
+In v3, specify the NationalClaimsHistory and DDPS System-Type codes:
 {% capture sampleRequest %}{% raw %}
-GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit?_tag=
-  https://bluebutton.cms.gov/fhir/CodeSystem/System-Type|NationalClaimsHistory,
-  https://bluebutton.cms.gov/fhir/CodeSystem/System-Type|DDPS
+GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CSharedSystem%2Chttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CNationalClaimsHistory%2Chttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CDDPS
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=sampleRequest %}
+{% include copy_snippet.html code=sampleRequest language="shell" %}
 
 ##### Omitting _typeFilter
 
-In v3, if you make a request without using the `_typeFilter` parameter to filter by System Type, BCDA will return only NationalClaimsHistory and DDPS claims.
+In v3, if you make a request without using the `_typeFilter` parameter to filter by System-Type, BCDA will return only NationalClaimsHistory and DDPS claims.
+
 {% capture sampleRequest %}{% raw %}
 GET /api/v3/Patient/$export?_type=ExplanationOfBenefit
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=sampleRequest %}
+{% include copy_snippet.html code=sampleRequest language="shell" %}
 
 ## New extension and code system URLs
 
