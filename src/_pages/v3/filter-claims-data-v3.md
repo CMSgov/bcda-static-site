@@ -44,9 +44,9 @@ The _since parameter lets you filter for claims data last updated after a specif
 <div class="usa-alert usa-alert--warning usa-alert--no-icon">
     <div class="usa-alert__body">
                 <p class="usa-alert__text text-bold">Requesting data from before 03/26/2026</p>
-        <p class="usa-alert__text">The FHIR resources available using BCDA v3 were first created in March 2026. Regardless of the service date, no resources from BCDA v3 will have a `lastUpdated` date earlier than March 2026.</p>
-        <p>If you specify a date prior to 03/26/2026 with the _since parameter, your request will include a large amount of additional historical data for your enrollees. Your request using `_since` with a date on or later than 03/26/2026 will include resources marked with appropriate `lastUpdated` dates.</p>
-        <p>If you wish to filter claims based on the date of service, use the `_typeFilter` parameter with `serviceDate` in your v3 request.</p>
+        <p class="usa-alert__text">The FHIR resources available using BCDA v3 were first created in March 2026. Regardless of the service date, no resources from BCDA v3 will have a lastUpdated date earlier than March 2026.</p>
+        <p>If you specify a date prior to 03/26/2026 with the _since parameter, your request will include a large amount of additional historical data for your enrollees. Your request using _since with a date on or later than 03/26/2026 will include resources marked with appropriate lastUpdated dates.</p>
+        <p>If you wish to filter claims based on the date of service, use the _typeFilter parameter with serviceDate in your v3 request.</p>
     </div>
 </div>
 
