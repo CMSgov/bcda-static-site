@@ -58,7 +58,7 @@ Data from BCDA will be more closely aligned with data available in CCLF files. A
 
 ### Improved conformance with select FHIR Implementation Guides
 
-V3 standardizes and enhances extensions while providing improved conformance with FHIR standards. BCDA v3 continues to follow the [Bulk Data Access IG (STU 2)](https://hl7.org/fhir/uv/bulkdata/STU2/) and BCDA v3's FHIR resources conform with [CARIN Blue Button IG version 2.1.0](https://hl7.org/fhir/us/carin-bb/STU2.1/). Additionally, BCDA v3 retires [Blue Button Resources](https://bluebutton.cms.gov/resources/) to represent extensions and CodeSystems. Instead these will be represented using `StructureDefinition` and `CodeSystem` resources.
+v3 standardizes and enhances extensions while providing improved conformance with FHIR standards. BCDA v3 continues to follow the [Bulk Data Access IG (STU 2)](https://hl7.org/fhir/uv/bulkdata/STU2/) and BCDA v3's FHIR resources conform with [CARIN Blue Button IG version 2.2.0](https://hl7.org/fhir/us/carin-bb/STU2.2/). Additionally, BCDA v3 retires [Blue Button Resources](https://bluebutton.cms.gov/resources/) to represent extensions and CodeSystems. Instead these will be represented using `StructureDefinition` and `CodeSystem` resources.
 
 ## Problems solved in v3
 
