@@ -116,7 +116,7 @@ GET /api/v3/Patient/$export
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=sampleRequest %}
 
-**If you didn’t use the _type parameter in v2 requests,** you received all claims. 
+**If you received `ExplanationOfBenefit`, `Claim`, and `ClaimResponse` resources in v2,** you received all claims. 
 
 In v3, specify all System-Type codes:
 - SharedSystem
