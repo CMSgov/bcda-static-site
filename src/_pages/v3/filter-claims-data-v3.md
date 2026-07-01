@@ -158,23 +158,23 @@ The _typeFilter parameter lets you use resource metadata to create finer-grained
 
 ### Using _typeFilter
 
-Currently, _typeFilter only supports queries using the meta.tag element of ExplanationOfBenefit resources.
+Currently, _typeFilter supports queries using the `meta.tag` and `outcome` elements of ExplanationOfBenefit resources.
 
 #### Example request using _typeFilter
 
 The request below will return:
 - All Patient and Coverage resources
-- ExplanationOfBenefit resources of non-final action claims only
+- ExplanationOfBenefit resources of fully adjudicated claims only
 
 {% capture curlSnippet %}{% raw %}
-GET /api/v3/Group/all/$export?_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FFinal-Action%7CNotFinalAction
+GET /api/v3/Group/all/$export?_typeFilter=ExplanationOfBenefit%3Foutcome%3Dcomplete
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
 #### Example curl command using _typeFilter
 
 {% capture curlSnippet %}{% raw %}
-curl -X GET "https://sandbox.bcda.cms.gov/api/v3/Group/all/\$export?_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FFinal-Action%7CNotFinalAction" \
+curl -X GET "https://sandbox.bcda.cms.gov/api/v3/Group/all/\$export?_typeFilter=ExplanationOfBenefit%3Foutcome%3Dcomplete" \
     -H "Accept: application/fhir+json" \
     -H "Prefer: respond-async" \
     -H "Authorization: Bearer {bearer_token}" \
