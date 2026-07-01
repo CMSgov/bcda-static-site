@@ -59,7 +59,7 @@ The _since parameter can be used with /Group or /Patient, but each endpoint will
 
 Using _since with /Patient will return resources updated after the date provided for existing and newly attributed enrollees. 
 
-Newly attributed enrollees are those who’ve been assigned to your model entity since your last attribution date. If you don’t apply _since, BCDA will return data as early as 2014.
+Newly attributed enrollees are those who’ve been assigned to your model entity since your last attribution date. If you don’t apply _since, BCDA will return data as early as March 1, 2021.
 
 #### Example request using _since with /Patient
 
