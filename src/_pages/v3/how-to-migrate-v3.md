@@ -18,7 +18,7 @@ This guide helps you migrate from BCDA v1/v2 to v3. Key changes include:
 - Updated extension and code system URLs
 - Different resource IDs requiring new matching strategies
 
-[More about v3]({{ '/v3/introducing-v3' | relative_url }})
+Learn how BCDA v3 supports better outcomes in our [introduction to v3]({{ '/v3/introducing-v3' | relative_url }}).
 
 ### Changes to BCDA in v3
 
