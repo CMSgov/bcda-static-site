@@ -21,7 +21,7 @@ feedback_id: "72cee024"
     <div class="usa-summary-box__text">
         <ul>
             <li><a href="#the-typefilter-parameter">The _typeFilter parameter</a></li>
-            <li>Using <a href="#the-typefilter-parameter">the _since parameter</a> with dates prior to 03/26/2026</li>
+            <li>Using <a href="#the-since-parameter">the _since parameter</a> with dates prior to 03/26/2026</li>
         </ul>
     </div>
   </div>
