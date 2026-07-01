@@ -66,7 +66,7 @@ The /auth and /data URLs will remain the same between versions. You won't need t
 ## Changes to claims representation
 
 In BCDA v3, claims data are still returned in FHIR R4 format, but there are changes to the Patient, Coverage, and ExplanationOfBenefit resources. These changes include:
- - Better conformity with C4BB 2.1.0 profiles
+ - Conformity with [CARIN Blue Button Implementation Guide (v2.2.0)](https://hl7.org/fhir/us/carin-bb/STU2.2/en/)
  - New StructureDefenition and CodeSystem URLs for CMS-specific extensions and terminologies
  - New data elements
 
