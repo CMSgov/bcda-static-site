@@ -65,7 +65,7 @@ Newly attributed enrollees are those who’ve been assigned to your model entity
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
-GET /api/v3/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00
+GET /api/v3/Patient/$export?_type=Patient&_since=2026-07-01T08:00:00.000-05:00
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
@@ -75,7 +75,7 @@ This command combines the `GET` request and request header. The dollar sign `$` 
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
-curl -X GET "https://sandbox.bcda.cms.gov/api/v3/Patient/\$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00" \
+curl -X GET "https://sandbox.bcda.cms.gov/api/v3/Patient/\$export?_type=Patient&_since=2026-07-01T08:00:00.000-05:00" \
     -H "Accept: application/fhir+json" \
     -H "Prefer: respond-async" \
     -H "Authorization: Bearer {bearer_token}" \
@@ -87,24 +87,24 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v3/Patient/\$export?_type=Patient&
 
 Using _since with /Group will return resources updated after the date provided for existing enrollees and all resources for newly attributed enrollees. 
 
-This lets you retrieve all new claims data with a single request. If you don't apply _since, BCDA will return data as early as 2014. 
+This lets you retrieve all new claims data with a single request. If you don't apply _since, BCDA will return data as early as March 1, 2021. 
 
 #### Example request using _since with /Group
 
 The request below will return: 
 
-- Claims data last updated since February 13, 2020 for existing enrollees 
+- Claims data last updated since July 1, 2026 for existing enrollees 
 - Claims data as far back as 2014 for all new enrollees attributed to your organization in the last month
 
 {% capture curlSnippet %}{% raw %}
-GET /api/v3/Group/all/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00
+GET /api/v3/Group/all/$export?_type=Patient&_since=2026-07-01T08:00:00.000-05:00
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
 #### Example curl command using _since with /Group
 
 {% capture curlSnippet %}{% raw %}
-curl -X GET "https://sandbox.bcda.cms.gov/api/v3/Group/all/\$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00" \
+curl -X GET "https://sandbox.bcda.cms.gov/api/v3/Group/all/\$export?_type=Patient&_since=2026-07-01T08:00:00.000-05:00" \
     -H "Accept: application/fhir+json" \
     -H "Prefer: respond-async" \
     -H "Authorization: Bearer {bearer_token}" \
