@@ -21,6 +21,7 @@ feedback_id: "72cee024"
     <div class="usa-summary-box__text">
         <ul>
             <li><a href="#the-typefilter-parameter">The _typeFilter parameter</a></li>
+            <li>Using <a href="#the-since-parameter">the _since parameter</a> with dates prior to 03/26/2026</li>
         </ul>
     </div>
   </div>
@@ -37,16 +38,18 @@ Use parameters in the sandbox or production environment to speed up download tim
 
 The _since parameter lets you filter for claims data last updated after a specified date. Dates must be in the [FHIR standard instant format](https://www.hl7.org/fhir/datatypes.html#instant): `YYYY-MM-DDThh:mm:ss.sss+zz:zz`. 
 
-- Sample date: February 20, 2020 12:00 PM EST
-- Formatted sample: `2020-02-20T12:00:00.000-05:00`
+- Sample date: July 1, 2026 12:00 PM EST
+- Formatted sample: `2026-07-01T12:00:00.000-05:00`
 
 <div class="usa-alert usa-alert--warning usa-alert--no-icon">
     <div class="usa-alert__body">
-                <p class="usa-alert__text text-bold">Requesting data from before 02/12/2020</p>
-        <p class="usa-alert__text">Due to data source limitations, claims before 02/12/2020 are marked with the arbitrary lastUpdated date of 01/01/2020. </p>
-        <p>If you specify a date between 01/01/2020 and 02/11/2020 for _since, you'll receive all historical data for your enrollees. Data requests from February 12, 2020 onwards are marked with accurate dates.</p>
+                <p class="usa-alert__text text-bold">Requesting data from before 03/26/2026</p>
+        <p class="usa-alert__text">The FHIR resources available using BCDA v3 were first created in March 2026. Regardless of the service date, no resources from BCDA v3 will have a lastUpdated date earlier than March 2026.</p>
+        <p>If you specify a date prior to 03/26/2026 with the _since parameter, your request will include a large amount of additional historical data for your enrollees. Your request using _since with a date on or later than 03/26/2026 will include resources marked with appropriate lastUpdated dates.</p>
+        <p>If you wish to filter claims based on the date of service, use the _typeFilter parameter with service-date in your v3 request.</p>
     </div>
 </div>
+
 
 We recommend new model entities run an unfiltered request for all historical data before using _since subsequently for incremental exports of new data. You can use the transactionTime from your most recent job as the specified date.
 
@@ -56,13 +59,13 @@ The _since parameter can be used with /Group or /Patient, but each endpoint will
 
 Using _since with /Patient will return resources updated after the date provided for existing and newly attributed enrollees. 
 
-Newly attributed enrollees are those who’ve been assigned to your model entity since your last attribution date. If you don’t apply _since, BCDA will return data as early as 2014.
+Newly attributed enrollees are those who’ve been assigned to your model entity since your last attribution date. If you don’t apply _since, BCDA will return data as early as March 1, 2021.
 
 #### Example request using _since with /Patient
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
-GET /api/v3/Patient/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00
+GET /api/v3/Patient/$export?_type=Patient&_since=2026-07-01T08:00:00.000-05:00
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
@@ -72,7 +75,7 @@ This command combines the `GET` request and request header. The dollar sign `$` 
 
 <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
-curl -X GET "https://sandbox.bcda.cms.gov/api/v3/Patient/\$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00" \
+curl -X GET "https://sandbox.bcda.cms.gov/api/v3/Patient/\$export?_type=Patient&_since=2026-07-01T08:00:00.000-05:00" \
     -H "Accept: application/fhir+json" \
     -H "Prefer: respond-async" \
     -H "Authorization: Bearer {bearer_token}" \
@@ -84,24 +87,24 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v3/Patient/\$export?_type=Patient&
 
 Using _since with /Group will return resources updated after the date provided for existing enrollees and all resources for newly attributed enrollees. 
 
-This lets you retrieve all new claims data with a single request. If you don't apply _since, BCDA will return data as early as 2014. 
+This lets you retrieve all new claims data with a single request. If you don't apply _since, BCDA will return data as early as March 1, 2021. 
 
 #### Example request using _since with /Group
 
 The request below will return: 
 
-- Claims data last updated since February 13, 2020 for existing enrollees 
+- Claims data last updated since July 1, 2026 for existing enrollees 
 - Claims data as far back as 2014 for all new enrollees attributed to your organization in the last month
 
 {% capture curlSnippet %}{% raw %}
-GET /api/v3/Group/all/$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00
+GET /api/v3/Group/all/$export?_type=Patient&_since=2026-07-01T08:00:00.000-05:00
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" %}
 
 #### Example curl command using _since with /Group
 
 {% capture curlSnippet %}{% raw %}
-curl -X GET "https://sandbox.bcda.cms.gov/api/v3/Group/all/\$export?_type=Patient&_since=2020-02-13T08:00:00.000-05:00" \
+curl -X GET "https://sandbox.bcda.cms.gov/api/v3/Group/all/\$export?_type=Patient&_since=2026-07-01T08:00:00.000-05:00" \
     -H "Accept: application/fhir+json" \
     -H "Prefer: respond-async" \
     -H "Authorization: Bearer {bearer_token}" \
