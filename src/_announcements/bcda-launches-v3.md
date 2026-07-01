@@ -58,4 +58,4 @@ Through a unified data structure and consolidated data sources, BCDA v3 can redu
 
 ## What this means for current users
 
-The v1 and v2 endpoints will be disabled in 2027 on a date to be announced. Refer to the [v3 Migration Guide]({{ '/v3/how-to-migrate-v3' | relative_url }}) for steps and support on upgrading to v3. 
+The v1 and v2 endpoints will be disabled on July 30, 2027. Refer to the [v3 Migration Guide]({{ '/v3/how-to-migrate-v3' | relative_url }}) for steps and support on upgrading to v3. 

@@ -11,7 +11,7 @@ feedback_id: ""
 
 This documentation is for **v1 and v2 users migrating to BCDA v3**. If you’re new to BCDA, our [standard BCDA documentation]({{ '/api-documentation' | relative_url }}) may be the best place to get started. 
 
-BCDA v3 became available July 1, 2026\. Access to v1 and 2 will be removed in mid-2027 (date to be determined). This documentation summarizes v3 changes and improvements while providing detailed steps to migrate.
+BCDA v3 became available July 1, 2026\. Access to v1 and 2 will be removed on July 30, 2027. This documentation summarizes v3 changes and improvements while providing detailed steps to migrate.
 
 ## Topics
 
