@@ -59,15 +59,12 @@ Fully adjudicated claims offer the same rich insights, with some small differenc
     </tr>
     <tr scope="row">
       <td data-label="Partially adjudicated claims">
-        Available to <a
-          href="https://www.cms.gov/priorities/innovation/innovation-models/aco-reach"
+        Available to all <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">eligible model
+          entities</a>, except <a
+          href="https://www.cms.gov/priorities/innovation/innovation-models/guide"
           target="_blank"
           rel="noopener noreferrer"
-        >ACO REACH</a> and <a
-          href="https://www.cms.gov/priorities/innovation/innovation-models/iota"
-          target="_blank"
-          rel="noopener noreferrer"
-        >IOTA</a> participants only
+        >GUIDE</a> participants
       </td>
       <td data-label="Fully adjudicated claims">
         Available to all <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">eligible model
