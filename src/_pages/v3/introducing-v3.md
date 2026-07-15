@@ -1,13 +1,28 @@
 ---
 layout: api-docs-v3
 page_title: "Introducing BCDA v3"
-seo_title: ""
-description: "Introducing BCDA v3"
+seo_title: "Introducing BCDA v3 | CMS Beneficiary Claims Data API"
+description: "Learn how v3 improvements support better outcomes."
 in-page-nav: true
 feedback_id: "1dd96929"
 ---
 
 # {{ page.page_title }} <span class="usa-tag usa-tag--big margin-x-1 bg-accent-warm text-middle">New</span>
+
+## Improve health outcomes
+
+- Earlier access to claims data, including partially adjudicated claims, supports timely follow-ups and interventions
+- Build a longitudinal picture of enrollee health with years of historical data, closely aligned with other CMS data sources
+
+## Track performance toward CMS quality measures
+
+- Detect unusual patterns and cost outliers earlier to help eliminate fraud, waste, and abuse  
+- Improve performance on CMS quality measures to impact shared savings
+
+## Standardize health data systems
+
+- Improved conformance with FHIR standards saves time and money on integrations with EHRs and off-the-shelf FHIR data clients  
+- Close alignment with CCLF files, including shared claim identifiers, makes it easier to transition from file-based to industry-standard interoperable formats
 
 BCDA version 3 (v3) delivers faster, more reliable access to Medicare claims data with significant improvements for users. These improvements include:
 
@@ -28,7 +43,7 @@ Version 3 offers more timely updates to patient, coverage, and adjudicated claim
 
 BCDA v3 makes it easier to track claims through the adjudication process.
 
-- Both adjudicated and partially adjudicated claims are now sourced for a single source system, the IDR
+- Both adjudicated and partially adjudicated claims are now sourced from a single source system, the IDR
 - Both claims now use the same ExplanationOfBenefit FHIR resource
 
 Version 3 enhances tracking by using the claim control number and a simple metadata tag to indicate the adjudication status of the claim.
@@ -43,17 +58,37 @@ Data from BCDA will be more closely aligned with data available in CCLF files. A
 
 ### Improved conformance with select FHIR Implementation Guides
 
-V3 standardizes and enhances extensions while providing improved conformance with FHIR standards. BCDA v3 continues to follow the [Bulk Data Access IG (STU 2)](https://hl7.org/fhir/uv/bulkdata/STU2/) and BCDA v3's FHIR resources conform with [CARIN Blue Button IG version 2.1.0](https://hl7.org/fhir/us/carin-bb/STU2.1/). Additionally, BCDA v3 retires [Blue Button Resources](https://bluebutton.cms.gov/resources/) to represent extensions and CodeSystems. Instead these will be represented using `StructureDefinition` and `CodeSystem` resources.
+v3 standardizes and enhances extensions while providing improved conformance with FHIR standards. BCDA v3 continues to follow the [Bulk Data Access IG (STU 2)](https://hl7.org/fhir/uv/bulkdata/STU2/) and BCDA v3's FHIR resources conform with [CARIN Blue Button IG version 2.2.0](https://hl7.org/fhir/us/carin-bb/STU2.2/). Additionally, BCDA v3 retires [Blue Button Resources](https://bluebutton.cms.gov/resources/) to represent extensions and CodeSystems. Instead these will be represented using `StructureDefinition` and `CodeSystem` resources.
 
 ## Problems solved in v3
 
-In earlier versions of BCDA, claims data was sourced from the Chronic Conditions Warehouse (CCW). BCDA v2 sourced partially adjudicated claims data from the Replicated Data Access (RDA) API. With v3, the CMS Integrated Data Repository (IDR) replaces both CCW and RDA API. BCDA's switch to sourcing data from IDR in addresses following known issues and limitations of BCDA v2:
+In earlier versions of BCDA, claims data was sourced from the Chronic Conditions Warehouse (CCW). BCDA v2 sourced partially adjudicated claims data from the Replicated Data Access (RDA) API. With v3, the CMS Integrated Data Repository (IDR) replaces both CCW and RDA API. BCDA's switch to sourcing data from IDR addresses the following known issues and limitations of BCDA v2:
 
 - Reduces mismatched data between BCDA resources and CCLF files
 - Resolves missing data for newly attributed enrollees 
 - Fixes issues for enrollees assigned more than one BENE_ID
 - Simplifies linking between partially and fully adjudicated claims
 - Uses consistent claim identifiers across all phases of adjudication
+
+### Comparison of claims flows in v1/v2 versus v3
+
+<figure class="width-full margin-y-4 margin-x-0">
+  <img
+    src="{{ '/assets/img/comparison-claims-flow.svg' | relative_url }}"
+    alt="Partially adjudicated claims processing flow diagram."
+    class="width-full desktop:padding-x-15 padding-x-8"
+    
+  >
+  <figcaption class="usa-sr-only">
+    <ol>
+      <li>CMS receives the claim and two separate flows appear for partially versus fully adjudicated claims.</li>
+      <li>In v1/v2, fully adjudicated claims route though CCW while partially adjudicated claims route through RDA.</li>
+      <li>In v3, all claims route though the IDR.</li>
+      <li>Next, all claims route through BFD. This is true of all versions and all types of claims.</li>
+      <li>Finally, all claims are available through BCDA.</li>
+    </ol>
+  </figcaption>
+</figure>
 
 ## What this means for your organization
 

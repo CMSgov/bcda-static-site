@@ -97,7 +97,7 @@ feedback_id: "e9112e33"
     It typically takes 2-4 days after submission to receive <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a> and up to 14 days for adjudicated claims data. Even after adjudication, claims may go through additional processing. BCDA provides the latest updates available for each claim. <a href="{{ '/about.html#claims-data-process' | relative_url }}">See a timeline of the claims data process</a>.
 </p>
 <p>
-    According to Section 6404 of the Affordable Care Act, Medicare Fee-for-Service claims must be submitted within 12 months (1 calendar year) of the date of service. <a href="https://www2.ccwdata.org/documents/10280/19002256/medicare-claims-maturity.pdf" target="_blank" rel="noopener noreferrer">Learn about claims submission and approval time frames.</a></p>
+    According to Section 6404 of the Affordable Care Act, Original Medicare claims must be submitted within 12 months (1 calendar year) of the date of service. <a href="https://www2.ccwdata.org/documents/10280/19002256/medicare-claims-maturity.pdf" target="_blank" rel="noopener noreferrer">Learn about claims submission and approval time frames.</a></p>
 {% endcapture %}
 
 {% capture a4AccordionContent %}
