@@ -28,5 +28,3 @@ services:
     working_dir: /app
     volumes:
       - .:/app
-    environment:
-      - BASE_PATH

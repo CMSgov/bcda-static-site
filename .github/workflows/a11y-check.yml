@@ -29,7 +29,7 @@ jobs:
 
       # Run pa11y-ci in Docker
       - name: Run pa11y
-        run: docker compose run --build --rm pa11y
+        run: docker compose run --build --rm -e BASE_PATH="${{ env.BASE_PATH }}" pa11y-ci
 
       - name: Save Report to Action Summary
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
