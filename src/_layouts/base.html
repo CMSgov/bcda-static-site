@@ -5,11 +5,30 @@
 
 <body id="page-top">
 
-  <a class="usa-skipnav z-top" href="#main-content">Skip to main content</a>
+  <a
+    class="usa-skipnav z-top"
+    href="#main-content"
+  >Skip to main content</a>
   {% include banner.html %}
 
   <div class="position-relative">
     {% include header.html %}
+    <div class="usa-alert usa-alert--warning margin-top-0">
+      <div
+        class="usa-alert__body grid-container"
+        style="max-width: 73rem;"
+      >
+        <p class="usa-alert__heading text-bold">BCDA v3 is here!</p>
+        <p class="usa-alert__text">
+          Review our <a
+            class="usa-link"
+            href="{{ '/v3/welcome-v3' | relative_url }}"
+          >BCDA v3 documentation</a> for migration info,
+          links to office hours, and info on what's new in v3.
+        </p>
+      </div>
+    </div>
+
     {{ content }}
   </div>
 

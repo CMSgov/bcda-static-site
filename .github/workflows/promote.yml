@@ -3,6 +3,11 @@ name: "promote"
 on:
   workflow_dispatch:
   workflow_call:
+    secrets:
+      STAGE_AWS_ACCOUNT_ID:
+        required: true
+      PROD_AWS_ACCOUNT_ID:
+        required: true
 
 jobs:
   promote:
@@ -10,11 +15,11 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
+    runs-on: codebuild-bcda-static-site-non-prod-${{github.run_id}}-${{github.run_attempt}}
 
     steps:
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@e7f100cf4c008499ea8adda475de1042d6975c7b # v6.2.0
         with:
           aws-region: ${{ vars.AWS_REGION }}
           role-to-assume: arn:aws:iam::${{ secrets.STAGE_AWS_ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-dev-github-actions
@@ -30,7 +35,7 @@ jobs:
           aws s3 sync s3://${TARGET_BUCKET}/ ./temp-site/ --exclude 'feature/*'
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@e7f100cf4c008499ea8adda475de1042d6975c7b # v6.2.0
         with:
           aws-region: ${{ vars.AWS_REGION }}
           role-to-assume: arn:aws:iam::${{ secrets.PROD_AWS_ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-prod-github-actions
@@ -43,7 +48,7 @@ jobs:
 
       - name: Copy Site to Prod Bucket
         run: |
-          aws s3 sync ./temp-site/ s3://${TARGET_BUCKET}/ --delete --metadata-directive REPLACE --metadata "lifecycle-transition=ia"
+          aws s3 sync ./temp-site/ "s3://${TARGET_BUCKET}/" --delete --metadata-directive REPLACE --metadata "lifecycle-transition=ia"
 
       - name: Invalidate Prod Distribution
         run: |

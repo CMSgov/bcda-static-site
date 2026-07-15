@@ -17,24 +17,29 @@ on:
         required: false
         type: string
   workflow_call:
-    inputs: 
+    inputs:
       env:
         required: true
         type: string
       feature_path:
         required: true
         type: string
+    secrets:
+      STAGE_AWS_ACCOUNT_ID:
+        required: false
+      PROD_AWS_ACCOUNT_ID:
+        required: false
 
 jobs:
   broken-link-check-prod:
     if: ${{ (inputs.env == 'prod' && github.event_name == 'workflow_dispatch') ||  github.event_name == 'schedule'  }}
     permissions:
       id-token: write
-    runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
+    runs-on: codebuild-bcda-static-site-prod-${{github.run_id}}-${{github.run_attempt}}
 
     steps:
       - name: Configure Prod AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@e7f100cf4c008499ea8adda475de1042d6975c7b # v6.2.0
         with:
           aws-region: ${{ vars.AWS_REGION }}
           role-to-assume: arn:aws:iam::${{ secrets.PROD_AWS_ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-prod-github-actions
@@ -53,7 +58,7 @@ jobs:
 
       - name: Check for Broken Prod Links
         id: lychee-prod
-        uses: lycheeverse/lychee-action@v2
+        uses: lycheeverse/lychee-action@8646ba30535128ac92d33dfc9133794bfdd9b411 # v2.8.0
         with:
           jobSummary: true
           fail: false
@@ -63,13 +68,13 @@ jobs:
     if: ${{ (inputs.env == 'staging' && github.event_name == 'workflow_dispatch') || (inputs.env == 'staging' && github.event_name == 'pull_request')  }}
     permissions:
       id-token: write
-    runs-on: codebuild-bcda-static-site-${{github.run_id}}-${{github.run_attempt}}
+    runs-on: codebuild-bcda-static-site-non-prod-${{github.run_id}}-${{github.run_attempt}}
     env:
       BASE_PATH: ${{ inputs.feature_path && format('feature/{0}/', inputs.feature_path) || '' }}
 
     steps:
       - name: Configure Dev AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@e7f100cf4c008499ea8adda475de1042d6975c7b # v6.2.0
         with:
           aws-region: ${{ vars.AWS_REGION }}
           role-to-assume: arn:aws:iam::${{ secrets.STAGE_AWS_ACCOUNT_ID }}:role/delegatedadmin/developer/bcda-dev-github-actions
@@ -84,11 +89,11 @@ jobs:
 
       - name: Download Site Contents (Dev)
         run: |
-          aws s3 sync s3://${TARGET_BUCKET}/${{ env.BASE_PATH }} .
+          aws s3 sync "s3://${TARGET_BUCKET}/${BASE_PATH}" .
 
       - name: Check for Broken Dev Links
         id: lychee-dev
-        uses: lycheeverse/lychee-action@v2
+        uses: lycheeverse/lychee-action@8646ba30535128ac92d33dfc9133794bfdd9b411 # v2.8.0
         with:
           jobSummary: true
           fail: false
