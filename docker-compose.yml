@@ -19,4 +19,14 @@ services:
           path: package-lock.json
         - action: rebuild
           path: gulpfile.js
-          
+
+# For pa11y-ci
+  pa11y-ci:
+    build:
+      context: .
+      dockerfile: Dockerfile.pa11y
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      - BASE_PATH
