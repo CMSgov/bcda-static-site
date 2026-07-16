@@ -125,7 +125,7 @@ Client secret:
 {% include copy_snippet.html code=site.data.credentials.adv.large.client_secret language="yaml" can_copy=true %}
 
 ### (Legacy) Partially adjudicated claims data sets 
-<div class="usa-alert usa-alert--info usa-alert--no-icon">
+<div class="usa-alert usa-alert--warning usa-alert--slim">
     <div class="usa-alert__body">
         <p class="usa-alert__text">
             These sample data sets are only available using BCDA v2 and not recommended for new BCDA users.
