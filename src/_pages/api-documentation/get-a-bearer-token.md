@@ -96,17 +96,15 @@ Now you can begin [accessing claims data]({{ '/api-documentation/access-claims-d
 
 ## Sandbox credentials
 
-Sandbox credentials allow anyone to access synthetic test claims data. These credentials will not work in the production environment. 
+Sandbox credentials allow anyone to access one of the BCDA sample data sets. These credentials will not work in the production environment. 
 
-Sample data sets vary in size and data complexity, ranging from 100 to 11,000 synthetic enrollees, to best match the needs of your model entity.  
+### Sample claims data sets
 
-### Adjudicated claims data sets – 2 advanced sizes
-
-Advanced data sets offer an accurate representation with the bulk FHIR format and a realistic distribution of disease and demographic information. 
+These two sample data sets offer an accurate representation of FHIR resources and a realistic distribution of disease and demographic information for Accountable Care Organizations.
 
 The small data set helps you understand the format of BCDA data. The large data set is better for in-depth exploration or early load testing of your systems.
 
-#### Extra-small model entity (100 synthetic enrollees)
+#### Small model entity (100 synthetic enrollees)
 
 Client ID:
 
@@ -116,7 +114,7 @@ Client secret:
 
 {% include copy_snippet.html code=site.data.credentials.adv.small.client_secret language="yaml" can_copy=true %}
 
-#### Large advanced model entity (10,000 synthetic enrollees)
+#### Large model entity (10,000 synthetic enrollees)
 
 Client ID:
 
@@ -126,11 +124,18 @@ Client secret:
 
 {% include copy_snippet.html code=site.data.credentials.adv.large.client_secret language="yaml" can_copy=true %}
 
-### Partially adjudicated claims data sets 
+### (Legacy) Partially adjudicated claims data sets 
+<div class="usa-alert usa-alert--info usa-alert--no-icon">
+    <div class="usa-alert__body">
+        <p class="usa-alert__text">
+            These sample data sets are only available using BCDA v2 and not recommended for new BCDA users.
+        </p>
+    </div>
+</div>
 
-Anyone can access [partially adjudicated claims data]({{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}) in the sandbox. Only REACH ACOs can access enrollees' partially adjudicated claims data in production. 
+These legacy data sets are intended only for REACH ACOs using BCDA v2. The data sets are only available using BCDA v2 and provide only Claim and ClaimResponse resources. Only REACH ACOs have access to these two resource types in production.
 
-#### Extra-small REACH ACO (110 synthetic enrollees)
+#### Small REACH ACO (110 synthetic enrollees)
 
 Client ID:
 
