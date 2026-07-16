@@ -133,7 +133,7 @@ Client secret:
     </div>
 </div>
 
-These legacy data sets are intended only for REACH ACOs using BCDA v2. The data sets are only available using BCDA v2 and provide only Claim and ClaimResponse resources. Only REACH ACOs have access to these two resource types in production.
+These legacy data sets are intended for REACH ACOs using BCDA v2. The data sets are only available using BCDA v2 and provide Claim and ClaimResponse resources. Only REACH ACOs have access to these two resource types in production.
 
 #### Small REACH ACO (110 synthetic enrollees)
 
