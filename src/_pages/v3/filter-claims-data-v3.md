@@ -161,7 +161,19 @@ The _typeFilter parameter lets you use resource metadata to create finer-grained
 
 ### Using _typeFilter
 
-Currently, _typeFilter supports queries using the `meta.tag` and `outcome` elements of ExplanationOfBenefit resources.
+Currently, _typeFilter supports queries using the `_tag`, `outcome`, and `service-type` search parameters for the ExplanationOfBenefit resource:
+
+* **_tag:**  filters the export based on the `meta.tag` element. Pass a full token as `<system>|<code>`.
+  * Supported codes in the `https://bluebutton.cms.gov/fhir/CodeSystem/System-Type` system are:
+    * `SharedSystem`
+    * `NationalClaimsHistory`
+    * `DDPS`
+  * If you do not specify a System-Type _tag filter, the export will be limited to `NationalClaimsHistory` and `DDPS` claims by default.
+
+* **outcome:** filters the export based on the processing status of the claim. The two values for this param, `partial` and `complete`, represent the "Partially Adjudicated" and "Fully Adjudicated" claim statuses.
+
+* **service-date:** filters the export based on the claim's service date. The service date is the date that the care occurred within a billable period. This is a FHIR date param format (ex. `gt2026-01-14`)
+
 
 #### Example request using _typeFilter
 
