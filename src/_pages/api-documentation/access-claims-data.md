@@ -630,7 +630,7 @@ The response will contain a FHIR Capability Statement resource in JSON format. T
                             "name": "outcome",
                             "type": "token",
                             "documentation": "Filter ExplanationOfBenefit by the outcome element. Supported values: 'partial' and 'complete'."
-                        }
+                        },
                         {
                             "name": "service-date",
                             "type": "date",
