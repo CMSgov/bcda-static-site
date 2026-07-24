@@ -130,7 +130,7 @@ In v3, claims are automatically deduplicated within a source system. You won't n
 
 However, if you are receiving claims with the `SharedSystem` System-Type AND claims with the `NationalClaimsHistory` System-Type, then it is possible to receive two versions of the same claim as two different ExplanationOfBenefit resources. 
 
-To identify EOBs that represent the same claim, the `CLM-CNTL-NUM` identifier `ExplanationOfBenefit.identifier.where('system'='https://bluebutton.cms.gov/fhir/CodeSystem/CLM-CNTL-NUM').value` can be used to identify the matching pair. If two EOBs have the same Claim Control Number, then they represent the same claim.
+To identify EOBs that represent the same claim, use the `CLM-CNTL-NUM` identifier `ExplanationOfBenefit.identifier.where('system'='https://bluebutton.cms.gov/fhir/CodeSystem/CLM-CNTL-NUM').value` to identify the matching pair. If two EOBs have the same Claim Control Number, then they represent the same claim.
 
 **Example identifier element with claim control number**
 {% capture curlSnippet %}{% raw %}
