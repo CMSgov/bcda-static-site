@@ -631,6 +631,11 @@ The response will contain a FHIR Capability Statement resource in JSON format. T
                             "type": "token",
                             "documentation": "Filter ExplanationOfBenefit by the outcome element. Supported values: 'partial' and 'complete'."
                         }
+                        {
+                            "name": "service-date",
+                            "type": "date",
+                            "documentation": "Filter ExplanationOfBenefit based on the claim's service date. The service date is the date that the care occurred within a billable period. This is a FHIR date param format (ex. `gt2026-01-14`)"
+                        },
                     ]
                 }
             ]
