@@ -132,7 +132,11 @@ GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOf
 
 In v3, specify the SharedSystem System-Type code:
 {% capture sampleRequest %}{% raw %}
-GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CSharedSystem
+GET /api/v3/Patient/$export
+  ?_type=
+    ExplanationOfBenefit
+  &_typeFilter=
+    ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CSharedSystem
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=sampleRequest language="shell" %}
 
