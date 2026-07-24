@@ -124,9 +124,26 @@ In all versions of BCDA, adjudicated claims data:
 
 All EOBs contain the <a href="https://hl7.org/fhir/R4/explanationofbenefit-definitions.html#ExplanationOfBenefit.outcome" target="_blank" rel="noopener noreferrer">ExplanationOfBenefit.outcome</a> element which will indicate if the claim is still processing. If you wish to include only EOBs that have been fully processed and paid in your job requests, see our guidance on <a href="{{ '/v3/filter-claims-data-v3.html#the-typefilter-parameter' | relative_url }}">filtering claims by `ExplanationOfBenefit.outcome` using _typeFilter</a>.
 
-#### De-duplicating claims and identifying duplicates
+#### Matching multiple EOBs to the same claim
 
-To de-duplicate an enrollee's claims, the `CLM-CNTL-NUM` identifier `ExplanationOfBenefit.identifier.where('system'='https://bluebutton.cms.gov/fhir/CodeSystem/CLM-CNTL-NUM')` can be used to identify which claims are the same within a claim type. Additionally, if a claim receives a new claim control number, the previous claim control number will be available in ExplanationOfBenefit.related, and can be used to de-duplicate claims even if the claim control number has changed.
+In v3, claims are automatically deduplicated within a source system. You won't need to deduplicate multiple versions of a claim within the same System-Type.
+
+However, if you are receiving claims with the `SharedSystem` System-Type AND claims with the `NationalClaimsHistory` System-Type, then it is possible to receive two versions of the same claim as two different ExplanationOfBenefit resources. 
+
+To identify EOBs that represent the same claim, use the `CLM-CNTL-NUM` identifier `ExplanationOfBenefit.identifier.where('system'='https://bluebutton.cms.gov/fhir/CodeSystem/CLM-CNTL-NUM').value` to identify the matching pair. If two EOBs have the same Claim Control Number, then they represent the same claim.
+
+**Example identifier element with claim control number**
+{% capture curlSnippet %}{% raw %}
+"identifier": [
+    {
+      "system": "https://bluebutton.cms.gov/identifiers/CLM-CNTL-NUM",
+      "value": "-01614121123648SZF"
+    }
+]
+{% endraw %}{% endcapture %}
+{% include copy_snippet.html code=curlSnippet language="json" can_copy=true %}
+
+If a claim receives a new claim control number, the previous claim control number will be available in `ExplanationOfBenefit.related`, and can be used to de-duplicate claims even if the claim control number has changed.
 
 There may be some instances in which a claim can't be de-duplicated via `CLM-CNTL-NUM`. Review the <a href="https://github.com/CMSgov/beneficiary-fhir-data/wiki/v2-%E2%80%90-v3-Migration-Guide#deduplicating-claims-and-identifying-duplicates" target="_blank" rel="noopener noreferrer">Beneficiary FHIR Data server (BFD) guide</a> for further strategies on deduplicating claims.
 
