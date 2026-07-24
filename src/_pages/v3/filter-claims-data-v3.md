@@ -168,7 +168,7 @@ Currently, _typeFilter supports queries using the `_tag`, `outcome`, and `servic
     * `SharedSystem`
     * `NationalClaimsHistory`
     * `DDPS`
-  * If you do not specify a System-Type _tag filter, the export will be limited to `NationalClaimsHistory` and `DDPS` claims by default.
+  * If you do not specify a System-Type _tag filter, the export will include only `NationalClaimsHistory` and `DDPS` claims by default.
 
 * **outcome:** filters the export based on the processing status of the claim. The two values for this param, `partial` and `complete`, represent the "Partially Adjudicated" and "Fully Adjudicated" claim statuses.
 
