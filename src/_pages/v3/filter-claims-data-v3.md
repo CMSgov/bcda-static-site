@@ -161,7 +161,7 @@ The _typeFilter parameter lets you use resource metadata to create finer-grained
 
 ### Using _typeFilter
 
-Currently, _typeFilter supports queries using the `_tag`, `outcome`, and `service-type` search parameters for the ExplanationOfBenefit resource:
+Currently, _typeFilter supports queries using the `_tag`, `outcome`, and `service-date` search parameters for the ExplanationOfBenefit resource:
 
 * **_tag:**  filters the export based on the `meta.tag` element. Pass a full token as `<system>|<code>`.
   * Supported codes in the `https://bluebutton.cms.gov/fhir/CodeSystem/System-Type` system are:
