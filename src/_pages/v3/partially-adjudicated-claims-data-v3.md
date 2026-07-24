@@ -126,7 +126,7 @@ All EOBs contain the <a href="https://hl7.org/fhir/R4/explanationofbenefit-defin
 
 #### Matching multiple EOBs to the same claim
 
-In v3, claims are automatically deduplicated within a source system. You will no longer need to deduplicate multiple versions of a claim within the same System-Type.
+In v3, claims are automatically deduplicated within a source system. You won't need to deduplicate multiple versions of a claim within the same System-Type.
 
 However, if you are receiving claims with the `SharedSystem` System-Type AND claims with the `NationalClaimsHistory` System-Type, then it is possible to receive two versions of the same claim as two different ExplanationOfBenefit resources. 
 
