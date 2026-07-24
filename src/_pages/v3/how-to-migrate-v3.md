@@ -124,7 +124,11 @@ In v3, specify all System-Type codes:
 - DDPS
 
 {% capture sampleRequest %}{% raw %}
-GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CSharedSystem%2Chttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CNationalClaimsHistory%2Chttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CDDPS
+GET /api/v3/Patient/$export
+  ?_type=
+    ExplanationOfBenefit
+  &_typeFilter=
+    ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CSharedSystem%2Chttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CNationalClaimsHistory%2Chttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CDDPS
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=sampleRequest language="shell" %}
 
@@ -144,7 +148,11 @@ GET /api/v3/Patient/$export
 
 In v3, specify the NationalClaimsHistory and DDPS System-Type codes:
 {% capture sampleRequest %}{% raw %}
-GET /api/v3/Patient/$export?_type=ExplanationOfBenefit&_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CNationalClaimsHistory%2Chttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CDDPS
+GET /api/v3/Patient/$export
+  ?_type=
+    ExplanationOfBenefit
+  &_typeFilter=
+    ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CNationalClaimsHistory%2Chttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CDDPS
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=sampleRequest language="shell" %}
 
