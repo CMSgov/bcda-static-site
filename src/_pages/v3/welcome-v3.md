@@ -25,11 +25,9 @@ BCDA v3 became available July 1, 2026\. Access to v1 and 2 will be removed on Ju
 
 We’re offering regular office hours to help you during your v3 migration. At each event, a 20-minute presentation will be followed by time for open questions.
 
-<ul class="usa-collection">
+<ul class="usa-collection margin-y-4">
 {% capture date1 %}
 Learn about enhancements to the API and get tips on how to plan your migration from BCDA v1 or v2. 
-
-[Register now](https://events.gcc.teams.microsoft.com/event/b9936346-29a9-4522-9ec1-9d5b3111b75f@fbdcedc1-70a9-414b-bfa5-c3063fc3395e)
 {% endcapture %}
 
 {% include date-collection.html
@@ -37,12 +35,11 @@ Learn about enhancements to the API and get tips on how to plan your migration f
     date="July 9, 2026"
     subtitle="July 9, 2026 | 2:00 - 3:00 pm ET"
     content=date1
+    event_link="https://events.gcc.teams.microsoft.com/event/b9936346-29a9-4522-9ec1-9d5b3111b75f@fbdcedc1-70a9-414b-bfa5-c3063fc3395e"
 %}
 
 {% capture date2 %}
 Join us for a general overview about how to access and use Medicare claims data with BCDA.
-
-[Register now](https://events.gcc.teams.microsoft.com/event/3d64dee1-caac-46bd-9d7e-c6278cf0a51b@fbdcedc1-70a9-414b-bfa5-c3063fc3395e)
 {% endcapture %}
 
 {% include date-collection.html
@@ -50,6 +47,8 @@ Join us for a general overview about how to access and use Medicare claims data 
     date="July 23, 2026"
     subtitle="July 23, 2026 | 2:00 - 3:00 pm ET"
     content=date2
+    is_past=true
+    event_link="/events/getting-started-with-bcda-office-hours"
 %}
 </ul>
 
