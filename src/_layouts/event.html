@@ -31,8 +31,22 @@ in-page-nav: false
 
   {% if page.resources %}
   <div class="grid-col-3">
-    <h2 class="font-sans-lg">Resources</h2>
-    <ul class="usa-collection usa-collection--condensed">
+    <h2 class="font-sans-lg margin-top-2">Resources</h2>
+    <ul class="usa-list usa-list--unstyled">
+      {% for resource in page.resources %}
+      <li class="margin-top-1">
+        {% if resource.url %}
+        <a
+          class="usa-link"
+          href="{{- resource.url -}}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >{{- resource.title -}}</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    <!-- <ul class="usa-collection usa-collection--condensed">
       {% for resource in page.resources %}
       <li class="usa-collection__item border-top-0">
         <div class="usa-collection__body">
@@ -49,7 +63,7 @@ in-page-nav: false
         </div>
       </li>
       {% endfor %}
-    </ul>
+    </ul> -->
   </div>
   {% endif %}
 </div>

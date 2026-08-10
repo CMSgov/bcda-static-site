@@ -35,7 +35,8 @@ Learn about enhancements to the API and get tips on how to plan your migration f
     date="July 9, 2026"
     subtitle="July 9, 2026 | 2:00 - 3:00 pm ET"
     content=date1
-    event_link="https://events.gcc.teams.microsoft.com/event/b9936346-29a9-4522-9ec1-9d5b3111b75f@fbdcedc1-70a9-414b-bfa5-c3063fc3395e"
+    event_link="/events/planning-your-migration-v3"
+    is_past=true
 %}
 
 {% capture date2 %}

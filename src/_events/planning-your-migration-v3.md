@@ -1,16 +1,16 @@
 ---
 layout: event
-page_title: "Getting started with BCDA"
-subtitle: "July 23, 2026 | 2:00 - 3:00 pm ET"
+page_title: "Planning your migration to v3"
+subtitle: "July 9, 2026 | 2:00 - 3:00 pm ET"
 description: "Join the Beneficiary Claims Data API (BCDA) team for an introduction to BCDA v3"
 show-side-nav: false
 lead_paragraph: ""
-date: 2026-07-23
+date: 2026-07-09
 is_past: true
 resources: 
   - title: "Presentation slides"
     type: "pdf"
-    url: "/assets/events/bcda_7_23_office_hours_presentation.pdf"
+    url: "/assets/events/bcda_7_9_office_hours_presentation.pdf"
 ---
 
 Join the Beneficiary Claims Data API (BCDA) team for an introduction to BCDA v3. Learn more about accessing Medicare Claims data using BCDA and get tips on how to get started with BCDA. Recordings, notes, and slides from past BCDA office hours may require Microsoft Teams and require sign-in.
