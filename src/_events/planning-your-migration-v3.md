@@ -13,4 +13,10 @@ resources:
     url: "/assets/events/bcda_7_9_office_hours_presentation.pdf"
 ---
 
-Join the Beneficiary Claims Data API (BCDA) team for an introduction to BCDA v3. Learn more about accessing Medicare Claims data using BCDA and get tips on how to get started with BCDA. Recordings, notes, and slides from past BCDA office hours may require Microsoft Teams and require sign-in.
+Join the Beneficiary Claims Data API (BCDA) team for an introduction to BCDA v3. Learn more about the enhancements to the API and get tips on how to plan your migration from BCDA v1 or v2. 
+
+Following a 20 minute overview of BCDA v3, the BCDA team will be available to answer your questions about v3 and any other topics related to BCDA.
+
+All attendees and questions are welcome, however the presentation content will be oriented towards current BCDA users.
+
+Brand new to BCDA? Join our next [Office Hours on July 23rd]({{ '/events/getting-started-with-bcda-office-hours' | relative_url }}) to learn how to get started with BCDA.
