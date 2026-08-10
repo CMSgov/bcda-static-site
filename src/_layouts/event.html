@@ -14,7 +14,7 @@ in-page-nav: false
 </a> -->
 
 <div class="grid-row margin-top-3">
-  <div class="grid-col-9">
+  <div class="grid-col-12 desktop:grid-col-9">
     <h1>{{ page.page_title }}</h1>
     {% if page.subtitle %}
     <p class="margin-top-105 text-base">{{ page.subtitle }}</p>
@@ -30,7 +30,7 @@ in-page-nav: false
   </div>
 
   {% if page.resources %}
-  <div class="grid-col-3">
+  <div class="grid-col-12 desktop:grid-col-3">
     <h2 class="font-sans-lg margin-top-2">Resources</h2>
     <ul class="usa-list usa-list--unstyled">
       {% for resource in page.resources %}
@@ -46,24 +46,6 @@ in-page-nav: false
       </li>
       {% endfor %}
     </ul>
-    <!-- <ul class="usa-collection usa-collection--condensed">
-      {% for resource in page.resources %}
-      <li class="usa-collection__item border-top-0">
-        <div class="usa-collection__body">
-          {% if resource.url %}
-          <div class="usa-collection__heading">
-            <a
-              class="usa-link"
-              href="{{- resource.url -}}"
-              target="_blank"
-              rel="noopener noreferrer"
-            >{{- resource.title -}}</a>
-          </div>
-          {% endif %}
-        </div>
-      </li>
-      {% endfor %}
-    </ul> -->
   </div>
   {% endif %}
 </div>
