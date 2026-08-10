@@ -8,7 +8,7 @@ lead_paragraph: ""
 date: 2026-07-09
 is_past: true
 resources: 
-  - title: "Presentation slides"
+  - title: "Presentation slides (PDF)"
     type: "pdf"
     url: "/assets/events/bcda_7_9_office_hours_presentation.pdf"
 ---
