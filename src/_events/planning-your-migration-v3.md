@@ -18,5 +18,3 @@ Join the Beneficiary Claims Data API (BCDA) team for an introduction to BCDA v3.
 Following a 20 minute overview of BCDA v3, the BCDA team will be available to answer your questions about v3 and any other topics related to BCDA.
 
 All attendees and questions are welcome, however the presentation content will be oriented towards current BCDA users.
-
-Brand new to BCDA? Join our next [Office Hours on July 23rd]({{ '/events/getting-started-with-bcda-office-hours' | relative_url }}) to learn how to get started with BCDA.
