@@ -25,7 +25,7 @@ BCDA v3 became available July 1, 2026\. Access to v1 and 2 will be removed on Ju
 
 We’re offering regular office hours to help you during your v3 migration. At each event, a 20-minute presentation will be followed by time for open questions.
 
-## Past office hours
+### Past office hours
 
 <ul class="usa-collection margin-bottom-4">
 {% capture date2 %}
