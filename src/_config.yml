@@ -81,5 +81,7 @@ collections:
     permalink: /:path:output_ext
   announcements:
       output: true
+  events:
+      output: true
   features:
     output: true
