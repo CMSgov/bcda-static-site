@@ -11,4 +11,5 @@ RUN npm install -g pa11y-ci@^4.1.1
 WORKDIR /app
 
 ENV BASE_PATH=""
-ENTRYPOINT ["sh", "-c", "pa11y-ci --config pa11yci.ci.json --sitemap \"https://dxiopc3hftj5i.cloudfront.net/${BASE_PATH}sitemap.xml\" --sitemap-exclude \"/*.pdf\" --sitemap-find https://bcda.cms.gov/ --sitemap-replace https://dxiopc3hftj5i.cloudfront.net/ --json > pa11y-results.json"]
+ENV SITE_URL="https://dxiopc3hftj5i.cloudfront.net/"
+ENTRYPOINT ["sh", "-c", "pa11y-ci --config pa11yci.ci.json --sitemap \"${SITE_URL}${BASE_PATH}sitemap.xml\" --sitemap-exclude \"/*.pdf\" --sitemap-find https://bcda.cms.gov/ --sitemap-replace \"${SITE_URL}\" --json > pa11y-results.json"]

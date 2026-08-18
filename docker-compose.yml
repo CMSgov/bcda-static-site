@@ -22,6 +22,8 @@ services:
 
 # For pa11y-ci
   pa11y-ci:
+    # Reuses branch's cached image on each CI run (see a11y-check.yml)
+    image: bcda-static-site-pa11y-ci
     build:
       context: .
       dockerfile: Dockerfile.pa11y
