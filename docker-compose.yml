@@ -28,5 +28,3 @@ services:
       context: .
       dockerfile: Dockerfile.pa11y
     working_dir: /app
-    volumes:
-      - .:/app
