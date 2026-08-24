@@ -1,0 +1,51 @@
+---
+layout: api-docs
+in-page-nav: false
+---
+
+<!-- {% comment %} We use this seperate layout to control content outside of the pure "post content", like the title and lead paragraphs  {% endcomment %} -->
+
+<!-- <a
+  class="display-inline-flex flex-align-center"
+  href="{{ '/events' | relative_url }}"
+>
+  {% include sprite.html icon="arrow_back" size="2" %}
+  <span class="padding-left-05">Back to events</span>
+</a> -->
+
+<div class="grid-row margin-top-3">
+  <div class="grid-col-12 desktop:grid-col-9">
+    <h1>{{ page.page_title }}</h1>
+    {% if page.subtitle %}
+    <p class="margin-top-105 text-base">{{ page.subtitle }}</p>
+    {% endif %}
+    {% if page.is_past %}
+    <div class="usa-tag display-inline-block margin-top-2">Past Event</div>
+    {% endif %}
+    {% if page.lead_paragraph %}
+    <p class="usa-intro">{{page.lead_paragraph}}</p>
+    {% endif %}
+
+    <div class="usa-prose margin-top-5">{{ content }}</div>
+  </div>
+
+  {% if page.resources %}
+  <div class="grid-col-12 desktop:grid-col-3">
+    <h2 class="font-sans-lg margin-top-2">Resources</h2>
+    <ul class="usa-list usa-list--unstyled">
+      {% for resource in page.resources %}
+      <li class="margin-top-1">
+        {% if resource.url %}
+        <a
+          class="usa-link"
+          href="{{- resource.url | relative_url -}}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >{{- resource.title -}}</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</div>
