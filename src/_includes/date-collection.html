@@ -2,24 +2,43 @@
 {% assign title = include.title %}
 {% assign subtitle = include.subtitle %}
 {% assign content = include.content %}
+{% assign is_past = include.is_past %}
+{% assign event_link = include.event_link %}
 
-<li class="usa-collection__item">
+<li class="usa-collection__item padding-top-4">
   <div class="usa-collection__calendar-date">
     <span
-      class="usa-collection__calendar-date-month"
+      class="usa-collection__calendar-date-month{% if is_past %} bg-base-dark{% endif %}"
       style="text-transform: uppercase;"
     >{{- date | date: "%b" -}}</span>
-    <span class="usa-collection__calendar-date-day">{{- date | date: "%-d" -}}</span>
+    <span class="usa-collection__calendar-date-day{% if is_past %} border-base-dark text-base-dark{% endif %}">{{- date
+      | date: "%-d" -}}</span>
   </div>
-  <div class="usa-collection__body">
-    <h3 class="usa-collection__heading padding-left-105">
-      {{- title -}}
+  <div class="usa-collection__body position-relative">
+    <h3 class="usa-collection__heading padding-left-105 font-sans-lg">
+      <a
+        href="{{ event_link | relative_url }}"
+        class="stretched-link text-no-underline hide-external-icon"
+        style="color: black;"
+      >{{- title -}}</a>
     </h3>
-    <p class="padding-left-105 text-italic">
+    {% if subtitle %}
+    <p class="padding-left-105 text-italic margin-top-05 text-base">
       {{- subtitle -}}
     </p>
-    <div class="usa-collection__description margin-top-2">
-      {{- content | markdownify -}}
+    {% endif %}
+    <div class="usa-collection__description margin-top-2 padding-left-105">
+      <div>{{- content | markdownify -}}</div>
+      {% if event_link %}
+      <div>
+        {% if is_past %}
+        <div class="usa-button usa-button--outline">View details {% include sprite.html icon="arrow_forward" size="3" %}
+        </div>
+        {% else %}
+        <div class="usa-button">Register now</div>
+        {% endif %}
+      </div>
+      {% endif %}
     </div>
   </div>
 </li>
