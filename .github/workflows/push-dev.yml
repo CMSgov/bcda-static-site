@@ -18,4 +18,4 @@ jobs:
       id-token: write
     uses: ./.github/workflows/deploy.yml
     secrets:
-      AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+      STAGE_AWS_ACCOUNT_ID: ${{ secrets.STAGE_AWS_ACCOUNT_ID }}

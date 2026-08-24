@@ -2,7 +2,7 @@ name: "Accessibility Check"
 
 on:
   workflow_call:
-    inputs: 
+    inputs:
       feature_path:
         required: true
         type: string
@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
@@ -41,7 +41,7 @@ jobs:
       - name: Save Report to Action Summary
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         # Always return pa11y output, regardless if all pages pass/fail. Job will now fail if errors are found, which is intentional
-        if: always() 
+        if: always()
         with:
           script: |
             const fs = require('fs');
