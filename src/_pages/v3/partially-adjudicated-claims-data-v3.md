@@ -73,7 +73,7 @@ Fully adjudicated claims offer the same rich insights, with some small differenc
     </tr>
     <tr scope="row">
       <td data-label="Partially adjudicated claims">
-        Requires BCDA v2 or v3
+        Requires BCDA v2<sup><a href="#fn1">*</a></sup> or v3
       </td>
       <td data-label="Fully adjudicated claims">
         Available in all BCDA versions
@@ -90,6 +90,9 @@ Fully adjudicated claims offer the same rich insights, with some small differenc
   </tbody>
 </table>
 
+<ul>
+  <li id="fn1" style="scroll-margin-top: 6.25rem;">Access to partially adjudicated claims data using BCDA v2 is limited to REACH ACOs. Participants in other CMS Innovation Models and the Medicare Shared Savings Program must use BCDA v3 to access partially adjudicated claims data.</li>
+</ul>
 
 <div class="display-flex flex-align-center">
   <h3>What's in partially adjudicated claims data?</h3>
