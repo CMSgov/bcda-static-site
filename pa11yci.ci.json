@@ -11,9 +11,10 @@
     "standard": "WCAG2AA",
     "chromeLaunchConfig": {
       "args": [
-        "--no-sandbox"
+        "--no-sandbox",
+        "--disable-dev-shm-usage"
       ],
-      "executablePath": "/usr/bin/google-chrome"
+      "executablePath": "/usr/bin/chromium"
     }
   },
   "timeout": 240000
