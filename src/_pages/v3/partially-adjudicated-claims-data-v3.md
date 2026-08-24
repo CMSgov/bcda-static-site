@@ -59,15 +59,12 @@ Fully adjudicated claims offer the same rich insights, with some small differenc
     </tr>
     <tr scope="row">
       <td data-label="Partially adjudicated claims">
-        Available to <a
-          href="https://www.cms.gov/priorities/innovation/innovation-models/aco-reach"
+        Available to all <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">eligible model
+          entities</a>, except <a
+          href="https://www.cms.gov/priorities/innovation/innovation-models/guide"
           target="_blank"
           rel="noopener noreferrer"
-        >ACO REACH</a> and <a
-          href="https://www.cms.gov/priorities/innovation/innovation-models/iota"
-          target="_blank"
-          rel="noopener noreferrer"
-        >IOTA</a> participants only
+        >GUIDE</a> participants
       </td>
       <td data-label="Fully adjudicated claims">
         Available to all <a href="{{ '/index.html#eligible-model-entities' | relative_url }}">eligible model
@@ -76,7 +73,7 @@ Fully adjudicated claims offer the same rich insights, with some small differenc
     </tr>
     <tr scope="row">
       <td data-label="Partially adjudicated claims">
-        Requires BCDA v2 or v3
+        Requires BCDA v2<sup><a href="#fn1">*</a></sup> or v3
       </td>
       <td data-label="Fully adjudicated claims">
         Available in all BCDA versions
@@ -93,6 +90,9 @@ Fully adjudicated claims offer the same rich insights, with some small differenc
   </tbody>
 </table>
 
+<ul>
+  <li id="fn1" style="scroll-margin-top: 6.25rem;">Access to partially adjudicated claims data using BCDA v2 is limited to REACH ACOs. Participants in other CMS Innovation Models and the Medicare Shared Savings Program must use BCDA v3 to access partially adjudicated claims data.</li>
+</ul>
 
 <div class="display-flex flex-align-center">
   <h3>What's in partially adjudicated claims data?</h3>
@@ -127,9 +127,26 @@ In all versions of BCDA, adjudicated claims data:
 
 All EOBs contain the <a href="https://hl7.org/fhir/R4/explanationofbenefit-definitions.html#ExplanationOfBenefit.outcome" target="_blank" rel="noopener noreferrer">ExplanationOfBenefit.outcome</a> element which will indicate if the claim is still processing. If you wish to include only EOBs that have been fully processed and paid in your job requests, see our guidance on <a href="{{ '/v3/filter-claims-data-v3.html#the-typefilter-parameter' | relative_url }}">filtering claims by `ExplanationOfBenefit.outcome` using _typeFilter</a>.
 
-#### De-duplicating claims and identifying duplicates
+#### Matching multiple EOBs to the same claim
 
-To de-duplicate an enrollee's claims, the `CLM-CNTL-NUM` identifier `ExplanationOfBenefit.identifier.where('system'='https://bluebutton.cms.gov/fhir/CodeSystem/CLM-CNTL-NUM')` can be used to identify which claims are the same within a claim type. Additionally, if a claim receives a new claim control number, the previous claim control number will be available in ExplanationOfBenefit.related, and can be used to de-duplicate claims even if the claim control number has changed.
+In v3, claims are automatically deduplicated within a source system. You won't need to deduplicate multiple versions of a claim within the same System-Type.
+
+However, if you are receiving claims with the `SharedSystem` System-Type AND claims with the `NationalClaimsHistory` System-Type, then it is possible to receive two versions of the same claim as two different ExplanationOfBenefit resources. 
+
+To identify EOBs that represent the same claim, use the `CLM-CNTL-NUM` identifier `ExplanationOfBenefit.identifier.where('system'='https://bluebutton.cms.gov/fhir/CodeSystem/CLM-CNTL-NUM').value` to identify the matching pair. If two EOBs have the same Claim Control Number, then they represent the same claim.
+
+**Example identifier element with claim control number**
+{% capture curlSnippet %}{% raw %}
+"identifier": [
+    {
+      "system": "https://bluebutton.cms.gov/identifiers/CLM-CNTL-NUM",
+      "value": "-01614121123648SZF"
+    }
+]
+{% endraw %}{% endcapture %}
+{% include copy_snippet.html code=curlSnippet language="json" can_copy=true %}
+
+If a claim receives a new claim control number, the previous claim control number will be available in `ExplanationOfBenefit.related`, and can be used to de-duplicate claims even if the claim control number has changed.
 
 There may be some instances in which a claim can't be de-duplicated via `CLM-CNTL-NUM`. Review the <a href="https://github.com/CMSgov/beneficiary-fhir-data/wiki/v2-%E2%80%90-v3-Migration-Guide#deduplicating-claims-and-identifying-duplicates" target="_blank" rel="noopener noreferrer">Beneficiary FHIR Data server (BFD) guide</a> for further strategies on deduplicating claims.
 
