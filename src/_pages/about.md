@@ -126,10 +126,6 @@ Read the guide to [partially adjudicated claims]({{ '/bcda-data/partially-adjudi
 - Eligible organizations
 - Data Dictionary
 
-## Keeping pace with future change and innovation
-
-BCDA continues to support CMS efforts to empower patients with access to their own data, encompass future payment models, and prevent fraud, waste, abuse as well as authorization-related claims issues.
-
 {: class="margin-top-10"}
 ## What are the other CMS claims-based FHIR APIs?
 
