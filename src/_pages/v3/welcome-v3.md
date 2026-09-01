@@ -28,6 +28,19 @@ We’re offering regular office hours to help you during your v3 migration. At e
 ### Past office hours
 
 <ul class="usa-collection margin-bottom-4">
+{% capture date3 %}
+Join us for a general overview about how to access and use Medicare claims data with BCDA.
+{% endcapture %}
+
+{% include date-collection.html
+    title="Filtering your BCDA exports"
+    date="September 2, 2026"
+    subtitle="September 2, 2026 | 2:00 - 3:00pm ET"
+    content=date3
+    is_past=false
+    event_link="https://events.gcc.teams.microsoft.com/event/f6ed4b69-17bf-43e7-bce1-0848fbb13092@fbdcedc1-70a9-414b-bfa5-c3063fc3395e"
+%}
+
 {% capture date2 %}
 Join us for a general overview about how to access and use Medicare claims data with BCDA.
 {% endcapture %}
@@ -35,7 +48,7 @@ Join us for a general overview about how to access and use Medicare claims data 
 {% include date-collection.html
     title="Getting started with BCDA"
     date="July 23, 2026"
-    subtitle="July 23, 2026 | 2:00 - 3:00 pm ET"
+    subtitle="July 23, 2026 | 2:00 - 3:00pm ET"
     content=date2
     is_past=true
     event_link="/events/getting-started-with-bcda-office-hours"
@@ -48,7 +61,7 @@ Learn about enhancements to the API and get tips on how to plan your migration f
 {% include date-collection.html
     title="Planning your migration to v3"
     date="July 9, 2026"
-    subtitle="July 9, 2026 | 2:00 - 3:00 pm ET"
+    subtitle="July 9, 2026 | 2:00 - 3:00pm ET"
     content=date1
     event_link="/events/planning-your-migration-v3"
     is_past=true
