@@ -1,7 +1,7 @@
 ---
 layout: event
 page_title: "Filtering your BCDA exports"
-subtitle: "September 2, 2026 | 2:00 - 3:00pm ET "
+subtitle: "September 2, 2026 | 1:00 - 2:00pm ET "
 description: "Learn how to filter bulk claims data to target your tracking, care coordination, reporting, or other needs."
 show-side-nav: false
 lead_paragraph: "Working with data at scale"

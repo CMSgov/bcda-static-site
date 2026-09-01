@@ -35,7 +35,7 @@ Join us for a general overview about how to access and use Medicare claims data 
 {% include date-collection.html
     title="Filtering your BCDA exports"
     date="September 2, 2026"
-    subtitle="September 2, 2026 | 2:00 - 3:00pm ET"
+    subtitle="September 2, 2026 | 1:00 - 2:00pm ET"
     content=date3
     is_past=false
     event_link="https://events.gcc.teams.microsoft.com/event/f6ed4b69-17bf-43e7-bce1-0848fbb13092@fbdcedc1-70a9-414b-bfa5-c3063fc3395e"
