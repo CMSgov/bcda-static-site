@@ -44,19 +44,6 @@ Learn how to filter bulk claims data to target your tracking, care coordination,
 ### Past office hours
 
 <ul class="usa-collection margin-bottom-4">
-{% capture date3 %}
-Join us for a general overview about how to access and use Medicare claims data with BCDA.
-{% endcapture %}
-
-{% include date-collection.html
-    title="Filtering your BCDA exports"
-    date="September 2, 2026"
-    subtitle="September 2, 2026 | 1:00 - 2:00pm ET"
-    content=date3
-    is_past=false
-    event_link="https://events.gcc.teams.microsoft.com/event/f6ed4b69-17bf-43e7-bce1-0848fbb13092@fbdcedc1-70a9-414b-bfa5-c3063fc3395e"
-%}
-
 {% capture date2 %}
 Join us for a general overview about how to access and use Medicare claims data with BCDA.
 {% endcapture %}
