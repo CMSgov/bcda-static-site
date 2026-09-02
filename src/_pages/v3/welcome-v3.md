@@ -25,6 +25,22 @@ BCDA v3 became available July 1, 2026\. Access to v1 and 2 will be removed on Ju
 
 We’re offering regular office hours to help you during your v3 migration. At each event, a 20-minute presentation will be followed by time for open questions.
 
+### Upcoming office hours
+<ul class="usa-collection margin-bottom-4">
+{% capture date3 %}
+Learn how to filter bulk claims data to target your tracking, care coordination, reporting, or other needs.
+{% endcapture %}
+
+{% include date-collection.html
+    title="Filtering your BCDA exports"
+    date="September 2, 2026"
+    subtitle="September 2, 2026 | 1:00 - 2:00pm ET"
+    content=date3
+    is_past=false
+    event_link="https://events.gcc.teams.microsoft.com/event/f6ed4b69-17bf-43e7-bce1-0848fbb13092@fbdcedc1-70a9-414b-bfa5-c3063fc3395e"
+%}
+</ul>
+
 ### Past office hours
 
 <ul class="usa-collection margin-bottom-4">
