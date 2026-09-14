@@ -10,7 +10,7 @@ is_past: true
 resources: 
   - title: "Presentation slides (PDF)"
     type: "pdf"
-    url: "/assets/events/bcda_7_23_office_hours_presentation.pdf"
+    url: "/assets/events/bcda_9_2_office_hours_presentation.pdf"
 ---
 
 As a bulk API, BCDA exports tens of thousands of records for every attributed person on Medicare. In practice, BCDA users look for specific types of Medicare patient claims data to support their tracking, care coordination, reporting, and other goals.
