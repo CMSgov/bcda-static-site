@@ -220,7 +220,7 @@ If your BCDA client is using any of the v2 URLs, you’ll need to update your co
 <div class="usa-alert usa-alert--warning">
   <div class="usa-alert__body">
       <p class="usa-alert__heading text-bold">Do not use FHIR IDs to match resources between versions.</p>
-      <p class="usa-alert__text">To match <a href="{{ '/v3/how-to-migrate-v3.html#matching-beneficiaries-between-v2-and-v3-2' | relative_url }}">beneficiaries</a>, use MBI and demographics data. To match <a href="{{ 'v3/how-to-migrate-v3.html#matching-claims-between-v2-and-v3-2' | relative_url }}">claims</a>, use the claim control number.</p>
+      <p class="usa-alert__text">To match <a href="{{ '/v3/how-to-migrate-v3.html#matching-beneficiaries-between-v2-and-v3-2' | relative_url }}">beneficiaries</a>, use MBI and demographics data. To match <a href="{{ '/v3/how-to-migrate-v3.html#matching-claims-between-v2-and-v3-2' | relative_url }}">claims</a>, use the claim control number.</p>
   </div>
 </div>
 
