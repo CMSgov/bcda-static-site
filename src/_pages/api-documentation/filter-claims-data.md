@@ -9,24 +9,6 @@ feedback_id: "72cee024"
 
 # {{ page.page_title }}
 
-<div
-  class="usa-summary-box"
-  role="region"
-  aria-labelledby="summary-box-key-information"
->
-  <div class="usa-summary-box__body">
-    <p class="usa-summary-box__heading font-ui-md text-bold" id="summary-box-key-information">
-      What's new in v3?
-    </p>
-    <div class="usa-summary-box__text">
-        <ul>
-            <li><a href="#the-typefilter-parameter">The _typeFilter parameter</a></li>
-            <li>Using <a href="#the-since-parameter">the _since parameter</a> with dates prior to 03/26/2026</li>
-        </ul>
-    </div>
-  </div>
-</div>
-
 BCDA offers 3 query parameters to filter or specify the resources returned:
 - **_since:** applies a date boundary to your request
 - **_type:** limits your request to 1 or more specific resource types
@@ -147,7 +129,6 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v3/Group/all/\$export?_type=Explan
 
 <div class="display-flex flex-align-center"> 
     <h2 class="display-inline">The _typeFilter parameter </h2>
-    {%- include new-tag.html -%} 
 </div>
 
 <div class="usa-alert usa-alert--success usa-alert--no-icon">
