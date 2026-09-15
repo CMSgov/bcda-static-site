@@ -101,7 +101,7 @@ In earlier versions of BCDA, claims data was sourced from the Chronic Conditions
 
 #### Next Steps:
 
-- Review the [How to Migrate to v3]({{ '/v3/api-documentation/how-to-migrate-v3.html' | relative_url }}) for step-by-step implementation instructions
+- Review the [How to Migrate to v3]({{ '/v3/how-to-migrate-v3.html' | relative_url }}) for step-by-step implementation instructions
 - Access BCDA's [API documentation]({{ '/api-documentation.html' | relative_url }}) to view the technical specifications and API details
 - Participate in the Office Hours to get personalized support
 
