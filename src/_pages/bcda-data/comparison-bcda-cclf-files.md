@@ -4,9 +4,16 @@ page_title: "Comparison of BCDA v3 and CCLF Files"
 seo_title: ""
 description: ""
 in-page-nav: true
+tabs:
+  - label: v3
+    url: /bcda-data/comparison-bcda-cclf-files.html
+  - label: v2
+    url: /v2/bcda-data/comparison-bcda-cclf-files.html
 ---
 
 # {{ page.page_title }}
+
+{% include tabs.html items=page.tabs %}
 
 Beneficiary Claims Data API (BCDA) and [Claim and Claim Line Feed (CCLF)](https://www.cms.gov/files/document/cclf-information-packet.pdf) files both offer Medicare Parts A, B, and D claims data. While the data sources overlap, there are some differences including their formatting and the frequency with which they make data available.
 

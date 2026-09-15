@@ -5,9 +5,16 @@ seo_title: ""
 description: "Learn how to filter Medicare claims data requests using the _since, _type, and _typeFilter parameters."
 in-page-nav: true
 feedback_id: "72cee024"
+tabs:
+  - label: v3
+    url: /api-documentation/filter-claims-data.html
+  - label: v2
+    url: /v2/api-documentation/filter-claims-data.html
 ---
 
 # {{ page.page_title }}
+
+{% include tabs.html items=page.tabs %}
 
 BCDA offers 3 query parameters to filter or specify the resources returned:
 - **_since:** applies a date boundary to your request

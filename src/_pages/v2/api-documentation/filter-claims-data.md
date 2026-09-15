@@ -6,9 +6,16 @@ description: "Use the _since and _type parameters to filter Medicare claims data
 in-page-nav: true
 in-page-nav-levels: "h2"
 feedback_id: "40a078ea"
+tabs:
+  - label: v3
+    url: /api-documentation/filter-claims-data.html
+  - label: v2
+    url: /v2/api-documentation/filter-claims-data.html
 ---
 
 # {{ page.page_title }}
+
+{% include tabs.html items=page.tabs %}
 
 BCDA uses 2 parameters to filter or specify the resources returned: 
 

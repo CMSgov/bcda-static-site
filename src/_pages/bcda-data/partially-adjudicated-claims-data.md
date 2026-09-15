@@ -5,9 +5,16 @@ seo_title: ""
 description: "Get earlier access to Medicare enrollee data with BCDA partially adjudicated claims, now available as ExplanationOfBenefit resources in v3."
 in-page-nav: true
 feedback_id: "355f6ea6"
+tabs:
+  - label: v3
+    url: /bcda-data/partially-adjudicated-claims-data.html
+  - label: v2
+    url: /v2/bcda-data/partially-adjudicated-claims-data.html
 ---
 
 # {{ page.page_title }}
+
+{% include tabs.html items=page.tabs %}
 
 ## A faster way to access claims data
 
