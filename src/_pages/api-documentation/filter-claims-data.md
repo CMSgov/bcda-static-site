@@ -1,5 +1,5 @@
 ---
-layout: api-docs-v3
+layout: api-docs
 page_title: "How to Filter Claims Data"
 seo_title: ""
 description: "Learn how to filter Medicare claims data requests using the _since, _type, and _typeFilter parameters."

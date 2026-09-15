@@ -1,5 +1,5 @@
 ---
-layout: api-docs-v3
+layout: api-docs
 page_title: "Comparison of BCDA v3 and CCLF Files"
 seo_title: ""
 description: ""
