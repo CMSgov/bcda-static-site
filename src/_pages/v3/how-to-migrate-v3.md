@@ -220,7 +220,7 @@ If your BCDA client is using any of the v2 URLs, you’ll need to update your co
 <div class="usa-alert usa-alert--warning">
   <div class="usa-alert__body">
       <p class="usa-alert__heading text-bold">Do not use FHIR IDs to match resources between versions.</p>
-      <p class="usa-alert__text">To match <a href="{{ '/v3/api-documentation/how-to-migrate-v3.html#matching-beneficiaries-between-v2-and-v3-2' | relative_url }}">beneficiaries</a>, use MBI and demographics data. To match <a href="{{ 'v3/api-documentation/how-to-migrate-v3.html#matching-claims-between-v2-and-v3-2' | relative_url }}">claims</a>, use the claim control number.</p>
+      <p class="usa-alert__text">To match <a href="{{ '/v3/how-to-migrate-v3.html#matching-beneficiaries-between-v2-and-v3-2' | relative_url }}">beneficiaries</a>, use MBI and demographics data. To match <a href="{{ '/v3/how-to-migrate-v3.html#matching-claims-between-v2-and-v3-2' | relative_url }}">claims</a>, use the claim control number.</p>
   </div>
 </div>
 
@@ -312,7 +312,7 @@ Example of v3 `Patient.identifier` with two MBIs:
 
 Because the v3 `ExplanationOfBenefit` FHIR ID will not match the v2 `ExplanationOfBenefit` or `Claim`/`ClaimResponse` FHIR IDs, in order to match a v3 claim to a claim you already have in your database, the best way is to use the claim control number.
 
-Because each version of a claim will have a unique claim ID, you should avoid using the unique claim ID to track a claim across versions, or even within a version across the adjudication journey. Instead, use the claim control number. It is the identifier where the `identifier.system` equals [https://bluebutton.cms.gov/identifiers/CLM-CNTL-NUM](https://bluebutton.cms.gov/identifiers/CLM-CNTL-NUM).
+Because each version of a claim will have a unique claim ID, you should avoid using the unique claim ID to track a claim across versions, or even within a version across the adjudication journey. Instead, use the claim control number. It is the identifier where the `identifier.system` equals `https://bluebutton.cms.gov/identifiers/CLM-CNTL-NUM`.
 
 Example `ExplanationOfBenefit.identifier` element:
 
