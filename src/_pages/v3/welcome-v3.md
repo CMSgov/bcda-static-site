@@ -28,8 +28,8 @@ We’re offering regular office hours to help you during your v3 migration. At e
 ### Past office hours
 
 <ul class="usa-collection margin-bottom-4">
-{% capture date2 %}
-Join us for a general overview about how to access and use Medicare claims data with BCDA.
+{% capture date3 %}
+Learn how to filter bulk claims data to target your tracking, care coordination, reporting, or other needs.
 {% endcapture %}
 
 {% include date-collection.html
@@ -40,6 +40,10 @@ Join us for a general overview about how to access and use Medicare claims data 
     is_past=true
     event_link="/events/filtering-your-bcda-exports"
 %}
+
+{% capture date2 %}
+Join us for a general overview about how to access and use Medicare claims data with BCDA.
+{% endcapture %}
 
 {% include date-collection.html
     title="Getting started with BCDA"
