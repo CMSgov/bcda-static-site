@@ -1,0 +1,17 @@
+<nav aria-label="API Version" class="margin-top-2 margin-bottom-3">
+  <ul class="usa-list usa-list--unstyled display-flex flex-row flex-wrap margin-y-0 border-bottom border-base-light">
+    {% for item in include.items %}
+    {% assign is_active = false %}
+    {% if page.url == item.url %}{% assign is_active = true %}{% endif %}
+
+    <li>
+      <a
+        href="{{ item.url | relative_url }}"
+        class="display-block padding-x-4 padding-y-1 text-no-underline margin-bottom-neg-1px border-bottom-05 text-bold {% if is_active %}border-black hover:text-base-darkest {% else %}border-transparent{% endif %}"
+        {% if is_active %}style="color:#1b1b1b"{% else %}style="color:#005ea2"{% endif %}
+        {% if is_active %}aria-current="page"{% endif %}
+      >{{- item.label -}}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</nav>

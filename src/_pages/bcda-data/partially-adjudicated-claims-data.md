@@ -1,36 +1,20 @@
 ---
-layout: api-docs-v3
+layout: api-docs
 page_title: "Partially Adjudicated Claims Data"
 seo_title: ""
 description: "Get earlier access to Medicare enrollee data with BCDA partially adjudicated claims, now available as ExplanationOfBenefit resources in v3."
 in-page-nav: true
 feedback_id: "355f6ea6"
+tabs:
+  - label: v3
+    url: /bcda-data/partially-adjudicated-claims-data.html
+  - label: v2
+    url: /v2/bcda-data/partially-adjudicated-claims-data.html
 ---
 
 # {{ page.page_title }}
 
-<div
-  class="usa-summary-box"
-  role="region"
-  aria-labelledby="summary-box-key-information"
->
-  <div class="usa-summary-box__body">
-    <p
-      class="usa-summary-box__heading font-ui-md text-bold"
-      id="summary-box-key-information"
-    >
-      What's new in v3?
-    </p>
-    <div class="usa-summary-box__text">
-      <ul>
-        <li><a href="#what-s-in-partially-adjudicated-claims-data">Partially adjudicated claims data</a> are now
-          represented with 1 FHIR resource type: ExplanationOfBenefit (EOB).</li>
-        <li><a href="#how-do-i-know-when-a-claim-has-been-fully-processed">New elements and guidance</a> explain how to
-          tell if claims are still processing and identify duplicates.</li>
-      </ul>
-    </div>
-  </div>
-</div>
+{% include tabs.html items=page.tabs %}
 
 ## A faster way to access claims data
 
@@ -122,10 +106,9 @@ In all versions of BCDA, adjudicated claims data:
 
 <div class="display-flex flex-align-center margin-top-4">
   <h3>How do I know when a claim has been fully processed?</h3>
-  {%- include new-tag.html -%}
 </div>
 
-All EOBs contain the <a href="https://hl7.org/fhir/R4/explanationofbenefit-definitions.html#ExplanationOfBenefit.outcome" target="_blank" rel="noopener noreferrer">ExplanationOfBenefit.outcome</a> element which will indicate if the claim is still processing. If you wish to include only EOBs that have been fully processed and paid in your job requests, see our guidance on <a href="{{ '/v3/filter-claims-data-v3.html#the-typefilter-parameter' | relative_url }}">filtering claims by `ExplanationOfBenefit.outcome` using _typeFilter</a>.
+All EOBs contain the <a href="https://hl7.org/fhir/R4/explanationofbenefit-definitions.html#ExplanationOfBenefit.outcome" target="_blank" rel="noopener noreferrer">ExplanationOfBenefit.outcome</a> element which will indicate if the claim is still processing. If you wish to include only EOBs that have been fully processed and paid in your job requests, see our guidance on <a href="{{ '/api-documentation/filter-claims-data#the-typefilter-parameter' | relative_url }}">filtering claims by `ExplanationOfBenefit.outcome` using _typeFilter</a>.
 
 #### Matching multiple EOBs to the same claim
 

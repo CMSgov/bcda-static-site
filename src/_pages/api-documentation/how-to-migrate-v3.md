@@ -1,5 +1,5 @@
 ---
-layout: api-docs-v3
+layout: api-docs
 page_title: "How to Migrate to v3"
 seo_title: "How to Migrate to BCDA v3 | CMS Beneficiary Claims Data API"
 description: "Learn about new endpoints, FHIR resource consolidation, and updated URLs and IDs."
@@ -7,7 +7,7 @@ in-page-nav: true
 feedback_id: "8a4c0b7b"
 ---
 
-# {{ page.page_title }} <span class="usa-tag usa-tag--big margin-x-1 bg-accent-warm text-middle">New</span>
+# {{ page.page_title }}
 
 ## Migration overview
 
@@ -33,7 +33,7 @@ If you are currently using BCDA v1 or BCDA v2, there are changes to the API and 
 
 ### v3 Data Dictionary 
 
-<div class="grid-row grid-gap margin-y-4 flex-align-center">
+<div class="grid-row grid-gap margin-bottom-4 flex-align-center">
   <div class="grid-col-12 mobile-lg:grid-col-auto">
     <img src="{{ '/assets/img/book.svg' | relative_url }}" alt="">
   </div>
@@ -70,7 +70,7 @@ In BCDA v3, claims data are still returned in FHIR R4 format, but there are chan
  - New StructureDefenition and CodeSystem URLs for CMS-specific extensions and terminologies
  - New data elements
 
-Refer to the [v3 Data Dictionary]({{ '/v3/how-to-migrate-v3.html#v3-data-dictionary' | relative_url }}) for a list of v3 supported data elements.
+Refer to the [v3 Data Dictionary]({{ '/api-documentation/how-to-migrate-v3.html#v3-data-dictionary' | relative_url }}) for a list of v3 supported data elements.
 
 ### Changes to partially adjudicated claims
  
@@ -101,7 +101,7 @@ In v2, BCDA differentiates "partially adjudicated" from "fully adjudicated" clai
 
 #### How it works in v3
 
-We've extended the API with the [`_typeFilter` parameter]({{ '/v3/filter-claims-data-v3.html#the-typefilter-parameter' | relative_url }}) to filter export data more granularly. Because all claims in v3 are represented by the same resource type (`ExplanationOfBenefit`), use this parameter to specify the System-Type _tag, recreating your v2 filtering logic.
+We've extended the API with the [`_typeFilter` parameter]({{ '/api-documentation/filter-claims-data#the-typefilter-parameter' | relative_url }}) to filter export data more granularly. Because all claims in v3 are represented by the same resource type (`ExplanationOfBenefit`), use this parameter to specify the System-Type _tag, recreating your v2 filtering logic.
 
 Remember when using the _typeFilter parameter:
 1. The _typeFilter parameter value must be URL-encoded
@@ -220,7 +220,7 @@ If your BCDA client is using any of the v2 URLs, you’ll need to update your co
 <div class="usa-alert usa-alert--warning">
   <div class="usa-alert__body">
       <p class="usa-alert__heading text-bold">Do not use FHIR IDs to match resources between versions.</p>
-      <p class="usa-alert__text">To match <a href="{{ '/v3/how-to-migrate-v3.html#matching-beneficiaries-between-v2-and-v3-2' | relative_url }}">beneficiaries</a>, use MBI and demographics data. To match <a href="{{ '/v3/how-to-migrate-v3.html#matching-claims-between-v2-and-v3-2' | relative_url }}">claims</a>, use the claim control number.</p>
+      <p class="usa-alert__text">To match <a href="{{ '/api-documentation/how-to-migrate-v3.html#matching-beneficiaries-between-v2-and-v3' | relative_url }}">beneficiaries</a>, use MBI and demographics data. To match <a href="{{ '/api-documentation/how-to-migrate-v3.html#matching-claims-between-v2-and-v3' | relative_url }}">claims</a>, use the claim control number.</p>
   </div>
 </div>
 

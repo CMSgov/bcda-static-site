@@ -32,7 +32,7 @@ BCDA v3 makes it easier to track claims through the adjudication cycle. It uses 
 
 ### Enhanced filtering capabilities
 
-The new [_typeFilter query parameter]({{ '/v3/filter-claims-data-v3.html#the-typefilter-parameter' | relative_url }}) provides additional options for complex data workflows.
+The new [_typeFilter query parameter]({{ '/api-documentation/filter-claims-data#the-typefilter-parameter' | relative_url }}) provides additional options for complex data workflows.
 
 ### Improved conformance with select FHIR Implementation Guides
 
@@ -58,4 +58,4 @@ Through a unified data structure and consolidated data sources, BCDA v3 can redu
 
 ## What this means for current users
 
-The v1 and v2 endpoints will be disabled on July 30, 2027. Refer to the [v3 Migration Guide]({{ '/v3/how-to-migrate-v3' | relative_url }}) for steps and support on upgrading to v3. 
+The v1 and v2 endpoints will be disabled on July 30, 2027. Refer to the [v3 Migration Guide]({{ '/api-documentation/how-to-migrate-v3.html' | relative_url }}) for steps and support on upgrading to v3. 

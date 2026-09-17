@@ -17,6 +17,9 @@ sidebar-links:
 
       - name: How to Filter Claims Data
         url: /api-documentation/filter-claims-data.html
+
+      - name: How to Migrate to v3
+        url: /api-documentation/how-to-migrate-v3.html
 feedback_id: "cfc93278"
 ---
 
