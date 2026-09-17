@@ -17,6 +17,8 @@ tabs:
 
 {% include tabs.html items=page.tabs %}
 
+{% include alert.html variant="warning" heading="You're viewing v2 documentation" text="v2 is not compatible with ACCESS, GUIDE, or IOTA and will be retired on July 30, 2027." %}
+
 BCDA uses 2 parameters to filter or specify the resources returned: 
 
 - **_type**: limits your request to 1 or more specific resource types
