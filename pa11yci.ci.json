@@ -11,8 +11,7 @@
     "standard": "WCAG2AA",
     "chromeLaunchConfig": {
       "args": [
-        "--no-sandbox",
-        "--disable-dev-shm-usage"
+        "--no-sandbox"
       ],
       "executablePath": "/usr/bin/chromium"
     }
