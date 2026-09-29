@@ -11,6 +11,7 @@ show-side-nav: false
 
 - [Home]({{'/index.html' | relative_url}})
 - [About BCDA]({{'/about.html' | relative_url}})
+  - [Introducing BCDA v3]({{'/about/introducing-v3.html' | relative_url}})
 - [Announcements]({{'/announcements.html' | relative_url}})
 - [API Documentation]({{'/api-documentation.html' | relative_url}})
   - [Get a Bearer Token]({{'/api-documentation/get-a-bearer-token.html' | relative_url}})

@@ -2,9 +2,13 @@
   children: 
     - name: About BCDA
       url: /about.html
-    
+
     - name: Announcements
       url: /announcements.html
+      
+    - name: Introducing BCDA v3
+      url: /about/introducing-v3.html
+
 
 - name: API Documentation
   children:

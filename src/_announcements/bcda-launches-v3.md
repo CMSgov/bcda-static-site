@@ -8,7 +8,7 @@ lead_paragraph: "Core improvements to data sources and alignment mean timelier, 
 published_date: 2026-07-01
 ---
 
-Centers for Medicare & Medicaid Services (CMS) is excited to announce version 3 (v3) of its [FHIR](http://hl7.org/fhir/) Medicare claims data sharing platform. v3 drives improvements to CMS Beneficiary Claims Data API (BCDA), [Blue Button API](https://bluebutton.cms.gov/), and [Claims Data to Part D Sponsors API (AB2D)](https://ab2d.cms.gov/). [BCDA v3](/v3/introducing-v3.html) helps model entities coordinate care more effectively, track performance on CMS quality measures, and improve patient outcomes.
+Centers for Medicare & Medicaid Services (CMS) is excited to announce version 3 (v3) of its [FHIR](http://hl7.org/fhir/) Medicare claims data sharing platform. v3 drives improvements to CMS Beneficiary Claims Data API (BCDA), [Blue Button API](https://bluebutton.cms.gov/), and [Claims Data to Part D Sponsors API (AB2D)](https://ab2d.cms.gov/). [BCDA v3](/about/introducing-v3.html) helps model entities coordinate care more effectively, track performance on CMS quality measures, and improve patient outcomes.
 
 ## BCDA v3 improvements
 
