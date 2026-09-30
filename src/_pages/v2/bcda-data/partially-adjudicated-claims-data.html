@@ -6,9 +6,18 @@ description: "Get early access to enrollee claims data as soon as 2-4 days after
 adjudicated claims data."
 in-page-nav: true
 feedback_id: "355f6ea6"
+tabs:
+- label: v3
+  url: /bcda-data/partially-adjudicated-claims-data.html
+- label: v2
+  url: /v2/bcda-data/partially-adjudicated-claims-data.html
 ---
 
 <h1>{{ page.page_title }}</h1>
+
+{% include tabs.html items=page.tabs %}
+
+{% include alert.html variant="warning" heading="You're viewing v2 documentation" text="v2 is not compatible with ACCESS, GUIDE, or IOTA and will be retired on July 30, 2027." %}
 
 <h2>A faster way to access claims data</h2>
 
@@ -318,9 +327,7 @@ feedback_id: "355f6ea6"
   sandbox and production environments.
 </p>
 <p>
-  All v2 endpoints will work as described in the existing BCDA documentation. <a
-    href="{{ '/bcda-data/difference-between-v1-v2.html' | relative_url }}"
-  >Learn more about the differences between v1 and v2</a>.
+  All v2 endpoints will work as described in the existing BCDA documentation.
 </p>
 {% endcapture %}
 

@@ -1,18 +1,27 @@
-{% assign date = include.date %}
-{% assign title = include.title %}
-{% assign subtitle = include.subtitle %}
-{% assign content = include.content %}
+{% assign event = include.event %}
 {% assign is_past = include.is_past %}
-{% assign event_link = include.event_link %}
+{% assign event_link = event.url %}
+{% unless is_past %}
+  {% assign event_link = event.registration_url | default: event.url %}
+{% endunless %}
 
-<li class="usa-collection__item padding-top-4">
+{% assign is_external = false %}
+{% if event_link contains "://" %}
+  {% assign site_prefix = site.url | append: "/" %}
+  {% assign link_base = event_link | slice: 0, site_prefix.size %}
+  {% if link_base != site_prefix and event_link != site.url %}
+    {% assign is_external = true %}
+  {% endif %}
+{% endif %}
+
+<div class="usa-collection__item border-top-0 padding-top-0 margin-top-0">
   <div class="usa-collection__calendar-date">
     <span
       class="usa-collection__calendar-date-month{% if is_past %} bg-base-dark{% endif %}"
       style="text-transform: uppercase;"
-    >{{- date | date: "%b" -}}</span>
-    <span class="usa-collection__calendar-date-day{% if is_past %} border-base-dark text-base-dark{% endif %}">{{- date
-      | date: "%-d" -}}</span>
+    >{{- event.event_date | date: "%b" -}}</span>
+    <span class="usa-collection__calendar-date-day{% if is_past %} border-base-dark text-base-dark{% endif %}">
+      {{- event.event_date | date: "%-d" -}}</span>
   </div>
   <div class="usa-collection__body position-relative">
     <h3 class="usa-collection__heading padding-left-105 font-sans-lg">
@@ -20,25 +29,24 @@
         href="{{ event_link | relative_url }}"
         class="stretched-link text-no-underline hide-external-icon"
         style="color: black;"
-      >{{- title -}}</a>
+      >{{- event.page_title -}}</a>
     </h3>
-    {% if subtitle %}
+    {% if event.subtitle %}
     <p class="padding-left-105 text-italic margin-top-05 text-base">
-      {{- subtitle -}}
+      {{- event.subtitle -}}
     </p>
     {% endif %}
     <div class="usa-collection__description margin-top-2 padding-left-105">
-      <div>{{- content | markdownify -}}</div>
+      <div>{{- event.description | markdownify -}}</div>
       {% if event_link %}
       <div>
         {% if is_past %}
-        <div class="usa-button usa-button--outline">View details {% include sprite.html icon="arrow_forward" size="3" %}
-        </div>
+        <div class="usa-button usa-button--outline">View details {% include sprite.html icon="arrow_forward" size="2" %}</div>
         {% else %}
-        <div class="usa-button">Register now</div>
+        <div class="usa-button">Register now{% if is_external %} {% include sprite.html icon="launch" size="2" %}{% endif %}</div>
         {% endif %}
       </div>
       {% endif %}
     </div>
   </div>
-</li>
+</div>

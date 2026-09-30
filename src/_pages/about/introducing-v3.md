@@ -1,13 +1,13 @@
 ---
-layout: api-docs-v3
-page_title: "Introducing BCDA v3"
-seo_title: "Introducing BCDA v3 | CMS Beneficiary Claims Data API"
+layout: api-docs
+page_title: "Introducing v3"
+seo_title: "Introducing v3"
 description: "Learn how v3 improvements support better outcomes."
 in-page-nav: true
 feedback_id: "1dd96929"
 ---
 
-# {{ page.page_title }} <span class="usa-tag usa-tag--big margin-x-1 bg-accent-warm text-middle">New</span>
+# {{ page.page_title }}
 
 ## Improve health outcomes
 
@@ -76,9 +76,7 @@ In earlier versions of BCDA, claims data was sourced from the Chronic Conditions
   <img
     src="{{ '/assets/img/comparison-claims-flow.svg' | relative_url }}"
     alt="Partially adjudicated claims processing flow diagram."
-    class="width-full desktop:padding-x-15 padding-x-8"
-    
-  >
+    class="width-full desktop:padding-x-15 padding-x-8">
   <figcaption class="usa-sr-only">
     <ol>
       <li>CMS receives the claim and two separate flows appear for partially versus fully adjudicated claims.</li>
@@ -101,7 +99,7 @@ In earlier versions of BCDA, claims data was sourced from the Chronic Conditions
 
 #### Next Steps:
 
-- Review the [How to Migrate to v3]({{ '/v3/how-to-migrate-v3.html' | relative_url }}) for step-by-step implementation instructions
+- Review the [How to Migrate to v3]({{ '/api-documentation/how-to-migrate-v3.html' | relative_url }}) for step-by-step implementation instructions
 - Access BCDA's [API documentation]({{ '/api-documentation.html' | relative_url }}) to view the technical specifications and API details
 - Participate in the Office Hours to get personalized support
 
