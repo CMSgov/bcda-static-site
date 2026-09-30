@@ -1,0 +1,57 @@
+---
+layout: api-docs
+page_title: "Office Hours"
+seo_title: ""
+description: "Get updates, release information, and other important news from the BCDA team."
+show-side-nav: false
+---
+
+{% assign events = site.events | sort: 'event_date' %}
+{% assign today = site.time | date: "%Y%m%d" | plus: 0 %}
+{% assign upcoming_events = "" | split: "" %}
+{% assign past_events = "" | split: "" %}
+
+{% for event in events %}
+  {% assign event_day = event.event_date | date: "%Y%m%d" | plus: 0 %}
+  {% if event_day >= today %}
+    {% assign upcoming_events = upcoming_events | push: event %}
+  {% else %}
+    {% assign past_events = past_events | unshift: event %}
+  {% endif %}
+{% endfor %}
+
+<h1>{{ page.page_title }}</h1>
+<div class="grid-row">
+  <div class="desktop:grid-col-8 grid-col-12">
+
+    {% if upcoming_events.size > 0 %}
+    <div class="padding-top-4">
+      <h2>Upcoming office hours</h2>
+      <div class="padding-top-4">
+        <ul class="usa-list--unstyled">
+          {% for event in upcoming_events %}
+            <li class="padding-y-5 border-top position-relative">
+              {%- include date-collection.html event=event -%}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if past_events.size > 0 %}
+    <div class="padding-top-4">
+      <h2>Past office hours</h2>
+      <div class="padding-top-4">
+        <ul class="usa-list--unstyled">
+          {% for event in past_events %}
+          <li class="padding-y-5 border-top position-relative">
+            {%- include date-collection.html event=event is_past=true -%}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
