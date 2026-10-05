@@ -15,7 +15,7 @@ Along with background information, this guide:
 
 - Introduces the [v3 Data Dictionary]({{ '/assets/downloads/BCDA_v3_Data_Dictionary.xlsx' | relative_url }})
 - Helps you reformat [requests](#requesting-data-from-new-v3-endpoints) and [URLs](#new-extension-and-code-system-urls) in v3
-- Introduces the [new _typeFilter](#exporting-claims-based-on-adjudication-status-with-v3) parameter
+- Introduces the [_typeFilter]({{ '/api-documentation/filter-claims-data.html#the-_typefilter-parameter' | relative_url }}) parameter
 - Provides additional info on mapping and matching claims and variables between versions
 
 ## Migration overview
