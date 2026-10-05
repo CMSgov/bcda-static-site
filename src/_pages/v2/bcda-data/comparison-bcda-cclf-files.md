@@ -16,7 +16,10 @@ tabs:
 
 {% include tabs.html items=page.tabs %}
 
-{% include alert.html variant="warning" heading="You're viewing v2 documentation" text="v2 is not compatible with ACCESS, GUIDE, or IOTA and will be retired on July 30, 2027." %}
+{% capture alert_text %}
+v2 is unavailable to new users, and will be retired for current users on July 30, 2027. <a href="/api-documentation/how-to-migrate-v3.html">How to migrate to v3</a>.
+{% endcapture %}
+{% include alert.html variant="warning" heading="You're viewing v2 documentation" text=alert_text %}
 
 While Beneficiary Claims Data API (BCDA) and <a href="https://www.cms.gov/files/document/cclf-information-packet.pdf" target="_blank" rel="noopener noreferrer">Claim and Claim Line Feed (CCLF)</a> files both offer Medicare Parts A, B, and D claims data, there are some differences including their formatting and the frequency with which they make data available.
 
