@@ -27,59 +27,97 @@ feedback_id: "62c6ca60"
   <li class="usa-process-list__item">
     <h2 class="usa-process-list__heading margin-y-2">Authorize your model entity</h2>
     <p>
-      Production credentials authorize your organization's access to the API. Create and manage credentials by logging
-      in to your model-specific system:
+      Your access to BCDA starts with getting authorized to create and manage API credentials. Create and manage
+      credentials by logging in to your model-specific system.
     </p>
+    <h3>ACOs in the Medicare Shared Savings Program</h3>
     <ul>
       <li>
-        <strong>ACOs in the Medicare Shared Savings Program:</strong> Only users with the Credential Delegate role can
-        manage credentials from the <a
-          href="https://acoms.cms.gov/api-key-mgmt/bcda"
-          target="_blank"
-          rel="noopener noreferrer"
-        >ACO Management System (ACO-MS)</a>.
+        <p><b>System to use for BCDA production credentials</b> - ACO Management System (ACO-MS)</p>
       </li>
       <li>
-        <strong>REACH ACOs and KCEs or KCF practices in the Kidney Care Choices Model:</strong> Users with any of the
-        following roles can manage credentials from <a
-          href="https://4innovation.cms.gov/secure/api-credentials/bcda"
-          target="_blank"
-          rel="noopener noreferrer"
-        >4innovation (4i)</a>:
-        <ul>
-          <li>Executive Contact </li>
-          <li>Entity Primary Contact </li>
-          <li>Entity Secondary Contact </li>
-          <li>DUA Requestor </li>
-          <li>DUA Custodian</li>
-        </ul>
-        <p>Your registered contact can <a
-            href="https://www.cms.gov/data-research/cms-information-technology/cms-identity-management/help-desk-support"
-            target="_blank"
-            rel="noopener noreferrer"
-          >contact the help desk</a> to assign these roles.</p>
+        <p><b>Who creates credentials</b> - ACO-MS users who are assigned the Credential Delegate role</p>
       </li>
     </ul>
-  </li>
-  <li class="usa-process-list__item">
-    <h2 class="usa-process-list__heading margin-y-2">Obtain production credentials</h2>
-    <ol>
-      <li>Visit the <i>API Credentials</i> page in your model-specific system.</li>
-      <li>Choose the <i>BCDA Credentials</i> tab, then select <i>Create New API Credentials</i>.</li>
-      <li>Add a public, static IP address for every system, including vendors, that will use the API (up to 8). It may
-        take up to an hour for the Allow List to update.</li>
-    </ol>
-    <h3 class="font-ui-sm">Rotate (renew) credentials every 90 days</h3>
-    <p class="margin-top-05">Visit <i>BCDA Credentials</i> and select the rotate icon in the <i>Actions</i> column.
-    </p>
-    <h3 class="font-ui-sm">Revoke (deactivate) credentials if compromised</h3>
-    <p class="margin-top-05">Visit <i>BCDA Credentials</i> and select the delete icon in the <i>Actions</i> column.
-      Email <a
-        href="mailto:bcapi@cms.hhs.gov"
+
+    <h3>REACH ACOs, KCEs in the KCC Model, and IOTA Participants</h3>
+    <ul>
+      <li>
+        <p><b>System to use for BCDA production credentials</b> - <a
+            href="https://4innovation.cms.gov/secure/api-credentials/bcda"
+          >4innovation (4i)</a></p>
+      </li>
+      <li>
+        <p><b>Who creates BCDA credentials</b> - 4i users who are assigned one of the following roles:</p>
+        <ul>
+          <li>Executive Contact</li>
+          <li>Entity Primary Contact</li>
+          <li>Entity Secondary Contact</li>
+          <li>DUA Requestor</li>
+          <li>DUA Custodian</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>GUIDE and ACCESS Participants</h3>
+    <ul>
+      <li>
+        <p>
+          <b>System to use for BCDA production credentials</b> - Request access to <i>API Credentials Management - BCDA
+            application</i> from the <a
+            href="https://portal.cms.gov/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >CMS
+            Enterprise Portal</a>
+        </p>
+      </li>
+      <li>
+        <p>
+          <b>Who creates BCDA credentials</b> - View the <a
+            href="https://portal.cms.gov/portal/help/digital/user-guide/?guide=enterprise_portal_user_guide"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Enterprise Portal User Guide</a> to learn more
+        </p>
+      </li>
+    </ul>
+    <p><a
+        href="https://www.cms.gov/data-research/cms-information-technology/cms-identity-management/help-desk-support"
         target="_blank"
         rel="noopener noreferrer"
-      >bcapi@cms.hhs.gov</a> to review recent activity.</p>
+      >Contact the CMS Application Help Desk</a> for support with ACO-MS, 4i,
+      and Enterprise Portal.</p>
   </li>
+
+  <li class="usa-process-list__item">
+    <h2 class="usa-process-list__heading margin-y-2">Manage BCDA production credentials</h2>
+    <h3>In ACO-MS and 4i</h3>
+    <ol>
+      <li>Visit the API Credentials page in your model-specific system.</li>
+      <li>Choose the BCDA Credentials tab, then select Create New API Credentials.</li>
+      <li>Add a public, static IP address for every system, including those owned by vendors, that will use the API (up
+        to 8). It may take up to an hour for the Allow List to update.</li>
+    </ol>
+
+    <h3>In CMS Enterprise Portal</h3>
+    <ol>
+      <li>Visit My Applications.</li>
+      <li>Open the API Credentials Management - BCDA application tile.</li>
+      <li>Add a public, static IP address for every system, including those owned by vendors, that will use the API (up
+        to 8). It may take up to an hour for the Allow List to update.</li>
+    </ol>
+
+    <h3 class="font-ui-sm">Rotate (renew) credentials every 90 days</h3>
+    <p class="margin-top-05">BCDA credentials expire after 90 days. Renew your credentials in your model-specific system
+      to ensure you can continue to access BCDA.</p>
+
+    <h3 class="font-ui-sm">Revoke (deactivate) credentials if compromised</h3>
+    <p class="margin-top-05">Treat your BCDA credentials as sensitive information. If you suspect your credentials have
+      been compromised, revoke the credentials from your model-specific system and email our team at bcapi@cms.hhs.gov
+      to review recent API activity for suspicious requests.</p>
+  </li>
+
   <li class="usa-process-list__item production-access-final-item">
     <h2 class="usa-process-list__heading margin-y-2">Access production claims data</h2>
     <p>
