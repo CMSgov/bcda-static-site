@@ -134,14 +134,12 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v3/Group/all/\$export?_type=Explan
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="shell" can_copy=true %}
 
-<div class="display-flex flex-align-center"> 
-    <h2 class="display-inline">The _typeFilter parameter </h2>
-</div>
+## The _typeFilter parameter
 
 <div class="usa-alert usa-alert--success usa-alert--no-icon">
     <div class="usa-alert__body">
         <p class="usa-alert__text text-bold font-ui-lg">Only available in v3</p>
-        <p class="usa-alert__text">The _typeFilter parameter is only available in v3. If you are using v2, use the _since and _type parameters to filter claims data.</p>
+        <p class="usa-alert__text">The _typeFilter parameter is only available in v3.</p>
     </div>
 </div>
 
