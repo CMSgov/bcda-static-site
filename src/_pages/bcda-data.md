@@ -32,9 +32,9 @@ The Data Dictionary maps the different data fields and locations between BCDA an
   <div class="grid-col-fill tablet:grid-col-9">
     <p>Download the BCDA Data Dictionary to learn about claim field names and descriptions, new data field locations, and data types and format.</p>
     <ul>
-      <li>BCDA v3 data dictionary</li>
-      <li><a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}">BCDA v1/v2 data dictionary</a></li>
-      <li><a href="{{ '/assets/data/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}">BCDA v2 partially adjudicated claims data dictionary</a></li>
+      <li><a href="{{ '/assets/downloads/BCDA_v3_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">BCDA v3 data dictionary</a></li>
+      <li><a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">BCDA v1/v2 data dictionary</a></li>
+      <li><a href="{{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">BCDA v2 partially adjudicated claims data dictionary</a></li>
     </ul>
   </div>
 </div>

@@ -31,9 +31,9 @@ feedback_id: "7d0c54c6"
 
 ##  What’s in the data
 
-Similar to [Claim and Claim Line Feeds (CCLF)](https://www.cms.gov/files/document/cclf-information-packet.pdf), [BCDA data]({{ '/bcda-data' | relative_url }}) offers Medicare Parts A, B, and D data, but with key differences in file formatting and update frequency based partly on its foundation in [Fast Healthcare Interoperability Resources](https://hl7.org/fhir/) (FHIR). FHIR standardizes data delivery into more universal categories that are easier for different systems to absorb and understand.
+Similar to [Claim and Claim Line Feeds (CCLF)](https://www.cms.gov/files/document/cclf-information-packet.pdf), [BCDA data]({{ '/bcda-data.html' | relative_url }}) offers Medicare Parts A, B, and D data, but with key differences in file formatting and update frequency based partly on its foundation in [Fast Healthcare Interoperability Resources](https://hl7.org/fhir/) (FHIR). FHIR standardizes data delivery into more universal categories that are easier for different systems to absorb and understand.
 
-Learn more about [using BCDA and CCLF files]({{ '/bcda-data/comparison-bcda-cclf-files' | relative_url }}) and mapping data between them with the [Data Dictionary]({{ '/bcda-data#data-dictionary' | relative_url }}).
+Learn more about [using BCDA and CCLF files]({{ '/bcda-data/comparison-bcda-cclf-files.html' | relative_url }}) and mapping data between them with the [Data Dictionary]({{ '/bcda-data.html#data-dictionaries' | relative_url }}).
 
 ## How BCDA fits into the claims data process
 
@@ -67,7 +67,7 @@ Learn more about [using BCDA and CCLF files]({{ '/bcda-data/comparison-bcda-cclf
 
 Normally, access to Parts A, B, and D data can be delayed during claims processing (adjudication). BCDA lets provider organizations see "partially-adjudicated" data before waiting for the process to complete.
 
-Read the guide to [partially adjudicated claims]({{ '/bcda-data/partially-adjudicated-claims-data' | relative_url }}) and their use cases to learn more about:
+Read the guide to [partially adjudicated claims]({{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}) and their use cases to learn more about:
 
 - Update frequency
 - Resource types

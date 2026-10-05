@@ -20,11 +20,11 @@ Along with background information, this guide:
 
 ## Migration overview
 
-As you  migrate from BCDA v1/v2 to v3, you’ll need to become familiar with changes including:
+As you migrate from BCDA v1/v2 to v3, you’ll need to become familiar with changes including:
 
-- New endpoint URL structure  
-- Unified ExplanationOfBenefit resource for all claims  
-- Updated extension and code system URLs  
+- New endpoint URL structure
+- Unified ExplanationOfBenefit resource for all claims
+- Updated extension and code system URLs
 - Different resource IDs requiring new matching strategies
 
 Please note that your initial v3 data request may take extra time. Additionally, as we continue to refine the v3 dataset, some fields will occasionally be re-loaded on our end. Corrected claims will show a more recent `last_updated` date and may result in larger than expected payloads. We will provide updates when these reloads are expected.
@@ -33,7 +33,7 @@ Please note that your initial v3 data request may take extra time. Additionally,
 
 BCDA v3 introduces access to more timely and accurate Medicare claims data and additional benefits to BCDA users including:
 
-- More consistent claims data by using a single data source of data, the CMS Integrated Data Repository.  
+- More consistent claims data by using a single data source, the CMS Integrated Data Repository.
 - Improved alignment with sources such as the Claim and Claim Line Feed (CCLF) files through more standard claim and patient identifiers.
 
 ### Changes to BCDA in v3
@@ -49,10 +49,10 @@ If you are currently using BCDA v1 or BCDA v2, there are changes to the API and 
 
 ### v3 Data Dictionary 
 
-Download the [BCDA v3 Data Dictionary](/assets/downloads/BCDA_v3_Data_Dictionary.xlsx)  to learn about:
+Download the <a href="{{ '/assets/downloads/BCDA_v3_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">BCDA v3 Data Dictionary</a> to learn about:
 
-- updated information on resource type and claim field names  
-- updated mappings between CCLF and BCDA data  
+- updated information on resource type and claim field names
+- updated mappings between CCLF and BCDA data
 - new data available in v3
 
 ## Requesting data from new v3 endpoints
@@ -109,7 +109,7 @@ In v2, BCDA differentiates "partially adjudicated" from "fully adjudicated" clai
 
 #### How it works in v3
 
-We've extended the API with the [`_typeFilter` parameter]({{ '/api-documentation/filter-claims-data#the-typefilter-parameter' | relative_url }}) to filter export data more granularly. Because all claims in v3 are represented by the same resource type (`ExplanationOfBenefit`), use this parameter to specify the System-Type _tag, recreating your v2 filtering logic.
+We've extended the API with the [`_typeFilter` parameter]({{ '/api-documentation/filter-claims-data.html#the-_typefilter-parameter' | relative_url }}) to filter export data more granularly. Because all claims in v3 are represented by the same resource type (`ExplanationOfBenefit`), use this parameter to specify the System-Type _tag, recreating your v2 filtering logic.
 
 Remember when using the _typeFilter parameter:
 1. The _typeFilter parameter value must be URL-encoded

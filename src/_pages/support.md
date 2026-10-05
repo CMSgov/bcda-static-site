@@ -42,7 +42,7 @@ feedback_id: "e9112e33"
 <!-- FAQ content only-->
 {% capture a1AccordionContent %}
 <p>
-   BCDA supports organizations (entities) participating in the following CMS <a href="https://www.cms.gov/priorities/innovation/about/alternative-payment-models" target="_blank" rel="noopener noreferrer">alternative payment models</a>:
+   BCDA supports organizations (entities) participating in the following CMS <a href="https://www.cms.gov/priorities/innovation/about/alternative-payment-models" target="_blank" rel="noopener">alternative payment models</a>:
 </p>
 <ul>
     <li><a href="https://www.cms.gov/priorities/innovation/innovation-models/access" target="_blank" rel="noopener">ACCESS (Advancing Chronic Care with Effective, Scalable Solutions)</a></li>
@@ -181,7 +181,7 @@ feedback_id: "e9112e33"
     <li>Missing data for newly attributed enrollees</li>
     <li>Issues for enrollees assigned more than one BENE_ID</li>
 </ul>
-<p>You can learn more about v3 improvements and problems solved at <a href="https://bcda.cms.gov/v3/introducing-v3.html">Introducing BCDA v3</a>. </p>
+<p>You can learn more about v3 improvements and problems solved at <a href="{{ '/about/introducing-v3.html' | relative_url }}">Introducing BCDA v3</a>.</p>
 {% endcapture %}
 
 {% capture a11AccordionContent %}

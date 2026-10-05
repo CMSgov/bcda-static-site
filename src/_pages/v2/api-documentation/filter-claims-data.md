@@ -18,7 +18,7 @@ tabs:
 {% include tabs.html items=page.tabs %}
 
 {% capture alert_text %}
-v2 is unavailable to new users, and will be retired for current users on July 30, 2027. <a href="/api-documentation/how-to-migrate-v3.html">How to migrate to v3</a>.
+v2 is unavailable to new users, and will be retired for current users on July 30, 2027. <a href="{{ '/api-documentation/how-to-migrate-v3.html' | relative_url }}">How to migrate to v3</a>.
 {% endcapture %}
 {% include alert.html variant="warning" heading="You're viewing v2 documentation" text=alert_text %}
 

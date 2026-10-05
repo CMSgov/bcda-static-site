@@ -32,7 +32,7 @@ BCDA v3 makes it easier to track claims through the adjudication cycle. It uses 
 
 ### Enhanced filtering capabilities
 
-The new [_typeFilter query parameter]({{ '/api-documentation/filter-claims-data#the-typefilter-parameter' | relative_url }}) provides additional options for complex data workflows.
+The new [_typeFilter query parameter]({{ '/api-documentation/filter-claims-data.html#the-_typefilter-parameter' | relative_url }}) provides additional options for complex data workflows.
 
 ### Improved conformance with select FHIR Implementation Guides
 

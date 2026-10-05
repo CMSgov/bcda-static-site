@@ -100,7 +100,7 @@ Because Medicare does not process Part D / Prescription claims directly, the rul
 
 Part D claims are submitted to CMS by the Part D plan sponsors. As a result, not all Part D claims have a claim control number. However, those that do have a claim control number can be deduplicated using it.
 
-For claims without a claim control number, you can use a natural key to link together related Part D Events for a given patient. The natural key logic is outlined in <a href="https://www.cms.gov/files/document/cclf-information-packet.pdf" target="_blank" rel="noopener noreferrer">CCLF Information Packet</a> under Section 5.1.2, and repeated here:
+For claims without a claim control number, you can use a natural key to link together related Part D Events for a given patient. The natural key logic is outlined in <a href="https://www.cms.gov/files/document/cclf-information-packet.pdf" target="_blank" rel="noopener">CCLF Information Packet</a> under Section 5.1.2, and repeated here:
 
 - Line Item From Date (`CLM_LINE_FROM_DT`)
 - Provider Service Identifier Qualifier Code (`PRVDR_SRVC_ID_QLFYR_CD`)
@@ -150,7 +150,7 @@ In all versions of BCDA, adjudicated claims data:
   <h3>How do I know when a claim has been fully processed?</h3>
 </div>
 
-All EOBs contain the <a href="https://hl7.org/fhir/R4/explanationofbenefit-definitions.html#ExplanationOfBenefit.outcome" target="_blank" rel="noopener noreferrer">ExplanationOfBenefit.outcome</a> element which will indicate if the claim is still processing. If you wish to include only EOBs that have been fully processed and paid in your job requests, see our guidance on <a href="{{ '/api-documentation/filter-claims-data#the-typefilter-parameter' | relative_url }}">filtering claims by `ExplanationOfBenefit.outcome` using _typeFilter</a>.
+All EOBs contain the <a href="https://hl7.org/fhir/R4/explanationofbenefit-definitions.html#ExplanationOfBenefit.outcome" target="_blank" rel="noopener noreferrer">ExplanationOfBenefit.outcome</a> element which will indicate if the claim is still processing. If you wish to include only EOBs that have been fully processed and paid in your job requests, see our guidance on <a href="{{ '/api-documentation/filter-claims-data.html#the-_typefilter-parameter' | relative_url }}">filtering claims by `ExplanationOfBenefit.outcome` using _typeFilter</a>.
 
 #### Matching multiple EOBs to the same claim
 
