@@ -9,43 +9,51 @@ feedback_id: "8a4c0b7b"
 
 # {{ page.page_title }}
 
+BCDA v3 became available July 1, 2026. Existing v1 and v2 users will need to migrate to v3 by July 30, 2027.
+
+Along with background information, this guide:
+
+- Introduces the [v3 Data Dictionary]({{ '/assets/downloads/BCDA_v3_Data_Dictionary.xlsx' | relative_url }})
+- Helps you reformat [requests](#requesting-data-from-new-v3-endpoints) and [URLs](#new-extension-and-code-system-urls) in v3
+- Introduces the [new _typeFilter](#exporting-claims-based-on-adjudication-status-with-v3) parameter
+- Provides additional info on mapping and matching claims and variables between versions
+
 ## Migration overview
 
-This guide helps you migrate from BCDA v1/v2 to v3. Key changes include:
+As you  migrate from BCDA v1/v2 to v3, you’ll need to become familiar with changes including:
 
-- New endpoint URL structure
-- Unified ExplanationOfBenefit resource for all claims
-- Updated extension and code system URLs
+- New endpoint URL structure  
+- Unified ExplanationOfBenefit resource for all claims  
+- Updated extension and code system URLs  
 - Different resource IDs requiring new matching strategies
 
-Learn how BCDA v3 supports better outcomes in our [introduction to v3]({{ '/about/introducing-v3' | relative_url }}).
+Please note that your initial v3 data request may take extra time. Additionally, as we continue to refine the v3 dataset, some fields will occasionally be re-loaded on our end. Corrected claims will show a more recent `last_updated` date and may result in larger than expected payloads. We will provide updates when these reloads are expected.
+
+## BCDA v3 overview
+
+BCDA v3 introduces access to more timely and accurate Medicare claims data and additional benefits to BCDA users including:
+
+- More consistent claims data by using a single data source of data, the CMS Integrated Data Repository.  
+- Improved alignment with sources such as the Claim and Claim Line Feed (CCLF) files through more standard claim and patient identifiers.
 
 ### Changes to BCDA in v3
 
 If you are currently using BCDA v1 or BCDA v2, there are changes to the API and FHIR Resources you need to be aware of in v3:
 
 - There is a new v3 endpoint: `https://api.bcda.cms.gov/api/v3/`
-- Partially adjudicated claims<sup>1</sup> will be represented as `ExplanationOfBenefit` (EOB) FHIR resources in v3, instead of `Claim`/`ClaimResponse` in v2
+- Partially adjudicated claims<sup><a href="#fn1">1</a></sup> will be represented as `ExplanationOfBenefit` (EOB) FHIR resources in v3, instead of `Claim`/`ClaimResponse` in v2
 - There will be new Extension and Code System URLs to reference
 - Resource IDs are different between versions
 
-<p class="font-ui-xs text-italic"> <sup>1</sup>Medical claims that have been submitted but not fully processed and paid by Medicare.</p>
+<p id="fn1" style="scroll-margin-top: 6.25rem;"><sup>1</sup> Medical claims that have been submitted but not fully processed and paid by Medicare.</p>
 
 ### v3 Data Dictionary 
 
-<div class="grid-row grid-gap margin-bottom-4 flex-align-center">
-  <div class="grid-col-12 mobile-lg:grid-col-auto">
-    <img src="{{ '/assets/img/book.svg' | relative_url }}" alt="">
-  </div>
-  <div class="grid-col-fill tablet:grid-col-9">
-      <p>Download the <a href="{{ '/assets/downloads/BCDA_v3_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">BCDA v3 Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> to learn about:</p>
-    <ul>
-      <li>Updated information on resource type and claim field names</li>
-      <li>Updated mappings between CCLF and BCDA data</li>
-      <li>New data available in v3</li>
-    </ul>
-  </div>
-</div>
+Download the [BCDA v3 Data Dictionary](/assets/downloads/BCDA_v3_Data_Dictionary.xlsx)  to learn about:
+
+- updated information on resource type and claim field names  
+- updated mappings between CCLF and BCDA data  
+- new data available in v3
 
 ## Requesting data from new v3 endpoints
 
