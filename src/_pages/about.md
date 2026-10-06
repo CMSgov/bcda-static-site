@@ -78,6 +78,8 @@ Read the guide to [partially adjudicated claims]({{ '/bcda-data/partially-adjudi
 
 BCDA v3 consolidates data sources and FHIR conformance to help organizations reduce administrative friction, improve data quality, provide a better user experience, and more effectively realize the standardization benefits of FHIR interoperability.
 
+[Introducing v3]({{ '/api-documentation/how-to-migrate-v3.html' | relative_url }})
+
 ## Expanding reach to new models
 
 BCDA continues to grow in availability. In 2026, its reach expanded to include the [ACCESS (Advancing Chronic Care with Effective, Scalable Solutions)](https://www.cms.gov/priorities/innovation/innovation-models/access), [GUIDE (Guiding an Improved Dementia Experience)](https://www.cms.gov/priorities/innovation/innovation-models/guide), and [IOTA (Increasing Organ Transplant Access)](https://www.cms.gov/priorities/innovation/innovation-models/iota) models. As organizations within these models adopt BCDA, they’ll join an existing user community encompassing [ACO REACH](https://www.cms.gov/priorities/innovation/innovation-models/aco-reach), [KCC](https://www.cms.gov/priorities/innovation/innovation-models/kidney-care-choices-kcc-model), and [SSP](https://www.cms.gov/medicare/payment/fee-for-service-providers/shared-savings-program-ssp-acos) participants. 
