@@ -8,9 +8,9 @@ in-page-nav: true
 feedback_id: "355f6ea6"
 tabs:
 - label: v3
-  url: /bcda-data/partially-adjudicated-claims-data.html
+url: /bcda-data/partially-adjudicated-claims-data.html
 - label: v2
-  url: /v2/bcda-data/partially-adjudicated-claims-data.html
+url: /v2/bcda-data/partially-adjudicated-claims-data.html
 ---
 
 <h1>{{ page.page_title }}</h1>
@@ -18,7 +18,9 @@ tabs:
 {% include tabs.html items=page.tabs %}
 
 {% capture alert_text %}
-v2 is unavailable to new users, and will be retired for current users on July 30, 2027. <a href="{{ '/api-documentation/how-to-migrate-v3.html' | relative_url }}">How to migrate to v3</a>.
+v2 is unavailable to new users, and will be retired for current users on July 30, 2027. <a
+  href="{{ '/api-documentation/how-to-migrate-v3.html' | relative_url }}"
+>How to migrate to v3</a>.
 {% endcapture %}
 {% include alert.html variant="warning" heading="You're viewing v2 documentation" text=alert_text %}
 
@@ -80,7 +82,7 @@ v2 is unavailable to new users, and will be retired for current users on July 30
       </td>
       <td data-label="Fully adjudicated claims">
         <a
-          href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}"
+          href="{{ '/assets/downloads/BCDA_v3_Data_Dictionary.xlsx' | relative_url }}"
           data-tealium="download"
         > BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>
       </td>
@@ -320,7 +322,8 @@ v2 is unavailable to new users, and will be retired for current users on July 30
 
 {% capture a1AccordionContent %}
 <p>Adjudication is Medicare's process of reviewing and approving claims. It involves submission, validation, review, and
-  approval. <a href="{{ '/about.html#how-bcda-fits-into-the-claims-data-process' | relative_url }}">Learn more about the claims data
+  approval. <a href="{{ '/about.html#how-bcda-fits-into-the-claims-data-process' | relative_url }}">Learn more about the
+    claims data
     process</a>. </p>
 {% endcapture %}
 

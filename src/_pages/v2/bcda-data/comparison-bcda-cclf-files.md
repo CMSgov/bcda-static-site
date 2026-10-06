@@ -23,7 +23,7 @@ v2 is unavailable to new users, and will be retired for current users on July 30
 
 While Beneficiary Claims Data API (BCDA) and <a href="https://www.cms.gov/files/document/cclf-information-packet.pdf" target="_blank" rel="noopener noreferrer">Claim and Claim Line Feed (CCLF)</a> files both offer Medicare Parts A, B, and D claims data, there are some differences including their formatting and the frequency with which they make data available.
 
-Model entities can use either or both source(s) for data insights. It's important to choose what works best for your organization's workflow and needs. <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">Download the Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a> to review how fields map between BCDA and CCLF files.
+Model entities can use either or both source(s) for data insights. It's important to choose what works best for your organization's workflow and needs. <a href="{{ '/assets/downloads/BCDA_v3_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">Download the Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a> to review how fields map between BCDA and CCLF files.
 
 ## What are the differences?
 
