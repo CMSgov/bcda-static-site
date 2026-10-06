@@ -105,7 +105,7 @@ BCDA provides Medicare claims data using the NDJSON format.
 
 - <a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener noreferrer">FHIR/HL7</a>
 - <a href="https://hl7.org/fhir/uv/bulkdata/STU2/" target="_blank" rel="noopener noreferrer">Bulk FHIR specification</a>
-- <a href="https://bluebutton.cms.gov/assets/ig/index.html" target="_blank" rel="noopener">Blue Button Implementation Guide</a>
+- <a href="https://bluebutton.cms.gov/api-documentation/implementation-guides/" target="_blank" rel="noopener">Blue Button Implementation Guide</a>
 - Intro to the <a href="https://www.json.org/json-en.html" target="_blank" rel="noopener noreferrer">JSON Format</a> and <a href="https://github.com/ndjson/ndjson-spec/" target="_blank" rel="noopener noreferrer">NDJSON</a>
 - <a href="https://jsonlint.com/" target="_blank" rel="noopener noreferrer">JSON format viewer/validator (raw text/JSON format converter)</a>
 - <a href="https://hl7.org/fhir/R4/validation.html" target="_blank" rel="noopener noreferrer">Intro to valid FHIR formats</a>

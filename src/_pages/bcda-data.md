@@ -118,7 +118,7 @@ Beneficiary Claims Data API (BCDA) updates partially adjudicated claims data dai
 
 ## Resource types
 
-Claims data is organized by resource types, which are requested at the /Patient and /Group [endpoints]({{ '/api-documentation.html' | relative_url }}#endpoints). Resource types changed between versions; see the [v3 migration guide]({{ '/how-to-migrate-v3.html' | relative_url }}) for details.
+Claims data is organized by resource types, which are requested at the /Patient and /Group [endpoints]({{ '/api-documentation.html' | relative_url }}#endpoints). Resource types changed between versions; see the [v3 migration guide]({{ '/api-documentation/how-to-migrate-v3.html' | relative_url }}) for details.
 
 <div class="usa-alert usa-alert--info usa-alert--no-icon margin-top-4">
   <div class="usa-alert__body">
