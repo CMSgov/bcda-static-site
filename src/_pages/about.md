@@ -17,8 +17,8 @@ feedback_id: "7d0c54c6"
   <div class="desktop:grid-col-8 padding-top-4 desktop:padding-top-0 display-flex flex-align-center">
     <div>
       <h1>{{ page.page_title }}</h1>
-      <p class="usa-intro">Healthcare innovation to support value-based care</p>
       <p class="usa-intro">Every claim submitted to Medicare contains parts of a bigger story. These insights can get lost as patients move through a complex healthcare system.</p>
+      <h2>Healthcare innovation to support value-based care</h2>
       <p>
         Beneficiary Claims Data API (BCDA) helps organizations participating in <a href="https://www.cms.gov/priorities/innovation/about/alternative-payment-models" target="_blank" rel="noopener">Alternative Payment Models</a> reach <a href="https://www.cms.gov/priorities/innovation/key-concepts/value-based-care" target="_blank" rel="noopener">value-based care</a> incentives through accountable, integrated, and person-centered care. 
       </p>

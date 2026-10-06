@@ -4,6 +4,7 @@ page_title: "Introducing v3"
 seo_title: "Introducing v3"
 description: "Learn how v3 improvements support better outcomes."
 in-page-nav: true
+show-side-nav: false
 feedback_id: "1dd96929"
 ---
 
