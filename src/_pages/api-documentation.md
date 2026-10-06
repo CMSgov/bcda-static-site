@@ -60,7 +60,7 @@ Request the  <a href="https://hl7.org/fhir/R4/capabilitystatement.html" target="
 
 ### /Group
 
-Use the <a href="https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---group-of-patients" target="_blank" rel="noopener noreferrer">/Group endpoint</a> to request the ExplanationOfBenefit, Patient, and Coverage resource types. Provide the `all` or `runout` identifier to indicate whose data you’d like returned: 
+Use the <a href="https://build.fhir.org/ig/HL7/bulk-data/en/export.html#endpoint---group-of-patients" target="_blank" rel="noopener noreferrer">/Group endpoint</a> to request the ExplanationOfBenefit, Patient, and Coverage resource types. Provide the `all` or `runout` identifier to indicate whose data you’d like returned: 
 
 - **/Group/all**: returns data for all Medicare enrollees currently attributed to your model entity
 - **/Group/runout**: returns data for Medicare enrollees attributed to your model entity during the previous year, but not the current year. The data will have a service date no later than December 31 of the previous year.
@@ -71,7 +71,7 @@ This lets you retrieve all new claims data with a single request. If you don't a
 
 ### /Patient
 
-Similar to /Group/all, use the <a href="https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---all-patients" target="_blank" rel="noopener noreferrer">/Patient endpoint</a> to request data for all Medicare enrollees currently attributed to your model entity.
+Similar to /Group/all, use the <a href="https://build.fhir.org/ig/HL7/bulk-data/en/export.html#endpoint---all-patients" target="_blank" rel="noopener noreferrer">/Patient endpoint</a> to request data for all Medicare enrollees currently attributed to your model entity.
 
 Using the _since parameter with /Patient will return resources updated after the date provided for existing and newly attributed enrollees. 
 
