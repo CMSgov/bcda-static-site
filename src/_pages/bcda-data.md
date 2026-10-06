@@ -65,15 +65,20 @@ Download sample data files, which share similar content and structure to product
     <img src="{{ '/assets/img/paper.svg' | relative_url }}" alt="">
   </div>
   <div class="grid-col-fill tablet:grid-col-9">
+    <h3>v3 Sample Data</h3>
     <ul>
-        <li><a href="{{ '/assets/downloads/ExplanationOfBenefit.ndjson' | relative_url }}" data-tealium="download">ExplanationOfBenefit.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
-        <li><a href="{{ '/assets/downloads/Patient.ndjson' | relative_url }}" data-tealium="download">Patient.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
-        <li><a href="{{ '/assets/downloads/Coverage.ndjson' | relative_url }}" data-tealium="download">Coverage.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
-        <li><a href="{{ '/assets/downloads/Claim.ndjson' | relative_url }}" data-tealium="download">Claim.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> (partially adjudicated claims data)*</li>
-        <li><a href="{{ '/assets/downloads/ClaimResponse.ndjson' | relative_url }}" data-tealium="download">ClaimResponse.ndjson  {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> (partially adjudicated claims data)*</li>
+        <li><a href="{{ '/assets/downloads/v3_ExplanationOfBenefit.ndjson' | relative_url }}" data-tealium="download">ExplanationOfBenefit.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+        <li><a href="{{ '/assets/downloads/v3_Patient.ndjson' | relative_url }}" data-tealium="download">Patient.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+        <li><a href="{{ '/assets/downloads/v3_Coverage.ndjson' | relative_url }}" data-tealium="download">Coverage.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
     </ul>
-
-    <p>*v2 only</p>
+    <h3>v2 Sample Data</h3>
+    <ul>
+        <li><a href="{{ '/assets/downloads/v2_ExplanationOfBenefit.ndjson' | relative_url }}" data-tealium="download">ExplanationOfBenefit.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+        <li><a href="{{ '/assets/downloads/v2_Patient.ndjson' | relative_url }}" data-tealium="download">Patient.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+        <li><a href="{{ '/assets/downloads/v2_Coverage.ndjson' | relative_url }}" data-tealium="download">Coverage.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+        <li><a href="{{ '/assets/downloads/v2_Claim.ndjson' | relative_url }}" data-tealium="download">Claim.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> (partially adjudicated claims data)</li>
+        <li><a href="{{ '/assets/downloads/v2_ClaimResponse.ndjson' | relative_url }}" data-tealium="download">ClaimResponse.ndjson  {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> (partially adjudicated claims data)</li>
+    </ul>
   </div>
 </div>
 
