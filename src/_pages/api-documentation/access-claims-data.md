@@ -41,9 +41,7 @@ The sandbox and production environments follow similar instructions. They suppor
 <div class="usa-alert usa-alert--info">
     <div class="usa-alert__body">
         <p class="usa-alert__heading text-bold">BCDA recommends using v3 of the API</p>
-        <p class="usa-alert__text">
-            This is the latest version which follows the <a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener noreferrer">FHIR R4 specification</a>.
-        </p>
+        <p class="usa-alert__text">This is the latest version which follows the <a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener noreferrer">FHIR R4 specification</a>.</p>
     </div>
 </div>
 
@@ -67,7 +65,6 @@ Make a `GET` request to the /Group or /Patient endpoint to start a data export j
 
 By default, the `GET` request returns all available [resource types]({{ '/bcda-data.html#resource-types' | relative_url }}). 
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 GET /api/v3/Group/all/$export
 {% endraw %}{% endcapture %}
@@ -79,7 +76,6 @@ Use the [_type parameter]({{ '/api-documentation/filter-claims-data.html' | rela
 
 The header must contain your bearer token. You may receive a `401` response if your credentials are invalid or expired. `Bearer ` must be included in the header with a capital B and followed by a space.
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 Authorization: Bearer {bearer_token}
 Accept: application/fhir+json
@@ -136,7 +132,6 @@ A `202 Accepted` response with a Content-Location header indicates a successful 
 
 You'll need the job ID in the Content-Location header to check your job status. 
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 Content-Location: https://sandbox.bcda.cms.gov/api/v3/jobs/{job_id}
 {% endraw %}{% endcapture %}
@@ -157,7 +152,6 @@ Make a `GET` request to check the status using the job ID from step 2. You may n
 
 #### Request to check the job status
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 GET https://sandbox.bcda.cms.gov/api/v3/jobs/{job_id}
 {% endraw %}{% endcapture %}
@@ -165,7 +159,6 @@ GET https://sandbox.bcda.cms.gov/api/v3/jobs/{job_id}
 
 #### Request header
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 Authorization: Bearer {bearer_token}
 Accept: application/fhir+json
@@ -174,7 +167,6 @@ Accept: application/fhir+json
 
 #### curl command to check the job status
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 curl -X GET "https://sandbox.bcda.cms.gov/api/v3/jobs/{job_id}" \
     -H "Accept: application/fhir+json" \
@@ -187,7 +179,6 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v3/jobs/{job_id}" \
 
 A `202` response indicates your job is still processing. The status will change to `200 OK` when the export is complete and the data is ready for download.
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 202 Accepted
 {% endraw %}{% endcapture %}
@@ -197,7 +188,6 @@ A `202` response indicates your job is still processing. The status will change 
 
 The X-Progress will have a percentage indicating your estimated progress. 
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 X-Progress: In Progress, 80%
 {% endraw %}{% endcapture %}
@@ -209,7 +199,6 @@ You'll receive a `200 OK` response with the output URL(s) needed to download the
 
 There is a separate URL for each resource type requested. The following example shows a request for all resource types.
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 {
   "transactionTime": "2026-12-09T20:44:01.705398Z",
@@ -250,7 +239,6 @@ If you're downloading from more than 1 URL, make multiple download requests conc
 
 #### Request to download the data
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 GET https://sandbox.bcda.cms.gov/data/{job_id}/{file_name}
 {% endraw %}{% endcapture %}
@@ -260,7 +248,6 @@ GET https://sandbox.bcda.cms.gov/data/{job_id}/{file_name}
 
 Request compressed data files with the optional `Accept-Encoding: gzip` header in your requests for faster download times. Afterward, decompress (unzip) the files into NDJSON format. 
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 Authorization: Bearer {bearer_token}
 Accept-Encoding: gzip
@@ -269,7 +256,6 @@ Accept-Encoding: gzip
 
 #### curl command to download the data
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 curl -X GET "https://sandbox.bcda.cms.gov/data/{job_id}/{file_name}" \
     -H "Accept-Encoding: gzip" \
@@ -290,9 +276,9 @@ By default, you'll receive the requested data as FHIR resources in NDJSON format
 </div>
 
 <ol>
-  <li><a href="{{ '/assets/downloads/ExplanationOfBenefit.ndjson' | relative_url }}" data-tealium="download">ExplanationOfBenefit.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
-  <li><a href="{{ '/assets/downloads/Patient.ndjson' | relative_url }}" data-tealium="download">Patient.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
-  <li><a href="{{ '/assets/downloads/Coverage.ndjson' | relative_url }}" data-tealium="download">Coverage.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+  <li><a href="{{ '/assets/downloads/v3_ExplanationOfBenefit.ndjson' | relative_url }}" data-tealium="download">ExplanationOfBenefit.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+  <li><a href="{{ '/assets/downloads/v3_Patient.ndjson' | relative_url }}" data-tealium="download">Patient.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+  <li><a href="{{ '/assets/downloads/v3_Coverage.ndjson' | relative_url }}" data-tealium="download">Coverage.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
 </ol>
 
 ## Other BCDA endpoints 
@@ -303,7 +289,6 @@ Cancel any active job. If the request is successful, you'll receive a `202` resp
 
 #### Request to cancel a job
  
- <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 DELETE /api/v3/jobs/{job_id}
 {% endraw %}{% endcapture %}
@@ -311,7 +296,6 @@ DELETE /api/v3/jobs/{job_id}
 
 #### Request header
 
- <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 Authorization: Bearer {bearer_token}
 {% endraw %}{% endcapture %}
@@ -319,7 +303,6 @@ Authorization: Bearer {bearer_token}
 
 #### curl command to cancel a job
 
- <!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 curl -X DELETE "https://sandbox.bcda.cms.gov/api/v3/jobs/{job_id}" \
     -H "Accept: application/fhir+json" \
@@ -335,7 +318,6 @@ Retrieve details on your organization's historical requests, including the start
 
 If your organization has no jobs to return, you'll receive a `404 ERROR` response.
 
- <!-- snippet -->
  {% capture curlSnippet %}{% raw %}
 GET /api/v3/jobs
 {% endraw %}{% endcapture %}
@@ -354,7 +336,6 @@ These are how the job end states map to the 4 supported values you can receive i
 
 The example below is a filtered request for all past archived jobs. If any are found, the response will list the status as `completed`. Even so, the filter will only return archived jobs; it will exclude expired and completed jobs. 
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 GET /api/v3/jobs?_status=Archived
 {% endraw %}{% endcapture %}
@@ -362,7 +343,6 @@ GET /api/v3/jobs?_status=Archived
 
 #### Request header
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 Authorization: Bearer {bearer_token}
 Accept: application/fhir+json
@@ -372,7 +352,6 @@ Prefer: respond-async
 
 #### curl command to check the job status
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 curl -X GET "https://sandbox.bcda.cms.gov/api/v3/jobs" \
     -H "Accept: application/fhir+json" \
@@ -388,7 +367,6 @@ The response will contain a bundle of resources for each historical job. Each re
 
 This example shows 1 historical job with a `completed` status. Since this was an unfiltered request, the job could either be archived, expired, or completed.
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 {
   "entry": [
@@ -432,7 +410,6 @@ Check your attribution status for a timestamp of when your attribution data was 
 
 #### Request to check attribution status
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 GET /api/v3/attribution_status
 {% endraw %}{% endcapture %}
@@ -440,7 +417,6 @@ GET /api/v3/attribution_status
 
 #### Request header
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 Authorization: Bearer {bearer_token}
 Accept: application/json
@@ -449,7 +425,6 @@ Accept: application/json
 
 #### curl command to check attribution status
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 curl -X GET "https://sandbox.bcda.cms.gov/api/v3/attribution_status" \
     -H "Accept: application/json" \
@@ -459,7 +434,6 @@ curl -X GET "https://sandbox.bcda.cms.gov/api/v3/attribution_status" \
 
 #### Response example
 If BCDA has never ingested an attribution or runout file for your organization, you'll receive a `404 not found` response.
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 {
   "ingestion_dates": [
@@ -482,7 +456,6 @@ Retrieve metadata to view the current status and release or FHIR version of the 
 
 #### Request to check API status
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 GET /api/v3/metadata
 {% endraw %}{% endcapture %}
@@ -490,7 +463,6 @@ GET /api/v3/metadata
 
 #### curl command to check API status
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 curl "https://sandbox.bcda.cms.gov/api/v3/metadata"
 {% endraw %}{% endcapture %}
@@ -498,150 +470,143 @@ curl "https://sandbox.bcda.cms.gov/api/v3/metadata"
 
 #### Response example
 
-The response will contain a FHIR Capability Statement resource in JSON format. The example below shows the API is active, using FHIR Release 4.0.1, and that the API release version is r231. 
+The response will contain a FHIR Capability Statement resource in JSON format. The example below shows the API is active, using FHIR Release 4.0.1, and that the API release version is r292. 
 
-<!-- snippet -->
 {% capture curlSnippet %}{% raw %}
 {
-    "resourceType": "CapabilityStatement",
-    "status": "active",
-    "date": "2026-07-17T16:20:37Z",
-    "publisher": "Centers for Medicare & Medicaid Services",
-    "kind": "instance",
-    "instantiates": [
-        "https://prod-sbx.fhir.bfd.cmscloud.local/v3/fhir/metadata",
-        "http://hl7.org/fhir/uv/bulkdata/CapabilityStatement/bulk-data"
-    ],
-    "software": {
-        "name": "Beneficiary Claims Data API",
-        "version": "r292",
-        "releaseDate": "2026-07-17T16:20:37Z"
-    },
-    "implementation": {
-        "description": "The Beneficiary Claims Data API (BCDA) enables healthcare organizations participating in the Medicare Shared Savings Program or a CMS Innovation Model to retrieve Medicare Part A, Part B, and Part D claims data for their prospectively assigned or assignable beneficiaries.",
-        "url": "https://sandbox.bcda.cms.gov"
-    },
-    "fhirVersion": "4.0.1",
-    "format": [
-        "application/json",
-        "application/fhir+json"
-    ],
-    "rest": [
-        {
-            "mode": "server",
-            "security": {
-                "cors": true,
-                "service": [
-                    {
-                        "coding": [
-                            {
-                                "system": "http://terminology.hl7.org/CodeSystem/restful-security-service",
-                                "code": "OAuth",
-                                "display": "OAuth"
-                            }
-                        ],
-                        "text": "OAuth"
-                    }
-                ],
-                "extension": [
-                    {
-                        "url": "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris",
-                        "extension": [
-                            {
-                                "url": "token",
-                                "valueUri": "https://sandbox.bcda.cms.gov/auth/token"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "interaction": [
-                {
-                    "code": "batch"
-                },
-                {
-                    "code": "search-system"
-                }
+  "resourceType": "CapabilityStatement",
+  "status": "active",
+  "date": "2026-07-17T16:20:37Z",
+  "publisher": "Centers for Medicare & Medicaid Services",
+  "kind": "instance",
+  "instantiates": [
+    "https://prod-sbx.fhir.bfd.cmscloud.local/v3/fhir/metadata",
+    "http://hl7.org/fhir/uv/bulkdata/CapabilityStatement/bulk-data"
+  ],
+  "software": {
+    "name": "Beneficiary Claims Data API",
+    "version": "r292",
+    "releaseDate": "2026-07-17T16:20:37Z"
+  },
+  "implementation": {
+    "description": "The Beneficiary Claims Data API (BCDA) enables healthcare organizations participating in the Medicare Shared Savings Program or a CMS Innovation Model to retrieve Medicare Part A, Part B, and Part D claims data for their prospectively assigned or assignable beneficiaries.",
+    "url": "https://sandbox.bcda.cms.gov"
+  },
+  "fhirVersion": "4.0.1",
+  "format": [
+    "application/json",
+    "application/fhir+json"
+  ],
+  "rest": [
+    {
+      "mode": "server",
+      "security": {
+        "cors": true,
+        "service": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/restful-security-service",
+                "code": "OAuth",
+                "display": "OAuth"
+              }
             ],
-            "resource": [
-                {
-                    "type": "Patient",
-                    "operation": [
-                        {
-                            "name": "export",
-                            "definition": "http://hl7.org/fhir/uv/bulkdata/OperationDefinition/patient-export",
-                            "documentation": "By default, the patient $export will return ExplanationOfBenefit resources with a meta.tag with a system of 'https://bluebutton.cms.gov/fhir/CodeSystem/System-Type' and code of either NationalClaimsHistory or DDPS. In order to return ExplanationOfBenefit resources with other system types (like SharedSystem), use the _typeFilter parameter."
-                        }
-                    ],
-                    "searchParam": [
-                        {
-                            "name": "_since",
-                            "type": "date",
-                            "documentation": "Return resources updated after the date provided for existing and newly attributed enrollees."
-                        },
-                        {
-                            "name": "_type",
-                            "type": "string",
-                            "documentation": "Comma-delimited list of FHIR resource types to include in the export. By default, all supported resource types are returned."
-                        },
-                        {
-                            "name": "_typeFilter",
-                            "type": "string",
-                            "documentation": "Use a URL-encoded FHIR subquery to further-refine patient export results."
-                        }
-                    ]
-                },
-                {
-                    "type": "Group",
-                    "operation": [
-                        {
-                            "name": "export",
-                            "definition": "http://hl7.org/fhir/uv/bulkdata/OperationDefinition/group-export",
-                            "documentation": "By default, the group $export will return ExplanationOfBenefit resources with a meta.tag with a system of 'https://bluebutton.cms.gov/fhir/CodeSystem/System-Type' and code of either NationalClaimsHistory or DDPS. In order to return ExplanationOfBenefit resources with other system types (like SharedSystem), use the _typeFilter parameter."
-                        }
-                    ],
-                    "searchParam": [
-                        {
-                            "name": "_since",
-                            "type": "date",
-                            "documentation": "Return resources updated after the date provided for existing enrollees and all resources for newly attributed enrollees."
-                        },
-                        {
-                            "name": "_type",
-                            "type": "string",
-                            "documentation": "Comma-delimited list of FHIR resource types to include in the export. By default, all supported resource types are returned."
-                        },
-                        {
-                            "name": "_typeFilter",
-                            "type": "string",
-                            "documentation": "Use a URL-encoded FHIR subquery to further-refine group export results."
-                        }
-                    ]
-                },
-                {
-                    "type": "ExplanationOfBenefit",
-                    "searchParam": [
-                        {
-                            "name": "_tag",
-                            "type": "token",
-                            "documentation": "Filter ExplanationOfBenefit by the meta.tag element. Pass full token as <system>|<code>. Supported codes in the 'https://bluebutton.cms.gov/fhir/CodeSystem/System-Type' system are: 'SharedSystem', 'NationalClaimsHistory', and 'DDPS'. By Default, only NationalClaimsHistory and DDPS claims will be returned."
-                        },
-                        {
-                            "name": "outcome",
-                            "type": "token",
-                            "documentation": "Filter ExplanationOfBenefit by the outcome element. Supported values: 'partial' and 'complete'."
-                        },
-                        {
-                            "name": "service-date",
-                            "type": "date",
-                            "documentation": "Filter ExplanationOfBenefit based on the claim's service date. The service date is the date that the care occurred within a billable period. This is a FHIR date param format (ex. `gt2026-01-14`)"
-                        },
-                    ]
-                }
+            "text": "OAuth"
+          }
+        ],
+        "extension": [
+          {
+            "url": "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris",
+            "extension": [
+              {
+                "url": "token",
+                "valueUri": "https://sandbox.bcda.cms.gov/auth/token"
+              }
             ]
+          }
+        ]
+      },
+      "interaction": [
+        {
+          "code": "batch"
+        },
+        {
+          "code": "search-system"
         }
-    ]
+      ],
+      "resource": [
+        {
+          "type": "Patient",
+          "operation": [
+            {
+              "name": "export",
+              "definition": "http://hl7.org/fhir/uv/bulkdata/OperationDefinition/patient-export",
+              "documentation": "By default, the patient $export will return ExplanationOfBenefit resources with a meta.tag with a system of 'https://bluebutton.cms.gov/fhir/CodeSystem/System-Type' and code of either NationalClaimsHistory or DDPS. In order to return ExplanationOfBenefit resources with other system types (like SharedSystem), use the _typeFilter parameter."
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "_since",
+              "type": "date",
+              "documentation": "Return resources updated after the date provided for existing and newly attributed enrollees."
+            },
+            {
+              "name": "_type",
+              "type": "string",
+              "documentation": "Comma-delimited list of FHIR resource types to include in the export. By default, all supported resource types are returned."
+            },
+            {
+              "name": "_typeFilter",
+              "type": "string",
+              "documentation": "Use a URL-encoded FHIR subquery to further-refine patient export results."
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "operation": [
+            {
+              "name": "export",
+              "definition": "http://hl7.org/fhir/uv/bulkdata/OperationDefinition/group-export",
+              "documentation": "By default, the group $export will return ExplanationOfBenefit resources with a meta.tag with a system of 'https://bluebutton.cms.gov/fhir/CodeSystem/System-Type' and code of either NationalClaimsHistory or DDPS. In order to return ExplanationOfBenefit resources with other system types (like SharedSystem), use the _typeFilter parameter."
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "_since",
+              "type": "date",
+              "documentation": "Return resources updated after the date provided for existing enrollees and all resources for newly attributed enrollees."
+            },
+            {
+              "name": "_type",
+              "type": "string",
+              "documentation": "Comma-delimited list of FHIR resource types to include in the export. By default, all supported resource types are returned."
+            },
+            {
+              "name": "_typeFilter",
+              "type": "string",
+              "documentation": "Use a URL-encoded FHIR subquery to further-refine group export results."
+            }
+          ]
+        },
+        {
+          "type": "ExplanationOfBenefit",
+          "searchParam": [
+            {
+              "name": "_tag",
+              "type": "token",
+              "documentation": "Filter ExplanationOfBenefit by the meta.tag element. Pass full token as <system>|<code>. Supported codes in the 'https://bluebutton.cms.gov/fhir/CodeSystem/System-Type' system are: 'SharedSystem', 'NationalClaimsHistory', and 'DDPS'. By Default, only NationalClaimsHistory and DDPS claims will be returned."
+            },
+            {
+              "name": "outcome",
+              "type": "token",
+              "documentation": "Filter ExplanationOfBenefit by the outcome element. Supported values: 'partial' and 'complete'."
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
-
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="json" %}

@@ -14,9 +14,6 @@ sidebar-links:
 
       - name: Comparison of BCDA and CCLF
         url: /bcda-data/comparison-bcda-cclf-files.html
-
-      - name: Difference Between v1 and v2
-        url: /bcda-data/difference-between-v1-v2.html
 feedback_id: "0595c13c"
 ---
 
@@ -24,7 +21,7 @@ feedback_id: "0595c13c"
 
 Beneficiary Claims Data API (BCDA) uses <a href="https://hl7.org/fhir/uv/bulkdata/" target="_blank" rel="noopener noreferrer">Bulk Fast Healthcare Interoperability Resources (FHIR)</a> to share claims data.
 
-## Data Dictionary
+## Data Dictionaries
 
 The Data Dictionary maps the different data fields and locations between BCDA and Claim and Claim Line Feed (CCLF) files. [Explore all the differences between the data sources]({{ '/bcda-data/comparison-bcda-cclf-files.html' | relative_url }}).
 
@@ -33,18 +30,18 @@ The Data Dictionary maps the different data fields and locations between BCDA an
     <img src="{{ '/assets/img/book.svg' | relative_url }}" alt="">
   </div>
   <div class="grid-col-fill tablet:grid-col-9">
-      <p>Download the <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> to learn about:</p>
+    <p>Download the BCDA Data Dictionary to learn about claim field names and descriptions, new data field locations, and data types and format.</p>
     <ul>
-      <li>claim field names and descriptions</li>
-      <li>new data field locations</li>
-      <li>data types and format</li>
+      <li><a href="{{ '/assets/downloads/BCDA_v3_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">BCDA v3 data dictionary</a></li>
+      <li><a href="{{ '/assets/downloads/BCDA_v2_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">BCDA v1/v2 data dictionary</a></li>
+      <li><a href="{{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">BCDA v2 partially adjudicated claims data dictionary</a></li>
     </ul>
   </div>
 </div>
 
 ## Partially adjudicated claims data
 
-REACH ACOs can access claims that aren't fully processed or approved yet. **This reduces the time to access Parts A and B claims data to 2-4 days after submission.**
+BCDA provides access to claims that aren’t fully processed or approved (adjudicated) yet. **This reduces the time to access Parts A and B claims data to 2-4 days after submission**. Fully adjudicated claims are available weekly.  
 
 <div class="grid-row grid-gap margin-y-4 flex-align-center">
   <div class="grid-col-12 mobile-lg:grid-col-auto">
@@ -54,9 +51,6 @@ REACH ACOs can access claims that aren't fully processed or approved yet. **This
     <ul>
         <li>
             <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}">Partially Adjudicated Claims Data</a>
-        </li>
-        <li>
-            <a href="{{ '/assets/downloads/BCDA_Partially_Adjudicated_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">Data Dictionary for Partially Adjudicated Claims Data {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>
         </li>
     </ul>
   </div>
@@ -71,12 +65,19 @@ Download sample data files, which share similar content and structure to product
     <img src="{{ '/assets/img/paper.svg' | relative_url }}" alt="">
   </div>
   <div class="grid-col-fill tablet:grid-col-9">
+    <h3>v3 Sample Data</h3>
     <ul>
-        <li><a href="{{ '/assets/downloads/ExplanationOfBenefit.ndjson' | relative_url }}" data-tealium="download">ExplanationOfBenefit.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
-        <li><a href="{{ '/assets/downloads/Patient.ndjson' | relative_url }}" data-tealium="download">Patient.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
-        <li><a href="{{ '/assets/downloads/Coverage.ndjson' | relative_url }}" data-tealium="download">Coverage.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
-        <li><a href="{{ '/assets/downloads/Claim.ndjson' | relative_url }}" data-tealium="download">Claim.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> (partially adjudicated claims data) </li>
-        <li><a href="{{ '/assets/downloads/ClaimResponse.ndjson' | relative_url }}" data-tealium="download">ClaimResponse.ndjson  {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> (partially adjudicated claims data)</li>
+        <li><a href="{{ '/assets/downloads/v3_ExplanationOfBenefit.ndjson' | relative_url }}" data-tealium="download">ExplanationOfBenefit.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+        <li><a href="{{ '/assets/downloads/v3_Patient.ndjson' | relative_url }}" data-tealium="download">Patient.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+        <li><a href="{{ '/assets/downloads/v3_Coverage.ndjson' | relative_url }}" data-tealium="download">Coverage.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+    </ul>
+    <h3>v2 Sample Data</h3>
+    <ul>
+        <li><a href="{{ '/assets/downloads/v2_ExplanationOfBenefit.ndjson' | relative_url }}" data-tealium="download">ExplanationOfBenefit.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+        <li><a href="{{ '/assets/downloads/v2_Patient.ndjson' | relative_url }}" data-tealium="download">Patient.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+        <li><a href="{{ '/assets/downloads/v2_Coverage.ndjson' | relative_url }}" data-tealium="download">Coverage.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a></li>
+        <li><a href="{{ '/assets/downloads/v2_Claim.ndjson' | relative_url }}" data-tealium="download">Claim.ndjson {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> (partially adjudicated claims data)</li>
+        <li><a href="{{ '/assets/downloads/v2_ClaimResponse.ndjson' | relative_url }}" data-tealium="download">ClaimResponse.ndjson  {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> (partially adjudicated claims data)</li>
     </ul>
   </div>
 </div>
@@ -117,7 +118,7 @@ Beneficiary Claims Data API (BCDA) updates partially adjudicated claims data dai
 
 ## Resource types
 
-Claims data is organized by resource types, which are requested at the /Patient and /Group [endpoints]({{ '/api-documentation.html' | relative_url }}#endpoints). Version 2 has [minor changes]({{ '/bcda-data/difference-between-v1-v2.html' | relative_url }}) in resource types from v1.
+Claims data is organized by resource types, which are requested at the /Patient and /Group [endpoints]({{ '/api-documentation.html' | relative_url }}#endpoints). Resource types changed between versions; see the [v3 migration guide]({{ '/api-documentation/how-to-migrate-v3.html' | relative_url }}) for details.
 
 <div class="usa-alert usa-alert--info usa-alert--no-icon margin-top-4">
   <div class="usa-alert__body">
@@ -155,7 +156,7 @@ Claims data is organized by resource types, which are requested at the /Patient 
 
 <div id="claim">
   <dt class="font-sans-md text-bold">
-    Claim
+    Claim (v2 only)
   </dt> </div>
   <dd class="margin-left-0 margin-bottom-4">
     <p>Available for partially adjudicated claims only, <a href="https://hl7.org/fhir/R4/claim.html" target="_blank" rel="noopener noreferrer">Claim</a> stores financial and clinical details on professional and institutional claims. This is typically used for treatment payment planning and reimbursement. <i>Updated daily.</i></p> 
@@ -163,7 +164,7 @@ Claims data is organized by resource types, which are requested at the /Patient 
 
 <div id="claimresponse">
    <dt class="font-sans-md text-bold">
-   ClaimResponse
+   ClaimResponse (v2 only)
   </dt> </div>
   <dd class="margin-left-0 margin-bottom-4">
     <p>Available for partially adjudicated claims only, <a href="https://hl7.org/fhir/R4/claimresponse.html" target="_blank" rel="noopener noreferrer">ClaimResponse</a> stores details about the adjudication status and processing results for a claim, predetermination, or preauthorization. <i>Updated daily.</i></p>

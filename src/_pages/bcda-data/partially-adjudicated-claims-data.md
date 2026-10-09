@@ -1,44 +1,28 @@
 ---
-layout: api-docs-v3
+layout: api-docs
 page_title: "Partially Adjudicated Claims Data"
 seo_title: ""
 description: "Get earlier access to Medicare enrollee data with BCDA partially adjudicated claims, now available as ExplanationOfBenefit resources in v3."
 in-page-nav: true
 feedback_id: "355f6ea6"
+tabs:
+  - label: v3
+    url: /bcda-data/partially-adjudicated-claims-data.html
+  - label: v2
+    url: /v2/bcda-data/partially-adjudicated-claims-data.html
 ---
 
 # {{ page.page_title }}
 
-<div
-  class="usa-summary-box"
-  role="region"
-  aria-labelledby="summary-box-key-information"
->
-  <div class="usa-summary-box__body">
-    <p
-      class="usa-summary-box__heading font-ui-md text-bold"
-      id="summary-box-key-information"
-    >
-      What's new in v3?
-    </p>
-    <div class="usa-summary-box__text">
-      <ul>
-        <li><a href="#what-s-in-partially-adjudicated-claims-data">Partially adjudicated claims data</a> are now
-          represented with 1 FHIR resource type: ExplanationOfBenefit (EOB).</li>
-        <li><a href="#how-do-i-know-when-a-claim-has-been-fully-processed">New elements and guidance</a> explain how to
-          tell if claims are still processing and identify duplicates.</li>
-      </ul>
-    </div>
-  </div>
-</div>
+{% include tabs.html items=page.tabs %}
 
-## A faster way to access claims data
+<p class="usa-intro">A faster way to access claims data</p>
 
 Medicare claims processing (adjudication) can take weeks. Through partially adjudicated claims, ACO REACH participants (REACH ACOs) receive patient data only 2-4 days after providers submit claims to Medicare. This helps them provide patients with more effective interventions, transitions, and coordination of care.
 
 Fully adjudicated claims offer the same rich insights, with some small differences including a longer frequency.
 
-### Comparison: partially and fully adjudicated claims
+## Comparison: partially and fully adjudicated claims
 
 <table class="usa-table usa-table--borderless usa-table--stacked margin-bottom-4">
   <caption class="usa-sr-only">Partially versus fully adjudicated claims data</caption>
@@ -94,10 +78,7 @@ Fully adjudicated claims offer the same rich insights, with some small differenc
   <li id="fn1" style="scroll-margin-top: 6.25rem;">Access to partially adjudicated claims data using BCDA v2 is limited to REACH ACOs. Participants in other CMS Innovation Models and the Medicare Shared Savings Program must use BCDA v3 to access partially adjudicated claims data.</li>
 </ul>
 
-<div class="display-flex flex-align-center">
-  <h3>What's in partially adjudicated claims data?</h3>
-  {%- include updated-tag.html -%}
-</div>
+## What's in partially adjudicated claims data?
 
 - In BCDA v3, partially adjudicated claims data:
   - Are represented with 1 FHIR resource type:
@@ -109,9 +90,7 @@ Fully adjudicated claims offer the same rich insights, with some small differenc
     - <a href="https://hl7.org/fhir/R4/claimresponse.html" target="_blank" rel="noopener noreferrer">ClaimResponse</a> - Information about a claim's adjudication status and processing results
   - Contain Part A and Part B data (excluding Durable Medical Equipment) with updates from the past 60 days
 
-
-### What's in fully adjudicated claims data?
-{: .margin-top-4}
+## What's in fully adjudicated claims data?
 
 In all versions of BCDA, adjudicated claims data:
 - Are represented with 3 FHIR resource types:
@@ -120,14 +99,13 @@ In all versions of BCDA, adjudicated claims data:
   - <a href="https://hl7.org/fhir/R4/explanationofbenefit.html" target="_blank" rel="noopener noreferrer"> ExplanationOfBenefit</a> - Details for episodes of care, including where and when the service was performed, diagnosis codes, provider, and cost of care.
 - Contain Part A, Part B, and Part D data from the current performance year and historical claims data from the previous 2 or more performance years, depending on your organization's Alternative Payment Model
 
-<div class="display-flex flex-align-center margin-top-4">
-  <h3>How do I know when a claim has been fully processed?</h3>
-  {%- include new-tag.html -%}
-</div>
 
-All EOBs contain the <a href="https://hl7.org/fhir/R4/explanationofbenefit-definitions.html#ExplanationOfBenefit.outcome" target="_blank" rel="noopener noreferrer">ExplanationOfBenefit.outcome</a> element which will indicate if the claim is still processing. If you wish to include only EOBs that have been fully processed and paid in your job requests, see our guidance on <a href="{{ '/v3/filter-claims-data-v3.html#the-typefilter-parameter' | relative_url }}">filtering claims by `ExplanationOfBenefit.outcome` using _typeFilter</a>.
+## How do I know when a claim has been fully processed?
 
-#### Matching multiple EOBs to the same claim
+
+All EOBs contain the <a href="https://hl7.org/fhir/R4/explanationofbenefit-definitions.html#ExplanationOfBenefit.outcome" target="_blank" rel="noopener noreferrer">ExplanationOfBenefit.outcome</a> element which will indicate if the claim is still processing. If you wish to include only EOBs that have been fully processed and paid in your job requests, see our guidance on <a href="{{ '/api-documentation/filter-claims-data.html#the-_typefilter-parameter' | relative_url }}">filtering claims by `ExplanationOfBenefit.outcome` using _typeFilter</a>.
+
+### Matching multiple EOBs to the same claim
 
 In v3, claims are automatically deduplicated within a source system. You won't need to deduplicate multiple versions of a claim within the same System-Type.
 
@@ -135,7 +113,7 @@ However, if you are receiving claims with the `SharedSystem` System-Type AND cla
 
 To identify EOBs that represent the same claim, use the `CLM-CNTL-NUM` identifier `ExplanationOfBenefit.identifier.where('system'='https://bluebutton.cms.gov/fhir/CodeSystem/CLM-CNTL-NUM').value` to identify the matching pair. If two EOBs have the same Claim Control Number, then they represent the same claim.
 
-**Example identifier element with claim control number**
+Example identifier element with claim control number:
 {% capture curlSnippet %}{% raw %}
 "identifier": [
     {
@@ -146,13 +124,54 @@ To identify EOBs that represent the same claim, use the `CLM-CNTL-NUM` identifie
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=curlSnippet language="json" can_copy=true %}
 
-If a claim receives a new claim control number, the previous claim control number will be available in `ExplanationOfBenefit.related`, and can be used to de-duplicate claims even if the claim control number has changed.
+There may be some instances in which a claim can't be de-duplicated via `CLM-CNTL-NUM`: 
 
-There may be some instances in which a claim can't be de-duplicated via `CLM-CNTL-NUM`. Review the <a href="https://github.com/CMSgov/beneficiary-fhir-data/wiki/v2-%E2%80%90-v3-Migration-Guide#deduplicating-claims-and-identifying-duplicates" target="_blank" rel="noopener noreferrer">Beneficiary FHIR Data server (BFD) guide</a> for further strategies on deduplicating claims.
+- #### Changes in Claim Control Number
+  If a claim receives a new claim control number, a previous claim control number will be available in `ExplanationOfBenefit.related`, and can be used to de-duplicate claims even if the claim control number has changed.
+
+- #### PDE Claims
+  Because Medicare does not process Part D / Prescription claims directly, the rules to identify related claims are a bit different than Part A / Part B claims.
+
+  Part D claims are submitted to CMS by the Part D plan sponsors. As a result, not all Part D claims have a claim control number. However, those that do have a claim control number can be deduplicated using it.
+
+  For claims without a claim control number, you can use a natural key to link together related Part D Events for a given patient. The natural key logic is outlined in <a href="https://www.cms.gov/files/document/cclf-information-packet.pdf" target="_blank" rel="noopener">CCLF Information Packet</a> under Section 5.1.2, and repeated here:
+
+  - Line Item From Date (`CLM_LINE_FROM_DT`)
+  - Provider Service Identifier Qualifier Code (`PRVDR_SRVC_ID_QLFYR_CD`)
+  - Service Provider Generic ID Number (`CLM_SRVC_PRVDR_GNRC_ID_NUM`)
+  - RX Number (`CLM_LINE_RX_SRVC_RFRNC_NUM`)
+  - RX Fill Number (`CLM_LINE_RX_FILL_NUM`)
+
+- #### DME Claims
+  When a claim from VMS is processed and released to the NCH, the leading digit (a 1) is dropped from the `CLM-CNTL-NUM`, due to a design decision made in preparation for Y2K.
+  <table class="usa-table usa-table--borderless margin-bottom-4">
+    <caption>Example</caption>
+    <thead>
+      <tr>
+        <th scope="col">VMS Claim Control Number</th>
+        <th scope="col">NCH Claim Control Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1222222222222222</td>
+        <td>222222222222222</td>
+      </tr>
+    </tbody>
+  </table>
+
+### Tracking a Claim After it is Fully Processed
+
+After a claim is fully adjudicated and released to the National Claims History system, it is still possible for updates to be made to the claim. Similar to matching ExplanationOfBenefit resources from different sources in the same export, you may need logic to match a claim from a current export to an existing claim from a previous export. Most of the time, you can still rely on the claim control number or the parent/original claim control number in `ExplanationOfBenefit.related`.
+
+A couple of quirks to call out:
+
+- **Professional claims:** NCH professional claims will never populate a new claim control number. Each new version of the claim will appear to have the original claim control number.
+- **Institutional claims:** If an NCH institutional claim receives multiple rounds of claim control numbers, only the parent (the immediately-preceding claim control number) will be populated in `ExplanationOfBenefit.related`.
 
 ## Get started with partially adjudicated claims data
 
-Access partially adjudicated claims data in the <a href="{{ '/api-documentation/get-a-bearer-token.html#partially-adjudicated-claims-data-sets' | relative_url }}">BCDA Sandbox</a>.
+Access partially adjudicated claims data in the <a href="{{ '/api-documentation/get-a-bearer-token.html#sample-claims-data-sets' | relative_url }}">BCDA Sandbox</a>.
 
 Review the <a href="{{ '/assets/downloads/BCDA_v3_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">Data Dictionary {% include sprite.html icon="file_download" class="text-middle"%}</a> for a complete list and description of the data fields.
 

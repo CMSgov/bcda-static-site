@@ -13,7 +13,7 @@ feedback_id: "e9112e33"
 <div class="usa-alert usa-alert--warning usa-alert--slim">
   <div class="usa-alert__body">
     <p class="usa-alert__text maxw-desktop-lg">
-      Please cover or label <a href="#compliance-and-restrictions">Personally Identifiable Information (PII)</a> as "REDACTED" in the Google Group or email communication.
+      Please cover or label <a href="#a2">Personally Identifiable Information (PII)</a> as "REDACTED" in the Google Group or email communication.
     </p>
   </div>
 </div>
@@ -42,19 +42,16 @@ feedback_id: "e9112e33"
 <!-- FAQ content only-->
 {% capture a1AccordionContent %}
 <p>
-    BCDA supports organizations (entities) participating in the following CMS <a href="https://www.cms.gov/priorities/innovation/about/alternative-payment-models">Alternative Payment Models</a>:
-    <ul>
-        <li><a href="https://www.cms.gov/medicare/payment/fee-for-service-providers/shared-savings-program-ssp-acos"
-            target="_blank" rel="noopener noreferrer">Medicare Shared Savings Program (SSP)</a></li>
-        <li><a href="https://www.cms.gov/priorities/innovation/innovation-models/kidney-care-choices-kcc-model"
-            target="_blank" rel="noopener noreferrer">Kidney Care Choices (KCC) Model</a></li>
-        <li><a href="https://www.cms.gov/priorities/innovation/innovation-models/aco-reach" target="_blank"
-            rel="noopener noreferrer">Accountable Care Organizations Realizing Equity, Access, and Community Health
-            (ACO REACH)
-            Model</a></li>
-        </ul>
-    Only REACH ACOs can access <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a>. 
+   BCDA supports organizations (entities) participating in the following CMS <a href="https://www.cms.gov/priorities/innovation/about/alternative-payment-models" target="_blank" rel="noopener">alternative payment models</a>:
 </p>
+<ul>
+    <li><a href="https://www.cms.gov/priorities/innovation/innovation-models/access" target="_blank" rel="noopener">ACCESS (Advancing Chronic Care with Effective, Scalable Solutions)</a></li>
+    <li><a href="https://www.cms.gov/priorities/innovation/innovation-models/aco-reach" target="_blank" rel="noopener">ACO REACH (Accountable Care Organization Realizing Equity, Access, and Community Health)</a></li>
+    <li><a href="https://www.cms.gov/priorities/innovation/innovation-models/guide" target="_blank" rel="noopener">GUIDE (Guiding an Improved Dementia Experience)</a></li>
+    <li><a href="https://www.cms.gov/priorities/innovation/innovation-models/iota" target="_blank" rel="noopener">IOTA (Increasing Organ Transplant Access)</a></li>
+    <li><a href="https://www.cms.gov/priorities/innovation/innovation-models/kidney-care-choices-kcc-model" target="_blank" rel="noopener">KCC (Kidney Care Choices)</a></li>
+    <li><a href="https://www.cms.gov/medicare/payment/fee-for-service-providers/shared-savings-program-ssp-acos" target="_blank" rel="noopener">SSP (Shared Savings Program)</a></li>
+</ul>
 {% endcapture %}
 
 {% capture a2AccordionContent %}
@@ -94,31 +91,61 @@ feedback_id: "e9112e33"
 
 {% capture a3AccordionContent %}
 <p>
-    It typically takes 2-4 days after submission to receive <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a> and up to 14 days for adjudicated claims data. Even after adjudication, claims may go through additional processing. BCDA provides the latest updates available for each claim. <a href="{{ '/about.html#claims-data-process' | relative_url }}">See a timeline of the claims data process</a>.
+    It typically takes 2-4 days after submission for BCDA to receive <a href="{{ '/bcda-data/partially-adjudicated-claims-data.html' | relative_url }}">partially adjudicated claims data</a> and up to 7 days for adjudicated claims data. Even after adjudication, claims may go through additional processing. BCDA will continue to provide the latest updates available for each claim.
 </p>
 <p>
-    According to Section 6404 of the Affordable Care Act, Original Medicare claims must be submitted within 12 months (1 calendar year) of the date of service.</p>
+    According to Section 6404 of the Affordable Care Act, Original Medicare claims must be submitted within 12 months (1 calendar year) of the date of service.
+</p>
 {% endcapture %}
 
 {% capture a4AccordionContent %}
-<p>
-    Adjudicated claims data is loaded from the <a href="https://www2.ccwdata.org/web/guest/home/" target="_blank" rel="noopener noreferrer">Chronic Conditions Data Warehouse (CCW)</a>. Partially adjudicated claims data is loaded from the Fiscal Intermediary Standard System (FISS) and Multi-Carrier System (MCS).
-</p>
+<p>BCDA v3 sources data from CMS's Integrated Data Repository (IDR).</p>
+<p>For earlier versions of BCDA, adjudicated claims data is loaded from the <a href="https://www2.ccwdata.org/web/guest/home/" target="_blank" rel="noopener noreferrer">Chronic Conditions Data Warehouse (CCW)</a>. Partially adjudicated claims data is loaded from the Fiscal Intermediary Standard System (FISS) and Multi-Carrier System (MCS). </p>
 {% endcapture %}
 
 {% capture a5AccordionContent %}
-<p>
-    Adjudicated claims data (ExplanationOfBenefit, Patient, Coverage) is updated weekly and partially adjudicated claims data (Claim, ClaimResponse) is updated daily.
-</p>
-<p>
-    You can export data as often as you like, depending on your needs and how often the data is refreshed. We don't recommend exporting data more than once a week for adjudicated claims and once a day for partially adjudicated claims. Use the <a href="{{ '/api-documentation/filter-claims-data.html#the-_since-parameter' | relative_url }}">_since parameter</a> when running jobs to avoid downloading duplicate data.
-</p>
+<p>The following table shows how frequently Medicare claims data is refreshed and potentially available to eligible organizations.</p>
+
+<table class="usa-table usa-table--borderless usa-table--stacked margin-bottom-2">
+  <thead>
+    <tr>
+      <th scope="col">FHIR Resource</th>
+      <th scope="col">BCDA v3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Patient</th>
+      <td>6x/week, Sunday to Friday</td>
+    </tr>
+    <tr>
+      <th scope="row">Coverage</th>
+      <td>6x/week, Sunday to Friday</td>
+    </tr>
+    <tr>
+      <th scope="row">ExplanationOfBenefit - Part A/B (National Claims History)</th>
+      <td>Weekly, on Monday<sup><a href="#refresh-fn1">1</a></sup></td>
+    </tr>
+    <tr>
+      <th scope="row">ExplanationOfBenefit - Part D</th>
+      <td>5x/week, Sunday to Thursday</td>
+    </tr>
+    <tr>
+      <th scope="row">ExplanationOfBenefit - Part A/B (Shared Systems)</th>
+      <td>4x/week, Sunday and Tuesday to Thursday</td>
+    </tr>
+  </tbody>
+</table>
+
+<p id="refresh-fn1" class="font-body-2xs" style="scroll-margin-top: 6.25rem;"><sup>1</sup> Data is loaded on the Monday after it's loaded into the source system, 0-7 days from processing or "adjudication."</p>
+
+<p>To stay up to date with the latest claims data for your enrollees, we recommend exporting data from National Claims History once per week, and daily for all other sources. Use the <a href="{{ '/api-documentation/filter-claims-data.html#the-_since-parameter' | relative_url }}">_since parameter</a> when running jobs to avoid downloading duplicate data.</p>
 {% endcapture %}
 
 {% capture a6AccordionContent %}
-<p>CCLF files are automatically available monthly using 12 flat files, and can be downloaded weekly upon request. BCDA updates adjudicated claims weekly using 3 NDJSON files and partially adjudicated claims data daily using 2 additional files.</p>
-    
-<p>Additionally, BCDA is an API that uses the <a href="https://hl7.org/fhir/uv/bulkdata/" target="_blank" rel="noopener noreferrer">Bulk Fast Healthcare Interoperability Resources (FHIR)</a> format, as required by CMS. <a href="{{ '/bcda-data/comparison-bcda-cclf-files.html' | relative_url }}">Learn more about the differences.</a></p>
+<p>CCLF files are automatically available monthly using 12 flat files, and can be downloaded weekly upon request.</p>
+<p>BCDA updates adjudicated claims weekly and partially adjudicated claims 4x/week using 3 NDJSON files (Coverage, Patient, ExplanationOfBenefit).</p>
+<p>Additionally, BCDA is an API that uses the <a href="https://hl7.org/fhir/uv/bulkdata/" target="_blank" rel="noopener noreferrer">Bulk Fast Healthcare Interoperability Resources (FHIR)</a> format, as required by CMS. <a href="{{ '/bcda-data/comparison-bcda-cclf-files.html' | relative_url }}">Learn more about the differences</a>.</p>
 {% endcapture %}
 
 {% capture a7AccordionContent %}
@@ -138,11 +165,23 @@ feedback_id: "e9112e33"
 {% endcapture %}
 
 {% capture a10AccordionContent %}
-<p>
-    BCDA v1 (<a href="https://hl7.org/fhir/STU3/" target="_blank" rel="noopener noreferrer">STU3</a>) and v2 (<a href="https://hl7.org/fhir/R4/" target="_blank" rel="noopener noreferrer">R4</a>) differ primarily in their FHIR specification. Version 1 is based on the Blue Button Implementation Guide, while version 2 is based on the <a href="https://www.hl7.org/fhir/us/carin-bb/" target="_blank" rel="noopener noreferrer">CARIN Blue Button Implementation Guide</a>.
-</p>
-<p>There are minor differences in the mapping and values of certain data elements. <a href="{{ '/bcda-data/difference-between-v1-v2.html' | relative_url }}">Review the full summary of changes.</a></p>
-
+<p>BCDA v3 introduces a number of improvements, including:</p>
+<ul>
+    <li>More frequent and timely updates</li>
+    <li>Easier claims tracking</li>
+    <li>Enhanced filtering capabilities</li>
+    <li>Simplified, reliable data mapping capabilities</li>
+    <li>Improved conformance with select FHIR Implementation Guides</li>
+    <li>Simplified linking between partially and fully adjudicated claims</li>
+    <li>Uses consistent claim identifiers across all phases of adjudication</li>
+</ul>
+<p>We’ve also corrected issues some users encountered with v1 and v2 such as:</p>
+<ul>
+    <li>Mismatched data between BCDA resources and CCLF files</li>
+    <li>Missing data for newly attributed enrollees</li>
+    <li>Issues for enrollees assigned more than one BENE_ID</li>
+</ul>
+<p>You can learn more about v3 improvements and problems solved at <a href="{{ '/about/introducing-v3.html' | relative_url }}">Introducing BCDA v3</a>.</p>
 {% endcapture %}
 
 {% capture a11AccordionContent %}
@@ -177,7 +216,7 @@ feedback_id: "e9112e33"
 {% include accordion.html
     id="a10"
     expanded=false
-    heading="What's the difference between BCDA v1 and v2?"
+    heading="What's the difference between BCDA v2 and v3?"
     accordionContent=a10AccordionContent
 %}
 

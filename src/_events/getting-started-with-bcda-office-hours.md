@@ -5,8 +5,7 @@ subtitle: "July 23, 2026 | 2:00 - 3:00pm ET"
 description: "Join the Beneficiary Claims Data API (BCDA) team for an introduction to BCDA v3"
 show-side-nav: false
 lead_paragraph: ""
-date: 2026-07-23
-is_past: true
+event_date: 2026-07-23
 resources: 
   - title: "Presentation slides (PDF)"
     type: "pdf"

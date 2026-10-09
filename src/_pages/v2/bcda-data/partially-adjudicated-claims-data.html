@@ -2,13 +2,26 @@
 layout: api-docs
 page_title: "Partially Adjudicated Claims Data"
 seo_title: ""
-description: "Get early access to enrollee claims data as soon as 2-4 days after Medicare submission with BCDA partially
-adjudicated claims data."
+description: "Get early access to enrollee claims data as soon as 2-4 days after Medicare submission with BCDA partially adjudicated claims data."
 in-page-nav: true
 feedback_id: "355f6ea6"
+tabs:
+  - label: v3
+    url: /bcda-data/partially-adjudicated-claims-data.html
+  - label: v2
+    url: /v2/bcda-data/partially-adjudicated-claims-data.html
 ---
 
 <h1>{{ page.page_title }}</h1>
+
+{% include tabs.html items=page.tabs %}
+
+{% capture alert_text %}
+v2 is unavailable to new users, and will be retired for current users on July 30, 2027. <a
+  href="{{ '/api-documentation/how-to-migrate-v3.html' | relative_url }}"
+>How to migrate to v3</a>.
+{% endcapture %}
+{% include alert.html variant="warning" heading="You're viewing v2 documentation" text=alert_text %}
 
 <h2>A faster way to access claims data</h2>
 
@@ -68,7 +81,7 @@ feedback_id: "355f6ea6"
       </td>
       <td data-label="Fully adjudicated claims">
         <a
-          href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}"
+          href="{{ '/assets/downloads/BCDA_v3_Data_Dictionary.xlsx' | relative_url }}"
           data-tealium="download"
         > BCDA Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a>
       </td>
@@ -187,7 +200,7 @@ feedback_id: "355f6ea6"
 <h2>Get started with partially adjudicated claims data</h2>
 
 <p>Access partially adjudicated claims data in the <a
-    href="{{ '/api-documentation/get-a-bearer-token.html#partially-adjudicated-claims-data-sets' | relative_url }}"
+    href="{{ '/api-documentation/get-a-bearer-token.html#legacy-partially-adjudicated-claims-data-sets' | relative_url }}"
   >BCDA Sandbox</a>.</p>
 
 <p>Review the <a
@@ -308,7 +321,8 @@ feedback_id: "355f6ea6"
 
 {% capture a1AccordionContent %}
 <p>Adjudication is Medicare's process of reviewing and approving claims. It involves submission, validation, review, and
-  approval. <a href="{{ '/about.html#claims-data-process' | relative_url }}">Learn more about the claims data
+  approval. <a href="{{ '/about.html#how-bcda-fits-into-the-claims-data-process' | relative_url }}">Learn more about the
+    claims data
     process</a>. </p>
 {% endcapture %}
 
@@ -318,9 +332,7 @@ feedback_id: "355f6ea6"
   sandbox and production environments.
 </p>
 <p>
-  All v2 endpoints will work as described in the existing BCDA documentation. <a
-    href="{{ '/bcda-data/difference-between-v1-v2.html' | relative_url }}"
-  >Learn more about the differences between v1 and v2</a>.
+  All v2 endpoints will work as described in the existing BCDA documentation.
 </p>
 {% endcapture %}
 

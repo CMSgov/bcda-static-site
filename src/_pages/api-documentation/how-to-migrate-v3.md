@@ -1,5 +1,5 @@
 ---
-layout: api-docs-v3
+layout: api-docs
 page_title: "How to Migrate to v3"
 seo_title: "How to Migrate to BCDA v3 | CMS Beneficiary Claims Data API"
 description: "Learn about new endpoints, FHIR resource consolidation, and updated URLs and IDs."
@@ -7,45 +7,53 @@ in-page-nav: true
 feedback_id: "8a4c0b7b"
 ---
 
-# {{ page.page_title }} <span class="usa-tag usa-tag--big margin-x-1 bg-accent-warm text-middle">New</span>
+# {{ page.page_title }}
+
+BCDA v3 became available July 1, 2026. Existing v1 and v2 users will need to migrate to v3 by July 30, 2027.
+
+Along with background information, this guide:
+
+- Introduces the [v3 Data Dictionary]({{ '/assets/downloads/BCDA_v3_Data_Dictionary.xlsx' | relative_url }})
+- Helps you reformat [requests](#requesting-data-from-new-v3-endpoints) and [URLs](#new-extension-and-code-system-urls) in v3
+- Introduces the [_typeFilter]({{ '/api-documentation/filter-claims-data.html#the-_typefilter-parameter' | relative_url }}) parameter
+- Provides additional info on mapping and matching claims and variables between versions
 
 ## Migration overview
 
-This guide helps you migrate from BCDA v1/v2 to v3. Key changes include:
+As you migrate from BCDA v1/v2 to v3, you’ll need to become familiar with changes including:
 
 - New endpoint URL structure
 - Unified ExplanationOfBenefit resource for all claims
 - Updated extension and code system URLs
 - Different resource IDs requiring new matching strategies
 
-Learn how BCDA v3 supports better outcomes in our [introduction to v3]({{ '/v3/introducing-v3' | relative_url }}).
+Please note that your initial v3 data request may take extra time. Additionally, as we continue to refine the v3 dataset, some fields will occasionally be re-loaded on our end. Corrected claims will show a more recent `last_updated` date and may result in larger than expected payloads. We will provide updates when these reloads are expected.
+
+## BCDA v3 overview
+
+BCDA v3 introduces access to more timely and accurate Medicare claims data and additional benefits to BCDA users including:
+
+- More consistent claims data by using a single data source, the CMS Integrated Data Repository.
+- Improved alignment with sources such as the Claim and Claim Line Feed (CCLF) files through more standard claim and patient identifiers.
 
 ### Changes to BCDA in v3
 
 If you are currently using BCDA v1 or BCDA v2, there are changes to the API and FHIR Resources you need to be aware of in v3:
 
 - There is a new v3 endpoint: `https://api.bcda.cms.gov/api/v3/`
-- Partially adjudicated claims<sup>1</sup> will be represented as `ExplanationOfBenefit` (EOB) FHIR resources in v3, instead of `Claim`/`ClaimResponse` in v2
+- Partially adjudicated claims<sup><a href="#fn1">1</a></sup> will be represented as `ExplanationOfBenefit` (EOB) FHIR resources in v3, instead of `Claim`/`ClaimResponse` in v2
 - There will be new Extension and Code System URLs to reference
 - Resource IDs are different between versions
 
-<p class="font-ui-xs text-italic"> <sup>1</sup>Medical claims that have been submitted but not fully processed and paid by Medicare.</p>
+<p id="fn1" style="scroll-margin-top: 6.25rem;"><sup>1</sup> Medical claims that have been submitted but not fully processed and paid by Medicare.</p>
 
 ### v3 Data Dictionary 
 
-<div class="grid-row grid-gap margin-y-4 flex-align-center">
-  <div class="grid-col-12 mobile-lg:grid-col-auto">
-    <img src="{{ '/assets/img/book.svg' | relative_url }}" alt="">
-  </div>
-  <div class="grid-col-fill tablet:grid-col-9">
-      <p>Download the <a href="{{ '/assets/downloads/BCDA_v3_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">BCDA v3 Data Dictionary {% include sprite.html icon="file_download" class="text-middle" size="2" %}</a> to learn about:</p>
-    <ul>
-      <li>Updated information on resource type and claim field names</li>
-      <li>Updated mappings between CCLF and BCDA data</li>
-      <li>New data available in v3</li>
-    </ul>
-  </div>
-</div>
+Download the <a href="{{ '/assets/downloads/BCDA_v3_Data_Dictionary.xlsx' | relative_url }}" data-tealium="download">BCDA v3 Data Dictionary</a> to learn about:
+
+- updated information on resource type and claim field names
+- updated mappings between CCLF and BCDA data
+- new data available in v3
 
 ## Requesting data from new v3 endpoints
 
@@ -70,7 +78,7 @@ In BCDA v3, claims data are still returned in FHIR R4 format, but there are chan
  - New StructureDefenition and CodeSystem URLs for CMS-specific extensions and terminologies
  - New data elements
 
-Refer to the [v3 Data Dictionary]({{ '/v3/how-to-migrate-v3.html#v3-data-dictionary' | relative_url }}) for a list of v3 supported data elements.
+Refer to the [v3 Data Dictionary]({{ '/api-documentation/how-to-migrate-v3.html#v3-data-dictionary' | relative_url }}) for a list of v3 supported data elements.
 
 ### Changes to partially adjudicated claims
  
@@ -101,7 +109,7 @@ In v2, BCDA differentiates "partially adjudicated" from "fully adjudicated" clai
 
 #### How it works in v3
 
-We've extended the API with the [`_typeFilter` parameter]({{ '/v3/filter-claims-data-v3.html#the-typefilter-parameter' | relative_url }}) to filter export data more granularly. Because all claims in v3 are represented by the same resource type (`ExplanationOfBenefit`), use this parameter to specify the System-Type _tag, recreating your v2 filtering logic.
+We've extended the API with the [`_typeFilter` parameter]({{ '/api-documentation/filter-claims-data.html#the-_typefilter-parameter' | relative_url }}) to filter export data more granularly. Because all claims in v3 are represented by the same resource type (`ExplanationOfBenefit`), use this parameter to specify the System-Type _tag, recreating your v2 filtering logic.
 
 Remember when using the _typeFilter parameter:
 1. The _typeFilter parameter value must be URL-encoded
@@ -109,12 +117,10 @@ Remember when using the _typeFilter parameter:
 
 {% capture sampleRequest %}{% raw %}
 GET /api/v3/Patient/$export
-  ?_type=
-    ExplanationOfBenefit
-  &_typeFilter=
-    ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CSharedSystem
+  ?_type=ExplanationOfBenefit
+  &_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CSharedSystem
 {% endraw %}{% endcapture %}
-{% include copy_snippet.html code=sampleRequest %}
+{% include copy_snippet.html code=sampleRequest language="shell" %}
 
 **If you received `ExplanationOfBenefit`, `Claim`, and `ClaimResponse` resources in v2,** you received all claims. 
 
@@ -125,10 +131,8 @@ In v3, specify all System-Type codes:
 
 {% capture sampleRequest %}{% raw %}
 GET /api/v3/Patient/$export
-  ?_type=
-    ExplanationOfBenefit
-  &_typeFilter=
-    ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CSharedSystem%2Chttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CNationalClaimsHistory%2Chttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CDDPS
+  ?_type=ExplanationOfBenefit
+  &_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CSharedSystem%2Chttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CNationalClaimsHistory%2Chttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CDDPS
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=sampleRequest language="shell" %}
 
@@ -137,10 +141,8 @@ GET /api/v3/Patient/$export
 In v3, specify the SharedSystem System-Type code:
 {% capture sampleRequest %}{% raw %}
 GET /api/v3/Patient/$export
-  ?_type=
-    ExplanationOfBenefit
-  &_typeFilter=
-    ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CSharedSystem
+  ?_type=ExplanationOfBenefit
+  &_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CSharedSystem
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=sampleRequest language="shell" %}
 
@@ -149,10 +151,8 @@ GET /api/v3/Patient/$export
 In v3, specify the NationalClaimsHistory and DDPS System-Type codes:
 {% capture sampleRequest %}{% raw %}
 GET /api/v3/Patient/$export
-  ?_type=
-    ExplanationOfBenefit
-  &_typeFilter=
-    ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CNationalClaimsHistory%2Chttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CDDPS
+  ?_type=ExplanationOfBenefit
+  &_typeFilter=ExplanationOfBenefit%3F_tag%3Dhttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CNationalClaimsHistory%2Chttps%3A%2F%2Fbluebutton.cms.gov%2Ffhir%2FCodeSystem%2FSystem-Type%7CDDPS
 {% endraw %}{% endcapture %}
 {% include copy_snippet.html code=sampleRequest language="shell" %}
 
@@ -220,7 +220,7 @@ If your BCDA client is using any of the v2 URLs, you’ll need to update your co
 <div class="usa-alert usa-alert--warning">
   <div class="usa-alert__body">
       <p class="usa-alert__heading text-bold">Do not use FHIR IDs to match resources between versions.</p>
-      <p class="usa-alert__text">To match <a href="{{ '/v3/how-to-migrate-v3.html#matching-beneficiaries-between-v2-and-v3-2' | relative_url }}">beneficiaries</a>, use MBI and demographics data. To match <a href="{{ '/v3/how-to-migrate-v3.html#matching-claims-between-v2-and-v3-2' | relative_url }}">claims</a>, use the claim control number.</p>
+      <p class="usa-alert__text">To match <a href="{{ '/api-documentation/how-to-migrate-v3.html#matching-beneficiaries-between-v2-and-v3' | relative_url }}">beneficiaries</a>, use MBI and demographics data. To match <a href="{{ '/api-documentation/how-to-migrate-v3.html#matching-claims-between-v2-and-v3' | relative_url }}">claims</a>, use the claim control number.</p>
   </div>
 </div>
 
