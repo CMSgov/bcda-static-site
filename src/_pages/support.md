@@ -27,7 +27,7 @@ feedback_id: "e9112e33"
     <ul>
         <li>Your organization's 5 character entity ID or sandbox data set</li>
         <li>Whether this is a sandbox or production API request</li>
-        <li>Whether you are using v1, v2, or v3</li>
+        <li>Whether you're using v1, v2, or v3</li>
         <li>The API request that's resulting in the problem</li>
         <li>Any response and additional messaging from the API</li>
     </ul> 
