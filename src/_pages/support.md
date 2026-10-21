@@ -25,8 +25,8 @@ feedback_id: "e9112e33"
         Can’t find answers on the <a href="{{ '/support/office-hours.html' | relative_url }}">BCDA Office Hours page</a>, or <a href="{{ '/support/faqs.html' | relative_url }}">Frequently Asked Questions</a>? Email <a href="mailto:bcapi@cms.hhs.gov">bcapi@cms.hhs.gov</a>. When troubleshooting API requests, please include:
     </p>
     <ul>
-        <li>Your organization's 5 character entity ID or sandbox data set</li>
         <li>Whether this is a sandbox or production API request</li>
+        <li>Your organization's 5 character entity ID or sandbox data set</li>
         <li>Whether you're using v1, v2, or v3</li>
         <li>The API request that's resulting in the problem</li>
         <li>Any response and additional messaging from the API</li>
