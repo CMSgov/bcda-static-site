@@ -10,7 +10,8 @@ layout: base
       style="top: 4rem; height: calc(100vh - 4.5rem);"
     >
       <div class="width-card-lg">
-        {% include api-docs-side-nav.html %}
+        {% assign side_nav = page.side-nav | default: layout.side-nav %}
+        {% include api-docs-side-nav.html nav=side_nav %}
       </div>
     </div>
     {% endif %}

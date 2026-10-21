@@ -42,4 +42,12 @@
   url: /production-access.html
 
 - name: Support
-  url: /support.html
+  children:
+    - name: Office Hours
+      url: /support/office-hours.html
+
+    - name: FAQs
+      url: /support/faqs.html
+
+    - name: Contact Us
+      url: /support.html
