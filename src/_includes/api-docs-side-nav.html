@@ -1,8 +1,23 @@
+{% assign nav_name = include.nav | default: "api-docs-nav" %}
 <nav aria-label="Side navigation">
   <ul class="usa-sidenav">
-    {% for item in site.data.api-docs-nav  %}
+    {% for item in site.data[nav_name] %}
 
     <li class="usa-sidenav__item">
+      {% if item.external %}
+      <a
+        href="{{ item.url }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="usa-nav-link"
+        style="display: block !important;" {% comment %} display block is needed here because USWDS adds display: inline to external links {% endcomment %}
+      >
+        <span>
+          {% if item.icon %}{% include sprite.html icon=item.icon size="3" class="margin-right-05 text-middle" %}{% endif %}
+          {{ item.name }}
+        </span>
+      </a>
+      {% else %}
       <a
         href="{{ item.url | relative_url }}"
         class="{% if page.url == item.url %}{{ 'usa-current' }}{% endif %}"
@@ -13,6 +28,7 @@
         {%- endif -%}
         {{- item.name -}}
       </a>
+      {% endif %}
       <ul class="usa-sidenav__sublist">
         {% for child in item.children %}
         <li class="usa-sidenav__item">
@@ -37,19 +53,5 @@
       </ul>
     </li>
     {% endfor %}
-    <li class="usa-sidenav__item">
-      <a
-        href="https://github.com/CMSgov/bcda-app"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="usa-nav-link"
-        style="display: block !important;" {% comment %} display block is needed here because USWDS adds display: inline to external links {% endcomment %}
-      >
-        <span>
-          {% include sprite.html icon="github" size="3" class="margin-right-05 text-middle" %}
-          GitHub repo
-        </span>
-      </a>
-    </li>
   </ul>
 </nav>
