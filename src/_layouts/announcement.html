@@ -9,11 +9,11 @@ layout: api-docs
   href="{{ '/announcements.html' | relative_url }}"
 >
   {% include sprite.html icon="arrow_back" size="2" %}
-  <span class="padding-left-05">Back to announcements</span>
+  <span class="padding-left-05">All announcements</span>
 </a>
 
 <div>
-  <h1 class="margin-top-3">{{ page.page_title }}</h1>
+  <h1 class="margin-top-5">{{ page.page_title }}</h1>
   <p class="margin-top-105 text-base">{{ page.published_date | date_to_string: "ordinal", "US" }}</p>
   {% if page.lead_paragraph %}
   <p class="usa-intro">{{page.lead_paragraph}}</p>
