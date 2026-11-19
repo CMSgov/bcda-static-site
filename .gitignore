@@ -7,6 +7,8 @@
 secrets.tf
 terraform.tfstate
 terraform.tfstate.backup
+*tfplan*
+*tfstate*
 .aws/
 .bash_history
 .viminfo
